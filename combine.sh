@@ -1,0 +1,4 @@
+#!/bin/bash
+cat js/dropbox-datastores-1.1-latest.js lib/base64.js lib/icu.js lib/translate.js lang/langs.js script/Button.js script/audioLibrary.js script/audio.js script/engine.js script/state_manager.js script/header.js script/notifications.js script/events.js script/dropbox.js script/room.js script/outside.js script/world.js script/path.js script/ship.js script/space.js script/fabricator.js script/prestige.js script/scoring.js script/hotkeys.js script/events/global.js script/events/room.js script/events/outside.js script/events/encounters.js script/events/setpieces.js script/events/marketing.js script/events/executioner.js script/localization.js > script/combined.js
+
+cat lang/main.css css/main.css css/room.css css/outside.css css/path.css css/world.css css/ship.css css/space.css css/fabricator.css > css/combined.css

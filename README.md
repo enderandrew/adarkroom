@@ -1,8 +1,11 @@
-A Dark Room
-===========
+A Dark Room (v1.4)
+==================
 > "awake. head throbbing. vision blurry. come light the fire."
 
-a minimalist text adventure game for your browser
+A minimalist text adventure by Michael Townsend and all his friends.
+Inspired by Candy Box (https://candybox2.github.io/candybox)
+Contribute on GitHub! (https://github.com/doublespeakgames/adarkroom/)
+
 
 [Click to play](http://adarkroom.doublespeakgames.com)
 

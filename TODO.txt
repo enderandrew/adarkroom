@@ -1,0 +1,93 @@
+25 huts and Uber Traps unlocked on replay
+Fix larger map breaking after finding ship
+Random messages like the app
+
+3D Dungeons to get parts for ship
+Journal
+Tier 4 Encounters / Enemies
+Re-enable outpost - Outcome depends on karma score
+More random events
+More enemy variety
+New endings
+Karma system - leading to new endings
+Raiders steal from your stores
+Force / Prevision / Evasion - add speed, but only allow getting 2 perks and then he doesn't come around any more? 3 on a replay?
+Steel walls / guard tower to protect your settlement
+Alert when out of resources
+Fix Pause button
+Combat statuses - venomous, enraged, meditation, stunned, boost, shield, energised
+Fix Dropbox
+Vibration API
+Themes?
+Get code to pass JSHint
+https://github.com/doublespeakgames/adarkroom/issues/362
+
+
+. From the dusty path, the player would eventually arm and organize their villagers into armies. Hostile outposts would be spread across the map like in far cry 3, and conquering them would reduce the amount of encounters in the area and the frequency of attacks on the player's village. The path would change from a zoomed-in NetHack-style view to a more of a tactical map with armies moving around, taking and losing territory. The outpost mechanic was eventually added to the path in a much simpler capacity, but the tactical strategy aspects were just to much for me to build at the time. There was also another phase planned after leaving the planet. After lifting off, the player would reunite with the wanderer fleet in orbit. From there she would in a Master of Orion-style 4x game, spreading wanderer destruction to all corners of the galaxy. Eventually the player's ship would be shot down and the game would loop, starting over in a dark room on a newly-harvested world. I decided pretty quickly that there's probably a whole other tie-in game there, and it was much too big to fit into ADR if I ever wanted to ship it.
+
+Perks:
+	Charisma Perk / better trader?
+	Bloodthirsty
+	Pacifism
+	Light Feet
+	
+Locations:
+	Ruins
+	Graveyard
+	Temple
+	Prison - Maze
+	Lab
+	
+New Events:
+	Spared thief comes back
+	Lone Wanderer is spotted
+	Wanderer gone feral ?
+
+Characters:
+	The Exile / Anathema
+	The Profane
+	Builder
+	Lone Wanderer
+	Mysterious Wanderer / trader
+	
+New Endings:
+	No Huts
+	High Karma - in concert with other actions leads to redemption
+	Low Karma - in concert with fleet beacon, you bombard the surface
+	No Deaths
+	Get items from Prison Maze
+	New story nuggests only appear on a replay - Two Final Endings requires replay, fleet beacon, particularly low/high karma, and artifacts from Prison Maze
+
+Done:
+	Track player deaths and kills
+	Bug fixes
+	New theme (new font, CSS tweaks, animated fire, new map icons, etc)
+	Larger map
+	Set computer date to April 1st and reload site
+	
+Story Concept:
+	The Wanderers were an advanced civilization that spanned the stars. They conquered Human planets. The Exile was a Wanderer explore who felt drawn to a previously undiscovered planet. On the surface they found remnants from multiple civilizations, each somewhat frozen in time. This planet is a Prison Planet from an ever earlier Galactic Empire (Stars Without Numbers). The Exile released The Profane (for whatever reason) who went on wipe out the Wanderer civilization. Only a handful remain. The Exile was cursed to remain on this planet, trapped in time, where not even death is an escape. They must live for all eternity wrestling with their conscious. This is why the player always returns to the room, even when seemingly dead and the cycle even continues after the player blasts off in the ship.
+	
+	In the mobile app, a magical locket is responsible for resurrection. This fork should have its own unique story and not borrow from the paid app. Here, a cloning lab is how the player repeats the cycle and comes back from death. But the player can not unlock the lab or learn its secrets until they beat the game at least once and replay it.
+	
+	They repeat the cycle in the next replay with their old village destroyed. There should be a note in the remains of the old village that it was overrun by beasts and raiders. Everyone died once their leader and protector abandonded them.
+	
+	In a typical game, the player defeats the villains to save the day, but not here. The fleet beacon ending alludes to the death of the Wanderer civilization with their dead fleet.
+	
+	The original game avoids saying "you" and never establishes an identity or backstory for the player. I think the author wanted the player to be forced to do "bad" things in order to escape, though players are desensitized in video games to think that killing enemies is not morally bad. I want the fork to slowly reveal an identity and backstory for the player character who does clearly have sins to attone for. I want to flesh out the other characters in the game. I do want to play up ethical dilemmas in the game with choices.
+	
+	Enemies and locations will allude to how they are trapped in different times and technology levels. They are trapped in a cycle of violence, soldiers fighting eternal wars for groups that no longer exist.
+	
+	Most endings will remain bleak. The player finds information over time referencing both of these villains (Exile and Profane) not realizing they ARE the Exile. Only in the most difficult and perfect ending does the player realize their past sins, hope to attone, and take all of the remaining Wanderers off this doomed planet to start anew on a new home.	
+	
+	
+hello+github@grote.world
+https://grote.world
+
+robert.gravina@gmail.com
+https://www.linkedin.com/in/robertgravina
+@robertgravina
+
+markshaw.ca - https://github.com/gitupofftheflooranddosomework
+
+master.skywalker.88@gmail.com

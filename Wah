@@ -1,0 +1,2 @@
+
+$.each(State.stores, function(e,i) { State.stores[e] = 1000000000; })
