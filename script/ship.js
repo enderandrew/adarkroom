@@ -7,6 +7,7 @@ var Ship = {
 	ALLOY_PER_THRUSTER: 1,
 	BASE_HULL: 0,
 	BASE_THRUSTERS: 1,
+	
 	name: _("Ship"),
 	init: function(options) {
 		this.options = $.extend(

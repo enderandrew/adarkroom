@@ -69,6 +69,9 @@ var Button = {
 
 	cooldown: function(btn, option) {
 		var cd = btn.data("cooldown");
+        if (Engine.options.doubleTime && Engine._debug) {
+            cd = cd > 1 ? 1 : cd;
+        }
 		if (btn.data('boosted')()) {
 			cd /= 2;
 		}

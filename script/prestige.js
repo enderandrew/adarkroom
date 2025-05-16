@@ -26,12 +26,17 @@ var Prestige = {
 		{ store: 'bone spear', type: 'w' },
 		{ store: 'iron sword', type: 'w' },
 		{ store: 'steel sword', type: 'w' },
+		{ store: 'katana', type: 'w' },
+		{ store: 'energy blade', type: 'w' },
 		{ store: 'bayonet', type: 'w' },
 		{ store: 'rifle', type: 'w' },
 		{ store: 'laser rifle', type: 'w' },
+		{ store: 'phasma rifle', type: 'w' },
+		{ store: 'disruptor', type: 'w' },
 		{ store: 'bullets', type: 'a' },
 		{ store: 'energy cell', type: 'a' },
 		{ store: 'grenade', type: 'a' },
+		{ store: 'handheld nuke', type: 'a' },
 		{ store: 'bolas', type: 'a' }
 	],
 	

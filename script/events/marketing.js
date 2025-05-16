@@ -25,7 +25,7 @@ Events.Marketing = [{
           link: 'https://penrose.doublespeakgames.com/?utm_source=adarkroom&utm_medium=crosspromote&utm_campaign=event'
         },
         'ignore': {
-          text: _('ignore it'),
+          text: _('resist it'),
           nextScene: 'end'
         }
       }

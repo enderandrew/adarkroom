@@ -6,10 +6,13 @@
 #map {
 	position: relative;
 	font-family: "Courier New", Courier, monospace;
+	font-variant-numeric: tabular-nums lining-nums;
+	font-feature-settings: 'tnum' 1;
+	text-transform: full-width;
 	border: 1px solid black;
 	overflow: hidden;
 	display: inline-block;
-	line-height: 10px;
+	line-height: 11.4px;
 	letter-spacing: 1px;
 	color: #999;
 	cursor: default;
@@ -33,7 +36,7 @@
 	height: 62px;
 	margin-bottom: 5px;
 	margin-top: 13px;
-	overflow: hidden;
+	overflow-y: auto;
 }
 
 #bagspace-world > div {
@@ -69,6 +72,7 @@ div.supplyItem {
 	border: 1px solid #999;
 	float: left;
 	margin: 0px 5px 6px 0px;
-	padding: 0 5px;
+	padding: 0 3px;
 	cursor: default;
+	font-size: smaller;
 }

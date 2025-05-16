@@ -13,8 +13,8 @@ const Fabricator = {
         'alien alloy': 1
       })
     },
-    'fluid recycler': {
-      name: _('fluid recycler'),
+    'stillsuit': { // changing this to a Dune reference because I am a nerd
+      name: _('stillsuit'),
       type: 'upgrade',
       maximum: 1,
       buildMsg: _('water out, water in. waste not, want not.'),
@@ -45,7 +45,7 @@ const Fabricator = {
       name: _('disruptor'),
       type: 'weapon',
       blueprintRequired: true,
-      buildMsg: _("somtimes it is best not to fight."),
+      buildMsg: _("sometimes it is best not to fight."),
       cost: () => ({
         'alien alloy': 1
       })
@@ -79,7 +79,7 @@ const Fabricator = {
       })
     },
     'glowstone': {
-      name: _('glow stone'),
+      name: _('glow stone'), // endless torch
       type: 'tool',
       blueprintRequired: true,
       buildMsg: _('a smooth, perfect sphere. its light is inextinguishable.'),

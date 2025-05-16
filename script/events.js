@@ -13,14 +13,15 @@ var Events = {
 	_STIM_COOLDOWN: 10,
 	_LEAVE_COOLDOWN: 1,
 	STUN_DURATION: 4000,
-	ENERGISE_MULTIPLIER: 4,
-	EXPLOSION_DURATION: 3000,
-	ENRAGE_DURATION: 4000,
-	MEDITATE_DURATION: 5000,
+	ENERGISE_MULTIPLIER: 4, // bonus damage multipler
+	EXPLOSION_DURATION: 3000, // explode on death
+	ENRAGE_DURATION: 4000, // attack faster
+	MEDITATE_DURATION: 5000, // no damage while meditating
 	BOOST_DURATION: 3000,
-	BOOST_DAMAGE: 10,
+	BOOST_DAMAGE: 10, // bonus damage added
 	DOT_TICK: 1000,
 	BLINK_INTERVAL: false,
+
 	init: function(options) {
 		this.options = $.extend(
 			this.options,
@@ -32,7 +33,7 @@ var Events = {
 			Events.Global,
 			Events.Room,
 			Events.Outside,
-      Events.Marketing
+			Events.Marketing
 		);
 
 		Events.eventStack = [];
@@ -88,8 +89,8 @@ var Events = {
 
 		$('<div>').text(scene.notification).appendTo(desc);
 
-		// Draw pause button
-		/* Disable for now, because it doesn't work and looks weird
+		/* // Draw pause button
+		// Disable for now, because it doesn't work and looks weird
 		var pauseBox = $('<div>').attr('id', 'pauseButton').appendTo(desc);
 		var pause = new Button.Button({
 			id: 'pause',
@@ -100,8 +101,8 @@ var Events = {
 		$('<span>').addClass('text').insertBefore(pause.children('.cooldown'));
 		$('<div>').addClass('clear').appendTo(pauseBox);
 		Events.setPause(pause, 'set');
-		Events.removePause(pause, 'set');
-		*/
+		Events.removePause(pause, 'set'); */
+		
 
 		var fightBox = $('<div>').attr('id', 'fight').appendTo(desc);
 		// Draw the wanderer
@@ -155,7 +156,7 @@ var Events = {
 		}
 		$('<div>').addClass('clear').appendTo(healBtns);
 		Events.setHeal(healBtns);
-		
+
 		// Set up the enemy attack timers
 		Events.startEnemyAttacks();
 		Events._specialTimers = (scene.specials ?? []).map(s => Engine.setInterval(
@@ -169,12 +170,15 @@ var Events = {
 			}, 
 			s.delay * 1000
 		));
+		
+		// Bind hotkeys
+		bindHotKeys();
 	},
 
 	startEnemyAttacks: (delay) => {
 		clearInterval(Events._enemyAttackTimer);
 		const scene = Events.activeEvent().scenes[Events.activeScene];
-		Events._enemyAttackTimer = Engine.setInterval(Events.enemyAttack, (delay ?? scene.attackDelay) * 1000);
+		Events._enemyAttackTimer = Engine.setInterval(Events.enemyAttack, scene.attackDelay * 1000, Engine._debug);
 	},
 
 	setStatus: (fighter, status) => {
@@ -287,7 +291,7 @@ var Events = {
 
 		var btn = new Button.Button({
 			id: 'eat',
-			text: _('eat meat'),
+			text: _('eat meat' + ' ' + hotKeys.eat.text),
 			cooldown: cooldown,
 			click: Events.eatMeat,
 			cost: { 'cured meat': 1 }
@@ -307,7 +311,7 @@ var Events = {
 
 		var btn = new Button.Button({
 			id: 'meds',
-			text: _('use meds'),
+			text: _('use meds' + ' ' + hotKeys.meds.text),
 			cooldown: cooldown,
 			click: Events.useMeds,
 			cost: { 'medicine': 1 }
@@ -327,7 +331,7 @@ var Events = {
 
 		var btn = new Button.Button({
 			id: 'hypo',
-			text: _('use hypo'),
+			text: _('use hypo' + ' ' + hotKeys.hypo.text),
 			cooldown: cooldown,
 			click: Events.useHypo,
 			cost: { 'hypo': 1 }
@@ -343,7 +347,7 @@ var Events = {
 	createShieldButton: function() {
 		var btn = new Button.Button({
 			id: 'shld',
-			text: _('shield'),
+			text: _('use shield' + ' ' + hotKeys.shield.text),
 			cooldown: Events._SHIELD_COOLDOWN,
 			click: Events.useShield
 		});
@@ -352,7 +356,7 @@ var Events = {
 
 	createStimButton: () => new Button.Button({
 		id: 'use-stim',
-		text: _('boost'),
+		text: _('use stim' + ' ' + hotKeys.boost.text),
 		cooldown: Events._STIM_COOLDOWN,
 		click: Events.useStim
 	}),
@@ -367,7 +371,7 @@ var Events = {
 		}
 		var btn = new Button.Button({
 			id: 'attack_' + weaponName.replace(/ /g, '-'),
-			text: weapon.verb,
+			text: weapon.verb + ' ' + hotKeys[weapon.verb].text,
 			cooldown: cd,
 			click: Events.useWeapon,
 			boosted: () => $('#wanderer').data('status') === 'boost',
@@ -456,6 +460,7 @@ var Events = {
 		const player = $('#wanderer');
 		player.data('status', 'shield');
 		Events.updateFighterDiv(player);
+		AudioEngine.playSound(AudioLibrary.USE_SHIELD);
 	},
 
 	useStim: btn => {
@@ -535,11 +540,11 @@ var Events = {
 					}
 				}
 			}
-			
+
 			var attackFn = weapon.type == 'ranged' ? Events.animateRanged : Events.animateMelee;
-			
+
 			// play variation audio for weapon type
-			var r = Math.floor(Math.random() * 2) + 1;
+			var r = Math.floor(Math.random() * 3) + 1;
 			switch (weapon.type) {
 				case 'unarmed':
 					AudioEngine.playSound(AudioLibrary['WEAPON_UNARMED_' + r]);
@@ -600,7 +605,7 @@ var Events = {
 		if(target.attr('id') == 'wanderer') {
 			World.setHp(hp);
 			Events.setHeal();
-			Events.checkPlayerDeath();
+			Events.checkPlayerDeath();			
 		}
 		else if(hp <= 0 && !Events.won) {
 			Events.won = true;
@@ -619,7 +624,7 @@ var Events = {
 		const venomous = fighter.data('status') === 'venomous';
 		const meditating = enemy.data('status') === 'meditation';
 		if(typeof dmg == 'number') {
-			if(dmg < 0) {
+			if(dmg <= 0) {
 				msg = _('miss');
 				dmg = 0;
 			} else {
@@ -647,12 +652,12 @@ var Events = {
 						Events.dotDamage(enemy, Math.floor(dmg / 2));
 					}, Events.DOT_TICK);
 				}
-				
+
 				if (shielded) {
 					// shields break in one hit
 					enemy.data('status', 'none');
 				}
-				
+
 				Events.updateFighterDiv(enemy);
 
 				// play variation audio for weapon type
@@ -673,7 +678,7 @@ var Events = {
 			if(dmg == 'stun') {
 				msg = _('stunned');
 				enemy.data('stunned', true);
-				setTimeout(() => enemy.data('stunned', false), Events.STUN_DURATION);
+				setTimeout(() => {enemy.data('stunned', false)},Events.STUN_DURATION);
 			}
 		}
 
@@ -748,12 +753,17 @@ var Events = {
 			}
 			else if(Math.random() <= toHit) {
 				dmg = scene.damage;
+				if($SM.get('config.hardcoreMode', true))
+				{
+					dmg = dmg*2;
+				}
 			}
 
 			var attackFn = scene.ranged ? Events.animateRanged : Events.animateMelee;
 
 			attackFn($('#enemy'), dmg, Events.checkPlayerDeath);
 		}
+		return false;
 	},
 
 	checkPlayerDeath: () => {
@@ -764,14 +774,14 @@ var Events = {
 			return true;
 		}
 		return false;
-	},
+    },
 
 	clearTimeouts: () => {
 		clearInterval(Events._enemyAttackTimer);
 		Events._specialTimers.forEach(clearInterval);
 		clearInterval(Events._dotTimer);
-	},
-
+	},		
+		
 	endFight: function() {
 		Events.fought = true;
 		Events.clearTimeouts();
@@ -783,8 +793,11 @@ var Events = {
 			if(Events.fought) {
 				return;
 			}
+			// World.setHp(World.getMaxHealth());
 			Events.endFight();
-			// AudioEngine.playSound(AudioLibrary.WIN_FIGHT);
+			if(!$SM.get('character.kills')) $SM.set('character.kills', -0);
+			$SM.add('character.kills', 1);
+			AudioEngine.playSound(AudioLibrary.WIN_FIGHT);
 			$('#enemy').animate({opacity: 0}, 300, 'linear', function() {
 				Engine.setTimeout(function() {
 					var scene = Events.activeEvent().scenes[Events.activeScene];
@@ -1222,13 +1235,13 @@ var Events = {
 					return;
 				}
 				if (store === 'water') {
-					World.setWater(World.water - cost[store]);
+					World.setWater(World.water - info.cost[store]);
 				}
 				else if (store === 'hp') {
-					World.setHp(World.hp - cost[store]);
+					World.setHp(World.hp - info.cost[store]);
 				}
 				else {
-					costMod[store] = -cost[store];
+					costMod[store] = -info.cost[store];
 				}
 			}
 			if(Engine.activeModule == World) {
@@ -1258,14 +1271,14 @@ var Events = {
 			Notifications.notify(null, info.notification);
 		}
 
-    info.onClick && info.onClick();
+		info.onClick && info.onClick();
 
-    // Link
-    if (info.link) {
-      Events.endEvent();
-      window.open(info.link);
+		// Link
+		if (info.link) {
+			Events.endEvent();
+			window.open(info.link);
 			return;
-    }
+		}
 
 		// Next Event
 		if (info.nextEvent) {
@@ -1273,7 +1286,7 @@ var Events = {
 			Events.switchEvent(eventData);
 			return;
 		}
-
+		
 		// Next Scene
 		if(info.nextScene) {
 			if(info.nextScene == 'end') {
@@ -1346,7 +1359,7 @@ var Events = {
 
 		var r = Math.floor(Math.random()*(possibleFights.length));
 		Events.startEvent(possibleFights[r]);
-		
+
 		// play audio only when fight is possible
 		if (possibleFights.length > 0) {
 			if (World.getDistance() > 20) {
@@ -1372,7 +1385,7 @@ var Events = {
 	eventPanel: function() {
 		return Events.activeEvent().eventPanel;
 	},
-
+	
 	switchEvent: event => {
 		if (!event) {
 			return;
@@ -1398,7 +1411,8 @@ var Events = {
 		if(options != null && options.width != null) {
 			Events.eventPanel().css('width', options.width);
 		}
-		$('<div>').addClass('eventTitle').text(Events.activeEvent().title).appendTo(Events.eventPanel());
+		$('<div>').attr('id', 'eventBackground').appendTo(Events.eventPanel());
+		$('<div>').addClass('eventTitle').html(Events.activeEvent().title).appendTo(Events.eventPanel());
 		$('<div>').attr('id', 'description').appendTo(Events.eventPanel());
 		$('<div>').attr('id', 'buttons').appendTo(Events.eventPanel());
 		Events.loadScene('start');
@@ -1414,7 +1428,7 @@ var Events = {
 		var nextEvent = Math.floor(Math.random()*(Events._EVENT_TIME_RANGE[1] - Events._EVENT_TIME_RANGE[0])) + Events._EVENT_TIME_RANGE[0];
 		if(scale > 0) { nextEvent *= scale; }
 		Engine.log('next event scheduled in ' + nextEvent + ' minutes');
-		Events._eventTimeout = Engine.setTimeout(Events.triggerEvent, nextEvent * 60 * 1000);
+		Events._eventTimeout = Engine.setTimeout(Events.triggerEvent, nextEvent * 60 * 1000, Engine._debug);
 	},
 
 	endEvent: function() {

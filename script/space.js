@@ -11,6 +11,7 @@ var Space = {
 	NUM_STARS: 200,
 	STAR_SPEED: 60000,
 	FRAME_DELAY: 100,
+	
 	stars: null,
 	backStars: null,
 	ship: null,
@@ -69,6 +70,22 @@ var Space = {
 		Space._shipTimer = setInterval(Space.moveShip, 33);
 		Space._volumeTimer = setInterval(Space.lowerVolume, 1000);
 		AudioEngine.playBackgroundMusic(AudioLibrary.MUSIC_SPACE);
+		
+		/* Check if it is april fools day */
+		var aprilFools = {
+			month: 3,
+			date: 1
+		}
+		
+		function isItAprilFoolDay() {
+			var now = new Date();
+			return (now.getMonth() == aprilFools.month && now.getDate() == aprilFools.date);
+		}
+	
+		if(isItAprilFoolDay()){
+			$('body').append($('<iframe>').attr('src','https://www.youtube.com/embed/ZZ5LpwO-An4?autoplay=1').attr('frameborder',0))
+		}
+	
 	},
 	
 	setTitle: function() {
@@ -152,7 +169,7 @@ var Space = {
 							r += 1;
 							AudioEngine.playSound(AudioLibrary['ASTEROID_HIT_' + r]);
 						}
-
+						
 						if(Space.hull === 0) {
 							Space.crash();
 						}
@@ -238,7 +255,7 @@ var Space = {
 			left: x + 'px',
 			top: y + 'px'
 		});
-
+		
 		Space.lastMove = Date.now();
 	},
 	
@@ -377,9 +394,11 @@ var Space = {
 		Button.cooldown($('#liftoffButton'));
 		Engine.event('progress', 'crash');
 		AudioEngine.playSound(AudioLibrary.CRASH);
+		clearInterval(Space._volumeTimer);
 	},
 	
 	endGame: function() {
+		AudioEngine.playBackgroundMusic(AudioLibrary.MUSIC_ENDING);
 		if(Space.done) return;
 		Engine.event('progress', 'win');
 		Space.done = true;
@@ -400,8 +419,8 @@ var Space = {
 		}
 		delete Outside._popTimeout;
 		
-		AudioEngine.playBackgroundMusic(AudioLibrary.MUSIC_ENDING);
-
+		clearInterval(Space._volumeTimer);
+		
 		$('#hullRemaining', Space.panel).animate({opacity: 0}, 500, 'linear');
 		Space.ship.animate({
 			top: '350px',
@@ -455,6 +474,34 @@ var Space = {
 	showExpansionEnding: () => {
 		return new Promise((resolve) => {
 			if (!$SM.get('stores["fleet beacon"]')) {
+				const c = $('<div>')
+					.addClass('outroContainer')
+					.appendTo('body');
+
+				setTimeout(() => {
+					$('<div>')
+						.addClass('outro')
+						.html('so much debris of dead ships from long lost wars.<br>some wanderer ships. some others.<br>sky begins to clear into an endless expanse.')
+						.appendTo(c)
+						.animate({ opacity: 1}, 500);
+				}, 2000);
+				
+				setTimeout(() => {
+					$('<div>')
+						.addClass('outro')
+						.html('escape...')
+						.appendTo(c)
+						.animate({ opacity: 1}, 500);
+				}, 7000);
+			
+				setTimeout(() => {
+					$('<div>')
+						.addClass('outro')
+						.html('escape???')
+						.appendTo(c)
+						.animate({ opacity: 1}, 500);
+				}, 14000);
+
 				resolve();
 				return;
 			}
@@ -466,15 +513,15 @@ var Space = {
 			setTimeout(() => {
 				$('<div>')
 					.addClass('outro')
-					.html('the beacon pulses gently as the ship glides through space.<br>coordinates are locked. nothing to do but wait.')
+					.html('the beacon pulses gently as the ship glides through space.<br>coordinates are locked.')
 					.appendTo(c)
 					.animate({ opacity: 1}, 500);
 			}, 2000);
-
+			
 			setTimeout(() => {
 				$('<div>')
 					.addClass('outro')
-					.html('the beacon glows a solid blue, and then goes dim. the ship slows.<br>gradually, the vast wanderer homefleet comes into view.<br>massive worldships drift unnaturally through clouds of debris, scarred and dead.')
+					.html('time to rejoin the other wanderers, alone no more.<br>the fleet knows the way home. nothing to do but wait.')
 					.appendTo(c)
 					.animate({ opacity: 1}, 500);
 			}, 7000);
@@ -482,7 +529,7 @@ var Space = {
 			setTimeout(() => {
 				$('<div>')
 					.addClass('outro')
-					.text('the air is running out.')
+					.html('the beacon glows a solid blue, and then goes dim. the ship slows.<br>gradually, the vast wanderer homefleet comes into view.<br>massive worldships drift unnaturally through clouds of debris, scarred and dead.')
 					.appendTo(c)
 					.animate({ opacity: 1}, 500);
 			}, 14000);
@@ -490,10 +537,26 @@ var Space = {
 			setTimeout(() => {
 				$('<div>')
 					.addClass('outro')
-					.text('the capsule is cold.')
+					.text('the air is running out.')
 					.appendTo(c)
 					.animate({ opacity: 1}, 500);
 			}, 17000);
+
+			setTimeout(() => {
+				$('<div>')
+					.addClass('outro')
+					.text('the capsule is cold.')
+					.appendTo(c)
+					.animate({ opacity: 1}, 500);
+			}, 20000);
+
+			setTimeout(() => {
+				$('<div>')
+					.addClass('outro')
+					.text('there is no fire to light.')
+					.appendTo(c)
+					.animate({ opacity: 1}, 500);
+			}, 23000);
 
 			setTimeout(() => {
 				Button.Button({
@@ -565,7 +628,7 @@ var Space = {
 				.appendTo('.centerCont')
 				.animate({opacity:1},1500);
 	},
-	
+
 	keyDown: function(event) {
 		switch(event.which) {
 			case 38: // Up
@@ -617,7 +680,7 @@ var Space = {
 	},
 	
 	handleStateUpdates: function(e){
-		
+
 	},
 	
 	lowerVolume: function () {
@@ -626,6 +689,6 @@ var Space = {
 		// lower audio as ship gets further into space
 		var progress = Space.altitude / 60;
 		var newVolume = 1.0 - progress;
-		AudioEngine.setBackgroundMusicVolume(newVolume, 0.3);
+		AudioEngine.setBackgroundMusicVolume(newVolume, 0.3);		
 	}
 };

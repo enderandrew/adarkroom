@@ -16,6 +16,16 @@ Events.Room = [
 				notification: _('a nomad arrives, looking to trade'),
 				blink: true,
 				buttons: {
+					'buy25Scales': {
+						text: _('buy 25 scales'),
+						cost: { 'fur': 2500 },
+						reward: { 'scales': 25 }
+					},
+					'buy15Teeth': {
+						text: _('buy 15 teeth'),
+						cost: { 'fur': 3000 },
+						reward: { 'teeth': 15 }
+					},
 					'buyScales': {
 						text: _('buy scales'),
 						cost: { 'fur': 100 },
@@ -39,7 +49,7 @@ Events.Room = [
 						text: _('buy compass'),
 						cost: { fur: 300, scales: 15, teeth: 5 },
 						reward: { 'compass': 1 },
-						notification: _('the old compass is dented and dusty, but it looks to work.')
+						notification: _('there is a larger world outside these walls, dangerous as it is. wanderers without direction get lost. a compass can point the way in the wilds. the old compass is dented and dusty, but it looks to work.')
 					},
 					'goodbye': {
 						text: _('say goodbye'),
@@ -616,6 +626,12 @@ Events.Room = [
 						notification: _('the man swallows the medicine eagerly'),
 						nextScene: { 0.1: 'alloy', 0.3: 'cells', 0.5: 'scales', 1.0: 'nothing' }
 					},
+					'kill': {
+						 text: _('kill man, take supplies'),
+						 cost: { 'bullets': 5,},
+						 notification: _('the man fights back, however dies in the end'),
+						 nextScene: { 0.3: 'killman', 0.3: 'killmanlots', 0.4: 'killmannothing' }
+					},
 					'ignore': {
 						text: _('tell him to leave'),
 						nextScene: 'end'
@@ -650,6 +666,46 @@ Events.Room = [
 				buttons: {
 					'bye': {
 						text: _('say goodbye'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'killman': {
+				text: [
+					_("beaten to a pulp"),
+					_("the man had very little"),
+					_("others cower in the distance"),
+					_("was it worth it")
+				],
+				buttons: {
+					'bye': {
+						text: _('shamefully gather goods'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'killmanlots': {
+				text: [
+					_("a life brutally ended"),
+					_("the man carried lots"),
+					_("still, was it worth more than a life?")
+				],
+				buttons: {
+					'bye': {
+						text: _('gather goods'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'killmannothing': {
+				text: [
+					_("the man lays there."),
+					_('he had nothing to give'),
+					_('is it really worth it?')
+				],
+				buttons: {
+					'bye': {
+						text: _('regret your actions'),
 						nextScene: 'end'
 					}
 				}

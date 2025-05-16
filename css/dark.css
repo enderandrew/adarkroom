@@ -11,11 +11,21 @@ div#notifyGradient {
 	background-color: #272823;
 	background: -webkit-linear-gradient( rgba(39, 40, 35, 0) 0%, rgba(39, 40, 35, 1) 100% );
 	background: linear-gradient( rgba(39, 40, 35, 0) 0%, rgba(39, 40, 35, 1) 100% );
-	filter: alpha( Opacity=0, FinishOpacity=100, Style=1, StartX=0, StartY=0, FinishX=0, FinishY=500 );
+	filter: alpha( Opacity=0, FinishOpacity=100, Style=1, StartX=0, StartY=0, FinishX=0, FinishY=850 );
 }
 
 div#saveNotify {
 	background: #272823;
+}
+
+/* Events */
+
+#eventBackground{
+	background-color: #293025;
+}
+
+.eventPanel {
+	background: none repeat scroll 0 0 #293025;
 }
 
 .eventPanel:before {
@@ -196,4 +206,14 @@ body.noMask #buttons > .button {
 
 .logo-icon > path {
   stroke: white;
+}
+
+.storeRow:nth-child(even) {background-color: #505050;}
+
+div#stokeButton::after {
+	content: '';
+	width: 150%;
+	-webkit-box-shadow: -35px 0px 60px 8px rgba(255,100,100,1);
+	-moz-box-shadow: -35px 0px 60px 8px rgba(255,100,100,1);
+	box-shadow: -35px 0px 60px 8px rgba(255,100,100,1);
 }

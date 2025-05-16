@@ -1,0 +1,49 @@
+div#notifications {
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+}
+div#content {
+    position: relative;
+    overflow: hidden;
+    height: 1080px;
+}
+div#outerSlider>#main {
+    height: 1080px;
+}
+div#wrapper {
+    padding: 20px 0 0 20px
+}
+
+div#buildBtns {
+    position: static;
+    top: 50px;
+    left: 0px;
+}
+
+div#buyBtns {
+    position: static;
+    top: 50px;
+    left: 300px;
+}
+
+div#craftBtns {
+    position: static;
+    top: 50px;
+    left: 300px;
+}
+
+div#notifications {
+    display: none;
+}
+
+div.button.disabled, div.button.disabled:hover {
+    cursor: default;
+    border-color: #b2b2b2;
+    color: #b2b2b2;
+    text-decoration: none;
+    display: none;
+}

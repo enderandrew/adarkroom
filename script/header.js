@@ -24,11 +24,11 @@ var Header = {
 					Engine.travelTo(module);
 				}
 			});
-      
+
     if (before && $(`#location_${before}`).length > 0) {
       return toAdd.insertBefore(`#location_${before}`);
     }
-    
+
     return toAdd.appendTo($('div#header'));
 	}
 };

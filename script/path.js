@@ -6,12 +6,16 @@ var Path = {
 		'bone spear': 2,
 		'iron sword': 3,
 		'steel sword': 5,
+		'katana': 4,
+		'energy blade': 3,
 		'rifle': 5,
 		'bullets': 0.1,
 		'energy cell': 0.2,
 		'laser rifle': 5,
-    'plasma rifle': 5,
+		'plasma rifle': 5,
+		'disruptor': 4,
 		'bolas': 0.5,
+		'handheld nuke': 25,
 	},
 		
 	name: 'Path',
@@ -32,7 +36,7 @@ var Path = {
 		this.panel = $('<div>').attr('id', "pathPanel")
 			.addClass('location')
 			.appendTo('div#locationSlider');
-
+		
 		this.scroller = $('<div>').attr('id', 'pathScroller').appendTo(this.panel);
 		
 		// Add the outfitting area
@@ -134,7 +138,7 @@ var Path = {
 		
 		// Add the armour row
 		var armour = _("none");
-    if($SM.get('stores["kinetic armour"]', true) > 0)
+		if($SM.get('stores["kinetic armour"]', true) > 0)
 			armour = _("kinetic");
 		else if($SM.get('stores["s armour"]', true) > 0)
 			armour = _("steel");
@@ -168,15 +172,28 @@ var Path = {
 		// Add the non-craftables to the craftables
 		var carryable = $.extend({
 			'cured meat': { type: 'tool', desc: _('restores') + ' ' + World.MEAT_HEAL + ' ' + _('hp') },
+			'charm': {type: 'tool', desc: _('a symbol of warmth in a cold, dark world.') },
+			'medicine': {type: 'tool', desc: _('restores') + ' ' + World.MEDS_HEAL + ' ' + _('hp') },
 			'bullets': { type: 'tool', desc: _('use with rifle') },
-			'grenade': {type: 'weapon' },
-			'bolas': {type: 'weapon' },
-			'laser rifle': {type: 'weapon' },
 			'energy cell': {type: 'tool', desc: _('emits a soft red glow') },
-			'bayonet': {type: 'weapon' },
-			'charm': {type: 'tool'},
-			'alien alloy': { type: 'tool' },
-			'medicine': {type: 'tool', desc: _('restores') + ' ' + World.MEDS_HEAL + ' ' + _('hp') }
+			'alien alloy': { type: 'tool', desc: _('malleable until formed and then super solid.') },
+			'hypo': { type: 'tool', desc: _('life in a vial.') },
+			'stim': { type: 'tool', desc: _('sometimes it is best to fight without restraint.') },
+			'torch': { type: 'tool', desc: _('a small light against the overwhelming tide of darkness.') },
+			'glowstone': { type: 'tool', desc: _('a smooth, perfect sphere. its light is inextinguishable.') },
+			'bone spear': {type: 'weapon', desc: _('a desperate weapon for desperate men.') },
+			'iron sword': {type: 'weapon', desc: _('crude but still deadly.') },
+			'steel sword': {type: 'weapon', desc: _('strong, sharp and lethal.') },
+			'katana': {type: 'weapon', desc: _('an elegant instrument of death.') },
+			'energy blade': {type: 'weapon', desc: _('it practically dances in your hands.') },
+			'bayonet': {type: 'weapon', desc: _('older but still quite deadly.') },
+			'rifle': {type: 'weapon', desc: _('destructive at a distance.') },
+			'laser rifle': {type: 'weapon', desc: _('wanderers make deadly and efficient weapons.') },
+			'phasma rifle': {type: 'weapon', desc: _('the perfected science of killing.') },
+			'disruptor': {type: 'weapon', desc: _('sometimes it is best not to fight.') },
+			'grenade': {type: 'weapon', desc: _('when in doubt, high explosives.') },
+			'bolas': {type: 'weapon', desc: _('ancient. simple. effective.') },			
+			'handheld nuke': {type: 'weapon', desc: _('become death, destroyer of worlds.')}
 		}, Room.Craftables, Fabricator.Craftables);
 		
 		for(var k in carryable) {
@@ -313,7 +330,6 @@ var Path = {
 		Path.updatePerks(true);
 		
 		AudioEngine.playBackgroundMusic(AudioLibrary.MUSIC_DUSTY_PATH);
-
 		Engine.moveStoresView($('#perks'), transition_diff);
 	},
 	
@@ -337,5 +353,35 @@ var Path = {
 		} else if(e.category == 'income' && Engine.activeModule == Path){
 			Path.updateOutfitting();
 		}
+	},
+
+	scrollSidebar: function(direction, reset){
+
+		if( typeof reset != "undefined" ){
+			$('#perks').css('top', '0px');
+			$('#storesContainer').css('top', '206px');
+			Path._STORES_OFFSET = 0;
+			return;
+		}
+		
+		var momentum = 10;
+
+		if( direction == 'up' )
+			momentum = momentum * -1;
+
+		if( direction == 'down' && inView( direction, $('#perks') ) ){
+
+			return false;
+
+		}else if( direction == 'up' && inView( direction, $('#storesContainer') ) ){
+
+			return false;
+
+		}
+
+		scrollByX( $('#perks'), momentum );
+		scrollByX( $('#storesContainer'), momentum );
+		Path._STORES_OFFSET += momentum;
+
 	}
 };

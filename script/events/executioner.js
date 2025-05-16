@@ -1004,6 +1004,9 @@ Events.Executioner = {
             chance: 1
           }
         },
+        onLoad: () => {
+          AudioEngine.playSound(AudioLibrary.EVENT_EXECUTIONER);
+        },
         buttons: {
           'continue': {
             text: _('continue'),
@@ -1551,6 +1554,9 @@ Events.Executioner = {
             max: 1,
             chance: 1
           }
+        },
+        onLoad: () => {
+          AudioEngine.playSound(AudioLibrary.EVENT_EXECUTIONER);
         },
         buttons: {
           'continue': {
@@ -2125,6 +2131,9 @@ Events.Executioner = {
             chance: 1
           }
         },
+        onLoad: () => {
+          AudioEngine.playSound(AudioLibrary.EVENT_EXECUTIONER);
+        },
         buttons: {
           'continue': {
             text: _('continue'),
@@ -2313,6 +2322,9 @@ Events.Executioner = {
             max: 1,
             chance: 1
           }
+        },
+        onLoad: () => {
+          AudioEngine.playSound(AudioLibrary.EVENT_EXECUTIONER);
         },
         buttons: {
           'continue': {

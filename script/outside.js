@@ -1,4 +1,4 @@
-/**
+ /**
  * Module that registers the outdoors functionality
  */
 var Outside = {
@@ -94,6 +94,7 @@ var Outside = {
 			}
 		}
 	},
+	
 	TrapDrops: [
 		{
 			rollUnder: 0.5,
@@ -127,6 +128,38 @@ var Outside = {
 		}
 	],
 	
+	UTrapDrops: [
+		{
+			rollUnder: 0.5,
+			name: 'iron',
+			message: _('scraps of iron')
+		},
+		{
+			rollUnder: 0.75,
+			name: 'coal',
+			message: _('chunks of coal')
+		},
+		{
+			rollUnder: 0.85,
+			name: 'scales',
+			message: _('lots of strange scales')
+		},
+		{
+			rollUnder: 0.93,
+			name: 'teeth',
+			message: _('tons of scattered teeth')
+		},
+		{
+			rollUnder: 0.995,
+			name: 'sulphur',
+			message: _('bad smelling sulphur')
+		},
+		{
+			rollUnder: 0.776,
+			name: 'charm',
+			message: _('a crudely made charm')
+		}
+	],
 	init: function(options) {
 		this.options = $.extend(
 			this.options,
@@ -172,6 +205,18 @@ var Outside = {
 		}).appendTo('div#outsidePanel');
 
 		Outside.updateTrapButton();
+		if($SM.get('game.buildings["utrap"]', true) > 0)
+		{
+			new Button.Button({
+				id: 'uTrapsButton',
+				text: _("check uber traps"),
+				click: Outside.checkUTraps,
+				cooldown: Outside._TRAPS_DELAY,
+				width: '80px'
+			}).appendTo('div#outsidePanel');
+		}
+		Outside.updateUTrapButton();
+		//if that function doesn't work, add the button forcefully
 	},
 	
 	getMaxPopulation: function() {
@@ -380,6 +425,7 @@ var Outside = {
 			Engine.log('increasing ' + worker + ' by ' + increaseAmt);
 			$SM.add('game.workers["'+worker+'"]', increaseAmt);
 		}
+		// $SM.set('game.workers', btn.data + 1);
 	},
 	
 	decreaseWorker: function(btn) {
@@ -389,6 +435,7 @@ var Outside = {
 			Engine.log('decreasing ' + worker + ' by ' + decreaseAmt);
 			$SM.add('game.workers["'+worker+'"]', decreaseAmt * -1);
 		}
+		// $SM.set('game.workers', btn.data - 1);
 	},
 	
 	updateVillageRow: function(name, num, village) {
@@ -433,13 +480,13 @@ var Outside = {
 		}
 		
 		for(var k in $SM.get('game.buildings')) {
-			if(k == 'trap') {
+			if(k == 'trap' || k == 'utrap') {
 				var numTraps = $SM.get('game.buildings["'+k+'"]');
 				var numBait = $SM.get('stores.bait', true);
 				var traps = numTraps - numBait;
 				traps = traps < 0 ? 0 : traps;
 				Outside.updateVillageRow(k, traps, village);
-				Outside.updateVillageRow('baited trap', numBait > numTraps ? numTraps : numBait, village);
+				Outside.updateVillageRow('baited '+k, numBait > numTraps ? numTraps : numBait, village);
 			} else {
 				if(Outside.checkWorker(k)) {
 					Outside.updateWorkersView();
@@ -554,6 +601,27 @@ var Outside = {
 		}
 	},
 	
+	updateUTrapButton: function() {
+		var btn = $('div#uTrapsButton');
+		if($SM.get('game.buildings["utrap"]', true) > 0) {
+			if(btn.length === 0) {
+				new Button.Button({
+					id: 'uTrapsButton',
+					text: _("check uber traps"),
+					click: Outside.checkUTraps,
+					cooldown: Outside._TRAPS_DELAY,
+					width: '80px'
+				}).appendTo('div#outsidePanel');
+			} else {
+				Button.setDisabled(btn, false);
+			}
+		} else {
+			if(btn.length > 0) {
+				Button.setDisabled(btn, true);
+			}
+		} 
+	},
+
 	setTitle: function() {
 		var numHuts = $SM.get('game.buildings["hut"]', true);
 		var title;
@@ -567,8 +635,10 @@ var Outside = {
 			title = _("A Modest Village");
 		} else if(numHuts <= 14) {
 			title = _("A Large Village");
-		} else {
+		} else if(numHuts <= 20){
 			title = _("A Raucous Village");
+		} else {
+			title = _("A Large City");
 		}
 		
 		if(Engine.activeModule == this) {
@@ -584,10 +654,11 @@ var Outside = {
 			$SM.set('game.outside.seenForest', true);
 		}
 		Outside.updateTrapButton();
+		Outside.updateUTrapButton();
 		Outside.updateVillage(true);
 
 		Engine.moveStoresView($('#village'), transition_diff);
-		
+
 		// set music
 		var numberOfHuts = $SM.get('game.buildings["hut"]', true);
 		if(numberOfHuts === 0) {
@@ -606,10 +677,241 @@ var Outside = {
 	},
 	
 	gatherWood: function() {
-		Notifications.notify(Outside, _("dry brush and dead branches litter the forest floor"));
 		var gatherAmt = $SM.get('game.buildings["cart"]', true) > 0 ? 50 : 10;
 		$SM.add('stores.wood', gatherAmt);
+		Notifications.notify(Outside, _("dry brush and dead branches litter the forest floor +" + gatherAmt + " wood"));
 		AudioEngine.playSound(AudioLibrary.GATHER_WOOD);
+		if(!$SM.get('character.gather')) $SM.set('character.gather', 0);
+		$SM.add('character.gather', 1);
+
+		if($SM.get('character.gather') == 5) {
+			Events.startEvent({
+				title: _('builder`s gaze'),
+				scenes: {
+					start: {
+						text: [_("you notice the builder staring at you as if trying to figure something out.")],
+						buttons: {
+							'yes': {
+								text: _('ok'),
+								nextScene: 'end',
+							}
+						}
+					}
+				},
+			});
+		}
+		if($SM.get('character.gather') == 10) {
+			Events.startEvent({
+				title: _('a concerned face'),
+				scenes: {
+					start: {
+						text: [_("returning from the woods and surpising the builder, you notice a look of concern. she quickly puts a reassuring smile on her face.")],
+						buttons: {
+							'yes': {
+								text: _('ok'),
+								nextScene: 'end',
+							}
+						}
+					}
+				},
+			});
+		}
+		if($SM.get('character.gather') == 15) {
+			Events.startEvent({
+				title: _('good to rebuild'),
+				scenes: {
+					start: {
+						text: [_("the builder tells you it is good to rebuild, to make a safe haven among the wilds.")],
+						buttons: {
+							'yes': {
+								text: _('ok'),
+								nextScene: 'end',
+							}
+						}
+					}
+				},
+			});
+		}
+		if($SM.get('character.gather') == 20) {
+			Events.startEvent({
+				title: _('nightmares'),
+				scenes: {
+					start: {
+						text: [_("the builder is sleeping in the room. she is shaking slightly and mumbling. she is having a nightmare of sorts. screaming 'NO', she wakes herself from her nightmare. she won't speak about the dream.")],
+						buttons: {
+							'yes': {
+								text: _('ok'),
+								nextScene: 'end',
+							}
+						}
+					}
+				},
+				audio: AudioLibrary.EVENT_NIGHTMARE
+			});
+		}
+		if($SM.get('character.gather') == 30) {
+			Events.startEvent({
+				title: _('nightmares continue'),
+				scenes: {
+					start: {
+						text: [_("the builder is having another nightmare. this one seems worse than the last. upon waking she still won't speak about the dream.")],
+						buttons: {
+							'yes': {
+								text: _('ok'),
+								nextScene: 'end',
+							}
+						}
+					}
+				},
+				audio: AudioLibrary.EVENT_NIGHTMARE
+			});
+		}
+		if($SM.get('character.gather') == 45) {
+			Events.startEvent({
+				title: _('nightmares worsen'),
+				scenes: {
+					start: {
+						text: [_('the nightmares are back. they worsen. the nightmare has gripped her. she never speaks about what is happening in her nightmares.')],
+						notification: _('the builder is trapped in an awful nightmare'),
+						blink: true,
+						buttons: {
+							'wake her': {
+								text: _('wake her'),
+								nextScene: {1: 'wake'}
+							},
+							'wait and listen': {
+								text: _('wait and listen'),
+								nextScene: {1: 'ignore'}
+							},
+						}
+					},
+					'wake': {
+						text: [
+							_('the builder is grateful for being woken and escaping that awful dream.'),
+							_('you still don\'t know what the nightmares are about.'),
+							_('the builder can share when she wants to.')
+						],
+						onLoad: function() {
+							$SM.add('character.karma', 1);
+						},
+						buttons: {
+							'leave': {
+								text: _('leave'),
+								nextScene: 'end'
+							}
+						}
+					},
+					'ignore': {
+						text: [
+							_('you sit in silence, ignoring the builder`s suffering.'),
+							_('she starts to speak. she is mumbling about a war. she shrieks about human blood on her hands and finally bolts upright and awake.'),
+							_('she sees you there staring at her.')
+						],
+						onLoad: function() {
+							$SM.add('character.karma', -1);
+						},
+						buttons: {
+							'leave': {
+								text: _('leave'),
+								nextScene: 'end'
+							}
+						}
+					}
+				},
+				audio: AudioLibrary.EVENT_NIGHTMARE
+			});
+		}
+		if($SM.get('character.gather') == 60) {
+			Events.startEvent({
+				title: _('nightmares worsen'),
+				scenes: {
+					start: {
+						text: [_('the nightmares are back. they continue to worsen. the nightmare has gripped her. she never speaks about what is happening in her nightmares.')],
+						notification: _('the builder is trapped in an awful nightmare'),
+						blink: true,
+						buttons: {
+							'wake her': {
+								text: _('wake her'),
+								nextScene: {1: 'wake'}
+							},
+							'wait and listen': {
+								text: _('wait and listen'),
+								nextScene: {1: 'ignore'}
+							},
+						}
+					},
+					'wake': {
+						text: [
+							_('the builder is grateful for being woken and escaping that awful dream.'),
+							_('she hasn\'t completely escaped the dream. some of the terror remains in her face.'),
+							_('she looks away from you.'),
+						],
+						onLoad: function() {
+							$SM.add('character.karma', 1);
+						},
+						buttons: {
+							'leave': {
+								text: _('leave'),
+								nextScene: 'end'
+							}
+						}
+					},
+					'ignore': {
+						text: [
+							_('you sit in silence, ignoring the builder\'s suffering.'),
+							_('she starts to speak. she is mumbling about a war. she screams that the exile doomed us all.'),
+							_('she bolts upright and awake.'),
+							_('she sees you there staring at her.'),
+							_('she fails to hide her anger.'),
+						],
+						onLoad: function() {
+							$SM.add('character.karma', -1);
+						},
+						buttons: {
+							'leave': {
+								text: _('leave'),
+								nextScene: 'end'
+							}
+						}
+					}
+				},
+				audio: AudioLibrary.EVENT_NIGHTMARE
+			});
+		}
+		if($SM.get('character.gather') == 80) {
+			Events.startEvent({
+				title: _('nightmares continue'),
+				scenes: {
+					start: {
+						text: [_("the builder is awake late, looking up at the sky. perhaps she is avoiding sleep. she looks longingly at the stars.")],
+						buttons: {
+							'yes': {
+								text: _('ok'),
+								nextScene: 'end',
+							}
+						}
+					}
+				},
+				audio: AudioLibrary.EVENT_NIGHTMARE
+			});
+		}
+		if($SM.get('character.gather') == 100) {
+			Events.startEvent({
+				title: _('nightmares continue'),
+				scenes: {
+					start: {
+						text: [_("the builder is having another nightmare. you can hear her mumble in her nightmare. something about how there is no escape, not even in death.")],
+						buttons: {
+							'yes': {
+								text: _('ok'),
+								nextScene: 'end',
+							}
+						}
+					}
+				},
+				audio: AudioLibrary.EVENT_NIGHTMARE
+			});
+		}
 	},
 	
 	checkTraps: function() {
@@ -634,25 +936,84 @@ var Outside = {
 			}
 		}
 		/// TRANSLATORS : Mind the whitespace at the end.
-		var s = _('the traps contain ');
+		var whatObject = 0;
+		function getItemNumeration(){
+		var key = Object.keys(drops)[whatObject];
+		numOfObjects = drops[key];
+		whatObject++;
+		}
+		getItemNumeration();
+		var s = _(numTraps + ' traps contain ' + numOfObjects + ' ');
 		for(var l = 0, len = msg.length; l < len; l++) {
 			if(len > 1 && l > 0 && l < len - 1) {
-				s += ", ";
+			    getItemNumeration(); 
+				s += ", " + numOfObjects + " ";
 			} else if(len > 1 && l == len - 1) {
 				/// TRANSLATORS : Mind the whitespaces at the beginning and end.
-				s += _(" and ");
+				getItemNumeration();
+				s += _(" and " + numOfObjects + " ");
 			}
 			s += msg[l];
 		}
-		
+
 		var baitUsed = numBait < numTraps ? numBait : numTraps;
 		drops['bait'] = -baitUsed;
-		
+
 		Notifications.notify(Outside, s);
 		$SM.addM('stores', drops);
 		AudioEngine.playSound(AudioLibrary.CHECK_TRAPS);
 	},
-	
+
+	checkUTraps: function(){
+		var drops = {};
+		var msg = [];
+		var numTraps = $SM.get('game.buildings["utrap"]', true);
+		var numBait = $SM.get('stores.bait', true);
+		var numDrops = numTraps + (numBait < numTraps ? numBait*3 : numTraps*2);
+		for(var i = 0; i < numDrops; i++) {
+			var roll = Math.random();
+			for(var j in Outside.UTrapDrops) {
+				var drop = Outside.UTrapDrops[j];
+				if(roll < drop.rollUnder) {
+					var num = drops[drop.name];
+					if(typeof num == 'undefined') {
+						num = 0;
+						msg.push(drop.message);
+					}
+					drops[drop.name] = num + 1;
+					break;
+				}
+			}
+		}
+		/// TRANSLATORS : Mind the whitespace at the end.
+		var whatObject = 0;
+		function getItemNumeration(){
+		var key = Object.keys(drops)[whatObject];
+		numOfObjects = drops[key];
+		whatObject++;
+		}
+		getItemNumeration();
+		var s = _(numTraps + ' uber traps contain ' + numOfObjects + ' ');
+		for(var l = 0, len = msg.length; l < len; l++) {
+			if(len > 1 && l > 0 && l < len - 1) {
+			    getItemNumeration(); 
+				s += ", " + numOfObjects + " ";
+			} else if(len > 1 && l == len - 1) {
+				/// TRANSLATORS : Mind the whitespaces at the beginning and end.
+				getItemNumeration();
+				s += _(" and " + numOfObjects + " ");
+			}
+			s += msg[l];
+		}
+
+		var baitUsed = numBait < numTraps ? numBait : numTraps;
+		drops['bait'] = -baitUsed;
+
+		Notifications.notify(Outside, s);
+		$SM.addM('stores', drops);
+		AudioEngine.playSound(AudioLibrary.CHECK_TRAPS);
+	},
+
 	handleStateUpdates: function(e){
 		if(e.category == 'stores'){
 			Outside.updateVillage();
@@ -661,5 +1022,37 @@ var Outside = {
 			Outside.updateWorkersView();
 			Outside.updateVillageIncome();
 		}
+	},
+
+	scrollSidebar: function(direction, reset) {
+
+		if( typeof reset != "undefined" ){
+			$('#village').css('top', '0px');
+			$('#storesContainer').css('top', '224px');
+			Outside._STORES_OFFSET = 0;
+			return false;
+		}
+
+		var momentum = 10;
+		
+		// If they hit up, we scroll everything down
+		if( direction == 'up' )
+			momentum = momentum * -1;
+
+		/* Let's stop scrolling if the top or bottom bound is in the viewport, based on direction */
+		if( direction == 'down' && inView( direction, $('#village') ) ){
+
+			return false;
+
+		}else if( direction == 'up' && inView( direction, $('#storesContainer') ) ){
+
+			return false;
+
+		}
+		
+		scrollByX( $('#village'), momentum );
+		scrollByX( $('#storesContainer'), momentum );
+		Outside._STORES_OFFSET += momentum;
+
 	}
 };
