@@ -108,27 +108,27 @@ var World = {
 		'bolas': {
 			verb: _('tangle'),
 			type: 'ranged',
-			damage: 'stun',
+			damage: _('stun'),
 			cooldown: 15,
 			cost: { 'bolas': 1 }
 		},
 		'plasma rifle': {
 			verb: _('disintegrate'),
 			type: 'ranged',
-			damage: 12,
+			damage: 15,
 			cooldown: 1,
 			cost: { 'energy cell': 1 }
 		},
 		'energy blade': {
 			verb: _('dice'),
 			type: 'melee',
-			damage: 12,
-			cooldown: 2
+			damage: 15,
+			cooldown: 1.5
 		},
 		'disruptor': {
 			verb: _('stun'),
 			type: 'ranged',
-			damage: 'stun',
+			damage: _('stun'),
 			cooldown: 15
 		},
 		'handheld nuke': {
@@ -995,6 +995,7 @@ var World = {
 			Engine.keyLock = true;
 			// Dead! Discard any world changes and go home
 			Notifications.notify(World, _('the world fades. death escapes you. is there no escape from here'));
+			audio: AudioLibrary.DEATH
 			World.state = null;
 			Path.outfit = {};
 			$SM.remove('outfit');

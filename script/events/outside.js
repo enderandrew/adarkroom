@@ -75,14 +75,14 @@ Events.Outside = [
 			'start': {
 				text: [
 					_('a fire rampages through one of the huts, destroying it.'),
-					_('no one made it out in time.')
+					_('no one made it out in time.'),
 					_('so dependent on fire for warmth and life until it takes it away.')
 				],
 				notification: _('a fire has started'),
 				blink: true,
 				onLoad: function() {
 					// Outside.destroyHuts(1);
-					Outside.destroyHuts(Math.floor(Math.random() * $SM.get('game.buildings["hut"]', true)) + 1);
+					Outside.destroyHuts(Math.floor(Math.random() * $SM.get('game.buildings["hut"] * 0.5', true)) + 1);
 				},
 				buttons: {
 					'mourn': {

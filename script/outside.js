@@ -689,7 +689,7 @@ var Outside = {
 				title: _('builder`s gaze'),
 				scenes: {
 					start: {
-						text: [_("you notice the builder staring at you as if trying to figure something out.")],
+						text: [_("noticing the builder staring is at you as if trying to figure something out.")],
 						buttons: {
 							'yes': {
 								text: _('ok'),
@@ -705,7 +705,7 @@ var Outside = {
 				title: _('a concerned face'),
 				scenes: {
 					start: {
-						text: [_("returning from the woods and surpising the builder, you notice a look of concern. she quickly puts a reassuring smile on her face.")],
+						text: [_("returning from the woods and surpising the builder, noticing a look of concern. she quickly puts a reassuring smile on her face.")],
 						buttons: {
 							'yes': {
 								text: _('ok'),
@@ -721,7 +721,7 @@ var Outside = {
 				title: _('good to rebuild'),
 				scenes: {
 					start: {
-						text: [_("the builder tells you it is good to rebuild, to make a safe haven among the wilds.")],
+						text: [_("the builder says it is good to rebuild, to make a safe haven among the wilds.")],
 						buttons: {
 							'yes': {
 								text: _('ok'),
@@ -768,6 +768,23 @@ var Outside = {
 		}
 		if($SM.get('character.gather') == 45) {
 			Events.startEvent({
+				title: _('nightmares continue'),
+				scenes: {
+					start: {
+						text: [_("the builder shivers in her sleep even with the fire. the bracing cold cuts right to the bone. was it always this dark and this cold?")],
+						buttons: {
+							'yes': {
+								text: _('ok'),
+								nextScene: 'end',
+							}
+						}
+					}
+				},
+				audio: AudioLibrary.EVENT_NIGHTMARE
+			});
+		}
+		if($SM.get('character.gather') == 60) {
+			Events.startEvent({
 				title: _('nightmares worsen'),
 				scenes: {
 					start: {
@@ -788,7 +805,7 @@ var Outside = {
 					'wake': {
 						text: [
 							_('the builder is grateful for being woken and escaping that awful dream.'),
-							_('you still don\'t know what the nightmares are about.'),
+							_('still not knowing what the nightmares are about.'),
 							_('the builder can share when she wants to.')
 						],
 						onLoad: function() {
@@ -803,7 +820,7 @@ var Outside = {
 					},
 					'ignore': {
 						text: [
-							_('you sit in silence, ignoring the builder`s suffering.'),
+							_('sitting in silence, ignoring the builder`s suffering.'),
 							_('she starts to speak. she is mumbling about a war. she shrieks about human blood on her hands and finally bolts upright and awake.'),
 							_('she sees you there staring at her.')
 						],
@@ -821,7 +838,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_NIGHTMARE
 			});
 		}
-		if($SM.get('character.gather') == 60) {
+		if($SM.get('character.gather') == 75) {
 			Events.startEvent({
 				title: _('nightmares worsen'),
 				scenes: {
@@ -858,7 +875,7 @@ var Outside = {
 					},
 					'ignore': {
 						text: [
-							_('you sit in silence, ignoring the builder\'s suffering.'),
+							_('siting in silence, ignoring the builder\'s suffering.'),
 							_('she starts to speak. she is mumbling about a war. she screams that the exile doomed us all.'),
 							_('she bolts upright and awake.'),
 							_('she sees you there staring at her.'),
@@ -878,9 +895,9 @@ var Outside = {
 				audio: AudioLibrary.EVENT_NIGHTMARE
 			});
 		}
-		if($SM.get('character.gather') == 80) {
+		if($SM.get('character.gather') == 95) {
 			Events.startEvent({
-				title: _('nightmares continue'),
+				title: _('night sky'),
 				scenes: {
 					start: {
 						text: [_("the builder is awake late, looking up at the sky. perhaps she is avoiding sleep. she looks longingly at the stars.")],
@@ -892,15 +909,168 @@ var Outside = {
 						}
 					}
 				},
-				audio: AudioLibrary.EVENT_NIGHTMARE
+				audio: AudioLibrary.EVENT_SKY
 			});
 		}
-		if($SM.get('character.gather') == 100) {
+		if($SM.get('character.gather') == 115) {
 			Events.startEvent({
-				title: _('nightmares continue'),
+				title: _('empty skies'),
 				scenes: {
 					start: {
-						text: [_("the builder is having another nightmare. you can hear her mumble in her nightmare. something about how there is no escape, not even in death.")],
+						text: [_("every once in a while the builder looks up to the sky, as if to see something. she seems disappointed to find an empty sky.")],
+						buttons: {
+							'ignore her': {
+								text: _('ignore her'),
+								nextScene: {1: 'ignore'}
+							},
+							'look up': {
+								text: _('look up'),
+								nextScene: {1: 'look'}
+							},
+						}
+					},
+					'ignore': {
+						text: [
+							_('she isn\'t very talkative and that is fine by you.'),
+							_('there are better things to do.'),
+						],
+						onLoad: function() {
+							$SM.add('character.karma', -1);
+						},
+						buttons: {
+							'leave': {
+								text: _('leave'),
+								nextScene: 'end'
+							}
+						}
+					},
+					'look': {
+						text: [
+							_('at first it just seems to be a still sky. there is nothing to see.'),
+							_('but then noticing the nothing.'),
+							_('areas where there are no stars even though it hasn\'t been cloudy.'),
+							_('is something blocking some of the stars tonight?'),
+						],
+						buttons: {
+							'leave': {
+								text: _('leave'),
+								nextScene: 'end'
+							}
+						}
+					},
+				},
+				audio: AudioLibrary.EVENT_SKY
+			});
+		}
+		if($SM.get('character.gather') == 135) {
+			Events.startEvent({
+				title: _('relic from the past'),
+				scenes: {
+					start: {
+						text: [_("joints stiffen with the cold wind. the builder limps slightly but tries to hide it. just an old war injury she says.")],
+						buttons: {
+							'scoff': {
+								text: _('scoff at her weakness'),
+								nextScene: {1: 'scoff'}
+							},
+							'ask': {
+								text: _('ask about her injury'),
+								nextScene: {1: 'ask'}
+							},
+						}
+					},
+					'scoff': {
+						text: [
+							_('weakness is a liabity, especially out here.'),
+							_('making a note of her limits.'),
+						],
+						onLoad: function() {
+							$SM.add('character.karma', -1);
+						},
+						buttons: {
+							'leave': {
+								text: _('leave'),
+								nextScene: 'end'
+							}
+						}
+					},
+					'ask': {
+						text: [
+							_('she seems confused when you ask as if you should know.'),
+							_('then she offers the assurance that some things should stay in the past'),
+							_('even if they don\'t want to stay in the past'),
+						],
+						onLoad: function() {
+							$SM.add('character.karma', 1);
+						},
+						buttons: {
+							'leave': {
+								text: _('leave'),
+								nextScene: 'end'
+							}
+						}
+					},
+				},
+				audio: AudioLibrary.EVENT_LIMP
+			});
+		}
+		if($SM.get('character.gather') == 155) {
+			Events.startEvent({
+				title: _('things unsaid'),
+				scenes: {
+					start: {
+						text: [_("the builder looks as if to say something. ")],
+						buttons: {
+							'ignore': {
+								text: _('ignore her'),
+								nextScene: {1: 'ignore'}
+							},
+							'ask': {
+								text: _('ask what is on her mind.'),
+								nextScene: {1: 'ask'}
+							},
+						}
+					},
+					'ignore': {
+						text: [
+							_('she should be direct and speak up or not speak at all.'),
+						],
+						onLoad: function() {
+							$SM.add('character.karma', -1);
+						},
+						buttons: {
+							'leave': {
+								text: _('leave'),
+								nextScene: 'end'
+							}
+						}
+					},
+					'ask': {
+						text: [
+							_('she says it is kind kind to ask, but some things are best left unsaid.'),
+							_('her meloncholy mood departs for a moment.'),
+							_('there is a smile, only half-forced.'),
+						],
+						onLoad: function() {
+							$SM.add('character.karma', 1);
+						},
+						buttons: {
+							'leave': {
+								text: _('leave'),
+								nextScene: 'end'
+							}
+						}
+					},
+				},
+				audio: AudioLibrary.EVENT_HMM
+			});
+		}
+		if($SM.get('character.gather') == 175) {
+			Events.startEvent({
+				title: _('no escape'),
+				scenes: {
+					start: {
+						text: [_("the builder is having another nightmare. she can be heard mumbling in her nightmare. something about how there is no escape, not even in death.")],
 						buttons: {
 							'yes': {
 								text: _('ok'),
@@ -910,6 +1080,397 @@ var Outside = {
 					}
 				},
 				audio: AudioLibrary.EVENT_NIGHTMARE
+			});
+		}
+		if($SM.get('character.gather') == 195) {
+			Events.startEvent({
+				title: _('exile'),
+				scenes: {
+					start: {
+						text: [_("rumors. gossip. people talk about a scourge upon the land, one hated by all that they call the exile.")],
+						buttons: {
+							'yes': {
+								text: _('ok'),
+								nextScene: 'end',
+							}
+						}
+					}
+				},
+				audio: AudioLibrary.EVENT_SOLDIER_ATTACK
+			});
+		}
+		if($SM.get('character.gather') == 205) {
+			Events.startEvent({
+				title: _('thoughts'),
+				scenes: {
+					start: {
+						text: [_("the builder's voice is in the background, but she isn't speaking. somehow her thoughts can be heard.")],
+						buttons: {
+							'yes': {
+								text: _('ok'),
+								nextScene: 'end',
+							}
+						}
+					}
+				},
+				audio: AudioLibrary.EVENT_HMM
+			});
+		}
+		if($SM.get('character.gather') == 225) {
+			Events.startEvent({
+				title: _('no memory'),
+				scenes: {
+					start: {
+						text: [_("your minds touch again. her memories are guarded but suddenly aware how few memories you have. unable to remember anything before this dark, cold room.")],
+						buttons: {
+							'yes': {
+								text: _('ok'),
+								nextScene: 'end',
+							}
+						}
+					}
+				},
+				audio: AudioLibrary.EVENT_SKY
+			});
+		}
+		if($SM.get('character.gather') == 245) {
+			Events.startEvent({
+				title: _('blood red sky'),
+				scenes: {
+					start: {
+						text: [_("your minds touch again. she recalls a battle under a blood-red sky. somehow you know you where there but don't remember. did you choose not to remember or are you not meant to remember?")],
+						buttons: {
+							'yes': {
+								text: _('ok'),
+								nextScene: 'end',
+							}
+						}
+					}
+				},
+				audio: AudioLibrary.EVENT_SOLDIER_ATTACK
+			});
+		}
+		if($SM.get('character.gather') == 265) {
+			Events.startEvent({
+				title: _('the exile and the profane'),
+				scenes: {
+					start: {
+						text: [_("an old human is telling tales. they say the world is this way because of the profane and the exile.")],
+						buttons: {
+							'yes': {
+								text: _('ok'),
+								nextScene: 'end',
+							}
+						}
+					}
+				},
+				audio: AudioLibrary.EVENT_GUILT
+			});
+		}
+		if($SM.get('character.gather') == 285) {
+			Events.startEvent({
+				title: _('a wanderer'),
+				scenes: {
+					start: {
+						text: [_("a human is drawn in by the light and warmth of the fire. they look at you, point and call you wanderer.")],
+						buttons: {
+							'yes': {
+								text: _('ok'),
+								nextScene: 'end',
+							}
+						}
+					}
+				},
+				audio: AudioLibrary.EVENT_MYSTERIOUS_WANDERER
+			});
+		}
+		if($SM.get('character.gather') == 305) {
+			Events.startEvent({
+				title: _('other wanderers'),
+				scenes: {
+					start: {
+						text: [_("your minds touch again. knowing there are other wanderers out there, though far fewer than before.")],
+						buttons: {
+							'yes': {
+								text: _('ok'),
+								nextScene: 'end',
+							}
+						}
+					}
+				},
+				audio: AudioLibrary.EVENT_MYSTERIOUS_WANDERER
+			});
+		}
+		if($SM.get('character.gather') == 325) {
+			Events.startEvent({
+				title: _('stars in the sky'),
+				scenes: {
+					start: {
+						text: [_("your minds touch again. somehow both remembering stars in the deep, dark sky.")],
+						buttons: {
+							'yes': {
+								text: _('ok'),
+								nextScene: 'end',
+							}
+						}
+					}
+				},
+				audio: AudioLibrary.SPACE
+			});
+		}
+		if($SM.get('character.gather') == 345) {
+			Events.startEvent({
+				title: _('a pang'),
+				scenes: {
+					start: {
+						text: [_("your minds touch again. feeling a pang. it isn't the usual constant hunger. it is a pang of guilt.")],
+						buttons: {
+							'yes': {
+								text: _('ok'),
+								nextScene: 'end',
+							}
+						}
+					}
+				},
+				audio: AudioLibrary.EVENT_GUILT
+			});
+		}
+		if($SM.get('character.gather') == 365) {
+			Events.startEvent({
+				title: _('a pang'),
+				scenes: {
+					start: {
+						text: [_("seeing it in their eyes. some fear or resent you. but why?")],
+						buttons: {
+							'yes': {
+								text: _('ok'),
+								nextScene: 'end',
+							}
+						}
+					}
+				},
+				audio: AudioLibrary.EVENT_GUILT
+			});
+		}
+		if($SM.get('character.gather') == 385) {
+			Events.startEvent({
+				title: _('a pang'),
+				scenes: {
+					start: {
+						text: [_("the builder once said there was no escape, not even in death. this place only has cold, hunger, anger and pain. escape is imperative. somehow.")],
+						buttons: {
+							'yes': {
+								text: _('ok'),
+								nextScene: 'end',
+							}
+						}
+					}
+				},
+				audio: AudioLibrary.EVENT_GUILT
+			});
+		}
+		if($SM.get('character.gather') == 405) {
+			Events.startEvent({
+				title: _('exiled'),
+				scenes: {
+					start: {
+						text: [_("is escape possible? somehow the land becomes even more bleak and unforgiving moving further from the fire. is this place some sort of exile?")],
+						buttons: {
+							'yes': {
+								text: _('ok'),
+								nextScene: 'end',
+							}
+						}
+					}
+				},
+				audio: AudioLibrary.EVENT_GUILT
+			});
+		}
+		if($SM.get('character.gather') == 425) {
+			Events.startEvent({
+				title: _('the call'),
+				scenes: {
+					start: {
+						text: [_("each step into the bracing cold wilds is difficult, and yet somehow there is a calling impossibly far away from here. perhaps even to the stars.")],
+						buttons: {
+							'yes': {
+								text: _('ok'),
+								nextScene: 'end',
+							}
+						}
+					}
+				},
+				audio: AudioLibrary.EVENT_SPACE
+			});
+		}
+		if($SM.get('character.gather') == 445) {
+			Events.startEvent({
+				title: _('the call'),
+				scenes: {
+					start: {
+						text: [_("everyone seems lost here, cold, hungry and alone. at least you can return to your fire. no one deserves to live like this.")],
+						buttons: {
+							'yes': {
+								text: _('ok'),
+								nextScene: 'end',
+							}
+						}
+					}
+				},
+				audio: AudioLibrary.EVENT_GUILT
+			});
+		}
+		if($SM.get('character.gather') == 465) {
+			Events.startEvent({
+				title: _('the call'),
+				scenes: {
+					start: {
+						text: [_("memories seems as distant and as impossible to reach as those stars. have you been this way before?")],
+						buttons: {
+							'yes': {
+								text: _('ok'),
+								nextScene: 'end',
+							}
+						}
+					}
+				},
+				audio: AudioLibrary.EVENT_GUILT
+			});
+		}
+		if($SM.get('character.gather') == 485) {
+			Events.startEvent({
+				title: _('the call'),
+				scenes: {
+					start: {
+						text: [_("in the distance soldiers battle over wars long past, some with spears and some with guns. they are unable to let go.")],
+						buttons: {
+							'yes': {
+								text: _('ok'),
+								nextScene: 'end',
+							}
+						}
+					}
+				},
+				audio: AudioLibrary.EVENT_SOLDIER_ATTACK
+			});
+		}
+		if($SM.get('character.gather') == 505) {
+			Events.startEvent({
+				title: _('arms'),
+				scenes: {
+					start: {
+						text: [_("scavening wanderers pick over the bodies on an old battlefield. a wanderer finds a dead human in shining armor. they are disappointed they can't use the armor because it only has two arms.")],
+						buttons: {
+							'yes': {
+								text: _('ok'),
+								nextScene: 'end',
+							}
+						}
+					}
+				},
+				audio: AudioLibrary.EVENT_HMM
+			});
+		}
+		if($SM.get('character.gather') == 525) {
+			Events.startEvent({
+				title: _('her amulet'),
+				scenes: {
+					start: {
+						text: [_("the builder reaches for something around her neck, but nothing is there. she says she forgot that amulet was only there in a former life.")], // reference to the mobile version of A Dark Room
+						buttons: {
+							'yes': {
+								text: _('ok'),
+								nextScene: 'end',
+							}
+						}
+					}
+				},
+				audio: AudioLibrary.EVENT_HMM
+			});
+		}
+		if($SM.get('character.gather') == 545) {
+			Events.startEvent({
+				title: _('wanderer empire'),
+				scenes: {
+					start: {
+						text: [_("a journal on the battlefield next to a dead wanderer speaks of a wanderer empire that stretches across the stars. they had unique powers.")],
+						buttons: {
+							'yes': {
+								text: _('ok'),
+								nextScene: 'end',
+							}
+						}
+					}
+				},
+				audio: AudioLibrary.EVENT_SPACE
+			});
+		}
+		if($SM.get('character.gather') == 565) {
+			Events.startEvent({
+				title: _('neverending'),
+				scenes: {
+					start: {
+						text: [_("the builder says many empires have come and gone. more will come in time. should a punishment outlive the empire itself?")],
+						buttons: {
+							'yes': {
+								text: _('ok'),
+								nextScene: 'end',
+							}
+						}
+					}
+				},
+				audio: AudioLibrary.EVENT_GUILT
+			});
+		}
+		if($SM.get('character.gather') == 585) {
+			Events.startEvent({
+				title: _('neverending'),
+				scenes: {
+					start: {
+						text: [_("what is this room? what is this fire?")],
+						buttons: {
+							'yes': {
+								text: _('ok'),
+								nextScene: 'end',
+							}
+						}
+					}
+				},
+				audio: AudioLibrary.EVENT_GUILT
+			});
+		}
+		if($SM.get('character.gather') == 605) {
+			Events.startEvent({
+				title: _('neverending'),
+				scenes: {
+					start: {
+						text: [_("will this fire die out if you manage to escape?")],
+						buttons: {
+							'yes': {
+								text: _('ok'),
+								nextScene: 'end',
+							}
+						}
+					}
+				},
+				audio: AudioLibrary.EVENT_GUILT
+			});
+		}
+		if($SM.get('character.gather') == 625) {
+			Events.startEvent({
+				title: _('neverending'),
+				scenes: {
+					start: {
+						text: [_("this room does not matter. this fire does not matter. escape is all that matters.")],
+						buttons: {
+							'yes': {
+								text: _('ok'),
+								nextScene: 'end',
+							}
+						}
+					}
+				},
+				audio: AudioLibrary.EVENT_HMM
 			});
 		}
 	},

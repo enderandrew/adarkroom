@@ -223,7 +223,7 @@
 			$('<span>')
 				.addClass('menuBtn')
 				.text(_('github.'))
-				.click(function() { window.open('https://github.com/doublespeakgames/adarkroom'); })
+				.click(function() { window.open('https://github.com/enderandrew/adarkroom'); })
 				.appendTo(menu);
 
 			// Register keypress handlers
@@ -1191,12 +1191,15 @@ var april = function() {
 
 	if(document.location.href.search(/[\?\&]april=1/) == -1){
 		var april = Engine.findStylesheet('aprilFools');
-		if (april == null) {
+		//if (april == null) {
 			
 			$('head').append('<link rel="stylesheet" href="css/april.css" type="text/css" title="aprilFools" />');
 			$('.lightsOff').text(_('april fools.')).on('click', function() { window.location = "./index.html?april=1"});
+			document.head.insertAdjacentHTML(
+				'beforeend',
+				'<link rel="stylesheet" href="css/april.css" />');
 			
-		}
+		//}
 		
 		$('body').append($('<a>').addClass("counter")
 								 .attr('href','http://www.hitwebcounter.com/')
@@ -1210,8 +1213,8 @@ var april = function() {
 		}, 3030);
 
 		setTimeout(function() { 
-			alert('Welcome to the Web Site!'); 
-			setTimeout(function() { alert('Hope you enjoy your time!'); }, 2000);
+			alert('This Geocities website is under construction!'); 
+			setTimeout(function() { alert('Please join our webring and sign our guestbook!'); }, 2000);
 		}, 1000);
 	}
 

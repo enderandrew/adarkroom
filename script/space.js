@@ -73,7 +73,7 @@ var Space = {
 		
 		/* Check if it is april fools day */
 		var aprilFools = {
-			month: 3,
+			month: 4,
 			date: 1
 		}
 		

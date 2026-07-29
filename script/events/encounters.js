@@ -50,7 +50,7 @@ Events.Encounters = [
 				combat: true,
 				enemy: 'shadow',
 				enemyName: _('shadow'),
-				deathMessage: _('the shadow is gone, or is it?'),
+				deathMessage: _('what made this shadow persist? is it gone now?'),
 				chara: 'S',
 				damage: 2,
 				hit: 0.9,
@@ -234,6 +234,43 @@ Events.Encounters = [
 					}
 				},
 				notification: _('a radiated goat charges with its mutated antlers')
+			}
+		}
+	},
+	{ /* Two-Headed Creature */
+	title: _('A Two-Headed Creature'),
+		isAvailable: function() {
+			return World.getDistance() <= 10 && World.getTerrain() == World.TILE.FIELD;
+		},
+		scenes: {
+			'start': {
+				combat: true,
+				enemy: 'two-headed creature',
+				enemyName: _('two-headed creature'),
+				deathMessage: _('this test subject failed to yield results.'),
+				chara: '¥',
+				damage: 3,
+				hit: 0.5,
+				attackDelay: 3,
+				health: 11,
+				loot: {
+					'fur': {
+						min: 2,
+						max: 4,
+						chance: 1
+					},
+					'teeth': {
+						min: 2,
+						max: 3,
+						chance: 0.8
+					},
+					'meat': {
+						min: 2,
+						max: 3,
+						chance: 0.8
+					}
+				},
+				notification: _('a two-headed creature appears, the smaller head, poorly attached and trembling')
 			}
 		}
 	},
@@ -472,6 +509,48 @@ Events.Encounters = [
 					}
 				},
 				notification: _('a chitinous elk charges with its thick armored hide.')
+			}
+		}
+	},
+	{ /* Escaped Convict */
+	title: _('Escaped Convict'),
+		isAvailable: function() {
+			return World.getDistance() > 10 && World.getDistance() <= 20 && World.getTerrain() == World.TILE.FIELD;
+		},
+		scenes: {
+			'start': {
+				combat: true,
+				enemy: 'escaped convict',
+				enemyName: _('escaped convict'),
+				deathMessage: _('the convict now confined to the grave'),
+				chara: 'E',
+				damage: 5,
+				hit: 0.9,
+				attackDelay: 1.5,
+				health: 25,
+				loot: {
+					'cloth': {
+						min: 1,
+						max: 3,
+						chance: 1.0
+					},
+					'leather': {
+						min: 1,
+						max: 3,
+						chance: 0.8
+					},
+					'teeth': {
+						min: 3,
+						max: 5,
+						chance: 0.5
+					},
+					'meat': {
+						min: 5,
+						max: 10,
+						chance: 0.8
+					}
+				},
+				notification: _('what prison did this convict escape from?')
 			}
 		}
 	},
@@ -716,6 +795,48 @@ Events.Encounters = [
 			}
 		}
 	},
+	{ /* Plague Doctor */
+	title: _('A Plague Doctor'),
+		isAvailable: function() {
+			return World.getDistance() > 20 && World.getDistance() < 30 && World.getTerrain() == World.TILE.FIELD;
+		},
+		scenes: {
+			'start': {
+				combat: true,
+				enemy: 'plague doctor',
+				enemyName: _('plague doctor'),
+				deathMessage: _('death finally came for them'),
+				chara: 'D',
+				damage: 8,
+				hit: 0.9,
+				attackDelay: 1.5,
+				health: 35,
+				loot: {
+					'scales': {
+						min: 3,
+						max: 5,
+						chance: 0.8
+					},
+					'leather': {
+						min: 3,
+						max: 5,
+						chance: 0.8
+					},
+					'teeth': {
+						min: 3,
+						max: 5,
+						chance: 0.5
+					},
+					'meat': {
+						min: 5,
+						max: 10,
+						chance: 0.8
+					}
+				},
+				notification: _('plague doctor brings deadly precision from a deadly premonition.')
+			}
+		}
+	},
 	/* Tier 4 */
 	{ /* Mutant */
 		title: _('A Mutant'),
@@ -728,8 +849,8 @@ Events.Encounters = [
 				enemy: 'mutant',
 				enemyName: _('mutant'),
 				deathMessage: _('the mutant appears relieved in death.'),
-				chara: 'M',
-				damage: 10,
+				chara: 'Œ',
+				damage: 11,
 				specials: [{
 					delay: 4,
 					action: (fighter) => {
@@ -737,9 +858,9 @@ Events.Encounters = [
 						return 'enraged';
 					}
 				}],
-				hit: 0.7,
+				hit: 0.75,
 				attackDelay: 1.5,
-				health: 65,
+				health: 55,
 				loot: {
 					'fur': {
 						min: 5,
@@ -772,7 +893,7 @@ Events.Encounters = [
 				enemy: 'cyborg bear',
 				enemyName: _('cyborg bear'),
 				deathMessage: _('the cyborg bear shuts down.'),
-				chara: 'C',
+				chara: 'ß',
 				damage: 12,
 				specials: [{
 					delay: 4,
@@ -816,7 +937,7 @@ Events.Encounters = [
 				enemy: 'mech warrior',
 				enemyName: _('mech warrior'),
 				deathMessage: _('the mech warrior has been destroyed.'),
-				chara: 'W',
+				chara: '¤',
 				damage: 10,
 				specials: [{
 					delay: 5,
@@ -846,6 +967,94 @@ Events.Encounters = [
 					}
 				},
 				notification: _('stolen wanderer tech, the mech warrior blasts across the fields.')
+			}
+		}
+	},
+	{ /* Profane Cultist */
+		title: _('A Profane Cultist'),
+		isAvailable: function() {
+			return World.getDistance() > 29 && World.getTerrain() == World.TILE.FIELD;
+		},
+		scenes: {
+			'start': {
+				combat: true,
+				enemy: 'Profane cultist',
+				enemyName: _('Profane cultist'),
+				deathMessage: _('who is this Profane that they worshiped?'),
+				chara: '¢',
+				damage: 10,
+				specials: [{
+					delay: 5,
+					action: (fighter) => {
+						Events.setStatus(fighter, 'meditation');
+						return 'meditation';
+					}
+				}],
+				hit: 0.8,
+				attackDelay: .75,
+				health: 55,
+				loot: {
+					'steel': {
+						min: 5,
+						max: 10,
+						chance: 1
+					},
+					'energy cell': {
+						min: 5,
+						max: 10,
+						chance: 1
+					},
+					'grenade': {
+						min: 1,
+						max: 2,
+						chance: 0.3
+					}
+				},
+				notification: _('you see a symbol they bear, somehow knowing it to represent The Profane.')
+			}
+		}
+	},
+	{ /* Eldritch Horror */
+		title: _('An Eldritch Horror'),
+		isAvailable: function() {
+			return World.getDistance() > 29 && World.getTerrain() == World.TILE.FIELD;
+		},
+		scenes: {
+			'start': {
+				combat: true,
+				enemy: 'eldritch horror',
+				enemyName: _('eldritch horror'),
+				deathMessage: _('you send this beast back from whence it came.'),
+				chara: '¿',
+				damage: 13,
+				specials: [{
+					delay: 5,
+					action: (fighter) => {
+						Events.setStatus(fighter, 'venomous');
+						return 'venomous';
+					}
+				}],
+				hit: 0.8,
+				attackDelay: 1.25,
+				health: 100,
+				loot: {
+					'teeth': {
+						min: 1,
+						max: 3,
+						chance: 1
+					},
+					'scales': {
+						min: 1,
+						max: 3,
+						chance: 1
+					},
+					'cured meat': {
+						min: 1,
+						max: 3,
+						chance: 1
+					}
+				},
+				notification: _('you know this creature is not of this world.')
 			}
 		}
 	},
