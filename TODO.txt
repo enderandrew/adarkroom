@@ -1,5 +1,13 @@
+- Security: Replace all eval() calls in state_manager.js with safe object
+  path traversal functions (_getPath, _setPath, _deletePath, _parsePath)
+- Bug fix: Resolve animation queue buildup in engine.js travelTo() by
+  adding .stop(true) before .animate() calls (resolves FIXME)
+- Bug fix: Add error handling for Web Audio API initialization in audio.js
+  with graceful fallback when AudioContext is unavailable
+- Bug fix: Replace fragile UA-sniffing mobile detection with modern
+  touch/pointer and viewport-width detection in engine.js
+
 25 huts and Uber Traps unlocked on replay
-Fix larger map breaking after finding ship
 Random messages like the app
 
 3D Dungeons to get parts for ship

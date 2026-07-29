@@ -8,6 +8,9 @@ body, .tooltip, select.menuBtn {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	background-image: url("../img/Logo0.png");
+	background-position: left 5% bottom 5%;
+	background-repeat: no-repeat;
 }
 
 html {
@@ -18,6 +21,7 @@ body {
 	height: 100%;
 	margin: 0;
 }
+
 ::selection {
 	background-color: transparent;
 }
@@ -183,7 +187,7 @@ div#outerSlider > div {
 	position: relative;
 	float: left;
 	width: 700px;
-	height: 850px;
+	height: 700px;
 	overflow: hidden;
 }
 
@@ -217,7 +221,7 @@ div#notifications {
 	top: 20px;
 	left: 0px;
 	height: 850px;
-	width: 300px;
+	width: 200px;
 	overflow: hidden;
 }
 

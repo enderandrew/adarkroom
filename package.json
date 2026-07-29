@@ -1,8 +1,8 @@
 {
   "name": "adarkroom",
   "type": "module",
-  "version": "1.0.0",
-  "private": true,
+  "version": "1.0.6",
+  "private": false,
   "repository": "git@github.com:doublespeakgames/adarkroom.git",
   "author": "Michael Townsend <michael@doublespeakgames.com>",
   "license": "MPL-2.0",
@@ -11,6 +11,6 @@
     "update_pot": "pybabel extract -F lang/babel.cfg -c \"TRANSLATORS\" script -o lang/adarkroom.pot"
   },
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.21.2"
   }
 }
