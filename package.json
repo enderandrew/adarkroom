@@ -3,11 +3,12 @@
   "type": "module",
   "version": "1.0.6",
   "private": false,
-  "repository": "git@github.com:doublespeakgames/adarkroom.git",
+  "repository": "git@github.com:enderandrew/adarkroom.git",
   "author": "Michael Townsend <michael@doublespeakgames.com>",
   "license": "MPL-2.0",
   "scripts": {
     "start": "node dev-server.js",
+    "validate": "node tools/validate-events.cjs",
     "update_pot": "pybabel extract -F lang/babel.cfg -c \"TRANSLATORS\" script -o lang/adarkroom.pot"
   },
   "dependencies": {

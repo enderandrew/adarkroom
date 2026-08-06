@@ -284,7 +284,11 @@ var Events = {
 
 		var btn = new Button.Button({
 			id: 'eat',
-			text: _('eat meat' + ' ' + hotKeys.eat.text),
+			// hotKeys[*].text is a fixed bracketed hint ('[E]'), not prose --
+			// concatenating it inside _() before pybabel runs meant the whole
+			// "eat meat [E]" string could never match a translation entry, so
+			// every locale but English silently fell back to English here.
+			text: _('eat meat') + ' ' + hotKeys.eat.text,
 			cooldown: cooldown,
 			click: Events.eatMeat,
 			cost: { 'cured meat': 1 }
@@ -316,7 +320,7 @@ var Events = {
 
 		var btn = new Button.Button({
 			id: 'meds',
-			text: _('use meds' + ' ' + hotKeys.meds.text),
+			text: _('use meds') + ' ' + hotKeys.meds.text,
 			cooldown: cooldown,
 			click: Events.useMeds,
 			cost: { 'medicine': 1 }
@@ -336,13 +340,19 @@ var Events = {
 
 		var btn = new Button.Button({
 			id: 'hypo',
-			text: _('use hypo' + ' ' + hotKeys.hypo.text),
+			text: _('use hypo') + ' ' + hotKeys.hypo.text,
 			cooldown: cooldown,
 			click: Events.useHypo,
 			cost: { 'hypo': 1 }
 		});
 
-		if((Path.outfit['hypo'] ?? 0) > 0) {
+		/* This condition was inverted: `> 0` disabled the button the instant
+		 * the player HAD a hypo, and left it enabled with none in stock. Cost
+		 * on Button.Button is display-only (see Button.js) -- it renders the
+		 * tooltip but never gates the click -- so this check is the only thing
+		 * standing between the player and a dead button while carrying hypos.
+		 * createUseMedsButton just above has the correct polarity; matched it. */
+		if((Path.outfit['hypo'] ?? 0) === 0) {
 			Button.setDisabled(btn, true);
 		}
 
@@ -352,7 +362,7 @@ var Events = {
 	createShieldButton: function() {
 		var btn = new Button.Button({
 			id: 'shld',
-			text: _('use shield' + ' ' + hotKeys.shield.text),
+			text: _('use shield') + ' ' + hotKeys.shield.text,
 			cooldown: Events._SHIELD_COOLDOWN,
 			click: Events.useShield
 		});
@@ -361,7 +371,7 @@ var Events = {
 
 	createStimButton: () => new Button.Button({
 		id: 'use-stim',
-		text: _('use stim' + ' ' + hotKeys.boost.text),
+		text: _('use stim') + ' ' + hotKeys.boost.text,
 		cooldown: Events._STIM_COOLDOWN,
 		click: Events.useStim
 	}),

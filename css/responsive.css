@@ -1,0 +1,257 @@
+/* Responsive layout.
+ *
+ * Load this LAST, after every other stylesheet, so its overrides win.
+ *
+ * The game is a grid of fixed-size panels that slide horizontally and
+ * vertically. Their size lives in --panel-width / --panel-height, which
+ * Engine.updateLayout() recalculates from the viewport and writes back onto
+ * :root at runtime. That keeps the JS slider offsets and the CSS in agreement.
+ *
+ * --notification-gutter is the one value the media queries own outright. The
+ * engine reads it back with getComputedStyle(), so changing a breakpoint here
+ * automatically changes how much width the engine thinks it has.
+ *
+ * Breakpoints:
+ *   > 1039px  desktop: 700px panel + 320px notification gutter on the left
+ *   <= 1039px gutter collapses, notification log moves below the game
+ *   <= 759px  panel columns stack vertically (phones, small tablets)
+ */
+
+/* ---------------------------------------------------------------- *
+ * Tier 1 -- no room for the left notification gutter
+ * ---------------------------------------------------------------- */
+
+@media (max-width: 1039px) {
+	:root {
+		--notification-gutter: 0px;
+	}
+
+	div#wrapper {
+		padding: 20px 12px 0 12px;
+		width: var(--panel-width);
+	}
+
+	/* The log leaves the left gutter and becomes a short band under the game. */
+	div#notifications {
+		position: relative;
+		top: auto;
+		left: auto;
+		width: 100%;
+		height: 140px;
+		margin-top: 12px;
+		border-top: 1px solid #ccc;
+		padding-top: 10px;
+	}
+
+	/* The full-height gradient would wash out a 140px box, so start it later. */
+	div#notifyGradient {
+		background: -webkit-linear-gradient(
+			rgba(255, 255, 255, 0) 55%, rgba(255, 255, 255, 1) 100%
+		);
+		background: linear-gradient(
+			rgba(255, 255, 255, 0) 55%, rgba(255, 255, 255, 1) 100%
+		);
+		filter: none;
+	}
+
+	div#content {
+		height: 78vh;
+	}
+
+	/* The doublespeak logo and the menu overlap the play area once the
+	   gutter is gone. Put them back in the flow at the bottom. */
+	.logo {
+		position: relative;
+		left: auto;
+		bottom: auto;
+		display: block;
+		margin: 10px 0;
+	}
+
+	.menu {
+		position: relative;
+		right: auto;
+		bottom: auto;
+		margin-bottom: 10px;
+		overflow: hidden;
+	}
+
+	body {
+		background-image: none;
+	}
+}
+
+/* ---------------------------------------------------------------- *
+ * Tier 2 -- phones and small tablets: stack the panel columns
+ * ---------------------------------------------------------------- */
+
+@media (max-width: 759px) {
+	/* Touch targets. The desktop 100px button is fine with a mouse and
+	   fiddly with a thumb. */
+	div.button {
+		width: auto;
+		min-width: 120px;
+		padding: 8px 10px;
+		margin-bottom: 8px;
+	}
+
+	div.button div.tooltip {
+		width: 140px;
+	}
+
+	/* Tooltips are hover-driven; on touch they fire on tap and then stick.
+	   Hide the decorative ones and keep the ones that explain a cost. */
+	*:hover > div.tooltip {
+		display: none;
+	}
+
+	.button.disabled:hover > div.tooltip,
+	#event .button.disabled:hover > div.tooltip {
+		display: block;
+	}
+
+	/* --- Room: build / craft / buy columns stack --- */
+	div#buildBtns,
+	div#craftBtns,
+	div#buyBtns {
+		position: relative;
+		top: auto;
+		left: auto;
+		margin-top: 20px;
+	}
+
+	div#roomPanel > div#storesContainer,
+	div#storesContainer {
+		position: relative;
+		top: auto !important;
+		right: auto !important;
+		margin-top: 20px;
+	}
+
+	div#stores,
+	div#weapons {
+		width: auto;
+		max-width: 100%;
+	}
+
+	/* --- Outside: village box and worker list stack --- */
+	div#village {
+		position: relative;
+		top: auto;
+		right: auto;
+		width: auto;
+		margin-top: 20px;
+	}
+
+	div#workers {
+		position: relative;
+		top: auto;
+		left: auto;
+		width: 100%;
+		margin-top: 20px;
+	}
+
+	/* --- Path: outfitting and perks stack --- */
+	#outfitting {
+		width: auto;
+	}
+
+	div#perks {
+		position: relative;
+		top: auto;
+		right: auto;
+		width: auto;
+		margin-bottom: 20px;
+	}
+
+	div.outfitRow {
+		margin-right: 0;
+	}
+
+	#pathScroller {
+		width: 100%;
+		max-height: none;
+		overflow-y: visible;
+	}
+
+	/* --- Fabricator --- */
+	div#blueprints {
+		position: relative;
+		top: auto;
+		right: auto;
+		width: auto;
+		margin-top: 20px;
+	}
+
+	/* --- World map: 67 columns of monospace will not fit. Let it scroll
+	       sideways rather than squashing the grid out of alignment. --- */
+	#worldOuter {
+		max-width: 100%;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	/* --- Events: the panel is absolutely placed for a 700px stage --- */
+	.eventPanel {
+		left: 0;
+		top: 40px;
+		width: auto;
+		max-width: calc(100% - 44px);
+		box-sizing: border-box;
+	}
+
+	.eventPanel:before {
+		left: -20px;
+		width: calc(100% + 40px);
+		height: 100%;
+		top: -20px;
+	}
+
+	.eventPanel .button,
+	#buttons > .button {
+		float: none;
+		margin-right: 0;
+	}
+
+	/* Combat lines up two fighters across the panel width. */
+	#wanderer {
+		left: 10%;
+	}
+
+	#enemy {
+		right: 10%;
+	}
+
+	/* --- Space --- */
+	.outroContainer {
+		width: auto;
+		padding: 10% 20px 0 20px;
+	}
+
+	#theEnd {
+		margin-left: 0;
+		font-size: 20px;
+	}
+
+	.endGame {
+		font-size: 32px;
+	}
+
+	.endGameOption {
+		font-size: 24px;
+	}
+}
+
+/* ---------------------------------------------------------------- *
+ * Short viewports (landscape phones)
+ * ---------------------------------------------------------------- */
+
+@media (max-height: 520px) {
+	div#content {
+		height: 70vh;
+	}
+
+	div#notifications {
+		height: 90px;
+	}
+}

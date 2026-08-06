@@ -1635,7 +1635,10 @@ var Room = {
 		for(var k in cost) {
 			var have = $SM.get('stores["'+k+'"]', true);
 			if(have < cost[k]) {
-				Notifications.notify(Room, _("not enough " + k));
+				// The item name is its own translation key elsewhere in this file
+				// (e.g. Button.js:35); embedding it in the sentence key here meant
+				// this message could never match a translated string.
+				Notifications.notify(Room, _('not enough {0}', _(k)));
 				return false;
 			} else {
 				storeMod[k] = have - cost[k];
@@ -1682,7 +1685,7 @@ var Room = {
 		for(var k in cost) {
 			var have = $SM.get('stores["'+k+'"]', true);
 			if(have < cost[k]) {
-				Notifications.notify(Room, _("not enough "+k));
+				Notifications.notify(Room, _('not enough {0}', _(k)));
 				return false;
 			} else {
 				storeMod[k] = have - cost[k];
@@ -1787,7 +1790,7 @@ var Room = {
 		}
 		
 		for(var k in Room.Craftables) {
-			craftable = Room.Craftables[k];
+			var craftable = Room.Craftables[k];
 			var max = $SM.num(k, craftable) + 1 > craftable.maximum;
 			if(craftable.button == null) {
 				if(Room.craftUnlocked(k)) {
@@ -1822,7 +1825,7 @@ var Room = {
 		}
 		
 		for(var g in Room.TradeGoods) {
-			good = Room.TradeGoods[g];
+			var good = Room.TradeGoods[g];
 			var goodsMax = $SM.num(g, good) + 1 > good.maximum;
 			if(good.button == null) {
 				if(Room.buyUnlocked(g)) {
@@ -1869,7 +1872,7 @@ var Room = {
 	compassTooltip: function(direction){
 		var ttPos = $('div#resources').children().length > 10 ? 'top right' : 'bottom right';
 		var tt = $('<div>').addClass('tooltip ' + ttPos);
-		$('<div>').addClass('row_key').text(_('the compass points '+ direction)).appendTo(tt);
+		$('<div>').addClass('row_key').text(_('the compass points {0}', direction)).appendTo(tt);
 		tt.appendTo($('#row_compass'));
 	},
 	

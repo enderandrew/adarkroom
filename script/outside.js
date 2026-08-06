@@ -679,7 +679,11 @@ var Outside = {
 	gatherWood: function() {
 		var gatherAmt = $SM.get('game.buildings["cart"]', true) > 0 ? 50 : 10;
 		$SM.add('stores.wood', gatherAmt);
-		Notifications.notify(Outside, _("dry brush and dead branches litter the forest floor +" + gatherAmt + " wood"));
+		/* _() supports {0}-style positional args (see lib/translate.js) -- the
+		 * amount was previously concatenated into the key before translation,
+		 * so it could never match a translated string, and the missing space
+		 * before the '+' rendered as "...forest floor+50 wood" in English too. */
+		Notifications.notify(Outside, _('dry brush and dead branches litter the forest floor +{0} wood', gatherAmt));
 		AudioEngine.playSound(AudioLibrary.GATHER_WOOD);
 		if(!$SM.get('character.gather')) $SM.set('character.gather', 0);
 		$SM.add('character.gather', 1);
@@ -1496,23 +1500,31 @@ var Outside = {
 				}
 			}
 		}
-		/// TRANSLATORS : Mind the whitespace at the end.
 		var whatObject = 0;
+		/* numOfObjects used to be assigned with no declaration inside this
+		 * closure, making it an implicit global (window.numOfObjects) shared
+		 * with the identical function in checkUTraps below. Returning the
+		 * value instead removes the shared global entirely. */
 		function getItemNumeration(){
-		var key = Object.keys(drops)[whatObject];
-		numOfObjects = drops[key];
-		whatObject++;
+			var key = Object.keys(drops)[whatObject];
+			whatObject++;
+			return drops[key];
 		}
-		getItemNumeration();
-		var s = _(numTraps + ' traps contain ' + numOfObjects + ' ');
+		/* {0}/{1}-style positional args (lib/translate.js) let a translation
+		 * reorder the sentence around the numbers. The previous concatenated
+		 * form baked the numbers into the lookup key, so it could never match
+		 * a translated string in any locale, including English. */
+		/// TRANSLATORS: {0} is the trap count, {1} is how many of the first item. Mind the whitespace at the end.
+		var numOfObjects = getItemNumeration();
+		var s = _('{0} traps contain {1} ', numTraps, numOfObjects);
 		for(var l = 0, len = msg.length; l < len; l++) {
 			if(len > 1 && l > 0 && l < len - 1) {
-			    getItemNumeration(); 
-				s += ", " + numOfObjects + " ";
+				numOfObjects = getItemNumeration();
+				s += _(', {0} ', numOfObjects);
 			} else if(len > 1 && l == len - 1) {
-				/// TRANSLATORS : Mind the whitespaces at the beginning and end.
-				getItemNumeration();
-				s += _(" and " + numOfObjects + " ");
+				numOfObjects = getItemNumeration();
+				/// TRANSLATORS: Mind the whitespaces at the beginning and end.
+				s += _(' and {0} ', numOfObjects);
 			}
 			s += msg[l];
 		}
@@ -1546,23 +1558,23 @@ var Outside = {
 				}
 			}
 		}
-		/// TRANSLATORS : Mind the whitespace at the end.
 		var whatObject = 0;
 		function getItemNumeration(){
-		var key = Object.keys(drops)[whatObject];
-		numOfObjects = drops[key];
-		whatObject++;
+			var key = Object.keys(drops)[whatObject];
+			whatObject++;
+			return drops[key];
 		}
-		getItemNumeration();
-		var s = _(numTraps + ' uber traps contain ' + numOfObjects + ' ');
+		/// TRANSLATORS: {0} is the trap count, {1} is how many of the first item. Mind the whitespace at the end.
+		var numOfObjects = getItemNumeration();
+		var s = _('{0} uber traps contain {1} ', numTraps, numOfObjects);
 		for(var l = 0, len = msg.length; l < len; l++) {
 			if(len > 1 && l > 0 && l < len - 1) {
-			    getItemNumeration(); 
-				s += ", " + numOfObjects + " ";
+				numOfObjects = getItemNumeration();
+				s += _(', {0} ', numOfObjects);
 			} else if(len > 1 && l == len - 1) {
-				/// TRANSLATORS : Mind the whitespaces at the beginning and end.
-				getItemNumeration();
-				s += _(" and " + numOfObjects + " ");
+				numOfObjects = getItemNumeration();
+				/// TRANSLATORS: Mind the whitespaces at the beginning and end.
+				s += _(' and {0} ', numOfObjects);
 			}
 			s += msg[l];
 		}

@@ -15,7 +15,7 @@
 	<meta itemprop="description" name="description" property="og:description" content="A minimalist text adventure">
 	<meta itemprop="image" property="og:image" content="img/adr.png" />
 	<meta itemprop="name" property="og:title" content="A Dark Room" />
-	<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 	<link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png">
@@ -102,6 +102,8 @@
 	<link rel="stylesheet" type="text/css" href="css/ship.css" />
 	<link rel="stylesheet" type="text/css" href="css/space.css" />
 	<link rel="stylesheet" type="text/css" href="css/fabricator.css" />
+	<!-- Must load last: responsive.css overrides the fixed-width layout above. -->
+	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
 
 	<meta name="google-site-verification" content="Fw32VtOfNNMYuxwq-LDxGbzuY7QIxjvQmLuWnv6FTGY" />
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-C7FZLTKS4Q"></script>
@@ -113,12 +115,6 @@
 		gtag('config', 'G-C7FZLTKS4Q');
 	</script>	
 	<script src="script/localization.js"></script>
-	<script type="text/javascript">
-		if ((navigator.userAgent.match(/Android/i)) || (navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
-			location.replace("https://enderandrew.com/adarkroom/mobile.html");
-		}
-	</script>
-	
 </head>
 <body>
 	<div id="wrapper">

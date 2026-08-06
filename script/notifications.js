@@ -9,15 +9,22 @@ var Notifications = {
 			options
 		);
 		
-		// Create the notifications box
-		elem = $('<div>').attr({
+		// Create the notifications box.
+		// This assigned to the bare identifier `elem` (an implicit global,
+		// window.elem) instead of `this.elem`. The `elem: null` property below
+		// was declared for exactly this and never actually got set, so
+		// Notifications.elem was always null -- harmless today since every
+		// other method here goes back through a jQuery selector rather than
+		// this property, but a landmine for anything written later that reads
+		// Notifications.elem expecting the real node.
+		this.elem = $('<div>').attr({
 			id: 'notifications',
 			className: 'notifications'
 		});
 		// Create the transparency gradient
-		$('<div>').attr('id', 'notifyGradient').appendTo(elem);
+		$('<div>').attr('id', 'notifyGradient').appendTo(this.elem);
 		
-		elem.appendTo('div#wrapper');
+		this.elem.appendTo('div#wrapper');
 	},
 	
 	options: {}, // Nothing for now

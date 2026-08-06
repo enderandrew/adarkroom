@@ -193,21 +193,15 @@ var World = {
 
 		if(typeof $SM.get('features.location.world') == 'undefined') {
 			$SM.set('features.location.world', true);
-			$SM.set('features.executioner', true);
 			$SM.setM('game.world', {
 				map: World.generateMap(),
 				mask: World.newMask()
 			});
+			// A freshly generated map already contains everything in LANDMARKS.
+			World.recordPlacedLandmarks();
 		}
-		else if (!$SM.get('features.executioner')) {
-			// Place the Executioner in previously generated maps that don't have it
-			const map = $SM.get('game.world.map');
-			const landmark = World.LANDMARKS[World.TILE.EXECUTIONER]
-			for(let l = 0; l < landmark.num; l++) {
-				World.placeLandmark(landmark.minRadius, landmark.maxRadius, World.TILE.EXECUTIONER, map);
-			}
-			$SM.set('game.world.map', map);
-			$SM.set('features.executioner', true);
+		else {
+			World.backfillLandmarks();
 		}
 
 		// Create the World panel
@@ -854,7 +848,92 @@ var World = {
 		return dir;
 	},
 
+	/* Landmark backfill.
+	 *
+	 * A map is generated once and then lives in the save forever, so any
+	 * landmark added to World.LANDMARKS afterwards would never appear for a
+	 * player already mid-run. features.mapLandmarks records which tile types
+	 * have been placed into the current map, and anything missing from that
+	 * record gets placed on load.
+	 *
+	 * This replaces a hand-written one-off check for the Executioner, which had
+	 * to be duplicated by hand for every landmark added after it -- and wasn't,
+	 * so RUINS, TEMPLE, GRAVEYARD, PRISON and LAB never reached older saves.
+	 * Adding a landmark to LANDMARKS is now enough; this handles the rest.
+	 *
+	 * The record is used rather than scanning the map because a cleared dungeon
+	 * is rewritten as an OUTPOST tile, so its original tile is genuinely gone
+	 * and scanning would keep respawning landmarks the player already finished.
+	 */
+
+	// Landmarks that existed before the registry did. Saves with no registry
+	// are assumed to contain these already, so they aren't spuriously re-placed.
+	LEGACY_LANDMARKS: ['OUTPOST', 'IRON_MINE', 'COAL_MINE', 'SULPHUR_MINE', 'HOUSE',
+		'CAVE', 'TOWN', 'CITY', 'SHIP', 'BOREHOLE', 'BATTLEFIELD', 'SWAMP', 'CACHE'],
+
+	recordPlacedLandmarks: function() {
+		var placed = {};
+		for(var tile in World.LANDMARKS) {
+			placed[tile] = true;
+		}
+		$SM.set('features.mapLandmarks', placed);
+	},
+
+	backfillLandmarks: function() {
+		var map = $SM.get('game.world.map');
+		if(!map) return;
+
+		var placed = $SM.get('features.mapLandmarks');
+
+		if(!placed) {
+			// Save predates the registry: seed it from what that era shipped with.
+			placed = {};
+			for(var i = 0; i < World.LEGACY_LANDMARKS.length; i++) {
+				var legacyTile = World.TILE[World.LEGACY_LANDMARKS[i]];
+				if(legacyTile) placed[legacyTile] = true;
+			}
+			// The Executioner had its own flag before the registry existed.
+			if($SM.get('features.executioner')) {
+				placed[World.TILE.EXECUTIONER] = true;
+			}
+		}
+
+		var changed = false;
+		for(var tile in World.LANDMARKS) {
+			if(placed[tile]) continue;
+
+			var landmark = World.LANDMARKS[tile];
+			for(var l = 0; l < landmark.num; l++) {
+				World.placeLandmark(landmark.minRadius, landmark.maxRadius, tile, map);
+			}
+			placed[tile] = true;
+			changed = true;
+			Engine.log('placed missing landmark into existing map: ' + landmark.scene);
+		}
+
+		if(changed) {
+			$SM.set('game.world.map', map);
+		}
+		$SM.set('features.mapLandmarks', placed);
+	},
+
 	placeLandmark: function(minRadius, maxRadius, landmark, map) {
+
+		/* r below is a Manhattan distance (matches getDistance()): xDist and
+		 * yDist are drawn so that |xDist| + |yDist| == r, then x/y are clamped
+		 * into [0, RADIUS*2]. Any maxRadius above RADIUS means a meaningful
+		 * share of draws split r unevenly enough that one axis overshoots the
+		 * map and gets clamped to its edge -- landmarks defined with
+		 * `RADIUS * 1.5` or `RADIUS * 2` (several were) don't spread through
+		 * their outer ring as intended, they pile up along the border. In this
+		 * fork's default 33-tile radius, RADIUS*2 clamped on ~41% of draws and
+		 * RADIUS*1.5 on ~19%. Capped here so any LANDMARKS entry, including
+		 * ones added later, gets a real spread regardless of what multiple of
+		 * RADIUS its maxRadius was written with. */
+		maxRadius = Math.min(maxRadius, World.RADIUS);
+		// Guards a landmark defined later with minRadius close to RADIUS from
+		// producing an inverted (negative) range once maxRadius is clamped.
+		if(minRadius > maxRadius) minRadius = maxRadius;
 
 		var x = World.RADIUS, y = World.RADIUS;
 		while(!World.isTerrain(map[x][y])) {
@@ -995,12 +1074,11 @@ var World = {
 			Engine.keyLock = true;
 			// Dead! Discard any world changes and go home
 			Notifications.notify(World, _('the world fades. death escapes you. is there no escape from here'));
-			audio: AudioLibrary.DEATH
 			World.state = null;
 			Path.outfit = {};
 			$SM.remove('outfit');
 			AudioEngine.playSound(AudioLibrary.DEATH);
-			if(!$SM.get('character.deaths')) $SM.set('character.deaths', -0);
+			if(!$SM.get('character.deaths')) $SM.set('character.deaths', 0);
 			$SM.add('character.deaths', 1);
 			$('#outerSlider').animate({opacity: '0'}, 600, 'linear', function() {
 				$('#outerSlider').css('left', '0px');

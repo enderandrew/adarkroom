@@ -2,6 +2,8 @@
  * Module that registers spaaaaaaaaace!
  */
 var Space = {	
+	// Upstream easter egg: autoplaying video over the ending on 1 April. Opt in.
+	ENABLE_APRIL_FOOLS: false,
 	SHIP_SPEED: 3,
 	BASE_ASTEROID_DELAY: 500,
 	BASE_ASTEROID_SPEED: 1500,
@@ -71,21 +73,27 @@ var Space = {
 		Space._volumeTimer = setInterval(Space.lowerVolume, 1000);
 		AudioEngine.playBackgroundMusic(AudioLibrary.MUSIC_SPACE);
 		
-		/* Check if it is april fools day */
+		/* Check if it is april fools day.
+		 *
+		 * Date#getMonth() is zero-indexed, so the old `month: 4` fired this on
+		 * 1 May, not 1 April. Left disabled by default -- flip ENABLE_APRIL_FOOLS
+		 * to true if you want the upstream gag back. It injects an autoplaying
+		 * YouTube embed over the ending, which is worth an explicit decision
+		 * rather than a surprise. */
 		var aprilFools = {
-			month: 4,
+			month: 3, // 3 === April
 			date: 1
-		}
-		
+		};
+
 		function isItAprilFoolDay() {
 			var now = new Date();
 			return (now.getMonth() == aprilFools.month && now.getDate() == aprilFools.date);
 		}
-	
-		if(isItAprilFoolDay()){
-			$('body').append($('<iframe>').attr('src','https://www.youtube.com/embed/ZZ5LpwO-An4?autoplay=1').attr('frameborder',0))
+
+		if(Space.ENABLE_APRIL_FOOLS && isItAprilFoolDay()){
+			$('body').append($('<iframe>').attr('src','https://www.youtube.com/embed/ZZ5LpwO-An4?autoplay=1').attr('frameborder',0));
 		}
-	
+
 	},
 	
 	setTitle: function() {

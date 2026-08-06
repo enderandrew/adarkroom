@@ -63,7 +63,9 @@ var Path = {
 	openPath: function() {
 		Path.init();
 		Engine.event('progress', 'path');
-		Notifications.notify(Room, _('the compass points ' + World.dir));
+		// {0}-substitution keeps this translatable; the direction itself
+		// (World.dir) is a separately-translated value, not sentence text.
+		Notifications.notify(Room, _('the compass points {0}', World.dir));
 	},
 	
 	getWeight: function(thing) {
@@ -342,7 +344,7 @@ var Path = {
 			$SM.add('stores["'+k+'"]', -Path.outfit[k]);
 		}
 		World.onArrival();
-		$('#outerSlider').animate({left: '-700px'}, 300);
+		$('#outerSlider').animate({left: -Engine.getPanelWidth() + 'px'}, 300);
 		Engine.activeModule = World;
 		AudioEngine.playSound(AudioLibrary.EMBARK);
 	},

@@ -9,18 +9,21 @@ var Score = {
 	},
 
 	calculateScore : function() {
-		var scoreUnadded = Prestige.getStores(false);
+		var counts = Prestige.getStores(false);
 		var fullScore = 0;
-		
-		var factor = [1, 1.5, 1, 2, 2, 3, 3, 2, 2, 2, 2, 1.5, 1, 
-			     1, 10, 30, 50, 100, 150, 150, 3, 3, 5, 4];
-		for(var i = 0; i< factor.length; i++){
-			fullScore += scoreUnadded[i] * factor[i];
+
+		/* Values live on Prestige.storesMap so this can't fall out of step with
+		 * the store list. Items not in that list are scored explicitly below. */
+		for(var i = 0; i < Prestige.storesMap.length; i++) {
+			fullScore += counts[i] * Prestige.storesMap[i].value;
 		}
-		
+
 		fullScore = fullScore + $SM.get('stores["alien alloy"]', true) * 10;
 		fullScore = fullScore + $SM.get('stores["fleet beacon"]', true) * 500;
-		fullScore = fullScore + Ship.getMaxHull() * 50;
+		/* getMaxHull() returns undefined when no ship has been found yet, and
+		 * undefined * 50 poisons the whole total to NaN. Only reachable if
+		 * scoring ever moves off the ending screens, but cheap to guard. */
+		fullScore = fullScore + (Ship.getMaxHull() || 0) * 50;
 		return Math.floor(fullScore);
 	},
 

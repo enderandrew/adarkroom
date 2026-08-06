@@ -61,7 +61,7 @@
 #spacePanel {
 	float: none !important;
 	position: absolute !important;
-	top: -700px;
+	top: calc(-1 * var(--panel-height));
 	left: 0px;
 }
 

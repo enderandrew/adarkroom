@@ -231,11 +231,18 @@
 			$('body').off('keyup').keyup(Engine.keyUp);
 
 			// Register swipe handlers
-			swipeElement = $('#outerSlider');
+			var swipeElement = $('#outerSlider');
 			swipeElement.on('swipeleft', Engine.swipeLeft);
 			swipeElement.on('swiperight', Engine.swipeRight);
 			swipeElement.on('swipeup', Engine.swipeUp);
 			swipeElement.on('swipedown', Engine.swipeDown);
+
+			// Size the panels to the viewport, and keep them sized as it changes.
+			Engine.updateLayout();
+			$(window).on('resize orientationchange', function() {
+				clearTimeout(Engine._resizeTimer);
+				Engine._resizeTimer = setTimeout(Engine.updateLayout, 100);
+			});
 
 			// subscribe to stateUpdates
 			$.Dispatch('stateUpdate').subscribe(Engine.handleStateUpdates);
@@ -277,6 +284,10 @@
 			}
 
 			Engine.saveLanguage();
+
+			// Every panel exists now, so re-run the layout to get the slider
+			// widths right before we slide to the first one.
+			Engine.updateLayout();
 			Engine.travelTo(Room);
 
 			setTimeout(notifyAboutSound, 3000);
@@ -426,9 +437,20 @@
 			location.reload();
 		},
 
+		/* Analytics.
+		 *
+		 * index.html loads GA4's gtag(), not Universal Analytics' ga() -- UA
+		 * was shut down in 2024. The old `if(typeof ga === 'function')` guard
+		 * always failed, so every Engine.event() call was silently a no-op.
+		 *
+		 * GA4's event shape is gtag('event', <action>, { event_category, ... }),
+		 * not ga's positional ('send','event',category,action). cat/act names
+		 * are kept as the public signature since ~150 call sites across the
+		 * codebase use them; only the translation to gtag's shape changes here.
+		 */
 		event: function(cat, act) {
-			if(typeof ga === 'function') {
-				ga('send', 'event', cat, act);
+			if(typeof gtag === 'function') {
+				gtag('event', act, { event_category: cat });
 			}
 		},
 
@@ -724,11 +746,12 @@
 				var stores = $('#storesContainer');
 				var panelIndex = $('.location').index(module.panel);
 				var diff = Math.abs(panelIndex - currentIndex);
-				slider.animate({left: -(panelIndex * 700) + 'px'}, 300 * diff);
+				var panelWidth = Engine.getPanelWidth();
+				slider.animate({left: -(panelIndex * panelWidth) + 'px'}, 300 * diff);
 
 				if($SM.get('stores.wood') !== undefined) {
 				// FIXME Why does this work if there's an animation queue...?
-					stores.animate({right: -(panelIndex * 700) + 'px'}, 300 * diff);
+					stores.animate({right: -(panelIndex * panelWidth) + 'px'}, 300 * diff);
 				}
 
 				if(Engine.activeModule == Room || Engine.activeModule == Path || Engine.activeModule == Fabricator) {
@@ -785,14 +808,99 @@
 			}
 		},
 
+		/* The game is laid out as a grid of fixed-size panels that slide in and out
+		 * of view. On a desktop that panel is PANEL_MAX_WIDTH wide; on smaller
+		 * screens it shrinks to fit the viewport. Everything that positions a panel
+		 * must go through getPanelWidth()/getPanelHeight() rather than hardcoding a
+		 * size, or the slider offsets drift out of sync with the CSS. */
+		PANEL_MAX_WIDTH: 700,
+		PANEL_MAX_HEIGHT: 700,
+		PANEL_MIN_WIDTH: 280,
+		LAYOUT_MARGIN: 24, // wrapper padding + room for a scrollbar
+		_panelWidth: 700,
+		_panelHeight: 700,
+		_resizeTimer: null,
+
+		getPanelWidth: function() {
+			return Engine._panelWidth;
+		},
+
+		getPanelHeight: function() {
+			return Engine._panelHeight;
+		},
+
+		/* Recalculates the panel size from the viewport, publishes it to CSS as
+		 * --panel-width / --panel-height, and re-snaps every slider so the active
+		 * panel stays in view. Safe to call at any time. */
+		updateLayout: function() {
+			var root = document.documentElement;
+
+			/* Measure against the viewport, never against #wrapper or #content --
+			 * those are sized *from* --panel-width, so reading them back would be
+			 * circular. --notification-gutter is set by the media queries in
+			 * responsive.css, which is how the breakpoint reaches the JS. */
+			var gutter = 0;
+			if(window.getComputedStyle) {
+				gutter = parseInt(window.getComputedStyle(root).getPropertyValue('--notification-gutter'), 10);
+				if(isNaN(gutter)) gutter = 0;
+			}
+
+			var available = $(window).width() - gutter - Engine.LAYOUT_MARGIN;
+			var width = Math.max(Engine.PANEL_MIN_WIDTH, Math.min(Engine.PANEL_MAX_WIDTH, Math.floor(available)));
+			var height = Math.min(Engine.PANEL_MAX_HEIGHT, Math.floor($('#content').height() || $(window).height()));
+
+			var changed = (width !== Engine._panelWidth || height !== Engine._panelHeight);
+			Engine._panelWidth = width;
+			Engine._panelHeight = height;
+
+			if(root && root.style && root.style.setProperty) {
+				root.style.setProperty('--panel-width', width + 'px');
+				root.style.setProperty('--panel-height', height + 'px');
+			}
+
+			Engine.updateSlider();
+			Engine.updateOuterSlider();
+
+			if(changed) {
+				// Re-snap the sliders without animating, so a resize mid-game doesn't
+				// leave the player looking at the gap between two panels.
+				Engine.snapSliders();
+			}
+		},
+
+		/* Jumps the sliders to the offsets implied by the current panel width. */
+		snapSliders: function() {
+			var width = Engine.getPanelWidth();
+
+			if(Engine.activeModule && Engine.activeModule.panel) {
+				var panelIndex = $('.location').index(Engine.activeModule.panel);
+				if(panelIndex >= 0) {
+					if(Engine.activeModule === World) {
+						// World lives on the outer slider, one panel to the right.
+						$('#outerSlider').stop(true, true).css('left', -width + 'px');
+					} else if(Engine.activeModule !== Space) {
+						$('#outerSlider').stop(true, true).css('left', '0px');
+						$('#locationSlider').stop(true, true).css('left', -(panelIndex * width) + 'px');
+						if($SM.get('stores.wood') !== undefined) {
+							$('#storesContainer').stop(true, true).css('right', -(panelIndex * width) + 'px');
+						}
+					}
+				}
+			}
+
+			if(Engine.activeModule === Space) {
+				$('#outerSlider').stop(true, true).css('top', Engine.getPanelHeight() + 'px');
+			}
+		},
+
 		updateSlider: function() {
 			var slider = $('#locationSlider');
-			slider.width((slider.children().length * 700) + 'px');
+			slider.width((slider.children().length * Engine.getPanelWidth()) + 'px');
 		},
 
 		updateOuterSlider: function() {
 			var slider = $('#outerSlider');
-			slider.width((slider.children().length * 700) + 'px');
+			slider.width((slider.children().length * Engine.getPanelWidth()) + 'px');
 		},
 
 		getIncomeMsg: function(num, delay) {
@@ -1007,7 +1115,7 @@
 			}
 
 			for (var k in Room.Craftables) {
-				craftable = Room.Craftables[k];
+				var craftable = Room.Craftables[k];
 				if (craftable.button == null) {
 					var loc = Room.needsWorkshop(craftable.type) ? craftSection : buildSection;
 					craftable.button = new Button.Button({
@@ -1029,7 +1137,7 @@
 			}
 
 			for (var g in Room.TradeGoods) {
-				good = Room.TradeGoods[g];
+				var good = Room.TradeGoods[g];
 				if (good.button == null) {
 					good.button = new Button.Button({
 						id: 'build_' + g,

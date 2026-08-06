@@ -628,9 +628,14 @@ Events.Room = [
 					},
 					'kill': {
 						 text: _('kill man, take supplies'),
-						 cost: { 'bullets': 5,},
+						 cost: { 'bullets': 5 },
 						 notification: _('the man fights back, however dies in the end'),
-						 nextScene: { 0.3: 'killman', 0.3: 'killmanlots', 0.4: 'killmannothing' }
+						 /* nextScene thresholds are cumulative and must reach 1.0.
+						  * This read { 0.3: 'killman', 0.3: 'killmanlots', 0.4: ... }:
+						  * the repeated 0.3 key discarded 'killman' entirely, and the
+						  * table topped out at 0.4, so 60% of rolls matched nothing
+						  * and the event just ended after charging 5 bullets. */
+						 nextScene: { 0.3: 'killman', 0.6: 'killmanlots', 1.0: 'killmannothing' }
 					},
 					'ignore': {
 						text: _('tell him to leave'),

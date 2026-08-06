@@ -41,15 +41,15 @@ Enemies.Executioner = {
     attackDelay: 1,
     health: 70,
     loot: {
+      /* This was two 'alien alloy' entries -- a guaranteed 1, plus a 20%
+       * chance of 2-4. Duplicate keys in an object literal silently discard
+       * the first, so only the 20% roll ever ran and the quadruped dropped
+       * nothing 80% of the time. The loot roller rolls each key once, so the
+       * two are merged here into a single entry of comparable value. */
       'alien alloy': {
         min: 1,
-        max: 1,
+        max: 2,
         chance: 1
-      },
-      'alien alloy': {
-        min: 2,
-        max: 4,
-        chance: 0.2
       }
     }
   },
@@ -2302,8 +2302,13 @@ Events.Executioner = {
         hit: 0.8,
         attackDelay: 2,
         health: 500,
+        /* Both the special-tracker reset and the music cue used to be declared
+         * as separate `onLoad` keys on this object. The second silently won,
+         * so _lastSpecial was never cleared and the boss inherited whichever
+         * special it last used in a previous attempt. Merged into one. */
         onLoad: () => {
           Events._lastSpecial = 'none';
+          AudioEngine.playSound(AudioLibrary.EVENT_EXECUTIONER);
         },
         specials: [{
           delay: 7,
@@ -2322,9 +2327,6 @@ Events.Executioner = {
             max: 1,
             chance: 1
           }
-        },
-        onLoad: () => {
-          AudioEngine.playSound(AudioLibrary.EVENT_EXECUTIONER);
         },
         buttons: {
           'continue': {

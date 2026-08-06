@@ -674,10 +674,11 @@ Events.Encounters = [
 	},
 	{ /* Madman */
 		title: _("A madman"),
-			isAvailable: function() {
-				return World.getDistance() > 20 && World.getDistance() < 30 && World.getTerrain() == World.TILE.BARRENS;
-			},
-			scenes: {
+		isAvailable: function() {
+			return World.getDistance() > 20 && World.getDistance() < 30 && World.getTerrain() == World.TILE.BARRENS;
+		},
+		scenes: {
+			'start': {
 				combat: true,
 				enemy: 'madman',
 				enemyName: _("madman"),
@@ -704,8 +705,9 @@ Events.Encounters = [
 						chance: 0.7
 					}
 				},
-				notification: _("A random person runs out, swinging a spear around with drug-induced speed.")
+				notification: _("a random person runs out, swinging a spear around with drug-induced speed.")
 			}
+		}
 	},
 	{ /* Sniper */
 	title: _('A Sniper'),
