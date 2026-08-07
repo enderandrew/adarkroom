@@ -357,7 +357,7 @@ var Room = {
 			name: _('armoury'),
 			button: null,
 			maximum: 1,
-			availableMsg: _("builder says it'd be useful to have a steady source of bullets"),
+			availableMsg: _("builder says an armoury can produce bullets, but she doesn't intend to touch a gun ever again"),
 			buildMsg: _("armoury's done, welcoming back the weapons of the past."),
 			type: 'building',
 			cost: function() {
@@ -374,7 +374,7 @@ var Room = {
 					title: _('armoury'),
 					scenes: {
 						start: {
-							text: [_("deadly soldiers and raiders out in the wild. builder says it'd be useful to have a steady source of bullets")],
+							text: [_("deadly soldiers and raiders out in the wild. builder says she can make bullets though she hates guns")],
 							buttons: {
 								'yes': {
 									text: _('ok'),
@@ -593,7 +593,7 @@ var Room = {
 					title: _('bone spear'),
 					scenes: {
 						start: {
-							text: [_("there are dangerous beasts and dangerous people outside. kill or be killed. builder can craft bone spears.")],
+							text: [_("there are dangerous beasts outside. builder can craft bone spears for hunting.")],
 							buttons: {
 								'yes': {
 									text: _('ok'),
@@ -736,7 +736,7 @@ var Room = {
 					title: _('leather armour'),
 					scenes: {
 						start: {
-							text: [_("sharp teeth, hungry mouths and violent hearts desire blood. builder can stitch together leather armour for protection.")],
+							text: [_("sharp teeth, hungry mouths and violent hearts desire blood. builder can stitch together leather armour for protection. she worries about you.")],
 							buttons: {
 								'yes': {
 									text: _('ok'),
@@ -771,7 +771,7 @@ var Room = {
 					title: _('iron armour'),
 					scenes: {
 						start: {
-							text: [_("sharp teeth, hungry mouths and violent hearts desire blood. builder can make stronger iron armour for protection.")],
+							text: [_("sharp teeth, hungry mouths and violent hearts desire blood. builder can make stronger iron armour for protection. she likes to see you protected.")],
 							buttons: {
 								'yes': {
 									text: _('ok'),
@@ -842,7 +842,7 @@ var Room = {
 					title: _('iron sword'),
 					scenes: {
 						start: {
-							text: [_("a sharp blade can slay foes in the dangerous wilds. builder can make an iron sword.")],
+							text: [_("a sharp blade can slay foes in the dangerous wilds. builder can make an iron sword but she knows this isn't for hunting animals.")],
 							buttons: {
 								'yes': {
 									text: _('ok'),
@@ -879,7 +879,7 @@ var Room = {
 					title: _('steel sword'),
 					scenes: {
 						start: {
-							text: [_("a sharper blade for more deadly foes in the dangerous wilds. builder can make an steel sword.")],
+							text: [_("a sharper blade for more deadly foes in the dangerous wilds. builder can make an steel sword but asks you not to fight.")],
 							buttons: {
 								'yes': {
 									text: _('ok'),
@@ -915,7 +915,7 @@ var Room = {
 					title: _('rifle'),
 					scenes: {
 						start: {
-							text: [_("rifles can kill at a safe distance. a more modern and deadly weapon. builder can craft a rifle.")],
+							text: [_("rifles can kill at a safe distance. a more modern and deadly weapon. builder shows you how to make a rifle but won't touch it.")],
 							buttons: {
 								'yes': {
 									text: _('ok'),

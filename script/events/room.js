@@ -216,15 +216,18 @@ Events.Room = [
 					'50furs': {
 						text: _('give 50'),
 						cost: {fur: 50},
+						onChoose: function() { $SM.add('character.karma', 1); },
 						nextScene: { 0.5: 'scales', 0.8: 'teeth', 1: 'cloth' }
 					},
 					'100furs': {
 						text: _('give 100'),
 						cost: {fur: 100},
+						onChoose: function() { $SM.add('character.karma', 1); },
 						nextScene: { 0.5: 'teeth', 0.8: 'scales', 1: 'cloth' }
 					},
 					'deny': {
 						text: _('turn him away'),
+						onChoose: function() { $SM.add('character.karma', -1); },
 						nextScene: 'end'
 					}
 				}
@@ -557,6 +560,7 @@ Events.Room = [
 					},
 					'deny': {
 						text: _('turn him away'),
+						onChoose: function() { $SM.add('character.karma', -1); },
 						nextScene: 'end'
 					}
 				}
@@ -565,6 +569,9 @@ Events.Room = [
 				text: [
 					_('in exchange, the wanderer offers his wisdom.')
 				],
+				onLoad: function() {
+					$SM.add('character.karma', 1);
+				},
 				buttons: {
 					'evasion': {
 						text: _('evasion'),
@@ -624,12 +631,25 @@ Events.Room = [
 						text: _('give 1 medicine'),
 						cost: { 'medicine': 1 },
 						notification: _('the man swallows the medicine eagerly'),
+						onChoose: function() { $SM.add('character.karma', 2); },
 						nextScene: { 0.1: 'alloy', 0.3: 'cells', 0.5: 'scales', 1.0: 'nothing' }
 					},
 					'kill': {
 						 text: _('kill man, take supplies'),
 						 cost: { 'bullets': 5 },
 						 notification: _('the man fights back, however dies in the end'),
+						 /* This is the game's most explicit scripted moral choice --
+						  * the outcome text itself asks "was it worth it" and "regret
+						  * your actions" -- so it's weighted well past the ±1 nudges
+						  * used for the ambiguous builder-relationship beats. Applied
+						  * once here rather than duplicated across all three loot
+						  * outcomes below, since the moral weight is in the choice to
+						  * kill, not in what he happened to be carrying. */
+						 onChoose: function() {
+							$SM.add('character.karma', -5);
+							if(!$SM.get('character.kills')) $SM.set('character.kills', 0);
+							$SM.add('character.kills', 1);
+						 },
 						 /* nextScene thresholds are cumulative and must reach 1.0.
 						  * This read { 0.3: 'killman', 0.3: 'killmanlots', 0.4: ... }:
 						  * the repeated 0.3 key discarded 'killman' entirely, and the
@@ -639,6 +659,7 @@ Events.Room = [
 					},
 					'ignore': {
 						text: _('tell him to leave'),
+						onChoose: function() { $SM.add('character.karma', -1); },
 						nextScene: 'end'
 					}
 				}

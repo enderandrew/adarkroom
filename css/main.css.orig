@@ -641,57 +641,6 @@ body.noMask #description {
 	font-style: italic;
 }
 
-/* --- Status effects added by this fork ---
- * The game reads as ASCII, so each status has to be legible as a change to
- * the character glyph itself rather than a colour or an icon. */
-
-/* brittle: the fighter's guard is broken open -- next hit does double.
-   Rendered as a widened, split-looking glyph to read as "cracked open",
-   and it's the one status the player wants to SEE, so it's the loudest. */
-.fighter.brittle > .label {
-	font-size: 1.5em;
-	letter-spacing: 0.15em;
-	opacity: 0.75;
-}
-
-.fighter.brittle > .label::before {
-	content: '\\';
-	position: absolute;
-	left: -10px;
-}
-
-.fighter.brittle > .label::after {
-	content: '/';
-	position: absolute;
-	right: -10px;
-}
-
-/* regenerating: slow steady pulse, deliberately calm rather than urgent */
-@keyframes regenerating {
-	0% { opacity: 1; }
-	50% { opacity: 0.45; }
-	100% { opacity: 1; }
-}
-
-.fighter.regenerating > .label {
-	animation: regenerating 1s ease-in-out infinite;
-}
-
-/* blinded: unsteady, drifting off-centre -- shown on whoever is afflicted,
-   which is usually the player, so it stays subtle enough not to obscure
-   the wanderer's own glyph during a fight. */
-@keyframes blinded {
-	0% { transform: translate(0, 0); }
-	30% { transform: translate(-3px, 1px); }
-	60% { transform: translate(3px, -1px); }
-	100% { transform: translate(0, 0); }
-}
-
-.fighter.blinded > .label {
-	animation: blinded 900ms ease-in-out infinite;
-	opacity: 0.5;
-}
-
 #description .bullet {
 	padding: 0px 20px 0px 20px;
 	bottom: 25px;

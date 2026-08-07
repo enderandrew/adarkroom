@@ -2,7 +2,120 @@
  * Events that can occur when wandering around the world
  **/
 Events.Encounters = [
-	/* Tier 1 */
+	/* =====================================================================
+	 * TIER 1  --  World.getDistance() <= 10
+	 * Close to the village. Low hp, low damage, mostly no specials. The one
+	 * exception (rust beetle) is a deliberately gentle first lesson in
+	 * reading a wind-up, so the mechanic isn't brand new at tier 3.
+	 * ===================================================================== */
+	{ /* Thornback Hare */
+	title: _('A Thornback Hare'),
+		isAvailable: function() {
+			return World.getDistance() <= 10 && World.getTerrain() == World.TILE.FOREST;
+		},
+		scenes: {
+			'start': {
+				combat: true,
+				enemy: 'thornback hare',
+				enemyName: _('thornback hare'),
+				deathMessage: _('the hare goes still.'),
+				chara: 'h',
+				damage: 2,
+				hit: 0.85,
+				attackDelay: 1.2,
+				health: 4,
+				loot: {
+					'fur': {
+						min: 1,
+						max: 2,
+						chance: 0.9
+					},
+					'meat': {
+						min: 1,
+						max: 2,
+						chance: 0.8
+					},
+					'teeth': {
+						min: 1,
+						max: 1,
+						chance: 0.3
+					}
+				},
+				notification: _('something small breaks cover, quills flared.')
+			}
+		}
+	},
+	{ /* Dust Wretch */
+	title: _('A Dust Wretch'),
+		isAvailable: function() {
+			return World.getDistance() <= 10 && World.getTerrain() == World.TILE.BARRENS;
+		},
+		scenes: {
+			'start': {
+				combat: true,
+				enemy: 'dust wretch',
+				enemyName: _('dust wretch'),
+				deathMessage: _('it stops moving. it does not look surprised.'),
+				chara: 'w',
+				damage: 2,
+				hit: 0.75,
+				attackDelay: 2,
+				health: 6,
+				loot: {
+					'cloth': {
+						min: 1,
+						max: 2,
+						chance: 0.7
+					},
+					'teeth': {
+						min: 1,
+						max: 2,
+						chance: 0.5
+					}
+				},
+				notification: _('a thin figure rises out of the dust. it has been here a long time.')
+			}
+		}
+	},
+	{ /* Rust Beetle */
+	title: _('A Rust Beetle'),
+		isAvailable: function() {
+			return World.getDistance() <= 10 && World.getTerrain() == World.TILE.FIELD;
+		},
+		scenes: {
+			'start': {
+				combat: true,
+				enemy: 'rust beetle',
+				enemyName: _('rust beetle'),
+				deathMessage: _('the shell cracks open. nothing inside but rust.'),
+				chara: 'b',
+				damage: 3,
+				specials: [{
+					delay: 5,
+					action: (fighter) => {
+						Events.setStatus(fighter, 'brittle');
+						return _('shell splits');
+					}
+				}],
+				hit: 0.8,
+				attackDelay: 2.5,
+				health: 9,
+				loot: {
+					'iron': {
+						min: 1,
+						max: 2,
+						chance: 0.6
+					},
+					'scales': {
+						min: 1,
+						max: 3,
+						chance: 0.7
+					}
+				},
+				notification: _('a heavy armoured thing drags itself across the field.')
+			}
+		}
+	},
 	{ /* Ravenous Beast */
 		title: _('A Ravenous Beast'),
 		isAvailable: function() {
@@ -274,7 +387,130 @@ Events.Encounters = [
 			}
 		}
 	},
-	/* Tier 2 */
+	/* =====================================================================
+	 * TIER 2  --  World.getDistance() > 10
+	 * ===================================================================== */
+	{ /* Spore-Choked Stag */
+	title: _('A Spore-Choked Stag'),
+		isAvailable: function() {
+			return World.getDistance() > 10 && World.getTerrain() == World.TILE.FOREST;
+		},
+		scenes: {
+			'start': {
+				combat: true,
+				enemy: 'spore-choked stag',
+				enemyName: _('spore-choked stag'),
+				deathMessage: _('it falls, and the air goes clear again.'),
+				chara: 'q',
+				damage: 4,
+				specials: [{
+					delay: 6,
+					action: () => {
+						const player = $('#wanderer');
+						Events.setStatus(player, 'blinded');
+						Events.updateFighterDiv(player);
+						return _('spores burst');
+					}
+				}],
+				hit: 0.8,
+				attackDelay: 2,
+				health: 28,
+				loot: {
+					'fur': {
+						min: 1,
+						max: 4,
+						chance: 0.8
+					},
+					'meat': {
+						min: 1,
+						max: 3,
+						chance: 0.8
+					},
+					'teeth': {
+						min: 1,
+						max: 3,
+						chance: 0.6
+					}
+				},
+				notification: _('the stag turns. pale growth has taken most of its head.')
+			}
+		}
+	},
+	{ /* Trench Sentry */
+	title: _('A Trench Sentry'),
+		isAvailable: function() {
+			return World.getDistance() > 10 && World.getTerrain() == World.TILE.BARRENS;
+		},
+		scenes: {
+			'start': {
+				combat: true,
+				enemy: 'trench sentry',
+				enemyName: _('trench sentry'),
+				deathMessage: _('the sentry slumps back into the trench it never left.'),
+				chara: 't',
+				damage: 6,
+				hit: 0.75,
+				attackDelay: 2.5,
+				ranged: true,
+				health: 26,
+				loot: {
+					'bullets': {
+						min: 1,
+						max: 5,
+						chance: 0.8
+					},
+					'cloth': {
+						min: 1,
+						max: 3,
+						chance: 0.6
+					},
+					'iron': {
+						min: 1,
+						max: 2,
+						chance: 0.4
+					}
+				},
+				notification: _('a voice calls a challenge in a language with no speakers left. then it fires.')
+			}
+		}
+	},
+	{ /* Glass Wolf */
+	title: _('A Glass Wolf'),
+		isAvailable: function() {
+			return World.getDistance() > 10 && World.getTerrain() == World.TILE.FIELD;
+		},
+		scenes: {
+			'start': {
+				combat: true,
+				enemy: 'glass wolf',
+				enemyName: _('glass wolf'),
+				deathMessage: _('it comes apart in bright pieces.'),
+				chara: 'g',
+				damage: 5,
+				hit: 0.85,
+				attackDelay: 1.5,
+				health: 24,
+				loot: {
+					'scales': {
+						min: 2,
+						max: 5,
+						chance: 0.9
+					},
+					'teeth': {
+						min: 1,
+						max: 4,
+						chance: 0.8
+					},
+					'meat': {
+						min: 1,
+						max: 2,
+						chance: 0.5
+					}
+				},
+				notification: _('something with too many edges is already running at you.')
+			}
+		}
+	},
 	{ /* Shivering Human */
 	title: _('A Shivering Human'),
 		isAvailable: function() {
@@ -554,7 +790,142 @@ Events.Encounters = [
 			}
 		}
 	},
-	/* Tier 3 */
+	/* =====================================================================
+	 * TIER 3  --  World.getDistance() > 20
+	 * ===================================================================== */
+	{ /* Hollow Monk */
+	title: _('A Hollow Monk'),
+		isAvailable: function() {
+			return World.getDistance() > 20 && World.getDistance() < 30 && World.getTerrain() == World.TILE.FOREST;
+		},
+		scenes: {
+			'start': {
+				combat: true,
+				enemy: 'hollow monk',
+				enemyName: _('hollow monk'),
+				deathMessage: _('the wounds stop closing.'),
+				chara: 'ø',
+				damage: 7,
+				specials: [{
+					delay: 7,
+					action: (fighter) => {
+						Events.setStatus(fighter, 'regenerating');
+						return _('knitting');
+					}
+				}],
+				hit: 0.8,
+				attackDelay: 1.5,
+				health: 40,
+				loot: {
+					'cloth': {
+						min: 2,
+						max: 5,
+						chance: 0.8
+					},
+					'medicine': {
+						min: 1,
+						max: 1,
+						chance: 0.3
+					},
+					'teeth': {
+						min: 1,
+						max: 3,
+						chance: 0.5
+					}
+				},
+				notification: _('it does not raise its head. the wounds on its arms are old, and closing.')
+			}
+		}
+	},
+	{ /* Chain-Gang Revenant */
+	title: _('A Chain-Gang Revenant'),
+		isAvailable: function() {
+			return World.getDistance() > 20 && World.getDistance() < 30 && World.getTerrain() == World.TILE.BARRENS;
+		},
+		scenes: {
+			'start': {
+				combat: true,
+				enemy: 'chain-gang revenant',
+				enemyName: _('chain-gang revenant'),
+				deathMessage: _('it falls. the shackle stays closed.'),
+				chara: '‡',
+				damage: 9,
+				specials: [{
+					delay: 8,
+					action: (fighter) => {
+						Events.setStatus(fighter, 'enraged');
+						return _('straining');
+					}
+				}],
+				hit: 0.75,
+				attackDelay: 2,
+				health: 45,
+				loot: {
+					'iron': {
+						min: 2,
+						max: 5,
+						chance: 0.9
+					},
+					'steel': {
+						min: 1,
+						max: 2,
+						chance: 0.4
+					},
+					'cloth': {
+						min: 1,
+						max: 3,
+						chance: 0.5
+					}
+				},
+				notification: _('it drags a length of chain behind it. the other end is still bolted to something.')
+			}
+		}
+	},
+	{ /* Carrion Drone */
+	title: _('A Carrion Drone'),
+		isAvailable: function() {
+			return World.getDistance() > 20 && World.getDistance() < 30 && World.getTerrain() == World.TILE.FIELD;
+		},
+		scenes: {
+			'start': {
+				combat: true,
+				enemy: 'carrion drone',
+				enemyName: _('carrion drone'),
+				deathMessage: _('the drone drops out of the air mid-sentence.'),
+				chara: 'd',
+				damage: 8,
+				specials: [{
+					delay: 6,
+					action: (fighter) => {
+						Events.setStatus(fighter, 'venomous');
+						return _('venomous');
+					}
+				}],
+				hit: 0.85,
+				attackDelay: 2,
+				ranged: true,
+				health: 32,
+				loot: {
+					'energy cell': {
+						min: 1,
+						max: 3,
+						chance: 0.7
+					},
+					'steel': {
+						min: 1,
+						max: 3,
+						chance: 0.6
+					},
+					'scales': {
+						min: 1,
+						max: 2,
+						chance: 0.3
+					}
+				},
+				notification: _('it hovers over the dead and recites a census that ended a long time ago.')
+			}
+		}
+	},
 	{ /* Feral Terror */
 		title: _('A Feral Terror'),
 		isAvailable: function() {
@@ -839,7 +1210,168 @@ Events.Encounters = [
 			}
 		}
 	},
-	/* Tier 4 */
+	/* =====================================================================
+	 * TIER 4  --  World.getDistance() > 29
+	 * Weighted toward barrens and forest, which each had only a single
+	 * tier 4 encounter before -- reaching the outer ring in either meant
+	 * fighting the same thing every time.
+	 * ===================================================================== */
+	{ /* Siege Automaton */
+	title: _('A Siege Automaton'),
+		isAvailable: function() {
+			return World.getDistance() > 29 && World.getTerrain() == World.TILE.BARRENS;
+		},
+		scenes: {
+			'start': {
+				combat: true,
+				enemy: 'siege automaton',
+				enemyName: _('siege automaton'),
+				deathMessage: _('the automaton kneels, and does not get up.'),
+				chara: 'Ω',
+				damage: 12,
+				specials: [
+					{
+						delay: 9,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'shield');
+							return _('plating');
+						}
+					},
+					{
+						/* Offset from the shield so the two don't fire together:
+						 * the automaton alternates between covering itself and
+						 * opening its housing to fire, which is the window. */
+						delay: 13,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'brittle');
+							return _('housing open');
+						}
+					}
+				],
+				hit: 0.85,
+				attackDelay: 2,
+				ranged: true,
+				health: 75,
+				loot: {
+					'steel': {
+						min: 2,
+						max: 5,
+						chance: 0.9
+					},
+					'energy cell': {
+						min: 2,
+						max: 4,
+						chance: 0.8
+					},
+					'alien alloy': {
+						min: 1,
+						max: 1,
+						chance: 0.3
+					}
+				},
+				notification: _('it was built to break a wall that is no longer standing. it settles for you.')
+			}
+		}
+	},
+	{ /* Grafted Colossus */
+	title: _('A Grafted Colossus'),
+		isAvailable: function() {
+			return World.getDistance() > 29 && World.getTerrain() == World.TILE.FOREST;
+		},
+		scenes: {
+			'start': {
+				combat: true,
+				enemy: 'grafted colossus',
+				enemyName: _('grafted colossus'),
+				deathMessage: _('all of it stops at once.'),
+				chara: 'Ħ',
+				damage: 12,
+				specials: [{
+					delay: 8,
+					action: (fighter) => {
+						Events.setStatus(fighter, 'regenerating');
+						return _('grafting');
+					}
+				}],
+				hit: 0.8,
+				attackDelay: 2,
+				health: 90,
+				loot: {
+					'leather': {
+						min: 3,
+						max: 6,
+						chance: 0.9
+					},
+					'teeth': {
+						min: 2,
+						max: 6,
+						chance: 0.8
+					},
+					'alien alloy': {
+						min: 1,
+						max: 1,
+						chance: 0.25
+					}
+				},
+				notification: _('too many limbs, and none of them agree on how old they are.')
+			}
+		}
+	},
+	{ /* Warden Echo */
+	title: _('A Warden Echo'),
+		isAvailable: function() {
+			return World.getDistance() > 29 && World.getTerrain() == World.TILE.FIELD;
+		},
+		scenes: {
+			'start': {
+				combat: true,
+				enemy: 'warden echo',
+				enemyName: _('warden echo'),
+				deathMessage: _('the shape thins out and is gone. the sound takes longer.'),
+				chara: 'Ξ',
+				damage: 13,
+				specials: [
+					{
+						delay: 7,
+						action: () => {
+							const player = $('#wanderer');
+							Events.setStatus(player, 'blinded');
+							Events.updateFighterDiv(player);
+							return _('unlit');
+						}
+					},
+					{
+						delay: 11,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'energised');
+							return _('energised');
+						}
+					}
+				],
+				hit: 0.85,
+				attackDelay: 1.5,
+				health: 70,
+				loot: {
+					'energy cell': {
+						min: 2,
+						max: 5,
+						chance: 0.8
+					},
+					'alien alloy': {
+						min: 1,
+						max: 2,
+						chance: 0.4
+					},
+					'steel': {
+						min: 1,
+						max: 3,
+						chance: 0.5
+					}
+				},
+				notification: _('it is still running a headcount. it has not been told the prison fell.')
+			}
+		}
+	},
 	{ /* Mutant */
 		title: _('A Mutant'),
 		isAvailable: function() {

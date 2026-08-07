@@ -280,10 +280,28 @@ var StateManager = {
 				$SM.set('features.location.world', true);
 				$SM.set('game.world.map', $SM.get('world.map'));
 				$SM.set('game.world.mask', $SM.get('world.mask'));
-				$SM.set('starved', $SM.get('character.starved', true));
-				$SM.set('dehydrated', $SM.get('character.dehydrated', true));
 				$SM.remove('world');
+			}
+			/* This pair was backwards and self-destructive: it read FROM
+			 * character.starved/character.dehydrated (which can't have data
+			 * yet -- populating that namespace is what this migration is
+			 * for) and wrote the result INTO the legacy top-level
+			 * starved/dehydrated keys, then deleted those same keys on the
+			 * very next line. Net effect: a pre-1.3 save's actual starved/
+			 * dehydrated counts were discarded, and character.starved/
+			 * character.dehydrated were never populated at all. Every
+			 * sibling migration in this block (punches, perks, thieves,
+			 * stolen, cityCleared, all below) reads the OLD key and writes
+			 * the NEW one, which is the pattern restored here. Inherited
+			 * from upstream doublespeakgames/adarkroom; not introduced by
+			 * this fork.
+			 */
+			if($SM.get('starved')){
+				$SM.set('character.starved', $SM.get('starved'));
 				$SM.remove('starved');
+			}
+			if($SM.get('dehydrated')){
+				$SM.set('character.dehydrated', $SM.get('dehydrated'));
 				$SM.remove('dehydrated');
 			}
 			if($SM.get('ship')){

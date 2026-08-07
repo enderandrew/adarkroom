@@ -20,6 +20,21 @@ var Events = {
 	BOOST_DURATION: 3000,
 	BOOST_DAMAGE: 10, // bonus damage added
 	DOT_TICK: 1000,
+	/* --- Status effects added by this fork ---------------------------------
+	 * A fighter has exactly one status at a time (it lives in a single
+	 * .data('status') slot), so these are mutually exclusive with each other
+	 * and with shield/energised/venomous/enraged/meditation/boost. That's an
+	 * existing constraint of the engine, not a new one, but it matters when
+	 * designing enemies: applying a status to a fighter clears whatever it
+	 * had before. setStatus() guards the player's shield specifically so an
+	 * enemy debuff can't strip an armour the player spent a cooldown on. */
+	BRITTLE_MULTIPLIER: 2,   // incoming damage multiplier while brittle
+	BRITTLE_DURATION: 4000,  // window the player has to punish a wind-up
+	REGEN_DURATION: 6000,    // total time spent regenerating
+	REGEN_TICK: 1000,        // how often a regenerating fighter heals
+	REGEN_AMOUNT: 4,         // hp restored per tick
+	BLIND_DURATION: 5000,    // how long reduced accuracy lasts
+	BLIND_ACCURACY: 0.4,     // to-hit multiplier while blinded
 	BLINK_INTERVAL: false,
 
 	init: function(options) {
@@ -175,6 +190,16 @@ var Events = {
 	},
 
 	setStatus: (fighter, status) => {
+		/* Debuffs must not silently eat a shield the player paid a cooldown
+		 * (and a kinetic armour) for. Everything else overwrites freely,
+		 * which is the engine's pre-existing single-slot behaviour. */
+		const DEBUFFS = ['brittle', 'blinded'];
+		if (fighter.attr('id') === 'wanderer' &&
+			fighter.data('status') === 'shield' &&
+			DEBUFFS.indexOf(status) !== -1) {
+			return;
+		}
+
 		fighter.data('status', status);
 		if (status === 'enraged' && fighter.attr('id') === 'enemy') {
 			Events.startEnemyAttacks(0.5);
@@ -194,6 +219,62 @@ var Events = {
 				fighter.data('status', 'none');
 			}, Events.BOOST_DURATION);
 		}
+		/* Brittle is consumed by the next hit that lands (see damage()), but
+		 * it also times out on its own -- otherwise a fighter that never gets
+		 * hit stays vulnerable for the rest of the fight, and the wind-up
+		 * stops reading as a window the player has to actually seize. */
+		if (status === 'brittle') {
+			setTimeout(() => {
+				if (fighter.data('status') === 'brittle') {
+					fighter.data('status', 'none');
+					Events.updateFighterDiv(fighter);
+				}
+			}, Events.BRITTLE_DURATION);
+		}
+		if (status === 'blinded') {
+			setTimeout(() => {
+				if (fighter.data('status') === 'blinded') {
+					fighter.data('status', 'none');
+					Events.updateFighterDiv(fighter);
+				}
+			}, Events.BLIND_DURATION);
+		}
+		if (status === 'regenerating') {
+			clearInterval(Events._regenTimer);
+			Events._regenTimer = setInterval(() => {
+				Events.healOverTime(fighter, Events.REGEN_AMOUNT);
+			}, Events.REGEN_TICK);
+			setTimeout(() => {
+				clearInterval(Events._regenTimer);
+				if (fighter.data('status') === 'regenerating') {
+					fighter.data('status', 'none');
+					Events.updateFighterDiv(fighter);
+				}
+			}, Events.REGEN_DURATION);
+		}
+	},
+
+	/* Mirror of dotDamage(): restores hp instead of removing it, capped at the
+	 * fighter's maxHp so a regenerating enemy can't heal past its own bar. */
+	healOverTime: (target, amount) => {
+		const maxHp = target.data('maxHp');
+		const current = target.data('hp');
+		if (current <= 0) {
+			// Already dead this tick -- don't resurrect it mid-animation.
+			return;
+		}
+		const hp = Math.min(maxHp, current + amount);
+		const healed = hp - current;
+		if (healed <= 0) {
+			return;
+		}
+		target.data('hp', hp);
+		if (target.attr('id') == 'wanderer') {
+			World.setHp(hp);
+			Events.setHeal();
+		}
+		Events.updateFighterDiv(target);
+		Events.drawFloatText(`+${healed}`, $('.hp', target));
 	},
 
 	setPause: function(btn, state){
@@ -538,7 +619,11 @@ var Events = {
 				World.updateSupplies();
 			}
 			var dmg = -1;
-			if(Math.random() <= World.getHitChance()) {
+			var toHit = World.getHitChance();
+			if($('#wanderer').data('status') === 'blinded') {
+				toHit *= Events.BLIND_ACCURACY;
+			}
+			if(Math.random() <= toHit) {
 				dmg = weapon.damage;
 				if(typeof dmg == 'number') {
 					if(weapon.type == 'unarmed' && $SM.hasPerk('boxer')) {
@@ -638,6 +723,7 @@ var Events = {
 		const energised = fighter.data('status') === 'energised';
 		const venomous = fighter.data('status') === 'venomous';
 		const meditating = enemy.data('status') === 'meditation';
+		const brittle = enemy.data('status') === 'brittle';
 		if(typeof dmg == 'number') {
 			if(dmg <= 0) {
 				msg = _('miss');
@@ -645,6 +731,14 @@ var Events = {
 			} else {
 				if (energised) {
 					dmg *= this.ENERGISE_MULTIPLIER;
+				}
+
+				/* Brittle is a defender-side vulnerability: whatever lands
+				 * next hits for more. Applied after the attacker's own
+				 * buffs so an energised hit into a brittle target stacks,
+				 * which is the intended payoff for lining the two up. */
+				if (brittle) {
+					dmg = Math.floor(dmg * Events.BRITTLE_MULTIPLIER);
 				}
 
 				if (meditating) {
@@ -670,6 +764,11 @@ var Events = {
 
 				if (shielded) {
 					// shields break in one hit
+					enemy.data('status', 'none');
+				}
+
+				// brittle is spent by the hit that exploited it
+				if (brittle) {
 					enemy.data('status', 'none');
 				}
 
@@ -761,6 +860,9 @@ var Events = {
 		if(!stunned && !meditating) {
 			var toHit = scene.hit;
 			toHit *= $SM.hasPerk('evasive') ? 0.8 : 1;
+			if (enemy.data('status') === 'blinded') {
+				toHit *= Events.BLIND_ACCURACY;
+			}
 			var dmg = -1;
 			if ((Events._meditateDmg ?? 0) > 0) {
 				dmg = Events._meditateDmg;
@@ -795,6 +897,7 @@ var Events = {
 		clearInterval(Events._enemyAttackTimer);
 		Events._specialTimers.forEach(clearInterval);
 		clearInterval(Events._dotTimer);
+		clearInterval(Events._regenTimer);
 	},		
 		
 	endFight: function() {
@@ -810,7 +913,7 @@ var Events = {
 			}
 			// World.setHp(World.getMaxHealth());
 			Events.endFight();
-			if(!$SM.get('character.kills')) $SM.set('character.kills', -0);
+			if(!$SM.get('character.kills')) $SM.set('character.kills', 0);
 			$SM.add('character.kills', 1);
 			AudioEngine.playSound(AudioLibrary.WIN_FIGHT);
 			$('#enemy').animate({opacity: 0}, 300, 'linear', function() {

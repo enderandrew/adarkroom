@@ -36,6 +36,8 @@ Events.Global = [
 					$SM.set('game.thieves', 2);
 					$SM.remove('income.thieves');
 					$SM.addM('stores', $SM.get('game.stolen'));
+					// executing a bound, unarmed captive for a property crime
+					$SM.add('character.karma', -3);
 				},
 				buttons: {
 					'leave': {
@@ -53,6 +55,7 @@ Events.Global = [
 					$SM.set('game.thieves', 2);
 					$SM.remove('income.thieves');
 					$SM.addPerk('stealthy');
+					$SM.add('character.karma', 2);
 				},
 				buttons: {
 					'leave': {
