@@ -36,6 +36,8 @@ var World = {
 	MOVES_PER_WATER: 1,
 	DEATH_COOLDOWN: 120,
 	FIGHT_CHANCE: 0.20,
+	ROAD_EVENT_CHANCE: 0.10,   // chance per eligible step of a roadside event
+	ROAD_EVENT_DELAY: 5,       // steps after one before another can fire
 	BASE_HEALTH: 10,
 	BASE_HIT_CHANCE: 0.8,
 	MEAT_HEAL: 8,
@@ -402,6 +404,18 @@ var World = {
 	},
 
 	move: function(direction) {
+		/* World.die() sets World.state = null immediately, but the ~600ms
+		 * fade-out (plus a further ~2000ms before Room.onArrival() re-enables
+		 * input) happens before Engine.activeModule actually switches to
+		 * Room. World.click() is bound directly to #map with jQuery's
+		 * .click() rather than routed through Engine's activeModule-aware
+		 * dispatcher (unlike keyDown/swipe), so it has no guard of its own --
+		 * a click on the map during that window reached here with a null
+		 * World.state and crashed. Engine.keyLock is already true for the
+		 * whole window, so it doubles as the right guard here too. */
+		if (!World.state || Engine.keyLock) {
+			return;
+		}
 		var oldTile = World.state.map[World.curPos[0]][World.curPos[1]];
 		World.curPos[0] += direction[0];
 		World.curPos[1] += direction[1];
@@ -608,6 +622,39 @@ var World = {
 		}
 	},
 
+	/* Non-combat roadside events, tiered by distance the same way the combat
+	 * encounters are.
+	 *
+	 * These can't go through Events.EventPool: that pool fires on a global
+	 * timer and every event in it gates on Engine.activeModule being Room,
+	 * Outside or Path, so nothing in it can ever reach the world map. Tying
+	 * these to movement instead is also what makes distance tiers meaningful
+	 * -- an event that fires on a timer has no idea how far out you are.
+	 *
+	 * Shares the fightMove counter deliberately: a step that produces a fight
+	 * should not also produce a roadside event on top of it. */
+	checkRoadEvent: function() {
+		World.roadMove = typeof World.roadMove == 'number' ? World.roadMove : 0;
+		World.roadMove++;
+		if(World.roadMove > World.ROAD_EVENT_DELAY) {
+			if(Math.random() < World.ROAD_EVENT_CHANCE) {
+				var available = [];
+				for(var i in Events.Road) {
+					var event = Events.Road[i];
+					if(event.isAvailable()) {
+						available.push(event);
+					}
+				}
+				if(available.length > 0) {
+					World.roadMove = 0;
+					Events.startEvent(available[Math.floor(Math.random() * available.length)]);
+					return true;
+				}
+			}
+		}
+		return false;
+	},
+
 	doSpace: function() {
 		var curTile = World.state.map[World.curPos[0]][World.curPos[1]];
 
@@ -623,7 +670,10 @@ var World = {
 			}
 		} else {
 			if(World.useSupplies()) {
-				World.checkFight();
+				// A roadside event consumes the step; don't also roll a fight.
+				if(!World.checkRoadEvent()) {
+					World.checkFight();
+				}
 			}
 		}
 	},
@@ -1234,6 +1284,7 @@ var World = {
 		World.setHp(World.getMaxHealth());
 		World.foodMove = 0;
 		World.waterMove = 0;
+		World.roadMove = 0;
 		World.starvation = false;
 		World.thirst = false;
 		World.usedOutposts = {};

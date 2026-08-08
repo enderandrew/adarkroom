@@ -78,11 +78,44 @@ sandbox.$.extend = Object.assign;
 	'Notifications', 'Button', 'Header', 'AudioEngine', 'Fabricator', 'Prestige',
 	'Score', 'Dropbox', 'Localization', 'Hotkeys'].forEach(m => { sandbox[m] = stub(m); });
 
+/* A nextScene may be a function whose result depends on live game state --
+ * karma-weighted outcomes use this. To resolve those here, $SM needs to return
+ * real numbers rather than the generic proxy, or the arithmetic inside
+ * Events.karmaOdds() yields NaN and the resulting table can't be validated. */
+let smGetCalls = 0;
+sandbox.$SM = {
+	/* Numeric when a zero default is requested, so the arithmetic inside
+	 * Events.karmaOdds() produces a real table rather than NaN.
+	 *
+	 * Otherwise this alternates truthy/falsy on each call. A nextScene may
+	 * branch on a story flag ($SM.get('game.metOldWanderer'), say) and a stub
+	 * that always returned undefined would only ever walk one side of that
+	 * branch -- the other scene would then look unreachable and get reported
+	 * as an orphan. Alternating means repeated calls explore both. */
+	get: (key, requestZero) => {
+		/* Cycles through representative values rather than returning a fixed
+		 * 0. A nextScene may band on a numeric stat -- character.karma, most
+		 * obviously -- and a stub pinned at 0 would only ever reach the middle
+		 * band, leaving every other outcome scene looking like an orphan.
+		 * Spans negative, zero and positive at both small and large magnitude
+		 * so all bands are reachable across repeated resolution. */
+		if (requestZero) {
+			const values = [0, 40, 10, -10, -40];
+			return values[smGetCalls++ % values.length];
+		}
+		return (smGetCalls++ % 2 === 0) ? undefined : true;
+	},
+	hasPerk: () => false,
+	set: () => {}, add: () => {}, addM: () => {}, remove: () => {}, addPerk: () => {},
+	setM: () => {}, num: () => 0
+};
+
 const context = vm.createContext(sandbox);
 
 const FILES = [
 	'script/audioLibrary.js', 'script/events.js',
 	'script/events/global.js', 'script/events/room.js', 'script/events/outside.js',
+	'script/events/path.js', 'script/events/road.js',
 	'script/events/encounters.js', 'script/events/setpieces.js',
 	'script/events/marketing.js', 'script/events/executioner.js'
 ];
@@ -127,6 +160,32 @@ function auditEvent(event, label) {
 
 		const checkNextScene = (table, description) => {
 			if (table === undefined) return;
+
+			/* A nextScene may be a function returning a scene name or a
+			 * probability table, so its outcomes depend on live state. Call it
+			 * a number of times and validate the union of everything it can
+			 * return -- a karma-weighted table returns different thresholds at
+			 * different karma levels, but the same set of scene names, which is
+			 * what actually needs checking for dangling references. */
+			if (typeof table === 'function') {
+				const seen = [];
+				for (let i = 0; i < 25; i++) {
+					let result;
+					try {
+						result = table();
+					} catch (err) {
+						record('MISSING SCENE', where, `${description} threw when called: ${err.message}`);
+						return;
+					}
+					if (result === undefined || result === null) {
+						record('MISSING SCENE', where, `${description} returned nothing`);
+						return;
+					}
+					seen.push(result);
+				}
+				seen.forEach(r => checkNextScene(r, `${description} (dynamic)`));
+				return;
+			}
 
 			if (typeof table === 'string') {
 				if (table !== 'end') {
@@ -231,7 +290,7 @@ function auditDuplicateThresholds() {
 
 const pools = {
 	Global: Events.Global, Room: Events.Room, Outside: Events.Outside,
-	Encounters: Events.Encounters, Marketing: Events.Marketing
+	Path: Events.Path, Road: Events.Road, Encounters: Events.Encounters, Marketing: Events.Marketing
 };
 for (const [poolName, pool] of Object.entries(pools)) {
 	(pool || []).forEach((event, index) => auditEvent(event, `${poolName}[${index}] "${event && event.title}"`));

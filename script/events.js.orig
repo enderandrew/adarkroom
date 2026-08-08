@@ -48,7 +48,6 @@ var Events = {
 			Events.Global,
 			Events.Room,
 			Events.Outside,
-			Events.Path,
 			Events.Marketing
 		);
 
@@ -130,31 +129,29 @@ var Events = {
 		var btns = $('#buttons', Events.eventPanel());
 
 		var attackBtns = $('<div>').appendTo(btns).attr('id','attackButtons');
-		/* Fists are always available, full stop. This used to be gated behind
-		 * a numWeapons counter meant to detect "the player has no weapons at
-		 * all" -- but the counter was wrong: for each carried weapon it
-		 * decremented once per unaffordable cost resource and then
-		 * unconditionally incremented once more, so a single-resource-cost
-		 * weapon with insufficient ammo (e.g. a rifle with 0 bullets) netted
-		 * to zero instead of being excluded. That only produced the correct
-		 * "no usable weapons" result by coincidence, when the unusable
-		 * ranged weapon was the ONLY weapon carried. Carrying anything else
-		 * usable alongside it (e.g. grenades) pushed the count above zero
-		 * and hid fists entirely -- leaving the player with a disabled rifle
-		 * button and nothing to fall back on once the other weapon's ammo
-		 * ran out too. Rather than patch the arithmetic, fists is just
-		 * always shown: it has no ammo cost, so there's never a reason to
-		 * hide it. */
-		Events.createAttackButton('fists').appendTo(attackBtns);
+		var numWeapons = 0;
 		for(var k in World.Weapons) {
-			if(k === 'fists') continue;
 			var weapon = World.Weapons[k];
-			/* No damage-type filtering here: bolas and disruptor deal a
-			 * non-numeric 'stun' rather than a number, and are legitimate
-			 * attack options whenever carried, same as any other weapon. */
 			if(typeof Path.outfit[k] == 'number' && Path.outfit[k] > 0) {
+				if(typeof weapon.damage != 'number' || weapon.damage === 0) {
+					// Weapons that deal no damage don't count
+					numWeapons--;
+				} else if(weapon.cost){
+					for(var c in weapon.cost) {
+						var num = weapon.cost[c];
+						if(typeof Path.outfit[c] != 'number' || Path.outfit[c] < num) {
+							// Can't use this weapon, so don't count it
+							numWeapons--;
+						}
+					}
+				}
+				numWeapons++;
 				Events.createAttackButton(k).appendTo(attackBtns);
 			}
+		}
+		if(numWeapons === 0) {
+			// No weapons? You can punch stuff!
+			Events.createAttackButton('fists').prependTo(attackBtns);
 		}
 		$('<div>').addClass('clear').appendTo(attackBtns);
 
@@ -935,22 +932,6 @@ var Events = {
 		return false;
     },
 
-	/* Death from a non-combat event -- a lethal scavenge, say.
-	 *
-	 * checkPlayerDeath() can't be reused: it reads $('#wanderer').data('hp'),
-	 * which only exists while a fight is on screen. This mirrors the same
-	 * sequence it uses (clear timers, tear the event down, then World.die()).
-	 *
-	 * endEvent() must be called exactly once -- its animation callback does
-	 * Events.activeEvent().eventPanel = null, so a second call finds an empty
-	 * stack and throws on null. Any button using this must therefore NOT also
-	 * declare a nextScene, or gotoNextScene would end the event a second time. */
-	killPlayer: function() {
-		Events.clearTimeouts();
-		Events.endEvent();
-		World.die();
-	},
-
 	clearTimeouts: () => {
 		clearInterval(Events._enemyAttackTimer);
 		Events._specialTimers.forEach(clearInterval);
@@ -1506,13 +1487,7 @@ var Events = {
 					World.setWater(World.water - info.cost[store]);
 				}
 				else if (store === 'hp') {
-					/* World.hp does not exist -- the health property is
-					 * World.health (see World.setHp and the #healthCounter
-					 * readout). This computed undefined - N = NaN and handed
-					 * it to setHp, so any button with a cost:{hp:N} silently
-					 * set the player's health to NaN for the rest of the run.
-					 * Reachable today from the Executioner's engineering wing. */
-					World.setHp(World.health - info.cost[store]);
+					World.setHp(World.hp - info.cost[store]);
 				}
 				else {
 					costMod[store] = -info.cost[store];

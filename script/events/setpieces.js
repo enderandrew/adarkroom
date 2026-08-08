@@ -78,6 +78,11 @@ Events.Setpieces = {
 				onLoad: function() {
 					$SM.addPerk('gastronome');
 					World.markVisited(World.curPos[0], World.curPos[1]);
+					/* This is the scene where he says outright that he led the
+					 * great fleets. Recorded so other content can assume the
+					 * player has heard his voice and knows what he was --
+					 * The Signal's muster order keys off this. */
+					$SM.set('game.metOldWanderer', true);
 				},
 				buttons: {
 					'leave': {

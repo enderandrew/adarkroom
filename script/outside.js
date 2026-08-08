@@ -245,6 +245,24 @@ var Outside = {
 		Outside.schedulePopIncrease();
 	},
 	
+	/* Adds villagers without exceeding the space the huts actually provide.
+	 *
+	 * increasePopulation() above computes its own count from available space,
+	 * so it can't overfill. Events that hand the player a specific number of
+	 * new arrivals need this instead -- a bare $SM.add('game.population', n)
+	 * would put people in the village with nowhere to live, and
+	 * getMaxPopulation() would then disagree with the population counter for
+	 * the rest of the run. Returns how many were actually housed. */
+	addVillagers: function(num) {
+		var space = Outside.getMaxPopulation() - $SM.get('game.population', true);
+		var added = Math.max(0, Math.min(num, space));
+		if(added > 0) {
+			$SM.add('game.population', added);
+		}
+		Outside.updateVillage();
+		return added;
+	},
+
 	killVillagers: function(num) {
 		$SM.add('game.population', num * -1);
 		if($SM.get('game.population') < 0) {

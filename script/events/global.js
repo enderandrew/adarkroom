@@ -24,6 +24,19 @@ Events.Global = [
 					'spare': {
 						text: _('spare him'),
 						nextScene: {1: 'spare'}
+					},
+					/* A third path: neither execution nor exile. The village
+					 * has a use for a man who knows how to get into a store
+					 * room unseen. Whether that generosity is repaid is
+					 * karma-weighted -- a village led by someone with a
+					 * reputation for mercy has an easier time making mercy
+					 * stick, and one led by a tyrant does not. */
+					'work': {
+						text: _('put him to work'),
+						onChoose: function() { $SM.add('character.karma', 3); },
+						nextScene: function() {
+							return Events.karmaOdds(0.45, 'workBadly', 'workWell');
+						}
 					}
 				}
 			},
@@ -56,6 +69,53 @@ Events.Global = [
 					$SM.remove('income.thieves');
 					$SM.addPerk('stealthy');
 					$SM.add('character.karma', 2);
+				},
+				buttons: {
+					'leave': {
+						text: _('leave'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'workWell': {
+				text: [
+					_('he is put on the store room door instead of behind it.'),
+					_("nothing goes missing again. his folk come in from the cold, and they work."),
+					_('he never says thank you. he does not need to.')
+				],
+				notification: _('the thief works off his debt'),
+				onLoad: function() {
+					$SM.set('game.thieves', 2);
+					$SM.remove('income.thieves');
+					$SM.addM('stores', $SM.get('game.stolen'));
+					$SM.addPerk('stealthy');
+				},
+				buttons: {
+					'leave': {
+						text: _('leave'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'workBadly': {
+				text: [
+					_('he works the store room door for a week.'),
+					_('on the eighth morning the door is open, and he is not behind it.'),
+					_('so are the shelves.')
+				],
+				notification: _('the thief takes what he was given and goes'),
+				onLoad: function() {
+					$SM.set('game.thieves', 2);
+					$SM.remove('income.thieves');
+					/* No return of the stolen goods, and a further bite --
+					 * but the karma gained for the attempt is NOT clawed back.
+					 * Mercy that goes unrewarded is still mercy. */
+					var loss = {};
+					var stolen = $SM.get('game.stolen') || {};
+					for(var k in stolen) {
+						loss[k] = -Math.floor(($SM.get('stores["' + k + '"]', true)) * 0.1);
+					}
+					$SM.addM('stores', loss);
 				},
 				buttons: {
 					'leave': {
