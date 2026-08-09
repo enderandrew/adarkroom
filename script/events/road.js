@@ -84,12 +84,29 @@ Events.Road = [
 				}
 			},
 			'scratches': {
-				text: [
-					_('sixty-one.'),
-					_('somebody has come out this far sixty-one times and put something on this pile, and gone back.'),
-					_('the pile is not a marker. it is a tally of trips that ended here.')
-				],
-				notification: _('sixty-one trips ended at this pile'),
+				/* Reads differently once the player has finished a run. The
+				 * cycle is not stated anywhere -- the tell is that the hand is
+				 * recognisable and the memory is not. */
+				text: function() {
+					if(Prestige.hasCompletedRun()) {
+						return [
+							_('sixty-one.'),
+							_('the scratches are not all the same. the last dozen are cut at an angle, short, by somebody holding the blade the way you hold a blade.'),
+							_('it is your hand. it is unmistakably your hand.'),
+							_('you do not remember being here. you do not remember any of the sixty-one.')
+						];
+					}
+					return [
+						_('sixty-one.'),
+						_('somebody has come out this far sixty-one times and put something on this pile, and gone back.'),
+						_('the pile is not a marker. it is a tally of trips that ended here.')
+					];
+				},
+				notification: function() {
+					return Prestige.hasCompletedRun() ?
+						_('the last dozen scratches are in your hand') :
+						_('sixty-one trips ended at this pile');
+				},
 				buttons: {
 					'end': {
 						text: _('walk on'),
@@ -180,11 +197,18 @@ Events.Road = [
 				}
 			},
 			'peg': {
-				text: [
-					_('the peg has been re-cut so many times it is more notch than peg.'),
-					_('the oldest marks underneath are not weathered the same way as the wood around them.'),
-					_('they are not cut. they are stamped, evenly, by something that was not a knife.')
-				],
+				text: function() {
+					var base = [
+						_('the peg has been re-cut so many times it is more notch than peg.'),
+						_('the oldest marks underneath are not weathered the same way as the wood around them.'),
+						_('they are not cut. they are stamped, evenly, by something that was not a knife.')
+					];
+					if(Prestige.hasCompletedRun()) {
+						base.push(_('over the top of the stamped ones, newer and shallower, somebody has cut the same three letters again and again.'));
+						base.push(_('you know the letters. you have never cut them into anything.'));
+					}
+					return base;
+				},
 				notification: _('the oldest marks on the peg were not cut by hand'),
 				buttons: {
 					'end': {
@@ -301,12 +325,26 @@ Events.Road = [
 				}
 			},
 			'marks': {
-				text: [
-					_('they are tallies, in groups of five, in at least four different hands.'),
-					_('the newest ones are cut into the oldest ones because there is no clean rock left to cut.'),
-					_('everybody who has sheltered under this rock has counted something, and nobody has written down what.')
-				],
-				notification: _('four hands have counted under this rock'),
+				text: function() {
+					if(Prestige.hasCompletedRun()) {
+						return [
+							_('they are tallies, in groups of five, in at least four different hands.'),
+							_('three of the four are strangers. the fourth is not.'),
+							_('the fourth hand is yours, and it has counted higher than any of the others, and you have no memory of a single night of it.')
+						];
+					}
+					return [
+						_('they are tallies, in groups of five, in at least four different hands.'),
+						_('the newest ones are cut into the oldest ones because there is no clean rock left to cut.'),
+						_('everybody who has sheltered under this rock has counted something, and nobody has written down what.')
+					];
+				},
+				notification: function() {
+					return Prestige.hasCompletedRun() ?
+						_('the fourth hand under the rock is yours') :
+						_('four hands have counted under this rock');
+				},
+
 				buttons: {
 					'end': {
 						text: _('move on at dawn'),
@@ -392,11 +430,24 @@ Events.Road = [
 				}
 			},
 			'trackFound': {
-				text: [
-					_('the trail goes half a day out and stops at a flat place with no cover.'),
-					_('the fourth pack is sitting upright in the middle of it, buckled, undisturbed.'),
-					_('the tracks go up to it and do not come away from it in any direction.')
-				],
+				text: function() {
+					return [
+						Events.pick([
+							_('the trail goes half a day out and stops at a flat place with no cover.'),
+							_('the trail runs straight for hours, which nothing walking on its own does, and then ends.'),
+							_('the trail doubles back on itself twice and then commits to a direction and stops in the open.')
+						]),
+						_('the fourth pack is sitting upright in the middle of it, buckled, undisturbed.'),
+						Events.pick([
+							_('the tracks go up to it and do not come away from it in any direction.'),
+							_('there is one set of prints in and none out, and the ground is soft enough that there would be.'),
+							_('the prints stop a pace short of the pack, both feet together, as if whoever it was had halted to be told something.'),
+							_('some of the tracks shift from two feet to crawling and then being dragged away.'),
+							_('the tracks eventually circle back which makes no sense whatsoever.'),
+							_('the tracks lead to a sheer rockface that would be a very difficult climb, even for the six arms of a Wanderer.'),
+						])
+					];
+				},
 				notification: _('the tracks stop, and do not continue'),
 				loot: {
 					'cured meat': { min: 5, max: 10, chance: 1 },
@@ -497,10 +548,20 @@ Events.Road = [
 				}
 			},
 			'signed': {
-				text: [
-					_('a mark goes on the underside of the stone, at the end of the list.'),
-					_('the list runs onto the back and down the side. it started a very long time before this.')
-				],
+				text: function() {
+					if(Prestige.hasCompletedRun()) {
+						return [
+							_('a mark goes on the underside of the stone, at the end of the list.'),
+							_('it lands next to one that is already the same mark, in the same hand, made the same way.'),
+							_('and the one before that. and four further up.'),
+							_('somebody with your hand has signed this stone five times. you are signing it for the first time.')
+						];
+					}
+					return [
+						_('a mark goes on the underside of the stone, at the end of the list.'),
+						_('the list runs onto the back and down the side. it started a very long time before this.')
+					];
+				},
 				buttons: {
 					'end': {
 						text: _('walk on'),
@@ -550,11 +611,21 @@ Events.Road = [
 				}
 			},
 			'saved': {
-				text: [
-					_('she gets the water down and then most of an hour later she can stand.'),
-					_('she has been walking east for eleven days on four days of supplies, which she is aware does not work.'),
-					_('she gives up what is left in her pack, which is not much, and starts back the way she came.')
-				],
+				text: function() {
+					return [
+						_('she gets the water down and then most of an hour later she can stand.'),
+						Events.pick([
+							_('she has been walking east for eleven days on four days of supplies, which she is aware does not work.'),
+							_('she has been walking since a settlement that she names, and that nobody has heard of, and that she is certain is two days behind her.'),
+							_('she says she stopped to think and could not work out how to start again. she says it took hours to notice.'),
+							_('she has been rationing to a schedule she wrote out beforehand. the schedule assumed the water would be where the map said.'),
+							_('she said kindness is rare here, but appreciated. she heard good things of you as of late.'),
+							_('she was coming to terms with the end, and now has to process what comes next.'),
+							_('she said someone found her hidden water cache and raided it. there was no contigency plan beyond that.'),
+						]),
+						_('she gives up what is left in her pack, which is not much, and starts back the way she came.')
+					];
+				},
 				notification: _('the walker is brought round'),
 				loot: {
 					'cloth': { min: 2, max: 6, chance: 0.8 },
@@ -573,11 +644,25 @@ Events.Road = [
 				}
 			},
 			'east': {
-				text: [
-					_('she says nothing is east. says she checked.'),
-					_('says she walked east because the last three people she asked all said something different, and east was the only direction nobody had ruled out.'),
-					_('says she is going to try north next, when she can walk properly.')
-				],
+				text: function() {
+					return [
+						Events.pick([
+							_('she says nothing is east. says she checked.'),
+							_('she says east was fine for nine days and then stopped being a direction.'),
+							_('she says there is nothing east, and then corrects herself, and says there is nothing east that stays where it is.'),
+							_('she says things that were east disappeared and other things that were east reappeared.'),
+						]),
+						_('says she walked east because the last three people she asked all said something different, and east was the only direction nobody had ruled out.'),
+						Events.pick([
+							_('says she is going to try north next, when she can walk properly.'),
+							_('says she is going to go back and ask better questions.'),
+							_('says she has stopped believing the answers and started keeping a list of who gave them.'),
+							_('says you cant always trust your memory of where you have been before. take notes.'),
+							_('says the compass in your hand shows more than hers.'),
+							_('says that sometimes all you can do is commit to a direction to avoid madness.'),
+						])
+					];
+				},
 				notification: _('nobody agrees on which way is out'),
 				buttons: {
 					'end': {
@@ -788,11 +873,25 @@ Events.Road = [
 				}
 			},
 			'waited': {
-				text: [
-					_('he arrives at dusk, alone, in armour that was very good once and has not been repaired in living memory.'),
-					_('he walks the ring, checks the vent, and starts back. he does not acknowledge anyone.'),
-					_('asked what he is guarding, he says the same thing he has been saying to nobody for a long time: that the wing is secure and the prisoner is held.')
-				],
+				text: function() {
+					return [
+						Events.pick([
+							_('he arrives at dusk, alone, in armour that was very good once and has not been repaired in living memory.'),
+							_('he arrives exactly at dusk, which he has clearly been doing for a very long time.'),
+							_('he comes out of the dark already walking the line, as though he had never stopped and simply became visible.'),
+							_('he arrives with a perfect uniform stride, stepping in his previous footprints.'),
+						]),
+						_('he walks the ring, checks the vent, and starts back. he does not acknowledge anyone.'),
+						Events.pick([
+							_('asked what he is guarding, he says that the wing is secure and the prisoner is held.'),
+							_('asked who he reports to, he gives a rank and a designation and waits, briefly, as though expecting to be dismissed.'),
+							_('asked how long he has been posted here, he says his relief is due, and does not say when it was due from.'),
+							_('asked anything at all, he answers it the way a man answers a question he has answered several thousand times.'),
+							_('asked what he is guarding, he responds that a good soldier follows orders without needing to know.'),
+							_('asked about the vent, he responds that where it leads is classified and that you no longer have Fleet access.'),
+						])
+					];
+				},
 				notification: _('the vent is being guarded by someone still on duty'),
 				loot: {
 					'steel': { min: 2, max: 6, chance: 0.8 },
@@ -856,11 +955,27 @@ Events.Road = [
 						text: _('cut the pack loose and climb'),
 						nextScene: { 1: 'dropped' }
 					},
-					/* Free but slow and dangerous. */
+					/* Free, but genuinely uncertain. Three outcomes rather than
+					 * a coin flip between "fine" and "fixed damage": a clean
+					 * escape, a bad climb that still gets you out, and a fall
+					 * that puts you back on the floor of the shaft with less
+					 * gear and the same decision to make again. */
 					'climb': {
 						text: _('climb with everything'),
 						nextScene: function() {
-							return Events.karmaOdds(0.5, 'climbBad', 'climbGood');
+							/* Built rather than written as a literal: object
+							 * literal keys can't be expressions, and these
+							 * thresholds shift with karma. Clamped so the two
+							 * bad outcomes never vanish entirely or crowd out
+							 * the clean one. */
+							var luck = Events.karmaLuck();
+							var fell = Math.max(0.10, Math.min(0.45, 0.30 - luck));
+							var hard = Math.max(fell + 0.15, Math.min(0.80, 0.65 - luck));
+							var table = {};
+							table[fell] = 'climbFell';
+							table[hard] = 'climbHard';
+							table[1] = 'climbClean';
+							return table;
 						}
 					},
 					'explore': {
@@ -892,12 +1007,18 @@ Events.Road = [
 					}
 				}
 			},
-			'climbGood': {
-				text: [
-					_('it takes most of the day and both hands are useless afterwards, but the pack comes up with you.'),
-					_('the dressed stone runs the whole height of the shaft. it is cut to a tolerance nothing in the village could manage.')
-				],
-				notification: _('the climb is made with everything'),
+			'climbClean': {
+				text: function() {
+					return [
+						Events.pick([
+							_('the holds are further apart than they look and it still goes first time.'),
+							_('it is easier with the pack on than without. the weight keeps you against the wall.'),
+							_('twenty minutes, no drama, and the pack never so much as shifts.')
+						]),
+						_('the dressed stone runs the whole height of the shaft. it is cut to a tolerance nothing in the village could manage.')
+					];
+				},
+				notification: _('the climb goes clean'),
 				buttons: {
 					'end': {
 						text: _('go on'),
@@ -905,11 +1026,18 @@ Events.Road = [
 					}
 				}
 			},
-			'climbBad': {
-				text: [
-					_('the climb goes badly about two thirds of the way up, and the second landing is worse than the first.'),
-					_('the pack comes up. so does most of the skin off one arm.')
-				],
+			'climbHard': {
+				text: function() {
+					return [
+						Events.pick([
+							_('it goes badly about two thirds of the way up, and the recovery is worse than the slip.'),
+							_('a hold gives out at head height and the catch is made with one arm and a lot of luck.'),
+							_('the last stretch is done wrong, fast, with the pack swinging, and it very nearly does not work.'),
+							_('if you fell here, would anyone find you? was the pack worth it? it nearly cost you dearly.'),
+						]),
+						_('the pack comes up. so does most of the skin off one arm.')
+					];
+				},
 				notification: _('the climb goes badly'),
 				onLoad: function() {
 					World.setHp(Math.max(1, World.health - 10));
@@ -918,6 +1046,62 @@ Events.Road = [
 					'end': {
 						text: _('go on'),
 						nextScene: 'end'
+					}
+				}
+			},
+			/* The interesting failure: you do not get out, you get returned.
+			 * Costs health and supplies, and puts the same three choices back
+			 * in front of a player who is now in a worse position to make
+			 * them. Cutting the pack loose is always still available, so this
+			 * can't trap anybody -- it just gets more expensive to be proud. */
+			'climbFell': {
+				text: function() {
+					var spoiled = Events.damageOutfit(0.25);
+					var lines = [
+						Events.pick([
+							_('the fall is short and it is not survivable-looking on the way down.'),
+							_('something gives, high up, and the shaft goes past very fast.'),
+							_('the pack catches on the way down and turns the fall into a scrape the whole height of the wall.'),
+							_('pride goeth before the fall. your pride is not the only thing that hurts.'),
+						]),
+						_('the floor of the shaft arrives. so does everything that was in the pack.')
+					];
+					if(spoiled.length > 0) {
+						lines.push(_('what is ruined: {0}.', spoiled.join(', ')));
+					}
+					lines.push(_('the walls are still dressed stone. the shaft still runs off level. the choice is the same one it was.'));
+					return lines;
+				},
+				notification: _('the climb fails, and the pack pays for it'),
+				onLoad: function() {
+					World.setHp(Math.max(1, World.health - 8));
+				},
+				buttons: {
+					'again': {
+						text: _('try the climb again'),
+						nextScene: function() {
+							/* Built rather than written as a literal: object
+							 * literal keys can't be expressions, and these
+							 * thresholds shift with karma. Clamped so the two
+							 * bad outcomes never vanish entirely or crowd out
+							 * the clean one. */
+							var luck = Events.karmaLuck();
+							var fell = Math.max(0.10, Math.min(0.45, 0.30 - luck));
+							var hard = Math.max(fell + 0.15, Math.min(0.80, 0.65 - luck));
+							var table = {};
+							table[fell] = 'climbFell';
+							table[hard] = 'climbHard';
+							table[1] = 'climbClean';
+							return table;
+						}
+					},
+					'drop': {
+						text: _('cut the pack loose and climb'),
+						nextScene: { 1: 'dropped' }
+					},
+					'explore': {
+						text: _('follow the shaft instead'),
+						nextScene: { 1: 'shaft' }
 					}
 				}
 			},
@@ -937,7 +1121,7 @@ Events.Road = [
 					},
 					'back': {
 						text: _('go back and climb out'),
-						nextScene: { 1: 'climbGood' }
+						nextScene: { 1: 'climbClean' }
 					}
 				}
 			},
@@ -1050,11 +1234,22 @@ Events.Road = [
 				}
 			},
 			'wokeGood': {
-				text: [
-					_('she comes back slowly, the way somebody surfaces rather than wakes.'),
-					_('she says she is waiting to be told she can stop. she says the order has not been given.'),
-					_('asked who is meant to give it, she turns her head very slightly further out, and does not answer, and goes back under.')
-				],
+				text: function() {
+					return [
+						_('she comes back slowly, the way somebody surfaces rather than wakes.'),
+						Events.pick([
+							_('she says she is waiting to be told she can stop. she says the order has not been given.'),
+							_('she says she is holding. she says holding is the whole of it and there is nothing after holding.'),
+							_('she asks whether it is over. told that nobody knows what "it" is, she says that is the correct answer and seems satisfied by it.'),
+							_('she says she was told to wait here and that the person who told her was extremely clear about it.'),
+							_('she says if you knew what she knew, you would be kneeling and holding like her.'),
+							_('she says if you wait long enough the Infinite Expanse cycle will restart.'),
+							_('she says the Mysterious Wanderer can answer better than she can.'),
+							_('she says it is mostly silence where voices and signals once were.'),
+						]),
+						_('asked who is meant to give it, she turns her head very slightly further out, and does not answer, and goes back under.')
+					];
+				},
 				notification: _('one of them surfaces, briefly'),
 				loot: {
 					'cloth': { min: 3, max: 8, chance: 0.8 },

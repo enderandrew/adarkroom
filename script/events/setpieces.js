@@ -94,6 +94,1616 @@ Events.Setpieces = {
 		},
 		audio: AudioLibrary.LANDMARK_SWAMP
 	},
+	"ruins": { /* Underground Ruins -- Infinite Expanse */
+		title: _('Underground Ruins'),
+		/* Deliberately larger than the town or the city: 8 combat scenes
+		 * across four descending depths, then a glyph lock. Every enemy is an
+		 * energy construct, so the whole location drops energy cells and laser
+		 * weaponry rather than the meat and iron the surface encounters give.
+		 *
+		 * Route structure: start -> one of two approaches -> a branching
+		 * descent -> the lock chamber. Leaving is available from every scene
+		 * except mid-combat, and the lock itself can always be walked away
+		 * from, so nothing here can strand a player who is out of supplies. */
+		scenes: {
+			'start': {
+				text: [
+					_('the ground opens into a stairwell that goes down further than the light does.'),
+					_('the walls are a single piece. no joins, no courses, no tool marks, and no wear where ten thousand years of feet should have worn them.'),
+					_('there are lights on down there. something is still supplying them.')
+				],
+				notification: _('a stairwell descends into ruins that are still powered'),
+				buttons: {
+					'descend': {
+						text: _('descend'),
+						cost: { 'torch': 1 },
+						nextScene: { 0.25: 'a1', 0.5: 'a2', 0.75: 'a3', 1: 'a4' }
+					},
+					'leave': {
+						text: _('leave'),
+						nextScene: 'end'
+					}
+				}
+			},
+
+			'a1': {
+				text: [
+					_("the stair ends in a hall with a ceiling too high to see."),
+					_("the floor is warm. not sun-warm. warm from underneath, evenly, everywhere.")
+				],
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						nextScene: { 0.34: 'b1', 0.67: 'b2', 1: 'b3' }
+					},
+					'leave': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'a2': {
+				text: [
+					_("a corridor runs off at an angle that does not match the stair."),
+					_("every surface is the same material, and it is neither cold nor metal nor stone, and a blade will not mark it.")
+				],
+				buttons: {
+					'continue': {
+						text: _('follow it'),
+						nextScene: { 0.34: 'b2', 0.67: 'b3', 1: 'b4' }
+					},
+					'leave': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'a3': {
+				text: [
+					_("the stairwell opens onto a landing with three doorways, all of them lit."),
+					_("the light has no source. it is simply brighter in here than it was out there.")
+				],
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						nextScene: { 0.34: 'b4', 0.67: 'b5', 1: 'b6' }
+					},
+					'leave': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'a4': {
+				text: [
+					_("the steps stop being steps and become a ramp, worn in a single track down the middle."),
+					_("something has gone up and down this a very great many times.")
+				],
+				buttons: {
+					'continue': {
+						text: _('follow the track'),
+						nextScene: { 0.34: 'b6', 0.67: 'b7', 1: 'b8' }
+					},
+					'leave': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'b1': {
+				combat: true,
+				notification: _("light gathers in the middle of the hall and stands up."),
+				enemy: 'lumen',
+				enemyName: _('lumen'),
+				deathMessage: _("the light comes apart and does not reassemble."),
+				chara: '\u2C00',
+				damage: 5,
+				hit: 0.8,
+				attackDelay: 2,
+				ranged: true,
+				health: 30,
+				loot: {
+					'energy cell': { min: 2, max: 5, chance: 1 },
+					'alien alloy': { min: 1, max: 1, chance: 0.1 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 0.5: 'c1', 1: 'c2' }
+					},
+					'leave': {
+						text: _('climb out'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: 'end'
+					}
+				}
+			},
+			'b2': {
+				combat: true,
+				notification: _("a shape steps out of the wall it was part of a moment ago."),
+				enemy: 'sentinel',
+				enemyName: _('sentinel'),
+				deathMessage: _("it folds back into the wall, and the wall does not close behind it."),
+				chara: '\u2C01',
+				damage: 7,
+				hit: 0.85,
+				attackDelay: 2,
+				ranged: true,
+				health: 42,
+				loot: {
+					'energy cell': { min: 3, max: 7, chance: 1 },
+					'laser rifle': { min: 1, max: 1, chance: 0.1 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 0.5: 'c2', 1: 'c3' }
+					},
+					'leave': {
+						text: _('climb out'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: 'end'
+					}
+				}
+			},
+			'b3': {
+				combat: true,
+				notification: _("two of them come down the corridor abreast, in step."),
+				enemy: 'paired lumen',
+				enemyName: _('paired lumen'),
+				deathMessage: _("both go out at the same instant."),
+				chara: '\u2C02',
+				damage: 6,
+				hit: 0.9,
+				attackDelay: 1.5,
+				ranged: true,
+				health: 38,
+				specials: [
+					{
+						delay: 7,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'energised');
+							return _('charging');
+						}
+					}
+				],
+				loot: {
+					'energy cell': { min: 3, max: 8, chance: 1 },
+					'alien alloy': { min: 1, max: 1, chance: 0.15 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 0.5: 'c3', 1: 'c4' }
+					},
+					'leave': {
+						text: _('climb out'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: 'end'
+					}
+				}
+			},
+			'b4': {
+				text: [
+					_("a bank of recesses runs the length of the wall, each one holding a slotted cell."),
+					_("most are dead. a few still have something left in them.")
+				],
+				notification: _("a bank of cells, most of them dead"),
+				loot: {
+					'energy cell': { min: 4, max: 10, chance: 1 }
+				},
+				buttons: {
+					'continue': {
+						text: _('take what is live'),
+						nextScene: { 0.5: 'c4', 1: 'c9' }
+					},
+					'leave': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'b5': {
+				combat: true,
+				notification: _("the doorway ahead fills with something that was not standing there."),
+				enemy: 'ward',
+				enemyName: _('ward'),
+				deathMessage: _("it thins out from the edges inward."),
+				chara: '\u2C03',
+				damage: 8,
+				hit: 0.85,
+				attackDelay: 1.8,
+				ranged: true,
+				health: 46,
+				loot: {
+					'energy cell': { min: 3, max: 8, chance: 1 },
+					'alien alloy': { min: 1, max: 1, chance: 0.12 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 0.5: 'c5', 1: 'c6' }
+					},
+					'leave': {
+						text: _('climb out'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: 'end'
+					}
+				}
+			},
+			'b6': {
+				combat: true,
+				notification: _("something small and very fast comes along the ceiling."),
+				enemy: 'skitter',
+				enemyName: _('skitter'),
+				deathMessage: _("it drops, and stops."),
+				chara: '\u2C04',
+				damage: 5,
+				hit: 0.95,
+				attackDelay: 1,
+				ranged: true,
+				health: 28,
+				specials: [
+					{
+						delay: 6,
+						action: () => {
+							const player = $('#wanderer');
+							Events.setStatus(player, 'blinded');
+							Events.updateFighterDiv(player);
+							return _('flare');
+						}
+					}
+				],
+				loot: {
+					'energy cell': { min: 2, max: 6, chance: 1 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 0.5: 'c6', 1: 'c10' }
+					},
+					'leave': {
+						text: _('climb out'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: 'end'
+					}
+				}
+			},
+			'b7': {
+				text: [
+					_("a room of columns, each one carrying a column of glyphs from floor to ceiling."),
+					_("they are not carved. they are lit from inside the material, and they change while you watch, slowly.")
+				],
+				notification: _("the columns are writing something, very slowly"),
+				buttons: {
+					'continue': {
+						text: _('go through'),
+						nextScene: { 0.5: 'c7', 1: 'c11' }
+					},
+					'leave': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'b8': {
+				combat: true,
+				notification: _("the ramp track ends at something that has been waiting at the bottom of it."),
+				enemy: 'treader',
+				enemyName: _('treader'),
+				deathMessage: _("it settles onto the ramp and stops."),
+				chara: '\u2C05',
+				damage: 9,
+				hit: 0.8,
+				attackDelay: 2,
+				ranged: true,
+				health: 52,
+				loot: {
+					'energy cell': { min: 4, max: 9, chance: 1 },
+					'laser rifle': { min: 1, max: 1, chance: 0.12 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 0.5: 'c8', 1: 'c12' }
+					},
+					'leave': {
+						text: _('climb out'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: 'end'
+					}
+				}
+			},
+			'c1': {
+				text: [
+					_("a gallery of alcoves, each holding a shape that is almost a person and is not."),
+					_("they are not statues. they are not switched on either.")
+				],
+				buttons: {
+					'continue': {
+						text: _('go deeper'),
+						nextScene: { 0.5: 'd1', 1: 'd2' }
+					},
+					'leave': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'c2': {
+				combat: true,
+				notification: _("the alcove ahead is empty, and something is already behind you."),
+				enemy: 'warden construct',
+				enemyName: _('warden construct'),
+				deathMessage: _("it discorporates without any sound at all."),
+				chara: '\u2C00',
+				damage: 9,
+				hit: 0.85,
+				attackDelay: 1.5,
+				ranged: true,
+				health: 55,
+				specials: [
+					{
+						delay: 8,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'shield');
+							return _('shielded');
+						}
+					}
+				],
+				loot: {
+					'energy cell': { min: 4, max: 9, chance: 1 },
+					'laser rifle': { min: 1, max: 1, chance: 0.15 },
+					'alien alloy': { min: 1, max: 1, chance: 0.15 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 0.5: 'd2', 1: 'd3' }
+					},
+					'leave': {
+						text: _('climb out'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: 'end'
+					}
+				}
+			},
+			'c3': {
+				combat: true,
+				notification: _("the corridor lights ahead of you, one section at a time, coming closer."),
+				enemy: 'coil',
+				enemyName: _('coil'),
+				deathMessage: _("the light in the corridor goes out behind it, section by section."),
+				chara: '\u2C01',
+				damage: 8,
+				hit: 0.9,
+				attackDelay: 1.2,
+				ranged: true,
+				health: 48,
+				specials: [
+					{
+						delay: 6,
+						action: () => {
+							const player = $('#wanderer');
+							Events.setStatus(player, 'blinded');
+							Events.updateFighterDiv(player);
+							return _('overload');
+						}
+					}
+				],
+				loot: {
+					'energy cell': { min: 5, max: 10, chance: 1 },
+					'alien alloy': { min: 1, max: 1, chance: 0.15 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 0.5: 'd3', 1: 'd4' }
+					},
+					'leave': {
+						text: _('climb out'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: 'end'
+					}
+				}
+			},
+			'c4': {
+				text: [
+					_("a shaft drops away with no stair and no rail, and the far side is lit."),
+					_("there are handholds cut into the wall. they are cut for a hand with more fingers than yours.")
+				],
+				buttons: {
+					'continue': {
+						text: _('climb down'),
+						nextScene: { 0.5: 'd4', 1: 'd5' }
+					},
+					'leave': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'c5': {
+				combat: true,
+				notification: _("the floor ahead is not flat, and then it is not floor."),
+				enemy: 'crawler',
+				enemyName: _('crawler'),
+				deathMessage: _("it flattens back out and stays flat."),
+				chara: '\u2C02',
+				damage: 10,
+				hit: 0.82,
+				attackDelay: 1.6,
+				health: 58,
+				loot: {
+					'energy cell': { min: 5, max: 10, chance: 1 },
+					'alien alloy': { min: 1, max: 1, chance: 0.15 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 0.5: 'd5', 1: 'd6' }
+					},
+					'leave': {
+						text: _('climb out'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: 'end'
+					}
+				}
+			},
+			'c6': {
+				combat: true,
+				notification: _("three lights come round the corner at head height, evenly spaced."),
+				enemy: 'chorus',
+				enemyName: _('chorus'),
+				deathMessage: _("the three go out in sequence, left to right."),
+				chara: '\u2C03',
+				damage: 9,
+				hit: 0.9,
+				attackDelay: 1.3,
+				ranged: true,
+				health: 50,
+				specials: [
+					{
+						delay: 7,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'energised');
+							return _('resonating');
+						}
+					}
+				],
+				loot: {
+					'energy cell': { min: 5, max: 11, chance: 1 },
+					'laser rifle': { min: 1, max: 1, chance: 0.15 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 0.5: 'd6', 1: 'd7' }
+					},
+					'leave': {
+						text: _('climb out'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: 'end'
+					}
+				}
+			},
+			'c7': {
+				text: [
+					_("a long room, entirely empty, with a single chair at the far end facing away."),
+					_("the chair is the only thing down here built for sitting in.")
+				],
+				notification: _("one chair, facing away"),
+				buttons: {
+					'continue': {
+						text: _('cross the room'),
+						nextScene: { 0.5: 'd7', 1: 'd8' }
+					},
+					'leave': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'c8': {
+				combat: true,
+				notification: _("something detaches from the ceiling of the column room."),
+				enemy: 'scribe',
+				enemyName: _('scribe'),
+				deathMessage: _("the glyphs on the nearest column stop changing."),
+				chara: '\u2C04',
+				damage: 10,
+				hit: 0.88,
+				attackDelay: 1.4,
+				ranged: true,
+				health: 54,
+				specials: [
+					{
+						delay: 8,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'regenerating');
+							return _('rewriting');
+						}
+					}
+				],
+				loot: {
+					'energy cell': { min: 5, max: 11, chance: 1 },
+					'alien alloy': { min: 1, max: 2, chance: 0.18 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 0.5: 'd8', 1: 'd9' }
+					},
+					'leave': {
+						text: _('climb out'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: 'end'
+					}
+				}
+			},
+			'c9': {
+				text: [
+					_("a junction where four corridors meet, and all four are the same corridor."),
+					_("walking back the way you came puts you at the junction again from a different direction.")
+				],
+				notification: _("the junction does not resolve"),
+				buttons: {
+					'continue': {
+						text: _('pick one and commit'),
+						nextScene: { 0.5: 'd9', 1: 'd10' }
+					},
+					'leave': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'c10': {
+				combat: true,
+				notification: _("the walls on both sides come alive at once."),
+				enemy: 'flanking pair',
+				enemyName: _('flanking pair'),
+				deathMessage: _("both walls go inert together."),
+				chara: '\u2C05',
+				damage: 11,
+				hit: 0.86,
+				attackDelay: 1.4,
+				ranged: true,
+				health: 60,
+				specials: [
+					{
+						delay: 7,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'shield');
+							return _('warded');
+						}
+					}
+				],
+				loot: {
+					'energy cell': { min: 6, max: 12, chance: 1 },
+					'laser rifle': { min: 1, max: 1, chance: 0.18 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 0.5: 'd10', 1: 'd1' }
+					},
+					'leave': {
+						text: _('climb out'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: 'end'
+					}
+				}
+			},
+			'c11': {
+				text: [
+					_("a reservoir of something that is not water, lit from below, perfectly still."),
+					_("a dropped stone does not make a sound and does not come back up.")
+				],
+				buttons: {
+					'continue': {
+						text: _('go around it'),
+						nextScene: { 0.5: 'd2', 1: 'd5' }
+					},
+					'leave': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'c12': {
+				combat: true,
+				notification: _("it comes up out of the reservoir without disturbing the surface."),
+				enemy: 'drowned lumen',
+				enemyName: _('drowned lumen'),
+				deathMessage: _("it sinks back and the surface stays flat."),
+				chara: '\u2C00',
+				damage: 11,
+				hit: 0.84,
+				attackDelay: 1.5,
+				ranged: true,
+				health: 62,
+				loot: {
+					'energy cell': { min: 6, max: 12, chance: 1 },
+					'alien alloy': { min: 1, max: 2, chance: 0.2 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 0.5: 'd6', 1: 'd9' }
+					},
+					'leave': {
+						text: _('climb out'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: 'end'
+					}
+				}
+			},
+			'd1': {
+				combat: true,
+				notification: _("something very old finishes powering up."),
+				enemy: 'archon',
+				enemyName: _('archon'),
+				deathMessage: _("it stops. the room stays lit."),
+				chara: '\u2C01',
+				damage: 12,
+				hit: 0.85,
+				attackDelay: 1.5,
+				ranged: true,
+				health: 75,
+				specials: [
+					{
+						delay: 7,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'regenerating');
+							return _('drawing power');
+						}
+					},
+					{
+						delay: 11,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'brittle');
+							return _('venting');
+						}
+					}
+				],
+				loot: {
+					'energy cell': { min: 8, max: 15, chance: 1 },
+					'laser rifle': { min: 1, max: 1, chance: 0.25 },
+					'alien alloy': { min: 1, max: 2, chance: 0.3 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 0.5: 'e1', 1: 'e2' }
+					},
+					'leave': {
+						text: _('climb out'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: 'end'
+					}
+				}
+			},
+			'd2': {
+				combat: true,
+				notification: _("three of them rise out of the floor together."),
+				enemy: 'triad',
+				enemyName: _('triad'),
+				deathMessage: _("the third one goes out a long moment after the other two."),
+				chara: '\u2C02',
+				damage: 10,
+				hit: 0.9,
+				attackDelay: 1.2,
+				ranged: true,
+				health: 68,
+				specials: [
+					{
+						delay: 6,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'energised');
+							return _('resonating');
+						}
+					}
+				],
+				loot: {
+					'energy cell': { min: 8, max: 14, chance: 1 },
+					'laser rifle': { min: 1, max: 1, chance: 0.2 },
+					'alien alloy': { min: 1, max: 1, chance: 0.25 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 0.5: 'e2', 1: 'e3' }
+					},
+					'leave': {
+						text: _('climb out'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: 'end'
+					}
+				}
+			},
+			'd3': {
+				combat: true,
+				notification: _("the shape in the last alcove opens its eyes, which it does not have."),
+				enemy: 'keeper',
+				enemyName: _('keeper'),
+				deathMessage: _("it sits back down in the alcove before it goes out."),
+				chara: '\u2C03',
+				damage: 11,
+				hit: 0.88,
+				attackDelay: 1.4,
+				ranged: true,
+				health: 72,
+				specials: [
+					{
+						delay: 8,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'shield');
+							return _('warded');
+						}
+					}
+				],
+				loot: {
+					'energy cell': { min: 8, max: 14, chance: 1 },
+					'alien alloy': { min: 1, max: 2, chance: 0.25 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 0.5: 'e3', 1: 'e4' }
+					},
+					'leave': {
+						text: _('climb out'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: 'end'
+					}
+				}
+			},
+			'd4': {
+				combat: true,
+				notification: _("it was the floor a moment ago."),
+				enemy: 'substrate',
+				enemyName: _('substrate'),
+				deathMessage: _("it goes back to being the floor."),
+				chara: '\u2C04',
+				damage: 13,
+				hit: 0.8,
+				attackDelay: 1.6,
+				health: 80,
+				specials: [
+					{
+						delay: 9,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'regenerating');
+							return _('reknitting');
+						}
+					}
+				],
+				loot: {
+					'energy cell': { min: 9, max: 16, chance: 1 },
+					'laser rifle': { min: 1, max: 1, chance: 0.2 },
+					'alien alloy': { min: 1, max: 2, chance: 0.3 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 0.34: 'e4', 0.67: 'e6', 1: 'e8' }
+					},
+					'leave': {
+						text: _('climb out'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: 'end'
+					}
+				}
+			},
+			'd5': {
+				text: [
+					_("a hall of racks, most of them empty, all of them the right shape to hold something that is gone."),
+					_("a few of the racks are not empty.")
+				],
+				notification: _("most of the racks are empty"),
+				loot: {
+					'energy cell': { min: 6, max: 14, chance: 1 },
+					'alien alloy': { min: 1, max: 1, chance: 0.25 }
+				},
+				buttons: {
+					'continue': {
+						text: _('take what is left'),
+						nextScene: { 0.5: 'e5', 1: 'e9' }
+					},
+					'leave': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'd6': {
+				combat: true,
+				notification: _("the rack at the end of the hall stands up."),
+				enemy: 'armature',
+				enemyName: _('armature'),
+				deathMessage: _("it comes apart into rack-shaped pieces."),
+				chara: '\u2C05',
+				damage: 12,
+				hit: 0.87,
+				attackDelay: 1.5,
+				ranged: true,
+				health: 76,
+				specials: [
+					{
+						delay: 8,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'brittle');
+							return _('unlatching');
+						}
+					}
+				],
+				loot: {
+					'energy cell': { min: 8, max: 15, chance: 1 },
+					'laser rifle': { min: 1, max: 1, chance: 0.22 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 0.5: 'e10', 1: 'e11' }
+					},
+					'leave': {
+						text: _('climb out'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: 'end'
+					}
+				}
+			},
+			'd7': {
+				text: [
+					_("the chair, seen from the front, is occupied."),
+					_("what is in it has not moved in a very long time and is still drawing power."),
+					_("it does not react to anything.")
+				],
+				notification: _("the chair is occupied"),
+				buttons: {
+					'continue': {
+						text: _('go past it'),
+						nextScene: { 0.5: 'e7', 1: 'e12' }
+					},
+					'leave': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'd8': {
+				combat: true,
+				notification: _("the thing in the chair stands up after you have gone past it."),
+				enemy: 'seated one',
+				enemyName: _('seated one'),
+				deathMessage: _("it goes back to the chair, and sits, and stops."),
+				chara: '\u2C00',
+				damage: 14,
+				hit: 0.9,
+				attackDelay: 1.3,
+				ranged: true,
+				health: 85,
+				specials: [
+					{
+						delay: 6,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'energised');
+							return _('rising');
+						}
+					},
+					{
+						delay: 10,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'regenerating');
+							return _('sustained');
+						}
+					}
+				],
+				loot: {
+					'energy cell': { min: 10, max: 18, chance: 1 },
+					'alien alloy': { min: 2, max: 3, chance: 0.3 },
+					'laser rifle': { min: 1, max: 1, chance: 0.25 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 0.5: 'e13', 1: 'e14' }
+					},
+					'leave': {
+						text: _('climb out'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: 'end'
+					}
+				}
+			},
+			'd9': {
+				combat: true,
+				notification: _("the junction resolves, all at once, into one corridor with something in it."),
+				enemy: 'convergence',
+				enemyName: _('convergence'),
+				deathMessage: _("the four corridors become four corridors again."),
+				chara: '\u2C01',
+				damage: 13,
+				hit: 0.86,
+				attackDelay: 1.4,
+				ranged: true,
+				health: 78,
+				specials: [
+					{
+						delay: 7,
+						action: () => {
+							const player = $('#wanderer');
+							Events.setStatus(player, 'blinded');
+							Events.updateFighterDiv(player);
+							return _('folding');
+						}
+					}
+				],
+				loot: {
+					'energy cell': { min: 9, max: 16, chance: 1 },
+					'alien alloy': { min: 1, max: 2, chance: 0.28 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 0.5: 'e2', 1: 'e5' }
+					},
+					'leave': {
+						text: _('climb out'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: 'end'
+					}
+				}
+			},
+			'd10': {
+				text: [
+					_("a door standing open in a wall with nothing on the other side of it."),
+					_("going through the doorway puts you further down than walking around it does.")
+				],
+				notification: _("the doorway goes further than the room"),
+				buttons: {
+					'continue': {
+						text: _('go through the doorway'),
+						nextScene: { 0.5: 'e3', 1: 'e7' }
+					},
+					'leave': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'e1': {
+				text: [
+					_("the corridor widens into something that was meant to hold a crowd."),
+					_("the floor is worn in lines, from the doorways to a low platform at the centre.")
+				],
+				notification: _("a room built to hold a crowd"),
+				buttons: {
+					'continue': {
+						text: _('approach the platform'),
+						nextScene: { 1: 'lock' }
+					},
+					'leave': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'e2': {
+				combat: true,
+				notification: _("the platform is not unattended."),
+				enemy: 'celebrant',
+				enemyName: _('celebrant'),
+				deathMessage: _("it steps down off the platform before it goes out."),
+				chara: '\u2C02',
+				damage: 15,
+				hit: 0.88,
+				attackDelay: 1.3,
+				ranged: true,
+				health: 90,
+				specials: [
+					{
+						delay: 6,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'shield');
+							return _('warded');
+						}
+					},
+					{
+						delay: 11,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'energised');
+							return _('ascendant');
+						}
+					}
+				],
+				loot: {
+					'energy cell': { min: 10, max: 18, chance: 1 },
+					'alien alloy': { min: 2, max: 3, chance: 0.3 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 1: 'lock' }
+					},
+					'leave': {
+						text: _('climb out'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: 'end'
+					}
+				}
+			},
+			'e3': {
+				combat: true,
+				notification: _("the walls of the deep hall are lined with them, and one of them notices."),
+				enemy: 'attendant',
+				enemyName: _('attendant'),
+				deathMessage: _("it returns to the wall line and the line closes up."),
+				chara: '\u2C03',
+				damage: 14,
+				hit: 0.9,
+				attackDelay: 1.2,
+				ranged: true,
+				health: 88,
+				specials: [
+					{
+						delay: 7,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'regenerating');
+							return _('drawing');
+						}
+					}
+				],
+				loot: {
+					'energy cell': { min: 10, max: 18, chance: 1 },
+					'laser rifle': { min: 1, max: 1, chance: 0.3 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 1: 'lock' }
+					},
+					'leave': {
+						text: _('climb out'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: 'end'
+					}
+				}
+			},
+			'e4': {
+				text: [
+					_("a stair down, and at the bottom of it the air is dry enough to hurt."),
+					_("nothing has been in here. not dust, not damp, not anything, for a length of time the mind refuses.")
+				],
+				notification: _("nothing has been in here at all"),
+				buttons: {
+					'continue': {
+						text: _('go to the door'),
+						nextScene: { 1: 'lock' }
+					},
+					'leave': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'e5': {
+				combat: true,
+				notification: _("something the size of the corridor comes down the corridor."),
+				enemy: 'bulwark',
+				enemyName: _('bulwark'),
+				deathMessage: _("it fills the corridor and then it does not."),
+				chara: '\u2C04',
+				damage: 16,
+				hit: 0.82,
+				attackDelay: 1.8,
+				health: 100,
+				specials: [
+					{
+						delay: 8,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'brittle');
+							return _('plates parting');
+						}
+					},
+					{
+						delay: 12,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'regenerating');
+							return _('sealing');
+						}
+					}
+				],
+				loot: {
+					'energy cell': { min: 12, max: 20, chance: 1 },
+					'alien alloy': { min: 2, max: 4, chance: 0.35 },
+					'laser rifle': { min: 1, max: 1, chance: 0.3 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 1: 'lock' }
+					},
+					'leave': {
+						text: _('climb out'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: 'end'
+					}
+				}
+			},
+			'e6': {
+				combat: true,
+				notification: _("the last of the racks is guarded by the thing it was built to hold."),
+				enemy: 'panoply',
+				enemyName: _('panoply'),
+				deathMessage: _("it returns to its rack and powers down into it."),
+				chara: '\u2C05',
+				damage: 15,
+				hit: 0.9,
+				attackDelay: 1.2,
+				ranged: true,
+				health: 95,
+				specials: [
+					{
+						delay: 7,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'shield');
+							return _('sealed');
+						}
+					},
+					{
+						delay: 12,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'energised');
+							return _('discharging');
+						}
+					}
+				],
+				loot: {
+					'energy cell': { min: 11, max: 19, chance: 1 },
+					'alien alloy': { min: 2, max: 3, chance: 0.32 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 1: 'lock' }
+					},
+					'leave': {
+						text: _('climb out'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: 'end'
+					}
+				}
+			},
+			'e7': {
+				text: [
+					_("the last stretch is unlit, and it is the only unlit thing down here."),
+					_("whatever supplies the rest of it does not reach this far, or was told not to.")
+				],
+				notification: _("the last stretch is not lit"),
+				buttons: {
+					'continue': {
+						text: _('go on in the dark'),
+						nextScene: { 1: 'lock' }
+					},
+					'leave': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'e8': {
+				combat: true,
+				notification: _("the dark is occupied and has been for a very long time."),
+				enemy: 'unlit one',
+				enemyName: _('unlit one'),
+				deathMessage: _("it does not go out, because it was never lit. it simply stops."),
+				chara: '\u2C00',
+				damage: 17,
+				hit: 0.85,
+				attackDelay: 1.4,
+				ranged: true,
+				health: 105,
+				specials: [
+					{
+						delay: 6,
+						action: () => {
+							const player = $('#wanderer');
+							Events.setStatus(player, 'blinded');
+							Events.updateFighterDiv(player);
+							return _('unmaking');
+						}
+					},
+					{
+						delay: 11,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'regenerating');
+							return _('persisting');
+						}
+					}
+				],
+				loot: {
+					'energy cell': { min: 12, max: 20, chance: 1 },
+					'alien alloy': { min: 2, max: 4, chance: 0.35 },
+					'handheld nuke': { min: 1, max: 1, chance: 0.05 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 1: 'lock' }
+					},
+					'leave': {
+						text: _('climb out'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: 'end'
+					}
+				}
+			},
+			'e9': {
+				combat: true,
+				notification: _("the crowd room has one occupant and it has been facing the platform the whole time."),
+				enemy: 'congregant',
+				enemyName: _('congregant'),
+				deathMessage: _("it faces the platform until it stops."),
+				chara: '\u2C01',
+				damage: 15,
+				hit: 0.9,
+				attackDelay: 1.25,
+				ranged: true,
+				health: 92,
+				specials: [
+					{
+						delay: 7,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'shield');
+							return _('attending');
+						}
+					}
+				],
+				loot: {
+					'energy cell': { min: 11, max: 19, chance: 1 },
+					'alien alloy': { min: 2, max: 3, chance: 0.3 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 1: 'lock' }
+					},
+					'leave': {
+						text: _('climb out'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: 'end'
+					}
+				}
+			},
+			'e10': {
+				text: [
+					_("a room of shallow basins set into the floor, each one holding a residue that has dried to powder."),
+					_("the powder is the same colour as the walls, and the walls are missing exactly that much material.")
+				],
+				notification: _("the walls are missing exactly as much as the basins hold"),
+				loot: {
+					'alien alloy': { min: 1, max: 2, chance: 0.3 },
+					'energy cell': { min: 6, max: 12, chance: 0.8 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go to the door'),
+						nextScene: { 1: 'lock' }
+					},
+					'leave': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'e11': {
+				combat: true,
+				notification: _("the residue in the nearest basin stands up out of it."),
+				enemy: 'residue',
+				enemyName: _('residue'),
+				deathMessage: _("it settles back into the basin and dries."),
+				chara: '\u2C02',
+				damage: 16,
+				hit: 0.86,
+				attackDelay: 1.4,
+				ranged: true,
+				health: 98,
+				specials: [
+					{
+						delay: 8,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'regenerating');
+							return _('drawing from the basin');
+						}
+					}
+				],
+				loot: {
+					'energy cell': { min: 12, max: 20, chance: 1 },
+					'alien alloy': { min: 2, max: 4, chance: 0.32 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 1: 'lock' }
+					},
+					'leave': {
+						text: _('climb out'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: 'end'
+					}
+				}
+			},
+			'e12': {
+				text: [
+					_("the last door is visible from here, at the end of a hall built to make it look further away than it is."),
+					_("the hall does not have that effect on the way back. it was built to be walked in one direction.")
+				],
+				notification: _("the hall was built to be walked one way"),
+				buttons: {
+					'continue': {
+						text: _('walk the hall'),
+						nextScene: { 1: 'lock' }
+					},
+					'leave': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'e13': {
+				combat: true,
+				notification: _("the hall closes behind you, and something is walking it with you."),
+				enemy: 'processional',
+				enemyName: _('processional'),
+				deathMessage: _("it reaches the door before it stops, which was where it was going."),
+				chara: '\u2C03',
+				damage: 17,
+				hit: 0.88,
+				attackDelay: 1.3,
+				ranged: true,
+				health: 102,
+				specials: [
+					{
+						delay: 6,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'energised');
+							return _('pace quickening');
+						}
+					},
+					{
+						delay: 11,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'shield');
+							return _('closing ranks');
+						}
+					}
+				],
+				loot: {
+					'energy cell': { min: 12, max: 20, chance: 1 },
+					'alien alloy': { min: 2, max: 4, chance: 0.35 },
+					'laser rifle': { min: 1, max: 1, chance: 0.3 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 1: 'lock' }
+					},
+					'leave': {
+						text: _('climb out'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: 'end'
+					}
+				}
+			},
+			'e14': {
+				combat: true,
+				notification: _("the door is attended, and the attendant has noticed."),
+				enemy: 'doorkeeper',
+				enemyName: _('doorkeeper'),
+				deathMessage: _("it steps aside. it does not stop being there. it simply stops."),
+				chara: '\u2C04',
+				damage: 18,
+				hit: 0.87,
+				attackDelay: 1.35,
+				ranged: true,
+				health: 110,
+				specials: [
+					{
+						delay: 7,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'brittle');
+							return _('unsealing');
+						}
+					},
+					{
+						delay: 12,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'regenerating');
+							return _('reasserting');
+						}
+					}
+				],
+				loot: {
+					'energy cell': { min: 13, max: 22, chance: 1 },
+					'alien alloy': { min: 3, max: 4, chance: 0.35 },
+					'handheld nuke': { min: 1, max: 1, chance: 0.05 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 1: 'lock' }
+					},
+					'leave': {
+						text: _('climb out'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: 'end'
+					}
+				}
+			},
+			/* ---- the lock ---- */
+			'lock': {
+				text: [
+					_('the last door has no handle, no hinge and no seam. set into it is a grid of glyphs, lit from behind.'),
+					_('some of them are fixed and will not move. the rest turn under a fingertip.'),
+					_('no glyph may repeat along any line, or within any bordered block.')
+				],
+				notification: _('a glyph lock bars the last door'),
+				/* onRender rather than onLoad: loadScene empties #description
+				 * after onLoad runs, so anything drawn there would be wiped.
+				 * See Events.startStory. */
+				onRender: function() {
+					Ruins.renderLock('standard', 'open');
+				},
+				buttons: {
+					/* Disabled until the lock is solved -- see Ruins.renderLock. */
+					'open': {
+						text: _('open the door'),
+						available: function() { return false; },
+						nextScene: { 1: 'vault' }
+					},
+					'leave': {
+						text: _('leave it shut'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'vault': {
+				text: [
+					_('the door does not open so much as stop being there.'),
+					_('the room behind it is small, and dry, and has been sealed since before anything on this world could have sealed it.'),
+					_('there is a rack, and on the rack there are two things, and there is only time to carry one.')
+				],
+				notification: _('the lock opens'),
+				onLoad: function() {
+					World.clearDungeon();
+				},
+				buttons: {
+					'alloy': {
+						text: _('take the alloy'),
+						nextScene: { 1: 'tookAlloy' }
+					},
+					'nuke': {
+						text: _('take the other thing'),
+						nextScene: { 1: 'tookNuke' }
+					},
+					'deeper': {
+						text: _('there is another door behind the rack'),
+						nextScene: { 1: 'deepLock' }
+					}
+				}
+			},
+			'tookAlloy': {
+				text: [
+					_('it is a single ingot, and it is far heavier than its size accounts for.')
+				],
+				notification: _('an ingot of alien alloy'),
+				loot: {
+					'alien alloy': { min: 2, max: 3, chance: 1 },
+					'energy cell': { min: 5, max: 10, chance: 0.8 }
+				},
+				buttons: {
+					'end': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'tookNuke': {
+				text: [
+					_('it fits in one hand. there is a recess for a thumb, and the recess is worn.'),
+					_('somebody used a great many of these.')
+				],
+				notification: _('a device that fits in one hand'),
+				loot: {
+					'handheld nuke': { min: 1, max: 1, chance: 1 },
+					'energy cell': { min: 5, max: 10, chance: 0.8 }
+				},
+				buttons: {
+					'end': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			},
+			/* ---- optional second lock, harder, for both rewards ---- */
+			'deepLock': {
+				text: [
+					_('behind the rack the wall carries a second grid, larger than the first, and lit a different colour.'),
+					_('the same rule. more of it.')
+				],
+				notification: _('a second, larger lock'),
+				onRender: function() {
+					Ruins.renderLock('deep', 'openDeep');
+				},
+				buttons: {
+					'openDeep': {
+						text: _('open the inner door'),
+						available: function() { return false; },
+						nextScene: { 1: 'inner' }
+					},
+					'back': {
+						text: _('go back to the rack'),
+						nextScene: { 1: 'vault' }
+					}
+				}
+			},
+			'inner': {
+				text: [
+					_('the inner room is the size of a cupboard and has been sealed longer than the outer one.'),
+					_('there is no rack. everything is simply stacked on the floor, as if whoever left it was in a hurry, four hundred centuries ago.'),
+					_('there is enough time to take all of it.')
+				],
+				notification: _('the inner room opens'),
+				onLoad: function() {
+					World.clearDungeon();
+				},
+				loot: {
+					'alien alloy': { min: 3, max: 5, chance: 1 },
+					'handheld nuke': { min: 1, max: 1, chance: 1 },
+					'energy cell': { min: 10, max: 20, chance: 1 },
+					'laser rifle': { min: 1, max: 1, chance: 0.5 }
+				},
+				buttons: {
+					'end': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			}
+		},
+		audio: AudioLibrary.LANDMARK_RUINS
+	},
 	"cave": { /* Cave */
 		title: _('A Damp Cave'),
 		scenes: {
@@ -3280,13 +4890,24 @@ Events.Setpieces = {
 						max: 1,
 						chance: 0.5
 					},
+					/* Only source of the katana in the base game -- the weapon
+					 * was fully wired into World.Weapons, path.js and
+					 * prestige.js scoring with no encounter that ever dropped
+					 * one. Kept rare: this is the toughest fight in the mine,
+					 * and it's the one time a plain soldier upgrades to
+					 * carrying an officer's sidearm rather than a rifle. */
+					'katana': {
+						min: 1,
+						max: 1,
+						chance: 0.12
+					},
 					'cured meat': {
 						min: 1,
 						max: 5,
 						chance: 0.8
 					}
 				},
-				notification: _('a grizzled soldier attacks, waving a bayonet.'),
+				notification: _('a grizzled soldier attacks, a trophy blade at his hip alongside the bayonet.'),
 				buttons: {
 					'continue': {
 						text: _('continue'),

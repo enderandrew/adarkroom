@@ -220,7 +220,8 @@ var Outside = {
 	},
 	
 	getMaxPopulation: function() {
-		return $SM.get('game.buildings["hut"]', true) * Outside._HUT_ROOM;
+		// Steel huts house the same number as the wooden ones they replace.
+		return Outside.getNumHuts() * Outside._HUT_ROOM;
 	},
 	
 	increasePopulation: function() {
@@ -487,6 +488,68 @@ var Outside = {
 		}
 	},
 	
+	/* --- Doctrine ---------------------------------------------------------
+	 *
+	 * Set once, when the first hut goes up, by the builder's question (see
+	 * Room.askDoctrine). Everything downstream reads it rather than branching
+	 * on its own flag, so there is exactly one source of truth for which
+	 * version of this settlement the player is running.
+	 *
+	 *   'hope'  -- the people who arrive are villagers. Unlocks steel huts.
+	 *   'fear'  -- the people who arrive are slaves. Unlocks the cell foundry.
+	 *   undefined -- no huts built yet; the question hasn't been asked.
+	 *
+	 * The upstream Steam/mobile builds call them slaves unconditionally and
+	 * bolt an alternate ending onto refusing to build huts at all. Here it's
+	 * a choice the player makes and is answerable for, which is the point of
+	 * the karma system.
+	 */
+	getDoctrine: function() {
+		return $SM.get('game.doctrine');
+	},
+
+	isFear: function() {
+		return Outside.getDoctrine() === 'fear';
+	},
+
+	/* The word for the people living here. Used anywhere the game refers to
+	 * them generically, so the vocabulary shifts with the doctrine instead of
+	 * being hardcoded one way. */
+	villagerNoun: function() {
+		return Outside.isFear() ? _('slaves') : _('villagers');
+	},
+
+	villagerNounSingular: function() {
+		return Outside.isFear() ? _('slave') : _('villager');
+	},
+
+	settlementNoun: function() {
+		return Outside.isFear() ? _('encampment') : _('village');
+	},
+
+	/* Total huts of any kind. Steel huts replace wooden ones one for one, so
+	 * population capacity and the settlement's size are driven by the sum. */
+	getNumHuts: function() {
+		return $SM.get('game.buildings["hut"]', true) +
+			$SM.get('game.buildings["steel hut"]', true);
+	},
+
+	/* True once every hut in the settlement is steel. Drives both the morale
+	 * production bonus and immunity to the hut fire. */
+	allHutsSteel: function() {
+		var steel = $SM.get('game.buildings["steel hut"]', true);
+		return steel > 0 && $SM.get('game.buildings["hut"]', true) === 0;
+	},
+
+	/* Multiplier applied to all worker output. A settlement housed entirely
+	 * in steel is warmer, drier and safe from fire, and the people in it work
+	 * better for it. */
+	MORALE_BONUS: 1.05,
+
+	getMoraleMultiplier: function() {
+		return Outside.allHutsSteel() ? Outside.MORALE_BONUS : 1;
+	},
+
 	updateVillage: function(ignoreStores) {
 		var village = $('div#village');
 		var population = $('div#population');
@@ -516,12 +579,12 @@ var Outside = {
 		population.text(_('pop ') + $SM.get('game.population') + '/' + this.getMaxPopulation());
 		
 		var hasPeeps;
-		if($SM.get('game.buildings["hut"]', true) === 0) {
+		if(Outside.getNumHuts() === 0) {
 			hasPeeps = false;
 			village.attr('data-legend', _('forest'));
 		} else {
 			hasPeeps = true;
-			village.attr('data-legend', _('village'));
+			village.attr('data-legend', Outside.settlementNoun());
 		}
 		
 		if(needsAppend && village.children().length > 1) {
@@ -579,8 +642,18 @@ var Outside = {
 				tooltip.empty();
 				var needsUpdate = false;
 				var curIncome = $SM.getIncome(worker);
+				var morale = Outside.getMoraleMultiplier();
 				for(var store in income.stores) {
-					stores[store] = income.stores[store] * num;
+					var base = income.stores[store] * num;
+					/* Only ever boost production. Several jobs carry negative
+					 * entries for what they consume (the charcutier eats meat
+					 * to make cured meat), and scaling those by the morale
+					 * multiplier would make a happier settlement burn through
+					 * its inputs faster -- a bonus that reads as a penalty.
+					 *
+					 * Rounded rather than floored so a 5% bonus on a small
+					 * crew doesn't vanish to truncation. */
+					stores[store] = base > 0 ? Math.round(base * morale) : base;
 					if(curIncome[store] != stores[store]) needsUpdate = true;
 					var row = $('<div>').addClass('storeRow');
 					$('<div>').addClass('row_key').text(_(store)).appendTo(row);
@@ -641,22 +714,42 @@ var Outside = {
 	},
 
 	setTitle: function() {
-		var numHuts = $SM.get('game.buildings["hut"]', true);
+		/* Counts steel huts too -- converting a hut shouldn't shrink the
+		 * settlement's name. */
+		var numHuts = Outside.getNumHuts();
 		var title;
 		if(numHuts === 0) {
 			title = _("A Silent Forest");
-		} else if(numHuts == 1) {
-			title = _("A Lonely Hut");
-		} else if(numHuts <= 4) {
-			title = _("A Tiny Village");
-		} else if(numHuts <= 8) {
-			title = _("A Modest Village");
-		} else if(numHuts <= 14) {
-			title = _("A Large Village");
-		} else if(numHuts <= 20){
-			title = _("A Raucous Village");
+		} else if(Outside.isFear()) {
+			/* The fear track names the place after what it is rather than
+			 * who lives in it, and it ends somewhere the hope track doesn't. */
+			if(numHuts == 1) {
+				title = _("A Campsite");
+			} else if(numHuts <= 4) {
+				title = _("A Tiny Encampment");
+			} else if(numHuts <= 8) {
+				title = _("A Modest Encampment");
+			} else if(numHuts <= 14) {
+				title = _("A Large Encampment");
+			} else if(numHuts <= 20) {
+				title = _("A Crowded Encampment");
+			} else {
+				title = _("An Overcrowded Ghetto");
+			}
 		} else {
-			title = _("A Large City");
+			if(numHuts == 1) {
+				title = _("A Lonely Hut");
+			} else if(numHuts <= 4) {
+				title = _("A Tiny Village");
+			} else if(numHuts <= 8) {
+				title = _("A Modest Village");
+			} else if(numHuts <= 14) {
+				title = _("A Large Village");
+			} else if(numHuts <= 20){
+				title = _("A Raucous Village");
+			} else {
+				title = _("A Large City");
+			}
 		}
 		
 		if(Engine.activeModule == this) {

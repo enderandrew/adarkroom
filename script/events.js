@@ -80,7 +80,7 @@ var Events = {
 
 		// Notify the scene change
 		if(scene.notification) {
-			Notifications.notify(null, scene.notification);
+			Notifications.notify(null, Events.resolve(scene.notification));
 		}
 
 		// Scene reward
@@ -1313,8 +1313,9 @@ var Events = {
 		// Write the text
 		var desc = $('#description', Events.eventPanel());
 		var leaveBtn = false;
-		for(var i in scene.text) {
-			$('<div>').text(scene.text[i]).appendTo(desc);
+		var sceneText = Events.resolve(scene.text);
+		for(var i in sceneText) {
+			$('<div>').text(Events.resolve(sceneText[i])).appendTo(desc);
 		}
 
 		if(scene.textarea != null) {
@@ -1338,6 +1339,18 @@ var Events = {
 
 
 		Events.allowLeave(takeETbtn, leaveBtn);
+
+		/* Custom scene rendering.
+		 *
+		 * onLoad can't be used for this: loadScene() calls it BEFORE
+		 * #description and #buttons are emptied, so anything injected there is
+		 * immediately wiped. onRender runs here instead -- after the text,
+		 * loot and buttons are all in place -- so a scene can add its own
+		 * interactive content and manipulate the buttons that were just drawn.
+		 * Used by the ruins glyph puzzles. */
+		if(typeof scene.onRender === 'function') {
+			scene.onRender(scene);
+		}
 	},
 
 	drawButtons: function(scene) {
@@ -1376,6 +1389,48 @@ var Events = {
 
 		Events.updateButtons();
 		return (btnsList.length == 1) ? btnsList[0] : false;
+	},
+
+	/* Resolves a value that may be a plain string/array or a function
+	 * returning one.
+	 *
+	 * Event data lives in object literals that are evaluated once, when the
+	 * file loads. Anything that depends on game state chosen later -- the
+	 * hope/fear doctrine's vocabulary, for instance -- has to be written as a
+	 * function or it freezes whatever the state was at load time, which is
+	 * before a new game has made any choices at all. */
+	resolve: function(value) {
+		return (typeof value === 'function') ? value() : value;
+	},
+
+	/* Picks one entry at random. Paired with Events.resolve, this is how a
+	 * scene rotates its dialogue: write `text: function() { return [...,
+	 * Events.pick([...]), ...]; }` and the line changes each time the scene
+	 * is loaded rather than being fixed the first time the file was parsed. */
+	pick: function(options) {
+		return options[Math.floor(Math.random() * options.length)];
+	},
+
+	/* Knocks a fraction off everything in the expedition pack, and returns a
+	 * short list of what visibly took the worst of it so a scene can name it.
+	 *
+	 * Used where an outcome should cost the player something other than hit
+	 * points -- a fall that scatters the pack, say. Weapons and one-off tools
+	 * are left alone: losing a rifle to a dice roll with no warning reads as
+	 * the game cheating, whereas losing supplies reads as a setback. */
+	damageOutfit: function(fraction) {
+		var spoiled = [];
+		var protectedItems = Object.keys(World.Weapons);
+		for(var k in Path.outfit) {
+			if(protectedItems.indexOf(k) !== -1) continue;
+			var have = Path.outfit[k];
+			if(typeof have !== 'number' || have <= 0) continue;
+			var lost = Math.max(1, Math.floor(have * fraction));
+			Path.outfit[k] = Math.max(0, have - lost);
+			spoiled.push(_(k));
+		}
+		World.updateSupplies();
+		return spoiled;
 	},
 
 	getQuantity: function(store) {
@@ -1542,7 +1597,7 @@ var Events = {
 
 		// Notification
 		if(info.notification) {
-			Notifications.notify(null, info.notification);
+			Notifications.notify(null, Events.resolve(info.notification));
 		}
 
 		info.onClick && info.onClick();

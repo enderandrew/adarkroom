@@ -222,6 +222,19 @@
 		right: 10%;
 	}
 
+	/* Glyph puzzles: a 6x6 grid at 32px is 192px wide, which fits, but the
+	   cells become fiddly thumb targets. Trade glyph size for tap area. */
+	div.glyphCell {
+		width: 40px;
+		height: 40px;
+		line-height: 40px;
+		font-size: 22px;
+	}
+
+	div.glyphRow {
+		height: 42px;
+	}
+
 	/* --- Space --- */
 	.outroContainer {
 		width: auto;

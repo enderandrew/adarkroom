@@ -806,3 +806,72 @@ div#stokeButton::after {
 		opacity: 1;
 	}
 }
+/* --- Glyph puzzles (ruins) ---
+ * Locked glyphs read as red, open ones as blue, matching the convention the
+ * puzzle rules describe. The game is otherwise monochrome, so these are the
+ * only coloured elements -- kept muted so they don't fight the aesthetic. */
+
+div.glyphGrid {
+	margin: 10px 0;
+	display: inline-block;
+	border: 2px solid #000;
+	background: #fff;
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+div.glyphRow {
+	display: block;
+	height: 34px;
+}
+
+div.glyphCell {
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	font-size: 20px;
+	vertical-align: top;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+/* Region boundaries -- the heavy interior lines the rules refer to. */
+div.glyphCell.boxRight { border-right: 2px solid #000; }
+div.glyphCell.boxBottom { border-bottom: 2px solid #000; }
+
+div.glyphCell.locked {
+	color: #a03030;
+	background: #f6efef;
+	cursor: default;
+}
+
+div.glyphCell.open {
+	color: #3050a0;
+	cursor: pointer;
+}
+
+div.glyphCell.open:hover {
+	background: #eef1f8;
+}
+
+div.glyphCell.conflict {
+	background: #f8e0e0;
+	text-decoration: line-through;
+}
+
+div.glyphGrid.solved div.glyphCell {
+	border-color: #888;
+}
+
+div.glyphGrid.solved div.glyphCell.open {
+	cursor: default;
+	background: #eef8ee;
+}
+
+div.glyphHint {
+	font-size: 12px;
+	margin: 4px 0 8px 0;
+	max-width: 300px;
+}

@@ -80,6 +80,9 @@ Events.Outside = [
 	{ /* Hut fire */
 		title: _('Fire'),
 		isAvailable: function() {
+			/* Wooden huts specifically. A settlement rebuilt entirely in
+			 * steel has nothing left here to burn, which is the whole point
+			 * of paying for it. */
 			return Engine.activeModule == Outside && $SM.get('game.buildings["hut"]', true) > 0 && $SM.get('game.population', true) > 50;
 		},
 		scenes: {
@@ -111,7 +114,7 @@ Events.Outside = [
 					},
 					'mourn': {
 						text: _('mourn'),
-						notification: _('some villagers have died'),
+						notification: function() { return _('some {0} have died', Outside.villagerNoun()); },
 						nextScene: { 1: 'mourn' }
 					},
 					/* Actively making it worse: the huts are gone either way,
@@ -181,7 +184,7 @@ Events.Outside = [
 					_('a sickness is spreading through the village.'),
 					_('medicine is needed immediately.')
 				],
-				notification: _('some villagers are ill'),
+				notification: function() { return _('some {0} are ill', Outside.villagerNoun()); },
 				blink: true,
 				buttons: {
 					'heal': {
@@ -369,9 +372,9 @@ Events.Outside = [
 				text: [
 					 _('a pack of snarling beasts pours out of the trees.'),
 					 _('the fight is short and bloody, but the beasts are repelled.'),
-					 _('the villagers retreat to mourn the dead.')
+					 function() { return _('the {0} retreat to mourn the dead.', Outside.villagerNoun()); }
 				],
-				notification: _('wild beasts attack the villagers'),
+				notification: function() { return _('wild beasts attack the {0}', Outside.villagerNoun()); },
 				onLoad: function() {
 					var numKilled = Math.floor(Math.random() * 10) + 1;
 					Outside.killVillagers(numKilled);
@@ -533,7 +536,7 @@ Events.Outside = [
 			'execute': {
 				text: [
 					_('it is done against the wall of the store room.'),
-					_('the villagers take their boots, and their belts, and their ammunition.'),
+					function() { return _('the {0} take their boots, and their belts, and their ammunition.', Outside.villagerNoun()); },
 					_('nobody objects. that is the part worth noticing.')
 				],
 				notification: _('the prisoners are executed'),

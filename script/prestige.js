@@ -77,6 +77,16 @@ var Prestige = {
 		$SM.set('previous.score', prestige.score);
 	},
 	
+	/* True once the player has finished a run at least once.
+	 *
+	 * previous.score is written by Prestige.save() at the ending and is NOT
+	 * cleared by collectStores() (which only empties previous.stores) or by
+	 * Engine.deleteSave (which deliberately preserves prestige), so it is the
+	 * durable marker for "this has happened before" across the whole cycle. */
+	hasCompletedRun: function() {
+		return typeof $SM.get('previous.score') === 'number';
+	},
+
 	save: function() {
 		$SM.set('previous.stores', this.getStores(true));
 		$SM.set('previous.score', Score.totalScore());

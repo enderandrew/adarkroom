@@ -113,7 +113,7 @@ sandbox.$SM = {
 const context = vm.createContext(sandbox);
 
 const FILES = [
-	'script/audioLibrary.js', 'script/events.js',
+	'script/audioLibrary.js', 'script/glyphs.js', 'script/ruins.js', 'script/events.js',
 	'script/events/global.js', 'script/events/room.js', 'script/events/outside.js',
 	'script/events/path.js', 'script/events/road.js',
 	'script/events/encounters.js', 'script/events/setpieces.js',

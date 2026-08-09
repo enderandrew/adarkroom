@@ -116,11 +116,17 @@ Events.Path = [
 				}
 			},
 			'howLong': {
-				text: [
-					_('the afternoon, they say. they are quite certain.'),
-					_('their cloth has been mended forty or fifty times, in a lot of different thread.'),
-					_('nobody points this out to them.')
-				],
+				text: function() {
+					return [
+						Events.pick([
+							_('the afternoon, they say. they are quite certain.'),
+							_('since after the meal, they say, and then cannot agree on which meal.'),
+							_('not long, they say. one of them says it twice, in the same tone, a minute apart.')
+						]),
+						_('their cloth has been mended forty or fifty times, in a lot of different thread.'),
+						_('nobody points this out to them.')
+					];
+				},
 				notification: _('they say they have been out since the afternoon'),
 				buttons: {
 					'end': {
@@ -308,12 +314,26 @@ Events.Path = [
 				}
 			},
 			'counted': {
-				text: [
-					_('there are more than four hundred uprights.'),
-					_('whoever set them was walking out, stopping, and coming back. over and over.'),
-					_('the line does not point anywhere. it does not reach anything. it just stops, and the last stone faces back the way it came.')
-				],
-				notification: _('four hundred attempts, all of them turned back'),
+				text: function() {
+					if(Prestige.hasCompletedRun()) {
+						return [
+							_('there are more than four hundred uprights.'),
+							_('whoever set them was walking out, stopping, and coming back. over and over.'),
+							_('the last stone has a name scratched into the underside, where it would only be seen by somebody who lifted it.'),
+							_('you lift it. you know the name. you have never once written it down.')
+						];
+					}
+					return [
+						_('there are more than four hundred uprights.'),
+						_('whoever set them was walking out, stopping, and coming back. over and over.'),
+						_('the line does not point anywhere. it does not reach anything. it just stops, and the last stone faces back the way it came.')
+					];
+				},
+				notification: function() {
+					return Prestige.hasCompletedRun() ?
+						_('the name under the last stone is one you know') :
+						_('four hundred attempts, all of them turned back');
+				},
 				buttons: {
 					'end': {
 						text: _('go home'),
@@ -469,11 +489,17 @@ Events.Path = [
 				}
 			},
 			'supplies': {
-				text: [
-					_('they take the food, and they are grateful for it, and they keep walking.'),
-					_('there is nowhere on this path that is closer to anywhere than here is.'),
-					_('they know that. they go anyway.')
-				],
+				text: function() {
+					return [
+						_('they take the food, and they are grateful for it, and they keep walking.'),
+						Events.pick([
+							_('there is nowhere on this path that is closer to anywhere than here is.'),
+							_('they are asked where they are going and give a name that is not a place anybody here has heard of.'),
+							_('they are asked how far. the one doing the carrying says "not far now", and has clearly been saying that for a while.')
+						]),
+						_('they know that. they go anyway.')
+					];
+				},
 				notification: _('the party is given supplies and moves on'),
 				buttons: {
 					'end': {
@@ -558,11 +584,21 @@ Events.Path = [
 				}
 			},
 			'theTwo': {
-				text: [
-					_('one came back after nine days, having walked in what he was certain was a straight line.'),
-					_('he came back up the same path he left by, from the same direction.'),
-					_('the other has not come back. the older villager says that one is still going, and says it like it is a fact and not a hope.')
-				],
+				text: function() {
+					return [
+						Events.pick([
+							_('one came back after nine days, having walked in what he was certain was a straight line.'),
+							_('one came back after two weeks with the same water still in his skin, and could not say why he had not drunk it.'),
+							_('one came back on the fourth day, walking fast, and would not say what turned him round.')
+						]),
+						_('he came back up the same path he left by, from the same direction.'),
+						Events.pick([
+							_('the other has not come back. the older villager says that one is still going, and says it like it is a fact and not a hope.'),
+							_('the other has not come back. the older villager does not seem to think that means what you think it means.'),
+							_('the other has not come back, and nobody has gone to look, and nobody says why not.')
+						])
+					];
+				},
 				notification: _('one walked straight and came back the way he left'),
 				buttons: {
 					'end': {

@@ -121,11 +121,112 @@ var Room = {
 			},
 			audio: AudioLibrary.BUILD_HUT
 		},
+		/* --- Hope track ---------------------------------------------------
+		 * A steel hut replaces a wooden one rather than adding to the count,
+		 * so capacity is unchanged and this is purely an investment in the
+		 * people already here. Once every hut is steel the settlement can't
+		 * burn and works 5% better for it. */
+		'steel hut': {
+			name: _('steel hut'),
+			button: null,
+			maximum: 25,
+			availableMsg: _('builder says the huts could be rebuilt in steel. says they would not burn.'),
+			buildMsg: _('a hut comes down and goes back up in steel. it does not creak in the wind.'),
+			maxMsg: _('every hut is steel already.'),
+			type: 'building',
+			isAvailable: function() {
+				return !Outside.isFear() &&
+					$SM.get('game.buildings["steelworks"]', true) > 0 &&
+					$SM.get('game.buildings["hut"]', true) > 0;
+			},
+			cost: function() {
+				/* Deliberately the wooden hut's formula, in steel. That is
+				 * very expensive on purpose -- this is an endgame sink, not
+				 * an upgrade path you take on the way past. Tune the 100/50
+				 * here if it lands too steep in play. */
+				var n = $SM.get('game.buildings["steel hut"]', true);
+				return {
+					'steel': 100 + (n * 50)
+				};
+			},
+			audio: AudioLibrary.BUILD_HUT
+		},
+		/* --- Fear track ---------------------------------------------------
+		 * The dark path's payoff: energy cells become manufacturable instead
+		 * of only ever being looted. Sulphur and coal, worked by people who
+		 * were not asked. */
+		'cell foundry': {
+			name: _('cell foundry'),
+			button: null,
+			maximum: 1,
+			availableMsg: _('builder says the sulphur could be made to hold a charge, with the right furnace.'),
+			buildMsg: _('the foundry goes up windowless, at the far end of the camp.'),
+			type: 'building',
+			isAvailable: function() {
+				return Outside.isFear() &&
+					$SM.get('game.buildings["steelworks"]', true) > 0 &&
+					$SM.get('game.buildings["sulphur mine"]', true) > 0;
+			},
+			cost: function() {
+				return {
+					'wood': 200,
+					'steel': 50,
+					'sulphur': 50
+				};
+			}
+		},
+		'energy cell': {
+			name: _('energy cell'),
+			button: null,
+			maximum: 9999,
+			type: 'tool',
+			availableMsg: _('the foundry can hold a charge in a cell now. it takes sulphur, and coal, and people.'),
+			buildMsg: _('another cell comes off the line. the foundry crew do not look up.'),
+			isAvailable: function() {
+				return Outside.isFear() && $SM.get('game.buildings["cell foundry"]', true) > 0;
+			},
+			cost: function() {
+				return {
+					'sulphur': 10,
+					'coal': 10,
+					'steel': 2
+				};
+			}
+		},
+		/* Fear track weapon tier. The katana already exists in World.Weapons
+		 * (best melee DPS in the game: 6 damage on a 1s cooldown, versus the
+		 * steel sword's 6/2s) but had no source anywhere -- it was reachable
+		 * only as rare loot from the sulphur mine's veteran. This is the
+		 * doctrine's other promised payoff: hope trades toward a production
+		 * bonus, fear trades toward better weapons, and this is the second
+		 * half of that after the cell foundry.
+		 *
+		 * Gated behind the foundry existing, not just the doctrine flag, so
+		 * it's downstream of the same material choice as energy cells rather
+		 * than just checking a flag -- reaching it means the player already
+		 * built the thing that makes the fear track's weapons possible. */
+		'katana': {
+			name: _('katana'),
+			button: null,
+			type: 'weapon',
+			availableMsg: _('the foundry crew know the shape of a blade that cuts faster than it should.'),
+			buildMsg: _('the edge goes on last, and it goes on very fine.'),
+			isAvailable: function() {
+				return Outside.isFear() && $SM.get('game.buildings["cell foundry"]', true) > 0;
+			},
+			cost: function() {
+				return {
+					'steel': 60,
+					'leather': 40,
+					'energy cell': 5
+				};
+			}
+		},
 		'lodge': {
 			name: _('lodge'),
 			button: null,
 			maximum: 1,
-			availableMsg: _('villagers could help hunt, given the means'),
+			availableMsg: function() { return _('{0} could help hunt, given the means', Outside.villagerNoun()); },
 			buildMsg: _('the hunting lodge stands in the forest, a ways out of town'),
 			type: 'building',
 			cost: function() {
@@ -203,7 +304,7 @@ var Room = {
 			name: _('tannery'),
 			button: null,
 			maximum: 1,
-			availableMsg: _("builder says leather could be useful. says the villagers could make it."),
+			availableMsg: function() { return _("builder says leather could be useful. says the {0} could make it.", Outside.villagerNoun()); },
 			buildMsg: _('tannery goes up quick, on the edge of the village'),
 			type: 'building',
 			cost: function() {
@@ -316,7 +417,7 @@ var Room = {
 			name: _('steelworks'),
 			button: null,
 			maximum: 1,
-			availableMsg: _("builder says the villagers could make steel, given the tools"),
+			availableMsg: function() { return _("builder says the {0} could make steel, given the tools", Outside.villagerNoun()); },
 			buildMsg: _("a haze falls over the village as the steelworks fires up"),
 			type: 'building',
 			cost: function() {
@@ -1679,6 +1780,16 @@ var Room = {
 		if(craftable.maximum <= numThings) {
 			return;
 		}
+
+		// Doctrine-gated buildings must not be reachable from the other track.
+		if(typeof craftable.isAvailable === 'function' && !craftable.isAvailable()) {
+			return false;
+		}
+
+		if(thing === 'steel hut' && $SM.get('game.buildings["hut"]', true) <= 0) {
+			Notifications.notify(Room, _('no wooden huts left to rebuild.'));
+			return false;
+		}
 		
 		var storeMod = {};
 		var cost = craftable.cost();
@@ -1693,7 +1804,7 @@ var Room = {
 		}
 		$SM.setM('stores', storeMod);
 		
-		Notifications.notify(Room, craftable.buildMsg);
+		Notifications.notify(Room, Events.resolve(craftable.buildMsg));
 		
 		switch(craftable.type) {
 		case 'good':
@@ -1704,6 +1815,14 @@ var Room = {
 			break;
 		case 'building':
 			$SM.add('game.buildings["'+thing+'"]', 1);
+			/* A steel hut is a rebuild, not an addition: it consumes one
+			 * wooden hut so total capacity is unchanged. Without this, steel
+			 * huts would double as a cheap way to grow the settlement and
+			 * "every hut is steel" would be unreachable while wooden ones
+			 * remained. */
+			if(thing === 'steel hut') {
+				$SM.add('game.buildings["hut"]', -1);
+			}
 			break;
 		}
 
@@ -1718,17 +1837,101 @@ var Room = {
 				AudioEngine.playSound(AudioLibrary.BUILD);
 				break;
 		}
+
+		/* The builder's question, asked once, the first time housing goes up
+		 * for anybody other than the two of you. Hooked to the actual build
+		 * rather than to the cost() call that draws the button -- cost() runs
+		 * during rendering, long before the player has committed to anything. */
+		if(thing === 'hut' && !$SM.get('game.doctrine') &&
+			$SM.get('game.buildings["hut"]', true) === 1) {
+			Room.askDoctrine();
+		}
+	},
+
+	/* Sets game.doctrine, which everything downstream reads. See
+	 * Outside.getDoctrine for what it governs. */
+	askDoctrine: function() {
+		Events.startEvent({
+			title: _('The First Hut'),
+			scenes: {
+				'start': {
+					text: [
+						_('the builder stands looking at it for a while after the last beam is up.'),
+						_('asks what it is for. asks why you are putting a roof over people you have not met.'),
+						_('says she is not asking to be difficult. says the answer changes what she builds next.')
+					],
+					notification: _('the builder asks what the huts are for'),
+					blink: true,
+					buttons: {
+						'hope': {
+							text: _('so they have somewhere to belong'),
+							onChoose: function() {
+								$SM.set('game.doctrine', 'hope');
+								$SM.add('character.karma', 5);
+							},
+							nextScene: { 1: 'hope' }
+						},
+						'fear': {
+							text: _('so they have somewhere to be kept'),
+							onChoose: function() {
+								$SM.set('game.doctrine', 'fear');
+								$SM.add('character.karma', -5);
+							},
+							nextScene: { 1: 'fear' }
+						}
+					}
+				},
+				'hope': {
+					text: [
+						_('she nods, and does not say anything for a bit, and then says good.'),
+						_('says in that case the huts should be built to last, and that she knows how, given steel.'),
+						_('says people work better when they are not waiting for the roof to come down.')
+					],
+					notification: _('the builder starts planning for something permanent'),
+					buttons: {
+						'end': {
+							text: _('let her plan'),
+							nextScene: 'end'
+						}
+					}
+				},
+				'fear': {
+					text: [
+						_('she does not nod. she looks at the hut, and then at you, and then goes back to work.'),
+						_('she does not argue. that is the part worth noticing.'),
+						_('what gets built after this gets built differently, and nobody calls them wanderers any more.')
+					],
+					notification: _('the builder goes back to work without arguing'),
+					buttons: {
+						'end': {
+							text: _('say nothing'),
+							nextScene: 'end'
+						}
+					}
+				}
+			},
+			audio: AudioLibrary.BUILD_HUT
+		});
 	},
 	needsWorkshop: function(type) {
 		return type == 'weapon' || type == 'upgrade' || type =='tool';
 	},
 	
 	craftUnlocked: function(thing) {
+		var craftable = Room.Craftables[thing];
+
+		/* Doctrine-gated content declares its own isAvailable. Checked before
+		 * the Room.buttons cache, so a track the player didn't take never
+		 * shows up even if the prerequisites are otherwise met -- and so a
+		 * button can't linger from a state that no longer holds. */
+		if(craftable && typeof craftable.isAvailable === 'function' && !craftable.isAvailable()) {
+			return false;
+		}
+
 		if(Room.buttons[thing]) {
 			return true;
 		}
 		if($SM.get('game.builder.level') < 4) return false;
-		var craftable = Room.Craftables[thing];
 		if(Room.needsWorkshop(craftable.type) && $SM.get('game.buildings["'+'workshop'+'"]', true) === 0) return false;
 		var cost = craftable.cost();
 		
@@ -1750,7 +1953,7 @@ var Room = {
 		Room.buttons[thing] = true;
 		//don't notify if it has already been built before
 		if(!$SM.get('game.buildings["'+thing+'"]')){
-			Notifications.notify(Room, craftable.availableMsg);
+			Notifications.notify(Room, Events.resolve(craftable.availableMsg));
 		}
 		return true;
 	},
