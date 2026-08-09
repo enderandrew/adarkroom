@@ -1,10 +1,10 @@
 {
-    "name": "A Dark Room",
+    "name": "A Darker Room",
     "start_url": "/",
     "display": "standalone",
     "icons": [
         {
-            "src": "http://adarkroom.doublespeakgames.com/img/adr.png",
+            "src": "http://enderandrew.com/adarkroom/img/adr.png",
             "sizes": "192x192",
             "type": "image/png"
         }

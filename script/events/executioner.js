@@ -10,6 +10,15 @@ Enemies.Executioner = {
     damage: 10,
     hit: 0.8,
     attackDelay: 2,
+    specials: [
+        {
+            delay: 8,
+            action: (fighter) => {
+                Events.setStatus(fighter, 'shield');
+                return _('plating engages');
+            }
+        }
+    ],
     health: 60,
     loot: {
       'energy cell': {
@@ -39,6 +48,22 @@ Enemies.Executioner = {
     damage: 8,
     hit: 0.8,
     attackDelay: 1,
+    specials: [
+        {
+            delay: 7,
+            action: (fighter) => {
+                Events.setStatus(fighter, 'enraged');
+                return _('servos spin up');
+            }
+        },
+        {
+            delay: 13,
+            action: (fighter) => {
+                Events.setStatus(fighter, 'brittle');
+                return _('housing splits');
+            }
+        }
+    ],
     health: 70,
     loot: {
       /* This was two 'alien alloy' entries -- a guaranteed 1, plus a 20%
@@ -63,6 +88,22 @@ Enemies.Executioner = {
     damage: 15,
     hit: 0.8,
     attackDelay: 3,
+    specials: [
+        {
+            delay: 7,
+            action: (fighter) => {
+                Events.setStatus(fighter, 'regenerating');
+                return _('self-repair');
+            }
+        },
+        {
+            delay: 12,
+            action: (fighter) => {
+                Events.setStatus(fighter, 'venomous');
+                return _('wrong ampoule');
+            }
+        }
+    ],
     health: 80,
     atHealth: {
       40: fighter => {
@@ -93,6 +134,22 @@ Enemies.Executioner = {
     damage: 25,
     hit: 0.8,
     attackDelay: 4,
+    specials: [
+        {
+            delay: 9,
+            action: (fighter) => {
+                Events.setStatus(fighter, 'energised');
+                return _('charging');
+            }
+        },
+        {
+            delay: 14,
+            action: (fighter) => {
+                Events.setStatus(fighter, 'brittle');
+                return _('barrel glows');
+            }
+        }
+    ],
     health: 50,
     loot: {
       'energy cell': {
@@ -196,6 +253,15 @@ Events.Executioner = {
         damage: 1,
         hit: 0.7,
         attackDelay: 0.25,
+        specials: [
+            {
+                delay: 6,
+                action: (fighter) => {
+                    Events.setStatus(fighter, 'venomous');
+                    return _('ichor');
+                }
+            }
+        ],
         health: 60,
         loot: {
           'meat': {
@@ -230,6 +296,22 @@ Events.Executioner = {
         damage: 1,
         hit: 0.7,
         attackDelay: 0.25,
+        specials: [
+            {
+                delay: 6,
+                action: (fighter) => {
+                    Events.setStatus(fighter, 'venomous');
+                    return _('ichor');
+                }
+            },
+            {
+                delay: 11,
+                action: (fighter) => {
+                    Events.setStatus(fighter, 'regenerating');
+                    return _('swelling');
+                }
+            }
+        ],
         health: 70,
         loot: {
           'meat': {
@@ -264,6 +346,22 @@ Events.Executioner = {
         damage: 8,
         hit: 0.8,
         attackDelay: 2,
+        specials: [
+            {
+                delay: 7,
+                action: (fighter) => {
+                    Events.setStatus(fighter, 'meditation');
+                    return _('sets himself');
+                }
+            },
+            {
+                delay: 12,
+                action: (fighter) => {
+                    Events.setStatus(fighter, 'energised');
+                    return _('committed');
+                }
+            }
+        ],
         health: 60,
         loot: {
           'bayonet': {
@@ -444,6 +542,22 @@ Events.Executioner = {
         damage: 6,
         hit: 0.8,
         attackDelay: 1,
+        specials: [
+            {
+                delay: 6,
+                action: (fighter) => {
+                    Events.setStatus(fighter, 'enraged');
+                    return _('ancient fury');
+                }
+            },
+            {
+                delay: 12,
+                action: (fighter) => {
+                    Events.setStatus(fighter, 'brittle');
+                    return _('ribs flare');
+                }
+            }
+        ],
         health: 60,
         loot: {
           'fur': {
@@ -502,6 +616,22 @@ Events.Executioner = {
         damage: 10,
         hit: 0.8,
         attackDelay: 2.5,
+        specials: [
+            {
+                delay: 9,
+                action: (fighter) => {
+                    Events.setStatus(fighter, 'energised');
+                    return _('charging');
+                }
+            },
+            {
+                delay: 14,
+                action: (fighter) => {
+                    Events.setStatus(fighter, 'brittle');
+                    return _('vents open');
+                }
+            }
+        ],
         health: 60,
         loot: {
           'energy cell': {
@@ -654,6 +784,24 @@ Events.Executioner = {
         damage: 13,
 				hit: 0.8,
 				attackDelay: 2,
+				specials: [
+				    {
+				        delay: 7,
+				        action: () => {
+				            const player = $('#wanderer');
+				            Events.setStatus(player, 'blinded');
+				            Events.updateFighterDiv(player);
+				            return _('arc flash');
+				        }
+				    },
+				    {
+				        delay: 12,
+				        action: (fighter) => {
+				            Events.setStatus(fighter, 'brittle');
+				            return _('tank exposed');
+				        }
+				    }
+				],
 				health: 50,
         loot: {
           'energy cell': {
@@ -1865,6 +2013,22 @@ Events.Executioner = {
         damage: 10,
 				hit: 0.7,
 				attackDelay: 2,
+				specials: [
+				    {
+				        delay: 7,
+				        action: (fighter) => {
+				            Events.setStatus(fighter, 'shield');
+				            return _('field up');
+				        }
+				    },
+				    {
+				        delay: 11,
+				        action: (fighter) => {
+				            Events.setStatus(fighter, 'brittle');
+				            return _('field collapses');
+				        }
+				    }
+				],
 				health: 100,
         explosion: 30,
         loot: {

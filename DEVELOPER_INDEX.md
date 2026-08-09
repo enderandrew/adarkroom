@@ -1,4 +1,4 @@
-# A Dark Room - Developer Index
+# A Darker Room - Developer Index
 
 ## Table of Contents
 1. [Architecture Overview](#architecture-overview)
@@ -14,7 +14,7 @@
 
 ## Architecture Overview
 
-A Dark Room is an incremental/narrative game built with jQuery and vanilla JavaScript. The game follows a modular architecture with clear separation between:
+A Darker Room is an incremental/narrative game built with jQuery and vanilla JavaScript. The game follows a modular architecture with clear separation between:
 
 - **Core Engine** (`engine.js`) - Initialization, save/load, module navigation
 - **State Manager** (`state_manager.js`) - Centralized state with pub/sub
@@ -30,8 +30,8 @@ A Dark Room is an incremental/narrative game built with jQuery and vanilla JavaS
 
 ```
 /home/user/adarkroom/
-├── index.html                 # Main entry point
-├── script/                    # Core game logic (15,934 lines)
+├── index.html                # Main entry point
+├── script/                   # Core game logic (15,934 lines)
 │   ├── engine.js             # Core game engine (943 lines)
 │   ├── state_manager.js      # Global state management (440 lines)
 │   ├── events.js             # Event framework (1,488 lines)
@@ -43,6 +43,8 @@ A Dark Room is an incremental/narrative game built with jQuery and vanilla JavaS
 │   ├── ship.js               # Spaceship module (177 lines)
 │   ├── space.js              # Space flight minigame (631 lines)
 │   ├── fabricator.js         # Alien tech crafting
+│   ├── ruins.js              # Underground Ruins
+│   ├── glyphs.js             # Glyph Puzzles
 │   ├── header.js             # Tab navigation (34 lines)
 │   ├── notifications.js      # Message system (78 lines)
 │   ├── audio.js              # Audio engine
@@ -50,10 +52,14 @@ A Dark Room is an incremental/narrative game built with jQuery and vanilla JavaS
 │   ├── prestige.js           # New game+ system (103 lines)
 │   ├── scoring.js            # Score tracking (34 lines)
 │   ├── localization.js       # i18n support (69 lines)
+│   ├── hotkeys.js            # keyboard commands (69 lines)
+│   ├── dropbox.js            # Dropbox integration (69 lines)
 │   └── events/               # Event definitions
 │       ├── encounters.js     # Combat encounters (437 lines)
 │       ├── room.js           # Room events (687 lines)
 │       ├── outside.js        # Village events (297 lines)
+│       ├── path.js           # Path events (297 lines)
+│       ├── road.js           # Road events (297 lines)
 │       ├── global.js         # Universal events (67 lines)
 │       ├── setpieces.js      # Major story events (3,587 lines)
 │       ├── executioner.js    # Endgame content (2,343 lines)

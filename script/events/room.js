@@ -69,7 +69,13 @@ Events.Room = [
 					'rob': {
 						text: _('take his bags'),
 						onChoose: function() { $SM.add('character.karma', -5); },
-						nextScene: { 1: 'rob' }
+						/* No longer free loot. He travels this route for a
+						 * living and does not always travel it alone. The
+						 * karma is charged on the attempt either way -- the
+						 * choice is the sin, not the outcome. */
+						nextScene: function() {
+							return Events.karmaOdds(0.35, 'robBad', 'rob');
+						}
 					},
 					'goodbye': {
 						text: _('say goodbye'),
@@ -77,12 +83,46 @@ Events.Room = [
 					}
 				}
 			},
+			'robBad': {
+				text: function() {
+					return [
+						Events.pick([
+							_('he does not fight, but the two who were walking a hundred paces behind him do.'),
+							_('the bags come off easily. that is because there is nothing in them worth carrying, and he knew that when he set them down.'),
+							_('he is slower than he looks right up until he is not.')
+						]),
+						_('what is taken is not worth what it cost to take.')
+					];
+				},
+				notification: _('the robbery goes badly'),
+				onLoad: function() {
+					var numKilled = Math.floor(Math.random() * 3) + 1;
+					Outside.killVillagers(numKilled);
+				},
+				reward: { 'cloth': 5 },
+				buttons: {
+					'end': {
+						text: _('go inside'),
+						nextScene: 'end'
+					}
+				}
+			},
 			'rob': {
-				text: [
-					_('he does not fight. he watches, while the bags are cut from his shoulders.'),
-					_('he walks back the way he came, with nothing.'),
-					_('word of this will reach wherever he came from.')
-				],
+				text: function() {
+					return [
+						Events.pick([
+							_('he does not fight. he watches, while the bags are cut from his shoulders.'),
+							_('he sets the bags down himself, before anybody asks him to, and steps back from them.'),
+							_('he says one sentence in a language nobody here speaks, and then does not say anything else.')
+						]),
+						_('he walks back the way he came, with nothing.'),
+						Events.pick([
+							_('word of this will reach wherever he came from.'),
+							_('he knows this route better than anyone here. he will not be walking it again.'),
+							_('nobody in the village watches him go. that takes some arranging.')
+						])
+					];
+				},
 				notification: _('the nomad is robbed'),
 				reward: { 'scales': 30, 'teeth': 20, 'cloth': 15 },
 				buttons: {
@@ -137,11 +177,21 @@ Events.Room = [
 				}
 			},
 			'stuff': {
-				text: [
-					_('a bundle of sticks lies just beyond the threshold, wrapped in coarse furs.'),
-					_('someone left this. someone with less than this to spare.'),
-					_('the night is silent.')
-				],
+				text: function() {
+					return [
+						Events.pick([
+							_('a bundle of sticks lies just beyond the threshold, wrapped in coarse furs.'),
+							_('there is firewood stacked against the door, cut short enough for this stove specifically.'),
+							_('a bundle sits just outside, tied with a knot that took somebody a while.')
+						]),
+						_('someone left this. someone with less than this to spare.'),
+						Events.pick([
+							_('the night is silent.'),
+							_('there are no tracks. the ground is soft enough that there should be.'),
+							_('whatever left it is still close enough to be watching, and is not coming in.')
+						])
+					];
+				},
 				buttons: {
 					'take': {
 						text: _('take it inside'),
@@ -959,12 +1009,26 @@ Events.Room = [
 				}
 			},
 			'killman': {
-				text: [
-					_("beaten to a pulp"),
-					_("the man had very little"),
-					_("others cower in the distance"),
-					_("was it worth it")
-				],
+				text: function() {
+					return [
+						Events.pick([
+							_("beaten to a pulp"),
+							_("it takes longer than it should have"),
+							_("he stops fighting well before he stops moving")
+						]),
+						Events.pick([
+							_("the man had very little"),
+							_("what he was carrying was portioned out for somebody smaller than him"),
+							_("there is nothing on him worth five bullets")
+						]),
+						_("others cower in the distance"),
+						Events.pick([
+							_("was it worth it"),
+							_("nobody in the village asks what happened"),
+							_("the distance the others keep is new")
+						])
+					];
+				},
 				buttons: {
 					'bye': {
 						text: _('shamefully gather goods'),
@@ -1119,13 +1183,26 @@ Events.Room = [
 				}
 			},
 			'lastEntry': {
-				text: [
-					_('she says the entry is not hers. it was already in the book when the book came to her.'),
-					_('the hand is narrow and very even, and it does not use any alphabet she can read.'),
-					_('somebody translated it underneath, a long time after.'),
-					_('she says whoever wrote it had been here long enough to stop expecting to leave.')
-				],
-				notification: _('the oldest entry in the register is not in any human hand'),
+				text: function() {
+					var lines = [
+						_('she says the entry is not hers. it was already in the book when the book came to her.'),
+						_('the hand is narrow and very even, and it does not use any alphabet she can read.'),
+						_('somebody translated it underneath, a long time after.')
+					];
+					if(Prestige.hasCompletedRun()) {
+						lines.push(_('under the translation, in the margin, somebody has written a single word in a hand that is not narrow and not even.'));
+						lines.push(_('it is your handwriting. the ink is older than this settlement.'));
+						lines.push(_('you have never seen this book before.'));
+					} else {
+						lines.push(_('she says whoever wrote it had been here long enough to stop expecting to leave.'));
+					}
+					return lines;
+				},
+				notification: function() {
+					return Prestige.hasCompletedRun() ?
+						_('there is a word in the margin in your handwriting') :
+						_('the oldest entry in the register is not in any human hand');
+				},
 				buttons: {
 					'end': {
 						text: _('say goodbye'),
@@ -1333,12 +1410,26 @@ Events.Room = [
 				}
 			},
 			'wroteName': {
-				text: [
-					_('the name is written on the inside of the store room door, where the tallies go.'),
-					_('nobody in the village can pronounce it. nobody in the village knows who it belonged to.'),
-					_('it stays there. it is the only part of that fleet that is anywhere any more.')
-				],
-				notification: _("the officer's name is written down"),
+				text: function() {
+					if(Prestige.hasCompletedRun()) {
+						return [
+							_('the name is written on the inside of the store room door, where the tallies go.'),
+							_('there is not much clean wood left on that door. the name is already there, four times, in the same hand as the fifth.'),
+							_('nobody in the village put them there. the village is not old enough.'),
+							_('you do not remember writing any of them, and you have just written another.')
+						];
+					}
+					return [
+						_('the name is written on the inside of the store room door, where the tallies go.'),
+						_('nobody in the village can pronounce it. nobody in the village knows who it belonged to.'),
+						_('it stays there. it is the only part of that fleet that is anywhere any more.')
+					];
+				},
+				notification: function() {
+					return Prestige.hasCompletedRun() ?
+						_('the name is already on that door four times') :
+						_("the officer's name is written down");
+				},
 				buttons: {
 					'end': {
 						text: _('go inside'),
@@ -1421,13 +1512,26 @@ Events.Room = [
 				}
 			},
 			'readAll': {
-				text: [
-					_('it takes most of a night.'),
-					_('they are all withdrawals. every one. pull back, hold position, do not engage, wait for me.'),
-					_('the dates run for two hundred years and then stop in the middle of a sentence.'),
-					_('whatever he was waiting for, it did not arrive, and he has been walking ever since.')
-				],
-				notification: _('two hundred years of orders, all of them withdrawals'),
+				text: function() {
+					var lines = [
+						_('it takes most of a night.'),
+						_('they are all withdrawals. every one. pull back, hold position, do not engage, wait for me.'),
+						_('the dates run for two hundred years and then stop in the middle of a sentence.')
+					];
+					if(Prestige.hasCompletedRun()) {
+						lines.push(_('the last card is not an order. it is a list of names, and it has been added to in more than one hand.'));
+						lines.push(_('one of the hands is yours. the name it wrote is not one you have given anybody here.'));
+						lines.push(_('whatever he was waiting for, it did not arrive. he has been walking ever since, and he has been keeping a list.'));
+					} else {
+						lines.push(_('whatever he was waiting for, it did not arrive, and he has been walking ever since.'));
+					}
+					return lines;
+				},
+				notification: function() {
+					return Prestige.hasCompletedRun() ?
+						_('the last card is a list of names, and one entry is yours') :
+						_('two hundred years of orders, all of them withdrawals');
+				},
 				reward: { 'alien alloy': 1 },
 				buttons: {
 					'end': {

@@ -362,10 +362,17 @@
 						}
 					},
 					'inputExport': {
-						text: [_('save this.')],
+						text: [_('save this, or download it as a file.')],
 						textarea: Engine.export64(),
 						onLoad: function() { Engine.event('progress', 'export'); },
 						readonly: true,
+						/* onRender (see Events.startStory) runs after the
+						 * textarea and buttons above already exist in the DOM,
+						 * so the download link can be appended alongside them
+						 * without fighting loadScene's own render order. */
+						onRender: function() {
+							Engine.addDownloadLink(Events.eventPanel().find('#description'), Engine.export64());
+						},
 						buttons: {
 							'done': {
 								text: _('got it'),
@@ -377,8 +384,8 @@
 					'confirm': {
 						text: [
 							_('are you sure?'),
-							_('if the code is invalid, all data will be lost.'),
-							_('this is irreversible.')
+							_('if the save is invalid, nothing will be changed.'),
+							_('if it is valid, this will replace your current game. that part is irreversible.')
 						],
 						buttons: {
 							'yes': {
@@ -393,13 +400,41 @@
 						}
 					},
 					'inputImport': {
-						text: [_('put the save code here.')],
+						text: [_('paste the save code here, or choose a file below.')],
 						textarea: '',
+						onRender: function() {
+							Engine.addUploadControl(Events.eventPanel().find('#description'));
+						},
 						buttons: {
 							'okay': {
 								text: _('import'),
+								nextScene: function() {
+									var textarea = Events.eventPanel().find('textarea');
+									var pasted = textarea.length > 0 ? textarea.val() : '';
+									/* A file chosen via addUploadControl takes
+									 * priority over pasted text if both are
+									 * present -- see Engine._pendingImportText. */
+									var text = Engine._pendingImportText || pasted;
+									Engine._pendingImportText = null;
+									return Engine.import64(text) ? 'end' : 'invalidSave';
+								}
+							},
+							'cancel': {
+								text: _('cancel'),
+								nextScene: 'end'
+							}
+						}
+					},
+					'invalidSave': {
+						text: [
+							_('that save data could not be read.'),
+							_('nothing has been changed. your current game is untouched.')
+						],
+						buttons: {
+							'retry': {
+								text: _('try again'),
 								nextScene: 'end',
-								onChoose: Engine.import64
+								onChoose: Engine.exportImport
 							},
 							'cancel': {
 								text: _('cancel'),
@@ -409,6 +444,68 @@
 					}
 				}
 			});
+		},
+
+		/* Appends a "download as file" link next to the export textarea.
+		 * Builds a Blob in memory and drives the download via a throwaway
+		 * <a download> element -- no server round-trip, works entirely
+		 * client-side, and the object URL is revoked immediately after the
+		 * click is dispatched so it doesn't linger. */
+		addDownloadLink: function(container, contents) {
+			var filename = 'a-dark-room-save-' + Engine.saveFileDate() + '.txt';
+			var link = $('<a>')
+				.addClass('menuBtn')
+				.css({display: 'block', 'margin-top': '10px'})
+				.text(_('download as file'))
+				.attr('download', filename)
+				.click(function() {
+					var blob = new Blob([contents], {type: 'text/plain'});
+					var url = URL.createObjectURL(blob);
+					this.href = url;
+					Engine.setTimeout(function() { URL.revokeObjectURL(url); }, 1000);
+				});
+			container.append(link);
+		},
+
+		saveFileDate: function() {
+			var d = new Date();
+			function pad(n) { return (n < 10 ? '0' : '') + n; }
+			return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+		},
+
+		/* Appends a file picker next to the import textarea. Reading the file
+		 * just populates Engine._pendingImportText for the 'okay' button's
+		 * nextScene to pick up above -- it does not import anything itself,
+		 * so choosing a file and then hitting cancel is a safe no-op. */
+		addUploadControl: function(container) {
+			Engine._pendingImportText = null;
+			var status = $('<div>').addClass('menuBtn').css('margin-top', '10px');
+			var input = $('<input>')
+				.attr('type', 'file')
+				.attr('accept', '.txt,.json,text/plain,application/json')
+				.css('display', 'block')
+				.change(function(e) {
+					var file = e.target.files && e.target.files[0];
+					if(!file) { return; }
+					/* A save file should be a small base64 blob (see
+					 * MAX_IMPORT_BYTES below for the same cap applied to
+					 * pasted text) -- refuse anything wildly larger up front
+					 * rather than handing a huge read to FileReader. */
+					if(file.size > Engine.MAX_IMPORT_BYTES) {
+						status.text(_('that file is too large to be a save.'));
+						return;
+					}
+					var reader = new FileReader();
+					reader.onload = function() {
+						Engine._pendingImportText = reader.result;
+						status.text(_('loaded: ') + file.name);
+					};
+					reader.onerror = function() {
+						status.text(_('could not read that file.'));
+					};
+					reader.readAsText(file);
+				});
+			container.append($('<div>').css('margin-top', '10px').append(input)).append(status);
 		},
 
 		generateExport64: function(){
@@ -426,14 +523,130 @@
 			return Engine.generateExport64();
 		},
 
+		// A save this size decodes to roughly 7.5MB of JSON, which is already
+		// enormous for this game's state -- well past a sanity cap, not a
+		// realistic-but-large save.
+		MAX_IMPORT_BYTES: 10 * 1024 * 1024,
+
+		/* Keys that must never be accepted as literal properties of imported
+		 * state. JSON.parse cannot itself corrupt Object.prototype -- it only
+		 * ever creates OWN properties, even one literally named "__proto__" --
+		 * but that own property would still sit in State from then on, and
+		 * anything downstream that later does a naive recursive copy (a
+		 * future feature, a library update, a $.extend(true, ...) somewhere)
+		 * could turn it into real prototype pollution. Stripped here, once,
+		 * at the only place untrusted data enters the game, rather than
+		 * trusted forever after by every consumer of State. */
+		DANGEROUS_KEYS: ['__proto__', 'constructor', 'prototype'],
+
+		/* Recursively strips DANGEROUS_KEYS from a parsed save and rejects
+		 * anything that isn't plain JSON data (functions, DOM nodes, etc. are
+		 * impossible to get out of JSON.parse, but this stays defensive about
+		 * unexpected shapes rather than assuming).
+		 *
+		 * ctx.tooDeep is how a depth-bomb fails the WHOLE import rather than
+		 * just truncating one branch to null. null is already a legitimate
+		 * value partway through a real save, so using it as the depth-limit
+		 * signal too would make an over-deep branch indistinguishable from a
+		 * branch that was genuinely null -- the caller could accept a
+		 * silently truncated save instead of rejecting it outright. ctx is
+		 * shared across the whole recursion and checked once at the end by
+		 * import64, rather than threaded through every return value. */
+		sanitizeImportedState: function(value, depth, ctx) {
+			depth = depth || 0;
+			ctx = ctx || {tooDeep: false};
+			if(depth > 64) {
+				// A legitimate save has nowhere near this much nesting.
+				ctx.tooDeep = true;
+				return null;
+			}
+			if(value === null || typeof value === 'undefined') {
+				return null;
+			}
+			if(typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
+				return value;
+			}
+			if(Array.isArray(value)) {
+				var arr = [];
+				for(var i = 0; i < value.length; i++) {
+					arr.push(Engine.sanitizeImportedState(value[i], depth + 1, ctx));
+				}
+				return arr;
+			}
+			if(typeof value === 'object') {
+				var out = {};
+				for(var k in value) {
+					if(!Object.prototype.hasOwnProperty.call(value, k)) { continue; }
+					if(Engine.DANGEROUS_KEYS.indexOf(k) !== -1) { continue; }
+					out[k] = Engine.sanitizeImportedState(value[k], depth + 1, ctx);
+				}
+				return out;
+			}
+			// Functions, symbols, etc. -- not valid save data.
+			return null;
+		},
+
+		/* Validates and applies an imported save. Returns true and reloads on
+		 * success; returns false and leaves the current game completely
+		 * untouched on any failure. Nothing is written to localStorage until
+		 * every check has passed.
+		 *
+		 * This replaces a version that wrote decoded input to
+		 * localStorage.gameState unconditionally, before even checking it was
+		 * JSON. A malformed paste didn't corrupt anything immediately --
+		 * loadGame()'s JSON.parse is wrapped in try/catch -- but it silently
+		 * discarded the player's real save and started a new game with no
+		 * indication that the import had failed, which reads as data loss
+		 * either way. */
 		import64: function(string64) {
-			Engine.event('progress', 'import');
-			Engine.disableSelection();
+			if(typeof string64 !== 'string') {
+				return false;
+			}
 			string64 = string64.replace(/\s/g, '');
 			string64 = string64.replace(/\./g, '');
 			string64 = string64.replace(/\n/g, '');
-			var decodedSave = Base64.decode(string64);
-			localStorage.gameState = decodedSave;
+			if(string64.length === 0 || string64.length > Engine.MAX_IMPORT_BYTES) {
+				return false;
+			}
+
+			var decoded;
+			try {
+				decoded = Base64.decode(string64);
+			} catch(e) {
+				return false;
+			}
+
+			var parsed;
+			try {
+				parsed = JSON.parse(decoded);
+			} catch(e) {
+				return false;
+			}
+
+			// Reject anything that isn't a plain, non-array object -- a
+			// string, a number, an array, null are all valid JSON but none of
+			// them are a game state.
+			if(typeof parsed !== 'object' || parsed === null || Array.isArray(parsed)) {
+				return false;
+			}
+
+			var ctx = {tooDeep: false};
+			var sanitized = Engine.sanitizeImportedState(parsed, 0, ctx);
+			if(sanitized === null || ctx.tooDeep) {
+				return false;
+			}
+
+			Engine.event('progress', 'import');
+			Engine.disableSelection();
+			localStorage.gameState = JSON.stringify(sanitized);
+			Engine._doReload();
+			return true;
+		},
+
+		// The only call to location.reload() in the import path, kept as its
+		// own function so it's a single overridable seam rather than a direct
+		// call buried in import64.
+		_doReload: function() {
 			location.reload();
 		},
 
@@ -551,21 +764,21 @@
 								text: _('tumblr'),
 								nextScene: 'end',
 								onChoose: function() {
-									window.open('https://www.tumblr.com/widgets/share/tool?canonicalUrl=' + Engine.SITE_URL + '&title=A Dark Room, a Minimalist Text Adventure', 'sharer', 'width=660,height=460,location=no,menubar=no,resizable=no,scrollbars=yes,status=no,toolbar=no');
+									window.open('https://www.tumblr.com/widgets/share/tool?canonicalUrl=' + Engine.SITE_URL + '&title=A Darker Room, a Minimalist Text Adventure', 'sharer', 'width=660,height=460,location=no,menubar=no,resizable=no,scrollbars=yes,status=no,toolbar=no');
 								}
 							},
 							'pinterest': {
 								text:_('pinterest'),
 								nextScene: 'end',
 								onChoose: function() {
-									window.open('http://pinterest.com/pin/create/button/?url=' + Engine.SITE_URL + '&description=A Dark Room, a minimalist text adventure', 'sharer', 'width=480,height=436,location=no,menubar=no,resizable=no,scrollbars=no,status=no,toolbar=no');
+									window.open('http://pinterest.com/pin/create/button/?url=' + Engine.SITE_URL + '&description=A Darker Room, a minimalist text adventure', 'sharer', 'width=480,height=436,location=no,menubar=no,resizable=no,scrollbars=no,status=no,toolbar=no');
 								}
 							},
 							'wordpress': {
 								text:_('wordpress'),
 								nextScene: 'end',
 								onChoose: function() {
-									window.open('https://wordpress.com/press-this.php?u=' + Engine.SITE_URL + '&t=A Dark Room, a Minimalist Text Adventure', 'sharer', 'width=700,height=600,location=no,menubar=no,resizable=no,scrollbars=no,status=no,toolbar=no');
+									window.open('https://wordpress.com/press-this.php?u=' + Engine.SITE_URL + '&t=A Darker Room, a Minimalist Text Adventure', 'sharer', 'width=700,height=600,location=no,menubar=no,resizable=no,scrollbars=no,status=no,toolbar=no');
 								}
 							},
 							'whatsapp': {
@@ -573,6 +786,27 @@
 								nextScene: 'end',
 								onChoose: function() {
 									window.open('https://api.whatsapp.com/send?text=' + Engine.SITE_URL, 'sharer', 'width=480,height=436,location=no,menubar=no,resizable=no,scrollbars=no,status=no,toolbar=no');
+								}
+							},
+							'threads': {
+								text: _('threads'),
+								nextScene: 'end',
+								onChoose: function() {
+									/* Threads' share intent takes one combined
+									 * text param rather than separate text/url
+									 * fields (unlike Twitter/X above) -- the
+									 * URL has to be concatenated into it. */
+									var text = encodeURIComponent('A Darker Room, a Minimalist Text Adventure') + '%20' + Engine.SITE_URL;
+									window.open('https://www.threads.net/intent/post?text=' + text, 'sharer', 'width=660,height=460,location=no,menubar=no,resizable=no,scrollbars=yes,status=no,toolbar=no');
+								}
+							},
+							'bluesky': {
+								text: _('bluesky'),
+								nextScene: 'end',
+								onChoose: function() {
+									// Same single-field intent shape as Threads.
+									var text = encodeURIComponent('A Darker Room, a Minimalist Text Adventure') + '%20' + Engine.SITE_URL;
+									window.open('https://bsky.app/intent/compose?text=' + text, 'sharer', 'width=660,height=460,location=no,menubar=no,resizable=no,scrollbars=yes,status=no,toolbar=no');
 								}
 							},
 							'close': {

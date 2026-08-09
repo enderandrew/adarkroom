@@ -1264,7 +1264,7 @@ var Room = {
 		$SM.set('game.fire', $SM.get('game.fire.value')===undefined?this.FireEnum.Dead:$SM.get('game.fire'));
 		
 		// Create the room tab
-		this.tab = Header.addLocation(_("A Dark Room"), "room", Room);
+		this.tab = Header.addLocation(_("A Darker Room"), "room", Room);
 		
 		// Create the Room panel
 		this.panel = $('<div>')
@@ -1390,7 +1390,7 @@ var Room = {
 	},
 	
 	setTitle: function() {
-		var title = $SM.get('game.fire.value') < 2 ? _("A Dark Room") : _("A Firelit Room");
+		var title = $SM.get('game.fire.value') < 2 ? _("A Darker Room") : _("A Firelit Room");
 		if(Engine.activeModule == this) {
 			document.title = title;
 		}

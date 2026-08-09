@@ -41,10 +41,16 @@ Events.Global = [
 				}
 			},
 			'hang': {
-				text: [
-					_('the villagers hang the thief high in front of the store room.'),
-					_('the point is made. in the next few days, the missing supplies are returned.')
-				],
+				text: function() {
+					return [
+						_('the {0} hang the thief high in front of the store room.', Outside.villagerNoun()),
+						Events.pick([
+							_('the point is made. in the next few days, the missing supplies are returned.'),
+							_('the point is made. nobody goes near the store room for a week, including the people who work there.'),
+							_('the point is made. the supplies come back, and so does a great deal of quiet.')
+						])
+					];
+				},
 				onLoad: function() {
 					$SM.set('game.thieves', 2);
 					$SM.remove('income.thieves');
@@ -60,10 +66,16 @@ Events.Global = [
 				}
 			},
 			'spare': {
-				text: [
-					_("the man says he's grateful. says he won't come around any more."),
-					_("shares what he knows about sneaking before he goes.")
-				],
+				text: function() {
+					return [
+						Events.pick([
+							_("the man says he's grateful. says he won't come around any more."),
+							_("the man does not say anything at all until he is most of the way to the treeline."),
+							_("the man asks whether this is a trick, and has to be told twice that it is not.")
+						]),
+						_("shares what he knows about sneaking before he goes.")
+					];
+				},
 				onLoad: function() {
 					$SM.set('game.thieves', 2);
 					$SM.remove('income.thieves');

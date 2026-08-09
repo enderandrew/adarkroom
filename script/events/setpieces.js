@@ -2182,6 +2182,15 @@ Events.Setpieces = {
 				damage: 4,
 				hit: 0.8,
 				attackDelay: 2,
+				specials: [
+					{
+						delay: 6,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'enraged');
+							return _('furious');
+						}
+					}
+				],
 				health: 30,
 				loot: {
 					'cloth': {
@@ -2277,6 +2286,17 @@ Events.Setpieces = {
 				damage: 4,
 				hit: 0.8,
 				attackDelay: 2,
+				specials: [
+					{
+						delay: 7,
+						action: () => {
+							const player = $('#wanderer');
+							Events.setStatus(player, 'blinded');
+							Events.updateFighterDiv(player);
+							return _('kicks up grit');
+						}
+					}
+				],
 				health: 30,
 				loot: {
 					'cloth': {
@@ -2316,6 +2336,15 @@ Events.Setpieces = {
 				damage: 3,
 				hit: 0.8,
 				attackDelay: 1,
+				specials: [
+					{
+						delay: 6,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'enraged');
+							return _('snarling');
+						}
+					}
+				],
 				health: 25,
 				loot: {
 					'teeth': {
@@ -2429,6 +2458,15 @@ Events.Setpieces = {
 				damage: 4,
 				hit: 0.8,
 				attackDelay: 2,
+				specials: [
+					{
+						delay: 7,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'brittle');
+							return _('overreaches');
+						}
+					}
+				],
 				health: 30,
 				loot: {
 					'cloth': {
@@ -2468,6 +2506,15 @@ Events.Setpieces = {
 				damage: 3,
 				hit: 0.8,
 				attackDelay: 1,
+				specials: [
+					{
+						delay: 6,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'venomous');
+							return _('filthy bite');
+						}
+					}
+				],
 				health: 25,
 				loot: {
 					'teeth': {
@@ -2519,6 +2566,15 @@ Events.Setpieces = {
 				damage: 4,
 				hit: 0.8,
 				attackDelay: 1,
+				specials: [
+					{
+						delay: 7,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'enraged');
+							return _('frenzied');
+						}
+					}
+				],
 				health: 25,
 				loot: {
 					'teeth': {
@@ -2594,6 +2650,15 @@ Events.Setpieces = {
 				damage: 5,
 				hit: 0.8,
 				attackDelay: 2,
+				specials: [
+					{
+						delay: 8,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'shield');
+							return _('scrap plating');
+						}
+					}
+				],
 				health: 30,
 				loot: {
 					'cured meat': {
@@ -2633,6 +2698,15 @@ Events.Setpieces = {
 				damage: 6,
 				hit: 0.8,
 				attackDelay: 2,
+				specials: [
+					{
+						delay: 7,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'energised');
+							return _('winds up');
+						}
+					}
+				],
 				health: 30,
 				loot: {
 					'cured meat': {
@@ -2964,6 +3038,15 @@ Events.Setpieces = {
 				damage: 5,
 				hit: 0.8,
 				attackDelay: 2,
+				specials: [
+					{
+						delay: 6,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'venomous');
+							return _('venom');
+						}
+					}
+				],
 				health: 20,
 				loot: {
 					'scales': {
@@ -3003,6 +3086,15 @@ Events.Setpieces = {
 				damage: 15,
 				hit: 0.8,
 				attackDelay: 4,
+				specials: [
+					{
+						delay: 8,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'shield');
+							return _('takes cover');
+						}
+					}
+				],
 				health: 30,
 				ranged: true,
 				loot: {
@@ -3044,6 +3136,15 @@ Events.Setpieces = {
 				damage: 8,
 				hit: 0.8,
 				attackDelay: 2,
+				specials: [
+					{
+						delay: 8,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'shield');
+							return _('armour holds');
+						}
+					}
+				],
 				health: 50,
 				loot: {
 					'cured meat': {
@@ -3198,6 +3299,15 @@ Events.Setpieces = {
 				damage: 3,
 				hit: 0.8,
 				attackDelay: 2,
+				specials: [
+					{
+						delay: 7,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'brittle');
+							return _('overreaches');
+						}
+					}
+				],
 				health: 30,
 				loot: {
 					'steel sword': {
@@ -3238,6 +3348,15 @@ Events.Setpieces = {
 				damage: 2,
 				hit: 0.8,
 				attackDelay: 1,
+				specials: [
+					{
+						delay: 6,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'enraged');
+							return _('snarling');
+						}
+					}
+				],
 				health: 30,
 				loot: {
 					'meat': {
@@ -3457,6 +3576,17 @@ Events.Setpieces = {
 				damage: 2,
 				hit: 0.7,
 				attackDelay: 0.5,
+				specials: [
+					{
+						delay: 7,
+						action: () => {
+							const player = $('#wanderer');
+							Events.setStatus(player, 'blinded');
+							Events.updateFighterDiv(player);
+							return _('flung dust');
+						}
+					}
+				],
 				health: 40,
 				loot: {
 					'cured meat': {
@@ -3498,6 +3628,15 @@ Events.Setpieces = {
 				damage: 4,
 				hit: 0.7,
 				attackDelay: 0.7,
+				specials: [
+					{
+						delay: 6,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'venomous');
+							return _('venom');
+						}
+					}
+				],
 				health: 30,
 				loot: {
 					'meat': {
@@ -3563,6 +3702,17 @@ Events.Setpieces = {
 				damage: 5,
 				hit: 0.7,
 				attackDelay: 1,
+				specials: [
+					{
+						delay: 6,
+						action: () => {
+							const player = $('#wanderer');
+							Events.setStatus(player, 'blinded');
+							Events.updateFighterDiv(player);
+							return _('wings in your face');
+						}
+					}
+				],
 				health: 45,
 				loot: {
 					'meat': {
@@ -3635,6 +3785,15 @@ Events.Setpieces = {
 				damage: 1,
 				hit: 0.8,
 				attackDelay: 0.25,
+				specials: [
+					{
+						delay: 8,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'regenerating');
+							return _('more keep coming');
+						}
+					}
+				],
 				health: 60,
 				loot: {
 					'fur': {
@@ -3670,6 +3829,15 @@ Events.Setpieces = {
 				damage: 6,
 				hit: 0.8,
 				attackDelay: 2,
+				specials: [
+					{
+						delay: 8,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'meditation');
+							return _('sets itself');
+						}
+					}
+				],
 				health: 45,
 				loot: {
 					'bayonet': {
@@ -3706,6 +3874,15 @@ Events.Setpieces = {
 				damage: 8,
 				hit: 0.8,
 				attackDelay: 2,
+				specials: [
+					{
+						delay: 8,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'shield');
+							return _('armour holds');
+						}
+					}
+				],
 				health: 50,
 				loot: {
 					'cured meat': {
@@ -3747,6 +3924,15 @@ Events.Setpieces = {
 				damage: 3,
 				hit: 0.9,
 				attackDelay: 2,
+				specials: [
+					{
+						delay: 7,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'energised');
+							return _('lines up the shot');
+						}
+					}
+				],
 				health: 55,
 				loot: {
 					'rifle': {
@@ -3788,6 +3974,17 @@ Events.Setpieces = {
 				damage: 2,
 				hit: 0.7,
 				attackDelay: 0.5,
+				specials: [
+					{
+						delay: 7,
+						action: () => {
+							const player = $('#wanderer');
+							Events.setStatus(player, 'blinded');
+							Events.updateFighterDiv(player);
+							return _('flung dust');
+						}
+					}
+				],
 				health: 40,
 				loot: {
 					'cloth': {
@@ -3823,6 +4020,15 @@ Events.Setpieces = {
 				damage: 2,
 				hit: 0.7,
 				attackDelay: 1,
+				specials: [
+					{
+						delay: 7,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'enraged');
+							return _('wild swings');
+						}
+					}
+				],
 				health: 45,
 				loot: {
 					'cloth': {
@@ -3858,6 +4064,15 @@ Events.Setpieces = {
 				damage: 3,
 				hit: 0.8,
 				attackDelay: 2,
+				specials: [
+					{
+						delay: 6,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'brittle');
+							return _('loses footing');
+						}
+					}
+				],
 				health: 20,
 				loot: {
 					'cloth': {
@@ -3893,6 +4108,22 @@ Events.Setpieces = {
 				damage: 8,
 				hit: 0.6,
 				attackDelay: 2,
+				specials: [
+					{
+						delay: 6,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'venomous');
+							return _('weeping barbs');
+						}
+					},
+					{
+						delay: 8,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'regenerating');
+							return _('knitting');
+						}
+					}
+				],
 				health: 40,
 				loot: {
 					'cloth': {
@@ -3934,6 +4165,22 @@ Events.Setpieces = {
 				damage: 2,
 				hit: 0.6,
 				attackDelay: 0.5,
+				specials: [
+					{
+						delay: 7,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'regenerating');
+							return _('regrowing');
+						}
+					},
+					{
+						delay: 11,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'venomous');
+							return _('stinging');
+						}
+					}
+				],
 				health: 60,
 				loot: {
 					'meat': {
@@ -4804,6 +5051,15 @@ Events.Setpieces = {
 				damage: 8,
 				hit: 0.8,
 				attackDelay: 2,
+				specials: [
+					{
+						delay: 8,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'shield');
+							return _('armour holds');
+						}
+					}
+				],
 				health: 50,
 				loot: {
 					'cured meat': {
@@ -4844,6 +5100,15 @@ Events.Setpieces = {
 				damage: 8,
 				hit: 0.8,
 				attackDelay: 2,
+				specials: [
+					{
+						delay: 8,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'shield');
+							return _('armour holds');
+						}
+					}
+				],
 				health: 50,
 				loot: {
 					'cured meat': {
@@ -4883,6 +5148,22 @@ Events.Setpieces = {
 				damage: 10,
 				hit: 0.8,
 				attackDelay: 2,
+				specials: [
+					{
+						delay: 7,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'meditation');
+							return _('sets himself');
+						}
+					},
+					{
+						delay: 12,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'energised');
+							return _('both hands');
+						}
+					}
+				],
 				health: 65,
 				loot: {
 					'bayonet': {
@@ -5032,6 +5313,15 @@ Events.Setpieces = {
 				damage: 5,
 				hit: 0.8,
 				attackDelay: 2,
+				specials: [
+					{
+						delay: 5,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'enraged');
+							return _('bellowing');
+						}
+					}
+				],
 				health: 20,
 				loot: {
 					'cured meat': {

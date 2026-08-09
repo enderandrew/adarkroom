@@ -962,6 +962,16 @@ var Events = {
 		 * startEnemyAttacks()) belonging to an event that no longer exists. */
 		Events._statusTimers.forEach(clearTimeout);
 		Events._statusTimers = [];
+		/* Stored meditation damage must not survive the fight.
+		 *
+		 * A meditating enemy banks incoming damage in _meditateDmg and
+		 * releases it as its next attack. If the fight ends while damage is
+		 * still banked -- the enemy dies mid-meditation, or the player flees
+		 * -- that number used to persist on the Events object, and the FIRST
+		 * enemy attack of the NEXT fight would fire it at the player out of
+		 * nowhere. Latent before, but meditation is now on several setpiece
+		 * enemies, so it would have become reachable in normal play. */
+		Events._meditateDmg = 0;
 	},		
 		
 	endFight: function() {

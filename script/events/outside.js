@@ -191,7 +191,15 @@ Events.Outside = [
 						text: _('1 medicine'),
 						cost: { 'medicine' : 1 },
 						onChoose: function() { $SM.add('character.karma', 1); },
-						nextScene: {1: 'healed'}
+						/* Spending the medicine used to be a guaranteed cure,
+						 * which made this the obviously correct button and the
+						 * event a formality. It is now a strong bet rather than
+						 * a certainty -- the karma is still earned either way,
+						 * because the decision to spend it is the moral act,
+						 * not the outcome. */
+						nextScene: function() {
+							return Events.karmaOdds(0.25, 'partial', 'healed');
+						}
 					},
 					/* Triage: spend nothing, separate the sick, and hope. The
 					 * outcome is a genuine gamble weighted by karma -- villagers
@@ -286,7 +294,9 @@ Events.Outside = [
 						text: _('3 medicine'),
 						cost: { 'medicine' : 3 },
 						onChoose: function() { $SM.add('character.karma', 2); },
-						nextScene: {1: 'healed'}
+						nextScene: function() {
+							return Events.karmaOdds(0.3, 'partialPlague', 'healed');
+						}
 					},
 					/* Burning the infected huts with people still inside. It
 					 * genuinely works better than doing nothing, which is what
@@ -312,6 +322,29 @@ Events.Outside = [
 				notification: _('epidemic is eradicated eventually'),
 				onLoad: function() {
 					var numKilled = Math.floor(Math.random() * 5) + 2;
+					Outside.killVillagers(numKilled);
+				},
+				buttons: {
+					'end': {
+						text: _('go home'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'partialPlague': {
+				text: function() {
+					return [
+						Events.pick([
+							_('the medicine goes to the worst of them first, which is the wrong order and the only bearable one.'),
+							_('there is enough for most of the huts. the arithmetic of which most is done quickly and not out loud.'),
+							_('it works, mostly, and the mostly is a row of graves at the treeline.')
+						]),
+						_('the plague stops. it does not stop everywhere at once.')
+					];
+				},
+				notification: _('the plague is halted, but not everywhere'),
+				onLoad: function() {
+					var numKilled = Math.floor(Math.random() * 8) + 2;
 					Outside.killVillagers(numKilled);
 				},
 				buttons: {
@@ -663,11 +696,21 @@ Events.Outside = [
 			/* Layer two: whichever group is taken in, the interesting part is
 			 * what they say about the other one. */
 			'iron': {
-				text: [
-					_('they are good workers and they are grateful, and they eat a great deal.'),
-					_('they say the others are liars. say the lamp is a trick, and that nothing like it exists.'),
-					_('they are certain of this. they name a year to prove it. it is not this year.')
-				],
+				text: function() {
+					return [
+						Events.pick([
+							_('they are good workers and they are grateful, and they eat a great deal.'),
+							_('they work without being asked and go quiet whenever anybody thanks them.'),
+							_('they set up exactly the way people set up who have done this several times already.')
+						]),
+						_('they say the others are liars. say the lamp is a trick, and that nothing like it exists.'),
+						Events.pick([
+							_('they are certain of this. they name a year to prove it. it is not this year.'),
+							_('one of them offers to prove it and then cannot remember what the proof was.'),
+							_('they are not lying. that is what makes it difficult.')
+						])
+					];
+				},
 				notification: _('the first group joins the village'),
 				onLoad: function() {
 					Outside.addVillagers(Math.floor(Math.random() * 6) + 4);
@@ -684,11 +727,21 @@ Events.Outside = [
 				}
 			},
 			'lamp': {
-				text: [
-					_('they are quiet and they keep to themselves, and they do not eat much at all.'),
-					_('they say the others are a long way from home and do not know it yet.'),
-					_('asked how they know, one of them says: because we were, and we did not either.')
-				],
+				text: function() {
+					return [
+						Events.pick([
+							_('they are quiet and they keep to themselves, and they do not eat much at all.'),
+							_('they take the smallest hut without being offered it and do not come out of it much.'),
+							_('they are polite in a way that suggests a great deal of practice at being new somewhere.')
+						]),
+						_('they say the others are a long way from home and do not know it yet.'),
+						Events.pick([
+							_('asked how they know, one of them says: because we were, and we did not either.'),
+							_('asked how they know, one of them looks at the lamp instead of answering.'),
+							_('asked how long ago they worked it out, one of them says it is not the kind of thing you work out once.')
+						])
+					];
+				},
 				notification: _('the second group joins the village'),
 				onLoad: function() {
 					Outside.addVillagers(Math.floor(Math.random() * 4) + 2);
@@ -826,11 +879,21 @@ Events.Outside = [
 				}
 			},
 			'dig': {
-				text: [
-					_('there is nothing under it. no box, no bones, no ash.'),
-					_('the stone goes into the wall of the new hut, script inward, where it will not have to be looked at.'),
-					_('it is very good stone. it is not from here.')
-				],
+				text: function() {
+					return [
+						Events.pick([
+							_('there is nothing under it. no box, no bones, no ash.'),
+							_('there is a hollow under it, lined and sealed and completely empty.'),
+							_('there is nothing under it, and the ground below has never been broken. the marker was set, not buried.')
+						]),
+						_('the stone goes into the wall of the new hut, script inward, where it will not have to be looked at.'),
+						Events.pick([
+							_('it is very good stone. it is not from here.'),
+							_('it cuts the mortar rather than the other way round.'),
+							_('it is the only part of that hut that will still be standing in a hundred years.')
+						])
+					];
+				},
 				notification: _('the marker is dug out'),
 				reward: { 'iron': 20, 'steel': 5 },
 				buttons: {
@@ -856,13 +919,26 @@ Events.Outside = [
 			},
 			/* Layer two: someone can read it, and what it says is the hint. */
 			'reader': {
-				text: [
-					_('one of the newer arrivals can. she reads it twice before she says anything.'),
-					_('it is not a name. it is a rank, a fleet number, and a date of loss.'),
-					_('the date of loss is before the date the stone was cut. somebody put this here for someone they had not lost yet.'),
-					_('she says there are a great many of these. she says she has been walking past them her whole life.')
-				],
-				notification: _('the marker is a fleet loss record'),
+				text: function() {
+					var lines = [
+						_('one of the newer arrivals can. she reads it twice before she says anything.'),
+						_('it is not a name. it is a rank, a fleet number, and a date of loss.'),
+						_('the date of loss is before the date the stone was cut. somebody put this here for someone they had not lost yet.')
+					];
+					if(Prestige.hasCompletedRun()) {
+						lines.push(_('she turns the stone over looking for a mason\'s mark and finds one, scratched rather than cut.'));
+						lines.push(_('you have made that mark. you make it without thinking, on things you want to find again.'));
+						lines.push(_('you have never been here, and the scratch has been under that stone longer than the village has stood.'));
+					} else {
+						lines.push(_('she says there are a great many of these. she says she has been walking past them her whole life.'));
+					}
+					return lines;
+				},
+				notification: function() {
+					return Prestige.hasCompletedRun() ?
+						_('the mark under the stone is one you make without thinking') :
+						_('the marker is a fleet loss record');
+				},
 				buttons: {
 					'moveIt': {
 						text: _('move the trench anyway'),
