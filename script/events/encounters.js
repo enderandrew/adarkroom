@@ -1263,11 +1263,6 @@ Events.Encounters = [
 						max: 4,
 						chance: 0.8
 					},
-					'alien alloy': {
-						min: 1,
-						max: 1,
-						chance: 0.3
-					}
 				},
 				notification: _('it was built to break a wall that is no longer standing. it settles for you.')
 			}
@@ -1307,11 +1302,6 @@ Events.Encounters = [
 						max: 6,
 						chance: 0.8
 					},
-					'alien alloy': {
-						min: 1,
-						max: 1,
-						chance: 0.25
-					}
 				},
 				notification: _('too many limbs, and none of them agree on how old they are.')
 			}
@@ -1356,11 +1346,6 @@ Events.Encounters = [
 						min: 2,
 						max: 5,
 						chance: 0.8
-					},
-					'alien alloy': {
-						min: 1,
-						max: 2,
-						chance: 0.4
 					},
 					'steel': {
 						min: 1,

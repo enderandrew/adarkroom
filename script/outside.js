@@ -864,7 +864,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_NIGHTMARE
 			});
 		}
-		if($SM.get('character.gather') == 30) {
+		if($SM.get('character.gather') == 25) {
 			Events.startEvent({
 				title: _('nightmares continue'),
 				scenes: {
@@ -881,7 +881,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_NIGHTMARE
 			});
 		}
-		if($SM.get('character.gather') == 45) {
+		if($SM.get('character.gather') == 35) {
 			Events.startEvent({
 				title: _('nightmares continue'),
 				scenes: {
@@ -898,7 +898,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_NIGHTMARE
 			});
 		}
-		if($SM.get('character.gather') == 60) {
+		if($SM.get('character.gather') == 45) {
 			Events.startEvent({
 				title: _('nightmares worsen'),
 				scenes: {
@@ -953,7 +953,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_NIGHTMARE
 			});
 		}
-		if($SM.get('character.gather') == 75) {
+		if($SM.get('character.gather') == 55) {
 			Events.startEvent({
 				title: _('nightmares worsen'),
 				scenes: {
@@ -1010,7 +1010,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_NIGHTMARE
 			});
 		}
-		if($SM.get('character.gather') == 95) {
+		if($SM.get('character.gather') == 65) {
 			Events.startEvent({
 				title: _('night sky'),
 				scenes: {
@@ -1027,7 +1027,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_SKY
 			});
 		}
-		if($SM.get('character.gather') == 115) {
+		if($SM.get('character.gather') == 75) {
 			Events.startEvent({
 				title: _('empty skies'),
 				scenes: {
@@ -1077,7 +1077,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_SKY
 			});
 		}
-		if($SM.get('character.gather') == 135) {
+		if($SM.get('character.gather') == 90) {
 			Events.startEvent({
 				title: _('relic from the past'),
 				scenes: {
@@ -1129,7 +1129,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_LIMP
 			});
 		}
-		if($SM.get('character.gather') == 155) {
+		if($SM.get('character.gather') == 105) {
 			Events.startEvent({
 				title: _('things unsaid'),
 				scenes: {
@@ -1180,7 +1180,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_HMM
 			});
 		}
-		if($SM.get('character.gather') == 175) {
+		if($SM.get('character.gather') == 120) {
 			Events.startEvent({
 				title: _('no escape'),
 				scenes: {
@@ -1197,7 +1197,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_NIGHTMARE
 			});
 		}
-		if($SM.get('character.gather') == 195) {
+		if($SM.get('character.gather') == 135) {
 			Events.startEvent({
 				title: _('exile'),
 				scenes: {
@@ -1214,7 +1214,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_SOLDIER_ATTACK
 			});
 		}
-		if($SM.get('character.gather') == 205) {
+		if($SM.get('character.gather') == 150) {
 			Events.startEvent({
 				title: _('thoughts'),
 				scenes: {
@@ -1231,7 +1231,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_HMM
 			});
 		}
-		if($SM.get('character.gather') == 225) {
+		if($SM.get('character.gather') == 170) {
 			Events.startEvent({
 				title: _('no memory'),
 				scenes: {
@@ -1248,7 +1248,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_SKY
 			});
 		}
-		if($SM.get('character.gather') == 245) {
+		if($SM.get('character.gather') == 190) {
 			Events.startEvent({
 				title: _('blood red sky'),
 				scenes: {
@@ -1265,7 +1265,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_SOLDIER_ATTACK
 			});
 		}
-		if($SM.get('character.gather') == 265) {
+		if($SM.get('character.gather') == 210) {
 			Events.startEvent({
 				title: _('the exile and the profane'),
 				scenes: {
@@ -1282,7 +1282,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_GUILT
 			});
 		}
-		if($SM.get('character.gather') == 285) {
+		if($SM.get('character.gather') == 230) {
 			Events.startEvent({
 				title: _('a wanderer'),
 				scenes: {
@@ -1299,7 +1299,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_MYSTERIOUS_WANDERER
 			});
 		}
-		if($SM.get('character.gather') == 305) {
+		if($SM.get('character.gather') == 250) {
 			Events.startEvent({
 				title: _('other wanderers'),
 				scenes: {
@@ -1316,7 +1316,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_MYSTERIOUS_WANDERER
 			});
 		}
-		if($SM.get('character.gather') == 325) {
+		if($SM.get('character.gather') == 270) {
 			Events.startEvent({
 				title: _('stars in the sky'),
 				scenes: {
@@ -1333,7 +1333,7 @@ var Outside = {
 				audio: AudioLibrary.SPACE
 			});
 		}
-		if($SM.get('character.gather') == 345) {
+		if($SM.get('character.gather') == 290) {
 			Events.startEvent({
 				title: _('a pang'),
 				scenes: {
@@ -1350,7 +1350,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_GUILT
 			});
 		}
-		if($SM.get('character.gather') == 365) {
+		if($SM.get('character.gather') == 310) {
 			Events.startEvent({
 				title: _('a pang'),
 				scenes: {
@@ -1367,7 +1367,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_GUILT
 			});
 		}
-		if($SM.get('character.gather') == 385) {
+		if($SM.get('character.gather') == 330) {
 			Events.startEvent({
 				title: _('a pang'),
 				scenes: {
@@ -1384,7 +1384,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_GUILT
 			});
 		}
-		if($SM.get('character.gather') == 405) {
+		if($SM.get('character.gather') == 350) {
 			Events.startEvent({
 				title: _('exiled'),
 				scenes: {
@@ -1401,7 +1401,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_GUILT
 			});
 		}
-		if($SM.get('character.gather') == 425) {
+		if($SM.get('character.gather') == 370) {
 			Events.startEvent({
 				title: _('the call'),
 				scenes: {
@@ -1418,7 +1418,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_SPACE
 			});
 		}
-		if($SM.get('character.gather') == 445) {
+		if($SM.get('character.gather') == 390) {
 			Events.startEvent({
 				title: _('the call'),
 				scenes: {
@@ -1435,7 +1435,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_GUILT
 			});
 		}
-		if($SM.get('character.gather') == 465) {
+		if($SM.get('character.gather') == 410) {
 			Events.startEvent({
 				title: _('the call'),
 				scenes: {
@@ -1452,7 +1452,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_GUILT
 			});
 		}
-		if($SM.get('character.gather') == 485) {
+		if($SM.get('character.gather') == 430) {
 			Events.startEvent({
 				title: _('the call'),
 				scenes: {
@@ -1469,7 +1469,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_SOLDIER_ATTACK
 			});
 		}
-		if($SM.get('character.gather') == 505) {
+		if($SM.get('character.gather') == 450) {
 			Events.startEvent({
 				title: _('arms'),
 				scenes: {
@@ -1486,7 +1486,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_HMM
 			});
 		}
-		if($SM.get('character.gather') == 525) {
+		if($SM.get('character.gather') == 470) {
 			Events.startEvent({
 				title: _('her amulet'),
 				scenes: {
@@ -1503,7 +1503,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_HMM
 			});
 		}
-		if($SM.get('character.gather') == 545) {
+		if($SM.get('character.gather') == 490) {
 			Events.startEvent({
 				title: _('wanderer empire'),
 				scenes: {
@@ -1520,7 +1520,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_SPACE
 			});
 		}
-		if($SM.get('character.gather') == 565) {
+		if($SM.get('character.gather') == 510) {
 			Events.startEvent({
 				title: _('neverending'),
 				scenes: {
@@ -1537,7 +1537,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_GUILT
 			});
 		}
-		if($SM.get('character.gather') == 585) {
+		if($SM.get('character.gather') == 530) {
 			Events.startEvent({
 				title: _('neverending'),
 				scenes: {
@@ -1554,7 +1554,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_GUILT
 			});
 		}
-		if($SM.get('character.gather') == 605) {
+		if($SM.get('character.gather') == 550) {
 			Events.startEvent({
 				title: _('neverending'),
 				scenes: {
@@ -1571,7 +1571,7 @@ var Outside = {
 				audio: AudioLibrary.EVENT_GUILT
 			});
 		}
-		if($SM.get('character.gather') == 625) {
+		if($SM.get('character.gather') == 570) {
 			Events.startEvent({
 				title: _('neverending'),
 				scenes: {

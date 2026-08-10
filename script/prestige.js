@@ -50,7 +50,50 @@ var Prestige = {
 		{ store: 'energy cell',   type: 'a', value: 3 },
 		{ store: 'grenade',       type: 'a', value: 5 },
 		{ store: 'handheld nuke', type: 'a', value: 25 },
-		{ store: 'bolas',         type: 'a', value: 4 }
+		{ store: 'bolas',         type: 'a', value: 4 },
+		/* Previously scored via a standalone `+ alien_alloy * 10` bonus in
+		 * Score.calculateScore(), bypassing this table entirely -- which
+		 * meant it was the one valuable material in the game that did NOT
+		 * carry over between prestige runs (collectStores() only restores
+		 * items listed here). Folded in so it behaves like everything else:
+		 * scored the same way, and carried over the same way. Valued above
+		 * steel (3) but below the cheapest weapon (bone spear, 10): it's a
+		 * component, not an end product, and the ruins/wreck content that
+		 * drops it already gates it behind real risk. */
+		{ store: 'alien alloy',  type: 'g', value: 8 }
+	],
+
+	/* --- Buildings -----------------------------------------------------
+	 * Buildings score, but do NOT carry over -- collectStores() only ever
+	 * touches `stores`, never `game.buildings`, and that's staying that way
+	 * on purpose. A fresh village every prestige run is core to the game's
+	 * loop; letting a maxed steel-hut city persist across resets would gut
+	 * the point of restarting. This table exists purely so that investing
+	 * in the village is credited at the end of a run instead of scoring
+	 * strictly worse than hoarding the same materials unspent -- which was
+	 * the actual gap: a wood hut (350 wood) currently scored zero, while
+	 * 350 raw wood in the stockpile scored 350.
+	 *
+	 * Values approximate the RAW MATERIAL cost of one unit at storesMap's
+	 * own per-material values, so building isn't punished relative to
+	 * hoarding. Where cost scales with count already built (hut, steel hut,
+	 * trap), the value here is pinned to the FIRST unit's price -- an exact
+	 * running total isn't recoverable from a bare count, and underscoring
+	 * a late hut is a smaller error than overscoring an early one. */
+	buildingsMap: [
+		{ building: 'hut',           value: 350 },   // 350 wood
+		{ building: 'steel hut',     value: 300 },   // 100 steel
+		{ building: 'trap',          value: 10 },    // 10 wood (first unit)
+		{ building: 'cart',          value: 30 },     // 30 wood
+		{ building: 'lodge',         value: 225 },    // 200 wood + 10 fur + 5 meat
+		{ building: 'trading post',  value: 550 },    // 400 wood + 100 fur
+		{ building: 'tannery',       value: 575 },    // 500 wood + 50 fur
+		{ building: 'smokehouse',    value: 650 },    // 600 wood + 50 meat
+		{ building: 'workshop',      value: 1020 },   // 800 wood + 100 leather + 10 scales
+		{ building: 'steelworks',    value: 1900 },   // 1500 wood + 100 iron + 100 coal
+		{ building: 'cell foundry',  value: 500 },    // 200 wood + 50 steel + 50 sulphur
+		{ building: 'armoury',       value: 3450 },   // 3000 wood + 100 steel + 50 sulphur
+		{ building: 'uber trap',     value: 85 }       // 50 wood + 10 iron + 5 steel
 	],
 	
 	getStores: function(reduce) {

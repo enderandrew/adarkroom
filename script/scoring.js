@@ -18,7 +18,14 @@ var Score = {
 			fullScore += counts[i] * Prestige.storesMap[i].value;
 		}
 
-		fullScore = fullScore + $SM.get('stores["alien alloy"]', true) * 10;
+		/* Buildings score but never carry over -- see the comment on
+		 * Prestige.buildingsMap. Reads game.buildings directly rather than
+		 * through Prestige.getStores(), which only ever looks at `stores`. */
+		for(var j = 0; j < Prestige.buildingsMap.length; j++) {
+			var b = Prestige.buildingsMap[j];
+			fullScore += $SM.get('game.buildings["' + b.building + '"]', true) * b.value;
+		}
+
 		fullScore = fullScore + $SM.get('stores["fleet beacon"]', true) * 500;
 		/* getMaxHull() returns undefined when no ship has been found yet, and
 		 * undefined * 50 poisons the whole total to NaN. Only reachable if

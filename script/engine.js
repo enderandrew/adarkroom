@@ -181,6 +181,12 @@
 				.appendTo(menu);
 
 			$('<span>')
+				.addClass('distressBtn menuBtn')
+				.text(_('distress off.'))
+				.click(function() { Distress.toggle(); })
+				.appendTo(menu);
+
+			$('<span>')
 				.addClass('hardcore menuBtn')
 				.text(_('hardcore.'))
 				.click(Engine.confirmHardcoreMode)
@@ -272,6 +278,14 @@
 
 			if($SM.get('config.hyperMode', true)){
 					Engine.triggerHyperMode();
+			}
+
+			/* After turnLightsOff() so the overlay's dark-mode rules apply
+			 * from the first frame, and after the menu exists so setEnabled()
+			 * can label the toggle. Guarded because distress is purely
+			 * cosmetic -- if the file fails to load the game must still run. */
+			if(typeof Distress !== 'undefined') {
+				Distress.init();
 			}
 
 			Engine.toggleVolume(Boolean($SM.get('config.soundOn')));

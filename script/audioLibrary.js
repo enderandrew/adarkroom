@@ -15,6 +15,7 @@ var AudioLibrary = {
     CHECK_TRAPS: 'audio/check-traps.flac',
     CRAFT: 'audio/craft.flac',
     CRASH: 'audio/crash.flac',
+	CRASH: 'audio/crystal.flac',
     DEATH: 'audio/death.flac',
     EAT_MEAT: 'audio/eat-meat.flac',
     EMBARK: 'audio/embark.flac',

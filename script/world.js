@@ -167,26 +167,13 @@ var World = {
 		World.LANDMARKS[World.TILE.SHIP] = { num: 1, minRadius: 29, maxRadius: 29, scene: 'ship', label:  _('A&nbsp;Crashed&nbsp;Starship')};
 		World.LANDMARKS[World.TILE.BOREHOLE] = { num: 13, minRadius: 15, maxRadius: World.RADIUS * 1.5, scene: 'borehole', label:  _('A&nbsp;Borehole')};
 		World.LANDMARKS[World.TILE.BATTLEFIELD] = { num: 7, minRadius: 18, maxRadius: World.RADIUS * 1.5, scene: 'battlefield', label:  _('A&nbsp;Battlefield')};
-		World.LANDMARKS[World.TILE.RUINS] = { num: 7, minRadius: 28, maxRadius: World.RADIUS * 1.5, scene: 'ruins', label:  _('Underground&nbsp;Ruins')};
+		World.LANDMARKS[World.TILE.RUINS] = { num: 5, minRadius: 28, maxRadius: World.RADIUS * 1.5, scene: 'ruins', label:  _('Underground&nbsp;Ruins')};
 		World.LANDMARKS[World.TILE.SWAMP] = { num: 1, minRadius: 15, maxRadius: World.RADIUS * 1.5, scene: 'swamp', label:  _('A&nbsp;Murky&nbsp;Swamp')};
 		World.LANDMARKS[World.TILE.EXECUTIONER] = { num: 1, minRadius: 30, maxRadius: 32, scene: 'executioner', 'label': _('A&nbsp;Ravaged&nbsp;Battleship')};
 		World.LANDMARKS[World.TILE.TEMPLE] = { num: 1, minRadius: 20, maxRadius: World.RADIUS * 2, scene: 'temple', 'label': _('A&nbsp;Bloody&nbsp;Temple')};
 		World.LANDMARKS[World.TILE.GRAVEYARD] = { num: 1, minRadius: 26, maxRadius: 26, scene: 'graveyard', 'label': _('A&nbsp;Restless&nbsp;Graveyard')};
 		World.LANDMARKS[World.TILE.PRISON] = { num: 1, minRadius: 30, maxRadius: 32, scene: 'prison', 'label': _('Locked-Down&nbsp;Prison')};
 		World.LANDMARKS[World.TILE.LAB] = { num: 1, minRadius: 25, maxRadius: 32, scene: 'lab', 'label': _('A&nbsp;Wanderer&nbsp;Lab')};
-		//World.LANDMARKS[World.TILE.OUTPOST] = { num: 0, minRadius: 0, maxRadius: 0, scene: 'outpost', label: _('An&nbsp;Outpost') };
-		//World.LANDMARKS[World.TILE.IRON_MINE] = { num: 1, minRadius: 5, maxRadius: 5, scene: 'ironmine', label:  _('Iron&nbsp;Mine') };
-		//World.LANDMARKS[World.TILE.COAL_MINE] = { num: 1, minRadius: 10, maxRadius: 10, scene: 'coalmine', label:  _('Coal&nbsp;Mine') };
-		//World.LANDMARKS[World.TILE.SULPHUR_MINE] = { num: 1, minRadius: 20, maxRadius: 20, scene: 'sulphurmine', label:  _('Sulphur&nbsp;Mine') };
-		//World.LANDMARKS[World.TILE.HOUSE] = { num: 10, minRadius: 0, maxRadius: World.RADIUS * 1.5, scene: 'house', label:  _('An&nbsp;Old&nbsp;House') };
-		//World.LANDMARKS[World.TILE.CAVE] = { num: 5, minRadius: 3, maxRadius: 10, scene: 'cave', label:  _('A&nbsp;Damp&nbsp;Cave') };
-		//World.LANDMARKS[World.TILE.TOWN] = { num: 10, minRadius: 10, maxRadius: 20, scene: 'town', label:  _('An&nbsp;Abandoned&nbsp;Town') };
-		//World.LANDMARKS[World.TILE.CITY] = { num: 20, minRadius: 20, maxRadius: World.RADIUS * 1.5, scene: 'city', label:  _('A&nbsp;Ruined&nbsp;City') };
-		//World.LANDMARKS[World.TILE.SHIP] = { num: 1, minRadius: 28, maxRadius: 28, scene: 'ship', label:  _('A&nbsp;Crashed&nbsp;Starship')};
-		//World.LANDMARKS[World.TILE.BOREHOLE] = { num: 10, minRadius: 15, maxRadius: World.RADIUS * 1.5, scene: 'borehole', label:  _('A&nbsp;Borehole')};
-		//World.LANDMARKS[World.TILE.BATTLEFIELD] = { num: 5, minRadius: 18, maxRadius: World.RADIUS * 1.5, scene: 'battlefield', label:  _('A&nbsp;Battlefield')};
-		//World.LANDMARKS[World.TILE.SWAMP] = { num: 1, minRadius: 15, maxRadius: World.RADIUS * 1.5, scene: 'swamp', label:  _('A&nbsp;Murky&nbsp;Swamp')};
-		//World.LANDMARKS[World.TILE.EXECUTIONER] = { num: 1, minRadius: 28, maxRadius: 28, scene: 'executioner', 'label': _('A&nbsp;Ravaged&nbsp;Battleship')};
 
 		// Only add the cache if there is prestige data
 		if($SM.get('previous.stores')) {
@@ -1221,9 +1208,26 @@ var World = {
 	},
 
 	leaveItAtHome: function(thing) {
+		/* Anything craftable at the Room or the Fabricator is treated as
+		 * proper equipment rather than a one-trip consumable, and stays
+		 * packed for the next expedition instead of being swept back into
+		 * storage.
+		 *
+		 * Fabricator.Craftables was missing here. glowstone is the one
+		 * Fabricator item this actually affects: energy blade/disruptor/
+		 * plasma rifle are all in World.Weapons and already matched that
+		 * check, hypo/stim were already named explicitly above, and
+		 * stillsuit/cargo drone/kinetic armour are type:'upgrade' rather
+		 * than 'tool', so they're never tracked in Path.outfit as a carried
+		 * quantity in the first place -- glowstone was the only type:'tool'
+		 * item that could ONLY be built at the Fabricator, so it was the
+		 * only one this gap actually reached. A glowstone is described in
+		 * its own flavour text as having a light that's "inextinguishable";
+		 * having to re-pack it before every single trip undercut that. */
 		return thing != 'cured meat' && thing != 'bullets' && thing != 'energy cell' &&
 		thing != 'charm' && thing != 'medicine' && thing != 'stim' && thing != 'hypo' &&
-		typeof World.Weapons[thing] == 'undefined' && typeof Room.Craftables[thing] == 'undefined';
+		typeof World.Weapons[thing] == 'undefined' && typeof Room.Craftables[thing] == 'undefined' &&
+		typeof Fabricator.Craftables[thing] == 'undefined';
 	},
 
 	getMaxHealth: function() {

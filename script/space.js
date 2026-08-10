@@ -479,93 +479,87 @@ var Space = {
 		});
 	},
 
+	/* Karma threshold for the "redeemed" variants of both endings.
+	 *
+	 * character.karma starts at -10 -- the Exile's unpaid debt -- so reaching
+	 * zero is not the default state. It takes a run's worth of small decent
+	 * choices to get there, and a player who simply plays efficiently and
+	 * never engages with anyone ends the game below it. That's deliberate:
+	 * the good endings are earned, not granted for showing up. Actively cruel
+	 * play drives it much further down, but the split is binary here -- the
+	 * five-band gradient belongs to The Master's insight, not to an ending. */
+	GOOD_KARMA_THRESHOLD: 0,
+
+	isRedeemed: () => {
+		return $SM.get('character.karma', true) >= Space.GOOD_KARMA_THRESHOLD;
+	},
+
+	/* Fades one line of outro text in at a fixed offset from the sequence
+	 * start. Extracted because the four ending variants below are otherwise
+	 * the same twelve lines of jQuery over and over. */
+	outroLine: (container, html, delay) => {
+		setTimeout(() => {
+			$('<div>')
+				.addClass('outro')
+				.html(html)
+				.appendTo(container)
+				.animate({ opacity: 1}, 500);
+		}, delay);
+	},
+
 	showExpansionEnding: () => {
 		return new Promise((resolve) => {
-			if (!$SM.get('stores["fleet beacon"]')) {
-				const c = $('<div>')
-					.addClass('outroContainer')
-					.appendTo('body');
-
-				setTimeout(() => {
-					$('<div>')
-						.addClass('outro')
-						.html('so much debris of dead ships from long lost wars.<br>some wanderer ships. some others.<br>sky begins to clear into an endless expanse.')
-						.appendTo(c)
-						.animate({ opacity: 1}, 500);
-				}, 2000);
-				
-				setTimeout(() => {
-					$('<div>')
-						.addClass('outro')
-						.html('escape...')
-						.appendTo(c)
-						.animate({ opacity: 1}, 500);
-				}, 7000);
-			
-				setTimeout(() => {
-					$('<div>')
-						.addClass('outro')
-						.html('escape???')
-						.appendTo(c)
-						.animate({ opacity: 1}, 500);
-				}, 14000);
-
-				resolve();
-				return;
-			}
-
 			const c = $('<div>')
 				.addClass('outroContainer')
 				.appendTo('body');
+			const line = (html, delay) => Space.outroLine(c, html, delay);
+			const redeemed = Space.isRedeemed();
 
-			setTimeout(() => {
-				$('<div>')
-					.addClass('outro')
-					.html('the beacon pulses gently as the ship glides through space.<br>coordinates are locked.')
-					.appendTo(c)
-					.animate({ opacity: 1}, 500);
-			}, 2000);
-			
-			setTimeout(() => {
-				$('<div>')
-					.addClass('outro')
-					.html('time to rejoin the other wanderers, alone no more.<br>the fleet knows the way home. nothing to do but wait.')
-					.appendTo(c)
-					.animate({ opacity: 1}, 500);
-			}, 7000);
+			/* ---- Ship ending: escaped, but never reached the fleet ---- */
+			if (!$SM.get('stores["fleet beacon"]')) {
+				line('so much debris of dead ships from long lost wars.<br>some wanderer ships. some others.<br>sky begins to clear into an endless expanse.', 2000);
+				line('there is something else out here.<br>rings of it, vast and old, held close around the planet.', 7000);
+				line('they are not aimed outward.<br>nothing out here was ever what they were built to stop.', 12000);
 
-			setTimeout(() => {
-				$('<div>')
-					.addClass('outro')
-					.html('the beacon glows a solid blue, and then goes dim. the ship slows.<br>gradually, the vast wanderer homefleet comes into view.<br>massive worldships drift unnaturally through clouds of debris, scarred and dead.')
-					.appendTo(c)
-					.animate({ opacity: 1}, 500);
-			}, 14000);
+				if (redeemed) {
+					line('they are aimed down. at the ground. at the room.<br>maybe this is why the builder seemed resigned to staying.', 17000);
+					line('the defenses turn. they find the ship.', 22000);
+					line('they pause.', 25000);
+					line('long enough.', 27000);
+					line('escape...', 30000);
+					/* Resolve after the last line rather than immediately, so
+					 * the ending options don't appear over the top of the
+					 * sequence the player is still reading. */
+					setTimeout(resolve, 33000);
+				} else {
+					line('they are aimed down. at the ground. at the room.<br>the builder never mentioned them. the builder never prepared you for this.', 17000);
+					line('the defenses turn. they find the ship.', 22000);
+					line('there is no time to evade.', 25000);
+					line('....', 28000);
+					setTimeout(resolve, 31000);
+				}
+				return;
+			}
 
-			setTimeout(() => {
-				$('<div>')
-					.addClass('outro')
-					.text('the air is running out.')
-					.appendTo(c)
-					.animate({ opacity: 1}, 500);
-			}, 17000);
+			/* ---- Fleet beacon ending: reached the homefleet ---- */
+			line('the beacon pulses gently as the ship glides through space.<br>coordinates are locked.', 2000);
+			line('time to rejoin the other wanderers, alone no more.<br>the fleet knows the way home. nothing to do but wait.', 7000);
+			line('the beacon glows a solid blue, and then goes dim. the ship slows.<br>gradually, the vast wanderer homefleet comes into view.<br>massive worldships drift unnaturally through clouds of debris, scarred and dead.', 14000);
+			line('the air is running out.', 17000);
+			line('the capsule is cold.', 20000);
+			line('there is no fire to light.', 23000);
 
-			setTimeout(() => {
-				$('<div>')
-					.addClass('outro')
-					.text('the capsule is cold.')
-					.appendTo(c)
-					.animate({ opacity: 1}, 500);
-			}, 20000);
+			if (redeemed) {
+				line('the builder suggests the villagers might serve as a skeleton crew.<br>deep down you know there is even more you could have done.', 26000);
+			} else {
+				line('you have never felt so alone...', 26000);
+			}
 
-			setTimeout(() => {
-				$('<div>')
-					.addClass('outro')
-					.text('there is no fire to light.')
-					.appendTo(c)
-					.animate({ opacity: 1}, 500);
-			}, 23000);
-
+			/* Moved from 19500ms to after the karma line. The button used to
+			 * appear while three more lines were still to come, so a player
+			 * who clicked promptly never saw the end of the sequence -- and
+			 * would now miss the karma variant entirely, which is the whole
+			 * point of this change. */
 			setTimeout(() => {
 				Button.Button({
 					id: 'wait-btn',
@@ -578,7 +572,7 @@ var Space = {
 						})
 					}
 				}).animate({ opacity: 1 }, 500).appendTo(c);
-			}, 19500)
+			}, 29500)
 		});
 	},
 

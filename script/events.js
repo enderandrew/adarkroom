@@ -488,20 +488,36 @@ var Events = {
 				cd /= 2;
 			}
 		}
+		/* Same exemption as scene-button costs (see drawButtons/updateButtons/
+		 * buttonClick below): a carried glowstone is a permanent light source,
+		 * so the handheld nuke's torch requirement -- needing something lit to
+		 * trigger it -- is already satisfied without spending one. This is the
+		 * one weapon cost in the game and it lives in World.Weapons rather than
+		 * on a scene, so it doesn't automatically inherit the `delete
+		 * cost.torch` pattern used everywhere else; it has to be applied here
+		 * explicitly. Computed before the button is built so the tooltip
+		 * itself doesn't advertise a torch cost that will never actually be
+		 * charged. */
+		var weaponCost = weapon.cost;
+		if (weaponCost && weaponCost.torch && Path.outfit && Path.outfit['glowstone']) {
+			weaponCost = { ...weaponCost };
+			delete weaponCost.torch;
+		}
+
 		var btn = new Button.Button({
 			id: 'attack_' + weaponName.replace(/ /g, '-'),
 			text: weapon.verb + ' ' + hotKeys[weapon.verb].text,
 			cooldown: cd,
 			click: Events.useWeapon,
 			boosted: () => $('#wanderer').data('status') === 'boost',
-			cost: weapon.cost
+			cost: weaponCost
 		});
 		if(typeof weapon.damage == 'number' && weapon.damage > 0) {
 			btn.addClass('weaponButton');
 		}
 
-		for(var k in weapon.cost) {
-			if(typeof Path.outfit[k] != 'number' || Path.outfit[k] < weapon.cost[k]) {
+		for(var k in weaponCost) {
+			if(typeof Path.outfit[k] != 'number' || Path.outfit[k] < weaponCost[k]) {
 				Button.setDisabled(btn, true);
 				break;
 			}
@@ -606,14 +622,24 @@ var Events = {
 
 			}
 			if(weapon.cost) {
+				/* Same exemption applied when the button was built (see
+				 * createAttackButton) -- repeated here because this is the
+				 * function that actually spends the resources, and it must
+				 * not deduct or require a torch that createAttackButton
+				 * already told the player they wouldn't need. */
+				var weaponCost = weapon.cost;
+				if (weaponCost.torch && Path.outfit && Path.outfit['glowstone']) {
+					weaponCost = { ...weaponCost };
+					delete weaponCost.torch;
+				}
 				var mod = {};
 				var out = false;
-				for(var k in weapon.cost) {
-					if(typeof Path.outfit[k] != 'number' || Path.outfit[k] < weapon.cost[k]) {
+				for(var k in weaponCost) {
+					if(typeof Path.outfit[k] != 'number' || Path.outfit[k] < weaponCost[k]) {
 						return;
 					}
-					mod[k] = -weapon.cost[k];
-					if(Path.outfit[k] - weapon.cost[k] < weapon.cost[k]) {
+					mod[k] = -weaponCost[k];
+					if(Path.outfit[k] - weaponCost[k] < weaponCost[k]) {
 						out = true;
 					}
 				}

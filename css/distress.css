@@ -1,0 +1,298 @@
+/* ============================================================================
+ * DISTRESS
+ * ============================================================================
+ *
+ * Design thesis: this is not a web page that should look "grungy". It is a
+ * terminal that has been running unattended for a very long time, on a planet
+ * that kills machines. The distress is the MEDIUM failing, not decoration
+ * applied on top of it.
+ *
+ * Two layers:
+ *
+ *   1. Resting distress -- always on, and deliberately near-invisible.
+ *      Scanlines, grain and a vignette, all at opacities low enough that a
+ *      player should only really notice them if they toggle it off. The game's
+ *      whole identity is clean type on a flat field; anything that makes the
+ *      text harder to read is a failure, not a feature.
+ *
+ *   2. Rare per-area events -- brief (200-900ms), grounded in the physics of
+ *      the place they happen in rather than being one generic "glitch" reused
+ *      everywhere. See distress.js for the schedule.
+ *
+ * The one opinionated call: THE ROOM DOES NOT GLITCH. There is no technology
+ * in the room, only a fire, so it gets a warm organic gutter instead of
+ * anything digital. That distinction is the whole point of doing this per-area
+ * -- if every screen tore the same way, the effect would read as a filter
+ * rather than as the world.
+ *
+ * Everything here is pointer-events: none and purely visual. Nothing in this
+ * file may affect layout, hit targets, or the position of anything clickable.
+ */
+
+/* ---------------------------------------------------------------------------
+ * Layer 1: resting distress
+ * ------------------------------------------------------------------------ */
+
+#distress {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	z-index: 60;
+	overflow: hidden;
+}
+
+/* Scanlines. 3px pitch reads as a CRT without moiring against 15px text. */
+#distress .dxScan {
+	position: absolute;
+	inset: 0;
+	background: repeating-linear-gradient(
+		to bottom,
+		rgba(0, 0, 0, 0.055) 0px,
+		rgba(0, 0, 0, 0.055) 1px,
+		transparent 1px,
+		transparent 3px
+	);
+	opacity: 0.75;
+}
+
+/* Grain. An inline SVG feTurbulence rather than an image asset: no extra
+ * request, and it scales to any viewport without tiling seams. */
+#distress .dxGrain {
+	position: absolute;
+	inset: -50%;
+	width: 200%;
+	height: 200%;
+	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");
+	opacity: 0.035;
+	animation: dxGrainDrift 6s steps(3) infinite;
+}
+
+@keyframes dxGrainDrift {
+	0%   { transform: translate(0, 0); }
+	33%  { transform: translate(-2%, 1%); }
+	66%  { transform: translate(1%, -2%); }
+	100% { transform: translate(0, 0); }
+}
+
+/* Vignette. Very soft -- enough to stop the field reading as flat white,
+ * not enough to darken the corners of the notification log. */
+#distress .dxVignette {
+	position: absolute;
+	inset: 0;
+	background: radial-gradient(
+		ellipse at center,
+		transparent 55%,
+		rgba(0, 0, 0, 0.10) 100%
+	);
+}
+
+/* Sweep bar, used by the world's scanline event. Parked off-screen. */
+#distress .dxSweep {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 90px;
+	top: -120px;
+	background: linear-gradient(
+		to bottom,
+		transparent,
+		rgba(0, 0, 0, 0.055) 45%,
+		rgba(0, 0, 0, 0.08) 50%,
+		rgba(0, 0, 0, 0.055) 55%,
+		transparent
+	);
+	opacity: 0;
+}
+
+/* Static burst, used by the ship/space event. */
+#distress .dxStatic {
+	position: absolute;
+	inset: 0;
+	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='s'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/></filter><rect width='100%25' height='100%25' filter='url(%23s)'/></svg>");
+	opacity: 0;
+	mix-blend-mode: multiply;
+}
+
+/* In lights-off mode the overlays have to invert or they'd lighten a dark
+ * field instead of dirtying it. */
+.lightsOff #distress .dxScan,
+.lightsOff #distress .dxSweep,
+.lightsOff #distress .dxStatic {
+	filter: invert(1);
+}
+
+.lightsOff #distress .dxVignette {
+	background: radial-gradient(
+		ellipse at center,
+		transparent 55%,
+		rgba(0, 0, 0, 0.35) 100%
+	);
+}
+
+/* ---------------------------------------------------------------------------
+ * Layer 2: per-area events
+ *
+ * All applied as classes on <body> by distress.js, and all self-removing.
+ * Transforms target #content, which has no fixed-position descendants (they
+ * live on body or in #wrapper alongside it), so a brief transform can't
+ * reparent anything or shift a hit target.
+ * ------------------------------------------------------------------------ */
+
+/* --- Room: firelight ---
+ * Not a glitch. The room has no technology in it. This is the fire guttering
+ * -- warm, slow, organic -- and it is the one area effect with no digital
+ * character at all. */
+body.dxFlicker #content {
+	animation: dxFlicker 1600ms ease-in-out;
+}
+
+@keyframes dxFlicker {
+	0%, 100% { filter: none; }
+	18%      { filter: brightness(1.035) sepia(0.06); }
+	32%      { filter: brightness(0.975) sepia(0.03); }
+	54%      { filter: brightness(1.05) sepia(0.08); }
+	71%      { filter: brightness(0.99) sepia(0.02); }
+}
+
+/* --- Outside: ash on the wind ---
+ * The grain thickens and drifts, as if something is falling past the screen.
+ * Reuses the resting grain layer rather than adding another. */
+body.dxAsh #distress .dxGrain {
+	animation: dxAshDrift 2600ms linear;
+	opacity: 0.11;
+}
+
+@keyframes dxAshDrift {
+	0%   { transform: translate(0, -3%); opacity: 0.035; }
+	20%  { opacity: 0.13; }
+	80%  { opacity: 0.11; }
+	100% { transform: translate(1%, 4%); opacity: 0.035; }
+}
+
+/* --- Path: the lean wind off the flats ---
+ * A shear, as though the whole column were briefly pushed sideways. Small
+ * enough not to break reading; the game's own prose calls this wind "a lean". */
+body.dxShear #content {
+	animation: dxShear 700ms cubic-bezier(0.3, 0, 0.2, 1);
+}
+
+@keyframes dxShear {
+	0%, 100% { transform: skewX(0deg) translateX(0); }
+	25%      { transform: skewX(0.5deg) translateX(2px); }
+	60%      { transform: skewX(-0.3deg) translateX(-1px); }
+}
+
+/* --- World: a scan passing over ---
+ * The map is a readout, so it gets a readout's failure: one bar sweeping
+ * down the screen. */
+body.dxSweep #distress .dxSweep {
+	animation: dxSweepDown 900ms linear;
+}
+
+@keyframes dxSweepDown {
+	0%   { top: -120px; opacity: 0; }
+	10%  { opacity: 1; }
+	90%  { opacity: 1; }
+	100% { top: 100%; opacity: 0; }
+}
+
+/* --- Fabricator: alien technology ---
+ * The only place colour is allowed to intrude. This machine was not built by
+ * anyone from here and does not render for human eyes, so its failure mode is
+ * a chromatic tear -- brief, and deliberately the harshest effect in the game.
+ * Restricted to the fabricator so it stays meaningful. */
+body.dxTear #content {
+	animation: dxTear 320ms steps(4);
+}
+
+@keyframes dxTear {
+	0%, 100% {
+		transform: translateX(0);
+		text-shadow: none;
+	}
+	25% {
+		transform: translateX(-3px);
+		text-shadow: 2px 0 rgba(0, 190, 190, 0.55), -2px 0 rgba(190, 0, 190, 0.55);
+	}
+	50% {
+		transform: translateX(2px);
+		text-shadow: -2px 0 rgba(0, 190, 190, 0.5), 2px 0 rgba(190, 0, 190, 0.5);
+	}
+	75% {
+		transform: translateX(-1px);
+		text-shadow: 1px 0 rgba(0, 190, 190, 0.35), -1px 0 rgba(190, 0, 190, 0.35);
+	}
+}
+
+/* --- Ship / Space: hull stress ---
+ * Vertical desync plus a burst of static. The most violent of the set,
+ * because it's the only place the player is somewhere that can actually
+ * come apart. */
+body.dxRoll #content {
+	animation: dxRoll 520ms steps(6);
+}
+
+@keyframes dxRoll {
+	0%, 100% { transform: translateY(0); }
+	20%      { transform: translateY(-6px); }
+	45%      { transform: translateY(4px); }
+	70%      { transform: translateY(-2px); }
+}
+
+body.dxRoll #distress .dxStatic {
+	animation: dxStaticBurst 520ms steps(5);
+}
+
+@keyframes dxStaticBurst {
+	0%, 100% { opacity: 0; }
+	30%      { opacity: 0.14; }
+	60%      { opacity: 0.07; }
+}
+
+/* ---------------------------------------------------------------------------
+ * Accessibility and opt-out
+ *
+ * Two independent switches, both of which must fully disable motion:
+ *   - the player's OS-level reduced-motion preference
+ *   - the in-game "distress" toggle, which sets .dxOff on <html>
+ *
+ * Under reduced motion the resting layer is KEPT but frozen: a still grain and
+ * vignette are texture, not motion, and removing them would mean players who
+ * need reduced motion get a visibly different game rather than the same game
+ * without the movement.
+ * ------------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+	#distress .dxGrain {
+		animation: none;
+	}
+
+	#distress .dxSweep,
+	#distress .dxStatic {
+		display: none;
+	}
+
+	body.dxFlicker #content,
+	body.dxShear #content,
+	body.dxTear #content,
+	body.dxRoll #content,
+	body.dxAsh #distress .dxGrain,
+	body.dxSweep #distress .dxSweep,
+	body.dxRoll #distress .dxStatic {
+		animation: none;
+	}
+}
+
+html.dxOff #distress {
+	display: none;
+}
+
+html.dxOff body.dxFlicker #content,
+html.dxOff body.dxShear #content,
+html.dxOff body.dxTear #content,
+html.dxOff body.dxRoll #content {
+	animation: none;
+}

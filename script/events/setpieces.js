@@ -204,7 +204,7 @@ Events.Setpieces = {
 				health: 30,
 				loot: {
 					'energy cell': { min: 2, max: 5, chance: 1 },
-					'alien alloy': { min: 1, max: 1, chance: 0.1 }
+					'sulfur': { min: 1, max: 1, chance: 0.1 }
 				},
 				buttons: {
 					'continue': {
@@ -271,7 +271,7 @@ Events.Setpieces = {
 				],
 				loot: {
 					'energy cell': { min: 3, max: 8, chance: 1 },
-					'alien alloy': { min: 1, max: 1, chance: 0.15 }
+					'sulfur': { min: 1, max: 1, chance: 0.15 }
 				},
 				buttons: {
 					'continue': {
@@ -320,7 +320,7 @@ Events.Setpieces = {
 				health: 46,
 				loot: {
 					'energy cell': { min: 3, max: 8, chance: 1 },
-					'alien alloy': { min: 1, max: 1, chance: 0.12 }
+					'sulfur': { min: 1, max: 1, chance: 0.12 }
 				},
 				buttons: {
 					'continue': {
@@ -460,7 +460,7 @@ Events.Setpieces = {
 				loot: {
 					'energy cell': { min: 4, max: 9, chance: 1 },
 					'laser rifle': { min: 1, max: 1, chance: 0.15 },
-					'alien alloy': { min: 1, max: 1, chance: 0.15 }
+					'sulfur': { min: 1, max: 1, chance: 0.15 }
 				},
 				buttons: {
 					'continue': {
@@ -500,7 +500,7 @@ Events.Setpieces = {
 				],
 				loot: {
 					'energy cell': { min: 5, max: 10, chance: 1 },
-					'alien alloy': { min: 1, max: 1, chance: 0.15 }
+					'sulfur': { min: 1, max: 1, chance: 0.15 }
 				},
 				buttons: {
 					'continue': {
@@ -544,7 +544,7 @@ Events.Setpieces = {
 				health: 58,
 				loot: {
 					'energy cell': { min: 5, max: 10, chance: 1 },
-					'alien alloy': { min: 1, max: 1, chance: 0.15 }
+					'sulfur': { min: 1, max: 1, chance: 0.15 }
 				},
 				buttons: {
 					'continue': {
@@ -637,7 +637,7 @@ Events.Setpieces = {
 				],
 				loot: {
 					'energy cell': { min: 5, max: 11, chance: 1 },
-					'alien alloy': { min: 1, max: 2, chance: 0.18 }
+					'sulfur': { min: 1, max: 2, chance: 0.18 }
 				},
 				buttons: {
 					'continue': {
@@ -737,7 +737,7 @@ Events.Setpieces = {
 				health: 62,
 				loot: {
 					'energy cell': { min: 6, max: 12, chance: 1 },
-					'alien alloy': { min: 1, max: 2, chance: 0.2 }
+					'sulfur': { min: 1, max: 2, chance: 0.2 }
 				},
 				buttons: {
 					'continue': {
@@ -783,7 +783,7 @@ Events.Setpieces = {
 				loot: {
 					'energy cell': { min: 8, max: 15, chance: 1 },
 					'laser rifle': { min: 1, max: 1, chance: 0.25 },
-					'alien alloy': { min: 1, max: 2, chance: 0.3 }
+					'sulfur': { min: 1, max: 2, chance: 0.3 }
 				},
 				buttons: {
 					'continue': {
@@ -822,7 +822,7 @@ Events.Setpieces = {
 				loot: {
 					'energy cell': { min: 8, max: 14, chance: 1 },
 					'laser rifle': { min: 1, max: 1, chance: 0.2 },
-					'alien alloy': { min: 1, max: 1, chance: 0.25 }
+					'sulfur': { min: 1, max: 1, chance: 0.25 }
 				},
 				buttons: {
 					'continue': {
@@ -860,7 +860,7 @@ Events.Setpieces = {
 				],
 				loot: {
 					'energy cell': { min: 8, max: 14, chance: 1 },
-					'alien alloy': { min: 1, max: 2, chance: 0.25 }
+					'sulfur': { min: 1, max: 2, chance: 0.25 }
 				},
 				buttons: {
 					'continue': {
@@ -898,7 +898,7 @@ Events.Setpieces = {
 				loot: {
 					'energy cell': { min: 9, max: 16, chance: 1 },
 					'laser rifle': { min: 1, max: 1, chance: 0.2 },
-					'alien alloy': { min: 1, max: 2, chance: 0.3 }
+					'sulfur': { min: 1, max: 2, chance: 0.3 }
 				},
 				buttons: {
 					'continue': {
@@ -921,7 +921,7 @@ Events.Setpieces = {
 				notification: _("most of the racks are empty"),
 				loot: {
 					'energy cell': { min: 6, max: 14, chance: 1 },
-					'alien alloy': { min: 1, max: 1, chance: 0.25 }
+					'sulfur': { min: 1, max: 1, chance: 0.25 }
 				},
 				buttons: {
 					'continue': {
@@ -1020,7 +1020,7 @@ Events.Setpieces = {
 				],
 				loot: {
 					'energy cell': { min: 10, max: 18, chance: 1 },
-					'alien alloy': { min: 2, max: 3, chance: 0.3 },
+					'sulfur': { min: 2, max: 3, chance: 0.3 },
 					'laser rifle': { min: 1, max: 1, chance: 0.25 }
 				},
 				buttons: {
@@ -1061,7 +1061,7 @@ Events.Setpieces = {
 				],
 				loot: {
 					'energy cell': { min: 9, max: 16, chance: 1 },
-					'alien alloy': { min: 1, max: 2, chance: 0.28 }
+					'sulfur': { min: 1, max: 2, chance: 0.28 }
 				},
 				buttons: {
 					'continue': {
@@ -1140,7 +1140,7 @@ Events.Setpieces = {
 				],
 				loot: {
 					'energy cell': { min: 10, max: 18, chance: 1 },
-					'alien alloy': { min: 2, max: 3, chance: 0.3 }
+					'sulfur': { min: 2, max: 3, chance: 0.3 }
 				},
 				buttons: {
 					'continue': {
@@ -1239,7 +1239,7 @@ Events.Setpieces = {
 				],
 				loot: {
 					'energy cell': { min: 12, max: 20, chance: 1 },
-					'alien alloy': { min: 2, max: 4, chance: 0.35 },
+					'sulfur': { min: 2, max: 4, chance: 0.35 },
 					'laser rifle': { min: 1, max: 1, chance: 0.3 }
 				},
 				buttons: {
@@ -1285,7 +1285,7 @@ Events.Setpieces = {
 				],
 				loot: {
 					'energy cell': { min: 11, max: 19, chance: 1 },
-					'alien alloy': { min: 2, max: 3, chance: 0.32 }
+					'sulfur': { min: 2, max: 3, chance: 0.32 }
 				},
 				buttons: {
 					'continue': {
@@ -1349,7 +1349,7 @@ Events.Setpieces = {
 				],
 				loot: {
 					'energy cell': { min: 12, max: 20, chance: 1 },
-					'alien alloy': { min: 2, max: 4, chance: 0.35 },
+					'sulfur': { min: 2, max: 4, chance: 0.35 },
 					'handheld nuke': { min: 1, max: 1, chance: 0.05 }
 				},
 				buttons: {
@@ -1388,7 +1388,7 @@ Events.Setpieces = {
 				],
 				loot: {
 					'energy cell': { min: 11, max: 19, chance: 1 },
-					'alien alloy': { min: 2, max: 3, chance: 0.3 }
+					'sulfur': { min: 2, max: 3, chance: 0.3 }
 				},
 				buttons: {
 					'continue': {
@@ -1410,7 +1410,7 @@ Events.Setpieces = {
 				],
 				notification: _("the walls are missing exactly as much as the basins hold"),
 				loot: {
-					'alien alloy': { min: 1, max: 2, chance: 0.3 },
+					'sulfur': { min: 1, max: 2, chance: 0.3 },
 					'energy cell': { min: 6, max: 12, chance: 0.8 }
 				},
 				buttons: {
@@ -1447,7 +1447,7 @@ Events.Setpieces = {
 				],
 				loot: {
 					'energy cell': { min: 12, max: 20, chance: 1 },
-					'alien alloy': { min: 2, max: 4, chance: 0.32 }
+					'sulfur': { min: 2, max: 4, chance: 0.32 }
 				},
 				buttons: {
 					'continue': {
@@ -1509,7 +1509,7 @@ Events.Setpieces = {
 				],
 				loot: {
 					'energy cell': { min: 12, max: 20, chance: 1 },
-					'alien alloy': { min: 2, max: 4, chance: 0.35 },
+					'sulfur': { min: 2, max: 4, chance: 0.35 },
 					'laser rifle': { min: 1, max: 1, chance: 0.3 }
 				},
 				buttons: {
@@ -1555,8 +1555,8 @@ Events.Setpieces = {
 				],
 				loot: {
 					'energy cell': { min: 13, max: 22, chance: 1 },
-					'alien alloy': { min: 3, max: 4, chance: 0.35 },
-					'handheld nuke': { min: 1, max: 1, chance: 0.05 }
+					'sulfur': { min: 3, max: 4, chance: 0.35 },
+					'energy sword': { min: 1, max: 1, chance: 0.05 }
 				},
 				buttons: {
 					'continue': {
@@ -1586,10 +1586,15 @@ Events.Setpieces = {
 					Ruins.renderLock('standard', 'open');
 				},
 				buttons: {
-					/* Disabled until the lock is solved -- see Ruins.renderLock. */
+					/* Disabled until the lock is solved. This MUST consult real
+					 * state rather than returning a constant false:
+					 * Events.updateButtons() re-runs available() on every
+					 * stores/income state update and re-disables anything
+					 * that says false, which would grey the door out again
+					 * seconds after the player solved it. */
 					'open': {
 						text: _('open the door'),
-						available: function() { return false; },
+						available: function() { return Ruins.isSolved('open'); },
 						nextScene: { 1: 'vault' }
 					},
 					'leave': {
@@ -1602,7 +1607,8 @@ Events.Setpieces = {
 				text: [
 					_('the door does not open so much as stop being there.'),
 					_('the room behind it is small, and dry, and has been sealed since before anything on this world could have sealed it.'),
-					_('there is a rack, and on the rack there are two things, and there is only time to carry one.')
+					_('there is a rack. on it sits an ingot, and beside the ingot a crystal the colour of nothing in particular.'),
+					_('there is only time to touch one of them.')
 				],
 				notification: _('the lock opens'),
 				onLoad: function() {
@@ -1610,12 +1616,12 @@ Events.Setpieces = {
 				},
 				buttons: {
 					'alloy': {
-						text: _('take the alloy'),
+						text: _('take the ingot'),
 						nextScene: { 1: 'tookAlloy' }
 					},
-					'nuke': {
-						text: _('take the other thing'),
-						nextScene: { 1: 'tookNuke' }
+					'crystal': {
+						text: _('touch the crystal'),
+						nextScene: { 1: 'crystal' }
 					},
 					'deeper': {
 						text: _('there is another door behind the rack'),
@@ -1639,16 +1645,16 @@ Events.Setpieces = {
 					}
 				}
 			},
-			'tookNuke': {
-				text: [
-					_('it fits in one hand. there is a recess for a thumb, and the recess is worn.'),
-					_('somebody used a great many of these.')
-				],
-				notification: _('a device that fits in one hand'),
-				loot: {
-					'handheld nuke': { min: 1, max: 1, chance: 1 },
-					'energy cell': { min: 5, max: 10, chance: 0.8 }
+			/* The crystal is NOT loot. Touching it costs the player the ingot
+			 * they could have taken instead and gives them nothing they can
+			 * carry -- only a fragment of somebody else's memory. That trade
+			 * is the point: the lore has a real price, paid in the currency
+			 * the rest of the location deals in. */
+			'crystal': {
+				text: function() {
+					return Ruins.memoryText();
 				},
+				notification: _('the crystal is warm, and something that is not yours goes through you'),
 				buttons: {
 					'end': {
 						text: _('climb out'),
@@ -1669,7 +1675,7 @@ Events.Setpieces = {
 				buttons: {
 					'openDeep': {
 						text: _('open the inner door'),
-						available: function() { return false; },
+						available: function() { return Ruins.isSolved('openDeep'); },
 						nextScene: { 1: 'inner' }
 					},
 					'back': {
@@ -1678,10 +1684,23 @@ Events.Setpieces = {
 					}
 				}
 			},
+			/* The 6x6 is where the handheld nuke is reliably obtained. It used
+			 * to be an alternative prize for the 4x4, which made a nuke per
+			 * ruin roughly free -- with five to seven ruins in a world that's
+			 * an arsenal for solving the easy puzzle each time. Behind the 6x6
+			 * it's a real prize for a real lock, and the outer vault still
+			 * pays out on its own so the 4x4 is never wasted.
+			 *
+			 * Not literally the only source: the two toughest depth-five
+			 * enemies ('unlit one' and 'doorkeeper', both 100hp+) each drop
+			 * one at 5%. That's a rare bonus for the hardest fights in the
+			 * location rather than a supply line, so it doesn't undercut the
+			 * gating here. */
 			'inner': {
 				text: [
 					_('the inner room is the size of a cupboard and has been sealed longer than the outer one.'),
 					_('there is no rack. everything is simply stacked on the floor, as if whoever left it was in a hurry, four hundred centuries ago.'),
+					_('an ingot. a device that fits in one hand, with a worn recess for a thumb. and another of the colourless crystals, set apart from the rest.'),
 					_('there is enough time to take all of it.')
 				],
 				notification: _('the inner room opens'),
@@ -1694,6 +1713,25 @@ Events.Setpieces = {
 					'energy cell': { min: 10, max: 20, chance: 1 },
 					'laser rifle': { min: 1, max: 1, chance: 0.5 }
 				},
+				buttons: {
+					/* Offered as a separate act rather than folded into the
+					 * loot, so touching it stays a decision even here where
+					 * it costs nothing. */
+					'crystal': {
+						text: _('touch the crystal'),
+						nextScene: { 1: 'innerCrystal' }
+					},
+					'end': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'innerCrystal': {
+				text: function() {
+					return Ruins.memoryText();
+				},
+				notification: _('the crystal is warm, and something that is not yours goes through you'),
 				buttons: {
 					'end': {
 						text: _('climb out'),
