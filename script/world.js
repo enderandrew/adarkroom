@@ -26,6 +26,8 @@ var World = {
 		GRAVEYARD: '±',
 		PRISON: '©',
 		LAB: '%',
+		CRATER: '\u25CF',
+		OBSERVATORY: '\u2229',
 	},
 	TILE_PROBS: {},
 	LANDMARKS: {},
@@ -167,11 +169,13 @@ var World = {
 		World.LANDMARKS[World.TILE.SHIP] = { num: 1, minRadius: 29, maxRadius: 29, scene: 'ship', label:  _('A&nbsp;Crashed&nbsp;Starship')};
 		World.LANDMARKS[World.TILE.BOREHOLE] = { num: 13, minRadius: 15, maxRadius: World.RADIUS * 1.5, scene: 'borehole', label:  _('A&nbsp;Borehole')};
 		World.LANDMARKS[World.TILE.BATTLEFIELD] = { num: 7, minRadius: 18, maxRadius: World.RADIUS * 1.5, scene: 'battlefield', label:  _('A&nbsp;Battlefield')};
-		World.LANDMARKS[World.TILE.RUINS] = { num: 5, minRadius: 28, maxRadius: World.RADIUS * 1.5, scene: 'ruins', label:  _('Underground&nbsp;Ruins')};
+		World.LANDMARKS[World.TILE.RUINS] = { num: 6, minRadius: 28, maxRadius: World.RADIUS * 1.5, scene: 'ruins', label:  _('Underground&nbsp;Ruins')};
 		World.LANDMARKS[World.TILE.SWAMP] = { num: 1, minRadius: 15, maxRadius: World.RADIUS * 1.5, scene: 'swamp', label:  _('A&nbsp;Murky&nbsp;Swamp')};
 		World.LANDMARKS[World.TILE.EXECUTIONER] = { num: 1, minRadius: 30, maxRadius: 32, scene: 'executioner', 'label': _('A&nbsp;Ravaged&nbsp;Battleship')};
-		World.LANDMARKS[World.TILE.TEMPLE] = { num: 1, minRadius: 20, maxRadius: World.RADIUS * 2, scene: 'temple', 'label': _('A&nbsp;Bloody&nbsp;Temple')};
-		World.LANDMARKS[World.TILE.GRAVEYARD] = { num: 1, minRadius: 26, maxRadius: 26, scene: 'graveyard', 'label': _('A&nbsp;Restless&nbsp;Graveyard')};
+		World.LANDMARKS[World.TILE.TEMPLE] = { num: 1, minRadius: 20, maxRadius: World.RADIUS * 2, scene: 'temple', 'label': _('A&nbsp;Silent&nbsp;Temple')};
+		World.LANDMARKS[World.TILE.CRATER] = { num: 1, minRadius: 22, maxRadius: 30, scene: 'crater', 'label': _('A&nbsp;Glassed&nbsp;Crater')};
+		World.LANDMARKS[World.TILE.OBSERVATORY] = { num: 1, minRadius: 28, maxRadius: 38, scene: 'observatory', 'label': _('An&nbsp;Old&nbsp;Observatory')};
+		World.LANDMARKS[World.TILE.GRAVEYARD] = { num: 1, minRadius: 26, maxRadius: 26, scene: 'graveyard', 'label': _('A&nbsp;Crowded&nbsp;Graveyard')};
 		World.LANDMARKS[World.TILE.PRISON] = { num: 1, minRadius: 30, maxRadius: 32, scene: 'prison', 'label': _('Locked-Down&nbsp;Prison')};
 		World.LANDMARKS[World.TILE.LAB] = { num: 1, minRadius: 25, maxRadius: 32, scene: 'lab', 'label': _('A&nbsp;Wanderer&nbsp;Lab')};
 
@@ -832,7 +836,9 @@ var World = {
 		for(var k in World.LANDMARKS) {
 			var landmark = World.LANDMARKS[k];
 			for(var l = 0; l < landmark.num; l++) {
-				var pos = World.placeLandmark(landmark.minRadius, landmark.maxRadius, k, map);
+				// Return value unused -- placeLandmark mutates `map` directly.
+				// Matches the other call site in backfillLandmarks(), below.
+				World.placeLandmark(landmark.minRadius, landmark.maxRadius, k, map);
 			}
 		}
 
@@ -1112,6 +1118,7 @@ var World = {
 			// Dead! Discard any world changes and go home
 			Notifications.notify(World, _('the world fades. death escapes you. is there no escape from here'));
 			World.state = null;
+			World.clearMaxHealthPenalty();
 			Path.outfit = {};
 			$SM.remove('outfit');
 			AudioEngine.playSound(AudioLibrary.DEATH);
@@ -1230,7 +1237,31 @@ var World = {
 		typeof Fabricator.Craftables[thing] == 'undefined';
 	},
 
-	getMaxHealth: function() {
+	/* A temporary cap on max health, applied by radiation sickness in the
+	 * glassed crater. Deliberately NOT persisted to save state: it is scoped
+	 * to the current excursion and is cleared by onArrival() (setting out
+	 * again) and by die(), so it can never follow the player home or survive
+	 * a reload. */
+	maxHealthPenalty: 0,
+
+	applyMaxHealthPenalty: function(amount) {
+		World.maxHealthPenalty += amount;
+		/* Clamp current health down to the new ceiling straight away,
+		 * otherwise the hp readout shows something like 40/25 until the next
+		 * time anything happens to touch it. */
+		if(World.health > World.getMaxHealth()) {
+			World.setHp(World.getMaxHealth());
+		} else {
+			World.updateSupplies();
+			$('#healthCounter').text(_('hp: {0}/{1}', World.health, World.getMaxHealth()));
+		}
+	},
+
+	clearMaxHealthPenalty: function() {
+		World.maxHealthPenalty = 0;
+	},
+
+	getBaseMaxHealth: function() {
 		if($SM.get('stores["kinetic armour"]', true) > 0) {
 			return World.BASE_HEALTH + 75;
 		} else if($SM.get('stores["s armour"]', true) > 0) {
@@ -1241,6 +1272,13 @@ var World = {
 			return World.BASE_HEALTH + 5;
 		}
 		return World.BASE_HEALTH;
+	},
+
+	getMaxHealth: function() {
+		/* Never below 1: a penalty large enough to zero the ceiling would
+		 * make the player unkillable-but-unhealable rather than dead, which
+		 * is a worse outcome than either. */
+		return Math.max(1, World.getBaseMaxHealth() - World.maxHealthPenalty);
 	},
 
 	getHitChance: function() {
@@ -1284,6 +1322,9 @@ var World = {
 		Engine.keyLock = false;
 		// Explore in a temporary world-state. We'll commit the changes if you return home safe.
 		World.state = $.extend(true, {}, $SM.get('game.world'));
+		/* Before setHp, so a player who took radiation sickness last trip
+		 * starts this one at their true ceiling rather than the reduced one. */
+		World.clearMaxHealthPenalty();
 		World.setWater(World.getMaxWater());
 		World.setHp(World.getMaxHealth());
 		World.foodMove = 0;

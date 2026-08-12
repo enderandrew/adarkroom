@@ -1,6 +1,13 @@
 (function(){
 	//only used for poedit to find translatable strings
-	var keywords = [ 
+	/* Renamed to _keywords (not just `keywords`) to opt into the same
+	 * ignore convention eslint.config.mjs already uses for this whole
+	 * project (varsIgnorePattern: '^_'). This is unused by design, not by
+	 * accident: the array exists purely so poedit's static scanner sees
+	 * every _('...') call in one place. Nothing in the running game ever
+	 * reads the array -- deleting it would remove exactly the _() calls
+	 * poedit is scanning for, which is the one thing this file is for. */
+	var _keywords = [ 
 		_('saved.'),
 		_('wood'),
 		_('builder'),
@@ -65,5 +72,5 @@
 		_('the compass points southwest')
 	]; 
 
-	keywords = null;
+	_keywords = null;
 })();

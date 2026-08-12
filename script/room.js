@@ -87,6 +87,13 @@ var Room = {
 			name: _('hut'),
 			button: null,
 			maximum: 25,
+			/* Permanently closed off once the player has told the builder
+			 * this journey belongs to the two of them. Nothing clears
+			 * 'solitary', so this is a one-way door for the playthrough --
+			 * which is the whole weight of the choice. */
+			isAvailable: function() {
+				return !Outside.isSolitary();
+			},
 			availableMsg: _("builder says there are more wanderers. says they'll work, too."),
 			buildMsg: _('builder puts up a hut, out in the forest. says word will get around.'),
 			maxMsg: _('no more room for huts.'),
@@ -229,6 +236,15 @@ var Room = {
 			availableMsg: function() { return _('{0} could help hunt, given the means', Outside.villagerNoun()); },
 			buildMsg: _('the hunting lodge stands in the forest, a ways out of town'),
 			type: 'building',
+			/* Hidden on a solitary run. This building exists only to unlock a
+			 * worker slot (hunter, trapper), and with no huts the population is
+			 * permanently 0 -- Outside.getMaxPopulation() derives entirely
+			 * from hut count, so there is never anybody to staff it. Left
+			 * visible it is a pure resource sink that reads as content and
+			 * does nothing. */
+			isAvailable: function() {
+				return !Outside.isSolitary();
+			},
 			cost: function() {
 				if ($SM.get('playStats.lodgeAlertShown') || !Room.buttons["lodge"]) {
 					return {
@@ -307,6 +323,15 @@ var Room = {
 			availableMsg: function() { return _("builder says leather could be useful. says the {0} could make it.", Outside.villagerNoun()); },
 			buildMsg: _('tannery goes up quick, on the edge of the village'),
 			type: 'building',
+			/* Hidden on a solitary run. This building exists only to unlock a
+			 * worker slot (tanner), and with no huts the population is
+			 * permanently 0 -- Outside.getMaxPopulation() derives entirely
+			 * from hut count, so there is never anybody to staff it. Left
+			 * visible it is a pure resource sink that reads as content and
+			 * does nothing. */
+			isAvailable: function() {
+				return !Outside.isSolitary();
+			},
 			cost: function() {
 				if ($SM.get('playStats.tanneryAlertShown') || !Room.buttons["tannery"]) {
 					return {
@@ -344,6 +369,15 @@ var Room = {
 			availableMsg: _("should cure the meat, or it'll spoil. builder says she can fix something up."),
 			buildMsg: _('builder finishes the smokehouse. she looks hungry.'),
 			type: 'building',
+			/* Hidden on a solitary run. This building exists only to unlock a
+			 * worker slot (charcutier), and with no huts the population is
+			 * permanently 0 -- Outside.getMaxPopulation() derives entirely
+			 * from hut count, so there is never anybody to staff it. Left
+			 * visible it is a pure resource sink that reads as content and
+			 * does nothing. */
+			isAvailable: function() {
+				return !Outside.isSolitary();
+			},
 			cost: function() {
 				if ($SM.get('playStats.smokehouseAlertShown') || !Room.buttons["smokehouse"]) {
 					return {
@@ -420,6 +454,15 @@ var Room = {
 			availableMsg: function() { return _("builder says the {0} could make steel, given the tools", Outside.villagerNoun()); },
 			buildMsg: _("a haze falls over the village as the steelworks fires up"),
 			type: 'building',
+			/* Hidden on a solitary run. This building exists only to unlock a
+			 * worker slot (steelworker), and with no huts the population is
+			 * permanently 0 -- Outside.getMaxPopulation() derives entirely
+			 * from hut count, so there is never anybody to staff it. Left
+			 * visible it is a pure resource sink that reads as content and
+			 * does nothing. */
+			isAvailable: function() {
+				return !Outside.isSolitary();
+			},
 			cost: function() {
 				if ($SM.get('playStats.steelworksAlertShown') || !Room.buttons["steelworks"]) {
 					return {
@@ -461,6 +504,15 @@ var Room = {
 			availableMsg: _("builder says an armoury can produce bullets, but she doesn't intend to touch a gun ever again"),
 			buildMsg: _("armoury's done, welcoming back the weapons of the past."),
 			type: 'building',
+			/* Hidden on a solitary run. This building exists only to unlock a
+			 * worker slot (armourer), and with no huts the population is
+			 * permanently 0 -- Outside.getMaxPopulation() derives entirely
+			 * from hut count, so there is never anybody to staff it. Left
+			 * visible it is a pure resource sink that reads as content and
+			 * does nothing. */
+			isAvailable: function() {
+				return !Outside.isSolitary();
+			},
 			cost: function() {
 				if ($SM.get('playStats.armouryAlertShown') || !Room.buttons["armoury"]) {
 					return {
@@ -1340,6 +1392,9 @@ var Room = {
 		}
 		if($SM.get('game.builder.level') == 3) {
 			$SM.add('game.builder.level', 1);
+			if(typeof EasterEggs !== 'undefined') {
+				EasterEggs.scheduleBuilderName();
+			}
 			$SM.setIncome('builder', {
 				delay: 10,
 				stores: {'wood' : 2 }
@@ -1437,6 +1492,36 @@ var Room = {
 		$SM.set('game.fire', Room.FireEnum.Burning);
 		AudioEngine.playSound(AudioLibrary.LIGHT_FIRE);
 		Room.onFireChange();
+
+		/* One-time fork disclosure, shown the first time the fire is
+		 * actually lit rather than on the click itself -- gating it behind
+		 * the wood check means a new player who clicks with an empty
+		 * woodpile doesn't get a "welcome to my fork" notice on a failed
+		 * action before they've done anything. Same one-shot pattern as the
+		 * torch alert above: a playStats flag set the first time, checked
+		 * every time. */
+		if(!$SM.get('playStats.forkNoticeShown')) {
+			$SM.set('playStats.forkNoticeShown', true);
+			Events.startEvent({
+				title: _('A Note on This Fork'),
+				scenes: {
+					start: {
+						text: [
+							_('A Dark Room was written by Michael Townsend for Doublespeak Games in 2013. It is open-source.'),
+							_('This is a fork and a re-imagining of the game with much more content, more story and more endings.'),
+							_("I do not claim this to be an extension of Townsend's intent. I intentionally tried to make this story its own."),
+							_('Please support the original game.')
+						],
+						buttons: {
+							'ok': {
+								text: _('ok'),
+								nextScene: 'end'
+							}
+						}
+					}
+				}
+			});
+		}
 	},
 	
 	stokeFire: function() {
@@ -1478,6 +1563,10 @@ var Room = {
 	},
 
 	coolFire: function() {
+		// Rare nod to the original game, on a post-completion run only.
+		if(typeof EasterEggs !== 'undefined') {
+			EasterEggs.maybeOriginalOpening();
+		}
 		var wood = $SM.get('stores.wood');
 		if($SM.get('game.fire.value') <= Room.FireEnum.Flickering.value &&
 			$SM.get('game.builder.level') > 3 && wood > 0) {
@@ -1790,6 +1879,24 @@ var Room = {
 			Notifications.notify(Room, _('no wooden huts left to rebuild.'));
 			return false;
 		}
+
+		/* The builder's question PRE-EMPTS the first hut rather than following
+		 * it.
+		 *
+		 * It used to fire after construction, which made the scene describe a
+		 * finished building ("after the last beam is up") and, more
+		 * importantly, made the third answer impossible: you cannot say this
+		 * journey belongs to the two of you while standing in front of a hut
+		 * you have already paid for and raised. Asked here, before any wood
+		 * is spent, all three answers are still open.
+		 *
+		 * Returns false so nothing is built this click. The player answers,
+		 * and then builds -- or doesn't. */
+		if(thing === 'hut' && !$SM.get('game.doctrine') &&
+			$SM.get('game.buildings["hut"]', true) === 0) {
+			Room.askDoctrine();
+			return false;
+		}
 		
 		var storeMod = {};
 		var cost = craftable.cost();
@@ -1838,14 +1945,72 @@ var Room = {
 				break;
 		}
 
-		/* The builder's question, asked once, the first time housing goes up
-		 * for anybody other than the two of you. Hooked to the actual build
-		 * rather than to the cost() call that draws the button -- cost() runs
-		 * during rendering, long before the player has committed to anything. */
-		if(thing === 'hut' && !$SM.get('game.doctrine') &&
-			$SM.get('game.buildings["hut"]', true) === 1) {
-			Room.askDoctrine();
-		}
+	},
+
+	/* Commits to the hutless run.
+	 *
+	 * The meat income is what makes this playable rather than a novelty:
+	 * cured meat is the gate on setting out down the dusty path at all, and
+	 * without huts there are no villagers, no hunters and no charcutier to
+	 * produce it. Two per second from the builder salting what the traps
+	 * bring in replaces that whole chain -- generous on purpose, because the
+	 * player has just given up every other production line in the game. */
+	/* 0.5 cured meat per 10s tick -- 3/min, so a solid expedition's worth
+	 * (~30) accumulates in about ten minutes of room time.
+	 *
+	 * Originally 2/sec, which was 120/min and grew far past anything a
+	 * hutless run could spend: 1 cured meat covers 2 moves
+	 * (World.MOVES_PER_FOOD), a trip needs dozens rather than hundreds, and
+	 * with no villagers nothing consumes the surplus. Matching a single
+	 * hunter's rate (delay 10, 0.5 meat) is the right magnitude: the builder
+	 * alone does roughly one hunter's job, which is generous without being
+	 * free. delay 10 also matches every other income source in the game --
+	 * delay 1 was an outlier for no reason. Fractional per-tick amounts
+	 * display fine; store rows floor with Math.floor. */
+	SOLITARY_MEAT: 0.5,
+	SOLITARY_MEAT_DELAY: 10,
+
+	chooseSolitary: function() {
+		$SM.set('game.doctrine', 'solitary');
+		$SM.setIncome('builder', {
+			delay: Room.SOLITARY_MEAT_DELAY,
+			stores: { 'cured meat': Room.SOLITARY_MEAT }
+		});
+		Room.updateIncomeView();
+		/* Any hut button already on screen has to go immediately -- its
+		 * isAvailable() now returns false, but nothing redraws the button
+		 * list on its own. */
+		Room.updateBuildButtons();
+	},
+
+	/* The proactive version of the same question.
+	 *
+	 * A player who knows the mobile/Steam game will try for a hutless run by
+	 * simply never clicking the hut button -- and would then never see this
+	 * conversation at all, and never get the meat income that makes the run
+	 * viable. So once the hut has been available for a while and still hasn't
+	 * been clicked, the builder raises it herself.
+	 *
+	 * Only for players who have finished the game once, because the third
+	 * answer is the only reason to ask unprompted: a first-time player who
+	 * hasn't built a hut yet is just a first-time player who hasn't built a
+	 * hut yet. */
+	SOLITARY_PROMPT_DELAY: 3 * 60 * 1000,
+
+	scheduleSolitaryPrompt: function() {
+		if(Room._solitaryTimer) { return; }
+		if(!Prestige.hasCompletedRun()) { return; }
+		if($SM.get('game.doctrine')) { return; }
+		Room._solitaryTimer = Engine.setTimeout(Room.offerSolitary, Room.SOLITARY_PROMPT_DELAY);
+	},
+
+	offerSolitary: function() {
+		Room._solitaryTimer = null;
+		// Conditions may have changed during the wait.
+		if($SM.get('game.doctrine')) { return; }
+		if($SM.get('game.buildings["hut"]', true) > 0) { return; }
+		if(!Prestige.hasCompletedRun()) { return; }
+		Room.askDoctrine();
 	},
 
 	/* Sets game.doctrine, which everything downstream reads. See
@@ -1855,11 +2020,24 @@ var Room = {
 			title: _('The First Hut'),
 			scenes: {
 				'start': {
-					text: [
-						_('the builder stands looking at it for a while after the last beam is up.'),
-						_('asks what it is for. asks why you are putting a roof over people you have not met.'),
-						_('says she is not asking to be difficult. says the answer changes what she builds next.')
-					],
+					/* Two versions. A player who has been round the cycle
+					 * before gets a third option, because she has watched what
+					 * happened to the people who followed them last time. */
+					text: function() {
+						if(Prestige.hasCompletedRun()) {
+							return [
+								_('the builder stands looking at your plans for housing.'),
+								_('asks what it is for. asks why you are putting a roof over people you have not met.'),
+								_('others have followed you before and suffered or been left behind.'),
+								_('maybe this journey belongs to the two of you alone. is there another way?')
+							];
+						}
+						return [
+							_('the builder stands looking at your plans for housing.'),
+							_('asks what it is for. asks why you are putting a roof over people you have not met.'),
+							_('says she is not asking to be difficult. says the answer changes what she builds next.')
+						];
+					},
 					notification: _('the builder asks what the huts are for'),
 					blink: true,
 					buttons: {
@@ -1878,6 +2056,31 @@ var Room = {
 								$SM.add('character.karma', -5);
 							},
 							nextScene: { 1: 'fear' }
+						},
+						'solitary': {
+							text: _('there is another way'),
+							available: function() {
+								return Prestige.hasCompletedRun();
+							},
+							onChoose: function() {
+								Room.chooseSolitary();
+							},
+							nextScene: { 1: 'solitary' }
+						}
+					}
+				},
+				'solitary': {
+					text: [
+						_('she puts the plans down and does not pick them back up.'),
+						_('says she has watched people follow you before. says she has watched what it cost them.'),
+						_('says the traps will still fill. says she can salt what comes out of them, and that two people do not need a village to feed them.'),
+						_('the huts are not going to be built. it is going to be the two of you.')
+					],
+					notification: _('the builder starts salting meat. there will be no huts.'),
+					buttons: {
+						'end': {
+							text: _('let her work'),
+							nextScene: 'end'
 						}
 					}
 				},
@@ -2006,7 +2209,24 @@ var Room = {
 						width: '80px',
 						ttPos: loc.children().length > 10 ? 'top right' : 'bottom right'
 					}).css('opacity', 0).attr('buildThing', k).appendTo(loc).animate({opacity: 1}, 300, 'linear');
+
+					/* The hut has just appeared for the first time. Start the
+					 * clock on the builder raising the question herself, for
+					 * the returning player who intends never to click it. */
+					if(k === 'hut') {
+						Room.scheduleSolitaryPrompt();
+					}
 				}
+			} else if(typeof craftable.isAvailable === 'function' && !craftable.isAvailable()) {
+				/* Already drawn, but no longer permitted -- the hut once the
+				 * player has committed to going alone. craftUnlocked() only
+				 * gates buttons that don't exist yet, so without this the hut
+				 * button stays on screen and clickable forever (build() would
+				 * refuse it, but the player is left prodding a live-looking
+				 * button that silently does nothing). */
+				craftable.button.remove();
+				craftable.button = null;
+				continue;
 			} else {
 				// refresh the tooltip
 				var costTooltip = $('.tooltip', craftable.button);

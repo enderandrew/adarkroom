@@ -124,6 +124,11 @@ var StateManager = {
 		var old = $SM.get(stateName, true);
 
 		//check for NaN (old != old) and non number values
+		/* `old != old` is the classic NaN test and is intentional here --
+		 * it is true for NaN and nothing else. Left as-is rather than
+		 * swapped for Number.isNaN(): this is load-bearing save-state code
+		 * and the idiom is already documented on the line above. */
+		// eslint-disable-next-line no-self-compare
 		if(old != old){
 			Engine.log('WARNING: '+stateName+' was corrupted (NaN). Resetting to 0.');
 			old = 0;
@@ -133,6 +138,22 @@ var StateManager = {
 			err = 1;
 		} else {
 			$SM.set(stateName, old + value, noEvent); //setState handles event and save
+			/* Count karma CHANGES, not the running total.
+			 *
+			 * The "refused everything" easter egg needs to distinguish a
+			 * player who never chose anything from one whose +5 and -5
+			 * cancelled out -- those are completely different runs and read
+			 * identically from the final value. $SM.add is the single funnel
+			 * every karma change in the game passes through, so this is the
+			 * one place that catches all of them.
+			 *
+			 * Guarded on the counter itself so incrementing it can't recurse,
+			 * and on EasterEggs existing so a failed script load can't break
+			 * every karma change in the game for a cosmetic feature. */
+			if(stateName === 'character.karma' && value !== 0 &&
+				typeof EasterEggs !== 'undefined') {
+				EasterEggs.noteKarmaChange();
+			}
 		}
 
 		return err;

@@ -1268,6 +1268,51 @@ Events.Encounters = [
 			}
 		}
 	},
+	{ /* Bigfoot */
+	title: _('Bigfoot'),
+		isAvailable: function() {
+			return World.getDistance() > 29 
+				&& World.getTerrain() == World.TILE.FOREST 
+				&& Math.random() < 0.05;
+		},
+		scenes: {
+			'start': {
+				combat: true,
+				enemy: 'bigfoot',
+				enemyName: _('bigfoot'),
+				deathMessage: _('the reclusive beast slumps into the foliage.'),
+				chara: 'ß',
+				damage: 18,
+				hit: 0.85,
+				attackDelay: 1.8,
+				health: 120,
+				loot: {
+					'fur': {
+						min: 10,
+						max: 20,
+						chance: 1
+					},
+					'teeth': {
+						min: 5,
+						max: 10,
+						chance: 1
+					},
+					'charm': {
+						min: 1,
+						max: 1,
+						chance: 1
+					},
+					'meat': {
+						min: 10,
+						max: 20,
+						chance: 1
+					},
+				},
+				notification: _('a colossal shape emerges silently from the deep forest.')
+			}
+		},
+		audio: AudioLibrary.BIGFOOT
+	},
 	{ /* Grafted Colossus */
 	title: _('A Grafted Colossus'),
 		isAvailable: function() {
@@ -1577,4 +1622,189 @@ Events.Encounters = [
 			}
 		}
 	},
+	{ /* The Cartographer's Mule -- rare, non-hostile */
+		title: _("The Cartographer's Mule"),
+		isAvailable: function() {
+			return World.getDistance() > 20
+				&& World.getTerrain() == World.TILE.BARRENS
+				&& Math.random() < 0.04;
+		},
+		scenes: {
+			'start': {
+				text: [
+					_('a pack animal, alive, standing in the open with nobody anywhere near it.'),
+					_('it is still carrying a full surveyor\'s kit, buckled properly, in good order.'),
+					_('the map rolled into the top of the pack shows a coastline. this world does not have one.')
+				],
+				notification: _('a pack animal, alive, and carrying somebody else\'s work'),
+				buttons: {
+					'take': {
+						text: _('take the kit'),
+						onChoose: function() { $SM.add('character.karma', -1); },
+						nextScene: { 1: 'took' }
+					},
+					'leave': {
+						text: _('leave it be'),
+						onChoose: function() { $SM.add('character.karma', 1); },
+						nextScene: { 1: 'left' }
+					}
+				}
+			},
+			'took': {
+				text: [
+					_('the mule does not object. it does not follow, either.'),
+					_('the kit is good. the map is worth more than the kit, and it is a map of somewhere else.')
+				],
+				notification: _('the surveyor\'s kit is taken'),
+				loot: {
+					'cloth': { min: 5, max: 12, chance: 1 },
+					'leather': { min: 3, max: 8, chance: 0.8 },
+					'alien alloy': { min: 1, max: 1, chance: 0.3 }
+				},
+				buttons: {
+					'end': { text: _('go on'), nextScene: 'end' }
+				}
+			},
+			'left': {
+				text: [
+					_('the buckles are done up the way somebody does them when they expect to come back.'),
+					_('it is still standing there when the ridge finally hides it.')
+				],
+				notification: _('the mule is left as it was'),
+				buttons: {
+					'end': { text: _('go on'), nextScene: 'end' }
+				}
+			}
+		}
+	},
+	{ /* The Last Charcutier -- rare, non-hostile, recognises a solitary run */
+		title: _('The Last Charcutier'),
+		isAvailable: function() {
+			return World.getDistance() > 10
+				&& World.getDistance() <= 20
+				&& World.getTerrain() == World.TILE.FIELD
+				&& Math.random() < 0.05;
+		},
+		scenes: {
+			'start': {
+				text: function() {
+					var lines = [
+						_('an old woman, working a curing fire, with racks up and meat on all of them.'),
+						_('there is enough here for forty people. there is nobody here but her.'),
+						_('she says the village is just over there. she gestures at a direction with nothing in it.')
+					];
+					/* On a solitary run she is the only character in the game
+					 * who says anything about the choice. She does not
+					 * approve or disapprove -- she just recognises it, which
+					 * is heavier coming from somebody still cooking for a
+					 * village that is gone. */
+					if(typeof Outside !== 'undefined' && Outside.isSolitary()) {
+						lines.push(_('she looks at you for a while longer than is comfortable.'));
+						lines.push(_('"you did not bring anybody either."'));
+						lines.push(_('she does not say it unkindly. she goes back to the racks.'));
+					}
+					return lines;
+				},
+				notification: _('a curing fire, and racks enough for forty'),
+				buttons: {
+					'trade': {
+						text: _('trade with her'),
+						cost: { 'fur': 20 },
+						nextScene: { 1: 'trade' }
+					},
+					'leave': {
+						text: _('leave her to it'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'trade': {
+				text: [
+					_('she takes the fur without counting it and loads you up past what the fur was worth.'),
+					_('she has more than she can use and no way to stop making it.')
+				],
+				notification: _('she trades generously'),
+				loot: {
+					'cured meat': { min: 20, max: 40, chance: 1 },
+					'meat': { min: 10, max: 20, chance: 0.6 }
+				},
+				buttons: {
+					'end': { text: _('go on'), nextScene: 'end' }
+				}
+			}
+		}
+	},
+	{ /* Something Wearing a Wanderer -- rare, hostile, tier 4 */
+		title: _('Something Wearing a Wanderer'),
+		isAvailable: function() {
+			return World.getDistance() > 29
+				&& World.getTerrain() == World.TILE.SWAMP
+				&& Math.random() < 0.03;
+		},
+		scenes: {
+			'start': {
+				combat: true,
+				enemy: 'wearer',
+				enemyName: _('something wearing a wanderer'),
+				deathMessage: _('what comes off it is not what was underneath.'),
+				chara: '\u01C2',
+				damage: 15,
+				hit: 0.8,
+				attackDelay: 1.9,
+				health: 130,
+				specials: [
+					{
+						delay: 6,
+						action: (fighter) => {
+							const player = $('#wanderer');
+							Events.setStatus(player, 'blinded');
+							Events.updateFighterDiv(player);
+							return _('it shows you its face');
+						}
+					},
+					{
+						delay: 11,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'regenerating');
+							return _('resettling');
+						}
+					}
+				],
+				loot: {
+					'alien alloy': { min: 1, max: 2, chance: 0.5 },
+					'scales': { min: 5, max: 12, chance: 1 },
+					'cloth': { min: 3, max: 8, chance: 0.7 }
+				},
+				notification: _('it is shaped like a wanderer and it is moving wrong.')
+			}
+		}
+	},
+	{ /* The Quiet Mile -- rare, no enemy, no reward */
+		title: _('The Quiet Mile'),
+		isAvailable: function() {
+			return World.getDistance() > 15 && Math.random() < 0.02;
+		},
+		scenes: {
+			'start': {
+				/* Deliberately gives nothing: no enemy, no loot, no karma, no
+				 * flag. The whole point is that the game has trained the
+				 * player to expect a payoff from an interruption, and this
+				 * one simply resolves. It only works if it stays empty. */
+				text: [
+					_('the sound stops.'),
+					_('not quieter. stopped. your own footfall, your own breathing, the wind that has not let up in three days.'),
+					_('it goes on for about a mile.'),
+					_('nothing happens. nothing is there. nothing comes.')
+				],
+				notification: _('the sound stops for about a mile'),
+				buttons: {
+					'end': {
+						text: _('keep walking'),
+						nextScene: 'end'
+					}
+				}
+			}
+		}
+	}
+
 ];

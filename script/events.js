@@ -126,6 +126,15 @@ var Events = {
 		// Draw the enemy
 		Events.createFighterDiv(scene.chara, scene.health, scene.health).attr('id', 'enemy').appendTo(fightBox);
 
+		/* An enemy that is already in a status when the fight opens, rather
+		 * than acquiring one on a special's delay. Used by the obsidian shell,
+		 * whose reflective hull is meant to be the FIRST thing the player runs
+		 * into, not a surprise seven seconds in. */
+		if(scene.startStatus) {
+			Events.setStatus($('#enemy'), scene.startStatus);
+			Events.updateFighterDiv($('#enemy'));
+		}
+
 		// Draw the action buttons
 		var btns = $('#buttons', Events.eventPanel());
 
@@ -148,10 +157,11 @@ var Events = {
 		Events.createAttackButton('fists').appendTo(attackBtns);
 		for(var k in World.Weapons) {
 			if(k === 'fists') continue;
-			var weapon = World.Weapons[k];
 			/* No damage-type filtering here: bolas and disruptor deal a
 			 * non-numeric 'stun' rather than a number, and are legitimate
-			 * attack options whenever carried, same as any other weapon. */
+			 * attack options whenever carried, same as any other weapon.
+			 * (World.Weapons[k] itself isn't needed in this loop --
+			 * createAttackButton looks the weapon up again internally.) */
 			if(typeof Path.outfit[k] == 'number' && Path.outfit[k] > 0) {
 				Events.createAttackButton(k).appendTo(attackBtns);
 			}
@@ -821,6 +831,29 @@ var Events = {
 					}, Events.DOT_TICK);
 				}
 
+				/* Reflective hull.
+				 *
+				 * Opt-in per scene via `reflect` (a 0-1 fraction), and only
+				 * ever against RANGED attacks on the enemy -- the fiction is
+				 * a mirrored surface bouncing a shot back, and a sword swing
+				 * has nothing to bounce. Gated on the defender actually being
+				 * the enemy so a shielded PLAYER (kinetic armour) never
+				 * reflects damage into themselves.
+				 *
+				 * Combined with a shield the enemy periodically re-applies,
+				 * this makes ranged fire actively counterproductive against
+				 * it -- the shot heals the target AND hurts the shooter --
+				 * and turns the fight into a real question of which weapon to
+				 * use, rather than a bigger health bar. */
+				if (shielded && type === 'ranged' && enemy.attr('id') === 'enemy') {
+					var reflectScene = Events.activeEvent() ?
+						Events.activeEvent().scenes[Events.activeScene] : null;
+					if (reflectScene && typeof reflectScene.reflect === 'number' && reflectScene.reflect > 0) {
+						var bounced = Math.max(1, Math.floor(dmg * reflectScene.reflect));
+						Events.dotDamage($('#wanderer'), bounced);
+					}
+				}
+
 				if (shielded) {
 					// shields break in one hit
 					enemy.data('status', 'none');
@@ -849,7 +882,31 @@ var Events = {
 			}
 		} else {
 			if(dmg == 'stun') {
-				msg = _('stunned');
+				/* Stunning a target that is charged (status: energised)
+				 * cancels the charge outright, rather than merely delaying
+				 * the attack it was building toward.
+				 *
+				 * Without this, a stun only skips one enemyAttack() tick via
+				 * the `!stunned` guard -- it doesn't touch `status` at all,
+				 * so an energised enemy simply throws its 4x hit as soon as
+				 * the stun wears off. That makes carrying a stun weapon
+				 * against a charge-up enemy barely matter: a few seconds'
+				 * delay on an inevitable hit. Interrupting the charge is
+				 * what makes "stun it before it fires" a genuine counter
+				 * rather than a minor inconvenience, and it generalises to
+				 * any future enemy that charges via the energised status,
+				 * not just this one.
+				 *
+				 * The player's own energised buff is untouched: this only
+				 * ever clears status on the STUNNED target. */
+				var wasCharged = enemy.data('status') === 'energised';
+				if(wasCharged) {
+					enemy.data('status', 'none');
+					Events.updateFighterDiv(enemy);
+					msg = _('charge disrupted');
+				} else {
+					msg = _('stunned');
+				}
 				enemy.data('stunned', true);
 				setTimeout(() => {enemy.data('stunned', false)},Events.STUN_DURATION);
 			}
@@ -979,14 +1036,19 @@ var Events = {
 
 	clearTimeouts: () => {
 		clearInterval(Events._enemyAttackTimer);
-		Events._specialTimers.forEach(clearInterval);
+		if (Array.isArray(Events._specialTimers)) {
+			Events._specialTimers.forEach(clearInterval);
+			Events._specialTimers = [];
+		}
 		clearInterval(Events._dotTimer);
 		clearInterval(Events._regenTimer);
 		/* These were the gap: setStatus's enraged/meditation/boost/brittle/
 		 * blinded timeouts were previously untracked, so any of them firing
 		 * after a fight ended would touch state (or, for enraged, call
 		 * startEnemyAttacks()) belonging to an event that no longer exists. */
-		Events._statusTimers.forEach(clearTimeout);
+		if (Array.isArray(Events._statusTimers)) {
+			Events._statusTimers.forEach(clearTimeout);
+		}
 		Events._statusTimers = [];
 		/* Stored meditation damage must not survive the fight.
 		 *
@@ -1063,7 +1125,11 @@ var Events = {
 						if((Path.outfit['medicine'] || 0) !== 0) {
 							Events.createUseMedsButton(0).appendTo(healBtns);
 						}
-						if (Path.outfit['hypo'] ?? 0 > 0) {
+						/* Parenthesised deliberately: ?? binds looser than >, so
+						 * `a ?? 0 > 0` parses as `a ?? (0 > 0)`, not `(a ?? 0) > 0`.
+						 * The old form happened to behave correctly -- 0 is falsy,
+						 * a positive count is truthy -- but only by coincidence. */
+						if ((Path.outfit['hypo'] ?? 0) > 0) {
 							Events.createUseHypoButton(0).appendTo(healBtns);
 						}
 						$('<div>').addClass('clear').appendTo(healBtns);
@@ -1836,6 +1902,18 @@ var Events = {
 
 	endEvent: function() {
 		AudioEngine.stopEventMusic();
+		/* Tear down any active maze BEFORE the panel goes away.
+		 *
+		 * Maze.render() binds a document-level keydown listener, because
+		 * Engine.keyLock is true for the whole duration of an event and so
+		 * Engine's own key dispatcher won't route anything to it. If the
+		 * player leaves the event by any route other than a maze trigger --
+		 * the "leave" button, a scene that ends, anything -- that listener
+		 * would otherwise stay bound and keep swallowing arrow keys for the
+		 * rest of the session. */
+		if(typeof Maze !== 'undefined') {
+			Maze.teardown();
+		}
 		Events.eventPanel().animate({opacity:0}, Events._PANEL_FADE, 'linear', function() {
 			Events.eventPanel().remove();
 			Events.activeEvent().eventPanel = null;

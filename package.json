@@ -1,17 +1,39 @@
 {
-  "name": "adarkroom",
-  "type": "module",
-  "version": "1.0.6",
-  "private": false,
-  "repository": "git@github.com:enderandrew/adarkroom.git",
-  "author": "Michael Townsend <michael@doublespeakgames.com>",
+  "name": "adarkerroom",
+  "type": "commonjs",
+  "version": "1.6",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/enderandrew/adarkroom.git"
+  },
+  "author": "Michael Townsend and T. J. Brumfield",
   "license": "MPL-2.0",
   "scripts": {
-    "start": "node dev-server.js",
+    "lint": "eslint lang script build tools",
     "validate": "node tools/validate-events.cjs",
-    "update_pot": "pybabel extract -F lang/babel.cfg -c \"TRANSLATORS\" script -o lang/adarkroom.pot"
+    "update_pot": "pybabel extract -F lang/babel.cfg -c \"TRANSLATORS\" script -o lang/adarkroom.pot",
+    "build": "node build/build.mjs",
+    "build:debug": "node build/build.mjs --debug",
+    "build:fast": "node build/build.mjs --no-lint"
   },
   "dependencies": {
-    "express": "^4.21.2"
-  }
+    "express": "^5.2.1"
+  },
+  "description": "A Dark Room (v1.4) ================== > \"awake. head throbbing. vision blurry. come light the fire.\"",
+  "directories": {
+    "doc": "doc",
+    "lib": "lib",
+    "test": "tests"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/enderandrew/adarkroom/issues"
+  },
+  "homepage": "https://github.com/enderandrew/adarkroom#readme",
+  "devDependencies": {
+    "clean-css": "^5.3.3",
+    "eslint": "^9.39.5",
+    "terser": "^5.49.2"
+   }
 }

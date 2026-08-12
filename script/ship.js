@@ -3,8 +3,22 @@
  */
 var Ship = {
 	LIFTOFF_COOLDOWN: 120,
-	ALLOY_PER_HULL: 1,
-	ALLOY_PER_THRUSTER: 1,
+	/* Rebalanced from 1 each.
+	 *
+	 * An audit of every alloy source in the game came to roughly 56 expected
+	 * alloy across a thorough run, against 12 to craft one of every
+	 * fabricator item. Hull and thrusters are the only other sink and both
+	 * are uncapped, so at 1 alloy apiece the endgame upgrade curve was
+	 * effectively free -- a player could arrive at the ship with dozens of
+	 * spare alloy and max both without a decision.
+	 *
+	 * At 2 and 3, a full run's surplus still buys a comfortable ship, but
+	 * hull-versus-speed becomes an actual trade, and the ruins/crater/lab
+	 * content that drops alloy has something to be spent on. Thrusters cost
+	 * more than hull because speed compounds -- it shortens the whole
+	 * asteroid gauntlet -- while hull is linear damage absorption. */
+	ALLOY_PER_HULL: 2,
+	ALLOY_PER_THRUSTER: 3,
 	BASE_HULL: 0,
 	BASE_THRUSTERS: 1,
 	name: _("Ship"),

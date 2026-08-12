@@ -278,20 +278,33 @@ var Space = {
 			body_color = '#FFFFFF';
 			to_color = '#000000';
 		}
-
-		$('body').addClass('noMask').css({backgroundColor: body_color}).animate({
-			backgroundColor: to_color
-		}, {
-			duration: Space.FTB_SPEED, 
-			easing: 'linear',
-			progress: function() {
-				var cur = $('body').css('background-color');
-				var s = 'linear-gradient(rgba' + cur.substring(3, cur.length - 1) + ', 0) 0%, rgba' + 
-					cur.substring(3, cur.length - 1) + ', 1) 100%)';
-				$('#notifyGradient').attr('style', 'background-color:'+cur+';background:-webkit-' + s + ';background:' + s);
-			},
-			complete: Space.endGame
-		});
+	
+		// Safely check if jQuery Color plugin animation is supported
+		try {
+			$('body').addClass('noMask').css({backgroundColor: body_color}).animate({
+				backgroundColor: to_color
+			}, {
+				duration: Space.FTB_SPEED, 
+				easing: 'linear',
+				progress: function() {
+					var cur = $('body').css('background-color');
+					var s = 'linear-gradient(rgba' + cur.substring(3, cur.length - 1) + ', 0) 0%, rgba' + 
+						cur.substring(3, cur.length - 1) + ', 1) 100%)';
+					$('#notifyGradient').attr('style', 'background-color:'+cur+';background:-webkit-' + s + ';background:' + s);
+				},
+				complete: Space.endGame
+			});
+		} catch (e) {
+			console.warn('jQuery Color animation failed, falling back to CSS transition:', e);
+			$('body').addClass('noMask').css({
+				backgroundColor: body_color,
+				transition: 'background-color ' + (Space.FTB_SPEED / 1000) + 's linear'
+			});
+			setTimeout(function() {
+				$('body').css({backgroundColor: to_color});
+			}, 50);
+			setTimeout(Space.endGame, Space.FTB_SPEED);
+		}
 		Space.drawStars();
 		Space._timer = setInterval(function() {
 			Space.altitude += 1;
@@ -494,6 +507,15 @@ var Space = {
 		return $SM.get('character.karma', true) >= Space.GOOD_KARMA_THRESHOLD;
 	},
 
+	/* True for a run in which the player never built a hut and nobody ever
+	 * came. Reads the doctrine rather than counting buildings: a player can
+	 * choose 'solitary' and simply never be offered a hut again, so the
+	 * doctrine is the durable fact, while a building count of zero could also
+	 * just mean "hasn't got round to it yet". */
+	wentAlone: () => {
+		return $SM.get('game.doctrine') === 'solitary';
+	},
+
 	/* Fades one line of outro text in at a fixed offset from the sequence
 	 * start. Extracted because the four ending variants below are otherwise
 	 * the same twelve lines of jQuery over and over. */
@@ -514,6 +536,61 @@ var Space = {
 				.appendTo('body');
 			const line = (html, delay) => Space.outroLine(c, html, delay);
 			const redeemed = Space.isRedeemed();
+			const alone = Space.wentAlone();
+
+			/* ---- Solitary endings: nobody ever followed you ----
+			 *
+			 * Checked first, because going alone changes the ending more than
+			 * anything else does. Four of them: with and without the fleet
+			 * beacon, crossed with karma. In every one the builder turns out
+			 * to be something the player has no explanation for -- which is
+			 * the payoff for a run where she was the only other person in it.
+			 */
+			if (alone) {
+				if (!$SM.get('stores["fleet beacon"]')) {
+					line('so much debris of dead ships from long lost wars.<br>the sky opens out, and there is nobody aboard but the two of you.', 2000);
+					line('there is something else out here.<br>rings of it, vast and old, held close around the planet.', 7000);
+					line('they are not aimed outward.<br>they are aimed down. at the ground. at the room.', 12000);
+
+					if (redeemed) {
+						line('the stations turn. they find the ship. they hold there, and do not fire.', 17000);
+						line('nothing explains it. the ship goes on climbing and nothing comes after it.', 22000);
+						line('some part of you wonders whether you escaped at all,<br>or whether this is only the part where you get to leave.', 27000);
+						line('the builder says nothing. the cabin is warm.<br>you drift off to sleep...', 32000);
+						setTimeout(resolve, 36000);
+					} else {
+						line('the stations turn. they find the ship. they fire.', 17000);
+						line('the builder does not move. she does not reach for anything.', 21000);
+						line('the light stops a long way short of the hull, bends, and goes back the way it came.<br>one station, then another, then the rest of the ring.', 25000);
+						line('she has never mentioned being able to do that.<br>you have never seen her do anything like it.', 30000);
+						line('there are things about her you do not remember and do not understand.<br>you drift off to sleep...', 35000);
+						setTimeout(resolve, 39000);
+					}
+					return;
+				}
+
+				/* Beacon + alone: the fleet answers, and there is nobody on it. */
+				line('the beacon pulses. coordinates are locked. the fleet is expecting you.', 2000);
+				line('the worldships come into view exactly where they should be, and they are running,<br>and there is not one living soul aboard any of them.', 7000);
+				line('the builder goes to the controls. all of them.', 12000);
+				line('she is working eight stations at once and touching none of them.<br>readouts move. locks release. the drives come up.', 16000);
+				line('you should know how to do this. you are certain you should know how to do this.<br>nothing comes. you stand there and you are no use to her at all.', 21000);
+				line('the stations around the planet find the fleet and open fire.', 26000);
+
+				if (redeemed) {
+					line('she holds it together long enough. the drives catch.', 30000);
+					line('the sky folds over and the firing stops mattering.', 34000);
+					line('there are things about her you do not remember and do not understand.<br>you drift off to sleep, in hyperspace...', 38000);
+					setTimeout(resolve, 42000);
+				} else {
+					line('she is doing too much at once and you can see the moment it starts to come apart.', 30000);
+					line('the jump takes. it takes wrong.', 34000);
+					line('the whole fleet comes out somewhere with nothing in it but a weight,<br>and the weight has already got hold of them.', 38000);
+					line('you wake from that nightmare in a dark room...', 43000);
+					setTimeout(resolve, 47000);
+				}
+				return;
+			}
 
 			/* ---- Ship ending: escaped, but never reached the fleet ---- */
 			if (!$SM.get('stores["fleet beacon"]')) {
@@ -544,13 +621,13 @@ var Space = {
 			/* ---- Fleet beacon ending: reached the homefleet ---- */
 			line('the beacon pulses gently as the ship glides through space.<br>coordinates are locked.', 2000);
 			line('time to rejoin the other wanderers, alone no more.<br>the fleet knows the way home. nothing to do but wait.', 7000);
-			line('the beacon glows a solid blue, and then goes dim. the ship slows.<br>gradually, the vast wanderer homefleet comes into view.<br>massive worldships drift unnaturally through clouds of debris, scarred and dead.', 14000);
+			line('the beacon glows a solid blue, and then goes dim. the ship slows.<br>gradually, the vast wanderer homefleet comes into view.<br>massive worldships drift unnaturally through clouds of debris, scarred and dead. no crew respond', 14000);
 			line('the air is running out.', 17000);
 			line('the capsule is cold.', 20000);
 			line('there is no fire to light.', 23000);
 
 			if (redeemed) {
-				line('the builder suggests the villagers might serve as a skeleton crew.<br>deep down you know there is even more you could have done.', 26000);
+				line('the builder wonders if they can bring villagers up as a skeleton crew. deep down you know there is even more you could have done.', 26000);
 			} else {
 				line('you have never felt so alone...', 26000);
 			}

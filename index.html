@@ -33,10 +33,16 @@
 			document.write('<script src="lib/jquery.min.js"><\/script>')
 		}
 	</script>
+	<!-- Must load after jQuery is guaranteed present (including the
+	     document.write fallback above) and before jquery-color, which
+	     depends on the utility this restores. See the file for why. -->
+	<script src="lib/jquery-type-shim.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-color/2.1.2/jquery.color.min.js" integrity="sha512-VjRpiWhUqdNa9bwBV7LnlG8CwsCVPenFyOQTSRTOGHw/tjtME96zthh0Vv9Itf3i8w4CkUrdYaS6+dAt1m1YXQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.event.move/2.0.1/jquery.event.move.js" integrity="sha512-JEIAiFT4gyVSJ/InaLiuARszxD1Ye5SZyQFcKfOsnBYpZzRribsQR2NrCXw76NoPF4W2eIIChta5SFgwWQ5FBg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.event.swipe/0.5.4/jquery.event.swipe.js" integrity="sha512-cyk5gVlesBE1nTz65wrhDvYZJjqwPz7mnlct0XUQy8mDDJt4h5FJWuLWIrp9EfBhkW3/Gx8Gj1LKgFUCOqJLEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="lib/base64.min.js"></script>
+	<!-- jquery.event.move and jquery.event.swipe removed: unmaintained
+	     plugins that hooked jQuery internals and depended on utilities
+	     jQuery 4 has removed. script/swipe.js does this natively with
+	     Pointer Events and emits the same four jQuery events. -->
+	<script src="lib/base64.js"></script>
 	<script src="lib/icu.js"></script>
 	<script src="lib/translate.js"></script>
 	
@@ -59,6 +65,8 @@
 	</script>
 	
 	<script src="script/Button.js"></script>
+	<script src="script/swipe.js"></script>
+	<script src="script/easterEggs.js"></script>
 	<script src="script/audioLibrary.js"></script>
 	<script src="script/audio.js"></script>
 	<script src="script/engine.js"></script>
@@ -68,6 +76,11 @@
 	<script src="script/distress.js"></script>
 	<script src="script/glyphs.js"></script>
 	<script src="script/ruins.js"></script>
+	<script src="script/temple.js"></script>
+	<script src="script/crater.js"></script>
+	<script src="script/maze.js"></script>
+	<script src="script/lab.js"></script>
+	<script src="script/graveyard.js"></script>
 	<script src="script/events.js"></script>
 	<script src="script/dropbox.js"></script>
 	<script src="script/room.js"></script>

@@ -88,6 +88,13 @@ Events.Road = [
 				 * cycle is not stated anywhere -- the tell is that the hand is
 				 * recognisable and the memory is not. */
 				text: function() {
+					/* Checked first: a player at fifty deaths has necessarily
+					 * completed runs, so without this the prestige variant
+					 * below would always win and the milestone would never be
+					 * reachable. */
+					if(EasterEggs.atDeathMilestone()) {
+						return EasterEggs.deathCairnText();
+					}
 					if(Prestige.hasCompletedRun()) {
 						return [
 							_('sixty-one.'),

@@ -1,4 +1,7 @@
-Enemies = window.Enemies ?? {};
+/* `var` rather than a bare assignment: an implicit global works only
+ * because this file is non-strict, and a top-level `var` in a classic script
+ * still becomes a window property, so behaviour is unchanged. */
+var Enemies = window.Enemies ?? {};
 Enemies.Executioner = {
   'guard': {
     combat: true,

@@ -405,7 +405,12 @@ var Outside = {
 	},
 	
 	makeWorkerRow: function(key, num) {
-		name = Outside._INCOME[key].name;
+		/* `var` matters here: without it this assigned to the implicit
+		 * global, which resolves to window.name -- a real browser property
+		 * that persists across navigations and is visible to other pages.
+		 * It happened to work because window.name is a string, but it was
+		 * leaking every worker label out of the game. */
+		var name = Outside._INCOME[key].name;
 		if(!name) name = key;
 		var row = $('<div>')
 			.attr('key', key)
@@ -510,6 +515,25 @@ var Outside = {
 
 	isFear: function() {
 		return Outside.getDoctrine() === 'fear';
+	},
+
+	isHope: function() {
+		return Outside.getDoctrine() === 'hope';
+	},
+
+	/* The third answer, available only to a player who has finished the game
+	 * at least once: the journey belongs to the two of you, and nobody else
+	 * gets pulled into it.
+	 *
+	 * This is the fork's analogue of the mobile/Steam "never build a hut"
+	 * run, but made into a decision the player states out loud rather than a
+	 * secret you stumble into by not clicking something. Choosing it greys
+	 * out huts permanently -- see Room.Craftables.hut.isAvailable -- and in
+	 * exchange the builder salts meat from the traps herself, which is what
+	 * makes a hutless run actually survivable: cured meat is the gate on
+	 * setting out at all. */
+	isSolitary: function() {
+		return Outside.getDoctrine() === 'solitary';
 	},
 
 	/* The word for the people living here. Used anywhere the game refers to

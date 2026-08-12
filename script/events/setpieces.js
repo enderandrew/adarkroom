@@ -54,7 +54,7 @@ Events.Setpieces = {
 			'cabin': {
 				text: [
 					_('deep in the swamp is a moss-covered cabin.'),
-					_('an old wanderer sits inside, in a seeming trance.')
+					_('the lone wanderer sits inside, in a seeming trance.')
 				],
 				buttons: {
 					'talk': {
@@ -1741,6 +1741,1266 @@ Events.Setpieces = {
 			}
 		},
 		audio: AudioLibrary.LANDMARK_RUINS
+	},
+	"temple": { /* The Silent Temple */
+		title: _('A Silent Temple'),
+		/* Karma-gated throughout. The threshold for being acknowledged at all
+		 * is 10 -- well above the -10 the player starts on -- so this is a
+		 * place that only opens to somebody who has actually been working at
+		 * it, and it stays shut to anybody who hasn't.
+		 *
+		 * The doors can be permanently barred (game.temple.barred). That is
+		 * the only irreversible lockout in the game, and it's deliberate:
+		 * robbing or killing here should cost the player something they can
+		 * never get back, in the one location whose entire subject is being
+		 * judged. There is exactly one temple per world (LANDMARKS num: 1),
+		 * so barring it means barring it. */
+		audio: AudioLibrary.LANDMARK_TEMPLE,
+		scenes: {
+			'start': {
+				text: function() {
+					var lines = [
+						_('the building is cut from one piece of stone and has no windows.'),
+						_('above the door there is a figure worked into the rock: three eyes, three ears, and no mouth at all.')
+					];
+					if($SM.get('game.temple.barred')) {
+						lines.push(_('the doors do not open. they will not open again.'));
+					} else {
+						lines.push(_('the doors stand open. inside, figures move without hurry. some of them are human. some of them are not.'));
+					}
+					return lines;
+				},
+				notification: _('a temple, cut from a single piece of stone'),
+				/* Deliberately does NOT markVisited().
+				 *
+				 * markVisited() appends '!' to the map tile, and doSpace()
+				 * looks landmarks up BY TILE CHARACTER -- so a marked tile no
+				 * longer matches World.LANDMARKS and the setpiece never fires
+				 * again. Correct for a place you loot once; wrong for a temple
+				 * whose entire mechanic is that the monks' reception changes as
+				 * karma does. A player shunned at -5 has to be able to come
+				 * back at +15 and be let in, or the karma gate is decided
+				 * permanently by whenever they first happened to walk past.
+				 *
+				 * The tile IS marked visited in Temple.bar(), at the one point
+				 * where this place is genuinely finished with the player. */
+				buttons: {
+					'enter': {
+						text: _('go inside'),
+						available: function() {
+							return !$SM.get('game.temple.barred');
+						},
+						/* One entrance, two receptions. Which one the player
+						 * gets is the whole mechanic, so it's decided here
+						 * rather than by hiding buttons after the fact. */
+						nextScene: function() {
+							return Temple.isWelcome() ? 'greeted' : 'shunned';
+						}
+					},
+					'leave': {
+						text: _('leave'),
+						nextScene: 'end'
+					}
+				}
+			},
+
+			/* ---- below the threshold: shunned ---- */
+			'shunned': {
+				text: [
+					_('the monks do not look up. not one of them.'),
+					_('they move around you the way water moves around a rock, and with about as much interest.'),
+					_('there is an offering plate near the door, and nobody is watching it.')
+				],
+				notification: _('the monks do not acknowledge you'),
+				buttons: {
+					'lab': {
+						text: _('ask about the lab'),
+						/* Offered at ANY karma, including while shunned: the
+						 * answer is a point of doctrine, not a favour, and the
+						 * monks decline to withhold it even from somebody they
+						 * will not otherwise speak to. Temple.isBarred() is
+						 * the one thing that closes it -- after robbing or
+						 * killing there is nobody left here to ask. */
+						available: function() { return Lab.templeCanAdvise(); },
+						nextScene: { 1: 'labAnswer' }
+					},
+					'force': {
+						text: _('make one of them turn around'),
+						nextScene: { 1: 'forced' }
+					},
+					'rob': {
+						text: _('take the offering plate'),
+						nextScene: { 1: 'robbed' }
+					},
+					'kill': {
+						text: _('kill one of them'),
+						nextScene: { 1: 'killed' }
+					},
+					'leave': {
+						text: _('leave'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'forced': {
+				text: [
+					_('the monk turns because it is turned, not because it chose to.'),
+					_('it has three eyes and no mouth, and the voice arrives anyway, from somewhere behind the ears.'),
+					_('"forcing your will through violence? you have only proven why you deserve to be shunned."'),
+					_('it turns back. the others never stopped ignoring you.')
+				],
+				notification: _('the monk speaks without speaking'),
+				buttons: {
+					'back': {
+						text: _('stand there'),
+						nextScene: { 1: 'shunned' }
+					},
+					'leave': {
+						text: _('leave'),
+						nextScene: 'end'
+					}
+				}
+			},
+
+			/* ---- at or above the threshold: welcomed ---- */
+			'greeted': {
+				text: [
+					_('they stop what they are doing, all of them, at the same moment.'),
+					_('"we perceive the penitent."'),
+					_('"perhaps judgement will not be everlasting."'),
+					_('some of them are human. some of them are wanderers. none of them appear to consider this worth remarking on.')
+				],
+				notification: _('the monks perceive the penitent'),
+				buttons: {
+					'supplies': {
+						text: _('say that you are short'),
+						/* Only offered when actually short. Asking for charity
+						 * you don't need would be its own kind of answer. */
+						available: function() {
+							return Temple.needsSupplies();
+						},
+						nextScene: { 1: 'given' }
+					},
+					'donate': {
+						text: _('leave 10 food and 10 water'),
+						available: function() {
+							return Temple.canDonate();
+						},
+						onChoose: function() {
+							Temple.donate();
+						},
+						nextScene: { 1: 'donated' }
+					},
+					'lab': {
+						text: _('ask about the lab'),
+						/* Offered at ANY karma, including while shunned: the
+						 * answer is a point of doctrine, not a favour, and the
+						 * monks decline to withhold it even from somebody they
+						 * will not otherwise speak to. Temple.isBarred() is
+						 * the one thing that closes it -- after robbing or
+						 * killing there is nobody left here to ask. */
+						available: function() { return Lab.templeCanAdvise(); },
+						nextScene: { 1: 'labAnswer' }
+					},
+					'blessing': {
+						text: _('ask for a blessing'),
+						nextScene: { 1: 'blessing' }
+					},
+					'see': {
+						text: _('ask what they see'),
+						available: function() {
+							return Temple.isPerceived();
+						},
+						nextScene: { 1: 'whatTheySee' }
+					},
+					'watcher': {
+						text: _('ask about the watcher'),
+						nextScene: { 1: 'watcher' }
+					},
+					'rob': {
+						text: _('take the offering plate'),
+						nextScene: { 1: 'robbed' }
+					},
+					'kill': {
+						text: _('kill one of them'),
+						nextScene: { 1: 'killed' }
+					},
+					'leave': {
+						text: _('leave'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'given': {
+				text: [
+					_('nobody asks what happened, or where you have been, or what you intend to do next.'),
+					_('the water is cold. the food is plain and there is exactly enough of it.'),
+					_('"we help those in need if we are able."')
+				],
+				notification: _('the monks give food and water'),
+				onLoad: function() {
+					Temple.giveSupplies();
+				},
+				buttons: {
+					'back': {
+						text: _('stay a while'),
+						nextScene: { 1: 'greeted' }
+					},
+					'leave': {
+						text: _('leave'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'donated': {
+				text: [
+					_('the plate is not for them. it never was.'),
+					_('what goes into it goes back out of the door, to whoever comes up the road next with nothing.'),
+					_('a monk inclines its head very slightly. that appears to be the entire ceremony.')
+				],
+				notification: _('the offering is left'),
+				buttons: {
+					'back': {
+						text: _('stay a while'),
+						nextScene: { 1: 'greeted' }
+					},
+					'leave': {
+						text: _('leave'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'labAnswer': {
+				text: [
+					_('the shunning stops for exactly as long as the question takes to answer.'),
+					_('"the watcher would not forbid someone from observing their own fate."'),
+					_('"we would be poor students of it if we did."'),
+					_('a disc of the same stone the temple is cut from is put into your hand. it has the three eyes on one face and nothing on the other.'),
+					_('"what is down there is not a secret. it is only difficult."')
+				],
+				notification: _('the monks give you a key'),
+				onLoad: function() {
+					Lab.giveKey();
+				},
+				buttons: {
+					'back': {
+						text: _('stay a while'),
+						nextScene: function() {
+							/* Back to whichever reception the player is
+							 * actually entitled to -- asking this question
+							 * does not buy them a welcome they haven't
+							 * earned. */
+							return Temple.isWelcome() ? 'greeted' : 'shunned';
+						}
+					},
+					'leave': {
+						text: _('leave'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'blessing': {
+				text: [
+					_('"we help those in need if we are able, but our path is to watch, not to intervene."'),
+					_('"we do not ask the watcher to change fate, merely to help us understand it."')
+				],
+				notification: _('the monks do not intervene'),
+				buttons: {
+					'back': {
+						text: _('stay a while'),
+						nextScene: { 1: 'greeted' }
+					},
+					'leave': {
+						text: _('leave'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'whatTheySee': {
+				/* Two answers -- see EasterEggs.perceptionText. A player who
+				 * has never moved their karma in either direction gets a
+				 * different one. */
+				text: function() {
+					return EasterEggs.perceptionText();
+				},
+				notification: _('the monks say what they see'),
+				buttons: {
+					'back': {
+						text: _('stay a while'),
+						nextScene: { 1: 'greeted' }
+					},
+					'leave': {
+						text: _('leave'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'watcher': {
+				text: [
+					_('"the watcher does not pass judgement."'),
+					_('"the watcher observes judgement."'),
+					_('the figure above the door has three eyes and three ears and no mouth, and now it is obvious why.')
+				],
+				notification: _('the watcher observes judgement'),
+				buttons: {
+					'back': {
+						text: _('stay a while'),
+						nextScene: { 1: 'greeted' }
+					},
+					'leave': {
+						text: _('leave'),
+						nextScene: 'end'
+					}
+				}
+			},
+
+			/* ---- the two irreversible acts ----
+			 * Reachable identically from both receptions, on purpose: being
+			 * welcomed does not remove the option, it only raises what it
+			 * costs. */
+			'robbed': {
+				text: [
+					_('the plate holds very little, and what it holds was left by people with less.'),
+					_('"you are who you always are. this is why you are shunned."'),
+					_('nothing touches you. the air does. the doorway arrives very quickly and the road arrives after it.'),
+					_('behind you the doors close, and go on closing, past the point where a door would stop.')
+				],
+				notification: _('the temple casts you out'),
+				onLoad: function() {
+					$SM.add('character.karma', -5);
+					Temple.bar();
+				},
+				loot: {
+					'cured meat': { min: 3, max: 8, chance: 1 },
+					'fur': { min: 5, max: 15, chance: 0.8 },
+					'scales': { min: 2, max: 6, chance: 0.5 }
+				},
+				buttons: {
+					'end': {
+						text: _('go back to the road'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'killed': {
+				text: [
+					_('it does not resist. it does not appear to consider resisting.'),
+					_('the others do not come. they watch, which is the entire thing they do.'),
+					_('then the air moves, once, and you are outside, a long way outside, further than the doorway accounts for.'),
+					_('the doors close and keep closing. this place is finished with you.')
+				],
+				notification: _('the temple casts you out'),
+				onLoad: function() {
+					$SM.add('character.karma', -10);
+					$SM.add('character.kills', 1);
+					Temple.bar();
+				},
+				buttons: {
+					'end': {
+						text: _('go back to the road'),
+						nextScene: 'end'
+					}
+				}
+			}
+		}
+	},
+	"crater": { /* A Glassed Crater */
+		title: _('A Glassed Crater'),
+		/* Tier 3/4 (minRadius 22). The whole location is one decision --
+		 * scrape the rim for a certain, small return, or go down into the
+		 * bowl for a real one -- and the descent is the only place in the
+		 * game that costs the player their maximum health rather than their
+		 * current health. */
+		audio: AudioLibrary.LANDMARK_CRASHED_SHIP,
+		scenes: {
+			'start': {
+				text: [
+					_('the ground falls away into a bowl, perfectly round, a mile across.'),
+					_('it is smooth black glass all the way down, and it is not natural, and nothing has grown here since.'),
+					_('teeth ache at thirty paces.')
+				],
+				notification: _('the ground falls away into a bowl of black glass'),
+				onLoad: function() {
+					World.markVisited(World.curPos[0], World.curPos[1]);
+				},
+				buttons: {
+					'rim': {
+						text: _('scrape the rim'),
+						nextScene: { 1: 'rim' }
+					},
+					'descend': {
+						text: _('go down to the core'),
+						cost: { 'hp': 15 },
+						/* The cost is real and paid up front, so the player
+						 * cannot attempt this on fumes and be killed by the
+						 * entry price itself. */
+						available: function() {
+							return World.health > 15;
+						},
+						nextScene: function() {
+							return Events.karmaOdds(0.5, 'coreBad', 'coreGood');
+						}
+					},
+					'leave': {
+						text: _('go around it'),
+						nextScene: 'end'
+					}
+				}
+			},
+
+			'rim': {
+				text: function() {
+					return [
+						Events.pick([
+							_('the rim is where the glass is thinnest, and where the things that were caught in it are closest to the surface.'),
+							_('at the lip the glass has gone frothy, full of bubbles, and things came to rest in the froth.'),
+							_('the outer edge cooled fastest. whatever was in the air when it cooled is still in it.')
+						]),
+						_('an hour of chipping fills a pocket. staying longer is not worth what it costs.')
+					];
+				},
+				notification: _('the rim yields a little'),
+				loot: {
+					'alien alloy': { min: 1, max: 1, chance: 0.6 },
+					'scales': { min: 3, max: 8, chance: 1 }
+				},
+				buttons: {
+					'shell': {
+						text: _('something is moving out on the glass'),
+						nextScene: { 1: 'shell' }
+					},
+					'end': {
+						text: _('move away from it'),
+						nextScene: 'end'
+					}
+				}
+			},
+
+			/* ---- the unique monster ---- */
+			'shell': {
+				combat: true,
+				notification: _('a shape crosses the glass without leaving a mark on it.'),
+				enemy: 'obsidian shell',
+				enemyName: _('obsidian shell'),
+				deathMessage: _('the hull comes apart into black flakes, and they do not reflect anything.'),
+				chara: '\u2666',
+				damage: 6,
+				hit: 0.8,
+				attackDelay: 2,
+				ranged: true,
+				health: 110,
+				/* The hull is up from the first second rather than arriving on
+				 * a special's delay -- the player should meet the mechanic
+				 * immediately, not be ambushed by it after committing to a
+				 * ranged loadout. */
+				startStatus: 'shield',
+				/* Fraction of RANGED damage bounced back at the shooter while
+				 * the hull holds. With the shield also healing the target,
+				 * shooting this thing is actively worse than doing nothing. */
+				reflect: 0.5,
+				specials: [{
+					/* Re-forms the hull, so the reflect is a recurring problem
+					 * rather than a single wasted shot at the start. */
+					delay: 7,
+					action: (fighter) => {
+						Events.setStatus(fighter, 'shield');
+						return _('hull re-forms');
+					}
+				}],
+				loot: {
+					'alien alloy': { min: 1, max: 2, chance: 0.7 },
+					'scales': { min: 5, max: 12, chance: 1 },
+					'energy cell': { min: 2, max: 6, chance: 0.5 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 1: 'shellDown' }
+					},
+					'leave': {
+						text: _('move away from it'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: 'end'
+					}
+				}
+			},
+			'shellDown': {
+				text: [
+					_('under the hull there is no body. there is a cavity, shaped for something, and the shape is empty.'),
+					_('it has been empty a long time. the hull went on walking anyway.')
+				],
+				notification: _('there was nothing inside it'),
+				buttons: {
+					'end': {
+						text: _('move away from it'),
+						nextScene: 'end'
+					}
+				}
+			},
+
+			/* ---- the descent ---- */
+			'coreGood': {
+				text: function() {
+					return [
+						_('the walk down takes an hour and the glass rings underfoot the whole way.'),
+						Events.pick([
+							_('at the centre something is still standing upright, buried to the shoulder, and it did not go off.'),
+							_('the middle of the bowl holds a shaft of metal driven straight down, and the whole of it is intact.'),
+							_('there is a projectile at the centre, half-sunk, and whatever was supposed to happen to it never did.')
+						]),
+						_('getting a piece free takes the rest of the day. the walk back out is worse than the walk in.')
+					];
+				},
+				notification: _('the core did not go off'),
+				loot: {
+					'handheld nuke': { min: 1, max: 1, chance: 0.5 },
+					'alien alloy': { min: 2, max: 2, chance: 1 },
+					'energy cell': { min: 3, max: 8, chance: 0.6 }
+				},
+				buttons: {
+					'end': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'coreBad': {
+				text: function() {
+					return [
+						_('the walk down takes an hour and the glass rings underfoot the whole way.'),
+						Events.pick([
+							_('the centre is hotter than the rim in a way that has nothing to do with the sun.'),
+							_('at the bottom the ringing stops, and the silence is worse.'),
+							_('the middle of the bowl is where it went off, and it has not finished going off.')
+						]),
+						_('there is nothing down there. it comes on before the climb back out is finished: the taste of metal, and then the rest of it.')
+					];
+				},
+				notification: _('radiation sickness'),
+				onLoad: function() {
+					Crater.radiationSickness();
+				},
+				buttons: {
+					'end': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			}
+		}
+	},
+	"lab": { /* The Cloning Lab */
+		title: _('A Wanderer Lab'),
+		/* See script/lab.js for the gate structure. In short: the Builder,
+		 * then a locked door, then a prestige-gated symbol, then the Temple.
+		 * Nothing here can be brute-forced on a first playthrough. */
+		audio: AudioLibrary.LANDMARK_RUINS,
+		scenes: {
+			'start': {
+				text: function() {
+					if(Lab.hasRefused()) {
+						return [
+							_('the door is where it was. it has not been opened.'),
+							_('she asked you not to, and you agreed, and that is the end of it for now.')
+						];
+					}
+					return [
+						_('the structure is mostly underground. what is above the surface is a door and forty feet of blank wall.'),
+						_('there is no dust on the threshold. something still uses this.')
+					];
+				},
+				notification: _('a door set into the ground, and no dust on the threshold'),
+				buttons: {
+					'approach': {
+						text: _('go to the door'),
+						available: function() { return !Lab.hasRefused(); },
+						nextScene: function() {
+							if(Lab.hasKey()) { return 'unlock'; }
+							if(!$SM.get('game.lab.builderMet')) { return 'builder'; }
+							return 'door';
+						}
+					},
+					'leave': {
+						text: _('leave'),
+						nextScene: 'end'
+					}
+				}
+			},
+
+			/* ---- gate 1: the Builder ---- */
+			'builder': {
+				text: [
+					_('there is somebody standing behind you. she has been standing there for a while.'),
+					_('it is the builder. she has walked out here, through all of it, on the leg that does not work properly, and she is not carrying anything.'),
+					_('she does not explain how she found you. she asks you not to open the door.'),
+					_('"there is nothing in there but pain. i am not going to pretend i can stop you."'),
+					_('"there is a fire at home. it is still lit. that is all i have to offer and i am offering it."')
+				],
+				notification: _('the builder has come out into the wastes'),
+				onLoad: function() {
+					$SM.set('game.lab.builderMet', true);
+				},
+				buttons: {
+					'home': {
+						text: _('go home with her'),
+						nextScene: { 1: 'refused' }
+					},
+					'door': {
+						text: _('go to the door anyway'),
+						nextScene: { 1: 'door' }
+					}
+				}
+			},
+			'refused': {
+				text: [
+					_('she does not say thank you. she does not say anything at all for the first hour of the walk.'),
+					_('the fire is still going when you get back. she was right about that.'),
+					_('you will not open that door. not this time. you gave her your word and she came a very long way for it.')
+				],
+				notification: _('the lab stays shut'),
+				onLoad: function() {
+					/* Permanent for this playthrough, on purpose. She is right,
+					 * and the choice only means something if it costs the
+					 * player the content behind it. */
+					Lab.refuse();
+					$SM.add('character.karma', 2);
+				},
+				buttons: {
+					'end': {
+						text: _('go home'),
+						nextScene: 'end'
+					}
+				}
+			},
+
+			/* ---- gate 2/3: the door, and the symbol ---- */
+			'door': {
+				text: function() {
+					var lines = [
+						_('the door has no handle and no seam, and it does not respond to being pushed, struck, or shouted at.'),
+						_('there is a recess beside it, shaped for something you do not have.')
+					];
+					if(Lab.seesSymbol()) {
+						lines.push(_('and worked into the frame, so shallow you would only find it by running a hand over it:'));
+						lines.push(_('three eyes. three ears. no mouth.'));
+						lines.push(_('you have seen that before. you know exactly where.'));
+					} else {
+						lines.push(_('you do not know what would open this. you do not know anybody who would.'));
+					}
+					return lines;
+				},
+				notification: function() {
+					return Lab.seesSymbol() ?
+						_('the watcher is on the door frame') :
+						_('the door does not open');
+				},
+				onLoad: function() {
+					if(Lab.seesSymbol()) {
+						Lab.noticeSymbol();
+					}
+				},
+				buttons: {
+					'end': {
+						text: _('go back'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'unlock': {
+				text: [
+					_('the key is not a key. it is a flat disc of the same stone the temple is cut from, and it goes into the recess as though it were made for it, which it was.'),
+					_('the door does not swing. it withdraws, and keeps withdrawing, and the stairs start immediately.'),
+					_('the air coming up is cold and clean and has been filtered by something that still works.')
+				],
+				notification: _('the lab opens'),
+				onLoad: function() {
+					Lab.reachLevel(1);
+					Lab.defineMazes();
+					Maze.rewind('lab1');
+				},
+				buttons: {
+					'down': {
+						text: _('go down'),
+						nextScene: { 1: 'level1' }
+					}
+				}
+			},
+
+			/* ---- the three levels ---- */
+			'level1': {
+				text: [_('sublevel one. the lights come on a corridor at a time, ahead of you.')],
+				onLoad: function() { Lab.defineMazes(); Lab.reachLevel(1); },
+				onRender: function() { Maze.render('lab1', 'level1'); },
+				buttons: {
+					'leave': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'level2': {
+				text: [_('sublevel two. colder. the filtration is louder down here.')],
+				onLoad: function() { Lab.defineMazes(); Lab.reachLevel(2); },
+				onRender: function() { Maze.render('lab2', 'level2'); },
+				buttons: {
+					'leave': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'level3': {
+				text: [_('sublevel three. nothing down here is lit until you are already in it.')],
+				onLoad: function() { Lab.defineMazes(); Lab.reachLevel(3); },
+				onRender: function() { Maze.render('lab3', 'level3'); },
+				buttons: {
+					'leave': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'descend1': {
+				text: [_('a stairwell, going down. the air below is colder again.')],
+				notification: _('stairs down to sublevel two'),
+				onLoad: function() { Maze.rewind('lab2'); },
+				buttons: {
+					'down': { text: _('go down'), nextScene: { 1: 'level2' } },
+					'back': { text: _('stay on this level'), nextScene: { 1: 'level1' } }
+				}
+			},
+			'descend2': {
+				text: [_('the last stairwell. it goes further down than the other two put together.')],
+				notification: _('stairs down to sublevel three'),
+				onLoad: function() { Maze.rewind('lab3'); },
+				buttons: {
+					'down': { text: _('go down'), nextScene: { 1: 'level3' } },
+					'back': { text: _('stay on this level'), nextScene: { 1: 'level2' } }
+				}
+			},
+
+			/* ---- the three fights ----
+			 * Energy constructs, as in the ruins, but this is late-late game
+			 * content sitting behind the Executioner's upgrades, so they hit
+			 * considerably harder than anything down there. */
+			'fight1': {
+				combat: true,
+				notification: _('something crosses the corridor ahead, and it is made of light'),
+				enemy: 'lab construct',
+				enemyName: _('lab construct'),
+				chara: '\u2C00',
+				damage: 9,
+				hit: 0.8,
+				attackDelay: 2,
+				health: 120,
+				ranged: true,
+				specials: [{
+					delay: 7,
+					action: (fighter) => {
+						Events.setStatus(fighter, 'shield');
+						return _('field up');
+					}
+				}],
+				loot: {
+					'energy cell': { min: 5, max: 12, chance: 1 },
+					'alien alloy': { min: 1, max: 2, chance: 0.5 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 1: 'level1' }
+					}
+				}
+			},
+			'fight2': {
+				combat: true,
+				notification: _('a shape resolves out of the dark, already moving'),
+				enemy: 'lab warden',
+				enemyName: _('lab warden'),
+				chara: '\u2C01',
+				damage: 12,
+				hit: 0.8,
+				attackDelay: 1.8,
+				health: 135,
+				ranged: true,
+				specials: [
+					{
+						delay: 6,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'energised');
+							return _('charging');
+						}
+					},
+					{
+						delay: 11,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'brittle');
+							return _('venting');
+						}
+					}
+				],
+				loot: {
+					'energy cell': { min: 8, max: 16, chance: 1 },
+					'alien alloy': { min: 1, max: 3, chance: 0.7 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 1: 'level2' }
+					}
+				}
+			},
+			'fight3': {
+				combat: true,
+				notification: _('this one was waiting'),
+				enemy: 'lab custodian',
+				enemyName: _('lab custodian'),
+				chara: '\u2C02',
+				damage: 14,
+				hit: 0.85,
+				attackDelay: 1.6,
+				health: 150,
+				ranged: true,
+				specials: [
+					{
+						delay: 6,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'regenerating');
+							return _('reknitting');
+						}
+					},
+					{
+						delay: 10,
+						action: (fighter) => {
+							Events.setStatus(fighter, 'energised');
+							return _('charging');
+						}
+					}
+				],
+				loot: {
+					'energy cell': { min: 10, max: 20, chance: 1 },
+					'alien alloy': { min: 2, max: 4, chance: 0.8 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 1: 'level3' }
+					}
+				}
+			},
+
+			/* ---- the three discoveries, one per level ---- */
+			'notes': {
+				text: [
+					_('a work surface, and on it a log that has been kept by hand for a very long time.'),
+					_('drones go out. they go out on a schedule, and the schedule is not regular -- it is triggered.'),
+					_('every entry is the same shape. dispatch. transit. RECOVERY OF SAMPLE. return. hold for assay.'),
+					_('the log does not say what the sample is. it does not need to; whoever kept it already knew.')
+				],
+				notification: _('the drones go out to recover a sample'),
+				buttons: {
+					'back': { text: _('go on'), nextScene: { 1: 'level1' } }
+				}
+			},
+			'assay': {
+				text: [
+					_('a bench, and a row of instruments still under power, all of them pointed at the same kind of measurement.'),
+					_('they are looking for drift. degradation. changes between one sample and the next.'),
+					_('somebody has been comparing something against something older, over and over, for a very long time, and writing down how far it has moved.'),
+					_('further along the wall there is a furnace, rated for biohazard, and it is the only thing down here that looks used.')
+				],
+				notification: _('instruments for measuring how far something has drifted'),
+				buttons: {
+					'back': { text: _('go on'), nextScene: { 1: 'level2' } }
+				}
+			},
+			'furnace': {
+				text: [
+					_('the furnace is enormous and its log is longer than the one upstairs.'),
+					_('disposal. disposal. disposal. the entries run for pages, and the intervals between them are not regular either.'),
+					_('whatever comes out of the vats and fails the assay goes in here, and the machine has been very busy.'),
+					_('there is nothing in it now. it is warm.')
+				],
+				notification: _('a biohazard furnace, recently used'),
+				buttons: {
+					'back': { text: _('go on'), nextScene: { 1: 'level2' } }
+				}
+			},
+
+			/* ---- the glyph door, reusing the ruins lock ---- */
+			'glyphDoor': {
+				text: [
+					_('the corridor ends at a door carrying a grid of glyphs, lit from behind.'),
+					_('the same rule as the ruins. the same hand cut it.'),
+					_('whoever built this place and whoever built those did not merely know each other. they were the same.')
+				],
+				notification: _('a glyph lock, the same as the ruins'),
+				onRender: function() {
+					Ruins.renderLock('deep', 'openVault');
+				},
+				buttons: {
+					'openVault': {
+						text: _('open the door'),
+						available: function() { return Ruins.isSolved('openVault'); },
+						nextScene: { 1: 'vats' }
+					},
+					'back': {
+						text: _('go back'),
+						nextScene: { 1: 'level3' }
+					}
+				}
+			},
+
+			/* ---- the reveal ---- */
+			'vats': {
+				text: [
+					_('the room beyond is a storage facility, and it is very large, and almost all of it is in use.'),
+					_('vats. rows of them, lit from within, each one at a different stage.'),
+					_('one is barely anything yet. one is most of the way there. one is finished, and floating, and waiting.'),
+					_('every single one of them is you.'),
+					_('not somebody like you. you. the same hands. the same set to the jaw. the scar you have had as long as you can remember, already there on a body that has never been outside that glass.'),
+					_('this is how it works. this is how it has always worked. you have died out there more times than the furnace log has pages, and every time, you have woken up in a dark room with no memory of it, and gone looking for wood.')
+				],
+				notification: _('every vat holds you'),
+				onLoad: function() {
+					Lab.complete();
+					World.clearDungeon();
+				},
+				buttons: {
+					'monk': {
+						text: _('there is somebody behind you'),
+						nextScene: { 1: 'monk' }
+					}
+				}
+			},
+			'monk': {
+				text: [
+					_('a monk. three eyes, three ears, no mouth. it has been standing there long enough that it did not arrive.'),
+					_('it does not stop you looking. it does not appear to have considered stopping you.'),
+					_('"you may observe your fate."'),
+					_('"you may rarely change it."'),
+					_('the force field holds. the vats go on doing what they do. the monk waits for you to finish, and does not leave first.')
+				],
+				notification: _('you may observe your fate'),
+				buttons: {
+					'end': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			}
+		}
+	},
+	"graveyard": { /* The Graveyard */
+		title: _('A Graveyard'),
+		/* No combat anywhere in this location, by design. Nothing here is
+		 * hostile and nothing here is worth taking -- the content is entirely
+		 * what is cut into the stones. See script/graveyard.js. */
+		audio: AudioLibrary.LANDMARK_DESTROYED_VILLAGE,
+		scenes: {
+			'start': {
+				text: [
+					_('graves. more of them than the ground should hold, set so close that walking the rows means walking on somebody.'),
+					_('and underneath: older stone. courses of it, and the mouths of vaults, and older markers again below those, going down further than the digging that put these here.'),
+					_('this ground has been a cemetery for longer than anything above it has been standing.')
+				],
+				notification: _('a graveyard, built over older graveyards'),
+				onLoad: function() {
+					World.markVisited(World.curPos[0], World.curPos[1]);
+					Graveyard.reset();
+				},
+				buttons: {
+					'read': {
+						text: _('read the stones'),
+						nextScene: { 1: 'grave' }
+					},
+					'leave': {
+						text: _('leave them alone'),
+						nextScene: 'end'
+					}
+				}
+			},
+
+			'grave': {
+				/* Draws a fresh epitaph on every load. The last stone is not
+				 * random -- once the player has read enough of them,
+				 * Graveyard.atLastStone() routes to it instead, so the
+				 * accusation always lands as a conclusion rather than as one
+				 * grievance among many. */
+				text: function() {
+					return Graveyard.next();
+				},
+				notification: _('another stone, and another name'),
+				buttons: {
+					'next': {
+						text: _('walk on'),
+						nextScene: function() {
+							return Graveyard.atLastStone() ? 'lastGrave' : 'grave';
+						}
+					},
+					'respect': {
+						text: _('pay your respects'),
+						nextScene: { 1: 'respect' }
+					},
+					'rob': {
+						text: _('rob the grave'),
+						nextScene: { 1: 'rob' }
+					},
+					'leave': {
+						text: _('leave them alone'),
+						nextScene: 'end'
+					}
+				}
+			},
+
+			'lastGrave': {
+				text: function() {
+					return Graveyard.LAST;
+				},
+				notification: _('the last stone names two'),
+				buttons: {
+					'respect': {
+						text: _('pay your respects'),
+						nextScene: { 1: 'respect' }
+					},
+					'rob': {
+						text: _('rob the grave'),
+						nextScene: { 1: 'rob' }
+					},
+					'leave': {
+						text: _('go back to the road'),
+						nextScene: 'end'
+					}
+				}
+			},
+
+			'respect': {
+				text: [
+					_('there is nothing to do here that does anybody any good, and it takes a while to do it.'),
+					_('it is too late to console the dead. but we can assuage the living.')
+				],
+				notification: _('respects are paid'),
+				onLoad: function() {
+					$SM.add('character.karma', 1);
+				},
+				buttons: {
+					'more': {
+						text: _('read on'),
+						/* Still routes through the same gate, so paying
+						 * respects can't be used to skip past the last stone
+						 * or to farm the earlier ones indefinitely. */
+						nextScene: function() {
+							return Graveyard.atLastStone() ? 'lastGrave' : 'grave';
+						}
+					},
+					'leave': {
+						text: _('go back to the road'),
+						nextScene: 'end'
+					}
+				}
+			},
+
+			'rob': {
+				text: [
+					_('the ground gives up a little cloth and a handful of teeth. that is all there is. that is all there was ever going to be.'),
+					_('you have frequently looted your own kills. the living had more need of these things than the dead.'),
+					_('still this feels needlessly impious.')
+				],
+				notification: _('the grave is robbed'),
+				onLoad: function() {
+					$SM.add('character.karma', -3);
+				},
+				/* Deliberately poor. Robbing here has to be a choice about who
+				 * the player is, not a resource decision -- if the payout were
+				 * competitive with anything else in the world, the karma cost
+				 * would just be a price rather than a judgement. */
+				loot: {
+					'cloth': { min: 1, max: 4, chance: 1 },
+					'teeth': { min: 1, max: 3, chance: 0.8 }
+				},
+				buttons: {
+					'more': {
+						text: _('read on'),
+						nextScene: function() {
+							return Graveyard.atLastStone() ? 'lastGrave' : 'grave';
+						}
+					},
+					'leave': {
+						text: _('go back to the road'),
+						nextScene: 'end'
+					}
+				}
+			}
+		}
+	},
+	"observatory": { /* An Old Observatory */
+		title: _('An Old Observatory'),
+		audio: AudioLibrary.LANDMARK_RUINS,
+		scenes: {
+			'start': {
+				text: [
+					_('a white dome sits silent on the high ground, its shutter open to the empty sky.'),
+					_('inside, wheels and gears creak in the wind.'),
+					_('the pieces are a mix of ancient and modern, as if the whole structure has been partially replaced, over and over, for longer than anyone kept count.')
+				],
+				notification: _('a white dome, open to an empty sky'),
+				onLoad: function() {
+					World.markVisited(World.curPos[0], World.curPos[1]);
+				},
+				buttons: {
+					'lens': {
+						text: _('look through the lens'),
+						nextScene: { 1: 'lens' }
+					},
+					'records': {
+						text: _('search the records'),
+						nextScene: { 1: 'records' }
+					},
+					'loot': {
+						text: _('dismantle it for scrap'),
+						nextScene: { 1: 'zapped' }
+					},
+					'leave': {
+						text: _('leave'),
+						nextScene: 'end'
+					}
+				}
+			},
+
+			'lens': {
+				text: function() {
+					var lines = [
+						_('peering into the brass eyepiece. the stars are not where the old maps say they should be.'),
+						_('some are missing. others are closer than they ought to be.')
+					];
+					/* Precise and Scout together: both are already the game's
+					 * vocabulary for improved observation (Scout doubles
+					 * discovery odds, Precise sharpens World.getDistance's
+					 * accuracy), so stacking them here rather than gating on
+					 * a new perk keeps the reward legible to a player who
+					 * already knows what those two do. */
+					if($SM.hasPerk('precise') && $SM.hasPerk('scout')) {
+						lines.push(_('and something else, at the very edge of what the lens will resolve:'));
+						lines.push(_('there appear to be large space stations around the planet.'));
+					}
+					return lines;
+				},
+				notification: _('the stars are not where the maps say'),
+				buttons: {
+					'back': {
+						text: _('step back'),
+						nextScene: { 1: 'start' }
+					},
+					'leave': {
+						text: _('leave'),
+						nextScene: 'end'
+					}
+				}
+			},
+
+			'records': {
+				text: [
+					_('a cabinet of logs, in more hands and more languages than one observatory should have needed.'),
+					_('the earliest entries are barely legible. the most recent are not in any alphabet at all --'),
+					_('\u2C00 \u2C01 \u2C02 \u2C03 \u2C04 \u2C05, the same glyphs cut into the ruins, going back to before the infinite expanse.'),
+					_('somebody has been watching this sky, in shifts, across more successors than any one people could account for.')
+				],
+				notification: _('logs in more languages than one observatory should need'),
+				buttons: {
+					'back': {
+						text: _('step back'),
+						nextScene: { 1: 'start' }
+					},
+					'leave': {
+						text: _('leave'),
+						nextScene: 'end'
+					}
+				}
+			},
+
+			/* ---- looting: the telescope defends itself ---- */
+			'zapped': {
+				text: [
+					_('the mounting bolts give easily. too easily.'),
+					_('the whole structure discharges at once, a shock up both arms and off your feet, and when the light clears the machine has pushed you bodily out onto the gravel.'),
+					_('it does not want to be scrap. apparently it has a say in the matter.')
+				],
+				notification: _('the telescope defends itself'),
+				buttons: {
+					'fight': {
+						text: _('go back in'),
+						nextScene: { 1: 'drone' }
+					},
+					'leave': {
+						text: _('leave it alone'),
+						nextScene: 'end'
+					}
+				}
+			},
+
+			'drone': {
+				combat: true,
+				notification: _('something unfolds from the mounting and levels itself at you'),
+				enemy: 'aegis drone',
+				enemyName: _('aegis drone'),
+				chara: '\u0394',
+				damage: 11,
+				hit: 0.8,
+				attackDelay: 2,
+				health: 85,
+				ranged: true,
+				/* Overcharge. energised is already the engine's own outgoing-
+				 * damage buff (ENERGISE_MULTIPLIER = 4, applied to whichever
+				 * fighter holds the status when it lands a hit -- see
+				 * Events.damage), so no new mechanic is needed to get the
+				 * stated 4x: the drone charging itself IS the existing
+				 * player-facing buff, turned around on the enemy side.
+				 * Re-applied every 10s so a fight that runs long sees it
+				 * threaten the hit more than once.
+				 *
+				 * "unless interrupted by a stun" is handled generically in
+				 * Events.damage(): stunning a target that currently holds
+				 * energised now clears the status outright rather than only
+				 * delaying the next attack tick, so bolas/disruptor is a real
+				 * counter to this specifically, not just a brief postponement. */
+				specials: [{
+					delay: 10,
+					action: (fighter) => {
+						Events.setStatus(fighter, 'energised');
+						return _('overcharging');
+					}
+				}],
+				loot: {
+					'energy cell': { min: 6, max: 14, chance: 1 },
+					'alien alloy': { min: 1, max: 2, chance: 0.6 },
+					'scales': { min: 4, max: 10, chance: 0.7 }
+				},
+				buttons: {
+					'continue': {
+						text: _('go on'),
+						cooldown: Events._LEAVE_COOLDOWN,
+						nextScene: { 1: 'scrap' }
+					}
+				}
+			},
+			'scrap': {
+				text: [
+					_('with nothing left standing over it, the mount finally comes apart the way it should have the first time.'),
+					_('some of what it protected was worth protecting.')
+				],
+				notification: _('the mount comes apart'),
+				buttons: {
+					'end': {
+						text: _('leave with what you can carry'),
+						nextScene: 'end'
+					}
+				}
+			}
+		}
 	},
 	"cave": { /* Cave */
 		title: _('A Damp Cave'),

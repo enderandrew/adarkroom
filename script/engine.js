@@ -236,8 +236,14 @@
 			$('body').off('keydown').keydown(Engine.keyDown);
 			$('body').off('keyup').keyup(Engine.keyUp);
 
-			// Register swipe handlers
+			/* Register swipe handlers.
+			 *
+			 * The bindings are unchanged -- Swipe (script/swipe.js) emits the
+			 * same four jQuery events the old jquery.event.swipe plugin did.
+			 * Only the source of those events changed, from two unmaintained
+			 * plugins hooking jQuery internals to native Pointer Events. */
 			var swipeElement = $('#outerSlider');
+			Swipe.attach(swipeElement);
 			swipeElement.on('swipeleft', Engine.swipeLeft);
 			swipeElement.on('swiperight', Engine.swipeRight);
 			swipeElement.on('swipeup', Engine.swipeUp);
@@ -1291,6 +1297,9 @@
 		},
 
 		saveLanguage: function(){
+			/* `[,""]` is the standard querystring fallback idiom: index 0 is
+			 * intentionally a hole so [1] reads as "" when the regex misses. */
+			// eslint-disable-next-line no-sparse-arrays
 			var lang = decodeURIComponent((new RegExp('[?|&]lang=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
 			if(lang && typeof Storage != 'undefined' && localStorage) {
 				localStorage.lang = lang;
@@ -1546,7 +1555,11 @@ $.Dispatch = function( id ) {
 var april = function() {
 
 	if(document.location.href.search(/[\?\&]april=1/) == -1){
-		var april = Engine.findStylesheet('aprilFools');
+		/* The `if (april == null)` guard that used to read this was
+		 * commented out below at some point, which left the block running
+		 * unconditionally and this lookup's result never read by anything.
+		 * Engine.findStylesheet() is a pure query (just walks
+		 * document.styleSheets), so removing the call changes nothing. */
 		//if (april == null) {
 			
 			$('head').append('<link rel="stylesheet" href="css/april.css" type="text/css" title="aprilFools" />');

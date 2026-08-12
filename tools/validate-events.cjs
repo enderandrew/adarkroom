@@ -82,16 +82,32 @@ sandbox.$.extend = Object.assign;
  * karma-weighted outcomes use this. To resolve those here, $SM needs to return
  * real numbers rather than the generic proxy, or the arithmetic inside
  * Events.karmaOdds() yields NaN and the resulting table can't be validated. */
+let smSeed = 0x2F6E2B1;
+const smRand = () => {
+	smSeed = (Math.imul(smSeed ^ (smSeed >>> 15), 1 | smSeed) + 0x6D2B79F5) >>> 0;
+	return ((smSeed ^ (smSeed >>> 14)) >>> 0) / 4294967296;
+};
 let smGetCalls = 0;
 sandbox.$SM = {
 	/* Numeric when a zero default is requested, so the arithmetic inside
 	 * Events.karmaOdds() produces a real table rather than NaN.
 	 *
-	 * Otherwise this alternates truthy/falsy on each call. A nextScene may
-	 * branch on a story flag ($SM.get('game.metOldWanderer'), say) and a stub
-	 * that always returned undefined would only ever walk one side of that
-	 * branch -- the other scene would then look unreachable and get reported
-	 * as an orphan. Alternating means repeated calls explore both. */
+	 * Otherwise this varies truthy/falsy per call. A nextScene may branch on a
+	 * story flag ($SM.get('game.metOldWanderer'), say) and a stub that always
+	 * returned undefined would only ever walk one side of that branch -- the
+	 * other scene would then look unreachable and get reported as an orphan.
+	 *
+	 * Deliberately PSEUDO-RANDOM rather than strictly alternating. Strict
+	 * alternation locks the parity of consecutive calls, so a function that
+	 * reads two flags in a row can never see both of them falsy:
+	 *
+	 *     if (Lab.hasKey()) return 'unlock';            // call 1
+	 *     if (!$SM.get('game.lab.builderMet')) ...      // call 2, opposite
+	 *
+	 * -- which made the Lab's 'builder' scene unreachable to the validator and
+	 * reported as an orphan even though it is perfectly reachable in play.
+	 * A seeded generator explores the combinations instead, and being seeded
+	 * keeps the run reproducible. See smRand, declared above this stub. */
 	get: (key, requestZero) => {
 		/* Cycles through representative values rather than returning a fixed
 		 * 0. A nextScene may band on a numeric stat -- character.karma, most
@@ -103,7 +119,8 @@ sandbox.$SM = {
 			const values = [0, 40, 10, -10, -40];
 			return values[smGetCalls++ % values.length];
 		}
-		return (smGetCalls++ % 2 === 0) ? undefined : true;
+		smGetCalls++;
+		return smRand() < 0.5 ? undefined : true;
 	},
 	hasPerk: () => false,
 	set: () => {}, add: () => {}, addM: () => {}, remove: () => {}, addPerk: () => {},
@@ -113,7 +130,7 @@ sandbox.$SM = {
 const context = vm.createContext(sandbox);
 
 const FILES = [
-	'script/audioLibrary.js', 'script/glyphs.js', 'script/ruins.js', 'script/events.js',
+	'script/swipe.js', 'script/easterEggs.js', 'script/audioLibrary.js', 'script/glyphs.js', 'script/ruins.js', 'script/temple.js', 'script/crater.js', 'script/maze.js', 'script/lab.js', 'script/graveyard.js', 'script/events.js',
 	'script/events/global.js', 'script/events/room.js', 'script/events/outside.js',
 	'script/events/path.js', 'script/events/road.js',
 	'script/events/encounters.js', 'script/events/setpieces.js',
@@ -169,7 +186,27 @@ function auditEvent(event, label) {
 			 * what actually needs checking for dangling references. */
 			if (typeof table === 'function') {
 				const seen = [];
-				for (let i = 0; i < 25; i++) {
+				/* Raised from 25: with randomised flag values a function that
+				 * branches on several flags needs more samples to reach every
+				 * arm. Cheap -- these are pure functions over stubs. */
+				for (let i = 0; i < 200; i++) {
+					/* Some branches depend on progress a real player accrues
+					 * by acting, not on a state flag -- the graveyard routes
+					 * to its final stone only once enough stones have been
+					 * READ, and reading is what advances it. Nothing in a
+					 * static scan does that, so the terminal scene looks
+					 * unreachable. Advance those counters between samples so
+					 * both arms get explored, the same way repeated play
+					 * would. */
+					if (sandbox.Graveyard && typeof sandbox.Graveyard.next === 'function') {
+						/* Long runs of draws separated by an occasional reset:
+						 * the counter has to actually REACH its threshold for
+						 * the terminal arm to appear, so resetting every few
+						 * samples (the obvious approach) never gets there and
+						 * reports a false orphan. */
+						if (i % 40 === 0) sandbox.Graveyard.reset();
+						else sandbox.Graveyard.next();
+					}
 					let result;
 					try {
 						result = table();
@@ -258,8 +295,39 @@ function auditEvent(event, label) {
 		}
 	}
 
+	/* Scenes routed to by a maze cell rather than by a button.
+	 *
+	 * Maze.checkTrigger() calls Events.loadScene(cell.scene) when the player
+	 * steps on a trigger tile, so those scenes ARE reachable -- but the route
+	 * lives in a maze definition, not in any nextScene, and a purely static
+	 * scan can't see it. Without this every combat and discovery scene in the
+	 * Lab reads as orphaned, which would train whoever runs this to ignore
+	 * the ORPHAN check entirely.
+	 *
+	 * Reads the live Maze registry after asking any module that owns mazes to
+	 * define them, so the list stays correct as mazes are added. */
+	const mazeRouted = new Set();
+	try {
+		// Game globals live on the sandbox, not in this file's scope.
+		const LabMod = sandbox.Lab;
+		const MazeMod = sandbox.Maze;
+		if (LabMod && typeof LabMod.defineMazes === 'function') {
+			LabMod.defineMazes();
+		}
+		if (MazeMod && MazeMod._defs) {
+			for (const def of Object.values(MazeMod._defs)) {
+				for (const cell of Object.values(def.cells || {})) {
+					if (cell && cell.scene) mazeRouted.add(cell.scene);
+				}
+			}
+		}
+	} catch (err) {
+		// A maze that can't be built is its own problem, reported elsewhere;
+		// don't let it mask the orphan scan.
+	}
+
 	for (const name of names) {
-		if (name !== 'start' && !referenced.has(name)) {
+		if (name !== 'start' && !referenced.has(name) && !mazeRouted.has(name)) {
 			record('ORPHAN SCENE', label, `scene '${name}' is never routed to`);
 		}
 	}
