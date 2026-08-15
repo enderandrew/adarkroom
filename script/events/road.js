@@ -809,17 +809,69 @@ Events.Road = [
 				}
 			},
 			'insideBad': {
-				text: [
-					_('inside, the air is dry and tastes of pennies and the light does not behave.'),
-					_('the rack behind the bulkhead is intact. reaching it means going past the split, and past the split is where it is worst.'),
-					_('the piece comes free. the walk back out does not happen.')
-				],
-				notification: _('the wreck is not survived'),
+				/* The suit turns the one unavoidable death in the road
+				 * events into a survivable injury.
+				 *
+				 * This roll is otherwise pure chance the player cannot
+				 * influence -- karma shifts the odds but nothing prevents it
+				 * -- which is exactly the case where "prevent" is the right
+				 * mitigation rather than "reduce". There is no meaningful
+				 * half of dying. The alloy is still earned either way; what
+				 * the suit buys is walking back out with it. */
+				text: function() {
+					if(Hazard.preventsLethalRadiation()) {
+						return [
+							_('inside, the air is dry and tastes of pennies and the light does not behave.'),
+							_('the rack behind the bulkhead is intact. reaching it means going past the split, and past the split is where it is worst.'),
+							_('the counter on the chest climbs the whole way and does not stop climbing.'),
+							_('the piece comes free. the walk back out happens, slowly, and it is not pleasant, and it happens.')
+						];
+					}
+					return [
+						_('inside, the air is dry and tastes of pennies and the light does not behave.'),
+						_('the rack behind the bulkhead is intact. reaching it means going past the split, and past the split is where it is worst.'),
+						_('the piece comes free. the walk back out does not happen.')
+					];
+				},
+				notification: function() {
+					return Hazard.preventsLethalRadiation() ?
+						_('the wreck is survived, barely') :
+						_('the wreck is not survived');
+				},
+				onLoad: function() {
+					if(Hazard.preventsLethalRadiation()) {
+						/* Still a real cost -- a suited player should not
+						 * treat the worst room on the road as free. */
+						World.setHp(Math.max(1, World.health - 15));
+					}
+				},
+				loot: function() {
+					return Hazard.preventsLethalRadiation() ?
+						{ 'alien alloy': { min: 1, max: 1, chance: 1 } } :
+						{};
+				},
+				/* Two buttons rather than one that behaves two ways.
+				 *
+				 * The unsuited path deliberately has NO nextScene:
+				 * killPlayer() ends the event itself and endEvent() must run
+				 * only once. Expressing that as a function returning
+				 * undefined works but reads as a bug to anything inspecting
+				 * the event graph -- and the validator flagged it as one.
+				 * Two mutually-exclusive buttons say the same thing
+				 * declaratively. */
 				buttons: {
-					/* No nextScene: killPlayer() ends the event itself, and
-					 * endEvent() must only run once. */
+					'out': {
+						text: _('get out'),
+						available: function() {
+							return Hazard.preventsLethalRadiation();
+						},
+						nextScene: 'end'
+					},
 					'end': {
 						text: _('...'),
+						available: function() {
+							return !Hazard.preventsLethalRadiation();
+						},
 						onChoose: function() {
 							Events.killPlayer();
 						}
@@ -1176,6 +1228,273 @@ Events.Road = [
 	/* ================================================================
 	 * TIER 4  --  getDistance() > 29
 	 * ================================================================ */
+
+	{ /* The Glass Storm  --  T4 weather, hazard suit mitigates */
+		title: _('The Glass Storm'),
+		isAvailable: function() {
+			return Engine.activeModule == World && World.getDistance() > 29;
+		},
+		scenes: {
+			'start': {
+				text: [
+					_('the horizon goes the colour of a bruise and then stops being a horizon.'),
+					_('what is coming is not rain. it is the crater, in the air, moving at the speed of the wind.'),
+					_('there is no cover within an hour of here.')
+				],
+				notification: _('a storm of powdered glass comes off the flats'),
+				buttons: {
+					'through': {
+						text: _('walk through it'),
+						nextScene: { 1: 'through' }
+					},
+					'down': {
+						text: _('get down and wait it out'),
+						cost: { 'cured meat': 5 },
+						available: function() {
+							return (Path.outfit['cured meat'] ?? 0) >= 5;
+						},
+						nextScene: { 1: 'waited' }
+					}
+				}
+			},
+			'through': {
+				text: function() {
+					var lines = [
+						_('it is like being sanded. every exposed inch of you, for forty minutes, without pause.')
+					];
+					if(Hazard.hasSuit()) {
+						lines.push(_('the suit takes almost all of it. the visor is ruined and everything under it is not.'));
+					} else {
+						lines.push(_('there is nothing between you and it.'));
+						lines.push(_('you come out the other side with less skin than you went in with.'));
+					}
+					return lines;
+				},
+				notification: function() {
+					return Hazard.hasSuit() ?
+						_('the storm is walked through, and the suit holds') :
+						_('the storm takes its price in skin');
+				},
+				onLoad: function() {
+					World.setHp(Math.max(1, World.health - Hazard.mitigate(20)));
+				},
+				buttons: {
+					'scavenge': {
+						text: _('something is exposed where the sand was stripped'),
+						nextScene: { 1: 'exposed' }
+					},
+					'end': { text: _('keep going'), nextScene: 'end' }
+				}
+			},
+			'exposed': {
+				text: [
+					_('the storm has taken a foot of grit off a stretch of ground that has not seen daylight in a long time.'),
+					_('what is underneath is not rock. it is laid in courses, and it goes down.'),
+					_('there is no way in from here. by tomorrow the wind will have covered it again.')
+				],
+				notification: _('the storm strips the ground down to something laid in courses'),
+				loot: {
+					'alien alloy': { min: 1, max: 1, chance: 0.4 },
+					'steel': { min: 3, max: 8, chance: 0.7 }
+				},
+				buttons: {
+					'end': { text: _('keep going'), nextScene: 'end' }
+				}
+			},
+			'waited': {
+				text: [
+					_('an hour face-down with a pack over your head. the noise is the worst part and it is not close.'),
+					_('when it passes, everything that was standing is polished on one side.')
+				],
+				notification: _('the storm passes overhead'),
+				buttons: {
+					'end': { text: _('get up'), nextScene: 'end' }
+				}
+			}
+		},
+		audio: AudioLibrary.EVENT_SKY
+	},
+
+	{ /* The Black Rain  --  T4 weather, contaminates supplies */
+		title: _('The Black Rain'),
+		isAvailable: function() {
+			return Engine.activeModule == World && World.getDistance() > 29;
+		},
+		scenes: {
+			'start': {
+				text: [
+					_('it starts raining, which it does not do out here.'),
+					_('the drops leave marks on the pack that do not wash off, and the puddles do not reflect anything.')
+				],
+				notification: _('black rain, and it does not rain out here'),
+				buttons: {
+					'cover': {
+						text: _('cover the supplies'),
+						nextScene: { 1: 'covered' }
+					},
+					'ignore': {
+						text: _('keep walking'),
+						nextScene: { 1: 'ignored' }
+					}
+				}
+			},
+			'covered': {
+				text: function() {
+					return [
+						_('the pack goes under you and you go face-down over it.'),
+						Hazard.hasSuit() ?
+							_('the suit does not care about the rain. the food underneath you does, and it stays dry.') :
+							_('it soaks through everything that is not the pack, which is most of you.')
+					];
+				},
+				notification: _('the supplies stay dry'),
+				onLoad: function() {
+					if(!Hazard.hasSuit()) {
+						World.setHp(Math.max(1, World.health - 8));
+					}
+				},
+				buttons: {
+					'puddle': {
+						text: _('look at what is collecting in the low ground'),
+						nextScene: { 1: 'puddle' }
+					},
+					'end': { text: _('go on'), nextScene: 'end' }
+				}
+			},
+			'puddle': {
+				text: function() {
+					var lines = [
+						_('the low ground has filled, and what has filled it is not water any more.'),
+						_('there is a skin on it, and under the skin something has come out of solution and settled.')
+					];
+					if(Hazard.hasSuit()) {
+						lines.push(_('the gauntlets go in to the wrist. they come out marked and intact.'));
+					} else {
+						lines.push(_('reaching into it is a decision you make once.'));
+					}
+					return lines;
+				},
+				notification: _('something has settled out of the rain'),
+				onLoad: function() {
+					if(!Hazard.hasSuit()) {
+						World.setHp(Math.max(1, World.health - 10));
+					}
+				},
+				loot: {
+					'alien alloy': { min: 1, max: 1, chance: 0.5 },
+					'sulphur': { min: 3, max: 8, chance: 0.6 }
+				},
+				buttons: {
+					'end': { text: _('go on'), nextScene: 'end' }
+				}
+			},
+			'ignored': {
+				text: function() {
+					var lines = [_('an hour of it. the pack is heavier coming out than going in and the weight is wrong.')];
+					if(Hazard.preventsSpoilage()) {
+						lines.push(_('the sealed pack liner holds. what is inside it is still food.'));
+					} else {
+						lines.push(_('what is in the pack has taken it up. it does not smell of anything, which is worse.'));
+					}
+					return lines;
+				},
+				notification: function() {
+					return Hazard.preventsSpoilage() ?
+						_('the rain ruins nothing') :
+						_('the rain gets into the food');
+				},
+				onLoad: function() {
+					if(!Hazard.preventsSpoilage() && Path.outfit['cured meat'] > 0) {
+						Path.outfit['cured meat'] = Math.floor(Path.outfit['cured meat'] * 0.5);
+						World.updateSupplies();
+					}
+				},
+				buttons: {
+					'end': { text: _('go on'), nextScene: 'end' }
+				}
+			}
+		},
+		audio: AudioLibrary.EVENT_SKY
+	},
+
+	{ /* The Heat  --  T4 weather, water */
+		title: _('The Heat'),
+		isAvailable: function() {
+			return Engine.activeModule == World && World.getDistance() > 29;
+		},
+		scenes: {
+			'start': {
+				text: [
+					_('the temperature climbs through the morning and does not level off.'),
+					_('by midday the ground is too hot to sit on and the air over it is not clear.'),
+					_('this is not weather. something out here is still running, and this is its exhaust.')
+				],
+				notification: _('the heat climbs and does not level off'),
+				buttons: {
+					'push': {
+						text: _('push through the worst of it'),
+						nextScene: { 1: 'pushed' }
+					},
+					'wait': {
+						text: _('wait for dark'),
+						cost: { 'cured meat': 5 },
+						available: function() {
+							return (Path.outfit['cured meat'] ?? 0) >= 5;
+						},
+						nextScene: { 1: 'waited' }
+					}
+				}
+			},
+			'pushed': {
+				text: function() {
+					return [
+						_('four hours in it. the water goes faster than it should and then it is gone.'),
+						Hazard.hasSuit() ?
+							_('the suit recycles what it can. it is not comfortable and it is survivable.') :
+							_('by the end of it you are not sweating any more, which is the part to worry about.')
+					];
+				},
+				notification: _('the heat is pushed through'),
+				onLoad: function() {
+					World.setWater(Math.max(0, World.water - Hazard.mitigate(10)));
+					World.setHp(Math.max(1, World.health - Hazard.mitigate(10)));
+				},
+				buttons: {
+					'source': {
+						text: _('find where it is coming from'),
+						nextScene: { 1: 'source' }
+					},
+					'end': { text: _('go on'), nextScene: 'end' }
+				}
+			},
+			'source': {
+				text: [
+					_('a vent, flush with the ground, wider than a person and going straight down.'),
+					_('the air coming out of it is not exhaust. it is what a very large machine breathes out when it has been left running.'),
+					_('the grille has failed on one side. what has been forced up through the gap is worth taking.')
+				],
+				notification: _('the heat is coming out of the ground'),
+				loot: {
+					'alien alloy': { min: 1, max: 2, chance: 0.5 },
+					'energy cell': { min: 3, max: 8, chance: 0.6 }
+				},
+				buttons: {
+					'end': { text: _('back away from it'), nextScene: 'end' }
+				}
+			},
+			'waited': {
+				text: [
+					_('the shade of a rock and six hours of doing nothing.'),
+					_('it drops fast once the light goes. walking at night out here has its own problems, but not this one.')
+				],
+				notification: _('the day is waited out'),
+				buttons: {
+					'end': { text: _('walk at night'), nextScene: 'end' }
+				}
+			}
+		},
+		audio: AudioLibrary.EVENT_HMMM
+	},
 
 	{ /* The Kneeling Ones */
 		title: _('The Kneeling Ones'),

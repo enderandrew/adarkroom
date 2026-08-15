@@ -2,6 +2,7 @@
  * Module that defines all audio files
  */
 var AudioLibrary = {
+    BIGFOOT: 'audio/bigfoot.flac',
     ASTEROID_HIT_1: 'audio/asteroid-hit-1.flac',
     ASTEROID_HIT_2: 'audio/asteroid-hit-2.flac',
     ASTEROID_HIT_3: 'audio/asteroid-hit-3.flac',
@@ -10,6 +11,7 @@ var AudioLibrary = {
     ASTEROID_HIT_6: 'audio/asteroid-hit-6.flac',
     ASTEROID_HIT_7: 'audio/asteroid-hit-7.flac',
     ASTEROID_HIT_8: 'audio/asteroid-hit-8.flac',
+	BIGFOOT: 'audio/bigfoot.flac',
     BUILD: 'audio/build.flac',
     BUY: 'audio/buy.flac',
     CHECK_TRAPS: 'audio/check-traps.flac',

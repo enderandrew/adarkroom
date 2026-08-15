@@ -20,8 +20,14 @@ var Crater = {
 	FOOD_LOSS: 0.5,
 
 	radiationSickness: function() {
-		World.applyMaxHealthPenalty(Crater.MAX_HP_PENALTY);
-		Crater.spoilFood();
+		/* Halved by the hazard suit, and food contamination prevented
+		 * outright -- there is no meaningful "half spoiled". The penalty is
+		 * never removed entirely: the crater is one gamble, and a suit that
+		 * made it free would delete the decision rather than reward it. */
+		World.applyMaxHealthPenalty(Hazard.mitigate(Crater.MAX_HP_PENALTY));
+		if(!Hazard.preventsSpoilage()) {
+			Crater.spoilFood();
+		}
 	},
 
 	spoilFood: function() {

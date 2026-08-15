@@ -1199,6 +1199,9 @@ var World = {
 		redeem('plasma rifle blueprint', 'plasma rifle');
 		redeem('stim blueprint', 'stim');
 		redeem('glowstone blueprint', 'glowstone');
+		redeem('hazard suit blueprint', 'hazard suit');
+		redeem('turret blueprint', 'automated turret');
+		redeem('recycler blueprint', 'matter recycler');
 		
 		if (redeemed) {
 			Notifications.notify(null, 'blueprints feed into the fabricator data port. possibilities grow.');

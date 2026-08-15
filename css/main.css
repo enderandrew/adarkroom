@@ -875,3 +875,60 @@ div.glyphHint {
 	margin: 4px 0 8px 0;
 	max-width: 300px;
 }
+
+/* --- ASCII maze (script/maze.js) --- */
+
+div.mazeWrap {
+	margin: 6px 0 10px 0;
+}
+
+pre.mazeView {
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 13px;
+	line-height: 13px;
+	letter-spacing: 0;
+	margin: 0;
+	white-space: pre;
+	text-align: center;
+	/* The renderer pads every row to a fixed width, so the view must not be
+	   allowed to reflow or the perspective lines break apart. */
+	overflow: hidden;
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+div.mazeReadout {
+	font-size: 12px;
+	text-align: center;
+	margin-top: 4px;
+}
+
+div.mazePad {
+	position: relative;
+	height: 62px;
+	margin-top: 6px;
+}
+
+div.mazeBtn {
+	position: absolute;
+	border: 1px solid #999;
+	cursor: pointer;
+	text-align: center;
+	line-height: 26px;
+	width: 40px;
+	height: 26px;
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+div.mazeBtn:hover {
+	background: #ddd;
+}
+
+div.mazeUp    { left: 50%; margin-left: -20px; top: 0; }
+div.mazeDown  { left: 50%; margin-left: -20px; top: 32px; }
+div.mazeLeft  { left: 50%; margin-left: -68px; top: 16px; }
+div.mazeRight { left: 50%; margin-left: 28px;  top: 16px; }
+
+.lightsOff div.mazeBtn { border-color: #666; }
+.lightsOff div.mazeBtn:hover { background: #222; }

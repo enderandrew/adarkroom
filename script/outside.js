@@ -264,7 +264,27 @@ var Outside = {
 		return added;
 	},
 
+	/* Fraction of village deaths the automated turret prevents (fear track).
+	 * Applied in killVillagers, the single funnel every village loss in the
+	 * game passes through -- raids, beasts, plague, fire -- so one hook
+	 * covers all of them rather than each event needing to know. */
+	TURRET_MITIGATION: 0.5,
+
+	hasTurret: function() {
+		return $SM.get('stores["automated turret"]', true) > 0;
+	},
+
+	hasRecycler: function() {
+		return $SM.get('stores["matter recycler"]', true) > 0;
+	},
+
 	killVillagers: function(num) {
+		if(Outside.hasTurret() && num > 0) {
+			/* Never reduces to zero: a turret that made the village
+			 * invulnerable would remove every threat event's teeth at once.
+			 * It halves, and the player still loses people. */
+			num = Math.max(1, Math.floor(num * Outside.TURRET_MITIGATION));
+		}
 		$SM.add('game.population', num * -1);
 		if($SM.get('game.population') < 0) {
 			$SM.set('game.population', 0);
@@ -570,8 +590,17 @@ var Outside = {
 	 * better for it. */
 	MORALE_BONUS: 1.05,
 
+	/* Production bonus from the matter recycler (hope track). Multiplies with
+	 * the steel-hut morale bonus rather than replacing it, so a player who
+	 * has committed fully to the hope track gets both. */
+	RECYCLER_BONUS: 1.25,
+
 	getMoraleMultiplier: function() {
-		return Outside.allHutsSteel() ? Outside.MORALE_BONUS : 1;
+		var m = Outside.allHutsSteel() ? Outside.MORALE_BONUS : 1;
+		if(Outside.hasRecycler()) {
+			m *= Outside.RECYCLER_BONUS;
+		}
+		return m;
 	},
 
 	updateVillage: function(ignoreStores) {
@@ -1201,7 +1230,7 @@ var Outside = {
 						}
 					},
 				},
-				audio: AudioLibrary.EVENT_HMM
+				audio: AudioLibrary.EVENT_HMMM
 			});
 		}
 		if($SM.get('character.gather') == 120) {
@@ -1252,7 +1281,7 @@ var Outside = {
 						}
 					}
 				},
-				audio: AudioLibrary.EVENT_HMM
+				audio: AudioLibrary.EVENT_HMMM
 			});
 		}
 		if($SM.get('character.gather') == 170) {
@@ -1354,7 +1383,7 @@ var Outside = {
 						}
 					}
 				},
-				audio: AudioLibrary.SPACE
+				audio: AudioLibrary.MUSIC_SPACE
 			});
 		}
 		if($SM.get('character.gather') == 290) {
@@ -1439,7 +1468,7 @@ var Outside = {
 						}
 					}
 				},
-				audio: AudioLibrary.EVENT_SPACE
+				audio: AudioLibrary.MUSIC_SPACE
 			});
 		}
 		if($SM.get('character.gather') == 390) {
@@ -1507,7 +1536,7 @@ var Outside = {
 						}
 					}
 				},
-				audio: AudioLibrary.EVENT_HMM
+				audio: AudioLibrary.EVENT_HMMM
 			});
 		}
 		if($SM.get('character.gather') == 470) {
@@ -1524,7 +1553,7 @@ var Outside = {
 						}
 					}
 				},
-				audio: AudioLibrary.EVENT_HMM
+				audio: AudioLibrary.EVENT_HMMM
 			});
 		}
 		if($SM.get('character.gather') == 490) {
@@ -1541,7 +1570,7 @@ var Outside = {
 						}
 					}
 				},
-				audio: AudioLibrary.EVENT_SPACE
+				audio: AudioLibrary.MUSIC_SPACE
 			});
 		}
 		if($SM.get('character.gather') == 510) {
@@ -1609,7 +1638,7 @@ var Outside = {
 						}
 					}
 				},
-				audio: AudioLibrary.EVENT_HMM
+				audio: AudioLibrary.EVENT_HMMM
 			});
 		}
 	},

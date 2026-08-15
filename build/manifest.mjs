@@ -38,6 +38,7 @@ export const JS_SOURCES = [
 	'script/ruins.js',
 	'script/temple.js',
 	'script/crater.js',
+	'script/hazard.js',
 	'script/maze.js',
 	'script/lab.js',
 	'script/graveyard.js',

@@ -78,6 +78,59 @@ const Fabricator = {
         'alien alloy': 1
       })
     },
+    /* --- Alloy sinks, added to balance a supply that outgrew its demand ---
+     *
+     * A thorough run drops ~44 alloy against a fabricator that only ever
+     * wanted 12. These three (the suit, plus exactly one of the two
+     * doctrine buildings) take ~14 more, and linear ship scaling absorbs
+     * the rest -- see Ship.alloyCost. */
+    'hazard suit': {
+      name: _('hazard suit'),
+      type: 'upgrade',
+      maximum: 1,
+      blueprintRequired: true,
+      buildMsg: _('sealed at every seam. the counter on the chest goes quiet.'),
+      /* The single largest fabricator sink, and a capstone rather than a
+       * consumable -- it absorbs a big chunk once and then stops competing
+       * for alloy. Worn OVER armour rather than replacing it, so it never
+       * forces a downgrade. */
+      cost: () => ({
+        'alien alloy': 6,
+        'leather': 100,
+        'steel': 50
+      })
+    },
+    'automated turret': {
+      name: _('automated turret'),
+      type: 'upgrade',
+      maximum: 1,
+      blueprintRequired: true,
+      buildMsg: _('it tracks anything that moves toward the fence, and it does not sleep.'),
+      /* Fear track only. Mutually exclusive with the matter recycler, so
+       * the pair adds 8 to the sink rather than 16 -- and gives the
+       * doctrine choice a late-game consequence it did not previously
+       * have. Neither is available on a solitary run: both defend or
+       * supply a village, and there isn't one. */
+      isAvailable: () => Outside.isFear(),
+      cost: () => ({
+        'alien alloy': 8,
+        'steel': 100,
+        'energy cell': 20
+      })
+    },
+    'matter recycler': {
+      name: _('matter recycler'),
+      type: 'upgrade',
+      maximum: 1,
+      blueprintRequired: true,
+      buildMsg: _('what the village throws away goes in one end. what it needs comes out the other.'),
+      isAvailable: () => Outside.isHope(),
+      cost: () => ({
+        'alien alloy': 8,
+        'steel': 100,
+        'energy cell': 20
+      })
+    },
     'glowstone': {
       name: _('glow stone'), // endless torch
       type: 'tool',
@@ -210,9 +263,18 @@ const Fabricator = {
     }
   },
 
-  canFabricate: itemKey => 
-    !Fabricator.Craftables[itemKey].blueprintRequired || 
-    $SM.get(`character.blueprints['${itemKey}']`),
+  canFabricate: itemKey => {
+    const craftable = Fabricator.Craftables[itemKey];
+    /* Doctrine-gated recipes declare their own isAvailable, checked before
+     * the blueprint requirement: a fear-track item should never appear on a
+     * hope run even if its blueprint was found, and vice versa. Mirrors the
+     * same pattern already used by Room.craftUnlocked. */
+    if (typeof craftable.isAvailable === 'function' && !craftable.isAvailable()) {
+      return false;
+    }
+    return !craftable.blueprintRequired ||
+      $SM.get(`character.blueprints['${itemKey}']`);
+  },
 
   fabricate: button => {
     const thing = $(button).attr('fabricateThing');

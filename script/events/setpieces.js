@@ -1711,7 +1711,14 @@ Events.Setpieces = {
 					'alien alloy': { min: 3, max: 5, chance: 1 },
 					'handheld nuke': { min: 1, max: 1, chance: 1 },
 					'energy cell': { min: 10, max: 20, chance: 1 },
-					'laser rifle': { min: 1, max: 1, chance: 0.5 }
+					'laser rifle': { min: 1, max: 1, chance: 0.5 },
+					/* Both village blueprints, behind the hardest lock in the
+					 * game. The player can only ever BUILD one of them --
+					 * they're doctrine-gated against each other -- so
+					 * dropping both here costs nothing and means a solved
+					 * 6x6 always advances whichever track you're on. */
+					'turret blueprint': { min: 1, max: 1, chance: 1 },
+					'recycler blueprint': { min: 1, max: 1, chance: 1 }
 				},
 				buttons: {
 					/* Offered as a separate act rather than folded into the
@@ -2451,8 +2458,24 @@ Events.Setpieces = {
 				}
 			},
 			'level3': {
-				text: [_('sublevel three. nothing down here is lit until you are already in it.')],
-				onLoad: function() { Lab.defineMazes(); Lab.reachLevel(3); },
+				/* The deepest level is hot. Whatever the vats run on is down
+				 * here with them, and it has not been shielded in a very long
+				 * time -- which is the in-fiction reason the hazard suit's
+				 * plans are two floors up, on the assay bench. */
+				text: function() {
+					var lines = [_('sublevel three. nothing down here is lit until you are already in it.')];
+					if(Hazard.hasSuit()) {
+						lines.push(_('the counter on the chest picks up the moment the stairwell opens, and keeps climbing. the suit holds.'));
+					} else {
+						lines.push(_('the air down here tastes of pennies. it is the same taste as the wreck out on the road.'));
+					}
+					return lines;
+				},
+				onLoad: function() {
+					Lab.defineMazes();
+					Lab.reachLevel(3);
+					Lab.applyDepthRadiation();
+				},
 				onRender: function() { Maze.render('lab3', 'level3'); },
 				buttons: {
 					'leave': {
@@ -2614,6 +2637,12 @@ Events.Setpieces = {
 					_('further along the wall there is a furnace, rated for biohazard, and it is the only thing down here that looks used.')
 				],
 				notification: _('instruments for measuring how far something has drifted'),
+				/* The hazard suit's plans live here, on the bench whose whole
+				 * subject is measuring contamination -- whoever worked this
+				 * room needed the suit before they needed anything else. */
+				loot: {
+					'hazard suit blueprint': { min: 1, max: 1, chance: 1 }
+				},
 				buttons: {
 					'back': { text: _('go on'), nextScene: { 1: 'level2' } }
 				}

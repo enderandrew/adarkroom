@@ -114,6 +114,26 @@ var Lab = {
 		$SM.set('game.lab.complete', true);
 	},
 
+	/* Radiation on the deepest level.
+	 *
+	 * Charged once per ENTRY to level three rather than per step: a per-move
+	 * drain would turn the maze into an endurance timer and punish the
+	 * exploration the level exists for. A flat entry toll is a decision --
+	 * "do I have enough left to go down there and get back?" -- which is the
+	 * question the whole location is built around.
+	 *
+	 * Halved by the hazard suit, never removed: the suit should make the
+	 * bottom of the lab reachable, not free. */
+	DEPTH_RADIATION: 20,
+
+	applyDepthRadiation: function() {
+		var dmg = Hazard.mitigate(Lab.DEPTH_RADIATION);
+		World.setHp(Math.max(1, World.health - dmg));
+		Notifications.notify(null, Hazard.hasSuit() ?
+			_('the counter climbs. the suit takes most of it.') :
+			_('the air down here is doing something to you.'));
+	},
+
 	/* ---- seeded generation ------------------------------------------------
 	 *
 	 * One seed per playthrough, drawn on first use and stored. Every level's

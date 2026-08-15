@@ -20,6 +20,7 @@ var Events = {
 	BOOST_DURATION: 3000,
 	BOOST_DAMAGE: 10, // bonus damage added
 	DOT_TICK: 1000,
+	DOT_DURATION: 6000,
 	/* --- Status effects added by this fork ---------------------------------
 	 * A fighter has exactly one status at a time (it lives in a single
 	 * .data('status') slot), so these are mutually exclusive with each other
@@ -829,6 +830,11 @@ var Events = {
 					Events._dotTimer = setInterval(() => {
 						Events.dotDamage(enemy, Math.floor(dmg / 2));
 					}, Events.DOT_TICK);
+					/* Tracked in _statusTimers so clearTimeouts() takes it
+					 * down if the fight ends first. */
+					Events._statusTimers.push(setTimeout(() => {
+						clearInterval(Events._dotTimer);
+					}, Events.DOT_DURATION));
 				}
 
 				/* Reflective hull.
@@ -1821,10 +1827,16 @@ var Events = {
 		}
 
 		var r = Math.floor(Math.random()*(possibleFights.length));
-		Events.startEvent(possibleFights[r]);
+		var chosen = possibleFights[r];
+		Events.startEvent(chosen);
 
-		// play audio only when fight is possible
-		if (possibleFights.length > 0) {
+		/* Play the tier music only if the encounter didn't bring its own.
+		 *
+		 * startEvent() already played `chosen.audio` for any event that
+		 * declares one -- but this block ran unconditionally straight
+		 * afterwards and overrode it a moment later, so a per-encounter
+		 * track could never actually be heard. */
+		if (possibleFights.length > 0 && !(chosen && chosen.audio)) {
 			if (World.getDistance() > 20) {
 				// Tier 3
 				AudioEngine.playEventMusic(AudioLibrary.ENCOUNTER_TIER_3);

@@ -17,8 +17,35 @@ var Ship = {
 	 * content that drops alloy has something to be spent on. Thrusters cost
 	 * more than hull because speed compounds -- it shortens the whole
 	 * asteroid gauntlet -- while hull is linear damage absorption. */
-	ALLOY_PER_HULL: 2,
-	ALLOY_PER_THRUSTER: 3,
+	/* Linear scaling: the Nth upgrade costs N alloy.
+	 *
+	 * Flat costs gave alloy no diminishing returns -- past the fabricator's
+	 * fixed 12, every remaining alloy was worth exactly the same and there
+	 * was never a point at which you stopped wanting more. Linear pricing
+	 * makes the last few levels a real decision while making the FIRST few
+	 * cheaper than the old flat 2/3, so a struggling player gets help sooner
+	 * and a hoarder hits a genuine wall.
+	 *
+	 * Sizing: base thrusters are 1 (speed 4), each upgrade is +1 -- a 25%
+	 * speed gain at first, ~10% by level 10, so the mechanic diminishes
+	 * naturally too. Level 8 in both costs 36+36=72; a thorough run drops
+	 * ~44 alloy and the other sinks below take ~26, which is what finally
+	 * makes the trading post's alloy purchase matter. */
+	alloyCost: function(currentLevel) {
+		return currentLevel + 1;
+	},
+
+	hullCost: function() {
+		return Ship.alloyCost($SM.get('game.spaceShip.hull', true));
+	},
+
+	thrusterCost: function() {
+		/* Thrusters start at BASE_THRUSTERS (1), so the first PURCHASED
+		 * upgrade should still cost 1 -- price on upgrades bought, not on
+		 * the displayed level, or the engine would open at 2 while the hull
+		 * opens at 1 for no reason the player can see. */
+		return Ship.alloyCost($SM.get('game.spaceShip.thrusters', true) - Ship.BASE_THRUSTERS);
+	},
 	BASE_HULL: 0,
 	BASE_THRUSTERS: 1,
 	name: _("Ship"),
@@ -64,7 +91,7 @@ var Ship = {
 			text: _('reinforce hull'),
 			click: Ship.reinforceHull,
 			width: '100px',
-			cost: {'alien alloy': Ship.ALLOY_PER_HULL}
+			cost: {'alien alloy': Ship.hullCost()}
 		}).appendTo('div#shipPanel');
 		
 		// Draw the engine button
@@ -73,7 +100,7 @@ var Ship = {
 			text: _('upgrade engine'),
 			click: Ship.upgradeEngine,
 			width: '100px',
-			cost: {'alien alloy': Ship.ALLOY_PER_THRUSTER}
+			cost: {'alien alloy': Ship.thrusterCost()}
 		}).appendTo('div#shipPanel');
 		
 		// Draw the lift off button
@@ -116,28 +143,53 @@ var Ship = {
 	},
 	
 	reinforceHull: function() {
-		if($SM.get('stores["alien alloy"]', true) < Ship.ALLOY_PER_HULL) {
+		var cost = Ship.hullCost();
+		if($SM.get('stores["alien alloy"]', true) < cost) {
 			Notifications.notify(Ship, _("not enough alien alloy"));
 			return false;
 		}
-		$SM.add('stores["alien alloy"]', -Ship.ALLOY_PER_HULL);
+		$SM.add('stores["alien alloy"]', -cost);
 		$SM.add('game.spaceShip.hull', 1);
 		if($SM.get('game.spaceShip.hull') > 0) {
 			Button.setDisabled($('#liftoffButton', Ship.panel), false);
 		}
 		$('#hullRow .row_val', Ship.panel).text($SM.get('game.spaceShip.hull'));
+		Ship.updateCosts();
 		AudioEngine.playSound(AudioLibrary.REINFORCE_HULL);
 	},
 	
 	upgradeEngine: function() {
-		if($SM.get('stores["alien alloy"]', true) < Ship.ALLOY_PER_THRUSTER) {
+		var cost = Ship.thrusterCost();
+		if($SM.get('stores["alien alloy"]', true) < cost) {
 			Notifications.notify(Ship, _("not enough alien alloy"));
 			return false;
 		}
-		$SM.add('stores["alien alloy"]', -Ship.ALLOY_PER_THRUSTER);
+		$SM.add('stores["alien alloy"]', -cost);
 		$SM.add('game.spaceShip.thrusters', 1);
 		$('#engineRow .row_val', Ship.panel).text($SM.get('game.spaceShip.thrusters'));
+		Ship.updateCosts();
 		AudioEngine.playSound(AudioLibrary.UPGRADE_ENGINE);
+	},
+
+	/* Rewrites both buttons' cost tooltips after a purchase.
+	 *
+	 * Button costs are captured when the button is BUILT, so with a flat
+	 * price they never needed refreshing. Under linear scaling the price
+	 * changes with every purchase, and a tooltip still advertising the old
+	 * cost is worse than no tooltip at all. */
+	updateCosts: function() {
+		Ship.refreshCost($('#reinforceButton', Ship.panel), Ship.hullCost());
+		Ship.refreshCost($('#engineButton', Ship.panel), Ship.thrusterCost());
+	},
+
+	refreshCost: function(btn, cost) {
+		if(!btn || btn.length === 0) { return; }
+		btn.data('cost', { 'alien alloy': cost });
+		var tooltip = $('.tooltip', btn);
+		if(tooltip.length === 0) { return; }
+		tooltip.empty();
+		$('<div>').addClass('row_key').text(_('alien alloy')).appendTo(tooltip);
+		$('<div>').addClass('row_val').text(cost).appendTo(tooltip);
 	},
 	
 	getMaxHull: function() {
