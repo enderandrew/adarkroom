@@ -204,7 +204,7 @@ Events.Setpieces = {
 				health: 30,
 				loot: {
 					'energy cell': { min: 2, max: 5, chance: 1 },
-					'sulfur': { min: 1, max: 1, chance: 0.1 }
+					'sulphur': { min: 1, max: 1, chance: 0.1 }
 				},
 				buttons: {
 					'continue': {
@@ -271,7 +271,7 @@ Events.Setpieces = {
 				],
 				loot: {
 					'energy cell': { min: 3, max: 8, chance: 1 },
-					'sulfur': { min: 1, max: 1, chance: 0.15 }
+					'sulphur': { min: 1, max: 1, chance: 0.15 }
 				},
 				buttons: {
 					'continue': {
@@ -320,7 +320,7 @@ Events.Setpieces = {
 				health: 46,
 				loot: {
 					'energy cell': { min: 3, max: 8, chance: 1 },
-					'sulfur': { min: 1, max: 1, chance: 0.12 }
+					'sulphur': { min: 1, max: 1, chance: 0.12 }
 				},
 				buttons: {
 					'continue': {
@@ -460,7 +460,7 @@ Events.Setpieces = {
 				loot: {
 					'energy cell': { min: 4, max: 9, chance: 1 },
 					'laser rifle': { min: 1, max: 1, chance: 0.15 },
-					'sulfur': { min: 1, max: 1, chance: 0.15 }
+					'sulphur': { min: 1, max: 1, chance: 0.15 }
 				},
 				buttons: {
 					'continue': {
@@ -500,7 +500,7 @@ Events.Setpieces = {
 				],
 				loot: {
 					'energy cell': { min: 5, max: 10, chance: 1 },
-					'sulfur': { min: 1, max: 1, chance: 0.15 }
+					'sulphur': { min: 1, max: 1, chance: 0.15 }
 				},
 				buttons: {
 					'continue': {
@@ -544,7 +544,7 @@ Events.Setpieces = {
 				health: 58,
 				loot: {
 					'energy cell': { min: 5, max: 10, chance: 1 },
-					'sulfur': { min: 1, max: 1, chance: 0.15 }
+					'sulphur': { min: 1, max: 1, chance: 0.15 }
 				},
 				buttons: {
 					'continue': {
@@ -637,7 +637,7 @@ Events.Setpieces = {
 				],
 				loot: {
 					'energy cell': { min: 5, max: 11, chance: 1 },
-					'sulfur': { min: 1, max: 2, chance: 0.18 }
+					'sulphur': { min: 1, max: 2, chance: 0.18 }
 				},
 				buttons: {
 					'continue': {
@@ -737,7 +737,7 @@ Events.Setpieces = {
 				health: 62,
 				loot: {
 					'energy cell': { min: 6, max: 12, chance: 1 },
-					'sulfur': { min: 1, max: 2, chance: 0.2 }
+					'sulphur': { min: 1, max: 2, chance: 0.2 }
 				},
 				buttons: {
 					'continue': {
@@ -783,7 +783,7 @@ Events.Setpieces = {
 				loot: {
 					'energy cell': { min: 8, max: 15, chance: 1 },
 					'laser rifle': { min: 1, max: 1, chance: 0.25 },
-					'sulfur': { min: 1, max: 2, chance: 0.3 }
+					'sulphur': { min: 1, max: 2, chance: 0.3 }
 				},
 				buttons: {
 					'continue': {
@@ -822,7 +822,7 @@ Events.Setpieces = {
 				loot: {
 					'energy cell': { min: 8, max: 14, chance: 1 },
 					'laser rifle': { min: 1, max: 1, chance: 0.2 },
-					'sulfur': { min: 1, max: 1, chance: 0.25 }
+					'sulphur': { min: 1, max: 1, chance: 0.25 }
 				},
 				buttons: {
 					'continue': {
@@ -860,7 +860,7 @@ Events.Setpieces = {
 				],
 				loot: {
 					'energy cell': { min: 8, max: 14, chance: 1 },
-					'sulfur': { min: 1, max: 2, chance: 0.25 }
+					'sulphur': { min: 1, max: 2, chance: 0.25 }
 				},
 				buttons: {
 					'continue': {
@@ -898,7 +898,7 @@ Events.Setpieces = {
 				loot: {
 					'energy cell': { min: 9, max: 16, chance: 1 },
 					'laser rifle': { min: 1, max: 1, chance: 0.2 },
-					'sulfur': { min: 1, max: 2, chance: 0.3 }
+					'sulphur': { min: 1, max: 2, chance: 0.3 }
 				},
 				buttons: {
 					'continue': {
@@ -921,7 +921,7 @@ Events.Setpieces = {
 				notification: _("most of the racks are empty"),
 				loot: {
 					'energy cell': { min: 6, max: 14, chance: 1 },
-					'sulfur': { min: 1, max: 1, chance: 0.25 }
+					'sulphur': { min: 1, max: 1, chance: 0.25 }
 				},
 				buttons: {
 					'continue': {
@@ -1020,7 +1020,7 @@ Events.Setpieces = {
 				],
 				loot: {
 					'energy cell': { min: 10, max: 18, chance: 1 },
-					'sulfur': { min: 2, max: 3, chance: 0.3 },
+					'sulphur': { min: 2, max: 3, chance: 0.3 },
 					'laser rifle': { min: 1, max: 1, chance: 0.25 }
 				},
 				buttons: {
@@ -1061,7 +1061,7 @@ Events.Setpieces = {
 				],
 				loot: {
 					'energy cell': { min: 9, max: 16, chance: 1 },
-					'sulfur': { min: 1, max: 2, chance: 0.28 }
+					'sulphur': { min: 1, max: 2, chance: 0.28 }
 				},
 				buttons: {
 					'continue': {
@@ -1140,7 +1140,7 @@ Events.Setpieces = {
 				],
 				loot: {
 					'energy cell': { min: 10, max: 18, chance: 1 },
-					'sulfur': { min: 2, max: 3, chance: 0.3 }
+					'sulphur': { min: 2, max: 3, chance: 0.3 }
 				},
 				buttons: {
 					'continue': {
@@ -1239,7 +1239,7 @@ Events.Setpieces = {
 				],
 				loot: {
 					'energy cell': { min: 12, max: 20, chance: 1 },
-					'sulfur': { min: 2, max: 4, chance: 0.35 },
+					'sulphur': { min: 2, max: 4, chance: 0.35 },
 					'laser rifle': { min: 1, max: 1, chance: 0.3 }
 				},
 				buttons: {
@@ -1285,7 +1285,7 @@ Events.Setpieces = {
 				],
 				loot: {
 					'energy cell': { min: 11, max: 19, chance: 1 },
-					'sulfur': { min: 2, max: 3, chance: 0.32 }
+					'sulphur': { min: 2, max: 3, chance: 0.32 }
 				},
 				buttons: {
 					'continue': {
@@ -1349,7 +1349,7 @@ Events.Setpieces = {
 				],
 				loot: {
 					'energy cell': { min: 12, max: 20, chance: 1 },
-					'sulfur': { min: 2, max: 4, chance: 0.35 },
+					'sulphur': { min: 2, max: 4, chance: 0.35 },
 					'handheld nuke': { min: 1, max: 1, chance: 0.05 }
 				},
 				buttons: {
@@ -1388,7 +1388,7 @@ Events.Setpieces = {
 				],
 				loot: {
 					'energy cell': { min: 11, max: 19, chance: 1 },
-					'sulfur': { min: 2, max: 3, chance: 0.3 }
+					'sulphur': { min: 2, max: 3, chance: 0.3 }
 				},
 				buttons: {
 					'continue': {
@@ -1410,7 +1410,7 @@ Events.Setpieces = {
 				],
 				notification: _("the walls are missing exactly as much as the basins hold"),
 				loot: {
-					'sulfur': { min: 1, max: 2, chance: 0.3 },
+					'sulphur': { min: 1, max: 2, chance: 0.3 },
 					'energy cell': { min: 6, max: 12, chance: 0.8 }
 				},
 				buttons: {
@@ -1447,7 +1447,7 @@ Events.Setpieces = {
 				],
 				loot: {
 					'energy cell': { min: 12, max: 20, chance: 1 },
-					'sulfur': { min: 2, max: 4, chance: 0.32 }
+					'sulphur': { min: 2, max: 4, chance: 0.32 }
 				},
 				buttons: {
 					'continue': {
@@ -1509,7 +1509,7 @@ Events.Setpieces = {
 				],
 				loot: {
 					'energy cell': { min: 12, max: 20, chance: 1 },
-					'sulfur': { min: 2, max: 4, chance: 0.35 },
+					'sulphur': { min: 2, max: 4, chance: 0.35 },
 					'laser rifle': { min: 1, max: 1, chance: 0.3 }
 				},
 				buttons: {
@@ -1555,8 +1555,8 @@ Events.Setpieces = {
 				],
 				loot: {
 					'energy cell': { min: 13, max: 22, chance: 1 },
-					'sulfur': { min: 3, max: 4, chance: 0.35 },
-					'energy sword': { min: 1, max: 1, chance: 0.05 }
+					'sulphur': { min: 3, max: 4, chance: 0.35 },
+					'energy blade': { min: 1, max: 1, chance: 0.05 }
 				},
 				buttons: {
 					'continue': {
@@ -1711,14 +1711,7 @@ Events.Setpieces = {
 					'alien alloy': { min: 3, max: 5, chance: 1 },
 					'handheld nuke': { min: 1, max: 1, chance: 1 },
 					'energy cell': { min: 10, max: 20, chance: 1 },
-					'laser rifle': { min: 1, max: 1, chance: 0.5 },
-					/* Both village blueprints, behind the hardest lock in the
-					 * game. The player can only ever BUILD one of them --
-					 * they're doctrine-gated against each other -- so
-					 * dropping both here costs nothing and means a solved
-					 * 6x6 always advances whichever track you're on. */
-					'turret blueprint': { min: 1, max: 1, chance: 1 },
-					'recycler blueprint': { min: 1, max: 1, chance: 1 }
+					'laser rifle': { min: 1, max: 1, chance: 0.5 }
 				},
 				buttons: {
 					/* Offered as a separate act rather than folded into the
@@ -2260,9 +2253,14 @@ Events.Setpieces = {
 					];
 				},
 				notification: _('the core did not go off'),
+				/* The hazard suit's plans are NOT here -- they're in the
+				 * Strata, which sits at a shallower radius. Awarding a
+				 * survival tool for having already survived is backwards:
+				 * by the time you'd earned it you'd have no use for it. The
+				 * crater is now the place the suit is FOR. */
 				loot: {
 					'handheld nuke': { min: 1, max: 1, chance: 0.5 },
-					'alien alloy': { min: 2, max: 2, chance: 1 },
+					'alien alloy': { min: 3, max: 3, chance: 1 },
 					'energy cell': { min: 3, max: 8, chance: 0.6 }
 				},
 				buttons: {
@@ -2637,12 +2635,6 @@ Events.Setpieces = {
 					_('further along the wall there is a furnace, rated for biohazard, and it is the only thing down here that looks used.')
 				],
 				notification: _('instruments for measuring how far something has drifted'),
-				/* The hazard suit's plans live here, on the bench whose whole
-				 * subject is measuring contamination -- whoever worked this
-				 * room needed the suit before they needed anything else. */
-				loot: {
-					'hazard suit blueprint': { min: 1, max: 1, chance: 1 }
-				},
 				buttons: {
 					'back': { text: _('go on'), nextScene: { 1: 'level2' } }
 				}
@@ -3019,12 +3011,297 @@ Events.Setpieces = {
 			'scrap': {
 				text: [
 					_('with nothing left standing over it, the mount finally comes apart the way it should have the first time.'),
+					_('under the floor plates there is a cache the drone was standing on: not instruments. plans.'),
+					_('somebody catalogued what they saw coming and then drew up what a settlement would need to survive it. both answers. they did not choose.'),
 					_('some of what it protected was worth protecting.')
 				],
-				notification: _('the mount comes apart'),
+				notification: _('the mount comes apart, and what it was standing on is worth more'),
+				/* Both village blueprints, moved here from the ruins vault.
+				 * The ruins were already worth solving; the observatory
+				 * needed a payoff beyond flavour. Better fit too -- this is
+				 * the one location whose entire purpose was WATCHING what was
+				 * coming, so plans for defending and sustaining a settlement
+				 * are exactly what its keepers would have drawn.
+				 *
+				 * Both drop together because the player can only ever BUILD
+				 * one (doctrine-gated against each other), so this costs
+				 * nothing and means the fight always advances whichever track
+				 * you are on. */
+				loot: {
+					'turret blueprint': { min: 1, max: 1, chance: 1 },
+					'recycler blueprint': { min: 1, max: 1, chance: 1 }
+				},
 				buttons: {
 					'end': {
 						text: _('leave with what you can carry'),
+						nextScene: 'end'
+					}
+				}
+			}
+		}
+	},
+	"strata": { /* The Strata */
+		title: _('The Strata'),
+		/* Deliberately shallower than the Glassed Crater (22-30): this is
+		 * where the hazard suit's plans are, and a survival tool has to be
+		 * reachable BEFORE the place it keeps you alive in. */
+		audio: AudioLibrary.LANDMARK_RUINS,
+		scenes: {
+			'start': {
+				text: [
+					_('the ground has come apart along a fault, and the side of the cut is forty feet of readable history.'),
+					_('there are layers. worked flint near the bottom. above it, iron. above that, plate that took a furnace to roll.'),
+					_('near the top, something ceramic and white that does not scratch.')
+				],
+				notification: _('a cut in the ground, forty feet of readable layers'),
+				onLoad: function() {
+					World.markVisited(World.curPos[0], World.curPos[1]);
+				},
+				buttons: {
+					'measure': {
+						text: _('measure the layers'),
+						nextScene: { 1: 'measure' }
+					},
+					'dig': {
+						text: _('dig into the face'),
+						nextScene: { 1: 'dig' }
+					},
+					'leave': {
+						text: _('leave'),
+						nextScene: 'end'
+					}
+				}
+			},
+
+			/* The realisation. No loot -- the payload is the fact. */
+			'measure': {
+				text: [
+					_('flint to iron is four inches. iron to rolled plate is three.'),
+					_('on any world where one of those follows the other, that is two thousand years of soil. this is seven inches.'),
+					_('they are not stacked because one came after another. they are stacked because they all arrived, and then they all stopped.'),
+					_('everything in this wall was somebody\'s present tense. none of them were the same century.')
+				],
+				notification: _('the layers are too close together'),
+				buttons: {
+					'back': {
+						text: _('step back from the face'),
+						nextScene: { 1: 'start' }
+					},
+					'leave': {
+						text: _('leave'),
+						nextScene: 'end'
+					}
+				}
+			},
+
+			'dig': {
+				text: [
+					_('the face comes away in sheets. most of what is in it is bone and rust.'),
+					_('two feet in, the spoil starts to burn where it touches skin, and the burn does not stop when it is brushed off.'),
+					_('somebody dug here before. what is left of their kit is folded into the layer they stopped at.')
+				],
+				notification: _('the spoil burns where it touches'),
+				onLoad: function() {
+					/* A real cost for digging bare-handed, and one the suit
+					 * removes entirely -- this is the scene that teaches what
+					 * the suit is for, immediately before handing over the
+					 * plans for it. */
+					if(!Hazard.hasSuit()) {
+						World.setHp(Math.max(1, World.health - 12));
+					}
+				},
+				loot: {
+					'iron': { min: 10, max: 25, chance: 1 },
+					'steel': { min: 5, max: 12, chance: 0.7 },
+					'leather': { min: 5, max: 15, chance: 0.6 }
+				},
+				buttons: {
+					'kit': {
+						text: _('unfold what is left of their kit'),
+						nextScene: { 1: 'kit' }
+					},
+					'leave': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			},
+
+			'kit': {
+				text: [
+					_('a suit, sealed at every seam, and whoever was in it did not come out of the hole.'),
+					_('it is far past wearing. the pattern is cut into the lining, whole, the way you write something down when you expect to have to make another.'),
+					_('they knew what the ground was doing to them. they made the suit first and it was still not enough.')
+				],
+				notification: _('a sealed suit, and the pattern for another'),
+				loot: {
+					'hazard suit blueprint': { min: 1, max: 1, chance: 1 },
+					'alien alloy': { min: 1, max: 1, chance: 0.4 }
+				},
+				buttons: {
+					'end': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			}
+		}
+	},
+	"concordance": { /* The Concordance */
+		title: _('The Concordance'),
+		/* The one place on this world where the premise went right, found
+		 * after it stopped being true. Everything here still works and
+		 * nobody is left to use it. */
+		audio: AudioLibrary.LANDMARK_TOWN,
+		scenes: {
+			'start': {
+				text: [
+					_('a settlement, intact, and running.'),
+					_('an aqueduct comes down off the ridge in dressed stone, on piers, cut by hand. it feeds a condenser that is not stone and not hand-cut and is doing fusion, quietly, in a shed.'),
+					_('neither has been maintained in a very long time. both are still working.'),
+					_('there is nobody here. there is no sign of a fight, and no sign of anybody leaving in a hurry either.')
+				],
+				notification: _('a settlement where everything still works and nobody is left'),
+				onLoad: function() {
+					World.markVisited(World.curPos[0], World.curPos[1]);
+				},
+				buttons: {
+					'charter': {
+						text: _('there is something carved by the well'),
+						nextScene: { 1: 'charter' }
+					},
+					'condenser': {
+						text: _('look at the condenser'),
+						nextScene: { 1: 'condenser' }
+					},
+					'leave': {
+						text: _('leave'),
+						nextScene: 'end'
+					}
+				}
+			},
+
+			/* The charter. The lore payload, and the only place the game
+			 * explains what alien alloy actually IS. */
+			'charter': {
+				text: [
+					_('a slab by the well, and the same text on it four times, in four scripts, none of which share an alphabet.'),
+					_('it is an agreement. who digs, who repairs, whose year it is when the years do not match.'),
+					_('"we did not arrive together and we will not leave together. the water is one water."'),
+					_('the last section is about the alloy. it says the same thing four ways: that it was what everything in the infinite expanse ran on, that nobody here knows how it was made, and that when it is gone it is gone.'),
+					_('"spend it on what will still be here after us."')
+				],
+				notification: _('four scripts, one agreement'),
+				buttons: {
+					'why': {
+						text: _('so what happened to them'),
+						nextScene: { 1: 'why' }
+					},
+					'condenser': {
+						text: _('look at the condenser'),
+						nextScene: { 1: 'condenser' }
+					},
+					'leave': {
+						text: _('leave'),
+						nextScene: 'end'
+					}
+				}
+			},
+
+			'why': {
+				text: [
+					_('the roll of names is kept on the same slab, added to in four hands, and it stops.'),
+					_('it does not taper. there is no run of illness, no bad winter, no slow decline.'),
+					_('it stops on one date, and the date is not a mystery. everything on this world stops around then.'),
+					_('they did not fail. they were doing the hardest thing anybody on this rock ever managed and they were still doing it when the wars reached them.'),
+					_('somebody was let out, a long way from here, and this is one of the places that cost.')
+				],
+				notification: _('the roll of names stops on a date you have seen before'),
+				onLoad: function() {
+					/* Recognising what this place was, and what ended it, is
+					 * the whole reward for the high road. No loot. */
+					$SM.add('character.karma', 3);
+				},
+				buttons: {
+					'condenser': {
+						text: _('look at the condenser'),
+						nextScene: { 1: 'condenser' }
+					},
+					'leave': {
+						text: _('leave them to it'),
+						nextScene: 'end'
+					}
+				}
+			},
+
+			'condenser': {
+				text: function() {
+					var lines = [
+						_('the shed is warm and the note of it has not changed in centuries.'),
+						_('the core sits behind a shield that was never meant to be opened by hand. it is alloy, and it is the size of a fist, and it is the reason the water still runs.')
+					];
+					if(Hazard.hasSuit()) {
+						lines.push(_('the seal would come away. the suit would hold long enough.'));
+					} else {
+						lines.push(_('opening it bare-handed is not a decision. it is just a way of dying in a shed.'));
+					}
+					return lines;
+				},
+				notification: _('the core is alloy, and it is what keeps the water running'),
+				buttons: {
+					/* Gated on the suit AND on the player being somebody who
+					 * would. Karma is not a difficulty setting here -- it is
+					 * the question the location is asking, and a player who
+					 * has been decent all run should have to work at wanting
+					 * this. */
+					'take': {
+						text: _('take the core'),
+						available: function() {
+							return Hazard.hasSuit() && $SM.get('character.karma', true) < 0;
+						},
+						nextScene: { 1: 'took' }
+					},
+					'back': {
+						text: _('leave it running'),
+						nextScene: { 1: 'left' }
+					}
+				}
+			},
+
+			'took': {
+				text: [
+					_('the seal comes away. the note the shed has held for centuries drops, and then stops.'),
+					_('the aqueduct keeps running for about a minute on what is already in it, and then it does not.'),
+					_('two pieces of alloy, out of a thing that was working, in a place that was working, in the one settlement on this world where four peoples agreed on anything.'),
+					_('"spend it on what will still be here after us."'),
+					_('nothing here will be.')
+				],
+				notification: _('the condenser stops'),
+				onLoad: function() {
+					$SM.add('character.karma', -10);
+					$SM.set('game.concordance.killed', true);
+				},
+				loot: {
+					'alien alloy': { min: 2, max: 2, chance: 1 }
+				},
+				buttons: {
+					'end': {
+						text: _('go back to the road'),
+						nextScene: 'end'
+					}
+				}
+			},
+
+			'left': {
+				text: [
+					_('the shed stays warm. the water keeps coming down off the ridge in dressed stone.'),
+					_('it will go on doing that for nobody, for a long time, and then it will stop on its own.'),
+					_('that is not nothing. it is the last thing on this world that four peoples built together and it is still running.')
+				],
+				notification: _('the water keeps running'),
+				buttons: {
+					'end': {
+						text: _('go back to the road'),
 						nextScene: 'end'
 					}
 				}

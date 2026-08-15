@@ -12,7 +12,13 @@ var Crater = {
 	 * of the excursion. Applied to the CEILING, not to current health: the
 	 * 15hp entry cost already hurt them once, and this is meant to be a
 	 * different kind of damage -- one they can't heal off with meat. */
-	MAX_HP_PENALTY: 15,
+	/* Raised from 15. The crater is now the location the hazard suit exists
+	 * for, so going down unprotected has to be genuinely punishing rather
+	 * than merely expensive: against a mid-game ceiling of 45-55, losing 30
+	 * off the maximum for the rest of the excursion usually ends the trip.
+	 * Halved to 15 by the suit -- the old unsuited figure -- so a prepared
+	 * player faces exactly what an unprepared one used to. */
+	MAX_HP_PENALTY: 30,
 
 	/* Fraction of carried food ruined. Rounded up so it always bites: at low
 	 * stocks a floor would round to zero and the "your food is contaminated"

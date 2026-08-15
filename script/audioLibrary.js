@@ -11,7 +11,6 @@ var AudioLibrary = {
     ASTEROID_HIT_6: 'audio/asteroid-hit-6.flac',
     ASTEROID_HIT_7: 'audio/asteroid-hit-7.flac',
     ASTEROID_HIT_8: 'audio/asteroid-hit-8.flac',
-	BIGFOOT: 'audio/bigfoot.flac',
     BUILD: 'audio/build.flac',
     BUY: 'audio/buy.flac',
     CHECK_TRAPS: 'audio/check-traps.flac',

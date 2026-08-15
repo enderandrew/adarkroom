@@ -28,6 +28,8 @@ var World = {
 		LAB: '%',
 		CRATER: '\u25CF',
 		OBSERVATORY: '\u2229',
+		STRATA: '\u2261',
+		CONCORDANCE: '\u25CA',
 	},
 	TILE_PROBS: {},
 	LANDMARKS: {},
@@ -175,6 +177,8 @@ var World = {
 		World.LANDMARKS[World.TILE.TEMPLE] = { num: 1, minRadius: 20, maxRadius: World.RADIUS * 2, scene: 'temple', 'label': _('A&nbsp;Silent&nbsp;Temple')};
 		World.LANDMARKS[World.TILE.CRATER] = { num: 1, minRadius: 22, maxRadius: 30, scene: 'crater', 'label': _('A&nbsp;Glassed&nbsp;Crater')};
 		World.LANDMARKS[World.TILE.OBSERVATORY] = { num: 1, minRadius: 28, maxRadius: 38, scene: 'observatory', 'label': _('An&nbsp;Old&nbsp;Observatory')};
+		World.LANDMARKS[World.TILE.STRATA] = { num: 1, minRadius: 16, maxRadius: 26, scene: 'strata', 'label': _('The&nbsp;Strata')};
+		World.LANDMARKS[World.TILE.CONCORDANCE] = { num: 1, minRadius: 30, maxRadius: 40, scene: 'concordance', 'label': _('The&nbsp;Concordance')};
 		World.LANDMARKS[World.TILE.GRAVEYARD] = { num: 1, minRadius: 26, maxRadius: 26, scene: 'graveyard', 'label': _('A&nbsp;Crowded&nbsp;Graveyard')};
 		World.LANDMARKS[World.TILE.PRISON] = { num: 1, minRadius: 30, maxRadius: 32, scene: 'prison', 'label': _('Locked-Down&nbsp;Prison')};
 		World.LANDMARKS[World.TILE.LAB] = { num: 1, minRadius: 25, maxRadius: 32, scene: 'lab', 'label': _('A&nbsp;Wanderer&nbsp;Lab')};
