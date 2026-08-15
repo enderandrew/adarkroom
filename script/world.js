@@ -661,11 +661,15 @@ var World = {
 			Events.startEvent(sceneData);
 		} else if(typeof World.LANDMARKS[curTile] != 'undefined') {
 			if(curTile != World.TILE.OUTPOST || !World.outpostUsed()) {
-				Events.startEvent(Events.Setpieces[World.LANDMARKS[curTile].scene]);
+				var sceneName = World.LANDMARKS[curTile].scene;
+				Events.startEvent(Events.Setpieces[sceneName]);
 				/* First story location found. Outposts are excluded above --
-				 * they're a refuelling stop, not somebody's ending. */
+				 * they're a refuelling stop, not somebody's ending. Passing
+				 * the scene name lets her give a specific reaction to
+				 * specific places (see Builder.LOCATION_LINES) rather than
+				 * the same line for the Executioner as for an old house. */
 				if(typeof Builder !== 'undefined') {
-					Builder.onFirstLandmark();
+					Builder.onFirstLandmark(sceneName);
 				}
 			}
 		} else {

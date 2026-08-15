@@ -118,8 +118,93 @@ var Builder = {
 			_("she does not ask what happened out there. she can see most of it. says the wastes kill people on their own without any help from us, and that maybe there is another way, and that she knows how that sounds."));
 	},
 
-	/* First story location found. */
-	onFirstLandmark: function() {
+	/* Per-location reactions to a first visit, keyed on the landmark's scene
+	 * name (World.LANDMARKS[tile].scene, the same string Events.Setpieces is
+	 * keyed on) -- so wiring a new one up is adding a table row, not a new
+	 * function and a new call site.
+	 *
+	 * Every location here is a place she can react to as HERSELF, not as a
+	 * tour guide: what it costs to build something (the mines), the one
+	 * other person who was exiled for the same reason she watched happen
+	 * (the swamp), what it means that the player walked into the one place
+	 * she begged them not to (the Lab). Deliberately does not cover every
+	 * landmark in the game -- town, city, ruins, cave, house, battlefield
+	 * and the rest still fall through to the generic line below. Naming a
+	 * reaction to literally everything would flatten the ones that are
+	 * supposed to stand out.
+	 *
+	 * Not yet present: 'prison'. There is a LANDMARKS entry for it but no
+	 * Events.Setpieces content -- add a row here when that location exists. */
+	LOCATION_LINES: {
+		ironmine: {
+			flag: 'builderIronMine',
+			text: _("she turns the ore over in both hands before she says anything. says whoever dug this vein meant it to still be findable. says that is a strange thing to plan for, and a stranger thing to be grateful for.")
+		},
+		coalmine: {
+			flag: 'builderCoalMine',
+			text: _("she banks it without being asked, out of habit, before she has even said anything about it. says a fire is the first thing and the last thing, whichever world you are having this argument on.")
+		},
+		sulphurmine: {
+			flag: 'builderSulphurMine',
+			text: _("she is careful with it in a way she is not careful with iron or coal. says she has seen what happens when this is stored wrong, and does not say where.")
+		},
+		/* The swamp already has its own scene, and 'talk' already carries
+		 * the wanderer's own account of himself -- that he led the fleets,
+		 * that the destruction was to feed wanderer hungers, that his time
+		 * here is penance. This does not contradict that; it sits beside
+		 * it. He led them operationally, under an authority above his own,
+		 * and the guilt in that account is real and his. What this adds is
+		 * the later half: that at some point he was the one who said
+		 * something, the same as her, and it cost him the same as it is
+		 * costing the player. Gated on game.metOldWanderer so it can never
+		 * arrive before the player has actually heard him say who he was. */
+		swamp: {
+			flag: 'builderLoneWanderer',
+			text: _("she goes very still when you describe him. says she knows what he was, and what he did, and that neither of those is the part that matters to her. says he was the other one who spoke up, and that it cost him exactly what it costs everyone who tries it."),
+			available: function() { return $SM.get('game.metOldWanderer') === true; }
+		},
+		executioner: {
+			flag: 'builderExecutioner',
+			text: _("she does not ask if you are alright. she can see that you are not, entirely. says a ship like that does not get built for one purpose, and asks, quietly, which purpose found you.")
+		},
+		temple: {
+			flag: 'builderTemple',
+			text: _("she asks what they were like. not what they said -- what they were LIKE. says she has never been sure whether watching is a kindness or the absence of one, and that she has had a long time to decide and has not.")
+		},
+		graveyard: {
+			flag: 'builderGraveyard',
+			text: _("she is quiet for long enough that you think she is not going to say anything. then: that every name on a stone like that was a person who trusted somebody, once, right up until the point where trusting them was the mistake that killed them.")
+		},
+		lab: {
+			flag: 'builderLab',
+			text: _("she does not say i told you so, and you can see what it costs her not to. says she is glad you are standing in front of her and asks nothing else, and you understand that not asking is the kindness.")
+		},
+		crater: {
+			flag: 'builderCrater',
+			text: _("she checks you over before she says a word, the way she would check a wound. says glass like that does not happen on its own, and that whatever did it to the ground would have done the same to a person standing on it.")
+		},
+		observatory: {
+			flag: 'builderObservatory',
+			text: _("she asks if the stars looked right. when you tell her they did not, she nods like that confirms something she already suspected and declines to say what.")
+		},
+		strata: {
+			flag: 'builderStrata',
+			text: _("she asks how thick the layers were. when you tell her, she goes quiet in the specific way she goes quiet when a number means something to her that it does not mean to you.")
+		},
+		concordance: {
+			flag: 'builderConcordance',
+			text: _("she asks you to say the charter again, slowly, and mouths the last line along with you the second time. says she did not know anyone had written that down. says somebody should have.")
+		}
+	},
+
+	/* First story location found, with a location-specific reaction where one
+	 * exists, falling back to a generic line for everything else. */
+	onFirstLandmark: function(sceneName) {
+		var specific = Builder.LOCATION_LINES[sceneName];
+		if(specific && (typeof specific.available !== 'function' || specific.available())) {
+			Builder.say(specific.flag, specific.text);
+			return;
+		}
 		Builder.say('builderFirstLandmark',
 			_("she listens to the whole of it without interrupting. says somebody built that, and lived in it, and is not there now. says this rock is mostly other people's endings."));
 	},
