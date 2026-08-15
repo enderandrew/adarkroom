@@ -59,7 +59,9 @@ Events.Setpieces = {
 				buttons: {
 					'talk': {
 						cost: {'charm': 1},
-						text: _('talk'),
+						text: function() {
+							return Swamp.talks() > 0 ? _('talk again') : _('talk');
+						},
 						nextScene: {1: 'talk'}
 					},
 					'leave': {
@@ -68,23 +70,34 @@ Events.Setpieces = {
 					}
 				}
 			},
+			/* One charm buys one more piece of the story -- see script/swamp.js
+			 * for the full conversation and why it is metered. The scene text
+			 * is resolved per visit rather than fixed. */
 			'talk': {
-				text: [
-					_('the wanderer takes the charm and nods slowly.'),
-					_('he speaks of once leading the great fleets to fresh worlds.'),
-					_('unfathomable destruction to fuel wanderer hungers.'),
-					_('his time here, now, is his penance.')
-				],
+				text: function() {
+					return Swamp.currentText();
+				},
+				notification: _('the wanderer takes the charm'),
 				onLoad: function() {
-					$SM.addPerk('gastronome');
-					World.markVisited(World.curPos[0], World.curPos[1]);
-					/* This is the scene where he says outright that he led the
-					 * great fleets. Recorded so other content can assume the
-					 * player has heard his voice and knows what he was --
-					 * The Signal's muster order keys off this. */
-					$SM.set('game.metOldWanderer', true);
+					Swamp.grantFirstTalk();
+					/* Deliberately NOT markVisited: he is a conversation, not
+					 * a site to be looted once. Marking the tile would append
+					 * '!' and stop doSpace() ever routing here again, which is
+					 * exactly the bug the Temple had. */
 				},
 				buttons: {
+					'more': {
+						/* Worded so the player can tell whether another charm
+						 * will buy anything new. */
+						text: function() {
+							return Swamp.hasMore() ? _('offer another charm') : _('offer another charm anyway');
+						},
+						cost: { 'charm': 1 },
+						available: function() {
+							return (Path.outfit['charm'] ?? 0) >= 1;
+						},
+						nextScene: { 1: 'talk' }
+					},
 					'leave': {
 						text: _('leave'),
 						nextScene: 'end'
@@ -2684,9 +2697,22 @@ Events.Setpieces = {
 					_('one is barely anything yet. one is most of the way there. one is finished, and floating, and waiting.'),
 					_('every single one of them is you.'),
 					_('not somebody like you. you. the same hands. the same set to the jaw. the scar you have had as long as you can remember, already there on a body that has never been outside that glass.'),
-					_('this is how it works. this is how it has always worked. you have died out there more times than the furnace log has pages, and every time, you have woken up in a dark room with no memory of it, and gone looking for wood.')
+					_('this is how it works. this is how it has always worked. you have died out there more times than the furnace log has pages, and every time, you have woken up in a dark room with no memory of it, and gone looking for wood.'),
+					/* Two more banks, far smaller, and the whole point of them
+					 * is the count. The player's row runs the length of the
+					 * room; theirs are a handful each. Cloning is what takes
+					 * the memory, so the arithmetic here is also the
+					 * explanation for why they both remember what the player
+					 * cannot -- stated by implication rather than spelled
+					 * out, since the player has to assemble it. */
+					_('at the far end there are two more banks, set apart, and far shorter.'),
+					_('one holds a man you have met. he is sitting in a cabin in a swamp about four days east of here and he took a charm off you and would not explain why he wanted it.'),
+					_('there are perhaps a dozen of him. the empties outnumber the full ones and the dust on the racks says the last one was drawn a long time ago.'),
+					_('the other bank is shorter still. it holds the woman who keeps your fire.'),
+					_('there are fewer of her than there are of him. she has been more careful, or luckier, or she has simply had less reason to be out where it happens.'),
+					_('and then the row of you. the row of you goes on past where the lights end.')
 				],
-				notification: _('every vat holds you'),
+				notification: _('three sets of vats, and only one of them is a row'),
 				onLoad: function() {
 					Lab.complete();
 					World.clearDungeon();
@@ -2704,7 +2730,8 @@ Events.Setpieces = {
 					_('it does not stop you looking. it does not appear to have considered stopping you.'),
 					_('"you may observe your fate."'),
 					_('"you may rarely change it."'),
-					_('the force field holds. the vats go on doing what they do. the monk waits for you to finish, and does not leave first.')
+					_('the force field holds. the vats go on doing what they do. the monk waits for you to finish, and does not leave first.'),
+					_('on the way out you count the short bank again, and the shorter one after it, and you cannot make either number mean anything except that they did not have to be here.')
 				],
 				notification: _('you may observe your fate'),
 				buttons: {

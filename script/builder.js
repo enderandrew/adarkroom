@@ -160,7 +160,7 @@ var Builder = {
 		 * arrive before the player has actually heard him say who he was. */
 		swamp: {
 			flag: 'builderLoneWanderer',
-			text: _("she goes very still when you describe him. says she knows what he was, and what he did, and that neither of those is the part that matters to her. says he was the other one who spoke up, and that it cost him exactly what it costs everyone who tries it."),
+			text: _("she goes very still when you describe him. says she knows exactly who that is, and what he signed, and that neither of those is the part that matters to her. says he was one of the two who stood up when the sentence was read. she does not say who the other one was."),
 			available: function() { return $SM.get('game.metOldWanderer') === true; }
 		},
 		executioner: {

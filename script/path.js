@@ -174,7 +174,7 @@ var Path = {
 		// Add the non-craftables to the craftables
 		var carryable = $.extend({
 			'cured meat': { type: 'tool', desc: _('restores') + ' ' + World.MEAT_HEAL + ' ' + _('hp') },
-			'charm': {type: 'tool', desc: _('a symbol of warmth in a cold, dark world.') },
+			'charm': {type: 'tool', desc: _('a fleet mark. the emblem of a society that is not there any more.') },
 			'medicine': {type: 'tool', desc: _('restores') + ' ' + World.MEDS_HEAL + ' ' + _('hp') },
 			'bullets': { type: 'tool', desc: _('use with rifle') },
 			'energy cell': {type: 'tool', desc: _('emits a soft red glow') },
