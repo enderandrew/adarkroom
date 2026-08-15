@@ -1083,6 +1083,11 @@ var Events = {
 			Events.endFight();
 			if(!$SM.get('character.kills')) $SM.set('character.kills', 0);
 			$SM.add('character.kills', 1);
+			/* Queued rather than spoken -- the player is out on the map when
+			 * this fires, and Builder.say() defers it to their return. */
+			if(typeof Builder !== 'undefined' && $SM.get('character.kills', true) === 1) {
+				Builder.onFirstKill();
+			}
 			AudioEngine.playSound(AudioLibrary.WIN_FIGHT);
 			$('#enemy').animate({opacity: 0}, 300, 'linear', function() {
 				Engine.setTimeout(function() {

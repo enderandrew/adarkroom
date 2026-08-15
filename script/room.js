@@ -1385,6 +1385,10 @@ var Room = {
 	
 	onArrival: function(transition_diff) {
 		Room.setTitle();
+		/* Anything she had to say while the player was out on the map. */
+		if(typeof Builder !== 'undefined') {
+			Builder.flushQueue();
+		}
 		if(Room.changed) {
 			Notifications.notify(Room, _("the fire is {0}", Room.FireEnum.fromInt($SM.get('game.fire.value')).text));
 			Notifications.notify(Room, _("The room is {0}", Room.TempEnum.fromInt($SM.get('game.temperature.value')).text));
@@ -1945,6 +1949,12 @@ var Room = {
 				break;
 		}
 
+		/* The builder's reaction, after the thing actually exists. Guarded
+		 * because commentary is cosmetic -- a failed script load must not
+		 * break crafting. */
+		if(craftable.type === 'weapon' && typeof Builder !== 'undefined') {
+			Builder.onWeaponCrafted(thing);
+		}
 	},
 
 	/* Commits to the hutless run.
@@ -2045,6 +2055,7 @@ var Room = {
 							text: _('so they have somewhere to belong'),
 							onChoose: function() {
 								$SM.set('game.doctrine', 'hope');
+								if(typeof Builder !== 'undefined') { Builder.onDoctrine('hope'); }
 								$SM.add('character.karma', 5);
 							},
 							nextScene: { 1: 'hope' }
@@ -2053,6 +2064,7 @@ var Room = {
 							text: _('so they have somewhere to be kept'),
 							onChoose: function() {
 								$SM.set('game.doctrine', 'fear');
+								if(typeof Builder !== 'undefined') { Builder.onDoctrine('fear'); }
 								$SM.add('character.karma', -5);
 							},
 							nextScene: { 1: 'fear' }

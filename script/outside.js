@@ -285,6 +285,9 @@ var Outside = {
 			 * It halves, and the player still loses people. */
 			num = Math.max(1, Math.floor(num * Outside.TURRET_MITIGATION));
 		}
+		if(num > 0 && typeof Builder !== 'undefined') {
+			Builder.onFirstLoss();
+		}
 		$SM.add('game.population', num * -1);
 		if($SM.get('game.population') < 0) {
 			$SM.set('game.population', 0);

@@ -662,6 +662,11 @@ var World = {
 		} else if(typeof World.LANDMARKS[curTile] != 'undefined') {
 			if(curTile != World.TILE.OUTPOST || !World.outpostUsed()) {
 				Events.startEvent(Events.Setpieces[World.LANDMARKS[curTile].scene]);
+				/* First story location found. Outposts are excluded above --
+				 * they're a refuelling stop, not somebody's ending. */
+				if(typeof Builder !== 'undefined') {
+					Builder.onFirstLandmark();
+				}
 			}
 		} else {
 			if(World.useSupplies()) {
