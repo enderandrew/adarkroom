@@ -41,6 +41,7 @@ export const JS_SOURCES = [
 	'script/hazard.js',
 	'script/builder.js',
 	'script/swamp.js',
+	'script/village.js',
 	'script/maze.js',
 	'script/lab.js',
 	'script/graveyard.js',

@@ -80,21 +80,39 @@ Events.Outside = [
 	{ /* Hut fire */
 		title: _('Fire'),
 		isAvailable: function() {
-			/* Wooden huts specifically. A settlement rebuilt entirely in
-			 * steel has nothing left here to burn, which is the whole point
-			 * of paying for it. */
-			return Engine.activeModule == Outside && $SM.get('game.buildings["hut"]', true) > 0 && $SM.get('game.population', true) > 50;
+			/* Two independent conditions. A settlement run: wooden huts
+			 * specifically -- one rebuilt entirely in steel has nothing left
+			 * here to burn, which is the whole point of paying for it. A
+			 * solitary run: whether the player has built anything that
+			 * COULD burn (see Village.SOLITARY_BURNABLE). Never both --
+			 * isSolitary() and having huts are mutually exclusive. */
+			if(Outside.isSolitary()) {
+				return Village.canReachPlayer() && Village.hasBurnable();
+			}
+			return Village.canReachPlayer() && $SM.get('game.buildings["hut"]', true) > 0 && $SM.get('game.population', true) > 50;
 		},
 		scenes: {
 			'start': {
-				text: [
-					_('a fire rampages through one of the huts, destroying it.'),
-					_('no one made it out in time.'),
-					_('so dependent on fire for warmth and life until it takes it away.')
-				],
+				text: function() {
+					if(Outside.isSolitary()) {
+						return Village.frame([
+							Village.lastBurnedText(),
+							_('there was no one to raise an alarm, and no one else it could have spread to.')
+						]);
+					}
+					return Village.frame([
+						_('a fire rampages through one of the huts, destroying it.'),
+						_('no one made it out in time.'),
+						_('so dependent on fire for warmth and life until it takes it away.')
+					]);
+				},
 				notification: _('a fire has started'),
 				blink: true,
 				onLoad: function() {
+					if(Outside.isSolitary()) {
+						Village.burnBuilding();
+						return;
+					}
 					// Outside.destroyHuts(1);
 					Outside.destroyHuts(Math.floor(Math.random() * $SM.get('game.buildings["hut"] * 0.5', true)) + 1);
 				},
@@ -106,7 +124,8 @@ Events.Outside = [
 						text: _('open the stores'),
 						cost: { 'wood': 200, 'cured meat': 50 },
 						available: function() {
-							return $SM.get('stores.wood', true) >= 200 &&
+							return !Outside.isSolitary() &&
+								$SM.get('stores.wood', true) >= 200 &&
 								$SM.get('stores["cured meat"]', true) >= 50;
 						},
 						onChoose: function() { $SM.add('character.karma', 3); },
@@ -114,6 +133,7 @@ Events.Outside = [
 					},
 					'mourn': {
 						text: _('mourn'),
+						available: function() { return !Outside.isSolitary(); },
 						notification: function() { return _('some {0} have died', Outside.villagerNoun()); },
 						nextScene: { 1: 'mourn' }
 					},
@@ -121,8 +141,30 @@ Events.Outside = [
 					 * but the survivors are competing for what's left. */
 					'turnout': {
 						text: _('turn the survivors out'),
+						available: function() { return !Outside.isSolitary(); },
 						onChoose: function() { $SM.add('character.karma', -4); },
 						nextScene: { 1: 'turnout' }
+					},
+					/* Solitary path: nobody else to shelter, mourn or turn
+					 * out -- it is just the two of them and one less
+					 * building. */
+					'rebuild': {
+						text: _('start clearing the ash'),
+						available: function() { return Outside.isSolitary(); },
+						nextScene: { 1: 'soloRebuild' }
+					}
+				}
+			},
+			'soloRebuild': {
+				text: [
+					_('the builder is already sorting the wreckage into what can be saved and what cannot, before you have said anything.'),
+					_('says it is not the first thing she has had to rebuild. says that is not much comfort and offers it anyway.')
+				],
+				notification: _('there is less standing than there was'),
+				buttons: {
+					'end': {
+						text: _('help her sort it'),
+						nextScene: 'end'
 					}
 				}
 			},
@@ -176,7 +218,7 @@ Events.Outside = [
 	{ /* Sickness */
 		title: _('Sickness'),
 		isAvailable: function() {
-			return Engine.activeModule == Outside && $SM.get('game.population', true) > 10 && $SM.get('game.population', true) < 50 && $SM.get('stores.medicine', true) > 0;
+			return Village.canReachPlayer() && $SM.get('game.population', true) > 10 && $SM.get('game.population', true) < 50 && $SM.get('stores.medicine', true) > 0;
 		},
 		scenes: {
 			'start': {
@@ -272,7 +314,7 @@ Events.Outside = [
 	{ /* Plague */
 		title: _('Plague'),
 		isAvailable: function() {
-			return Engine.activeModule == Outside && $SM.get('game.population', true) > 50 && $SM.get('stores.medicine', true) > 0;
+			return Village.canReachPlayer() && $SM.get('game.population', true) > 50 && $SM.get('stores.medicine', true) > 0;
 		},
 		scenes: {
 			'start': {
@@ -398,15 +440,25 @@ Events.Outside = [
 	{ /* Beast attack */
 		title: _('A Beast Attack'),
 		isAvailable: function() {
-			return Engine.activeModule == Outside && $SM.get('game.population', true) > 0;
+			return Village.canReachPlayer() && $SM.get('game.population', true) > 0;
 		},
 		scenes: {
 			'start': {
-				text: [
-					 _('a pack of snarling beasts pours out of the trees.'),
-					 _('the fight is short and bloody, but the beasts are repelled.'),
-					 function() { return _('the {0} retreat to mourn the dead.', Outside.villagerNoun()); }
-				],
+				/* Which beast comes is drawn from creatures the player meets
+				 * out on the map, tiered by population -- see
+				 * Village.BEASTS. A raid on the village should read as the
+				 * same ecology, not a generic pack every time.
+				 *
+				 * Village.frame() prefixes the news arriving when the player
+				 * is indoors, since this can now fire from the Room. */
+				text: function() {
+					var v = Village.pickVariant(Village.BEASTS);
+					return Village.frame([
+						v.name(),
+						v.after(),
+						_('the {0} retreat to mourn the dead.', Outside.villagerNoun())
+					]);
+				},
 				notification: function() { return _('wild beasts attack the {0}', Outside.villagerNoun()); },
 				onLoad: function() {
 					var numKilled = Math.floor(Math.random() * 10) + 1;
@@ -500,15 +552,22 @@ Events.Outside = [
 	{ /* Soldier attack */
 		title: _('A Military Raid'),
 		isAvailable: function() {
-			return Engine.activeModule == Outside && $SM.get('game.population', true) > 0 && $SM.get('game.cityCleared');
+			return Village.canReachPlayer() && $SM.get('game.population', true) > 0 && $SM.get('game.cityCleared');
 		},
 		scenes: {
 			'start': {
-				text: [
-					_('a gunshot rings through the trees.'),
-					_('well armed men charge out of the forest, firing into the crowd.'),
-					_('after a skirmish they are driven away, but not without losses.')
-				],
+				/* Who comes is drawn from factions the player fights out in
+				 * the world -- see Village.RAIDERS -- tiered by population,
+				 * so what turns up scales with what the settlement is worth
+				 * attacking. */
+				text: function() {
+					var v = Village.pickVariant(Village.RAIDERS);
+					return Village.frame([
+						_('a gunshot rings through the trees.'),
+						v.name(),
+						v.after()
+					]);
+				},
 				notification: _('troops storm the village'),
 				onLoad: function() {
 					var numKilled = Math.floor(Math.random() * 40) + 1;

@@ -1571,5 +1571,224 @@ Events.Room = [
 			}
 		},
 		audio: AudioLibrary.EVENT_WANDERING_MASTER
+	},
+
+	/* ---- solitary-run threats -------------------------------------------
+	 *
+	 * A hutless player has no villagers to lose, so every event in
+	 * Events.Outside is permanently irrelevant to them. Without these, the
+	 * exploit is simply inverted: choosing "there is another way" would mean
+	 * nothing at home can ever threaten you again.
+	 *
+	 * These threaten the two of you directly instead -- the fire, the
+	 * stores, and her. They are deliberately smaller in scale than a raid on
+	 * a settlement, because two people are a smaller target, and that is the
+	 * bargain the player made.
+	 */
+	{ /* Something circles the room at night */
+		title: _('Something Outside'),
+		isAvailable: function() {
+			return Engine.activeModule === Room && Outside.isSolitary() &&
+				$SM.get('game.fire.value', true) > 0;
+		},
+		scenes: {
+			'start': {
+				text: [
+					_('something is walking the perimeter of the room, slowly, and it has been for a while.'),
+					_('it does not try the door. it goes round, and round, and the sound of it does not change.'),
+					_('the builder does not reach for anything. she says that whatever it is has already decided, and that we will find out which way when the fire drops.')
+				],
+				notification: _('something is circling the room'),
+				blink: true,
+				buttons: {
+					'stoke': {
+						text: _('build the fire up'),
+						cost: { 'wood': 20 },
+						available: function() {
+							return $SM.get('stores.wood', true) >= 20;
+						},
+						nextScene: { 1: 'held' }
+					},
+					'wait': {
+						text: _('sit with it'),
+						nextScene: { 1: 'waited' }
+					}
+				}
+			},
+			'held': {
+				text: [
+					_('the fire goes up and the circling stops mid-round, as though something has been recalculated.'),
+					_('by morning there are prints outside, deep ones, and they lead away.')
+				],
+				notification: _('the fire holds it off'),
+				buttons: {
+					'end': { text: _('sleep'), nextScene: 'end' }
+				}
+			},
+			'waited': {
+				text: [
+					_('it comes as far as the door and stays there long enough that you can hear it breathing through the wood.'),
+					_('then it goes. nothing is taken and nothing is broken and neither of you sleeps.')
+				],
+				notification: _('it comes as far as the door'),
+				onLoad: function() {
+					/* No villagers to kill, so the cost is what two people
+					 * can afford to lose: sleep, and some of the stores. */
+					var meat = $SM.get('stores["cured meat"]', true);
+					if(meat > 0) {
+						$SM.add('stores["cured meat"]', -Math.ceil(meat * 0.25));
+					}
+				},
+				buttons: {
+					'end': { text: _('wait for light'), nextScene: 'end' }
+				}
+			}
+		},
+		audio: AudioLibrary.EVENT_BEAST_ATTACK
+	},
+
+	{ /* Scavengers, who find two people instead of a settlement */
+		title: _('Two Sets of Prints'),
+		isAvailable: function() {
+			return Engine.activeModule === Room && Outside.isSolitary() &&
+				$SM.get('stores.wood', true) > 100;
+		},
+		scenes: {
+			'start': {
+				text: [
+					_('three of them, at the treeline, and they have been watching long enough to have counted.'),
+					_('two sets of prints. one fire. no fence, no huts, nobody else coming.'),
+					_('they are not in a hurry, which is the part that should worry you.')
+				],
+				notification: _('somebody has been counting the prints'),
+				blink: true,
+				buttons: {
+					'give': {
+						text: _('give them something and hope'),
+						cost: { 'cured meat': 20 },
+						available: function() {
+							return $SM.get('stores["cured meat"]', true) >= 20;
+						},
+						nextScene: { 1: 'paid' }
+					},
+					'stand': {
+						text: _('stand in the doorway where they can see you'),
+						nextScene: { 1: 'stood' }
+					}
+				}
+			},
+			'paid': {
+				text: [
+					_('they take it and go, and they take their time going, and one of them looks back twice.'),
+					_('the builder says they will tell somebody. she does not say it as a reproach.')
+				],
+				notification: _('they take it and go'),
+				buttons: {
+					'end': { text: _('bar the door'), nextScene: 'end' }
+				}
+			},
+			'stood': {
+				text: function() {
+					var lines = [
+						_('you stand in the light where the shape of you is unambiguous, and you do not say anything.'),
+						_('after a while the middle one says something to the other two and they leave.')
+					];
+					if($SM.get('character.karma', true) < 0) {
+						lines.push(_('the builder watches you do it and does not comment on how easily it came.'));
+					} else {
+						lines.push(_('nothing happens. it is the loudest nothing you have stood through in a long time.'));
+					}
+					return lines;
+				},
+				notification: _('they decide against it'),
+				buttons: {
+					'end': { text: _('go back inside'), nextScene: 'end' }
+				}
+			}
+		},
+		audio: AudioLibrary.EVENT_SOLDIER_ATTACK
+	},
+
+	{ /* She gets hurt, and there is nobody else to do the work */
+		title: _('Her Hands'),
+		isAvailable: function() {
+			return Engine.activeModule === Room && Outside.isSolitary() &&
+				$SM.get('game.builder.level', true) >= 4;
+		},
+		scenes: {
+			'start': {
+				text: [
+					_('she has done something to her hand and has not mentioned it, and has been working one-handed for long enough that you only notice now.'),
+					_('there is nobody else here to take the work off her. that was the arrangement.'),
+					_('she says it is fine. it is visibly not fine.')
+				],
+				notification: _('she has hurt her hand and said nothing'),
+				buttons: {
+					'medicine': {
+						text: _('use medicine on it'),
+						cost: { 'medicine': 1 },
+						available: function() {
+							return $SM.get('stores.medicine', true) >= 1;
+						},
+						nextScene: { 1: 'treated' }
+					},
+					'rest': {
+						text: _('do the work yourself for a few days'),
+						nextScene: { 1: 'rested' }
+					},
+					'ignore': {
+						text: _('take her at her word'),
+						nextScene: { 1: 'ignored' }
+					}
+				}
+			},
+			'treated': {
+				text: [
+					_('she lets you do it, which takes longer than the doing.'),
+					_('says thank you once, plainly, and then talks about something else for the rest of the evening.')
+				],
+				notification: _('the hand is treated'),
+				onLoad: function() { $SM.add('character.karma', 2); },
+				buttons: {
+					'end': { text: _('let her change the subject'), nextScene: 'end' }
+				}
+			},
+			'rested': {
+				text: [
+					_('you are not good at any of it and she watches you be bad at it with visible restraint.'),
+					_('the meat gets salted late and some of it is wasted. the hand gets better.')
+				],
+				notification: _('the work gets done badly'),
+				onLoad: function() {
+					$SM.add('character.karma', 1);
+					var meat = $SM.get('stores["cured meat"]', true);
+					if(meat > 0) {
+						$SM.add('stores["cured meat"]', -Math.ceil(meat * 0.15));
+					}
+				},
+				buttons: {
+					'end': { text: _('keep at it'), nextScene: 'end' }
+				}
+			},
+			'ignored': {
+				text: [
+					_('she says it is fine and you agree that it is fine and the subject is closed.'),
+					_('it takes three weeks longer than it needed to, and the salting is slower for all of them.')
+				],
+				notification: _('the subject is closed'),
+				onLoad: function() {
+					$SM.add('character.karma', -2);
+					var meat2 = $SM.get('stores["cured meat"]', true);
+					if(meat2 > 0) {
+						$SM.add('stores["cured meat"]', -Math.ceil(meat2 * 0.3));
+					}
+				},
+				buttons: {
+					'end': { text: _('let it be closed'), nextScene: 'end' }
+				}
+			}
+		},
+		audio: AudioLibrary.EVENT_HMMM
+
 	}
 ];
