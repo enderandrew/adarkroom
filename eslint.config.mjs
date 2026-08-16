@@ -66,7 +66,7 @@ const GAME_GLOBALS = {
 	Path: 'readonly', Ship: 'readonly', Space: 'readonly', Fabricator: 'readonly',
 	Prestige: 'readonly', Score: 'readonly', Localization: 'readonly',
 	Distress: 'readonly', Glyphs: 'readonly', Ruins: 'readonly',
-	Temple: 'readonly', Crater: 'readonly', Hazard: 'readonly', Builder: 'readonly', Swamp: 'readonly', Village: 'readonly', Maze: 'readonly', Lab: 'readonly', Swipe: 'readonly', EasterEggs: 'readonly', Graveyard: 'readonly',
+	Temple: 'readonly', Crater: 'readonly', Hazard: 'readonly', Builder: 'readonly', Swamp: 'readonly', Village: 'readonly', Prison: 'readonly', Maze: 'readonly', Lab: 'readonly', Swipe: 'readonly', EasterEggs: 'readonly', Graveyard: 'readonly',
 	repeatChar: 'readonly',   // declared in maze.js
 	hotKeys: 'readonly', bindHotKeys: 'readonly',
 	Dropbox: 'readonly', Client: 'readonly',

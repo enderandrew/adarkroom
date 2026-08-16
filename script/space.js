@@ -537,6 +537,62 @@ var Space = {
 			const line = (html, delay) => Space.outroLine(c, html, delay);
 			const redeemed = Space.isRedeemed();
 			const alone = Space.wentAlone();
+			const crystal = (typeof Prison !== 'undefined') && Prison.hasFinalCrystal();
+
+			/* ---- The last crystal ----
+			 *
+			 * Checked before everything else. A player carrying the thing
+			 * out of the Profane's cell has one question left and no reason
+			 * left not to answer it, and that outranks how they got off the
+			 * rock. Karma still splits it, because what they find in there
+			 * depends on who they turned out to be this time.
+			 *
+			 * The crystal is deliberately NOT resolved -- the player learns
+			 * what the Profane showed them and the game stops there. What
+			 * was on it is the one thing the game does not say. */
+			if (crystal) {
+				line('the rock falls away. the sky goes from blue to black without appearing to change.', 2000);
+				line('there is nothing left to do for a while, and nowhere left to go, and nothing left to reach for.', 7000);
+				line('and the thing at the bottom of the pack is still there.', 11000);
+				line('you take the gloves off.', 15000);
+
+				if (redeemed) {
+					line('it is not a memory. the others were memories.<br>this is a thing somebody made, deliberately, to be handed to one person.', 19000);
+					line('four hundred centuries ago somebody sat in a shielded room, holding this, waiting for you to come and ask.', 24000);
+					line('you see what they saw. it is exactly as impossible as it was the first time.<br>and it is exactly as true.', 29000);
+					line('the difference is that this time you already know what it costs to act on it.', 34000);
+					line('you put it down. you do not put it away.<br>the fleet goes on climbing.', 39000);
+
+					/* The love reveal, held back from every other scene that
+					 * touched it -- the vats, the temple's "another way",
+					 * the cell -- for exactly this moment. She has followed
+					 * every version of this through, without once being
+					 * asked to, and the one thing she asks for in return is
+					 * the one thing the player has never had to give anyone:
+					 * an honest answer to a direct question. */
+					line('the builder has followed you through all of it, and you never once asked her to.', 44000);
+					line('lovingly, she has given you everything. she asks for one thing back.<br>"why did you do it?"', 49000);
+					line('"to know someone is to love someone. you cannot help who you love."', 54000);
+					setTimeout(resolve, 59000);
+				} else {
+					line('it is not a memory. the others were memories.<br>this is a thing somebody made, deliberately, to be handed to one person.', 19000);
+					line('you see what they saw.', 24000);
+					line('it is still true. that is the part nobody ever believes and it has never once stopped being the part that matters.', 28000);
+					line('and you understand, finally and completely, why you opened that door --<br>and that you would open it again, and that this is not remorse, and never was.', 33000);
+					line('somewhere behind you the rock keeps turning. there is a room on it with a fire in it.<br>you do not look back at it.', 39000);
+
+					/* Same devotion, met with the same evasion the player has
+					 * been running the whole game. Not a lie -- both halves
+					 * of the line are true -- but it answers a different
+					 * question than the one she asked, and they both know
+					 * it, and she does not press. */
+					line('the builder has followed you through all of it, and you never once asked her to.', 44000);
+					line('devotedly, she has given you everything. she asks for one thing back.<br>"why did you do it?"', 49000);
+					line('"i could never have done any of this without you. but you would never understand."', 54000);
+					setTimeout(resolve, 59000);
+				}
+				return;
+			}
 
 			/* ---- Solitary endings: nobody ever followed you ----
 			 *

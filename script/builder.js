@@ -191,6 +191,10 @@ var Builder = {
 			flag: 'builderStrata',
 			text: _("she asks how thick the layers were. when you tell her, she goes quiet in the specific way she goes quiet when a number means something to her that it does not mean to you.")
 		},
+		prison: {
+			flag: 'builderPrison',
+			text: _("she asks how you got in. you tell her about the six handprints and she stops what she is doing entirely. says that is not a lock, that is a quorum, and that nobody was ever meant to open that door on their own -- and then does not ask the obvious next question, and you both let her not ask it.")
+		},
 		concordance: {
 			flag: 'builderConcordance',
 			text: _("she asks you to say the charter again, slowly, and mouths the last line along with you the second time. says she did not know anyone had written that down. says somebody should have.")

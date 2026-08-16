@@ -3335,6 +3335,370 @@ Events.Setpieces = {
 			}
 		}
 	},
+	"prison": { /* The Prison */
+		title: _('A Locked-Down Prison'),
+		audio: AudioLibrary.LANDMARK_RUINS,
+		scenes: {
+			'start': {
+				text: function() {
+					var lines = [
+						_('it is one piece. no seams, no windows, no join where a door would have to be.'),
+						_('the only openings are vent slits, finger-width, and there are not many of them.'),
+						_('whatever this is, it was not built to be opened from outside. it was built so that opening it would have to be a decision somebody made from within.')
+					];
+					if(!Prison.canEnter()) {
+						lines.push(_('you walk the whole face of it twice. there is nothing here to try.'));
+					}
+					return lines;
+				},
+				notification: _('a structure with no way into it'),
+				onLoad: function() {
+					World.markVisited(World.curPos[0], World.curPos[1]);
+				},
+				buttons: {
+					'open': {
+						text: _('put your hands on the wall'),
+						/* The Lab is the key. Before it, the player has
+						 * nothing to try and the button does not exist --
+						 * this is a wall to come back to, the same shape as
+						 * the Lab's own door. */
+						available: function() { return Prison.canEnter(); },
+						nextScene: function() {
+							return Prison.hasOpened() ? 'hub' : 'handprints';
+						}
+					},
+					'leave': {
+						text: _('leave'),
+						nextScene: 'end'
+					}
+				}
+			},
+
+			'handprints': {
+				text: [
+					_('your hands go up before you have decided to raise them.'),
+					_('not two. six. the placements are exact and they are nowhere near each other, and three of them are at heights you cannot reach.'),
+					_('you stand there with both palms flat on stone that has no markings on it, and you know -- the way you know your own name, which you do not -- that this is wrong. that it is supposed to be six. that it was never a lock at all, only a thing that could not be done alone.'),
+					_('the wall reads what is there and finds four fewer hands than it needs.'),
+					_('and then it opens anyway, because whatever is inside recognised you before the sensors did.')
+				],
+				notification: _('the wall opens'),
+				onLoad: function() {
+					Prison.open();
+					Prison.defineMazes();
+				},
+				buttons: {
+					'in': {
+						text: _('go in'),
+						nextScene: { 1: 'hub' }
+					}
+				}
+			},
+
+			/* ---- the hub: three wings in any order ---- */
+			'hub': {
+				text: function() {
+					var lines = [
+						_('a junction, and three ways off it, and each one ends in a shape you can see from here.')
+					];
+					var n = Prison.crystalCount();
+					if(n === 0) {
+						lines.push(_('a cube. a tetrahedron. a sphere. all three older than the wanderers, and all three used since for something the wanderers needed.'));
+					} else if(n < 3) {
+						lines.push(_('{0} of the three are dark now. what is left is still lit.', n));
+					} else {
+						lines.push(_('all three are dark. and at the junction, in the floor, three recesses that were not there before -- or were, and you had no reason to look down.'));
+					}
+					return lines;
+				},
+				notification: _('three ways, and a shape at the end of each'),
+				onLoad: function() { Prison.defineMazes(); },
+				buttons: {
+					'cube': {
+						text: _('the cube'),
+						available: function() { return !Prison.hasCrystal('cube'); },
+						onChoose: function() { Maze.rewind('prison_cube'); },
+						nextScene: { 1: 'wing_cube' }
+					},
+					'tetra': {
+						text: _('the tetrahedron'),
+						available: function() { return !Prison.hasCrystal('tetra'); },
+						onChoose: function() { Maze.rewind('prison_tetra'); },
+						nextScene: { 1: 'wing_tetra' }
+					},
+					'sphere': {
+						text: _('the sphere'),
+						available: function() { return !Prison.hasCrystal('sphere'); },
+						onChoose: function() { Maze.rewind('prison_sphere'); },
+						nextScene: { 1: 'wing_sphere' }
+					},
+					'core': {
+						text: _('set the three in the floor'),
+						available: function() { return Prison.coreUnlocked() && !Prison.hasFinalCrystal(); },
+						onChoose: function() { Maze.rewind('prison_core'); },
+						nextScene: { 1: 'coreOpen' }
+					},
+					'leave': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			},
+
+			'wing_cube': {
+				text: [_('the corridor is square in section, exactly, and stays exactly square the whole way.')],
+				onLoad: function() { Prison.defineMazes(); },
+				onRender: function() { Maze.render('prison_cube', 'wing_cube'); },
+				buttons: {
+					'leave': { text: _('back to the junction'), nextScene: { 1: 'hub' } }
+				}
+			},
+			'wing_tetra': {
+				text: [_('the walls lean in overhead and meet. every surface is a triangle and none of them are the same triangle.')],
+				onLoad: function() { Prison.defineMazes(); },
+				onRender: function() { Maze.render('prison_tetra', 'wing_tetra'); },
+				buttons: {
+					'leave': { text: _('back to the junction'), nextScene: { 1: 'hub' } }
+				}
+			},
+			'wing_sphere': {
+				text: [_('there are no corners anywhere in this wing. the floor is the wall is the ceiling and the curve never gives you a straight line to fix on.')],
+				onLoad: function() { Prison.defineMazes(); },
+				onRender: function() { Maze.render('prison_sphere', 'wing_sphere'); },
+				buttons: {
+					'leave': { text: _('back to the junction'), nextScene: { 1: 'hub' } }
+				}
+			},
+			/* ---- deep history: what each wing was, long before the trial ---- */
+			'hist_cube': {
+				text: [
+					_('a hall, and in the middle of it, on a plinth, a bar of metal in a case that is still holding vacuum.'),
+					_('the plates around the wall are an instruction. this bar is the length. every length in the infinite expanse was cut to match this one, and every copy was brought back here and checked against it, and the ones that had drifted were destroyed.'),
+					_('a cube because a cube is what you build when a thing has to be the same from every side, and be seen to be.'),
+					_('they were not measuring for the sake of it. an expanse that size only holds together if a part made at one end fits a machine at the other. this room is the reason any of it worked.'),
+					_('the case is intact. the bar inside it is still exactly the length. there is nothing left anywhere to check against it.')
+				],
+				notification: _('the hall where a unit of measure was kept'),
+				buttons: {
+					'back': { text: _('go on'), nextScene: { 1: 'wing_cube' } }
+				}
+			},
+			'hist_tetra': {
+				text: [
+					_('four faces, four legs into bedrock, and a table with places for eleven.'),
+					_('the boards still hold the last thing written on them, and it is not an evacuation order. it is a schedule for dismantling themselves.'),
+					_('the infinite expanse did not fall over. it was wound down, from this room, by people who could see it going and decided how it would go.'),
+					_('a tetrahedron because it is the only shape that cannot be made to wobble, and because they knew what they were sitting in the middle of.'),
+					_('the last entry is a list of what to leave behind for whoever came next. this prison is on the list. so is the observatory. so is the vein of iron you have been mining.')
+				],
+				notification: _('the room the expanse was wound down from'),
+				buttons: {
+					'back': { text: _('go on'), nextScene: { 1: 'wing_tetra' } }
+				}
+			},
+			'hist_sphere': {
+				text: [
+					_('this wing is newer than the other two by an order of magnitude, and it is still very old.'),
+					_('the wanderers cut it into the prison when they inherited the prison, which was not the same as being given it.'),
+					_('the panels are a charter of a kind: that the fleets would go outward, that a world with people on it was still a world worth having, that this had all been agreed by people who are not named here.'),
+					_('somebody has been at the last panel with a tool. the line about the people already living on those worlds is gouged out, and it was gouged out from the inside, by somebody who was locked in here.'),
+					_('a sphere because a sphere has no corner to stand in and no direction to face. whoever built this wing understood exactly what they were building.')
+				],
+				notification: _('the wing the wanderers cut for themselves'),
+				buttons: {
+					'back': { text: _('go on'), nextScene: { 1: 'wing_sphere' } }
+				}
+			},
+
+			/* ---- the trial cells ---- */
+			'cell_cube': {
+				text: [
+					_('a cell, set into the wall of the assay hall, and much newer than the hall.'),
+					_('somebody was held here through a trial. the marks on the floor are a man walking the same four paces for a long time.'),
+					_('there is a name scratched at head height and then scratched out, thoroughly, by the same hand.'),
+					_('under it, not scratched out: I COUNTERSIGNED. and beneath that, later, in a steadier hand: I WOULD AGAIN, WHICH IS THE PART THAT MATTERS.'),
+					_('they kept the man who signed things in the room where the expanse decided what correct meant. somebody chose that.')
+				],
+				notification: _('somebody was held here through a trial'),
+				buttons: {
+					'back': { text: _('go on'), nextScene: { 1: 'wing_cube' } }
+				}
+			},
+			'cell_tetra': {
+				text: [
+					_('this one was not walked in. it was worked in.'),
+					_('whoever was held here took the cell apart and put it back together better. the bunk is reseated. the vent has been rebuilt and it draws properly now. there is a bracket in the corner that is not standard issue and is doing a job the original design got wrong.'),
+					_('none of it is an escape attempt. all of it is maintenance.'),
+					_('there is one line on the wall, low down, where you would only see it sitting on the floor: HE DID NOT ASK ME TO. I KNOW HE DID NOT ASK ME TO.'),
+					_('they put the one who makes things stand up in the last room the old world built to stay standing. somebody chose that too.')
+				],
+				notification: _('this cell was repaired from the inside'),
+				buttons: {
+					'back': { text: _('go on'), nextScene: { 1: 'wing_tetra' } }
+				}
+			},
+			'cell_sphere': {
+				text: [
+					_('there is no cell in this wing. the wing is the cell.'),
+					_('no corner to put your back in. no wall to face. the curve goes on being the same curve in every direction and after a while you stop being able to say which way you came in.'),
+					_('there are no marks. not one. either nobody was held here, or whoever was held here would not give it the satisfaction.'),
+					_('the monks have a line about somebody weighed down with the weight of the stars, in a prison without walls. you had assumed that was a figure of speech.'),
+					_('it is a description of this room. somebody told them what it was like in here, and there is only one person who could have.')
+				],
+				notification: _('the wing is the cell'),
+				buttons: {
+					'back': { text: _('go on'), nextScene: { 1: 'wing_sphere' } }
+				}
+			},
+
+			/* ---- the three crystals ---- */
+			'crystal_cube': {
+				text: [
+					_('a crystal, cut as a cube, sitting in a socket that was made for it.'),
+					_('it is warm. it is the same warmth as the one in the ruins, and you already know what happens if you touch it, and you touch it.'),
+					_('a room of eleven. a vote taken by people who all know each other. the word RECORD, and somebody saying that whatever else is lost, the record is not lost.'),
+					_('and then it is gone, and the crystal comes out of the socket easily, as though it had been waiting to be collected.')
+				],
+				notification: _('the cube crystal'),
+				onLoad: function() { Prison.takeCrystal('cube'); },
+				buttons: {
+					'back': { text: _('back to the junction'), nextScene: { 1: 'hub' } }
+				}
+			},
+			'crystal_tetra': {
+				text: [
+					_('a crystal cut with four faces, in a socket at the apex where the walls meet.'),
+					_('hands. not yours. good at what they are doing and doing it fast, and there is a great deal to get through and not much time.'),
+					_('somebody says her name and she does not look up, and the name goes past you before you can hold on to it.'),
+					_('and then it is gone, and you are holding four flat faces and you cannot say what you have just lost.')
+				],
+				notification: _('the tetrahedron crystal'),
+				onLoad: function() { Prison.takeCrystal('tetra'); },
+				buttons: {
+					'back': { text: _('back to the junction'), nextScene: { 1: 'hub' } }
+				}
+			},
+			'crystal_sphere': {
+				text: [
+					_('the socket is in the exact centre of the wing, on nothing, and the crystal in it is a sphere.'),
+					_('you are standing where you are standing now. the room is the same room. it is lit the same way.'),
+					_('there is nothing else in the memory. no sound, no other person, no before or after. just this room, from inside, for what the memory insists was a very long time.'),
+					_('and then it is gone, and your hand closes on it, and you are shaking and cannot immediately say why.')
+				],
+				notification: _('the sphere crystal'),
+				onLoad: function() { Prison.takeCrystal('sphere'); },
+				buttons: {
+					'back': { text: _('back to the junction'), nextScene: { 1: 'hub' } }
+				}
+			},
+			/* ---- the wardens ----
+			 * Energy constructs like the Lab's, tuned harder: this is the
+			 * last location in the game and sits behind both the Executioner
+			 * upgrades and the Lab. */
+			'fight_cube': {
+				combat: true,
+				notification: _('something that was standing very still stops standing very still'),
+				enemy: 'assay warden', enemyName: _('assay warden'),
+				chara: '\u25A0', damage: 14, hit: 0.85, attackDelay: 1.8,
+				health: 160, ranged: true,
+				specials: [{ delay: 7, action: (f) => { Events.setStatus(f, 'shield'); return _('field up'); } }],
+				loot: { 'energy cell': { min: 8, max: 16, chance: 1 }, 'alien alloy': { min: 1, max: 2, chance: 0.5 } },
+				buttons: { 'continue': { text: _('go on'), cooldown: Events._LEAVE_COOLDOWN, nextScene: { 1: 'wing_cube' } } }
+			},
+			'fight_tetra': {
+				combat: true,
+				notification: _('it unfolds out of a corner that did not have room for it'),
+				enemy: 'lattice warden', enemyName: _('lattice warden'),
+				chara: '\u25B2', damage: 15, hit: 0.85, attackDelay: 1.7,
+				health: 170, ranged: true,
+				specials: [
+					{ delay: 6, action: (f) => { Events.setStatus(f, 'energised'); return _('charging'); } },
+					{ delay: 11, action: (f) => { Events.setStatus(f, 'brittle'); return _('venting'); } }
+				],
+				loot: { 'energy cell': { min: 8, max: 18, chance: 1 }, 'alien alloy': { min: 1, max: 2, chance: 0.6 } },
+				buttons: { 'continue': { text: _('go on'), cooldown: Events._LEAVE_COOLDOWN, nextScene: { 1: 'wing_tetra' } } }
+			},
+			'fight_sphere': {
+				combat: true,
+				notification: _('it comes around the curve and it was always going to'),
+				enemy: 'hollow warden', enemyName: _('hollow warden'),
+				chara: '\u25CF', damage: 16, hit: 0.85, attackDelay: 1.6,
+				health: 185, ranged: true,
+				specials: [
+					{ delay: 6, action: (f) => { Events.setStatus(f, 'regenerating'); return _('reknitting'); } },
+					{ delay: 10, action: (f) => { Events.setStatus(f, 'energised'); return _('charging'); } }
+				],
+				loot: { 'energy cell': { min: 10, max: 20, chance: 1 }, 'alien alloy': { min: 2, max: 3, chance: 0.7 } },
+				buttons: { 'continue': { text: _('go on'), cooldown: Events._LEAVE_COOLDOWN, nextScene: { 1: 'wing_sphere' } } }
+			},
+
+			/* ---- the core ---- */
+			'coreOpen': {
+				text: [
+					_('the three go into the floor and sit flush, and nothing happens for long enough that you start to feel foolish.'),
+					_('then the junction floor withdraws, all of it at once, and there are stairs, and they go down a very long way.'),
+					_('the air coming up is old in a way the rest of this place is not. nothing has breathed it.')
+				],
+				notification: _('the floor opens'),
+				onLoad: function() { Prison.defineMazes(); },
+				buttons: {
+					'down': { text: _('go down'), nextScene: { 1: 'wing_core' } }
+				}
+			},
+			'wing_core': {
+				text: [_('one corridor. it does not branch, and it is much longer than the building above it should allow.')],
+				onLoad: function() { Prison.defineMazes(); },
+				onRender: function() { Maze.render('prison_core', 'wing_core'); },
+				buttons: {
+					'leave': { text: _('go back up'), nextScene: { 1: 'hub' } }
+				}
+			},
+
+			'profane': {
+				text: [
+					_('the cell at the end is not built like the others. the others were built to hold somebody in.'),
+					_('this one was built to keep everything else out. the shielding is on the inner face. the vents run one way. there is a seat, bolted down, facing a wall with nothing on it, and the wall is six feet thick.'),
+					_('nothing in here is designed to stop a person leaving. all of it is designed to stop a person being HEARD.'),
+					_('there are records, and the records are not a criminal file. they are a transcript, and the transcript is mostly other people.'),
+					_('the profane never raised a hand. not once, in any of it. the file is very clear about that and it is the reason the file exists -- they could not charge them with anything they had done.'),
+					_('what they did was talk. they were the best anyone had ever met at it, and they were a telepath, and they could see the roads a thing might go down before anybody set out on any of them.'),
+					_('they would find the one road that ended in blood, and show it to somebody, and make it look like the only road there was. and then that person would walk it and believe the whole way that they had chosen.'),
+					_('the last section is your own testimony. you gave it before the trial, and it is one line long, and you have not read it in four hundred centuries.'),
+					_('"THEY SHOWED ME A THING THAT CANNOT BE TRUE. I KNEW IT WAS TRUE THE MOMENT I SAW IT. I HAVE NOT BEEN ABLE TO PUT IT DOWN SINCE."'),
+					_('that is why you came here. not to free them. to ask them whether it was still true.')
+				],
+				notification: _('the cell of the profane'),
+				onLoad: function() { World.clearDungeon(); },
+				buttons: {
+					'crystal': {
+						text: _('there is one more crystal'),
+						nextScene: { 1: 'lastCrystal' }
+					}
+				}
+			},
+
+			'lastCrystal': {
+				text: [
+					_('it is in the seat. not in a socket -- in the seat, where somebody sat holding it, waiting.'),
+					_('it is not cut to a shape. it is the wrong colour for a crystal and the wrong weight for its size, and it is not warm.'),
+					_('you get the gloves out of the pack without deciding to. you have handled every other one of these barehanded and you are not going to handle this one barehanded and you could not tell anybody why.'),
+					_('through two layers of leather you can feel it doing something. not to your hand. further in.'),
+					_('you put it in the bottom of the pack, under everything, and you do not touch it again.'),
+					_('not here. not yet. not until there is nowhere left to go and no reason not to know.')
+				],
+				notification: _('you take it with gloves on'),
+				onLoad: function() {
+					Prison.takeFinalCrystal();
+				},
+				buttons: {
+					'end': {
+						text: _('climb out'),
+						nextScene: 'end'
+					}
+				}
+			}
+		}
+	},
 	"cave": { /* Cave */
 		title: _('A Damp Cave'),
 		scenes: {

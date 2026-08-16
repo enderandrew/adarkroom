@@ -130,7 +130,7 @@ sandbox.$SM = {
 const context = vm.createContext(sandbox);
 
 const FILES = [
-	'script/swipe.js', 'script/easterEggs.js', 'script/audioLibrary.js', 'script/glyphs.js', 'script/ruins.js', 'script/temple.js', 'script/crater.js', 'script/hazard.js', 'script/builder.js', 'script/swamp.js', 'script/village.js', 'script/maze.js', 'script/lab.js', 'script/graveyard.js', 'script/events.js',
+	'script/swipe.js', 'script/easterEggs.js', 'script/audioLibrary.js', 'script/glyphs.js', 'script/ruins.js', 'script/temple.js', 'script/crater.js', 'script/hazard.js', 'script/builder.js', 'script/swamp.js', 'script/village.js', 'script/prison.js', 'script/maze.js', 'script/lab.js', 'script/graveyard.js', 'script/events.js',
 	'script/events/global.js', 'script/events/room.js', 'script/events/outside.js',
 	'script/events/path.js', 'script/events/road.js',
 	'script/events/encounters.js', 'script/events/setpieces.js',
@@ -313,6 +313,10 @@ function auditEvent(event, label) {
 		const MazeMod = sandbox.Maze;
 		if (LabMod && typeof LabMod.defineMazes === 'function') {
 			LabMod.defineMazes();
+		}
+		const PrisonMod = sandbox.Prison;
+		if (PrisonMod && typeof PrisonMod.defineMazes === 'function') {
+			PrisonMod.defineMazes();
 		}
 		if (MazeMod && MazeMod._defs) {
 			for (const def of Object.values(MazeMod._defs)) {
