@@ -1137,6 +1137,12 @@ var World = {
 			AudioEngine.playSound(AudioLibrary.DEATH);
 			if(!$SM.get('character.deaths')) $SM.set('character.deaths', 0);
 			$SM.add('character.deaths', 1);
+			/* Separate run-scoped flag: character.deaths is a lifetime tally
+			 * that survives prestige (the fifty-first cairn depends on it),
+			 * so it cannot answer "did I die this run". */
+			if(typeof Achievements !== 'undefined') {
+				Achievements.noteDeath();
+			}
 			$('#outerSlider').animate({opacity: '0'}, 600, 'linear', function() {
 				$('#outerSlider').css('left', '0px');
 				$('#locationSlider').css('left', '0px');

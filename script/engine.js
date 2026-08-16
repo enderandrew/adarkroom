@@ -112,6 +112,12 @@
 				Engine.loadGame();
 			}
 
+			/* Start the run clock for this session. Must come after the save
+			 * is loaded, since it folds into a total that lives in it. */
+			if(typeof Achievements !== 'undefined') {
+				Achievements.startSession();
+			}
+
 			// start loading music and events early
 			for (var key in AudioLibrary) {
 				if (
@@ -330,6 +336,11 @@
 		},
 
 		saveGame: function() {
+			/* Fold the current session's elapsed time into the stored total
+			 * before writing, so a closed tab never inflates or discards it. */
+			if(typeof Achievements !== 'undefined') {
+				Achievements.flush();
+			}
 			if(typeof Storage != 'undefined' && localStorage) {
 				if(Engine._saveTimer != null) {
 					clearTimeout(Engine._saveTimer);
@@ -655,6 +666,24 @@
 			if(sanitized === null || ctx.tooDeep) {
 				return false;
 			}
+
+			/* Marks this save as having entered play through an import
+			 * rather than continuous real-time play, covering all three
+			 * import paths (paste, file, Dropbox) in one place since
+			 * Engine.import64 is the single funnel all of them use.
+			 *
+			 * Achievements.isSpeedRun() reads this and refuses regardless of
+			 * what game.runTime says. Reported directly: importing a save
+			 * that had no runTime recorded (an old save, or one from before
+			 * this feature existed) defaulted to 0 elapsed time, and
+			 * finishing moments later trivially "beat" a 150-minute clock
+			 * that was never actually run. Baked into the sanitized state
+			 * itself -- not set via $SM -- because the page reloads
+			 * immediately after this and $SM's live State is about to be
+			 * discarded in favour of whatever gets written to localStorage
+			 * here. */
+			sanitized.game = sanitized.game || {};
+			sanitized.game.imported = true;
 
 			Engine.event('progress', 'import');
 			Engine.disableSelection();
@@ -1567,7 +1596,17 @@ var april = function() {
 			document.head.insertAdjacentHTML(
 				'beforeend',
 				'<link rel="stylesheet" href="css/april.css" />');
-			
+
+			/* The actual, load-bearing signal that April Fools content is
+			 * live -- see Achievements.inAprilMode() for why this replaced
+			 * the ?april=1 URL check, which nothing in this function's real
+			 * trigger path (the date check at the bottom of this file) ever
+			 * sets. A plain runtime property rather than $SM state: this is
+			 * a fact about the current session's environment, re-evaluated
+			 * fresh on every load, not something that should persist into a
+			 * save file or survive across days. */
+			Engine.aprilFoolsActive = true;
+
 		//}
 		
 		$('body').append($('<a>').addClass("counter")

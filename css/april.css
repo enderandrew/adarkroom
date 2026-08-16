@@ -271,3 +271,24 @@ iframe {
 	top: 0;
 	right: 0;
 }
+
+.outroContainer {
+	/* Reported directly: the space ending's starfield/nebula background is
+	 * busy and colourful, and the outro text is plain off-white with no
+	 * backdrop of its own -- readable against the game's normal fade-to-
+	 * black/white transition, but that fade doesn't fully cover what's
+	 * behind it here, and the text became close to unreadable. A solid
+	 * panel behind the whole container, rather than each individual line,
+	 * so lines fade IN to a steady backdrop instead of each carrying its
+	 * own flickering box. Tinted rather than plain black/grey to sit with
+	 * the rest of the joke rather than reading as an unstyled patch. */
+	background-color: rgba(30, 10, 28, 0.82);
+	border-radius: 16px;
+	box-shadow: 0 0 60px rgba(255, 105, 180, 0.25);
+	padding: 32px 40px;
+}
+
+.outro {
+	color: #FFF;
+	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}

@@ -539,6 +539,88 @@ var Space = {
 			const alone = Space.wentAlone();
 			const crystal = (typeof Prison !== 'undefined') && Prison.hasFinalCrystal();
 
+			/* ---- April Fools ----
+			 *
+			 * Replaces everything. Requires BOTH the ?april=1 joke build AND
+			 * the actual date -- the URL parameter alone would make this a
+			 * feature somebody could look up rather than a joke they had to
+			 * be there for.
+			 *
+			 * A parody of Silent Hill 2's dog ending, which is itself the
+			 * canonical example of a game undercutting its own bleakness on
+			 * purpose. The absurdity is the entire content: nothing here is
+			 * a claim about anything, and it is gated behind a date and an
+			 * opt-in CSS joke build so it cannot be stumbled into by anybody
+			 * taking the game seriously. */
+			if (typeof Achievements !== 'undefined' && Achievements.isAprilEnding()) {
+				line('the ship clears the debris field. the controls go dead.<br>something else has them.', 2000);
+				line('a hatch you have never seen opens in the console housing.', 6000);
+				line('there is a shiba inu inside it. it is sitting in front of a bank of equipment<br>that is very obviously the thing that has been running all of this.', 10000);
+				line('it is wearing a small headset. it has been wearing it the entire time.', 14000);
+                line('the vats. the cycle. the fire that goes out every twenty minutes.<br>the wanderer fleet. the profane. the door you opened.', 18000);
+				line('all of it. the dog. it was the dog.', 23000);
+				line('it also did 9/11.', 27000);
+				line('it looks at you with the total lack of remorse available only to a dog<br>that has never once been told no.', 31000);
+				line('it barks once, politely, and the drives come up.', 36000);
+				line('...', 40000);
+				line('happy april fools. the door out of here still works and none of this happened.', 44000);
+				setTimeout(resolve, 49000);
+				return;
+			}
+
+			/* ---- Flawless: no deaths this run, with the Lab seen ----
+			 *
+			 * A PREFIX rather than an ending. It changes what the player is
+			 * bringing to whatever ending they earned, without replacing it,
+			 * so it composes with all eleven of the others.
+			 *
+			 * Requires the Lab because the whole beat is a flashback to the
+			 * vats -- a player who never saw them has no nightmare to flash
+			 * back to, and the text would be describing something that never
+			 * happened to them. */
+			/* ---- Speed run ----
+			 *
+			 * The second prefix, and it stacks with the flawless one -- a
+			 * player who did both has earned both. Prestige-gated: on a blind
+			 * first run, 150 minutes would be a fluke rather than the mastery
+			 * this text describes.
+			 *
+			 * Runs BEFORE the flawless flashback (how you got here, then what
+			 * you brought), and both prefixes contribute their own duration to
+			 * a single running offset rather than each hardcoding a guess
+			 * about the other. */
+			const speedy = (typeof Achievements !== 'undefined') && Achievements.isSpeedRun();
+			let prefix = 0;
+			if (speedy) {
+				line('you have done this quickly. quicker than last time, and last time was quicker than the one before.', 1000);
+				line('there is a route through it now. you did not work it out so much as stop having to.', 4500);
+				line('you are getting better at this.<br>you are not sure that is the same thing as getting free of it.', 8000);
+				prefix += 11000;
+			}
+
+			/* ---- Flawless: no deaths this run, with the Lab seen ----
+			 *
+			 * A PREFIX rather than an ending: it changes what the player is
+			 * bringing to whatever ending they earned, without replacing it,
+			 * so it composes with all eleven of the others.
+			 *
+			 * Requires the Lab, because the whole beat is a flashback to the
+			 * vats -- a player who never saw them has no nightmare to flash
+			 * back to, and the text would be describing something that never
+			 * happened to them. */
+			const flawless = (typeof Achievements !== 'undefined') && Achievements.isFlawless();
+			if (flawless) {
+				line('you have not died once. not this time.', prefix + 1000);
+				line('and it comes back anyway, the way it has been coming back since you saw it:<br>the room, and the rows, and the lights going off past where you could see.', prefix + 4000);
+				line('they will try again. they are very good at it and they have had a great deal of practice.<br>but whatever comes up out of that glass will not have been out here. it will not have carried this.', prefix + 8000);
+				line('it will be you the way a copy of a page is the page.', prefix + 12000);
+				line('you find that you are not prepared for this version of you to die.<br>you have never once minded before.', prefix + 16000);
+				prefix += 19000;
+			}
+
+			/* Every subsequent line sits after whatever prefixes ran. */
+			const t = (ms) => ms + prefix;
+
 			/* ---- The last crystal ----
 			 *
 			 * Checked before everything else. A player carrying the thing
@@ -551,17 +633,70 @@ var Space = {
 			 * what the Profane showed them and the game stops there. What
 			 * was on it is the one thing the game does not say. */
 			if (crystal) {
-				line('the rock falls away. the sky goes from blue to black without appearing to change.', 2000);
-				line('there is nothing left to do for a while, and nowhere left to go, and nothing left to reach for.', 7000);
-				line('and the thing at the bottom of the pack is still there.', 11000);
-				line('you take the gloves off.', 15000);
+				line('the rock falls away. the sky goes from blue to black without appearing to change.', t(2000));
+				line('there is nothing left to do for a while, and nowhere left to go, and nothing left to reach for.', t(7000));
+				line('and the thing at the bottom of the pack is still there.', t(11000));
+				line('you take the gloves off.', t(15000));
+
+				const hasBeacon = !!$SM.get('stores["fleet beacon"]');
+				const withWanderer = $SM.get('game.metOldWanderer') === true;
+
+				/* ---- The best ending in the game ----
+				 *
+				 * The narrowest intersection possible: redeemed, alone,
+				 * carrying the crystal, AND the beacon actually connects to
+				 * a fleet. Every other ending in the file is some version of
+				 * a cost paid. This is the one where nothing is owed.
+				 *
+				 * Deliberately mirrors the ordinary Beacon+alone ending's
+				 * beats -- the pulse, the worldships, the arrival -- and
+				 * inverts every one of them: empty ships become crewed
+				 * ones, "you are no use to her" becomes a fleet that does
+				 * not need saving, and ends on the same two questions every
+				 * crystal ending ends on, just with better answers. */
+				if (redeemed && alone && hasBeacon) {
+					line('it is not a memory. the others were memories.<br>this is a thing somebody made, deliberately, to be handed to one person.', t(19000));
+					line('four hundred centuries ago somebody sat in a shielded room, holding this, waiting for you to come and ask.', t(24000));
+					line('you see what they saw. it is exactly as impossible as it was the first time.<br>and it is exactly as true.', t(29000));
+					line('the difference is that this time you already know what it costs to act on it.', t(34000));
+
+					line('the beacon pulses. coordinates are locked. the fleet is expecting you.', t(39000));
+					line('the worldships come into view exactly where they should be, and this time they are not running empty.<br>there are people on the rails, working, the way a ship is worked when there is a reason to keep it.', t(44000));
+
+					/* The Watcher is three eyes, three ears, no mouth -- it
+					 * cannot proclaim in the ordinary sense, and the payoff
+					 * has to be written through that, not around it. What
+					 * gets observed is felt rather than announced, which is
+					 * the only kind of blessing something with no mouth can
+					 * give. */
+					line('something with three eyes and no mouth is watching, and for once it does not look away.', t(49000));
+					line('it does not say anything. it has never had anything to say anything with. but you understand, the way you understood the crystal, that what is being observed is not a judgement.<br>it is a redemption. and it is being witnessed, which is the only ceremony the watchers know how to hold.', t(54000));
+
+					if (withWanderer) {
+						line('and on the bridge, at a station that had no reason to have anybody standing at it, somebody is standing at it.', t(59000));
+						line('"i told you i had made my peace with never leaving," he says. "i would like to formally revise that."', t(64000));
+						line('says the terms were never as fixed as he let you believe. says he stayed because he had nowhere he would rather be broken, and that this, apparently, is not that any more.', t(69000));
+						line('says he is prepared to follow you again, if you will have him. says the last time did not go especially well and that he has had four hundred centuries to think about what he would do differently.', t(74000));
+
+						line('the builder has followed you through all of it, and you never once asked her to.', t(79000));
+						line('lovingly, she has given you everything. she asks for one thing back.<br>"why did you do it?"', t(84000));
+						line('"to know someone is to love someone. you cannot help who you love."', t(89000));
+						setTimeout(resolve, t(94000));
+					} else {
+						line('the builder has followed you through all of it, and you never once asked her to.', t(59000));
+						line('lovingly, she has given you everything. she asks for one thing back.<br>"why did you do it?"', t(64000));
+						line('"to know someone is to love someone. you cannot help who you love."', t(69000));
+						setTimeout(resolve, t(74000));
+					}
+					return;
+				}
 
 				if (redeemed) {
-					line('it is not a memory. the others were memories.<br>this is a thing somebody made, deliberately, to be handed to one person.', 19000);
-					line('four hundred centuries ago somebody sat in a shielded room, holding this, waiting for you to come and ask.', 24000);
-					line('you see what they saw. it is exactly as impossible as it was the first time.<br>and it is exactly as true.', 29000);
-					line('the difference is that this time you already know what it costs to act on it.', 34000);
-					line('you put it down. you do not put it away.<br>the fleet goes on climbing.', 39000);
+					line('it is not a memory. the others were memories.<br>this is a thing somebody made, deliberately, to be handed to one person.', t(19000));
+					line('four hundred centuries ago somebody sat in a shielded room, holding this, waiting for you to come and ask.', t(24000));
+					line('you see what they saw. it is exactly as impossible as it was the first time.<br>and it is exactly as true.', t(29000));
+					line('the difference is that this time you already know what it costs to act on it.', t(34000));
+					line('you put it down. you do not put it away.<br>the fleet goes on climbing.', t(39000));
 
 					/* The love reveal, held back from every other scene that
 					 * touched it -- the vats, the temple's "another way",
@@ -570,26 +705,26 @@ var Space = {
 					 * asked to, and the one thing she asks for in return is
 					 * the one thing the player has never had to give anyone:
 					 * an honest answer to a direct question. */
-					line('the builder has followed you through all of it, and you never once asked her to.', 44000);
-					line('lovingly, she has given you everything. she asks for one thing back.<br>"why did you do it?"', 49000);
-					line('"to know someone is to love someone. you cannot help who you love."', 54000);
-					setTimeout(resolve, 59000);
+					line('the builder has followed you through all of it, and you never once asked her to.', t(44000));
+					line('lovingly, she has given you everything. she asks for one thing back.<br>"why did you do it?"', t(49000));
+					line('"to know someone is to love someone. you cannot help who you love."', t(54000));
+					setTimeout(resolve, t(59000));
 				} else {
-					line('it is not a memory. the others were memories.<br>this is a thing somebody made, deliberately, to be handed to one person.', 19000);
-					line('you see what they saw.', 24000);
-					line('it is still true. that is the part nobody ever believes and it has never once stopped being the part that matters.', 28000);
-					line('and you understand, finally and completely, why you opened that door --<br>and that you would open it again, and that this is not remorse, and never was.', 33000);
-					line('somewhere behind you the rock keeps turning. there is a room on it with a fire in it.<br>you do not look back at it.', 39000);
+					line('it is not a memory. the others were memories.<br>this is a thing somebody made, deliberately, to be handed to one person.', t(19000));
+					line('you see what they saw.', t(24000));
+					line('it is still true. that is the part nobody ever believes and it has never once stopped being the part that matters.', t(28000));
+					line('and you understand, finally and completely, why you opened that door --<br>and that you would open it again, and that this is not remorse, and never was.', t(33000));
+					line('somewhere behind you the rock keeps turning. there is a room on it with a fire in it.<br>you do not look back at it.', t(39000));
 
 					/* Same devotion, met with the same evasion the player has
 					 * been running the whole game. Not a lie -- both halves
 					 * of the line are true -- but it answers a different
 					 * question than the one she asked, and they both know
 					 * it, and she does not press. */
-					line('the builder has followed you through all of it, and you never once asked her to.', 44000);
-					line('devotedly, she has given you everything. she asks for one thing back.<br>"why did you do it?"', 49000);
-					line('"i could never have done any of this without you. but you would never understand."', 54000);
-					setTimeout(resolve, 59000);
+					line('the builder has followed you through all of it, and you never once asked her to.', t(44000));
+					line('devotedly, she has given you everything. she asks for one thing back.<br>"why did you do it?"', t(49000));
+					line('"i could never have done any of this without you. but you would never understand."', t(54000));
+					setTimeout(resolve, t(59000));
 				}
 				return;
 			}
@@ -604,88 +739,88 @@ var Space = {
 			 */
 			if (alone) {
 				if (!$SM.get('stores["fleet beacon"]')) {
-					line('so much debris of dead ships from long lost wars.<br>the sky opens out, and there is nobody aboard but the two of you.', 2000);
-					line('there is something else out here.<br>rings of it, vast and old, held close around the planet.', 7000);
-					line('they are not aimed outward.<br>they are aimed down. at the ground. at the room.', 12000);
+					line('so much debris of dead ships from long lost wars.<br>the sky opens out, and there is nobody aboard but the two of you.', t(2000));
+					line('there is something else out here.<br>rings of it, vast and old, held close around the planet.', t(7000));
+					line('they are not aimed outward.<br>they are aimed down. at the ground. at the room.', t(12000));
 
 					if (redeemed) {
-						line('the stations turn. they find the ship. they hold there, and do not fire.', 17000);
-						line('nothing explains it. the ship goes on climbing and nothing comes after it.', 22000);
-						line('some part of you wonders whether you escaped at all,<br>or whether this is only the part where you get to leave.', 27000);
-						line('the builder says nothing. the cabin is warm.<br>you drift off to sleep...', 32000);
-						setTimeout(resolve, 36000);
+						line('the stations turn. they find the ship. they hold there, and do not fire.', t(17000));
+						line('nothing explains it. the ship goes on climbing and nothing comes after it.', t(22000));
+						line('some part of you wonders whether you escaped at all,<br>or whether this is only the part where you get to leave.', t(27000));
+						line('the builder says nothing. the cabin is warm.<br>you drift off to sleep...', t(32000));
+						setTimeout(resolve, t(36000));
 					} else {
-						line('the stations turn. they find the ship. they fire.', 17000);
-						line('the builder does not move. she does not reach for anything.', 21000);
-						line('the light stops a long way short of the hull, bends, and goes back the way it came.<br>one station, then another, then the rest of the ring.', 25000);
-						line('she has never mentioned being able to do that.<br>you have never seen her do anything like it.', 30000);
-						line('there are things about her you do not remember and do not understand.<br>you drift off to sleep...', 35000);
-						setTimeout(resolve, 39000);
+						line('the stations turn. they find the ship. they fire.', t(17000));
+						line('the builder does not move. she does not reach for anything.', t(21000));
+						line('the light stops a long way short of the hull, bends, and goes back the way it came.<br>one station, then another, then the rest of the ring.', t(25000));
+						line('she has never mentioned being able to do that.<br>you have never seen her do anything like it.', t(30000));
+						line('there are things about her you do not remember and do not understand.<br>you drift off to sleep...', t(35000));
+						setTimeout(resolve, t(39000));
 					}
 					return;
 				}
 
 				/* Beacon + alone: the fleet answers, and there is nobody on it. */
-				line('the beacon pulses. coordinates are locked. the fleet is expecting you.', 2000);
-				line('the worldships come into view exactly where they should be, and they are running,<br>and there is not one living soul aboard any of them.', 7000);
-				line('the builder goes to the controls. all of them.', 12000);
-				line('she is working eight stations at once and touching none of them.<br>readouts move. locks release. the drives come up.', 16000);
-				line('you should know how to do this. you are certain you should know how to do this.<br>nothing comes. you stand there and you are no use to her at all.', 21000);
-				line('the stations around the planet find the fleet and open fire.', 26000);
+				line('the beacon pulses. coordinates are locked. the fleet is expecting you.', t(2000));
+				line('the worldships come into view exactly where they should be, and they are running,<br>and there is not one living soul aboard any of them.', t(7000));
+				line('the builder goes to the controls. all of them.', t(12000));
+				line('she is working eight stations at once and touching none of them.<br>readouts move. locks release. the drives come up.', t(16000));
+				line('you should know how to do this. you are certain you should know how to do this.<br>nothing comes. you stand there and you are no use to her at all.', t(21000));
+				line('the stations around the planet find the fleet and open fire.', t(26000));
 
 				if (redeemed) {
-					line('she holds it together long enough. the drives catch.', 30000);
-					line('the sky folds over and the firing stops mattering.', 34000);
-					line('there are things about her you do not remember and do not understand.<br>you drift off to sleep, in hyperspace...', 38000);
-					setTimeout(resolve, 42000);
+					line('she holds it together long enough. the drives catch.', t(30000));
+					line('the sky folds over and the firing stops mattering.', t(34000));
+					line('there are things about her you do not remember and do not understand.<br>you drift off to sleep, in hyperspace...', t(38000));
+					setTimeout(resolve, t(42000));
 				} else {
-					line('she is doing too much at once and you can see the moment it starts to come apart.', 30000);
-					line('the jump takes. it takes wrong.', 34000);
-					line('the whole fleet comes out somewhere with nothing in it but a weight,<br>and the weight has already got hold of them.', 38000);
-					line('you wake from that nightmare in a dark room...', 43000);
-					setTimeout(resolve, 47000);
+					line('she is doing too much at once and you can see the moment it starts to come apart.', t(30000));
+					line('the jump takes. it takes wrong.', t(34000));
+					line('the whole fleet comes out somewhere with nothing in it but a weight,<br>and the weight has already got hold of them.', t(38000));
+					line('you wake from that nightmare in a dark room...', t(43000));
+					setTimeout(resolve, t(47000));
 				}
 				return;
 			}
 
 			/* ---- Ship ending: escaped, but never reached the fleet ---- */
 			if (!$SM.get('stores["fleet beacon"]')) {
-				line('so much debris of dead ships from long lost wars.<br>some wanderer ships. some others.<br>sky begins to clear into an endless expanse.', 2000);
-				line('there is something else out here.<br>rings of it, vast and old, held close around the planet.', 7000);
-				line('they are not aimed outward.<br>nothing out here was ever what they were built to stop.', 12000);
+				line('so much debris of dead ships from long lost wars.<br>some wanderer ships. some others.<br>sky begins to clear into an endless expanse.', t(2000));
+				line('there is something else out here.<br>rings of it, vast and old, held close around the planet.', t(7000));
+				line('they are not aimed outward.<br>nothing out here was ever what they were built to stop.', t(12000));
 
 				if (redeemed) {
-					line('they are aimed down. at the ground. at the room.<br>maybe this is why the builder seemed resigned to staying.', 17000);
-					line('the defenses turn. they find the ship.', 22000);
-					line('they pause.', 25000);
-					line('long enough.', 27000);
-					line('escape...', 30000);
+					line('they are aimed down. at the ground. at the room.<br>maybe this is why the builder seemed resigned to staying.', t(17000));
+					line('the defenses turn. they find the ship.', t(22000));
+					line('they pause.', t(25000));
+					line('long enough.', t(27000));
+					line('escape...', t(30000));
 					/* Resolve after the last line rather than immediately, so
 					 * the ending options don't appear over the top of the
 					 * sequence the player is still reading. */
-					setTimeout(resolve, 33000);
+					setTimeout(resolve, t(33000));
 				} else {
-					line('they are aimed down. at the ground. at the room.<br>the builder never mentioned them. the builder never prepared you for this.', 17000);
-					line('the defenses turn. they find the ship.', 22000);
-					line('there is no time to evade.', 25000);
-					line('....', 28000);
-					setTimeout(resolve, 31000);
+					line('they are aimed down. at the ground. at the room.<br>the builder never mentioned them. the builder never prepared you for this.', t(17000));
+					line('the defenses turn. they find the ship.', t(22000));
+					line('there is no time to evade.', t(25000));
+					line('....', t(28000));
+					setTimeout(resolve, t(31000));
 				}
 				return;
 			}
 
 			/* ---- Fleet beacon ending: reached the homefleet ---- */
-			line('the beacon pulses gently as the ship glides through space.<br>coordinates are locked.', 2000);
-			line('time to rejoin the other wanderers, alone no more.<br>the fleet knows the way home. nothing to do but wait.', 7000);
-			line('the beacon glows a solid blue, and then goes dim. the ship slows.<br>gradually, the vast wanderer homefleet comes into view.<br>massive worldships drift unnaturally through clouds of debris, scarred and dead. no crew respond', 14000);
-			line('the air is running out.', 17000);
-			line('the capsule is cold.', 20000);
-			line('there is no fire to light.', 23000);
+			line('the beacon pulses gently as the ship glides through space.<br>coordinates are locked.', t(2000));
+			line('time to rejoin the other wanderers, alone no more.<br>the fleet knows the way home. nothing to do but wait.', t(7000));
+			line('the beacon glows a solid blue, and then goes dim. the ship slows.<br>gradually, the vast wanderer homefleet comes into view.<br>massive worldships drift unnaturally through clouds of debris, scarred and dead. no crew respond', t(14000));
+			line('the air is running out.', t(17000));
+			line('the capsule is cold.', t(20000));
+			line('there is no fire to light.', t(23000));
 
 			if (redeemed) {
-				line('the builder wonders if they can bring villagers up as a skeleton crew. deep down you know there is even more you could have done.', 26000);
+				line('the builder wonders if they can bring villagers up as a skeleton crew. deep down you know there is even more you could have done.', t(26000));
 			} else {
-				line('you have never felt so alone...', 26000);
+				line('you have never felt so alone...', t(26000));
 			}
 
 			/* Moved from 19500ms to after the karma line. The button used to
@@ -701,7 +836,7 @@ var Space = {
 						btn.addClass('disabled');
 						c.animate({ opacity: 0 }, 5000, 'linear', () => {
 							c.remove();
-							setTimeout(resolve, 3000);
+							setTimeout(resolve, t(3000));
 						})
 					}
 				}).animate({ opacity: 1 }, 500).appendTo(c);
