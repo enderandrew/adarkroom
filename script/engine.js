@@ -300,6 +300,13 @@
 				Distress.init();
 			}
 
+			/* Collapsible sections on narrow viewports. Last, so every panel
+			 * it decorates already exists. Guarded like the others so a
+			 * failed script load costs the mobile layout and nothing else. */
+			if(typeof Mobile !== 'undefined') {
+				Mobile.init();
+			}
+
 			Engine.toggleVolume(Boolean($SM.get('config.soundOn')));
 			if(!AudioEngine.isAudioContextRunning()) {
 				document.addEventListener('click', Engine.resumeAudioContext, true);

@@ -25,6 +25,12 @@ body, .tooltip, select.menuBtn {
 	background-image: url("../img/Logo0.png");
 	background-position: left 5% bottom 5%;
 	background-repeat: no-repeat;
+	/* Logo0.png is 985x125. Without a background-size it paints at native
+	 * width, so on anything narrower than about 1000px it runs off the edge
+	 * -- which is what makes it look enormous in a half-width window. Scale
+	 * it to a fraction of the viewport with a hard cap at its natural size so
+	 * it never upscales and blurs on a wide monitor. */
+	background-size: min(985px, 46vw) auto;
 }
 
 html {
@@ -108,6 +114,13 @@ div#header {
 	bottom: 10px;
 	color: #666;
 	z-index: 10;
+	/* Constrained and right-aligned. Unconstrained, the menu is a run of
+	 * inline links that wraps to whatever width is available and then
+	 * overlaps the panels -- the overlapping menu text in the middle of a
+	 * half-width window is this. */
+	max-width: 40vw;
+	text-align: right;
+	line-height: 1.6;
 }
 
 .menu span {

@@ -12,16 +12,25 @@
  * automatically changes how much width the engine thinks it has.
  *
  * Breakpoints:
- *   > 1039px  desktop: 700px panel + 320px notification gutter on the left
- *   <= 1039px gutter collapses, notification log moves below the game
- *   <= 759px  panel columns stack vertically (phones, small tablets)
+ *   > 1365px  desktop: 700px panel + 320px notification gutter on the left
+ *   <= 1365px gutter collapses, notification log moves below the game
+ *   <= 899px  single-column: panels stack, and the collapsible mobile
+ *             sections in script/mobile.js take over (see MOBILE_BREAKPOINT
+ *             there -- the two MUST agree)
+ *
+ * The first breakpoint was 1039px, which was too low. The desktop layout
+ * needs 320px of gutter + a 700px panel + the fixed menu in the
+ * bottom-right, and at 1040-1279px all three are competing for the same
+ * space -- the menu ends up overlapping the panels and the stores column
+ * gets clipped. Half of a 1440p display is 1280px, which landed exactly in
+ * that dead zone.
  */
 
 /* ---------------------------------------------------------------- *
  * Tier 1 -- no room for the left notification gutter
  * ---------------------------------------------------------------- */
 
-@media (max-width: 1039px) {
+@media (max-width: 1365px) {
 	:root {
 		--notification-gutter: 0px;
 	}
@@ -85,7 +94,7 @@
  * Tier 2 -- phones and small tablets: stack the panel columns
  * ---------------------------------------------------------------- */
 
-@media (max-width: 759px) {
+@media (max-width: 899px) {
 	/* Touch targets. The desktop 100px button is fine with a mouse and
 	   fiddly with a thumb. */
 	div.button {
@@ -266,5 +275,185 @@
 
 	div#notifications {
 		height: 90px;
+	}
+}
+
+/* ---------------------------------------------------------------- *
+ * Mobile collapsible sections (script/mobile.js)
+ *
+ * The header is a SIBLING of the container it controls, never a parent --
+ * the game writes into these containers from a dozen places and several of
+ * them .empty() or use direct-child selectors, so wrapping them would break
+ * that. See the note at the top of script/mobile.js.
+ * ---------------------------------------------------------------- */
+
+.mobileSectionHeader {
+	display: none;
+}
+
+html.mobileLayout .mobileSectionHeader {
+	display: block;
+	border: 1px solid #000;
+	padding: 12px 14px;
+	margin: 8px 0 4px 0;
+	cursor: pointer;
+	font-weight: bold;
+	position: relative;
+	user-select: none;
+	-webkit-user-select: none;
+	/* Big enough to hit with a thumb without aiming. */
+	min-height: 20px;
+}
+
+html.mobileLayout .mobileSectionHeader:after {
+	content: '\2212';           /* minus: section is open */
+	position: absolute;
+	right: 14px;
+	top: 12px;
+}
+
+html.mobileLayout .mobileSectionHeader.collapsed:after {
+	content: '+';
+}
+
+html.mobileLayout .mobileCollapsed {
+	display: none !important;
+}
+
+/* The stores/weapons boxes draw their own legend via a :before with the
+   section name in it. With a header above them that is the name twice. */
+html.mobileLayout div#stores:before,
+html.mobileLayout div#weapons:before {
+	display: none;
+}
+
+html.mobileLayout div#stores,
+html.mobileLayout div#weapons {
+	margin-top: 0;
+}
+
+/* ---------------------------------------------------------------- *
+ * Single column, at the same width the mobile sections switch on
+ * ---------------------------------------------------------------- */
+
+@media (max-width: 899px) {
+	/* Everything absolutely positioned for a 700px stage comes back into
+	   normal flow and stacks. */
+	div#buildBtns,
+	div#craftBtns,
+	div#buyBtns,
+	div#storesContainer,
+	div#village,
+	div#workers,
+	div#perks,
+	div#blueprints {
+		position: relative !important;
+		top: auto !important;
+		left: auto !important;
+		right: auto !important;
+		width: auto !important;
+		margin: 0 0 4px 0;
+	}
+
+	div#stores,
+	div#weapons {
+		width: auto;
+		box-sizing: border-box;
+	}
+
+	/* Buttons go full width so they are easy to hit and the column reads as
+	   a list rather than a ragged grid. */
+	html.mobileLayout div.button {
+		width: auto;
+		box-sizing: border-box;
+		display: block;
+		float: none;
+		margin: 0 0 6px 0;
+		padding: 12px 10px;
+		min-width: 0;
+	}
+
+	/* The room's own two always-visible buttons stay full width and out of
+	   any collapsible section -- they are the primary action on the screen. */
+	html.mobileLayout div#roomPanel > div.button,
+	html.mobileLayout div#outsidePanel > div.button {
+		margin-bottom: 10px;
+	}
+
+	/* --- World map ---
+	   67 columns of monospace at the desktop size is far wider than a phone.
+	   Shrink the cell so more of the map is on screen at once, and keep the
+	   sideways scroll for the rest rather than squashing the grid out of
+	   alignment. */
+	#map {
+		font-size: 0.62rem;
+		line-height: 0.62rem;
+		letter-spacing: 0;
+	}
+
+	#worldOuter {
+		max-width: 100%;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	/* World status row wraps rather than running off the edge. */
+	#worldPanel .row_key,
+	#worldPanel .row_val {
+		display: inline-block;
+	}
+}
+
+/* ---------------------------------------------------------------- *
+ * Phones proper
+ * ---------------------------------------------------------------- */
+
+@media (max-width: 559px) {
+	/* The decorative logo is the single biggest thing on the page and has no
+	   function. Below this width the screen is needed for the game. */
+	body, .tooltip, select.menuBtn {
+		background-image: none;
+	}
+
+	div#wrapper {
+		padding: 12px 8px 0 8px;
+	}
+
+	/* The menu is a fixed overlay; on a phone it covers real content. Put it
+	   in the flow at the bottom where it can be scrolled to. */
+	.menu {
+		position: relative;
+		right: auto;
+		bottom: auto;
+		max-width: 100%;
+		text-align: left;
+		margin: 16px 0 24px 0;
+	}
+
+	.menu span,
+	.menu .menuBtn {
+		display: inline-block;
+		padding: 6px 8px 6px 0;
+	}
+
+	#map {
+		font-size: 0.55rem;
+		line-height: 0.55rem;
+	}
+
+	.eventPanel {
+		max-width: calc(100% - 20px);
+	}
+
+	/* Glyph puzzles: keep the 6x6 grid on screen at all. */
+	div.glyphCell {
+		width: 36px;
+		height: 36px;
+		line-height: 36px;
+		font-size: 18px;
+	}
+
+	div.glyphRow {
+		height: 38px;
 	}
 }

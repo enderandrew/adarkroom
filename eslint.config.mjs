@@ -44,6 +44,7 @@ const BROWSER_GLOBALS = {
 	setTimeout: 'readonly', clearTimeout: 'readonly',
 	setInterval: 'readonly', clearInterval: 'readonly',
 	requestAnimationFrame: 'readonly',
+	MutationObserver: 'readonly',
 	fetch: 'readonly', Promise: 'readonly', URL: 'readonly', Blob: 'readonly',
 	FileReader: 'readonly', TextEncoder: 'readonly', crypto: 'readonly',
 	btoa: 'readonly', atob: 'readonly', matchMedia: 'readonly',
@@ -66,7 +67,7 @@ const GAME_GLOBALS = {
 	Path: 'readonly', Ship: 'readonly', Space: 'readonly', Fabricator: 'readonly',
 	Prestige: 'readonly', Score: 'readonly', Localization: 'readonly',
 	Distress: 'readonly', Glyphs: 'readonly', Ruins: 'readonly',
-	Temple: 'readonly', Crater: 'readonly', Hazard: 'readonly', Builder: 'readonly', Swamp: 'readonly', Village: 'readonly', Prison: 'readonly', Achievements: 'readonly', Maze: 'readonly', Lab: 'readonly', Swipe: 'readonly', EasterEggs: 'readonly', Graveyard: 'readonly',
+	Temple: 'readonly', Crater: 'readonly', Hazard: 'readonly', Builder: 'readonly', Swamp: 'readonly', Village: 'readonly', Prison: 'readonly', Achievements: 'readonly', Mobile: 'readonly', Maze: 'readonly', Lab: 'readonly', Swipe: 'readonly', EasterEggs: 'readonly', Graveyard: 'readonly',
 	repeatChar: 'readonly',   // declared in maze.js
 	hotKeys: 'readonly', bindHotKeys: 'readonly',
 	Dropbox: 'readonly', Client: 'readonly',
