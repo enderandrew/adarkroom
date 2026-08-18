@@ -14,9 +14,17 @@
  * Breakpoints:
  *   > 1365px  desktop: 700px panel + 320px notification gutter on the left
  *   <= 1365px gutter collapses, notification log moves below the game
- *   <= 899px  single-column: panels stack, and the collapsible mobile
- *             sections in script/mobile.js take over (see MOBILE_BREAKPOINT
+ *   <= 1365px single-column: panels stack, and the collapsible mobile
+ *             sections in script/mobile.js take over (see Mobile.BREAKPOINT
  *             there -- the two MUST agree)
+ *
+ * The stacking tier was 899px, which left a dead band from 900-1365px where
+ * the gutter had already collapsed but the panels were still laid out as
+ * three absolutely-positioned columns plus a right-pinned stores box. A
+ * device-emulator viewport around 970px landed in it and got the desktop
+ * column layout on a phone-sized screen. Both tiers are now the same
+ * number: if there is not room for the gutter, there is not room for the
+ * columns either.
  *
  * The first breakpoint was 1039px, which was too low. The desktop layout
  * needs 320px of gutter + a 700px panel + the fixed menu in the
@@ -85,8 +93,12 @@
 		overflow: hidden;
 	}
 
+	/* The logo is purely decorative and is the single largest thing on the
+	 * page. Once the notification gutter has collapsed there is no spare
+	 * space for it, and it sits behind the notification log -- the text
+	 * overlapping "A DARKER ROOM" in the reports is that. */
 	body {
-		background-image: none;
+		background-image: none !important;
 	}
 }
 
@@ -94,7 +106,7 @@
  * Tier 2 -- phones and small tablets: stack the panel columns
  * ---------------------------------------------------------------- */
 
-@media (max-width: 899px) {
+@media (max-width: 1365px) {
 	/* Touch targets. The desktop 100px button is fine with a mouse and
 	   fiddly with a thumb. */
 	div.button {
@@ -137,10 +149,29 @@
 		margin-top: 20px;
 	}
 
+	/* Centre the play area once the gutter has gone.
+	 *
+	 * #wrapper is `margin: auto` with `width: var(--panel-width)`, but the
+	 * gutter used to be supplied as left padding -- with that removed the
+	 * whole game sat hard against the left edge of a wide window with all
+	 * the empty space on the right, which is how the reported 1270px window
+	 * looked. */
+	div#wrapper {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	/* NOT width:auto. #storesContainer is position:absolute, so width:auto on
+	 * its children resolves to shrink-to-fit -- and every row inside is a
+	 * floated .row_key / .row_val pair, which contributes almost nothing to
+	 * that calculation. The box collapses to a fraction of its content and
+	 * clips the item names ("cured meat" -> "cured r"). An explicit width is
+	 * required here; only the container is allowed to go fluid. */
 	div#stores,
 	div#weapons {
-		width: auto;
-		max-width: 100%;
+		width: 200px;
+		max-width: calc(100vw - 40px);
+		box-sizing: border-box;
 	}
 
 	/* --- Outside: village box and worker list stack --- */
@@ -327,16 +358,12 @@ html.mobileLayout div#weapons:before {
 	display: none;
 }
 
-html.mobileLayout div#stores,
-html.mobileLayout div#weapons {
-	margin-top: 0;
-}
 
 /* ---------------------------------------------------------------- *
  * Single column, at the same width the mobile sections switch on
  * ---------------------------------------------------------------- */
 
-@media (max-width: 899px) {
+@media (max-width: 1365px) {
 	/* Everything absolutely positioned for a 700px stage comes back into
 	   normal flow and stacks. */
 	div#buildBtns,
@@ -355,10 +382,43 @@ html.mobileLayout div#weapons {
 		margin: 0 0 4px 0;
 	}
 
-	div#stores,
-	div#weapons {
-		width: auto;
+	/* Same reason as above -- an explicit width, never auto. In the mobile
+	 * single-column layout the container is back in normal flow, so the box
+	 * can fill the column -- but capped.
+	 *
+	 * .row_key floats left and .row_val floats right, so at a full 700px the
+	 * item name sits at one edge and its number at the other with half a
+	 * screen of blank between them, which is unreadable as a pair. Capping
+	 * the box keeps the two ends of each row close enough to scan. */
+	html.mobileLayout div#stores,
+	html.mobileLayout div#weapons {
+		width: 100%;
+		max-width: 420px;
 		box-sizing: border-box;
+		/* Folded in from a second, separate rule for the same selector that
+		 * sat further up the file. Two rules in two places for one selector
+		 * is how contradictory values creep in unnoticed. */
+		margin-top: 0;
+	}
+
+	/* Belt and braces on the same problem: even inside the cap, make the
+	   number a defined column against the name rather than relying purely on
+	   the float reaching the far edge. */
+	html.mobileLayout .storeRow {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 12px;
+	}
+
+	html.mobileLayout .storeRow .row_key,
+	html.mobileLayout .storeRow .row_val {
+		float: none;
+		clear: none;
+	}
+
+	html.mobileLayout .storeRow .clear {
+		display: none;
 	}
 
 	/* Buttons go full width so they are easy to hit and the column reads as

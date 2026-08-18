@@ -22,14 +22,24 @@ body, .tooltip, select.menuBtn {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+/* The decorative logo, on BODY ONLY.
+ *
+ * It used to live in the compound `body, .tooltip, select.menuBtn` rule
+ * above, which meant every tooltip and the language dropdown each painted
+ * their own copy of a 985x125 image behind their text. Almost certainly
+ * unintended, and it made the whole compound rule's specificity the thing
+ * governing whether the logo could be turned off -- which is why hiding it
+ * needed to fight a selector that had nothing to do with the background.
+ *
+ * Logo0.png is 985x125 and had no background-size, so it painted at native
+ * width and ran off the edge of any window narrower than about 1000px.
+ * Capped at its natural size so it never upscales and blurs. */
+body {
 	background-image: url("../img/Logo0.png");
 	background-position: left 5% bottom 5%;
 	background-repeat: no-repeat;
-	/* Logo0.png is 985x125. Without a background-size it paints at native
-	 * width, so on anything narrower than about 1000px it runs off the edge
-	 * -- which is what makes it look enormous in a half-width window. Scale
-	 * it to a fraction of the viewport with a hard cap at its natural size so
-	 * it never upscales and blurs on a wide monitor. */
 	background-size: min(985px, 46vw) auto;
 }
 
@@ -118,9 +128,45 @@ div#header {
 	 * inline links that wraps to whatever width is available and then
 	 * overlaps the panels -- the overlapping menu text in the middle of a
 	 * half-width window is this. */
-	max-width: 40vw;
+	/* A flex row that wraps cleanly and is right-aligned as a block.
+	 *
+	 * As a run of inline spans it wrapped mid-list and left items sitting on
+	 * top of each other with ragged, unpredictable gaps -- the overlapping
+	 * "dropbox / language" and half-cut "get the app" in the reports are
+	 * that. Flex gives every item the same gap and lets the whole block
+	 * reflow as one unit. */
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	align-items: baseline;
+	gap: 4px 14px;
+	/* Wide enough to stay a single clean row on a large display, and it
+	 * wraps only when it genuinely has to.
+	 *
+	 * The previous value was 360px, which forced the whole menu to wrap into
+	 * a tight three-line cluster in the bottom-right corner even on a 2560px
+	 * screen with metres of room -- reported directly. 360px was picked to
+	 * stop it overlapping the panels at ~1280px, but flex-wrap already
+	 * handles that: the cap only needs to keep the menu clear of the play
+	 * area, not compress it. min() keeps it inside the viewport on small
+	 * screens without pinning it small on big ones. */
+	max-width: min(900px, 52vw);
 	text-align: right;
 	line-height: 1.6;
+	white-space: nowrap;
+}
+
+/* Each item is atomic -- "get the app." should never break across lines
+   even though the row itself may wrap between items. */
+.menu .menuBtn {
+	white-space: nowrap;
+}
+
+/* The language <select> is a form control and picks up none of the span
+   spacing; without this it sits on a different baseline to everything else. */
+.menu select.menuBtn {
+	margin: 0;
+	vertical-align: baseline;
 }
 
 .menu span {
@@ -131,6 +177,18 @@ div#header {
 
 .customSelect {
 	height: 20px;
+	/* The options list inside is position:absolute, which by default resolves
+	 * against the nearest positioned ancestor -- with .menu being `fixed`
+	 * that meant the list anchored to the menu's bottom-right corner and sat
+	 * on top of whatever item was already there (github, in the report).
+	 *
+	 * Making the wrapper itself the containing block keeps the list attached
+	 * to the language item where it belongs, and reserving its width stops
+	 * the flex row collapsing it to nothing. */
+	position: relative;
+	display: inline-block;
+	width: 120px;
+	flex: 0 0 auto;
 }
 
 span.customSelectOptions {

@@ -519,11 +519,24 @@ var Space = {
 	/* Fades one line of outro text in at a fixed offset from the sequence
 	 * start. Extracted because the four ending variants below are otherwise
 	 * the same twelve lines of jQuery over and over. */
+	/* Translates here rather than at the ~100 call sites.
+	 *
+	 * Every ending line is passed to this as an English literal, and none of
+	 * them were wrapped in _() -- so the entire endgame, including all of the
+	 * fork's new endings, was untranslatable no matter how complete a
+	 * language file was. Doing it in the helper covers every existing call
+	 * and every future one, which matters because new endings get added
+	 * regularly and remembering to wrap each line would not survive.
+	 *
+	 * The strings still need extracting, so build/i18n.mjs treats
+	 * Space.outroLine's callers as a translatable source -- see EXTRA_CALLS
+	 * there. */
 	outroLine: (container, html, delay) => {
+		const translated = (typeof _ === 'function') ? _(html) : html;
 		setTimeout(() => {
 			$('<div>')
 				.addClass('outro')
-				.html(html)
+				.html(translated)
 				.appendTo(container)
 				.animate({ opacity: 1}, 500);
 		}, delay);

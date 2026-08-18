@@ -12,7 +12,10 @@
   "scripts": {
     "lint": "eslint lang script build tools",
     "validate": "node tools/validate-events.cjs",
-    "update_pot": "pybabel extract -F lang/babel.cfg -c \"TRANSLATORS\" script -o lang/adarkroom.pot",
+    "i18n": "node build/i18n.mjs all",
+    "i18n:status": "node build/i18n.mjs status",
+    "i18n:extract": "node build/i18n.mjs extract",
+    "i18n:compile": "node build/i18n.mjs compile",
     "build": "node build/build.mjs",
     "build:debug": "node build/build.mjs --debug",
     "build:fast": "node build/build.mjs --no-lint"

@@ -1,49 +1,375 @@
-div#notifications {
-    position: absolute;
-    top: 20px;
-    left: 0px;
-    height: 200px;
-    width: 200px;
-    overflow: hidden;
-}
-div#content {
-    position: relative;
-    overflow: hidden;
-    height: 1080px;
-}
-div#outerSlider>#main {
-    height: 1080px;
-}
-div#wrapper {
-    padding: 20px 0 0 20px
+/* ---------------------------------------------------------------------------
+ * Mobile stylesheet.
+ *
+ * Loaded ONLY by mobile.html, and it is the ONLY layout stylesheet that page
+ * loads -- css/main.css and the per-area sheets are not included. That is the
+ * whole point of the separate page: nothing here has to override a
+ * 700px-stage desktop rule, so there is not an !important in the file.
+ *
+ * Everything is a single column, full width, with generous tap targets.
+ * ------------------------------------------------------------------------ */
+
+:root {
+	--ink: #000;
+	--paper: #fff;
+	--muted: #999;
+	--line: #000;
+	--tap: 48px;          /* minimum comfortable tap target */
 }
 
-div#buildBtns {
-    position: static;
-    top: 50px;
-    left: 0px;
+* { box-sizing: border-box; }
+
+html, body {
+	margin: 0;
+	padding: 0;
+	/* Explicitly no decorative background.
+	 *
+	 * This page does not load css/main.css, so in principle the Logo0.png
+	 * body background cannot reach it -- but a tiled wall of "A DARKER ROOM"
+	 * behind an unusable page was the reported symptom of landing on the
+	 * DESKTOP page by mistake, and if that ever happens again (a stale
+	 * dist/, a partly-applied patch, a lang/*/main.css that grows a
+	 * background rule) this makes the failure quiet rather than total. */
+	background-image: none;
+	background: var(--paper);
+	color: var(--ink);
+	font-family: Raleway, "Times New Roman", Times, serif;
+	font-size: 17px;
+	line-height: 1.5;
+	-webkit-text-size-adjust: 100%;
 }
 
-div#buyBtns {
-    position: static;
-    top: 50px;
-    left: 300px;
+body.mDark { background: #000; color: #fff; }
+body.mDark .mSection,
+body.mDark .mBody,
+body.mDark #notifications,
+body.mDark .button { border-color: #fff; color: #fff; }
+
+#wrapper {
+	max-width: 700px;
+	margin: 0 auto;
+	padding: 12px 12px 40px 12px;
 }
 
-div#craftBtns {
-    position: static;
-    top: 50px;
-    left: 300px;
+#saveNotify {
+	position: fixed;
+	top: 8px;
+	right: 8px;
+	opacity: 0;
+	z-index: 30;
+	background: var(--paper);
+	padding: 4px 8px;
+	border: 1px solid var(--line);
 }
 
-div#notifications {
-    display: none;
+/* --- location tabs ------------------------------------------------------ */
+
+#header {
+	margin-bottom: 12px;
+	overflow-x: auto;
+	white-space: nowrap;
+	-webkit-overflow-scrolling: touch;
 }
 
-div.button.disabled, div.button.disabled:hover {
-    cursor: default;
-    border-color: #b2b2b2;
-    color: #b2b2b2;
-    text-decoration: none;
-    display: none;
+#header .headerButton {
+	display: inline-block;
+	padding: 10px 14px;
+	min-height: var(--tap);
+	line-height: 28px;
+	cursor: pointer;
+	color: var(--muted);
+}
+
+#header .headerButton.selected {
+	color: var(--ink);
+	text-decoration: underline;
+}
+
+/* The desktop slider machinery is meaningless in one column: panels are
+   shown and hidden outright instead of being slid between. */
+#content, #outerSlider, #main, #locationSlider {
+	position: static;
+	width: auto;
+	height: auto;
+	overflow: visible;
+	transform: none;
+	left: auto;
+	top: auto;
+}
+
+.location {
+	position: static;
+	float: none;
+	width: auto;
+}
+
+/* --- collapsible sections ----------------------------------------------- */
+
+.mSection {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border: 1px solid var(--line);
+	padding: 0 14px;
+	min-height: var(--tap);
+	margin: 8px 0 0 0;
+	cursor: pointer;
+	font-weight: bold;
+	user-select: none;
+	-webkit-user-select: none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.mSectionMark::after { content: '\2212'; }        /* minus: open */
+.mSection.closed .mSectionMark::after { content: '+'; }
+
+.mBody {
+	border: 1px solid var(--line);
+	border-top: none;
+	padding: 10px 14px;
+	position: static;
+	width: auto;
+	top: auto;
+	left: auto;
+	right: auto;
+}
+
+.mClosed { display: none; }
+
+/* The stores/weapons boxes draw their own legend; the header above is that
+   name already. */
+#stores::before, #weapons::before { display: none; }
+
+/* --- buttons ------------------------------------------------------------ */
+
+.button {
+	display: block;
+	width: 100%;
+	float: none;
+	border: 1px solid var(--line);
+	padding: 0 14px;
+	min-height: var(--tap);
+	line-height: var(--tap);
+	margin: 0 0 8px 0;
+	text-align: center;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.button:last-child { margin-bottom: 0; }
+
+.button.disabled { color: var(--muted); border-color: var(--muted); cursor: default; }
+
+/* Cooldown fill, kept from the desktop design because it carries real
+   information about when a button is usable again. */
+.button .cooldown {
+	position: absolute;
+	top: 0; left: 0; bottom: 0;
+	background: rgba(0,0,0,0.12);
+	z-index: -1;
+}
+
+/* Tooltips are hover-based and there is no hover on a touch screen. */
+.tooltip { display: none; }
+
+/* --- rows (stores, workers, supplies) ----------------------------------- */
+
+.storeRow, .rowKey, .row {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: 12px;
+	padding: 4px 0;
+}
+
+.row_key, .row_val {
+	float: none;
+	clear: none;
+}
+
+.row_key { text-align: left; }
+.row_val { text-align: right; white-space: nowrap; }
+
+/* Worker up/down controls need to be tappable, not 10px arrows. */
+.upBtn, .dnBtn, .upManyBtn, .dnManyBtn {
+	display: inline-block;
+	width: 34px;
+	height: 34px;
+	line-height: 34px;
+	text-align: center;
+	border: 1px solid var(--line);
+	margin-left: 4px;
+	cursor: pointer;
+}
+
+/* --- notifications ------------------------------------------------------ */
+
+#notifications {
+	position: static;
+	width: auto;
+	height: 220px;
+	max-height: 40vh;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	border: 1px solid var(--line);
+	padding: 10px 14px;
+	margin-top: 16px;
+	-webkit-mask-image: none;
+	mask-image: none;
+}
+
+#notifications .notification {
+	opacity: 1;
+	margin-bottom: 8px;
+}
+
+#notifyGradient { display: none; }
+
+/* --- events ------------------------------------------------------------- */
+
+.eventPanel {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: calc(100vw - 24px);
+	max-width: 560px;
+	max-height: 85vh;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	background: var(--paper);
+	border: 1px solid var(--line);
+	padding: 16px;
+	z-index: 40;
+}
+
+.eventPanel .eventTitle {
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 12px;
+}
+
+#description { margin-bottom: 14px; }
+
+/* --- combat ------------------------------------------------------------- */
+
+#fighterWrapper {
+	display: flex;
+	justify-content: space-between;
+	gap: 16px;
+	margin-bottom: 14px;
+}
+
+.fighter { flex: 1 1 0; text-align: center; }
+
+/* --- world map ---------------------------------------------------------- */
+
+#worldPanel { text-align: center; }
+
+#map {
+	font-family: "Courier New", Courier, monospace;
+	font-size: 11px;
+	line-height: 11px;
+	letter-spacing: 0;
+	display: inline-block;
+	white-space: pre;
+	overflow: auto;
+	max-width: 100%;
+	-webkit-overflow-scrolling: touch;
+}
+
+#worldPanel .row_key, #worldPanel .row_val { display: inline-block; }
+
+/* On-screen movement controls: a phone has no arrow keys, and swipe alone
+   is easy to misfire when a wrong move costs supplies. */
+#mDpad {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 6px;
+	max-width: 240px;
+	margin: 14px auto 0 auto;
+}
+
+#mDpad div {
+	border: 1px solid var(--line);
+	min-height: var(--tap);
+	line-height: var(--tap);
+	text-align: center;
+	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+}
+
+#mDpad .spacer { border: none; }
+
+/* --- settings ----------------------------------------------------------- */
+
+#mSettingsBtn { margin-top: 20px; }
+
+#mSettingsPanel {
+	border: 1px solid var(--line);
+	border-top: none;
+	padding: 6px 0;
+}
+
+/* The desktop menu is a fixed corner overlay. Here it is a plain list. */
+.mMenuList {
+	position: static;
+	display: block;
+	max-width: none;
+	text-align: left;
+	white-space: normal;
+	color: inherit;
+}
+
+.mMenuList .menuBtn,
+.mMenuList span {
+	display: block;
+	padding: 0 14px;
+	min-height: var(--tap);
+	line-height: var(--tap);
+	border-bottom: 1px solid #ddd;
+	cursor: pointer;
+}
+
+.mMenuList .menuBtn:last-child { border-bottom: none; }
+
+/* The language picker's dropdown is absolutely positioned on desktop and
+   anchors to the corner. In the list it is just another expanding row. */
+.mMenuList .customSelect {
+	position: relative;
+	width: auto;
+	height: auto;
+	padding: 0;
+}
+
+.mMenuList .customSelectOptions,
+.mMenuList .customSelectOptions > ul {
+	position: static;
+	width: auto;
+	max-height: none;
+	overflow: visible;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.mMenuList .customSelectOptions > ul > li {
+	padding: 0 14px;
+	min-height: var(--tap);
+	line-height: var(--tap);
+	border-bottom: 1px solid #ddd;
+}
+
+.mMenuList .customSelectOptions > ul > li:first-child { font-weight: bold; }
+
+/* --- misc --------------------------------------------------------------- */
+
+.logo { display: none; }
+.clear { display: none; }
+
+@media (min-width: 560px) {
+	html, body { font-size: 18px; }
+	#map { font-size: 13px; line-height: 13px; }
 }

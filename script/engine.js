@@ -99,10 +99,38 @@
 				window.location = 'browserWarning.html';
 			}
 
-			// Check for mobile
-			if(Engine.isMobile()) {
-				window.location = 'mobileWarning.html';
+			/* Mobile gets a dedicated page, not a warning and not a
+			 * responsive squeeze of this one.
+			 *
+			 * Three rounds of responsive CSS against this layout did not
+			 * work: the desktop UI is absolutely-positioned columns sized to
+			 * a fixed 700px stage plus a position:fixed corner menu, and
+			 * every mobile rule had to fight that with overrides. mobile.html
+			 * loads the same scripts and the same save data with its own
+			 * single-column presentation layer instead.
+			 *
+			 * ?desktop=1 escapes it, for anyone who would rather have the
+			 * full layout on a tablet. */
+			if(Engine.isMobile() && location.search.indexOf('desktop=1') < 0 &&
+				location.pathname.indexOf('mobile.html') < 0) {
+				window.location = 'mobile.html' + location.search;
+				return;
 			}
+
+			/* The old redirect went to mobileWarning.html.
+			 *
+			 * That page told players to come back on a desktop, and was
+			 * never copied into dist/ either, so it 404'd in any real
+			 * deployment.
+			 *
+			 * It was also broken in the built output regardless:
+			 * mobileWarning.html was never copied into dist/, so on a real
+			 * deployment a phone user got redirected to a 404 rather than to
+			 * the warning. Reported directly.
+			 *
+			 * browserWarning.html above is left alone -- that one is a
+			 * genuine capability check (no HTML5 support means the game
+			 * cannot run), not a form-factor judgement. */
 
 			Engine.disableSelection();
 
@@ -162,24 +190,12 @@
 				.click(() => Engine.toggleVolume())
 				.appendTo(menu);
 
-			$('<span>')
-				.addClass('changelog menuBtn')
-				.text(_('changelog.'))
-				.click(Engine.promptChangelog)
-				.appendTo(menu);
-
 			$('<span>')								   
 				.addClass('appStore menuBtn')
 				.text(_('get the app.'))
 				.click(Engine.getApp)
 				.appendTo(menu);
 				
-			$('<span>')								   
-				.addClass('appStore menuBtn')
-				.text(_('buy on steam.'))
-				.click(function() { window.open('https://store.steampowered.com/app/2460660/A_Dark_Room/'); })
-				.appendTo(menu);
-
 			$('<span>')
 				.addClass('lightsOff menuBtn')
 				.text(_('lights off.'))
@@ -222,14 +238,13 @@
 				.click(Engine.exportImport)
 				.appendTo(menu);
 
+			/* Dropbox link removed: the integration is not currently working,
+			 * and a menu entry that fails when tapped is worse than no entry.
+			 * Engine.Dropbox and script/dropbox.js are left in place and
+			 * still initialise below if the option is on, so this is one line
+			 * to restore rather than a rewrite, whenever it is fixed. */
 			if(this.options.dropbox && Engine.Dropbox) {
 				this.dropbox = Engine.Dropbox.init();
-
-				$('<span>')
-					.addClass('menuBtn')
-					.text(_('dropbox.'))
-					.click(Engine.Dropbox.startDropbox)
-					.appendTo(menu);
 			}
 
 			$('<span>')
@@ -300,12 +315,6 @@
 				Distress.init();
 			}
 
-			/* Collapsible sections on narrow viewports. Last, so every panel
-			 * it decorates already exists. Guarded like the others so a
-			 * failed script load costs the mobile layout and nothing else. */
-			if(typeof Mobile !== 'undefined') {
-				Mobile.init();
-			}
 
 			Engine.toggleVolume(Boolean($SM.get('config.soundOn')));
 			if(!AudioEngine.isAudioContextRunning()) {
@@ -338,8 +347,35 @@
 			return ( location.search.indexOf( 'ignorebrowser=true' ) >= 0 || ( typeof Storage != 'undefined' && !oldIE ) );
 		},
 
+		/* Narrower than this and the desktop layout does not fit, whatever
+		 * device is claiming to render it. Matches the point where the
+		 * notification gutter can no longer sit beside a 700px panel. */
+		MOBILE_MAX_WIDTH: 900,
+
 		isMobile: function() {
-			return ( location.search.indexOf( 'ignorebrowser=true' ) < 0 && /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test( navigator.userAgent ) );
+			if(location.search.indexOf('ignorebrowser=true') >= 0) { return false; }
+
+			/* User agent OR viewport width -- not user agent alone.
+			 *
+			 * A UA-only test misses every case where the screen is small but
+			 * the browser still says desktop: Chrome DevTools' "Responsive"
+			 * mode does not spoof the UA at all, so device emulation showed
+			 * the DESKTOP page squeezed into a phone-width viewport, which
+			 * is exactly the broken layout that was reported. It also misses
+			 * a genuinely narrow desktop window, and newer iPads that
+			 * deliberately report a Mac UA.
+			 *
+			 * Width is the thing that actually determines whether the
+			 * desktop layout fits, so it is the thing to test. The UA check
+			 * is kept alongside it for real phones held in landscape, where
+			 * the viewport can be wider than the cutoff. */
+			var narrow = typeof window !== 'undefined' &&
+				(window.innerWidth || document.documentElement.clientWidth || 0) > 0 &&
+				(window.innerWidth || document.documentElement.clientWidth) <= Engine.MOBILE_MAX_WIDTH;
+
+			var mobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent);
+
+			return narrow || mobileUA;
 		},
 
 		saveGame: function() {
@@ -764,6 +800,17 @@
 					start: {
 						text: [_('bring the room with you.')],
 						buttons: {
+							/* Steam folded in here from its own menu entry.
+							 * It is the same question -- where do you want to
+							 * play this -- and the menu had two links asking
+							 * it. */
+							'steam': {
+								text: _('steam'),
+								nextScene: 'end',
+								onChoose: function() {
+									window.open('https://store.steampowered.com/app/2460660/A_Dark_Room/');
+								}
+							},
 							'ios': {
 								text: _('ios'),
 								nextScene: 'end',

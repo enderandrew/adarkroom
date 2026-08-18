@@ -87,11 +87,22 @@ function checkManifestDrift() {
 	const missingFromManifest = inHtml.filter(f => !JS_SOURCES.includes(f) && !JS_STANDALONE_ASSETS.includes(f));
 	const missingFromHtml = JS_SOURCES.filter(f => !inHtml.includes(f));
 
-	// Standalone assets are required in index.html too -- just not bundled.
-	const standaloneMissingFromHtml = JS_STANDALONE_ASSETS.filter(f => !inHtml.includes(f));
+	/* Standalone assets must be referenced by a page -- just not bundled.
+	 *
+	 * Checked against index.html AND mobile.html together: script/mobileUI.js
+	 * belongs only to the mobile page, and an index.html-only check rejected
+	 * it. The purpose of this check is "is it actually served anywhere",
+	 * which either page satisfies. */
+	const mobileHtmlPath = join(ROOT, 'mobile.html');
+	const inMobileHtml = existsSync(mobileHtmlPath)
+		? [...readFileSync(mobileHtmlPath, 'utf8').matchAll(/<script src="([^"]+)"><\/script>/g)].map(m => m[1])
+		: [];
+	const referencedAnywhere = new Set([...inHtml, ...inMobileHtml]);
+
+	const standaloneMissingFromHtml = JS_STANDALONE_ASSETS.filter(f => !referencedAnywhere.has(f));
 	if (standaloneMissingFromHtml.length) {
 		fail('manifest drift',
-			'In build/manifest.mjs (JS_STANDALONE_ASSETS) but NOT referenced in index.html:\n  - ' +
+			'In build/manifest.mjs (JS_STANDALONE_ASSETS) but NOT referenced in index.html or mobile.html:\n  - ' +
 			standaloneMissingFromHtml.join('\n  - ') +
 			'\nThese scripts need their own <script src> tag; they are not part of the bundle.');
 	}
@@ -137,6 +148,34 @@ function checkManifestDrift() {
 		fail('manifest drift', problems.join('\n\n'));
 	}
 	console.log(`  drift check   ok (${JS_SOURCES.length} scripts, ${CSS_SOURCES.length} stylesheets)`);
+
+	/* Translation template staleness.
+	 *
+	 * A warning, deliberately not a failure: an out-of-date template does not
+	 * break the game (untranslated strings fall through to English), so it
+	 * must not block a build. But it went unnoticed for four years and ~2500
+	 * strings, so silence is clearly not working either. */
+	try {
+		const potPath = join(ROOT, 'lang', 'adarkroom.pot');
+		if (existsSync(potPath)) {
+			const potIds = (readFileSync(potPath, 'utf8').match(/^msgid "/gm) || []).length - 1;
+			let sourceIds = 0;
+			for (const f of JS_SOURCES) {
+				const p = join(ROOT, f);
+				if (!existsSync(p)) continue;
+				sourceIds += (readFileSync(p, 'utf8').match(/\b_\(\s*['"]/g) || []).length;
+			}
+			// Rough: call sites include duplicates, so only flag a large gap.
+			if (potIds > 0 && sourceIds > potIds * 1.5) {
+				console.log(`  i18n          WARNING: template has ${potIds} strings but source has ` +
+					`~${sourceIds} call sites -- run \`npm run i18n\``);
+			} else {
+				console.log(`  i18n          ok (${potIds} strings in template)`);
+			}
+		}
+	} catch {
+		/* Never let a reporting nicety break the build. */
+	}
 }
 
 /* ---------------------------------------------------------------------------
@@ -293,11 +332,76 @@ function buildHtml() {
 	console.log(`  index.html    ${jsCount} script + ${cssCount} stylesheet tags -> 2 bundles`);
 }
 
+/* mobile.html gets the same treatment: without it the mobile page loads ~50
+ * loose scripts while the desktop page loads one bundle, which is the worst
+ * possible split given mobile is the connection-constrained one.
+ *
+ * Its stylesheet is deliberately NOT bundled -- that page loads only
+ * css/mobile.css and none of the desktop sheets, so it keeps its own <link>
+ * and the file is shipped via CSS_RUNTIME_ASSETS. */
+function buildMobileHtml() {
+	const src = join(ROOT, 'mobile.html');
+	if (!existsSync(src)) { return; }
+	let html = readFileSync(src, 'utf8');
+
+	let replaced = 0;
+	for (const file of JS_SOURCES) {
+		const tag = new RegExp(`[\\t ]*<script src="${file.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"></script>\\n?`);
+		if (tag.test(html)) {
+			html = html.replace(tag, replaced === 0 ? '\t<script src="adarkroom.min.js"></script>\n' : '');
+			replaced++;
+		}
+	}
+
+	if (replaced !== JS_SOURCES.length) {
+		fail('html', `mobile.html: bundled ${JS_SOURCES.length} scripts but replaced ${replaced} tags. ` +
+			`It would load loose scripts alongside the bundle, or miss some entirely.`);
+	}
+
+	/* Inline the stylesheet rather than linking it.
+	 *
+	 * This page's ENTIRE appearance depends on one external file, so a single
+	 * 404 there does not degrade it -- it produces an unusable wall of
+	 * unstyled markup, which is exactly what a report showed (bulleted
+	 * language list, no layout). Causes are varied and all out of the
+	 * build's control: a partly-applied patch that dropped the
+	 * CSS_RUNTIME_ASSETS entry, a stale dist/, a server that will not serve
+	 * the path.
+	 *
+	 * It is 8kb. Inlining removes the dependency, removes a request, and
+	 * means the built page cannot render unstyled no matter what happens to
+	 * the css/ directory. The source mobile.html keeps its <link> so
+	 * development against loose files still works. */
+	const mobileCss = join(ROOT, 'css', 'mobile.css');
+	if (existsSync(mobileCss)) {
+		const linkTag = /[\t ]*<link rel="stylesheet" type="text\/css" href="css\/mobile\.css" \/>\n?/;
+		if (!linkTag.test(html)) {
+			fail('html', 'mobile.html: could not find the css/mobile.css link tag to inline.');
+		}
+		html = html.replace(linkTag,
+			'\t<style>\n' + readFileSync(mobileCss, 'utf8') + '\n\t</style>\n');
+	} else {
+		fail('html', 'css/mobile.css is missing; the mobile page would render unstyled.');
+	}
+
+	writeFileSync(join(DIST, 'mobile.html'), html);
+	console.log(`  mobile.html   ${replaced} script tags -> 1 bundle, css inlined`);
+}
+
 /* ---------------------------------------------------------------------------
  * Static assets
  * ------------------------------------------------------------------------ */
 function copyAssets() {
-	const dirs = ['audio', 'img', 'lang', 'favicon.ico', 'manifest.json'];
+	/* browserWarning.html is redirected to by Engine.init when HTML5 support
+	 * is missing, and was never copied here -- so the one user who needed it
+	 * got a 404 instead of an explanation. Found alongside the same bug in
+	 * mobileWarning.html (whose redirect has now been removed entirely). */
+	const dirs = ['audio', 'img', 'lang', 'favicon.ico', 'manifest.json',
+		'browserWarning.html'];
+	/* NOT mobile.html: buildMobileHtml() writes a rewritten copy that points
+	 * at the bundle, and this runs afterwards -- copying the raw file here
+	 * silently overwrote it, so the built mobile page shipped ~50 loose
+	 * script tags while reporting success. */
 	let copied = 0;
 	for (const a of dirs) {
 		const src = join(ROOT, a);
@@ -364,6 +468,8 @@ async function main() {
 	buildCss();
 	buildHtml();
 	copyAssets();
+	/* After copyAssets, deliberately: see the note in the asset list. */
+	buildMobileHtml();
 
 	console.log(`\n  done -> dist/\n`);
 }

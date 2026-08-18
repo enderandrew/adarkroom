@@ -44,7 +44,7 @@ export const JS_SOURCES = [
 	'script/village.js',
 	'script/prison.js',
 	'script/achievements.js',
-	'script/mobile.js',
+
 	'script/maze.js',
 	'script/lab.js',
 	'script/graveyard.js',
@@ -111,7 +111,11 @@ export const CSS_SOURCES = [
  * instead of something the build has to discover was missing from a 404. */
 export const CSS_RUNTIME_ASSETS = [
 	'css/dark.css',
-	'css/april.css'
+	'css/april.css',
+	/* mobile.html's only stylesheet. Not part of the bundle: that page
+	 * deliberately does not load the desktop sheets, so it cannot use the
+	 * combined one. */
+	'css/mobile.css'
 ];
 
 /* Scripts that must exist and be served, but are deliberately NOT part of the
@@ -131,5 +135,12 @@ export const CSS_RUNTIME_ASSETS = [
  * bundle them INTO), and the first anyone hears about a missing one is a
  * 404, or worse, a silent runtime crash three clicks into the ending. */
 export const JS_STANDALONE_ASSETS = [
-	'lib/jquery-type-shim.js'
+	'lib/jquery-type-shim.js',
+	/* mobile.html's UI layer. Deliberately NOT in JS_SOURCES -- it must not
+	 * end up in the desktop bundle -- but it still has to be SERVED, and it
+	 * was not: the built mobile page loaded script/mobileUI.js, that 404'd,
+	 * MobileUI was undefined, and none of the collapsing sections or the
+	 * settings menu ever ran. The page rendered as raw unstyled panels,
+	 * which is exactly what a report showed. */
+	'script/mobileUI.js'
 ];

@@ -1825,6 +1825,7 @@ Events.Setpieces = {
 					_('there is an offering plate near the door, and nobody is watching it.')
 				],
 				notification: _('the monks do not acknowledge you'),
+				onRender: function() { Temple.hideLabButtonIfUndiscovered(); },
 				buttons: {
 					'lab': {
 						text: _('ask about the lab'),
@@ -1884,6 +1885,7 @@ Events.Setpieces = {
 					_('some of them are human. some of them are wanderers. none of them appear to consider this worth remarking on.')
 				],
 				notification: _('the monks perceive the penitent'),
+				onRender: function() { Temple.hideLabButtonIfUndiscovered(); },
 				buttons: {
 					'supplies': {
 						text: _('say that you are short'),
@@ -2133,9 +2135,15 @@ Events.Setpieces = {
 					_('teeth ache at thirty paces.')
 				],
 				notification: _('the ground falls away into a bowl of black glass'),
-				onLoad: function() {
-					World.markVisited(World.curPos[0], World.curPos[1]);
-				},
+				/* Deliberately no markVisited() here.
+				 *
+				 * markVisited() appends '!' to the map tile, and World.doSpace()
+				 * looks landmarks up BY TILE CHARACTER -- so a marked crater could
+				 * never be routed to again. A player who found it without the
+				 * hazard suit and deliberately left the descent for later could
+				 * never come back. Same bug the Temple and the swamp both had, for
+				 * the same reason: any location meant to be revisited must not
+				 * call this. Reported directly. */
 				buttons: {
 					'rim': {
 						text: _('scrape the rim'),

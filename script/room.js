@@ -87,12 +87,27 @@ var Room = {
 			name: _('hut'),
 			button: null,
 			maximum: 25,
-			/* Permanently closed off once the player has told the builder
+			/* Two reasons the button can close, checked together.
+			 *
+			 * Permanently closed off once the player has told the builder
 			 * this journey belongs to the two of them. Nothing clears
 			 * 'solitary', so this is a one-way door for the playthrough --
-			 * which is the whole weight of the choice. */
+			 * which is the whole weight of the choice.
+			 *
+			 * Also closed once total capacity is reached counting BOTH hut
+			 * types. build()'s generic maximum check only reads
+			 * game.buildings["hut"], and a steel hut conversion decrements
+			 * that count by one without touching the cap -- so converting
+			 * wooden huts to steel dropped the wood-hut count back under 25
+			 * and reopened the button, letting the player build past the
+			 * intended 25-hut population ceiling (steel huts house the same
+			 * number as the wooden ones they replace, so this directly
+			 * inflates max population). Reported directly. */
 			isAvailable: function() {
-				return !Outside.isSolitary();
+				if(Outside.isSolitary()) { return false; }
+				var huts = $SM.get('game.buildings["hut"]', true) || 0;
+				var steelHuts = $SM.get('game.buildings["steel hut"]', true) || 0;
+				return (huts + steelHuts) < this.maximum;
 			},
 			availableMsg: _("builder says there are more wanderers. says they'll work, too."),
 			buildMsg: _('builder puts up a hut, out in the forest. says word will get around.'),

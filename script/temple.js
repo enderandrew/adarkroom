@@ -8,6 +8,27 @@
  */
 var Temple = {
 
+	/* Removes the "ask about the lab" button entirely when the player has
+	 * never been to the Lab's door.
+	 *
+	 * Lab.templeCanAdvise() (used by the button's own `available`) already
+	 * requires Lab.symbolNoticed() -- so the button was never functionally
+	 * offered before discovery. But `available: false` only DISABLES a
+	 * button in Events.drawButtons(); it still renders, greyed out. A
+	 * permanently-disabled "ask about the lab" option sitting in the Temple
+	 * before the player has ever found the Lab is itself the spoiler: it
+	 * tells them there is a Lab to go find, which is exactly the discovery
+	 * the location is built around. Reported directly.
+	 *
+	 * Called from onRender, which runs after Events.drawButtons() has
+	 * already built the button -- onLoad fires too early, before the
+	 * button DOM exists at all (see the note on onRender in events.js). */
+	hideLabButtonIfUndiscovered: function() {
+		if(!Lab.symbolNoticed()) {
+			$('#lab', Events.eventPanel()).remove();
+		}
+	},
+
 	/* Karma at or above this and the monks acknowledge you at all. The player
 	 * starts on -10, so this is not a threshold anybody drifts across by
 	 * accident -- reaching it means a run's worth of deliberately decent
