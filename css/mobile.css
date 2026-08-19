@@ -1,10 +1,19 @@
 /* ---------------------------------------------------------------------------
  * Mobile stylesheet.
  *
- * Loaded ONLY by mobile.html, and it is the ONLY layout stylesheet that page
- * loads -- css/main.css and the per-area sheets are not included. That is the
- * whole point of the separate page: nothing here has to override a
- * 700px-stage desktop rule, so there is not an !important in the file.
+ * Loaded ONLY by mobile.html, LAST, on top of the full desktop stylesheet set.
+ *
+ * This is an override layer, not a replacement. The desktop sheets supply
+ * every visual detail -- animations, combat panels, glyph puzzles, the maze
+ * renderer, the distress overlay -- and this file restates only what has to
+ * change for a single-column touch layout. An earlier version loaded alone
+ * and had to re-implement all of that; each omission surfaced as a bug
+ * report, and the list never stopped growing.
+ *
+ * Because it loads last and unconditionally there are no media queries and no
+ * specificity war -- ordinary rules win on source order. The single
+ * !important in the file is for css/dark.css, which is injected at runtime
+ * and so always lands after this one; see the note at that rule.
  *
  * Everything is a single column, full width, with generous tap targets.
  * ------------------------------------------------------------------------ */
@@ -19,7 +28,7 @@
 
 * { box-sizing: border-box; }
 
-html, body {
+html.mobileUI, html.mobileUI body {
 	margin: 0;
 	padding: 0;
 	/* Explicitly no decorative background.
@@ -30,7 +39,8 @@ html, body {
 	 * DESKTOP page by mistake, and if that ever happens again (a stale
 	 * dist/, a partly-applied patch, a lang/*/main.css that grows a
 	 * background rule) this makes the failure quiet rather than total. */
-	background-image: none;
+	/* See the dark-mode note above for why this one needs !important. */
+	background-image: none !important;
 	background: var(--paper);
 	color: var(--ink);
 	font-family: Raleway, "Times New Roman", Times, serif;
@@ -39,19 +49,26 @@ html, body {
 	-webkit-text-size-adjust: 100%;
 }
 
-body.mDark { background: #000; color: #fff; }
-body.mDark .mSection,
-body.mDark .mBody,
-body.mDark #notifications,
-body.mDark .button { border-color: #fff; color: #fff; }
+/* Dark mode is css/dark.css, injected by Engine.turnLightsOff().
+ *
+ * This page previously carried its own, because dark.css restyles selectors
+ * that only main.css defines and dropped an unstyled logo onto the page. Both
+ * of those stop being true now that the desktop sheets are loaded: dark.css
+ * applies cleanly, and its logo rule carries its own no-repeat/size.
+ *
+ * The logo is still suppressed below -- it is decorative and there is no room
+ * for it on a phone -- with the one !important in this file, because dark.css
+ * is injected into <head> at RUNTIME and therefore always lands after this
+ * stylesheet in source order. !important is the only thing that beats a later
+ * rule of equal specificity, and it is scoped to a single property. */
 
-#wrapper {
+html.mobileUI #wrapper {
 	max-width: 700px;
 	margin: 0 auto;
 	padding: 12px 12px 40px 12px;
 }
 
-#saveNotify {
+html.mobileUI #saveNotify {
 	position: fixed;
 	top: 8px;
 	right: 8px;
@@ -64,14 +81,21 @@ body.mDark .button { border-color: #fff; color: #fff; }
 
 /* --- location tabs ------------------------------------------------------ */
 
-#header {
+html.mobileUI #header {
+	/* main.css pins this to height:20px with padding-bottom:20px, sized for
+	 * a single row of desktop tabs. On a phone the location names are wider
+	 * than the viewport, so they wrap and everything below the first 20px is
+	 * clipped -- the half-visible "A Firelit Room / A Silent Forest" in the
+	 * report. */
+	height: auto;
+	padding-bottom: 8px;
 	margin-bottom: 12px;
 	overflow-x: auto;
 	white-space: nowrap;
 	-webkit-overflow-scrolling: touch;
 }
 
-#header .headerButton {
+html.mobileUI #header .headerButton {
 	display: inline-block;
 	padding: 10px 14px;
 	min-height: var(--tap);
@@ -80,14 +104,14 @@ body.mDark .button { border-color: #fff; color: #fff; }
 	color: var(--muted);
 }
 
-#header .headerButton.selected {
+html.mobileUI #header .headerButton.selected {
 	color: var(--ink);
 	text-decoration: underline;
 }
 
 /* The desktop slider machinery is meaningless in one column: panels are
    shown and hidden outright instead of being slid between. */
-#content, #outerSlider, #main, #locationSlider {
+html.mobileUI #content, html.mobileUI #outerSlider, html.mobileUI #main, html.mobileUI #locationSlider {
 	position: static;
 	width: auto;
 	height: auto;
@@ -97,7 +121,7 @@ body.mDark .button { border-color: #fff; color: #fff; }
 	top: auto;
 }
 
-.location {
+html.mobileUI .location {
 	position: static;
 	float: none;
 	width: auto;
@@ -105,7 +129,7 @@ body.mDark .button { border-color: #fff; color: #fff; }
 
 /* --- collapsible sections ----------------------------------------------- */
 
-.mSection {
+html.mobileUI .mSection {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -120,10 +144,10 @@ body.mDark .button { border-color: #fff; color: #fff; }
 	-webkit-tap-highlight-color: transparent;
 }
 
-.mSectionMark::after { content: '\2212'; }        /* minus: open */
-.mSection.closed .mSectionMark::after { content: '+'; }
+html.mobileUI .mSectionMark::after { content: '\2212'; }        /* minus: open */
+html.mobileUI .mSection.closed .mSectionMark::after { content: '+'; }
 
-.mBody {
+html.mobileUI .mBody {
 	border: 1px solid var(--line);
 	border-top: none;
 	padding: 10px 14px;
@@ -134,17 +158,24 @@ body.mDark .button { border-color: #fff; color: #fff; }
 	right: auto;
 }
 
-.mClosed { display: none; }
+html.mobileUI .mClosed { display: none; }
 
 /* The stores/weapons boxes draw their own legend; the header above is that
    name already. */
-#stores::before, #weapons::before { display: none; }
+html.mobileUI #stores::before, html.mobileUI #weapons::before { display: none; }
 
 /* --- buttons ------------------------------------------------------------ */
 
-.button {
+html.mobileUI .button {
 	display: block;
-	width: 100%;
+	/* !important is required, not preferred.
+	 *
+	 * lang/<x>/main.css forces .button{width:100px!important} and
+	 * #outsidePanel .button{width:115px!important}, and those sheets are
+	 * injected at runtime for any non-English language. Nothing but
+	 * !important beats !important, and a fixed 100px button in a fluid
+	 * column wraps its label onto two lines. */
+	width: 100% !important;
 	float: none;
 	border: 1px solid var(--line);
 	padding: 0 14px;
@@ -158,13 +189,13 @@ body.mDark .button { border-color: #fff; color: #fff; }
 	-webkit-tap-highlight-color: transparent;
 }
 
-.button:last-child { margin-bottom: 0; }
+html.mobileUI .button:last-child { margin-bottom: 0; }
 
-.button.disabled { color: var(--muted); border-color: var(--muted); cursor: default; }
+html.mobileUI .button.disabled { color: var(--muted); border-color: var(--muted); cursor: default; }
 
 /* Cooldown fill, kept from the desktop design because it carries real
    information about when a button is usable again. */
-.button .cooldown {
+html.mobileUI .button .cooldown {
 	position: absolute;
 	top: 0; left: 0; bottom: 0;
 	background: rgba(0,0,0,0.12);
@@ -172,11 +203,11 @@ body.mDark .button { border-color: #fff; color: #fff; }
 }
 
 /* Tooltips are hover-based and there is no hover on a touch screen. */
-.tooltip { display: none; }
+html.mobileUI .tooltip { display: none; }
 
 /* --- rows (stores, workers, supplies) ----------------------------------- */
 
-.storeRow, .rowKey, .row {
+html.mobileUI .storeRow, html.mobileUI .rowKey, html.mobileUI .row {
 	display: flex;
 	justify-content: space-between;
 	align-items: baseline;
@@ -184,16 +215,16 @@ body.mDark .button { border-color: #fff; color: #fff; }
 	padding: 4px 0;
 }
 
-.row_key, .row_val {
+html.mobileUI .row_key, html.mobileUI .row_val {
 	float: none;
 	clear: none;
 }
 
-.row_key { text-align: left; }
-.row_val { text-align: right; white-space: nowrap; }
+html.mobileUI .row_key { text-align: left; }
+html.mobileUI .row_val { text-align: right; white-space: nowrap; }
 
 /* Worker up/down controls need to be tappable, not 10px arrows. */
-.upBtn, .dnBtn, .upManyBtn, .dnManyBtn {
+html.mobileUI .upBtn, html.mobileUI .dnBtn, html.mobileUI .upManyBtn, html.mobileUI .dnManyBtn {
 	display: inline-block;
 	width: 34px;
 	height: 34px;
@@ -206,7 +237,7 @@ body.mDark .button { border-color: #fff; color: #fff; }
 
 /* --- notifications ------------------------------------------------------ */
 
-#notifications {
+html.mobileUI #notifications {
 	position: static;
 	width: auto;
 	height: 220px;
@@ -220,16 +251,16 @@ body.mDark .button { border-color: #fff; color: #fff; }
 	mask-image: none;
 }
 
-#notifications .notification {
+html.mobileUI #notifications .notification {
 	opacity: 1;
 	margin-bottom: 8px;
 }
 
-#notifyGradient { display: none; }
+html.mobileUI #notifyGradient { display: none; }
 
 /* --- events ------------------------------------------------------------- */
 
-.eventPanel {
+html.mobileUI .eventPanel {
 	position: fixed;
 	top: 50%;
 	left: 50%;
@@ -245,30 +276,30 @@ body.mDark .button { border-color: #fff; color: #fff; }
 	z-index: 40;
 }
 
-.eventPanel .eventTitle {
+html.mobileUI .eventPanel .eventTitle {
 	font-weight: bold;
 	text-align: center;
 	margin-bottom: 12px;
 }
 
-#description { margin-bottom: 14px; }
+html.mobileUI #description { margin-bottom: 14px; }
 
 /* --- combat ------------------------------------------------------------- */
 
-#fighterWrapper {
+html.mobileUI #fighterWrapper {
 	display: flex;
 	justify-content: space-between;
 	gap: 16px;
 	margin-bottom: 14px;
 }
 
-.fighter { flex: 1 1 0; text-align: center; }
+html.mobileUI .fighter { flex: 1 1 0; text-align: center; }
 
 /* --- world map ---------------------------------------------------------- */
 
-#worldPanel { text-align: center; }
+html.mobileUI #worldPanel { text-align: center; }
 
-#map {
+html.mobileUI #map {
 	font-family: "Courier New", Courier, monospace;
 	font-size: 11px;
 	line-height: 11px;
@@ -280,11 +311,11 @@ body.mDark .button { border-color: #fff; color: #fff; }
 	-webkit-overflow-scrolling: touch;
 }
 
-#worldPanel .row_key, #worldPanel .row_val { display: inline-block; }
+html.mobileUI #worldPanel .row_key, html.mobileUI #worldPanel .row_val { display: inline-block; }
 
 /* On-screen movement controls: a phone has no arrow keys, and swipe alone
    is easy to misfire when a wrong move costs supplies. */
-#mDpad {
+html.mobileUI #mDpad {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 6px;
@@ -292,7 +323,7 @@ body.mDark .button { border-color: #fff; color: #fff; }
 	margin: 14px auto 0 auto;
 }
 
-#mDpad div {
+html.mobileUI #mDpad div {
 	border: 1px solid var(--line);
 	min-height: var(--tap);
 	line-height: var(--tap);
@@ -301,20 +332,20 @@ body.mDark .button { border-color: #fff; color: #fff; }
 	-webkit-tap-highlight-color: transparent;
 }
 
-#mDpad .spacer { border: none; }
+html.mobileUI #mDpad .spacer { border: none; }
 
 /* --- settings ----------------------------------------------------------- */
 
-#mSettingsBtn { margin-top: 20px; }
+html.mobileUI #mSettingsBtn { margin-top: 20px; }
 
-#mSettingsPanel {
+html.mobileUI #mSettingsPanel {
 	border: 1px solid var(--line);
 	border-top: none;
 	padding: 6px 0;
 }
 
 /* The desktop menu is a fixed corner overlay. Here it is a plain list. */
-.mMenuList {
+html.mobileUI .mMenuList {
 	position: static;
 	display: block;
 	max-width: none;
@@ -323,8 +354,8 @@ body.mDark .button { border-color: #fff; color: #fff; }
 	color: inherit;
 }
 
-.mMenuList .menuBtn,
-.mMenuList span {
+html.mobileUI .mMenuList .menuBtn,
+html.mobileUI .mMenuList span {
 	display: block;
 	padding: 0 14px;
 	min-height: var(--tap);
@@ -333,19 +364,19 @@ body.mDark .button { border-color: #fff; color: #fff; }
 	cursor: pointer;
 }
 
-.mMenuList .menuBtn:last-child { border-bottom: none; }
+html.mobileUI .mMenuList .menuBtn:last-child { border-bottom: none; }
 
 /* The language picker's dropdown is absolutely positioned on desktop and
    anchors to the corner. In the list it is just another expanding row. */
-.mMenuList .customSelect {
+html.mobileUI .mMenuList .customSelect {
 	position: relative;
 	width: auto;
 	height: auto;
 	padding: 0;
 }
 
-.mMenuList .customSelectOptions,
-.mMenuList .customSelectOptions > ul {
+html.mobileUI .mMenuList .customSelectOptions,
+html.mobileUI .mMenuList .customSelectOptions > ul {
 	position: static;
 	width: auto;
 	max-height: none;
@@ -355,21 +386,39 @@ body.mDark .button { border-color: #fff; color: #fff; }
 	margin: 0;
 }
 
-.mMenuList .customSelectOptions > ul > li {
+html.mobileUI .mMenuList .customSelectOptions > ul > li {
 	padding: 0 14px;
 	min-height: var(--tap);
 	line-height: var(--tap);
 	border-bottom: 1px solid #ddd;
 }
 
-.mMenuList .customSelectOptions > ul > li:first-child { font-weight: bold; }
+html.mobileUI .mMenuList .customSelectOptions > ul > li:first-child { font-weight: bold; }
 
 /* --- misc --------------------------------------------------------------- */
 
-.logo { display: none; }
-.clear { display: none; }
+html.mobileUI .logo { display: none; }
+html.mobileUI .clear { display: none; }
 
 @media (min-width: 560px) {
-	html, body { font-size: 18px; }
-	#map { font-size: 13px; line-height: 13px; }
+	html.mobileUI, html.mobileUI body { font-size: 18px; }
+	html.mobileUI #map { font-size: 13px; line-height: 13px; }
+}
+
+
+/* ---------------------------------------------------------------------------
+ * One location at a time -- see MobileUI.showOnly.
+ *
+ * The desktop slides a wide strip behind an overflow-hidden window. In a
+ * static single column that does nothing and every panel stacks, so the Room
+ * showed the Forest's buttons too.
+ * ------------------------------------------------------------------------ */
+
+html.mobileUI .mHidden { display: none; }
+
+/* Buttons read better centred in a single column. */
+html.mobileUI #roomPanel > .button,
+html.mobileUI #outsidePanel > .button,
+html.mobileUI .mBody .button {
+	text-align: center;
 }

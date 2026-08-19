@@ -1,7 +1,20 @@
 body {
 	background-color: #272823;
 	color: #EEE;
+	/* Self-contained positioning, rather than relying on css/main.css.
+	 *
+	 * This rule only ever set background-image and silently inherited
+	 * background-repeat / -position / -size from main.css's body rule. That
+	 * held for as long as main.css was guaranteed to be loaded, and stopped
+	 * holding the moment a second page existed that does not load it: on
+	 * mobile.html the image applied with the DEFAULT repeat and no size,
+	 * producing a tiled wall of logo over the whole page. Reported directly,
+	 * twice. A stylesheet that only works when another one happens to be
+	 * present is the actual defect; these three lines fix it at the source. */
 	background-image: url("../img/Logo1.png");
+	background-repeat: no-repeat;
+	background-position: left 5% bottom 5%;
+	background-size: min(985px, 46vw) auto;
 }
 
 div.headerButton {

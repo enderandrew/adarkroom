@@ -54,8 +54,24 @@ var Notifications = {
 	
 		// To fix some memory usage issues, we clear notifications that have been hidden.
 		
+		/* Only meaningful when the fade-out gradient is actually rendered.
+		 *
+		 * This culls any notification positioned below the gradient, on the
+		 * premise that the gradient marks the bottom of the visible area. If
+		 * the gradient is not displayed, position() reports 0 and
+		 * outerHeight() reports 0, so `bottom` is 0 and EVERY notification
+		 * qualifies -- messages appeared and then instantly vanished, which
+		 * is what was reported on the mobile page (its log is a scrollable
+		 * box and hides the gradient). Bailing out is correct there: with a
+		 * scrolling log nothing is ever hidden, so nothing should be culled.
+		 */
+		var gradient = $('#notifyGradient');
+		if(gradient.length === 0 || !gradient.is(':visible')) {
+			return;
+		}
+
 		// We use position().top here, because we know that the parent will be the same, so the position will be the same.
-		var bottom = $('#notifyGradient').position().top + $('#notifyGradient').outerHeight(true);
+		var bottom = gradient.position().top + gradient.outerHeight(true);
 		
 		$('.notification').each(function() {
 		

@@ -2766,7 +2766,15 @@ Events.Setpieces = {
 				],
 				notification: _('a graveyard, built over older graveyards'),
 				onLoad: function() {
-					World.markVisited(World.curPos[0], World.curPos[1]);
+					/* No markVisited() -- it contradicted the scene below it.
+					 *
+					 * Graveyard.reset() clears the seen-epitaph list so a
+					 * RETURN visit draws a fresh five from the pool of ten.
+					 * That is its only purpose, and markVisited made returning
+					 * impossible (doSpace routes by tile character, and the
+					 * mark appends '!'), so the reset could never once have
+					 * done anything. Found while fixing the same bug in the
+					 * Prison. */
 					Graveyard.reset();
 				},
 				buttons: {
@@ -3360,9 +3368,21 @@ Events.Setpieces = {
 					return lines;
 				},
 				notification: _('a structure with no way into it'),
-				onLoad: function() {
-					World.markVisited(World.curPos[0], World.curPos[1]);
-				},
+				/* Deliberately no markVisited().
+				 *
+				 * markVisited() appends '!' to the map tile and World.doSpace()
+				 * routes landmarks BY TILE CHARACTER, so a marked tile can never
+				 * be entered again. That is especially wrong here: the Prison is
+				 * built around leaving and coming back. A player who finds it
+				 * before completing the Lab is told outright there is nothing to
+				 * try, and the whole location is designed for them to return
+				 * once their hands know the door -- which the mark made
+				 * impossible. It also has to be re-enterable to collect the
+				 * three wing crystals across separate trips.
+				 *
+				 * Same bug previously fixed in the Temple, the swamp and the
+				 * Glassed Crater. Any location intended to be revisited must
+				 * not call this. Reported directly. */
 				buttons: {
 					'open': {
 						text: _('put your hands on the wall'),

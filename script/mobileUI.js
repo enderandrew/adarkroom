@@ -59,10 +59,58 @@ var MobileUI = {
 	],
 
 	_observer: null,
+	_travelHooked: false,
 	_decorateTimer: null,
+
+	/* ---- one location at a time ----------------------------------------
+	 *
+	 * The desktop shows a single panel by sliding a wide strip left and
+	 * right behind a fixed-width window with overflow hidden. In a single
+	 * static column that machinery does nothing, so EVERY location renders
+	 * stacked -- "gather wood" showing in the Firelit Room alongside the
+	 * Silent Forest's buttons, which is what was reported.
+	 *
+	 * Panels are shown and hidden outright here instead. Hooked by wrapping
+	 * Engine.travelTo rather than editing it, so the desktop slider path is
+	 * untouched and this stays contained to the mobile layer. */
+	hookTravel: function() {
+		if(MobileUI._travelHooked) { return; }
+		MobileUI._travelHooked = true;
+
+		var original = Engine.travelTo;
+		Engine.travelTo = function(module) {
+			original.apply(Engine, arguments);
+			MobileUI.showOnly(module);
+		};
+
+		if(Engine.activeModule) { MobileUI.showOnly(Engine.activeModule); }
+	},
+
+	showOnly: function(module) {
+		/* Guarded BEFORE anything is hidden.
+		 *
+		 * A module's panel does not exist until that module has initialised
+		 * -- Outside.panel is undefined until the forest is unlocked. Hiding
+		 * every location first and only then discovering there is nothing to
+		 * show would leave the player on a completely blank page. Bailing out
+		 * early leaves whatever was showing in place, which is the safe
+		 * failure. */
+		if(!module || !module.panel || !module.panel.length) { return; }
+		$('.location').addClass('mHidden');
+		module.panel.removeClass('mHidden');
+
+		/* The stores box lives outside the panels and is pinned to the right
+		 * of whichever one is showing; in this layout it just belongs to the
+		 * Room. */
+		var stores = $('#storesContainer');
+		if(stores.length) {
+			stores.toggleClass('mHidden', module !== Room);
+		}
+	},
 
 	init: function() {
 		$('html').addClass('mobileUI');
+		MobileUI.hookTravel();
 		MobileUI.buildSettingsMenu();
 		MobileUI.decorate();
 		MobileUI.watch();

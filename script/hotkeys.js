@@ -153,11 +153,19 @@ function bindHotKeys() {
         }
         if(e.key=='f' || e.key=='F'){
             // Use Shield.
-            $("#shield").trigger("click");
+            /* '#shld', not '#shield': Events.createShieldButton builds the
+             * button with id 'shld'. This selector never matched anything, so
+             * the [F] hint advertised a key that did nothing while the button
+             * itself worked when clicked. Reported directly. */
+            $("#shld").trigger("click");
         }
-        if(e.key=='      ' || e.key=='R'){
+        if(e.key=='r' || e.key=='R'){
             // Boost Stim.
-            $("#boost").trigger("click");
+            /* Two silent faults on one line: the lowercase test was six
+             * spaces rather than 'r', so only a capital R reached here, and
+             * '#boost' never matched -- createStimButton uses 'use-stim'.
+             * Between them the [R] hotkey was entirely dead. */
+            $("#use-stim").trigger("click");
         }
     });
 }

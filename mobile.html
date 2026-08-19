@@ -1,5 +1,16 @@
 <!doctype html>
-<html>
+<!-- The mobileUI class is on <html> in the MARKUP, not added by JavaScript.
+     
+     css/mobile.css scopes every rule under html.mobileUI so it outranks the
+     desktop sheets: they qualify their selectors as `div#content`,
+     `div#header` and so on, and an element+id selector beats a bare id
+     regardless of source order. Loading last is not enough on its own.
+     
+     It has to be here rather than set in MobileUI.init(), which runs on
+     jQuery ready -- the page would otherwise paint the full desktop layout
+     first and snap to the mobile one, and would stay desktop entirely if the
+     script failed to load. -->
+<html class="mobileUI">
 <head>
 	<meta charset="UTF-8"/>
 	<!-- Real mobile viewport. Without this a phone renders at a ~980px virtual
@@ -123,9 +134,52 @@
 	<![endif]-->
 	
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-	<!-- The ONLY layout stylesheet on this page. css/main.css and the
-	     per-area sheets are deliberately not loaded: nothing here has to
-	     override a 700px-stage desktop rule. -->
+	<!-- The full desktop stylesheet set, THEN mobile.css as an override
+	     layer on top.
+	     
+	     An earlier version loaded mobile.css alone, on the theory that
+	     nothing should have to override a 700px-stage desktop rule. In
+	     practice that meant re-implementing every visual detail those sheets
+	     carry -- the flickering fire behind the stoke button, the combat
+	     status animations, the glyph puzzles, the maze renderer, the distress
+	     overlay -- and each one only surfaced as a bug report when it turned
+	     out missing. That tail is unbounded, and it silently diverges from
+	     the desktop every time a rule is added there.
+	     
+	     Loading them and overriding is the better trade. This is NOT the
+	     responsive approach that failed before: there, one stylesheet served
+	     both layouts through media queries and had to win conditionally.
+	     Here mobile.css loads last and applies unconditionally, so it is a
+	     plain override layer -- no media queries, no specificity war. It only
+	     needs to restate layout, and everything else comes for free and stays
+	     in sync.
+	     
+	     css/responsive.css is deliberately excluded: its whole job is
+	     adapting the desktop layout to narrow viewports, which is precisely
+	     what mobile.css replaces. Including it would put two layout systems
+	     in the cascade again. -->
+	<!-- lang/main.css is deliberately NOT loaded here. Its entire content is
+	     three fixed pixel widths forced with !important
+	     (.button{width:100px!important} and friends) to tune the desktop
+	     layout. On a fluid single column that is exactly wrong -- it is what
+	     squeezed buttons into ~100px boxes with the labels wrapping onto two
+	     lines -- and !important means the override layer cannot simply win on
+	     specificity. The per-language lang/<x>/main.css files carry the same
+	     rules and ARE still injected at runtime for non-English -- and the
+	     built page links the CSS bundle, which DOES contain lang/main.css --
+	     so css/mobile.css forces button width with !important regardless.
+	     Dropping the tag here keeps the loose-file page clean; the !important
+	     is what actually makes both paths behave the same. -->
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
+	<link rel="stylesheet" type="text/css" href="css/room.css" />
+	<link rel="stylesheet" type="text/css" href="css/outside.css" />
+	<link rel="stylesheet" type="text/css" href="css/path.css" />
+	<link rel="stylesheet" type="text/css" href="css/world.css" />
+	<link rel="stylesheet" type="text/css" href="css/ship.css" />
+	<link rel="stylesheet" type="text/css" href="css/space.css" />
+	<link rel="stylesheet" type="text/css" href="css/fabricator.css" />
+	<link rel="stylesheet" type="text/css" href="css/distress.css" />
+	<!-- Last: the mobile layout override layer. -->
 	<link rel="stylesheet" type="text/css" href="css/mobile.css" />
 
 	<meta name="google-site-verification" content="Fw32VtOfNNMYuxwq-LDxGbzuY7QIxjvQmLuWnv6FTGY" />
@@ -152,12 +206,19 @@
 		</div>
 	</div>
 	<script>
-		/* MobileUI.init() runs after Engine has booted, so every panel it
-		   decorates already exists. Everything created later during play is
-		   picked up by the MutationObserver inside it. */
-		(function() {
+		/* Deferred to jQuery ready, and queued AFTER Engine's own handler.
+		 *
+		 * engine.js calls Engine.init() inside $(function(){...}), so at the
+		 * point this inline script runs the engine has NOT booted and none of
+		 * the things MobileUI decorates exist yet -- including the settings
+		 * menu, which Engine.init appends to <body>. Calling init() here
+		 * directly built an empty settings panel and then let the real menu
+		 * land loose at the bottom of the page, which is exactly what was
+		 * reported. Registering our own ready handler puts us behind Engine's
+		 * in the queue. */
+		$(function() {
 			if (typeof MobileUI !== 'undefined') { MobileUI.init(); }
-		})();
+		});
 	</script>
 </body>
 </html>

@@ -205,9 +205,24 @@ var AudioEngine = {
     loadAudioFile: function (src) {
         if (src.indexOf('http') === -1) {
             var path = window.location.protocol + '//' + window.location.hostname + (window.location.port ?(':' + window.location.port) : '') + window.location.pathname;
-            if(path.endsWith('index.html')){
-                path = path.slice(0, - 10); 
-            }
+            /* Strip the current page's OWN filename, generically, rather
+             * than only recognising the literal string "index.html".
+             *
+             * That hardcoded check meant this only worked from index.html.
+             * On mobile.html it silently failed -- endsWith('index.html')
+             * is false, nothing gets sliced off, and the page's own
+             * filename gets concatenated directly onto the front of every
+             * audio path: ".../dist/mobile.html" + "audio/x.flac" =
+             * ".../dist/mobile.htmlaudio/x.flac", a 404 for every single
+             * sound in the game. Reported directly, from the console.
+             *
+             * Slicing to the last '/' is exactly what a browser does when
+             * resolving a relative URL against the current document, and it
+             * is correct for ANY filename -- index.html, mobile.html, a
+             * future page this project adds, or even a bare directory URL
+             * with no filename at all (pathname already ends in '/', and
+             * lastIndexOf('/') + 1 is a no-op on it). */
+            path = path.slice(0, path.lastIndexOf('/') + 1);
             src = path + src;
         }
         if (AudioEngine.AUDIO_BUFFER_CACHE[src]) {

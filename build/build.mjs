@@ -358,6 +358,28 @@ function buildMobileHtml() {
 			`It would load loose scripts alongside the bundle, or miss some entirely.`);
 	}
 
+	/* The desktop sheets collapse to the same bundle index.html uses.
+	 *
+	 * mobile.html loads them for real content -- animations, combat panels,
+	 * glyph puzzles -- and then overrides layout with mobile.css. In the
+	 * built output that whole set is already concatenated into
+	 * adarkroom.min.css, so the page links the bundle instead of ten files.
+	 * responsive.css is inside that bundle; it is inert here because every
+	 * layout rule it carries is restated by the inlined mobile.css below,
+	 * which comes after it. */
+	let cssReplaced = 0;
+	for (const sheet of CSS_SOURCES) {
+		const tag = new RegExp(`[\\t ]*<link rel="stylesheet" type="text/css" href="${sheet.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}" \\/>\\n?`);
+		if (tag.test(html)) {
+			html = html.replace(tag, cssReplaced === 0
+				? '\t<link rel="stylesheet" type="text/css" href="adarkroom.min.css" />\n' : '');
+			cssReplaced++;
+		}
+	}
+	if (cssReplaced === 0) {
+		fail('html', 'mobile.html: found none of the desktop stylesheet tags to bundle.');
+	}
+
 	/* Inline the stylesheet rather than linking it.
 	 *
 	 * This page's ENTIRE appearance depends on one external file, so a single
@@ -385,7 +407,7 @@ function buildMobileHtml() {
 	}
 
 	writeFileSync(join(DIST, 'mobile.html'), html);
-	console.log(`  mobile.html   ${replaced} script tags -> 1 bundle, css inlined`);
+	console.log(`  mobile.html   ${replaced} script + ${cssReplaced} stylesheet tags -> 2 bundles, mobile css inlined`);
 }
 
 /* ---------------------------------------------------------------------------

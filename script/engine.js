@@ -944,6 +944,13 @@
 		},
 
 		turnLightsOff: function() {
+			/* No mobile special-case here any more.
+			 *
+			 * This used to divert to a bespoke mobile dark theme, because
+			 * css/dark.css restyles selectors that only css/main.css defines
+			 * and dropped an unstyled logo onto a page that loaded neither.
+			 * mobile.html now loads the desktop sheets, so dark.css applies
+			 * correctly there and one code path serves both. */
 			var darkCss = Engine.findStylesheet('darkenLights');
 			if (darkCss == null) {
 				$('head').append('<link rel="stylesheet" href="css/dark.css" type="text/css" title="darkenLights" />');
@@ -1646,7 +1653,15 @@ var april = function() {
 		//if (april == null) {
 			
 			$('head').append('<link rel="stylesheet" href="css/april.css" type="text/css" title="aprilFools" />');
-			$('.lightsOff').text(_('april fools.')).on('click', function() { window.location = "./index.html?april=1"});
+			$('.lightsOff').text(_('april fools.')).on('click', function() {
+				/* location.pathname rather than a hardcoded './index.html' -- the
+				 * same class of bug just found in loadAudioFile(). This runs on
+				 * mobile.html too (april() has no page check), and a hardcoded
+				 * index.html would bounce a mobile player onto the desktop page
+				 * to see a joke that has nothing to do with which page they
+				 * were on. */
+				window.location = location.pathname + "?april=1";
+			});
 			document.head.insertAdjacentHTML(
 				'beforeend',
 				'<link rel="stylesheet" href="css/april.css" />');
@@ -1691,7 +1706,12 @@ var april = function() {
 						buttons: {
 							'ok': {
 								text: _('check it out.'),
-								onChoose: function() { window.location = './index.html' }
+								onChoose: function() {
+									/* Same fix, same reason: reload whichever page the
+									 * player is actually on rather than always sending
+									 * them to index.html. */
+									window.location = location.pathname;
+								}
 							},
 							'no': {
 								text: _('no thanks.'),
