@@ -951,6 +951,18 @@
 			 * and dropped an unstyled logo onto a page that loaded neither.
 			 * mobile.html now loads the desktop sheets, so dark.css applies
 			 * correctly there and one code path serves both. */
+			/* Keep the mobile colour variables in step with the desktop
+			 * sheet. dark.css still does the work for desktop-shaped
+			 * selectors; this only tells the mobile override layer to flip
+			 * its own --ink/--paper so the two cannot disagree. Deferred to
+			 * the end of this function via setTimeout would race the state
+			 * write, so it is re-synced after each branch below. */
+			var syncMobile = function() {
+				if(typeof MobileUI !== 'undefined' && typeof MobileUI.syncDark === 'function') {
+					MobileUI.syncDark();
+				}
+			};
+
 			var darkCss = Engine.findStylesheet('darkenLights');
 			if (darkCss == null) {
 				$('head').append('<link rel="stylesheet" href="css/dark.css" type="text/css" title="darkenLights" />');
@@ -968,6 +980,7 @@
 				$('.lightsOff').text(_('lights off.'));
 				$SM.set('config.lightsOff', false, true);
 			}
+			syncMobile();
 		},
 
 		confirmHyperMode: function(){

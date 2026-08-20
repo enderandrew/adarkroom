@@ -72,16 +72,6 @@ html.mobileUI .button.disabled:hover {
 }
 
 html.mobileUI, html.mobileUI body {
-	/* main.css sets `body { display: flex; justify-content: center;
-	 * align-items: center }` -- in a compound rule with .tooltip and
-	 * select.menuBtn, which is why it is easy to miss. This layer never set
-	 * `display`, so on mobile body stayed a CENTRING FLEX CONTAINER:
-	 * #wrapper became a single shrink-to-fit, vertically centred flex item.
-	 * That is the large empty bands above and below the content, and it
-	 * stops the page growing downward normally as sections expand.
-	 *
-	 * Found from the DevTools cascade dump, not by reading the sheets. */
-	display: block;
 	margin: 0;
 	padding: 0;
 	/* Explicitly no decorative background.
@@ -231,22 +221,14 @@ html.mobileUI .button {
 	width: 100% !important;
 	float: none;
 	border: 1px solid var(--line);
-	/* Padding alone gives the tap target.
-	 *
-	 * This was `min-height: var(--tap)` with `line-height: var(--tap)` (both
-	 * 48px) and `overflow: hidden`. A label that wraps produces two 48px
-	 * line boxes inside a 48px box and is clipped, and even unwrapped the
-	 * combination leaves nothing to fall back on if anything shifts. Plain
-	 * padding cannot clip. */
-	padding: 14px;
+	padding: 0 14px;
+	min-height: var(--tap);
+	line-height: var(--tap);
 	margin: 0 0 8px 0;
 	text-align: center;
 	cursor: pointer;
 	position: relative;
-	/* Colour forced so the label cannot lose to a desktop rule whichever
-	 * sheet loads last -- css/dark.css is injected at runtime. */
-	color: var(--ink) !important;
-	background-color: var(--paper);
+	overflow: hidden;
 	-webkit-tap-highlight-color: transparent;
 }
 
@@ -757,82 +739,4 @@ html.mobileUI .mMenuList .customSelectOptions > ul > li {
 html.mobileUI .mMenuList .customSelectOptions > ul > li:first-child {
 	column-span: all;
 	font-weight: bold;
-}
-
-/* ---------------------------------------------------------------------------
- * Villager assignment controls
- *
- * Worker rows are .workerRow, NOT .storeRow -- an earlier pass styled the
- * wrong class, so none of it applied. main.css also positions the four
- * arrows `position: absolute` with offsets sized for the desktop row, which
- * puts them off-screen once the row reflows into a single column. Returning
- * them to flow is what actually makes them reachable.
- * ------------------------------------------------------------------------ */
-
-html.mobileUI .workerRow {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: 10px;
-	padding: 6px 0;
-	min-width: 0;
-}
-
-html.mobileUI .workerRow > .row_key {
-	flex: 1 1 auto;
-	min-width: 0;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-}
-
-html.mobileUI .workerRow > .row_val {
-	flex: 0 0 auto;
-	display: flex;
-	align-items: center;
-	gap: 6px;
-	white-space: nowrap;
-}
-
-html.mobileUI .workerRow > .row_val > span {
-	min-width: 2.5em;
-	text-align: right;
-}
-
-html.mobileUI .workerRow .upBtn,
-html.mobileUI .workerRow .dnBtn,
-html.mobileUI .workerRow .upManyBtn,
-html.mobileUI .workerRow .dnManyBtn {
-	position: static;
-	width: 30px;
-	height: 30px;
-	line-height: 28px;
-	text-align: center;
-	border: 1px solid var(--line);
-	margin: 0;
-	flex: 0 0 auto;
-}
-
-/* main.css draws the arrowheads with border tricks sized for a 14x12 box;
-   at 30px square they vanish, so a plain glyph is used instead. */
-html.mobileUI .workerRow .upBtn::before { content: '+'; }
-html.mobileUI .workerRow .dnBtn::before { content: '\2212'; }
-html.mobileUI .workerRow .upManyBtn::before { content: '\00BB'; }
-html.mobileUI .workerRow .dnManyBtn::before { content: '\00AB'; }
-
-html.mobileUI .workerRow .upBtn::after,
-html.mobileUI .workerRow .dnBtn::after,
-html.mobileUI .workerRow .upManyBtn::after,
-html.mobileUI .workerRow .dnManyBtn::after {
-	display: none;
-}
-
-html.mobileUI .workerRow .clear { display: none; }
-
-/* Stores/weapons: room.css pins div#stores to width:200px, which packed the
-   columns into a narrow box with the rest of the row empty. */
-html.mobileUI #stores,
-html.mobileUI #weapons {
-	width: 100%;
-	max-width: 100%;
 }

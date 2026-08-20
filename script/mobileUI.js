@@ -51,11 +51,14 @@ var MobileUI = {
 		{ id: 'buildBtns',   label: function() { return _('build'); },        open: false },
 		{ id: 'craftBtns',   label: function() { return _('craft'); },        open: false },
 		{ id: 'buyBtns',     label: function() { return _('buy'); },          open: false },
-		{ id: 'village',     label: function() { return _('the village'); },  open: true  },
+		/* Collapsed like everything else. Open, the village and supplies
+		 * panels each filled more than a phone screen -- the supplies list
+		 * hid the embark button entirely, so the player could not leave. */
+		{ id: 'village',     label: function() { return _('the village'); },  open: false },
 		{ id: 'workers',     label: function() { return _('villagers'); },    open: false },
 		{ id: 'perks',       label: function() { return _('perks'); },        open: false },
 		{ id: 'blueprints',  label: function() { return _('blueprints'); },   open: false },
-		{ id: 'outfitting',  label: function() { return _('supplies'); },     open: true  }
+		{ id: 'outfitting',  label: function() { return _('supplies'); },     open: false }
 	],
 
 	_observer: null,
@@ -110,6 +113,7 @@ var MobileUI = {
 
 	init: function() {
 		$('html').addClass('mobileUI');
+		MobileUI.syncDark();
 		MobileUI.hookTravel();
 		MobileUI.buildSettingsMenu();
 		MobileUI.decorate();
@@ -161,6 +165,36 @@ var MobileUI = {
 		MobileUI._observer.observe(target, { childList: true, subtree: true });
 	},
 
+	/* The language list is 26 options and, expanded, is most of a phone
+	 * screen on its own -- inside the settings panel that is a list within a
+	 * list. On desktop it opens on hover, which does not exist on touch, so
+	 * it is given its own tap-to-open row; css/mobile.css collapses it and
+	 * lays it out in columns when open. */
+	collapseLanguagePicker: function(panel) {
+		var sel = $('.customSelect', panel.length ? panel : $('#mSettingsPanel'));
+		if(sel.length === 0) { return; }
+		var first = $('.customSelectOptions > ul > li', sel).first();
+		if(first.length === 0) { return; }
+		first.off('click.mobile').on('click.mobile', function(e) {
+			e.stopPropagation();
+			sel.toggleClass('open');
+		});
+	},
+
+	/* ---- dark mode -----------------------------------------------------
+	 *
+	 * Toggles a class beside mobileUI on <html>; css/mobile.css flips its
+	 * colour variables from it. css/dark.css still loads and still handles
+	 * the desktop-shaped selectors -- this only ensures the mobile layer's
+	 * own colours move WITH it rather than staying light underneath. */
+	applyDark: function(on) {
+		$('html').toggleClass('mDark', !!on);
+	},
+
+	syncDark: function() {
+		MobileUI.applyDark($SM.get('config.lightsOff', true) === true);
+	},
+
 	/* ---- settings ------------------------------------------------------
 	 *
 	 * The desktop menu is a run of a dozen links pinned to the bottom-right
@@ -197,5 +231,9 @@ var MobileUI = {
 		if(real.length) {
 			real.appendTo(panel).addClass('mMenuList');
 		}
+
+		/* AFTER the move, not before: the language picker lives inside
+		 * .menu, so calling this first found nothing to collapse. */
+		MobileUI.collapseLanguagePicker(panel);
 	}
 };
