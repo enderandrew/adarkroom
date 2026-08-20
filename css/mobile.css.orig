@@ -72,6 +72,16 @@ html.mobileUI .button.disabled:hover {
 }
 
 html.mobileUI, html.mobileUI body {
+	/* main.css sets `body { display: flex; justify-content: center;
+	 * align-items: center }` -- in a compound rule with .tooltip and
+	 * select.menuBtn, which is why it is easy to miss. This layer never set
+	 * `display`, so on mobile body stayed a CENTRING FLEX CONTAINER:
+	 * #wrapper became a single shrink-to-fit, vertically centred flex item.
+	 * That is the large empty bands above and below the content, and it
+	 * stops the page growing downward normally as sections expand.
+	 *
+	 * Found from the DevTools cascade dump, not by reading the sheets. */
+	display: block;
 	margin: 0;
 	padding: 0;
 	/* Explicitly no decorative background.
@@ -221,14 +231,22 @@ html.mobileUI .button {
 	width: 100% !important;
 	float: none;
 	border: 1px solid var(--line);
-	padding: 0 14px;
-	min-height: var(--tap);
-	line-height: var(--tap);
+	/* Padding alone gives the tap target.
+	 *
+	 * This was `min-height: var(--tap)` with `line-height: var(--tap)` (both
+	 * 48px) and `overflow: hidden`. A label that wraps produces two 48px
+	 * line boxes inside a 48px box and is clipped, and even unwrapped the
+	 * combination leaves nothing to fall back on if anything shifts. Plain
+	 * padding cannot clip. */
+	padding: 14px;
 	margin: 0 0 8px 0;
 	text-align: center;
 	cursor: pointer;
 	position: relative;
-	overflow: hidden;
+	/* Colour forced so the label cannot lose to a desktop rule whichever
+	 * sheet loads last -- css/dark.css is injected at runtime. */
+	color: var(--ink) !important;
+	background-color: var(--paper);
 	-webkit-tap-highlight-color: transparent;
 }
 
@@ -739,4 +757,177 @@ html.mobileUI .mMenuList .customSelectOptions > ul > li {
 html.mobileUI .mMenuList .customSelectOptions > ul > li:first-child {
 	column-span: all;
 	font-weight: bold;
+}
+
+/* ---------------------------------------------------------------------------
+ * Villager assignment controls
+ *
+ * Worker rows are .workerRow, NOT .storeRow -- an earlier pass styled the
+ * wrong class, so none of it applied. main.css also positions the four
+ * arrows `position: absolute` with offsets sized for the desktop row, which
+ * puts them off-screen once the row reflows into a single column. Returning
+ * them to flow is what actually makes them reachable.
+ * ------------------------------------------------------------------------ */
+
+html.mobileUI .workerRow {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	padding: 6px 0;
+	min-width: 0;
+}
+
+html.mobileUI .workerRow > .row_key {
+	flex: 1 1 auto;
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+html.mobileUI .workerRow > .row_val {
+	flex: 0 0 auto;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	white-space: nowrap;
+}
+
+html.mobileUI .workerRow > .row_val > span {
+	min-width: 2.5em;
+	text-align: right;
+}
+
+html.mobileUI .workerRow .upBtn,
+html.mobileUI .workerRow .dnBtn,
+html.mobileUI .workerRow .upManyBtn,
+html.mobileUI .workerRow .dnManyBtn {
+	position: static;
+	width: 30px;
+	height: 30px;
+	line-height: 28px;
+	text-align: center;
+	border: 1px solid var(--line);
+	margin: 0;
+	flex: 0 0 auto;
+}
+
+/* main.css draws the arrowheads with border tricks sized for a 14x12 box;
+   at 30px square they vanish, so a plain glyph is used instead. */
+html.mobileUI .workerRow .upBtn::before { content: '+'; }
+html.mobileUI .workerRow .dnBtn::before { content: '\2212'; }
+html.mobileUI .workerRow .upManyBtn::before { content: '\00BB'; }
+html.mobileUI .workerRow .dnManyBtn::before { content: '\00AB'; }
+
+html.mobileUI .workerRow .upBtn::after,
+html.mobileUI .workerRow .dnBtn::after,
+html.mobileUI .workerRow .upManyBtn::after,
+html.mobileUI .workerRow .dnManyBtn::after {
+	display: none;
+}
+
+html.mobileUI .workerRow .clear { display: none; }
+
+/* Stores/weapons: room.css pins div#stores to width:200px, which packed the
+   columns into a narrow box with the rest of the row empty. */
+html.mobileUI #stores,
+html.mobileUI #weapons {
+	width: 100%;
+	max-width: 100%;
+}
+
+/* ---------------------------------------------------------------------------
+ * Stores and weapons: grid, not multi-column
+ *
+ * column-count was the wrong tool here and kept failing for reasons that
+ * were hard to see:
+ *
+ *   - room.css pins div#stores to width:200px. Columns then divide 200px,
+ *     not the screen, so the 2nd and 3rd columns render inside a box far
+ *     narrower than the section -- content appears to run off to the right.
+ *   - Multi-column needs break-inside on every child to avoid splitting a
+ *     row, and interacts badly with the flex .storeRow children.
+ *   - Column boxes have no intrinsic width, so nothing reports overflow;
+ *     the layout fails silently rather than visibly.
+ *
+ * Grid has none of those problems: auto-fill divides the ACTUAL width,
+ * every row is an atomic grid item that cannot be split, and the column
+ * count adapts to the viewport without media queries. `columns: auto`
+ * first, to unset any earlier column-count regardless of where it came
+ * from.
+ *
+ * The height cap plus scroll is the belt-and-braces answer to the same
+ * question: even at one column on a very narrow phone, a full late-game
+ * store list can never take over the whole page again.
+ * ------------------------------------------------------------------------ */
+
+/* :not(.mClosed) is load-bearing, not decoration.
+ *
+ * Collapsing works by adding .mClosed, whose rule is `display: none` at
+ * class specificity. A `display: grid` keyed on #stores / #weapons is ID
+ * specificity and beats it outright -- which silently broke collapsing for
+ * exactly these two sections while every other section still worked.
+ * Excluding the collapsed state here means the two rules never compete, so
+ * no !important is needed. */
+html.mobileUI #stores:not(.mClosed),
+html.mobileUI #weapons:not(.mClosed) {
+	columns: auto;                 /* unset any inherited column-count */
+	column-count: auto;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
+	gap: 0 16px;
+	width: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
+	max-height: 45vh;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	font-size: 0.9em;
+}
+
+/* Each row is one grid cell: name left, value right, never split. */
+html.mobileUI #stores .storeRow,
+html.mobileUI #weapons .storeRow {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: 8px;
+	padding: 3px 0;
+	min-width: 0;
+}
+
+html.mobileUI #stores .storeRow .row_key,
+html.mobileUI #weapons .storeRow .row_key {
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+html.mobileUI #stores .storeRow .row_val,
+html.mobileUI #weapons .storeRow .row_val {
+	flex: 0 0 auto;
+	white-space: nowrap;
+}
+
+/* The game inserts float-clearing divs between rows; in a grid each one
+   would occupy a cell and punch holes in the layout. */
+html.mobileUI #stores .clear,
+html.mobileUI #weapons .clear {
+	display: none;
+}
+
+/* The rows are NOT direct children of #stores.
+ *
+ * Room.updateStoresView puts them inside #resources and #special wrappers,
+ * so the grid saw two items, not thirty: every resource stacked inside one
+ * cell and 'compass' alone in the next -- 23 items in column one, 1 in
+ * column two, nothing in column three.
+ *
+ * display:contents removes the wrappers' own boxes and promotes their
+ * children to grid items, without the game needing to know. */
+html.mobileUI #stores > div,
+html.mobileUI #weapons > div {
+	display: contents;
 }

@@ -836,3 +836,142 @@ html.mobileUI #weapons {
 	width: 100%;
 	max-width: 100%;
 }
+
+/* ---------------------------------------------------------------------------
+ * Stores and weapons: grid, not multi-column
+ *
+ * column-count was the wrong tool here and kept failing for reasons that
+ * were hard to see:
+ *
+ *   - room.css pins div#stores to width:200px. Columns then divide 200px,
+ *     not the screen, so the 2nd and 3rd columns render inside a box far
+ *     narrower than the section -- content appears to run off to the right.
+ *   - Multi-column needs break-inside on every child to avoid splitting a
+ *     row, and interacts badly with the flex .storeRow children.
+ *   - Column boxes have no intrinsic width, so nothing reports overflow;
+ *     the layout fails silently rather than visibly.
+ *
+ * Grid has none of those problems: auto-fill divides the ACTUAL width,
+ * every row is an atomic grid item that cannot be split, and the column
+ * count adapts to the viewport without media queries. `columns: auto`
+ * first, to unset any earlier column-count regardless of where it came
+ * from.
+ *
+ * The height cap plus scroll is the belt-and-braces answer to the same
+ * question: even at one column on a very narrow phone, a full late-game
+ * store list can never take over the whole page again.
+ * ------------------------------------------------------------------------ */
+
+/* :not(.mClosed) is load-bearing, not decoration.
+ *
+ * Collapsing works by adding .mClosed, whose rule is `display: none` at
+ * class specificity. A `display: grid` keyed on #stores / #weapons is ID
+ * specificity and beats it outright -- which silently broke collapsing for
+ * exactly these two sections while every other section still worked.
+ * Excluding the collapsed state here means the two rules never compete, so
+ * no !important is needed. */
+html.mobileUI #stores:not(.mClosed),
+html.mobileUI #weapons:not(.mClosed) {
+	columns: auto;                 /* unset any inherited column-count */
+	column-count: auto;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
+	gap: 0 16px;
+	width: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
+	max-height: 45vh;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	font-size: 0.9em;
+}
+
+/* Each row is one grid cell: name left, value right, never split. */
+html.mobileUI #stores .storeRow,
+html.mobileUI #weapons .storeRow {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: 8px;
+	padding: 3px 0;
+	min-width: 0;
+}
+
+html.mobileUI #stores .storeRow .row_key,
+html.mobileUI #weapons .storeRow .row_key {
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+html.mobileUI #stores .storeRow .row_val,
+html.mobileUI #weapons .storeRow .row_val {
+	flex: 0 0 auto;
+	white-space: nowrap;
+}
+
+/* The game inserts float-clearing divs between rows; in a grid each one
+   would occupy a cell and punch holes in the layout. */
+html.mobileUI #stores .clear,
+html.mobileUI #weapons .clear {
+	display: none;
+}
+
+/* The rows are NOT direct children of #stores.
+ *
+ * Room.updateStoresView puts them inside #resources and #special wrappers,
+ * so the grid saw two items, not thirty: every resource stacked inside one
+ * cell and 'compass' alone in the next -- 23 items in column one, 1 in
+ * column two, nothing in column three.
+ *
+ * display:contents removes the wrappers' own boxes and promotes their
+ * children to grid items, without the game needing to know. */
+html.mobileUI #stores > div,
+html.mobileUI #weapons > div {
+	display: contents;
+}
+
+/* ---------------------------------------------------------------------------
+ * Contain the slider strip
+ *
+ * THE root cause behind both the invisible button labels and the runaway
+ * column counts, found from a size badge in devtools: a build button
+ * measured 2350 x 52.3.
+ *
+ * Engine.updateSlider() sets the slider width INLINE, as
+ * (number of panels x panel width) -- 4 panels x 595px = 2380px -- because
+ * the desktop shows one panel through an overflow-hidden window and slides
+ * the strip left and right. Inline styles can only be beaten by !important,
+ * so the earlier `width: auto` on these containers never applied.
+ *
+ * Everything downstream then inherited that width. A button at
+ * `width: 100%` became 2350px wide with its label centred at ~1175px --
+ * present in the DOM, correctly coloured, and simply off-screen. That is
+ * why every inspection showed the text was there. The same 2350px made
+ * `repeat(auto-fill, minmax(8.5rem, 1fr))` resolve to about twelve columns,
+ * which is the reported 23-items-in-12-columns.
+ *
+ * MobileUI.showOnly() already hides all but the active panel, so the strip
+ * has no job here: pinning it to the viewport is safe and makes every
+ * percentage width downstream mean what it says.
+ * ------------------------------------------------------------------------ */
+
+html.mobileUI #outerSlider,
+html.mobileUI #locationSlider {
+	width: 100% !important;
+	left: 0 !important;
+	top: auto !important;
+}
+
+html.mobileUI .location {
+	width: 100%;
+	max-width: 100%;
+}
+
+/* With the width finally correct, a slightly wider minimum keeps the store
+   columns readable rather than shaving them to fit. */
+html.mobileUI #stores:not(.mClosed),
+html.mobileUI #weapons:not(.mClosed) {
+	grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+}
