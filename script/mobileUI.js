@@ -5,21 +5,6 @@
  * nothing here runs on desktop.
  *
  * ============================================================================
- * WHY THIS IS A SEPARATE PAGE
- * ============================================================================
- *
- * Three rounds of responsive CSS against index.html did not work, and each
- * one regressed something on desktop while fixing something on mobile. The
- * root cause is that the desktop layout is built from absolutely-positioned
- * columns sized against a fixed 700px stage, plus a position:fixed menu, and
- * every mobile rule had to fight that with !important overrides. Two layouts
- * were competing inside one stylesheet.
- *
- * A dedicated page removes the competition entirely. The game scripts are
- * identical -- same Engine, same Room, same save data, same everything. Only
- * the shell and the presentation layer differ.
- *
- * ============================================================================
  * HOW IT WORKS
  * ============================================================================
  *
@@ -64,6 +49,7 @@ var MobileUI = {
 	_observer: null,
 	_travelHooked: false,
 	_mapHooked: false,
+	_retrying: false,
 	_decorateTimer: null,
 
 	/* ---- one location at a time ----------------------------------------
@@ -113,7 +99,27 @@ var MobileUI = {
 		 * show would leave the player on a completely blank page. Bailing out
 		 * early leaves whatever was showing in place, which is the safe
 		 * failure. */
-		if(!module || !module.panel || !module.panel.length) { return; }
+		if(!module || !module.panel || !module.panel.length) {
+			/* The panel does not exist YET -- World.panel is not built until
+			 * World.init runs, and Path.embark calls World.onArrival before
+			 * that on the first trip out. Returning silently left every other
+			 * panel visible, which is why the village, villagers, gather wood
+			 * and check traps stayed on screen while out in the world.
+			 *
+			 * Retry once on the next tick rather than giving up. The guard
+			 * still does its original job -- never hide everything and show
+			 * nothing -- but no longer abandons the hide permanently. */
+			if(!MobileUI._retrying) {
+				MobileUI._retrying = true;
+				setTimeout(function() {
+					MobileUI._retrying = false;
+					if(module && module.panel && module.panel.length) {
+						MobileUI.showOnly(module);
+					}
+				}, 0);
+			}
+			return;
+		}
 		$('.location').addClass('mHidden');
 		module.panel.removeClass('mHidden');
 
@@ -250,8 +256,27 @@ var MobileUI = {
 		$('html').toggleClass('mDark', !!on);
 	},
 
+	/* Reads the STYLESHEET, not config.lightsOff.
+	 *
+	 * Engine.turnLightsOff does not store a boolean for "dark is on": when
+	 * enabling it writes `config.lightsOff = Engine.options.dark`, which is
+	 * false unless the game was launched with that option set. The flag is
+	 * therefore false in BOTH states and cannot distinguish them -- reading
+	 * it left this layer permanently light while dark.css was active, which
+	 * is the reported everything-white-in-dark-mode.
+	 *
+	 * The presence and enabled state of the darkenLights sheet is the real
+	 * source of truth, and is what the desktop itself branches on. */
+	isDarkActive: function() {
+		if(typeof Engine === 'undefined' || typeof Engine.findStylesheet !== 'function') {
+			return false;
+		}
+		var sheet = Engine.findStylesheet('darkenLights');
+		return !!sheet && !sheet.disabled;
+	},
+
 	syncDark: function() {
-		MobileUI.applyDark($SM.get('config.lightsOff', true) === true);
+		MobileUI.applyDark(MobileUI.isDarkActive());
 	},
 
 	/* ---- settings ------------------------------------------------------

@@ -1095,7 +1095,12 @@ var World = {
 					ttClass += " bottom";
 				}
 				if(World.curPos[0] == i && World.curPos[1] == j) {
-					mapString += '<span class="landmark">@<div class="tooltip ' + ttClass + '">'+_('Wanderer')+'</div></span>';
+					/* Its own class alongside .landmark so the player can be
+					 * highlighted distinctly. Every landmark already shares
+					 * .landmark, so there was nothing to target -- and at
+					 * phone size a bare '@' among a field of similar glyphs
+					 * is very hard to find, especially in light mode. */
+					mapString += '<span class="landmark player">@<div class="tooltip ' + ttClass + '">'+_('Wanderer')+'</div></span>';
 				} else if(World.state.mask[i][j]) {
 					var c = World.state.map[i][j];
 					switch(c) {

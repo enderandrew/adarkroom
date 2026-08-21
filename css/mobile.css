@@ -24,9 +24,32 @@
 	--muted: #999;
 	--line: #000;
 	--tap: 48px;          /* minimum comfortable tap target */
+	--cooldown: rgba(0, 0, 0, 0.16);
 }
 
 * { box-sizing: border-box; }
+
+/* ---------------------------------------------------------------------------
+ * Dark mode
+ *
+ * MobileUI.applyDark() toggles .mDark on <html>, but NO rule in this file
+ * ever responded to it -- the JS half of that feature shipped and the CSS
+ * half did not, so the class was being set and cleared against nothing.
+ * That is why dark mode appeared broken no matter what the detection did.
+ *
+ * Everything in this layer already draws from these four variables, so one
+ * block re-themes the whole thing. css/dark.css continues to handle the
+ * desktop-shaped selectors; this only keeps the mobile layer's own colours
+ * moving with it instead of staying light underneath.
+ * ------------------------------------------------------------------------ */
+
+html.mobileUI.mDark {
+	--ink: #eee;
+	--paper: #272823;
+	--muted: #8d9088;
+	--line: #eee;
+	--cooldown: rgba(255, 255, 255, 0.18);
+}
 
 html.mobileUI, html.mobileUI body {
 	/* main.css sets `body { display: flex; justify-content: center;
@@ -720,7 +743,10 @@ html.mobileUI .button {
 }
 
 html.mobileUI .button .cooldown {
-	background-color: rgba(255, 255, 255, 0.18);
+	/* Themed, not hardcoded: this was a fixed white, which is invisible
+	 * on a white button in light mode -- that is why the gather wood and
+	 * check traps cooldowns looked broken. */
+	background-color: var(--cooldown);
 }
 
 /* ---------------------------------------------------------------------------
@@ -1027,4 +1053,70 @@ html.mobileUI #outfitting {
 	max-height: 55vh;
 	overflow-y: auto;
 	-webkit-overflow-scrolling: touch;
+}
+
+/* ---------------------------------------------------------------------------
+ * Highlight the player on the map
+ *
+ * The map is a dense field of similar glyphs, and at phone size a bare '@'
+ * is genuinely hard to locate -- worst in light mode, where the low-contrast
+ * terrain characters and the player are much the same weight.
+ *
+ * Inverted block rather than a colour: it reads at a glance regardless of
+ * theme, needs no colour vision, and survives both palettes without a
+ * separate dark-mode rule.
+ * ------------------------------------------------------------------------ */
+
+html.mobileUI #map .player {
+	background-color: var(--ink);
+	color: var(--paper);
+	font-weight: bold;
+	border-radius: 2px;
+	padding: 0 1px;
+	margin: 0 -1px;          /* keep the monospace grid aligned */
+	position: relative;
+	z-index: 1;
+}
+
+/* A soft pulse so the eye finds it when the map first appears. */
+@keyframes mPlayerPulse {
+	0%, 100% { opacity: 1; }
+	50%      { opacity: 0.55; }
+}
+
+html.mobileUI #map .player {
+	animation: mPlayerPulse 1.6s ease-in-out infinite;
+}
+
+/* ---------------------------------------------------------------------------
+ * Highlight the player on the map
+ *
+ * The map is a dense field of similar glyphs, and at phone size a bare '@'
+ * is genuinely hard to locate -- worst in light mode, where the low-contrast
+ * terrain characters and the player are much the same weight.
+ *
+ * Inverted block rather than a colour: it reads at a glance regardless of
+ * theme, needs no colour vision, and survives both palettes without a
+ * separate dark-mode rule.
+ * ------------------------------------------------------------------------ */
+
+html.mobileUI #map .player {
+	background-color: var(--ink);
+	color: var(--paper);
+	font-weight: bold;
+	border-radius: 2px;
+	padding: 0 1px;
+	margin: 0 -1px;          /* keep the monospace grid aligned */
+	position: relative;
+	z-index: 1;
+}
+
+/* A soft pulse so the eye finds it when the map first appears. */
+@keyframes mPlayerPulse {
+	0%, 100% { opacity: 1; }
+	50%      { opacity: 0.55; }
+}
+
+html.mobileUI #map .player {
+	animation: mPlayerPulse 1.6s ease-in-out infinite;
 }
