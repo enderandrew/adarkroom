@@ -931,3 +931,177 @@ html.mobileUI #stores > div,
 html.mobileUI #weapons > div {
 	display: contents;
 }
+
+/* ---------------------------------------------------------------------------
+ * Contain the slider strip
+ *
+ * THE root cause behind both the invisible button labels and the runaway
+ * column counts, found from a size badge in devtools: a build button
+ * measured 2350 x 52.3.
+ *
+ * Engine.updateSlider() sets the slider width INLINE, as
+ * (number of panels x panel width) -- 4 panels x 595px = 2380px -- because
+ * the desktop shows one panel through an overflow-hidden window and slides
+ * the strip left and right. Inline styles can only be beaten by !important,
+ * so the earlier `width: auto` on these containers never applied.
+ *
+ * Everything downstream then inherited that width. A button at
+ * `width: 100%` became 2350px wide with its label centred at ~1175px --
+ * present in the DOM, correctly coloured, and simply off-screen. That is
+ * why every inspection showed the text was there. The same 2350px made
+ * `repeat(auto-fill, minmax(8.5rem, 1fr))` resolve to about twelve columns,
+ * which is the reported 23-items-in-12-columns.
+ *
+ * MobileUI.showOnly() already hides all but the active panel, so the strip
+ * has no job here: pinning it to the viewport is safe and makes every
+ * percentage width downstream mean what it says.
+ * ------------------------------------------------------------------------ */
+
+html.mobileUI #outerSlider,
+html.mobileUI #locationSlider {
+	width: 100% !important;
+	left: 0 !important;
+	top: auto !important;
+}
+
+html.mobileUI .location {
+	width: 100%;
+	max-width: 100%;
+}
+
+/* With the width finally correct, a slightly wider minimum keeps the store
+   columns readable rather than shaving them to fit. */
+html.mobileUI #stores:not(.mClosed),
+html.mobileUI #weapons:not(.mClosed) {
+	grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+}
+
+/* ---------------------------------------------------------------------------
+ * Villager +/- controls: reset the desktop triangles properly
+ *
+ * main.css draws each arrow with ::before and ::after using
+ * `position: absolute; border: medium solid transparent` -- a CSS triangle
+ * sized for a 14x12 box. Setting `content` alone left all of that in place,
+ * so each control rendered as a positioned bordered box with a glyph inside
+ * it, overlapping its neighbours. The pseudo-elements have to be fully
+ * neutralised, not just re-labelled.
+ * ------------------------------------------------------------------------ */
+
+html.mobileUI .workerRow .upBtn::before,
+html.mobileUI .workerRow .dnBtn::before,
+html.mobileUI .workerRow .upManyBtn::before,
+html.mobileUI .workerRow .dnManyBtn::before {
+	position: static;
+	border: none;
+	width: auto;
+	height: auto;
+	margin: 0;
+	top: auto;
+	bottom: auto;
+	left: auto;
+	font-size: 1rem;
+	line-height: 1;
+	color: var(--ink);
+}
+
+html.mobileUI .workerRow .upBtn::after,
+html.mobileUI .workerRow .dnBtn::after,
+html.mobileUI .workerRow .upManyBtn::after,
+html.mobileUI .workerRow .dnManyBtn::after {
+	display: none;
+	content: none;
+}
+
+html.mobileUI .workerRow .upBtn.disabled,
+html.mobileUI .workerRow .dnBtn.disabled,
+html.mobileUI .workerRow .upManyBtn.disabled,
+html.mobileUI .workerRow .dnManyBtn.disabled {
+	opacity: 0.35;
+}
+
+/* ---------------------------------------------------------------------------
+ * The cooldown fill was painting behind the button
+ *
+ * main.css gives .cooldown `z-index: -1`, which works on desktop because the
+ * button has no background of its own -- the fill shows through. This layer
+ * sets an opaque background-color, and a negative-z child of a non-stacking
+ * parent paints BEHIND that background, so the animation vanished.
+ *
+ * `isolation: isolate` makes the button its own stacking context. Painting
+ * order inside one is: background, then negative-z descendants, then
+ * content -- which is exactly the desktop intent: fill above the background,
+ * label above the fill.
+ * ------------------------------------------------------------------------ */
+
+html.mobileUI .button {
+	isolation: isolate;
+}
+
+html.mobileUI .button .cooldown {
+	background-color: rgba(255, 255, 255, 0.18);
+}
+
+/* ---------------------------------------------------------------------------
+ * Outside panel buttons
+ *
+ * lang/main.css forces `#outsidePanel .button { width: 115px !important }`.
+ * Both that and this layer's rule are !important, so specificity decides,
+ * and an id beats two classes -- which is why gather wood and check traps
+ * stayed small and left-aligned while every other button went full width.
+ * Matching the id here wins it back.
+ *
+ * They also share a row, as suggested: they are the two things a player taps
+ * constantly, and side by side keeps both above the fold.
+ * ------------------------------------------------------------------------ */
+
+html.mobileUI #outsidePanel > .button {
+	width: 100% !important;
+}
+
+html.mobileUI #outsidePanel {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+	gap: 0 8px;
+	align-items: start;
+}
+
+/* Panels that must span the full row rather than sit in a grid cell. */
+html.mobileUI #outsidePanel > .mSection,
+html.mobileUI #outsidePanel > .mBody,
+html.mobileUI #outsidePanel > #village,
+html.mobileUI #outsidePanel > #workers {
+	grid-column: 1 / -1;
+}
+
+/* ---------------------------------------------------------------------------
+ * Language picker label
+ *
+ * Collapsing the whole <ul> hid the first <li>, which IS the button's label
+ * ("language.") -- leaving an empty box in the settings menu. Closed now
+ * shows exactly that one row; open reveals the rest.
+ * ------------------------------------------------------------------------ */
+
+html.mobileUI .mMenuList .customSelectOptions > ul {
+	max-height: var(--tap);
+	overflow: hidden;
+}
+
+html.mobileUI .mMenuList .customSelect.open .customSelectOptions > ul {
+	max-height: 60vh;
+	overflow-y: auto;
+}
+
+html.mobileUI .mMenuList .customSelectOptions > ul > li:first-child {
+	font-weight: bold;
+	cursor: pointer;
+}
+
+/* ---------------------------------------------------------------------------
+ * Let the notification log use spare height
+ * ------------------------------------------------------------------------ */
+
+html.mobileUI #notifications {
+	height: auto;
+	min-height: 30vh;
+	max-height: 55vh;
+}

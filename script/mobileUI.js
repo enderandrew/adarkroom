@@ -63,6 +63,7 @@ var MobileUI = {
 
 	_observer: null,
 	_travelHooked: false,
+	_mapHooked: false,
 	_decorateTimer: null,
 
 	/* ---- one location at a time ----------------------------------------
@@ -85,6 +86,20 @@ var MobileUI = {
 			original.apply(Engine, arguments);
 			MobileUI.showOnly(module);
 		};
+
+		/* Path.embark does NOT go through Engine.travelTo -- it sets
+		 * Engine.activeModule directly and slides #outerSlider by hand, so
+		 * the wrapper above never fired on embark. The World panel kept its
+		 * .mHidden and embark silently did nothing, with no error, because
+		 * from the game's point of view nothing had gone wrong.
+		 * World.onArrival is the one call every embark makes. */
+		if(typeof World !== 'undefined' && typeof World.onArrival === 'function') {
+			var arrive = World.onArrival;
+			World.onArrival = function() {
+				arrive.apply(World, arguments);
+				MobileUI.showOnly(World);
+			};
+		}
 
 		if(Engine.activeModule) { MobileUI.showOnly(Engine.activeModule); }
 	},
@@ -111,10 +126,54 @@ var MobileUI = {
 		}
 	},
 
+	/* ---- world map ------------------------------------------------------
+	 *
+	 * World.RADIUS is 33, so the map is a 67x67 monospace grid. There is no
+	 * font size at which that fits a phone and stays readable, so rather
+	 * than shrink it into illegibility it scrolls, and re-centres on the
+	 * player after every redraw.
+	 *
+	 * Scroll position is computed proportionally from World.curPos rather
+	 * than by measuring a character cell: cell width depends on a font that
+	 * may not have loaded at first paint, and a wrong measurement centres on
+	 * the wrong tile. Proportional maths needs no measurement.
+	 *
+	 * Hooked on drawMap, which runs after every move, fight and reveal --
+	 * there is no single "player moved" event to listen for. */
+	hookMap: function() {
+		if(MobileUI._mapHooked) { return; }
+		if(typeof World === 'undefined' || typeof World.drawMap !== 'function') { return; }
+		MobileUI._mapHooked = true;
+
+		var draw = World.drawMap;
+		World.drawMap = function() {
+			draw.apply(World, arguments);
+			MobileUI.centreMap();
+		};
+	},
+
+	centreMap: function() {
+		var map = document.getElementById('map');
+		if(!map || !World.curPos) { return; }
+		var span = World.RADIUS * 2;
+		if(!span) { return; }
+
+		var fx = World.curPos[0] / span;
+		var fy = World.curPos[1] / span;
+
+		if(map.scrollWidth > map.clientWidth) {
+			map.scrollLeft = Math.max(0, (fx * map.scrollWidth) - (map.clientWidth / 2));
+		}
+		if(map.scrollHeight > map.clientHeight) {
+			map.scrollTop = Math.max(0, (fy * map.scrollHeight) - (map.clientHeight / 2));
+		}
+	},
+
 	init: function() {
 		$('html').addClass('mobileUI');
 		MobileUI.syncDark();
 		MobileUI.hookTravel();
+		MobileUI.hookMap();
 		MobileUI.buildSettingsMenu();
 		MobileUI.decorate();
 		MobileUI.watch();
