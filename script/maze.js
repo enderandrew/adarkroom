@@ -1,5 +1,5 @@
 /**
- * ASCII first-person maze.
+ * ASCII first-person maze with depth shading and enhanced visual geometry.
  *
  * A framework for maze locations rendered as a first-person ASCII corridor
  * view, navigated with arrow keys / WASD / on-screen touch zones.
@@ -72,12 +72,15 @@
  * fights they won still won -- the Executioner's structure, which is what
  * these locations are meant to feel like.
  */
+
 var Maze = {
 
 	VIEW_W: 31,
 	VIEW_H: 13,
 
-	// north, east, south, west -- index matches the `dir` value.
+	// Set to true to force display the map during testing
+	forceShowMap: false,
+
 	DIRS: [
 		{ dx: -1, dy: 0, name: 'north' },
 		{ dx: 0, dy: 1, name: 'east' },
@@ -86,9 +89,10 @@ var Maze = {
 	],
 
 	_defs: {},
-	_active: null,      // id of the maze currently on screen
-	_scene: null,       // the maze scene to return to after a trigger
+	_active: null,
+	_scene: null,
 	_keyHandler: null,
+	_stylesInjected: false,
 
 	/* ---- authoring ---------------------------------------------------- */
 
@@ -108,9 +112,6 @@ var Maze = {
 		return 'game.mazes["' + id + '"].' + key;
 	},
 
-	/* Current position/facing, falling back to the maze's declared start.
-	 * Kept in save state rather than a runtime variable so leaving and
-	 * returning across separate expeditions resumes where the player was. */
 	getPos: function(id) {
 		var def = Maze.get(id);
 		var saved = $SM.get(Maze.statePath(id, 'pos'));
@@ -135,8 +136,6 @@ var Maze = {
 			var col = def.grid[x].indexOf('S');
 			if(col !== -1) return { x: x, y: col };
 		}
-		// No 'S' authored -- fall back to the first floor tile so a malformed
-		// maze is still enterable rather than throwing on entry.
 		for(x = 0; x < def.grid.length; x++) {
 			for(var y = 0; y < def.grid[x].length; y++) {
 				if(def.grid[x][y] === '.') return { x: x, y: y };
@@ -154,9 +153,34 @@ var Maze = {
 		$SM.set(Maze.statePath(id, 'cleared["' + tag + '"]'), true, true);
 	},
 
-	/* Resets a maze back to its start. Does NOT clear progress -- doors stay
-	 * unlocked and cleared fights stay cleared. Used when re-entering the
-	 * location from the world map. */
+	/* ---- visited tracking for automap --------------------------------- */
+
+	isVisited: function(id, x, y) {
+		var visited = $SM.get(Maze.statePath(id, 'visited')) || {};
+		return visited[x + ',' + y] === true;
+	},
+
+	markVisited: function(id, x, y) {
+		var def = Maze.get(id);
+		// Mark current cell and adjacent tiles so wall outlines are revealed
+		for(var dx = -1; dx <= 1; dx++) {
+			for(var dy = -1; dy <= 1; dy++) {
+				var vx = x + dx, vy = y + dy;
+				if(vx >= 0 && vx < def.grid.length && vy >= 0 && vy < def.grid[vx].length) {
+					$SM.set(Maze.statePath(id, 'visited["' + vx + ',' + vy + '"]'), true, true);
+				}
+			}
+		}
+	},
+
+	hasScout: function() {
+		if(Maze.forceShowMap) return true;
+		if(typeof World !== 'undefined' && typeof World.hasPerk === 'function') {
+			if(World.hasPerk('scout')) return true;
+		}
+		return !!($SM.get('character.perks["scout"]') || $SM.get('character.perks.scout'));
+	},
+
 	rewind: function(id) {
 		var start = Maze.findStart(id);
 		var def = Maze.get(id);
@@ -182,9 +206,6 @@ var Maze = {
 		return Maze.get(id).cells[c] || null;
 	},
 
-	/* A cell blocks movement if it is a wall, or a door whose key isn't held.
-	 * Everything else -- including a trigger the player has already cleared --
-	 * is walkable. */
 	isBlocked: function(id, x, y) {
 		var c = Maze.charAt(id, x, y);
 		if(c === '#') return true;
@@ -201,36 +222,14 @@ var Maze = {
 		return true;
 	},
 
-	/* ---- rendering ------------------------------------------------------
-	 *
-	 * The view is built by starting from the perspective lines (an X of
-	 * receding diagonals) and stamping wall panels over the top, nearest
-	 * depth last so closer geometry occludes further geometry. Same approach
-	 * as the classic ASCII maze renderers, generalised so the depth bands are
-	 * data rather than a hardcoded ladder of if-statements.
-	 *
-	 * Each band is [leftCol, width] for the side walls at that depth, and the
-	 * front wall spans between them.
-	 * ------------------------------------------------------------------- */
+	/* ---- rendering & depth geometry ---------------------------------- */
 
-	/* Perspective geometry.
-	 *
-	 * DEPTHS[d] gives the corridor opening at depth d as [leftCol, topRow].
-	 * The opening is symmetric, so the right edge is VIEW_W-1-left and the
-	 * bottom is VIEW_H-1-top. Openings shrink with distance, which is what
-	 * produces the vanishing point.
-	 *
-	 * A side wall at depth d is the trapezoid between opening d and opening
-	 * d+1; a front wall fills opening d entirely. Keeping this as data rather
-	 * than a ladder of hardcoded coordinates means the view size and depth
-	 * can be retuned by editing one table.
-	 */
 	DEPTHS: [
 		[0, 0],
-		[4, 2],
-		[7, 4],
-		[9, 5],
-		[10, 6]
+		[5, 2],
+		[9, 4],
+		[12, 5],
+		[14, 6]
 	],
 
 	left: function(d) { return Maze.DEPTHS[d][0]; },
@@ -241,97 +240,114 @@ var Maze = {
 	blankView: function() {
 		var view = [];
 		for(var r = 0; r < Maze.VIEW_H; r++) {
-			view.push(repeatChar(' ', Maze.VIEW_W));
+			var row = [];
+			for(var c = 0; c < Maze.VIEW_W; c++) {
+				row.push({ ch: ' ', depth: 4 });
+			}
+			view.push(row);
 		}
 		return view;
 	},
 
-	put: function(view, r, c, ch) {
+	put: function(view, r, c, ch, depth) {
 		if(r < 0 || r >= Maze.VIEW_H || c < 0 || c >= Maze.VIEW_W) return;
-		view[r] = view[r].substring(0, c) + ch + view[r].substring(c + 1);
+		view[r][c] = { ch: ch, depth: (typeof depth === 'number') ? depth : 4 };
 	},
 
-	/* Receding diagonals for ONE side of ONE depth band.
-	 *
-	 * Drawn only where a side wall ISN'T -- an open side reads as a gap with
-	 * the floor and ceiling lines running away from the player, which is how
-	 * the player spots a turning. If diagonals were drawn everywhere they'd
-	 * be decoration; drawn only at openings they're information. */
 	drawOpening: function(view, d, side) {
 		var c0, c1;
 		if(side < 0) { c0 = Maze.left(d); c1 = Maze.left(d + 1); }
 		else { c0 = Maze.right(d + 1); c1 = Maze.right(d); }
 
 		var t0 = Maze.top(d), t1 = Maze.top(d + 1);
-		var span = Math.max(1, c1 - c0);
-		for(var i = 0; i <= span; i++) {
-			var c = c0 + i;
-			var frac = (side < 0) ? (i / span) : (1 - i / span);
+		var b0 = Maze.bottom(d), b1 = Maze.bottom(d + 1);
+
+		var nearCol = (side < 0) ? c0 : c1;
+		for(var r = t0; r <= b0; r++) {
+			var ch = (r === t0 || r === b0) ? '+' : '|';
+			Maze.put(view, r, nearCol, ch, d);
+		}
+
+		var span = Math.max(1, Math.abs(c1 - c0));
+		for(var i = 1; i <= span; i++) {
+			var c = (side < 0) ? c0 + i : c1 - i;
+			var frac = i / span;
 			var rTop = Math.round(t0 + (t1 - t0) * frac);
-			var rBot = Maze.VIEW_H - 1 - rTop;
-			Maze.put(view, rTop, c, side < 0 ? '\\' : '/');
-			Maze.put(view, rBot, c, side < 0 ? '/' : '\\');
+			var rBot = Math.round(b0 - (b0 - b1) * frac);
+
+			Maze.put(view, rTop, c, side < 0 ? '\\' : '/', d);
+			Maze.put(view, rBot, c, side < 0 ? '/' : '\\', d);
+		}
+
+		var farCol = (side < 0) ? c1 : c0;
+		for(var rFar = t1; rFar <= b1; rFar++) {
+			var chFar = (rFar === t1 || rFar === b1) ? '+' : '|';
+			Maze.put(view, rFar, farCol, chFar, d + 1);
 		}
 	},
 
-	/* A side wall: the trapezoid between opening d and opening d+1.
-	 * `side` is -1 for left, +1 for right. */
 	drawSideWall: function(view, d, side) {
 		var c0, c1;
 		if(side < 0) { c0 = Maze.left(d); c1 = Maze.left(d + 1); }
 		else { c0 = Maze.right(d + 1); c1 = Maze.right(d); }
 
 		var t0 = Maze.top(d), t1 = Maze.top(d + 1);
-		var span = Math.max(1, c1 - c0);
+		var b0 = Maze.bottom(d), b1 = Maze.bottom(d + 1);
+		var span = Math.max(1, Math.abs(c1 - c0));
 
 		for(var i = 0; i <= span; i++) {
-			var c = c0 + i;
-			// Interpolate the wall's top and bottom edge along the diagonal.
-			var frac = (side < 0) ? (i / span) : (1 - i / span);
+			var c = (side < 0) ? c0 + i : c1 - i;
+			var frac = i / span;
 			var rTop = Math.round(t0 + (t1 - t0) * frac);
-			var rBot = Maze.VIEW_H - 1 - rTop;
-			Maze.put(view, rTop, c, '=');
-			Maze.put(view, rBot, c, '=');
+			var rBot = Math.round(b0 - (b0 - b1) * frac);
+
+			Maze.put(view, rTop, c, '=', d);
+			Maze.put(view, rBot, c, '=', d);
+
 			for(var r = rTop + 1; r < rBot; r++) {
-				Maze.put(view, r, c, '.');
+				var wallChar = (d === 0) ? '|' : (d === 1 ? ':' : '.');
+				Maze.put(view, r, c, wallChar, d);
 			}
 		}
 
-		// Vertical edge at the far end of the panel, so adjacent cells read as
-		// separate walls rather than one continuous smear.
-		var edge = (side < 0) ? c1 : c0;
-		for(var r2 = Maze.top(d + 1); r2 <= Maze.VIEW_H - 1 - Maze.top(d + 1); r2++) {
-			Maze.put(view, r2, edge, '|');
+		var edgeCol = (side < 0) ? c1 : c0;
+		for(var rEdge = t1; rEdge <= b1; rEdge++) {
+			var edgeChar = (rEdge === t1 || rEdge === b1) ? '+' : '|';
+			Maze.put(view, rEdge, edgeCol, edgeChar, d);
 		}
 	},
 
-	/* A front wall fills opening d completely. */
 	drawFrontWall: function(view, d, label) {
 		var l = Maze.left(d), r = Maze.right(d);
 		var t = Maze.top(d), b = Maze.bottom(d);
+
 		for(var row = t; row <= b; row++) {
 			for(var col = l; col <= r; col++) {
-				var edge = (row === t || row === b);
-				Maze.put(view, row, col, edge ? '=' : '.');
+				var isTopBot = (row === t || row === b);
+				var isSide = (col === l || col === r);
+				var ch = '+';
+
+				if(isTopBot && isSide) ch = '+';
+				else if(isTopBot) ch = '=';
+				else if(isSide) ch = '|';
+				else ch = (d <= 1) ? '+' : (d === 2 ? '#' : '.');
+
+				Maze.put(view, row, col, ch, d);
 			}
 		}
+
 		if(label) {
 			var mid = Math.floor((t + b) / 2);
 			var width = r - l + 1;
 			if(width >= label.length + 2) {
 				var startCol = l + Math.floor((width - label.length) / 2);
 				for(var i = 0; i < label.length; i++) {
-					Maze.put(view, mid, startCol + i, label[i]);
+					Maze.put(view, mid, startCol + i, label[i], d);
 				}
 			}
 		}
 	},
 
-	/* Builds the ASCII view from the player's position and facing.
-	 *
-	 * Drawn far-to-near so nearer geometry overwrites further geometry --
-	 * that painter's ordering is what makes occlusion work without any
-	 * depth buffer. */
 	buildView: function(id) {
 		var pos = Maze.getPos(id);
 		var view = Maze.blankView();
@@ -341,7 +357,6 @@ var Maze = {
 
 		var maxDepth = Maze.DEPTHS.length - 1;
 
-		// How far the corridor runs before something blocks it.
 		var blockedAt = maxDepth;
 		for(var d = 1; d <= maxDepth; d++) {
 			if(Maze.isBlocked(id, pos.x + dir.dx * d, pos.y + dir.dy * d)) {
@@ -354,12 +369,12 @@ var Maze = {
 			var x = pos.x + dir.dx * depth;
 			var y = pos.y + dir.dy * depth;
 
-			// Wall or opening, per side, at this depth.
 			if(Maze.isBlocked(id, x + lDir.dx, y + lDir.dy)) {
 				Maze.drawSideWall(view, depth, -1);
 			} else {
 				Maze.drawOpening(view, depth, -1);
 			}
+
 			if(Maze.isBlocked(id, x + rDir.dx, y + rDir.dy)) {
 				Maze.drawSideWall(view, depth, 1);
 			} else {
@@ -367,7 +382,6 @@ var Maze = {
 			}
 		}
 
-		// The wall the corridor ends at, drawn last at its own depth.
 		if(blockedAt <= maxDepth) {
 			var fx = pos.x + dir.dx * blockedAt;
 			var fy = pos.y + dir.dy * blockedAt;
@@ -380,6 +394,33 @@ var Maze = {
 		}
 
 		return view;
+	},
+
+	/* ---- automap builder ------------------------------------------------ */
+
+	buildMap: function(id) {
+		var pos = Maze.getPos(id);
+		var def = Maze.get(id);
+		var grid = def.grid;
+		var pChar = ['\u25B2', '\u25B6', '\u25BC', '\u25C0'][pos.dir];
+
+		var html = '';
+		for(var x = 0; x < grid.length; x++) {
+			for(var y = 0; y < grid[x].length; y++) {
+				if(x === pos.x && y === pos.y) {
+					html += '<span class="maze-map-player">' + pChar + '</span>';
+				} else if(Maze.isVisited(id, x, y)) {
+					var ch = Maze.charAt(id, x, y);
+					if(ch === '.') html += '<span class="maze-map-floor">.</span>';
+					else if(ch === '#') html += '<span class="maze-map-wall">#</span>';
+					else html += '<span class="maze-map-poi">' + ch + '</span>';
+				} else {
+					html += '&nbsp;';
+				}
+			}
+			html += '\n';
+		}
+		return html;
 	},
 
 	/* ---- interaction ---------------------------------------------------- */
@@ -411,16 +452,24 @@ var Maze = {
 	},
 
 	back: function(id) {
-		// Turn around rather than reversing blindly, so the player's facing
-		// always matches what they're looking at.
-		Maze.turn(id, 2);
+		var pos = Maze.getPos(id);
+		var dir = Maze.DIRS[pos.dir];
+		var bx = pos.x - dir.dx, by = pos.y - dir.dy;
+
+		if(Maze.isBlocked(id, bx, by)) {
+			var cell = Maze.cellDef(id, bx, by);
+			if(cell && cell.type === 'door') {
+				Notifications.notify(null, cell.lockedText || _('the door is locked.'));
+			}
+			return;
+		}
+
+		pos.x = bx; pos.y = by;
+		Maze.setPos(id, pos);
+		Maze.redraw(id);
+		Maze.checkTrigger(id);
 	},
 
-	/* Fires the cell the player just stepped onto, if any.
-	 *
-	 * Routes to a SIBLING SCENE of the same event, so the target is an
-	 * ordinary combat/story scene with all the usual machinery. It must route
-	 * back to the maze scene to resume. */
 	checkTrigger: function(id) {
 		var pos = Maze.getPos(id);
 		var cell = Maze.cellDef(id, pos.x, pos.y);
@@ -441,30 +490,51 @@ var Maze = {
 		return false;
 	},
 
-	/* ---- lifecycle ------------------------------------------------------ */
+	/* ---- lifecycle & styles --------------------------------------------- */
 
-	/* Called from a scene's onRender. Draws the maze into the event panel and
-	 * binds controls. */
+	injectStyles: function() {
+		if(Maze._stylesInjected) return;
+		var css = 
+			'/* Dynamically expand event panel modal width for maze view + map */\n' +
+			'.eventPanel.maze-panel { width: 540px !important; margin-left: -100px; }\n' +
+			'.mazeWrap { width: 100%; margin: 10px auto; display: flex; flex-direction: column; align-items: center; }\n' +
+			'.mazeContainer { display: flex; gap: 16px; justify-content: center; align-items: flex-start; margin-bottom: 8px; }\n' +
+			'pre.mazeView { font-family: "Courier New", Consolas, monospace !important; background: #000 !important; color: #fff !important; line-height: 1.0 !important; font-size: 13px !important; letter-spacing: 0px !important; user-select: none; margin: 0 !important; text-align: left !important; padding: 6px; border: 1px solid #333; }\n' +
+			'pre.mazeMap { font-family: "Courier New", Consolas, monospace !important; background: #080808 !important; border: 1px solid #333 !important; padding: 6px; color: #666; line-height: 1.0 !important; font-size: 12px !important; letter-spacing: 0px !important; user-select: none; margin: 0 !important; display: none; text-align: left !important; }\n' +
+			'.maze-map-player { color: #00ffff; font-weight: bold; }\n' +
+			'.maze-map-wall { color: #444444; }\n' +
+			'.maze-map-floor { color: #888888; }\n' +
+			'.maze-map-poi { color: #ffaa00; font-weight: bold; }\n' +
+			'.maze-d0 { color: #ffffff; opacity: 1.0; text-shadow: 0 0 2px #fff; }\n' +
+			'.maze-d1 { color: #d0d0d0; opacity: 0.85; }\n' +
+			'.maze-d2 { color: #999999; opacity: 0.65; }\n' +
+			'.maze-d3 { color: #666666; opacity: 0.45; }\n' +
+			'.maze-d4 { color: #333333; opacity: 0.25; }\n';
+
+		$('<style>').text(css).appendTo('head');
+		Maze._stylesInjected = true;
+	},
+
 	render: function(id, sceneName) {
 		if(!Maze.get(id)) {
 			Engine.log('ERROR: no maze defined with id ' + id);
 			return;
 		}
+		Maze.injectStyles();
 		Maze.teardown();
 		Maze._active = id;
 		Maze._scene = sceneName;
 
 		var panel = Events.eventPanel();
+		panel.addClass('maze-panel');
 		var desc = $('#description', panel);
 
 		var wrap = $('<div>').addClass('mazeWrap').appendTo(desc);
-		$('<pre>').addClass('mazeView').appendTo(wrap);
+		var container = $('<div>').addClass('mazeContainer').appendTo(wrap);
+		$('<pre>').addClass('mazeView').appendTo(container);
+		$('<pre>').addClass('mazeMap').appendTo(container);
 		$('<div>').addClass('mazeReadout').appendTo(wrap);
 
-		/* Touch/click zones on the four edges. Sized generously and given
-		 * their own labels because this has to work on a phone, where there
-		 * is no keyboard at all -- the arrow-key path cannot be the only way
-		 * to play a location. */
 		var pad = $('<div>').addClass('mazePad').appendTo(wrap);
 		$('<div>').addClass('mazeBtn mazeUp').text('\u25B2').appendTo(pad)
 			.click(function() { Maze.forward(id); });
@@ -479,11 +549,6 @@ var Maze = {
 		Maze.redraw(id);
 	},
 
-	/* Events set Engine.keyLock = true for their whole duration, which stops
-	 * Engine's own keyDown dispatcher from routing anything to a module. So
-	 * the maze binds its own document listener while it is on screen, and
-	 * removes it again in teardown(). Anything that leaves a listener behind
-	 * would keep stealing arrow keys after the player has left the maze. */
 	bindKeys: function(id) {
 		Maze._keyHandler = function(e) {
 			var handled = true;
@@ -507,21 +572,47 @@ var Maze = {
 			$(document).off('keydown.maze');
 			Maze._keyHandler = null;
 		}
+		var panel = Events.eventPanel();
+		if(panel) panel.removeClass('maze-panel');
 		Maze._active = null;
 		Maze._scene = null;
 	},
 
 	redraw: function(id) {
-		/* Guarded: redraw is reachable from a key handler, and a key can land
-		 * in the gap after the event has torn down but before teardown() has
-		 * unbound the listener. Without this the player gets a console error
-		 * for pressing an arrow key at the wrong moment. */
 		if(!Events.activeEvent()) { return; }
 		var panel = Events.eventPanel();
-		var view = Maze.buildView(id);
-		$('.mazeView', panel).text(view.join('\n'));
-
 		var pos = Maze.getPos(id);
+
+		Maze.markVisited(id, pos.x, pos.y);
+
+		var view = Maze.buildView(id);
+		var html = '';
+		for(var r = 0; r < Maze.VIEW_H; r++) {
+			var currentDepth = -1;
+			for(var c = 0; c < Maze.VIEW_W; c++) {
+				var cell = view[r][c];
+				if(cell.depth !== currentDepth) {
+					if(currentDepth !== -1) html += '</span>';
+					html += '<span class="maze-d' + cell.depth + '">';
+					currentDepth = cell.depth;
+				}
+				var ch = cell.ch;
+				if(ch === '<') ch = '&lt;';
+				else if(ch === '>') ch = '&gt;';
+				else if(ch === '&') ch = '&amp;';
+				html += ch;
+			}
+			if(currentDepth !== -1) html += '</span>';
+			html += '\n';
+		}
+		$('.mazeView', panel).html(html);
+
+		if(Maze.hasScout()) {
+			$('.mazeMap', panel).html(Maze.buildMap(id)).css('display', 'block');
+		} else {
+			$('.mazeMap', panel).hide();
+		}
+
 		var def = Maze.get(id);
 		var label = def.label ? def.label + ' \u2014 ' : '';
 		$('.mazeReadout', panel).text(
@@ -529,9 +620,6 @@ var Maze = {
 	}
 };
 
-/* String.repeat isn't available in every environment this ships to, and the
- * renderer calls this on every frame -- kept as a tiny helper rather than
- * assuming. */
 function repeatChar(c, n) {
 	var s = '';
 	for(var i = 0; i < n; i++) s += c;
