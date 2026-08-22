@@ -2321,7 +2321,7 @@ Events.Setpieces = {
 		/* See script/lab.js for the gate structure. In short: the Builder,
 		 * then a locked door, then a prestige-gated symbol, then the Temple.
 		 * Nothing here can be brute-forced on a first playthrough. */
-		audio: AudioLibrary.LANDMARK_RUINS,
+		audio: AudioLibrary.LANDMARK_LAB,
 		scenes: {
 			'start': {
 				text: function() {
@@ -2703,16 +2703,41 @@ Events.Setpieces = {
 					_('the room beyond is a storage facility, and it is very large, and almost all of it is in use.'),
 					_('vats. rows of them, lit from within, each one at a different stage.'),
 					_('one is barely anything yet. one is most of the way there. one is finished, and floating, and waiting.'),
-					_('every single one of them is you.'),
+					_('every single one of them is you.')
+				],
+				notification: _('rows of vats, and every one of them is you'),
+				onLoad: function() {
+					Lab.complete();
+					World.clearDungeon();
+				},
+				buttons: {
+					'closer': {
+						text: _('look closer'),
+						nextScene: { 1: 'vats2' }
+					}
+				}
+			},
+			'vats2': {
+				text: [
 					_('not somebody like you. you. the same hands. the same set to the jaw. the scar you have had as long as you can remember, already there on a body that has never been outside that glass.'),
-					_('this is how it works. this is how it has always worked. you have died out there more times than the furnace log has pages, and every time, you have woken up in a dark room with no memory of it, and gone looking for wood.'),
-					/* Two more banks, far smaller, and the whole point of them
-					 * is the count. The player's row runs the length of the
-					 * room; theirs are a handful each. Cloning is what takes
-					 * the memory, so the arithmetic here is also the
-					 * explanation for why they both remember what the player
-					 * cannot -- stated by implication rather than spelled
-					 * out, since the player has to assemble it. */
+					_('this is how it works. this is how it has always worked. you have died out there more times than the furnace log has pages, and every time, you have woken up in a dark room with no memory of it, and gone looking for wood.')
+				],
+				buttons: {
+					'far': {
+						text: _('the far end of the room'),
+						nextScene: { 1: 'vats3' }
+					}
+				}
+			},
+			'vats3': {
+				/* Two more banks, far smaller, and the whole point of them is
+				 * the count. The player's row runs the length of the room;
+				 * theirs are a handful each. Cloning is what takes the
+				 * memory, so the arithmetic here is also the explanation for
+				 * why they both remember what the player cannot -- stated by
+				 * implication rather than spelled out, since the player has
+				 * to assemble it. */
+				text: [
 					_('at the far end there are two more banks, set apart, and far shorter.'),
 					_('one holds a man you have met. he is sitting in a cabin in a swamp about four days east of here and he took a charm off you and would not explain why he wanted it.'),
 					_('there are perhaps a dozen of him. the empties outnumber the full ones and the dust on the racks says the last one was drawn a long time ago.'),
@@ -2721,10 +2746,6 @@ Events.Setpieces = {
 					_('and then the row of you. the row of you goes on past where the lights end.')
 				],
 				notification: _('three sets of vats, and only one of them is a row'),
-				onLoad: function() {
-					Lab.complete();
-					World.clearDungeon();
-				},
 				buttons: {
 					'monk': {
 						text: _('there is somebody behind you'),
@@ -3353,7 +3374,7 @@ Events.Setpieces = {
 	},
 	"prison": { /* The Prison */
 		title: _('A Locked-Down Prison'),
-		audio: AudioLibrary.LANDMARK_RUINS,
+		audio: AudioLibrary.LANDMARK_PRISON,
 		scenes: {
 			'start': {
 				text: function() {

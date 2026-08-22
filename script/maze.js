@@ -378,6 +378,17 @@ var Maze = {
 		}
 	},
 
+	/* A single glyph on the floor at the centre of a cell's own depth.
+	 *
+	 * '*' for a scene, 'x' for a fight-in-waiting -- distinguishable from
+	 * every character the corridor geometry itself uses ('+', '=', '|',
+	 * '/', '\\', '.', '#'), so it cannot be mistaken for wall or floor
+	 * texture at a glance. */
+	drawFloorMark: function(view, d, ch) {
+		var midCol = Math.floor((Maze.left(d) + Maze.right(d)) / 2);
+		Maze.put(view, Maze.bottom(d), midCol, ch, d);
+	},
+
 	buildView: function(id) {
 		var pos = Maze.getPos(id);
 		var view = Maze.blankView();
@@ -409,6 +420,30 @@ var Maze = {
 				Maze.drawSideWall(view, depth, 1);
 			} else {
 				Maze.drawOpening(view, depth, 1);
+			}
+
+			/* Mark a walkable point of interest on the floor ahead.
+			 *
+			 * A 'scene' or 'combat' cell -- doors already get a LOCKED label
+			 * on their front wall, but these are floor tiles, not walls, and
+			 * buildView never gave them ANY visual distinction from ordinary
+			 * floor. checkTrigger fires correctly when you walk onto one --
+			 * confirmed by simulation -- but nothing in the corridor told you
+			 * it was there to walk onto, so finding it looked like nothing
+			 * happened even when it worked exactly as designed.
+			 *
+			 * Skipped once cleared, so a one-shot scene (most of them are)
+			 * stops drawing a marker for something that has already been
+			 * read -- otherwise the floor keeps flagging a spot with nothing
+			 * left to give. */
+			if(depth > 0) {
+				var poi = Maze.cellDef(id, x, y);
+				if(poi && (poi.type === 'scene' || poi.type === 'combat')) {
+					var tag = poi.tag || (x + ',' + y);
+					if(!poi.once || !Maze.isCleared(id, tag)) {
+						Maze.drawFloorMark(view, depth, poi.type === 'combat' ? 'x' : '*');
+					}
+				}
 			}
 		}
 
@@ -615,8 +650,25 @@ var Maze = {
 		$('<div>').addClass('mazeBtn mazeDown').text('\u25BC').appendTo(pad)
 			.click(function() { Maze.back(id); });
 
+		Maze.setDistressContext(id);
 		Maze.bindKeys(id);
 		Maze.redraw(id);
+	},
+
+	/* Tells Distress which interior the player is standing in.
+	 *
+	 * Derived from the maze id by prefix rather than passed in, so a new maze
+	 * in either location picks up the right ambience by naming alone and
+	 * cannot be forgotten. Anything unrecognised gets no context, and so no
+	 * effect -- silence is the safe default for a place with no ambience
+	 * written for it. */
+	setDistressContext: function(id) {
+		if(typeof Distress === 'undefined' || typeof Distress.setContext !== 'function') {
+			return;
+		}
+		if(id.indexOf('lab') === 0) { Distress.setContext('lab'); }
+		else if(id.indexOf('prison') === 0) { Distress.setContext('prison'); }
+		else { Distress.setContext(null); }
 	},
 
 	bindKeys: function(id) {
@@ -638,6 +690,13 @@ var Maze = {
 	},
 
 	teardown: function() {
+		/* Clears the ambience too. This runs when the maze scene is replaced
+		 * -- including by a combat or story scene INSIDE the maze -- so a
+		 * fight is never held under a pulsing screen. */
+		if(typeof Distress !== 'undefined' && typeof Distress.clearContext === 'function') {
+			Distress.clearContext();
+		}
+
 		if(Maze._keyHandler) {
 			$(document).off('keydown.maze');
 			Maze._keyHandler = null;

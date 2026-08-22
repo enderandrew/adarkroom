@@ -427,7 +427,28 @@ Events.Room = [
 	{/* The Shady Builder */
 		title: _('The Shady Builder'),
 		isAvailable: function() {
-			return Engine.activeModule == Room && $SM.get('game.buildings["hut"]', true) >= 5 && $SM.get('game.buildings["hut"]', true) < 20;
+			/* Room, not solitary, and there is actually room for the hut he
+			 * is offering to build.
+			 *
+			 * This used to check game.buildings["hut"] < 20 directly -- a
+			 * hardcoded number that both ignored steel huts and didn't match
+			 * the real cap of 25. Steel hut conversion decrements the
+			 * wood-hut count without freeing any capacity (see
+			 * Room.Craftables.hut.isAvailable, fixed for the same reason),
+			 * so a player who had, say, 5 wooden huts left after converting
+			 * 20 to steel -- population already fully capped -- would still
+			 * see this event offer to build a hut it could never place.
+			 * Delegating to the real gate means there is exactly one place
+			 * that knows what "room for a hut" means.
+			 *
+			 * Also newly excludes solitary players. Nothing about that
+			 * choice should be reversible by a random encounter -- the hut
+			 * gate is permanently closed once the player has told the
+			 * builder the journey belongs to two people, and this event was
+			 * the one path that ignored that. */
+			return Engine.activeModule == Room &&
+				$SM.get('game.buildings["hut"]', true) >= 5 &&
+				Room.Craftables.hut.isAvailable();
 		},
 		scenes: {
 			'start':{
@@ -483,9 +504,18 @@ Events.Room = [
 				],
 				notification: _('the shady builder builds a hut'),
 				onLoad: function() {
-					var n = $SM.get('game.buildings["hut"]', true);
-					if(n < 20){
-						$SM.set('game.buildings["hut"]',n+1);
+					/* Re-checked at build time, not just at trigger time.
+					 *
+					 * isAvailable() only gates whether the encounter can START; the
+					 * player still has to click through a scene before the hut is
+					 * actually placed, and could in principle convert a hut to
+					 * steel in the meantime, so capacity is worth confirming again
+					 * here rather than trusting a check from a screen ago. Same
+					 * hardcoded-20 bug as isAvailable() otherwise had -- see the
+					 * note there. */
+					if(Room.Craftables.hut.isAvailable()) {
+						var n = $SM.get('game.buildings["hut"]', true);
+						$SM.set('game.buildings["hut"]', n + 1);
 					}
 				},
 				buttons: {
