@@ -254,6 +254,22 @@ var Maze = {
 		view[r][c] = { ch: ch, depth: (typeof depth === 'number') ? depth : 4 };
 	},
 
+	/* A side opening.
+	 *
+	 * The thing this has to communicate is "you can turn here", and the
+	 * previous version only really said it at the end of a corridor. Three
+	 * changes, all aimed at that:
+	 *
+	 *   - The near edge of the gap is drawn as a full-height doorway jamb
+	 *     rather than the same '|' used for wall texture, so the eye reads a
+	 *     frame rather than more corridor.
+	 *   - The floor and ceiling of the gap are filled in receding, so the
+	 *     opening reads as a volume you could walk into instead of a hole in
+	 *     a line. This is the trick the reference images use: the branch is
+	 *     shaded, not just outlined.
+	 *   - The gap interior is left EMPTY (space), which against the filled
+	 *     wall texture on either side makes the branch read instantly, even
+	 *     in peripheral vision while moving. */
 	drawOpening: function(view, d, side) {
 		var c0, c1;
 		if(side < 0) { c0 = Maze.left(d); c1 = Maze.left(d + 1); }
@@ -262,23 +278,37 @@ var Maze = {
 		var t0 = Maze.top(d), t1 = Maze.top(d + 1);
 		var b0 = Maze.bottom(d), b1 = Maze.bottom(d + 1);
 
+		var span = Math.max(1, Math.abs(c1 - c0));
+
+		/* Ceiling and floor of the opening, receding to the far jamb. Drawn
+		 * first so the jambs below overwrite their endpoints. */
+		for(var i = 1; i < span; i++) {
+			var cc = (side < 0) ? c0 + i : c1 - i;
+			var fr = i / span;
+			var rT = Math.round(t0 + (t1 - t0) * fr);
+			var rB = Math.round(b0 - (b0 - b1) * fr);
+
+			Maze.put(view, rT, cc, side < 0 ? '\\' : '/', d);
+			Maze.put(view, rB, cc, side < 0 ? '/' : '\\', d);
+
+			/* Nothing between them: the void is what makes it read as a way
+			 * through rather than as decoration on a wall. */
+			for(var rv = rT + 1; rv < rB; rv++) {
+				Maze.put(view, rv, cc, ' ', d + 1);
+			}
+		}
+
+		/* Near jamb -- the edge closest to the player, and the one that
+		 * actually announces the turn. Corners get '+', the shaft gets a
+		 * heavier rule than plain wall texture. */
 		var nearCol = (side < 0) ? c0 : c1;
 		for(var r = t0; r <= b0; r++) {
 			var ch = (r === t0 || r === b0) ? '+' : '|';
 			Maze.put(view, r, nearCol, ch, d);
 		}
 
-		var span = Math.max(1, Math.abs(c1 - c0));
-		for(var i = 1; i <= span; i++) {
-			var c = (side < 0) ? c0 + i : c1 - i;
-			var frac = i / span;
-			var rTop = Math.round(t0 + (t1 - t0) * frac);
-			var rBot = Math.round(b0 - (b0 - b1) * frac);
-
-			Maze.put(view, rTop, c, side < 0 ? '\\' : '/', d);
-			Maze.put(view, rBot, c, side < 0 ? '/' : '\\', d);
-		}
-
+		/* Far jamb, one depth back so it shades lighter and the opening has
+		 * an obvious near/far. */
 		var farCol = (side < 0) ? c1 : c0;
 		for(var rFar = t1; rFar <= b1; rFar++) {
 			var chFar = (rFar === t1 || rFar === b1) ? '+' : '|';
@@ -421,6 +451,46 @@ var Maze = {
 			html += '\n';
 		}
 		return html;
+	},
+
+	/* ---- ambient flavour -------------------------------------------------
+	 *
+	 * A maze scene has ONE line of scene text, so after a few minutes of
+	 * exploring you are reading the same sentence over and over while the
+	 * view changes constantly. These pools give the space something to say
+	 * as you move through it.
+	 *
+	 * Rerolled on ARRIVAL AT A NEW CELL, not on every redraw: rerolling on
+	 * redraw means the line flickers every time you turn on the spot, which
+	 * reads as noise rather than atmosphere. Tied to the cell so that turning
+	 * around to look back gives you the same line the room gave you before --
+	 * the place stays consistent while you are standing in it.
+	 *
+	 * Weighted so the base line still comes up often. It carries the actual
+	 * mechanical hint (the lights follow you), so it should not be buried.
+	 */
+	AMBIENCE: {},
+
+	defineAmbience: function(id, lines) {
+		Maze.AMBIENCE[id] = lines;
+	},
+
+	ambienceFor: function(id) {
+		var pool = Maze.AMBIENCE[id];
+		if(!pool || pool.length === 0) { return null; }
+
+		var pos = Maze.getPos(id);
+		var key = pos.x + ',' + pos.y;
+		var st = $SM.get(Maze.statePath(id, 'ambient'), true) || {};
+
+		/* Same cell -> same line, so it does not churn while you look around. */
+		if(st.key === key && typeof st.line === 'number' && pool[st.line]) {
+			return Events.resolve(pool[st.line]);
+		}
+
+		var idx = Math.floor(Math.random() * pool.length);
+		$SM.set(Maze.statePath(id, 'ambient'), { key: key, line: idx }, true);
+		return Events.resolve(pool[idx]);
 	},
 
 	/* ---- interaction ---------------------------------------------------- */
@@ -617,6 +687,23 @@ var Maze = {
 		var label = def.label ? def.label + ' \u2014 ' : '';
 		$('.mazeReadout', panel).text(
 			label + _('facing {0}', _(Maze.DIRS[pos.dir].name)));
+
+		/* Ambient line under the compass readout rather than replacing the
+		 * scene text: the scene text is written for the moment you ARRIVE and
+		 * should stay put, and rewriting #description on every step would
+		 * fight the event system for ownership of that node. */
+		var flavour = Maze.ambienceFor(id);
+		var fEl = $('.mazeFlavour', panel);
+		if(flavour) {
+			if(fEl.length === 0) {
+				fEl = $('<div>').addClass('mazeFlavour').appendTo($('.mazeWrap', panel));
+			}
+			if(fEl.text() !== flavour) {
+				fEl.text(flavour).css('opacity', 0).animate({ opacity: 1 }, 400);
+			}
+		} else {
+			fEl.remove();
+		}
 	}
 };
 

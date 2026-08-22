@@ -289,6 +289,53 @@ var Lab = {
 		for(var level = 1; level <= Lab.LEVELS; level++) {
 			Lab.defineLevel(level);
 		}
+		Lab.defineAmbience();
+	},
+
+	/* Ambient lines for the maze readout.
+	 *
+	 * The lab's note is that it is WORKING, not ruined. Nothing here is
+	 * collapsed or overgrown; the lights answer, the air moves, the floors
+	 * are clean. What is wrong with it is that it is still running with
+	 * nobody in it, and that the work it was doing was on people.
+	 *
+	 * Deepening by level: level one is merely tidy, level two is
+	 * uncomfortable, level three stops pretending. */
+	AMBIENCE: {
+		1: [
+			function() { return _('the lights come on a corridor at a time, ahead of you.'); },
+			function() { return _('the lab is empty, but not abandoned. nothing here is dusty.'); },
+			function() { return _('the air moves. something is still running the filtration.'); },
+			function() { return _('a bench, wiped down. the tools on it are laid out in order of size.'); },
+			function() { return _('notes on the wall in ancient glyphs, in a small tidy hand.'); },
+			function() { return _('a floor drain, and a faint slope in the concrete leading to it.'); },
+			function() { return _('somewhere behind the wall, a pump cycles, stops, and cycles again.'); }
+		],
+		2: [
+			function() { return _('colder here. the filtration is louder.'); },
+			function() { return _('a faint scent of smoke, and under it something organic.'); },
+			function() { return _('specimen racks, emptied and washed. the labels were peeled off.'); },
+			function() { return _('the glyphs down here are corrections. someone kept revising the same line.'); },
+			function() { return _('a chair bolted to the floor. the bolts are recent work.'); },
+			function() { return _('condensation on the pipes. it has been this cold for a very long time.'); },
+			function() { return _('a door with a window at standing height, and a bar across the outside.'); }
+		],
+		3: [
+			function() { return _('remnants of genetic work, and notes in ancient glyphs.'); },
+			function() { return _('rows of tanks, drained. the fittings at the base are sized for a body.'); },
+			function() { return _('the smell is stronger here. smoke, and decomposition, and something sweet.'); },
+			function() { return _('a ledger of numbers, no names. the numbers run to five figures.'); },
+			function() { return _('handprints on the inside of the glass. six fingers, and some with five.'); },
+			function() { return _('the equipment down here was built to be cleaned quickly.'); },
+			function() { return _('a room with no fittings at all, and a drain in the middle of the floor.'); }
+		]
+	},
+
+	defineAmbience: function() {
+		for(var level = 1; level <= Lab.LEVELS; level++) {
+			var pool = Lab.AMBIENCE[level] || Lab.AMBIENCE[1];
+			Maze.defineAmbience('lab' + level, pool);
+		}
 	},
 
 	defineLevel: function(level) {

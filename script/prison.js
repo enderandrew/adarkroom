@@ -185,6 +185,57 @@ var Prison = {
 		Prison.WINGS.concat(['core']).forEach(function(wing) {
 			Prison.defineWing(wing);
 		});
+		Prison.defineAmbience();
+	},
+
+	/* Ambient lines, one pool per wing.
+	 *
+	 * Each wing is built on a single solid, and the lines lean on what that
+	 * geometry does to a person walking through it -- the cube's relentless
+	 * sameness, the tetrahedron's lack of any two matching surfaces, the
+	 * sphere's refusal to give you a straight line to fix on. The prison was
+	 * designed by people who understood that shape is a punishment.
+	 *
+	 * The core gets its own, quieter pool: it is a corridor to one cell, and
+	 * it should not feel like more maze. */
+	AMBIENCE: {
+		cube: [
+			function() { return _('square in section, exactly, and it stays exactly square.'); },
+			function() { return _('every corner is the same corner. you have stopped trusting your count.'); },
+			function() { return _('the joins are so fine you cannot find them by touch.'); },
+			function() { return _('marks on the wall at shoulder height, grouped in fives.'); },
+			function() { return _('the light is even everywhere. nothing casts a shadow to steer by.'); },
+			function() { return _('a cell door, open, the inside as clean as the corridor.'); }
+		],
+		tetra: [
+			function() { return _('the walls lean in overhead and meet.'); },
+			function() { return _('every surface is a triangle, and no two are the same triangle.'); },
+			function() { return _('the floor is not quite level and never quite the same slope twice.'); },
+			function() { return _('you keep ducking for a ceiling that is higher than it looks.'); },
+			function() { return _('scratches on a sloped face, made by someone lying down.'); },
+			function() { return _('the angles are wrong in a way you can feel in your jaw.'); }
+		],
+		sphere: [
+			function() { return _('there are no corners anywhere in this wing.'); },
+			function() { return _('the floor is the wall is the ceiling, and the curve never resolves.'); },
+			function() { return _('your own footsteps come back to you from the wrong direction.'); },
+			function() { return _('nothing here gives you a straight line to fix on.'); },
+			function() { return _('a smear on the curve at head height, polished by repetition.'); },
+			function() { return _('you have been walking level the whole time. you are no longer sure.'); }
+		],
+		core: [
+			function() { return _('the corridor runs straight, and it only runs one way.'); },
+			function() { return _('the walls here were finished by hand. someone cared how this looked.'); },
+			function() { return _('no cells. no doors. this passage was built for one arrival.'); },
+			function() { return _('it is very quiet, and the quiet has the shape of a held breath.'); }
+		]
+	},
+
+	defineAmbience: function() {
+		Prison.WINGS.concat(['core']).forEach(function(wing) {
+			var pool = Prison.AMBIENCE[wing];
+			if(pool) { Maze.defineAmbience('prison_' + wing, pool); }
+		});
 	},
 
 	LABELS: {

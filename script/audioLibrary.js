@@ -63,6 +63,8 @@ var AudioLibrary = {
     LANDMARK_HOUSE: 'audio/landmark-house.flac',
     LANDMARK_IRON_MINE: 'audio/landmark-ironmine.flac',
     LANDMARK_SULPHUR_MINE: 'audio/landmark-sulphurmine.flac',
+    LANDMARK_LAB: 'audio/lab.flac',
+    LANDMARK_PRISON: 'audio/prison.flac',
     LANDMARK_RUINS: 'audio/ruins.flac',
     LANDMARK_SWAMP: 'audio/landmark-swamp.flac',
     LANDMARK_TEMPLE: 'audio/temple.flac',
