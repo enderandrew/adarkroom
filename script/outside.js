@@ -205,7 +205,7 @@ var Outside = {
 		}).appendTo('div#outsidePanel');
 
 		Outside.updateTrapButton();
-		if($SM.get('game.buildings["utrap"]', true) > 0)
+		if($SM.get('game.buildings["uber trap"]', true) > 0)
 		{
 			new Button.Button({
 				id: 'uTrapsButton',
@@ -363,7 +363,7 @@ var Outside = {
 		for(var k in $SM.get('game.workers')) {
 			var lk = _(k);
 			var workerCount = $SM.get('game.workers["'+k+'"]');
-			var row = $('div#workers_row_' + k.replace(' ', '-'), workers);
+			var row = $('div#workers_row_' + k.replace(/ /g, '-'), workers);
 			if(row.length === 0) {
 				row = Outside.makeWorkerRow(k, workerCount);
 				
@@ -486,7 +486,22 @@ var Outside = {
 	},
 	
 	updateVillageRow: function(name, num, village) {
-		var id = 'building_row_' + name.replace(' ', '-');
+		/* .replace(/ /g, '-'), not .replace(' ', '-').
+		 *
+		 * The string-argument form only replaces the FIRST match. A name
+		 * with two or more spaces -- 'baited uber trap' is exactly this --
+		 * left a literal space in the id. Used just below in a jQuery
+		 * selector, that space is parsed as a DESCENDANT combinator, so the
+		 * lookup silently matched nothing every time. That sent every call
+		 * down the "row does not exist, create one" branch instead of
+		 * updating the existing row, so the count kept appending a fresh
+		 * duplicate on every refresh -- one building's baited-trap count
+		 * rendering as dozens of stacked identical rows, while every
+		 * single-space name (which the buggy replace handles fine)
+		 * displayed correctly. Same bug existed in seven more places across
+		 * this file, path.js and world.js wherever a name became a
+		 * selector or id this way; all fixed together. Reported directly. */
+		var id = 'building_row_' + name.replace(/ /g, '-');
 		var lname = _(name);
 		var row = $('div#' + id, village);
 		if(row.length === 0 && num > 0) {
@@ -617,7 +632,7 @@ var Outside = {
 		}
 		
 		for(var k in $SM.get('game.buildings')) {
-			if(k == 'trap' || k == 'utrap') {
+			if(k == 'trap' || k == 'uber trap') {
 				var numTraps = $SM.get('game.buildings["'+k+'"]');
 				var numBait = $SM.get('stores.bait', true);
 				var traps = numTraps - numBait;
@@ -694,7 +709,7 @@ var Outside = {
 			if(typeof num == 'number') {
 				var stores = {};
 				if(num < 0) num = 0;
-				var tooltip = $('.tooltip', 'div#workers_row_' + worker.replace(' ', '-'));
+				var tooltip = $('.tooltip', 'div#workers_row_' + worker.replace(/ /g, '-'));
 				tooltip.empty();
 				var needsUpdate = false;
 				var curIncome = $SM.getIncome(worker);
@@ -750,7 +765,7 @@ var Outside = {
 	
 	updateUTrapButton: function() {
 		var btn = $('div#uTrapsButton');
-		if($SM.get('game.buildings["utrap"]', true) > 0) {
+		if($SM.get('game.buildings["uber trap"]', true) > 0) {
 			if(btn.length === 0) {
 				new Button.Button({
 					id: 'uTrapsButton',
@@ -1707,7 +1722,7 @@ var Outside = {
 	checkUTraps: function(){
 		var drops = {};
 		var msg = [];
-		var numTraps = $SM.get('game.buildings["utrap"]', true);
+		var numTraps = $SM.get('game.buildings["uber trap"]', true);
 		var numBait = $SM.get('stores.bait', true);
 		var numDrops = numTraps + (numBait < numTraps ? numBait*3 : numTraps*2);
 		for(var i = 0; i < numDrops; i++) {

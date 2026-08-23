@@ -33,42 +33,60 @@ A Darker Room is an incremental/narrative game built with jQuery and vanilla Jav
 ├── index.html                # Main entry point
 ├── script/                   # Core game logic (15,934 lines)
 │   ├── engine.js             # Core game engine (943 lines)
-│   ├── state_manager.js      # Global state management (440 lines)
-│   ├── events.js             # Event framework (1,488 lines)
-│   ├── Button.js             # UI button component (132 lines)
-│   ├── room.js               # Room module - first phase (1,259 lines)
-│   ├── outside.js            # Village module (665 lines)
-│   ├── path.js               # Journey preparation (341 lines)
-│   ├── world.js              # World exploration (1,109 lines)
-│   ├── ship.js               # Spaceship module (177 lines)
-│   ├── space.js              # Space flight minigame (631 lines)
-│   ├── fabricator.js         # Alien tech crafting
-│   ├── ruins.js              # Underground Ruins
-│   ├── glyphs.js             # Glyph Puzzles
+│   ├── achievements.js       # End conditons (152 lines)
+│   ├── audio.js              # Audio engine (301 lines)
+│   ├── audioLibrary.js       # Audio asset definitions (106 lines)
+│   ├── builder.js            # The Builder dialogue (230 lines)
+│   ├── Button.js             # UI button component (134 lines)
+│   ├── crater.js             # Glass Crater location (48 lines)
+│   ├── distress.js           # Trigger visual effects (219 lines)
+│   ├── dropbox.js            # Dropbox integration (536 lines)
+│   ├── easterEggs.js         # Secrets to discover (138 lines)
+│   ├── events.js             # Event framework (1,999 lines)
+│   ├── fabricator.js         # Alien tech crafting (306 lines)
+│   ├── glyphs.js             # Glyph Puzzles (284 lines)
+│   ├── graveyard.js          # Graveyard Location (148 lines)
+│   ├── hazard.js             # Environmental hazards (53 lines)
 │   ├── header.js             # Tab navigation (34 lines)
-│   ├── notifications.js      # Message system (78 lines)
-│   ├── audio.js              # Audio engine
-│   ├── audioLibrary.js       # Audio asset definitions
-│   ├── prestige.js           # New game+ system (103 lines)
-│   ├── scoring.js            # Score tracking (34 lines)
-│   ├── localization.js       # i18n support (69 lines)
-│   ├── hotkeys.js            # keyboard commands (69 lines)
-│   ├── dropbox.js            # Dropbox integration (69 lines)
+│   ├── hotkeys.js            # keyboard commands (171 lines)
+│   ├── lab.js                # Cloning Lab Location (384 lines)
+│   ├── localization.js       # i18n support (76 lines)
+│   ├── maze.js               # First person 3D Maze (773 lines)
+│   ├── mobileUI.js           # Mobile version (323 lines)
+│   ├── notifications.js      # Message system (101 lines)
+│   ├── outside.js            # Village module (1,813 lines)
+│   ├── path.js               # Journey preparation (389 lines)
+│   ├── prestige.js           # New game+ system (181 lines)
+│   ├── prison.js             # Prison Location (285 lines)
+│   ├── room.js               # Room module - first phase (2,355 lines)
+│   ├── ruins.js              # Underground Ruins (175 lines)
+│   ├── scoring.js            # Score tracking (44 lines)
+│   ├── ship.js               # Spaceship module (243 lines)
+│   ├── space.js              # Space flight minigame (977 lines)
+│   ├── state_manager.js      # Global state management (479 lines)
+│   ├── swamp.js              # Swamp Location (181 lines)
+│   ├── swipe.js              # Swipe controls (120 lines)
+│   ├── temple.js             # Temple Location (142 lines)
+│   ├── village.js            # Village Threats (233 lines)
+│   ├── world.js              # World exploration (1,384 lines)
 │   └── events/               # Event definitions
-│       ├── encounters.js     # Combat encounters (437 lines)
-│       ├── room.js           # Room events (687 lines)
-│       ├── outside.js        # Village events (297 lines)
-│       ├── path.js           # Path events (297 lines)
-│       ├── road.js           # Road events (297 lines)
-│       ├── global.js         # Universal events (67 lines)
-│       ├── setpieces.js      # Major story events (3,587 lines)
-│       ├── executioner.js    # Endgame content (2,343 lines)
-│       └── marketing.js      # Meta events (35 lines)
-├── css/                       # Stylesheets
-├── lang/                      # Localization (27 languages)
-├── lib/                       # Third-party libraries
-├── audio/                     # Audio assets
-└── img/                       # Images
+│       ├── encounters.js     # Combat encounters (1,810 lines)
+│       ├── executioner.js    # Endgame content (2,524 lines)
+│       ├── global.js         # Universal events (142 lines)
+│       ├── marketing.js      # Meta events (35 lines)
+│       ├── outside.js        # Village events (1.044 lines)
+│       ├── path.js           # Path events (784 lines)
+│       ├── road.js           # Road events (1,818 lines)
+│       ├── room.js           # Room events (1,824 lines)
+│       └── setpieces.js      # Major story events (7,547 lines)
+├── build/                    # Build system
+├── css/                      # Stylesheets
+├── lang/                     # Localization (27 languages)
+├── lib/                      # Third-party libraries
+├── audio/                    # Audio assets
+├── img/                      # Images
+├── tools/                    # Tools
+└── tests/                    # Tests
 ```
 
 ---

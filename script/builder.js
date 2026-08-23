@@ -131,10 +131,7 @@ var Builder = {
 	 * landmark in the game -- town, city, ruins, cave, house, battlefield
 	 * and the rest still fall through to the generic line below. Naming a
 	 * reaction to literally everything would flatten the ones that are
-	 * supposed to stand out.
-	 *
-	 * Not yet present: 'prison'. There is a LANDMARKS entry for it but no
-	 * Events.Setpieces content -- add a row here when that location exists. */
+	 * supposed to stand out. */
 	LOCATION_LINES: {
 		ironmine: {
 			flag: 'builderIronMine',

@@ -1,4 +1,4 @@
-A Darker Room (v1.5-dev)
+A Darker Room (v1.6-dev)
 ==================
 > "awake. head throbbing. vision blurry. come light the fire."
 
@@ -7,7 +7,7 @@ Inspired by Candy Box (https://candybox2.github.io/candybox)
 Contribute on GitHub! (https://github.com/enderandrew/adarkroom/)
 
 
-[Click to play](http://adr.enderandrew.com.com)
+[Click to play](http://enderandrew.com/adarkerroom/)
 
 <table>
 <tr><th colspan=4>Available Languages</tr>

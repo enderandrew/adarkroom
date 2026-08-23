@@ -569,8 +569,13 @@ var Room = {
 			maxMsg: _("more uber traps would be for naught"),
 			type: 'building',
 			cost: function() {
-				if ($SM.get('playStats.utrapAlertShown') || !Room.buttons["utrap"]) {
-					var n = $SM.get('game.buildings["utrap"]', true);
+				if ($SM.get('playStats.utrapAlertShown') || !Room.buttons["uber trap"]) {
+					/* 'uber trap', not 'utrap'. This craftable's key IS
+				 * 'uber trap', so Room.build() writes
+				 * game.buildings["uber trap"]. Reading "utrap" always
+				 * returned 0, so the cost never scaled -- every uber trap
+				 * was priced as if it were the first. */
+				var n = $SM.get('game.buildings["uber trap"]', true);
 					return {
 						'wood': 50 + (n*50),
 						'iron': 10 + (n*10),
@@ -593,7 +598,12 @@ var Room = {
 						}
 					}
 				});
-				var n = $SM.get('game.buildings["utrap"]', true);
+				/* 'uber trap', not 'utrap'. This craftable's key IS
+				 * 'uber trap', so Room.build() writes
+				 * game.buildings["uber trap"]. Reading "utrap" always
+				 * returned 0, so the cost never scaled -- every uber trap
+				 * was priced as if it were the first. */
+				var n = $SM.get('game.buildings["uber trap"]', true);
 				return {
 					'wood': 50 + (n*50),
 					'iron': 10 + (n*10),
@@ -1101,7 +1111,7 @@ var Room = {
 			},
 			audio: AudioLibrary.CRAFT_RIFLE
 		},
-		// Disabling the Handheld Nuke because it would remove the challenge of the boss fights in the Executioner. I may keep ONE as loot somewhere. If you can take it to a single boss and not die, then there you go.
+		// Disabling the Handheld Nuke because it would remove the challenge of the boss fights in the Executioner. They are loot in the ruins.
 		// 
 		// 'handheld nuke': {
 		// 	name: _('handheld nuke'),
@@ -1902,13 +1912,6 @@ var Room = {
 		/* The builder's question PRE-EMPTS the first hut rather than following
 		 * it.
 		 *
-		 * It used to fire after construction, which made the scene describe a
-		 * finished building ("after the last beam is up") and, more
-		 * importantly, made the third answer impossible: you cannot say this
-		 * journey belongs to the two of you while standing in front of a hut
-		 * you have already paid for and raised. Asked here, before any wood
-		 * is spent, all three answers are still open.
-		 *
 		 * Returns false so nothing is built this click. The player answers,
 		 * and then builds -- or doesn't. */
 		if(thing === 'hut' && !$SM.get('game.doctrine') &&
@@ -1977,21 +1980,11 @@ var Room = {
 	 * The meat income is what makes this playable rather than a novelty:
 	 * cured meat is the gate on setting out down the dusty path at all, and
 	 * without huts there are no villagers, no hunters and no charcutier to
-	 * produce it. Two per second from the builder salting what the traps
+	 * produce it. Cured meat from the builder salting what the traps
 	 * bring in replaces that whole chain -- generous on purpose, because the
-	 * player has just given up every other production line in the game. */
-	/* 0.5 cured meat per 10s tick -- 3/min, so a solid expedition's worth
-	 * (~30) accumulates in about ten minutes of room time.
-	 *
-	 * Originally 2/sec, which was 120/min and grew far past anything a
-	 * hutless run could spend: 1 cured meat covers 2 moves
-	 * (World.MOVES_PER_FOOD), a trip needs dozens rather than hundreds, and
-	 * with no villagers nothing consumes the surplus. Matching a single
-	 * hunter's rate (delay 10, 0.5 meat) is the right magnitude: the builder
-	 * alone does roughly one hunter's job, which is generous without being
-	 * free. delay 10 also matches every other income source in the game --
-	 * delay 1 was an outlier for no reason. Fractional per-tick amounts
-	 * display fine; store rows floor with Math.floor. */
+	 * player has just given up every other production line in the game.
+	 * 0.5 cured meat per 10s tick -- 3/min, so a solid expedition's worth
+	 * (~30) accumulates in about ten minutes of room time. */
 	SOLITARY_MEAT: 0.5,
 	SOLITARY_MEAT_DELAY: 10,
 

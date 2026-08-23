@@ -112,7 +112,7 @@ var Path = {
 				perks = $('<div>').attr({'id': 'perks', 'data-legend': _('perks')});
 			}
 			for(var k in $SM.get('character.perks')) {
-				var id = 'perk_' + k.replace(' ', '-');
+				var id = 'perk_' + k.replace(/ /g, '-');
 				var r = $('#' + id);
 				if($SM.get('character.perks["'+k+'"]') && r.length === 0) {
 					r = $('<div>').attr('id', id).addClass('perkRow').appendTo(perks);
@@ -209,7 +209,7 @@ var Path = {
 				$SM.set(k, num, true);
 			}
 
-			var row = $('div#outfit_row_' + k.replace(' ', '-'), outfit);
+			var row = $('div#outfit_row_' + k.replace(/ /g, '-'), outfit);
 			if((store.type == 'tool' || store.type == 'weapon') && have > 0) {
 				currentBagCapacity += num * Path.getWeight(k);
 				if(row.length === 0) {
@@ -271,7 +271,7 @@ var Path = {
 	
 	createOutfittingRow: function(key, num, store) {
 		if(!store.name) store.name = _(key);
-		var row = $('<div>').attr('id', 'outfit_row_' + key.replace(' ', '-')).addClass('outfitRow').attr('key',key);
+		var row = $('<div>').attr('id', 'outfit_row_' + key.replace(/ /g, '-')).addClass('outfitRow').attr('key',key);
 		$('<div>').addClass('row_key').text(store.name).appendTo(row);
 		var val = $('<div>').addClass('row_val').appendTo(row);
 		

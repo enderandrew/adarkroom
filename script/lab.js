@@ -309,7 +309,14 @@ var Lab = {
 			function() { return _('a bench, wiped down. the tools on it are laid out in order of size.'); },
 			function() { return _('notes on the wall in ancient glyphs, in a small tidy hand.'); },
 			function() { return _('a floor drain, and a faint slope in the concrete leading to it.'); },
-			function() { return _('somewhere behind the wall, a pump cycles, stops, and cycles again.'); }
+			function() { return _('somewhere behind the wall, a pump cycles, stops, and cycles again.'); },
+			function() { return _('cameras everwhere. but who is watching if anyone?'); },
+			function() { return _('sterile and clinical but with an almost organic thrum'); },
+			function() { return _('a jar of teeth and examination notes in weird glyphs.'); },
+			function() { return _('every path impossibly seems to slope down and deeper.'); },
+			function() { return _('modern. ancient. familiar. alien.'); },
+			function() { return _('how did the watcher temple have a key to thos place?'); },
+			function() { return _('there was a sound behind you and then suddenly nothing.'); },
 		],
 		2: [
 			function() { return _('colder here. the filtration is louder.'); },
@@ -318,7 +325,14 @@ var Lab = {
 			function() { return _('the glyphs down here are corrections. someone kept revising the same line.'); },
 			function() { return _('a chair bolted to the floor. the bolts are recent work.'); },
 			function() { return _('condensation on the pipes. it has been this cold for a very long time.'); },
-			function() { return _('a door with a window at standing height, and a bar across the outside.'); }
+			function() { return _('a door with a window at standing height, and a bar across the outside.'); },
+			function() { return _('this room has impossible star charts.'); },
+			function() { return _('this area has been overly sanitized as if to erase something foul.'); },
+			function() { return _('what did the builder not want you to find down here?'); },
+			function() { return _('how deep do these tunnels go? why is it so cold?'); },
+			function() { return _('going in circles? that handprint looks like your own.'); },
+			function() { return _('an archive with incomprehensible records'); },
+			function() { return _('there appear to be body-sized drag marks.'); },
 		],
 		3: [
 			function() { return _('remnants of genetic work, and notes in ancient glyphs.'); },
@@ -327,7 +341,15 @@ var Lab = {
 			function() { return _('a ledger of numbers, no names. the numbers run to five figures.'); },
 			function() { return _('handprints on the inside of the glass. six fingers, and some with five.'); },
 			function() { return _('the equipment down here was built to be cleaned quickly.'); },
-			function() { return _('a room with no fittings at all, and a drain in the middle of the floor.'); }
+			function() { return _('a room with no fittings at all, and a drain in the middle of the floor.'); },
+			function() { return _('there are subtle carvings of three eyes and three ears.'); },
+			function() { return _('lost? déjà vu? or have you been here before and forgot?'); },
+			function() { return _('something in the back of your mind says to turn back now.'); },
+			function() { return _('you long for the warm fire in your room.'); },
+			function() { return _('that cannot be right. those glyphs seem to suggest...'); },
+			function() { return _('you could backtrack and climb out this very moment.'); },
+			function() { return _('unseen workers must be keeping this operation going'); },
+			function() { return _('invisible death - radiation floods most of this level'); },
 		]
 	},
 

@@ -99,15 +99,15 @@ var Space = {
 	setTitle: function() {
 		if(Engine.activeModule == this) {
 			var t;
-			if(Space.altitude < 10) {
+			if(Space.altitude < 15) {
 				t = _("Troposphere");
-			} else if(Space.altitude < 20) {
-				t = _("Stratosphere");
 			} else if(Space.altitude < 30) {
-				t = _("Mesosphere");
+				t = _("Stratosphere");
 			} else if(Space.altitude < 45) {
+				t = _("Mesosphere");
+			} else if(Space.altitude < 60) {
 				t = _("Thermosphere");
-			} else if(Space.altitude < 60){
+			} else if(Space.altitude < 75){
 				t = _("Exosphere");
 			} else {
 				t = _("Space");

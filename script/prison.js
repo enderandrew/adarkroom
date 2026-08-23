@@ -205,7 +205,13 @@ var Prison = {
 			function() { return _('the joins are so fine you cannot find them by touch.'); },
 			function() { return _('marks on the wall at shoulder height, grouped in fives.'); },
 			function() { return _('the light is even everywhere. nothing casts a shadow to steer by.'); },
-			function() { return _('a cell door, open, the inside as clean as the corridor.'); }
+			function() { return _('a cell door, open, the inside as clean as the corridor.'); },
+			function() { return _('tools for measurement, but only for one specific size.'); },
+			function() { return _('every room of unerring consistency beyond what any machine can do.'); },
+			function() { return _('glyphs in every tongue: peace through equity. equity through consistency.'); },
+			function() { return _('someone drew a symbol in this cell. it looks like your charms.'); },
+			function() { return _('a special meeting room abandoned.'); },
+			function() { return _('an office converted to a cell. but why?'); },
 		],
 		tetra: [
 			function() { return _('the walls lean in overhead and meet.'); },
@@ -213,7 +219,13 @@ var Prison = {
 			function() { return _('the floor is not quite level and never quite the same slope twice.'); },
 			function() { return _('you keep ducking for a ceiling that is higher than it looks.'); },
 			function() { return _('scratches on a sloped face, made by someone lying down.'); },
-			function() { return _('the angles are wrong in a way you can feel in your jaw.'); }
+			function() { return _('the angles are wrong in a way you can feel in your jaw.'); },
+			function() { return _('you see modern repairs in this ancient structure.'); },
+			function() { return _('a room with 11 chairs and a 12th empty spot.'); },
+			function() { return _('a stone monolith of what to dismantle and what to leave behind.'); },
+			function() { return _('this wing represents a simple shape that should be stable for failed for some reason.'); },
+			function() { return _('a prisoner tried to repair this cell from the inside.'); },
+			function() { return _('a room where the galaxy was once condemned and later an innocent was imprisoned.'); },
 		],
 		sphere: [
 			function() { return _('there are no corners anywhere in this wing.'); },
@@ -222,12 +234,22 @@ var Prison = {
 			function() { return _('nothing here gives you a straight line to fix on.'); },
 			function() { return _('a smear on the curve at head height, polished by repetition.'); },
 			function() { return _('you have been walking level the whole time. you are no longer sure.'); }
+			function() { return _('a morphing projection of this room and this planet.'); }
+			function() { return _('no focal point. you observe everything and nothing.'); }
+			function() { return _('the entire structure may be rotating around you. you are not sure.'); }
+			function() { return _('you move forward but a sphere has no end.'); }
+			function() { return _('a round wing with no point. there is no point. nothing to gleam.'); }
+			function() { return _('turn back rather than face an infinity of no meaning.'); }
+			function() { return _('there are no walls but that which we make.'); }
+			function() { return _('ⰑⰖⰔⱂⰃⰠ2ⰉⰉ Ⱀⱂ ⰄⰀ ⰒⰑⰆⰉ me2Ⱐ ⰄⰀ ⰂⰉⰄⰉ2Ⱐ ⰍⰑⰐⰠⰜⰠ ⰉⰆⰅ ⰔⰠⰄⰡⱂⰞⰨ'); }
 		],
 		core: [
 			function() { return _('the corridor runs straight, and it only runs one way.'); },
 			function() { return _('the walls here were finished by hand. someone cared how this looked.'); },
 			function() { return _('no cells. no doors. this passage was built for one arrival.'); },
-			function() { return _('it is very quiet, and the quiet has the shape of a held breath.'); }
+			function() { return _('it is very quiet, and the quiet has the shape of a held breath.'); },
+			function() { return _('nullified sound. what prisoner would necessitate should a prison'); },
+			function() { return _('ⰑⰖⰔⱂⰃⰠ2ⰉⰉ Ⱀⱂ ⰄⰀ ⰒⰑⰆⰉ me2Ⱐ ⰄⰀ ⰂⰉⰄⰉ2Ⱐ ⰍⰑⰐⰠⰜⰠ ⰉⰆⰅ ⰔⰠⰄⰡⱂⰞⰨ'); }
 		]
 	},
 

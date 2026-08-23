@@ -8,10 +8,6 @@
  *
  * Design rules this module exists to enforce:
  *
- *   - Rare really means rare. The interval is minutes, not seconds, with a
- *     large random spread so it never falls into a rhythm the player can
- *     anticipate. An effect the player learns to expect stops being unsettling
- *     and starts being annoying.
  *   - Never during an event. Glitching the screen while somebody is reading a
  *     choice, or mid-combat, turns atmosphere into an accessibility problem.
  *   - One at a time, and short. Every effect self-clears.
@@ -24,7 +20,7 @@ var Distress = {
 	name: 'Distress',
 	options: {},
 
-	/* Minutes between events, as a range. The lower bound is what stops this
+	/* Seconds between events, as a range. The lower bound is what stops this
 	 * becoming wallpaper; the spread is what stops it becoming a metronome. */
 	MIN_INTERVAL: 5 * 1000,
 	MAX_INTERVAL: 10 * 1000,
@@ -48,7 +44,30 @@ var Distress = {
 		world:      { cls: 'dxSweep',   duration: 900 },
 		fabricator: { cls: 'dxTear',    duration: 320 },
 		ship:       { cls: 'dxRoll',    duration: 520 },
-		space:      { cls: 'dxRoll',    duration: 520 }
+		space:      { cls: 'dxRoll',    duration: 520 },
+
+		/* Maze interiors. Reached through setContext() rather than through a
+		 * module, because a maze is a SCENE inside an event and has no module
+		 * of its own -- see the note on canFire(). */
+		lab:        { cls: 'dxVats',    duration: 3200 },
+		prison:     { cls: 'dxHold',    duration: 4200 }
+	},
+
+	/* An explicit area override, for places that are not modules.
+	 *
+	 * Set by Maze.render() and cleared by Maze.teardown(). Everything else
+	 * about the effect -- the player's toggle, reduced-motion, the clearing
+	 * logic -- is shared with the normal path, so a maze cannot end up with
+	 * its own half-implemented copy of the rules. */
+	_context: null,
+
+	setContext: function(key) {
+		Distress._context = key || null;
+	},
+
+	clearContext: function() {
+		Distress._context = null;
+		Distress.clear();
 	},
 
 	/* Maps the live module object to an EFFECTS key. Each module is checked
@@ -135,11 +154,25 @@ var Distress = {
 		 * either way is being asked to make a decision under time pressure --
 		 * shaking the screen at that moment is a usability problem wearing an
 		 * atmosphere costume. */
-		if(typeof Events !== 'undefined' && Events.activeEvent()) return false;
+		/* ...unless a context is set. A maze is an event, so this rule would
+		 * otherwise exclude the lab and the prison entirely -- the two
+		 * locations where an unattended machine still running is the whole
+		 * point. Walking a corridor is not the same as being asked to choose
+		 * under pressure, which is what this guard exists to protect. Combat
+		 * scenes inside a maze clear the context via teardown, so fights are
+		 * still exempt. */
+		if(typeof Events !== 'undefined' && Events.activeEvent() && !Distress._context) {
+			return false;
+		}
 		return true;
 	},
 
 	currentEffect: function() {
+		/* An explicit context wins: it is only ever set somewhere the module
+		 * cannot describe where the player actually is. */
+		if(Distress._context) {
+			return Distress.EFFECTS[Distress._context] || null;
+		}
 		if(typeof Engine === 'undefined' || !Engine.activeModule) return null;
 		var key = Distress.effectKeyFor(Engine.activeModule);
 		return key ? Distress.EFFECTS[key] : null;

@@ -322,7 +322,7 @@ var World = {
 
 		var total = 0;
 		for(var k in Path.outfit) {
-			var item = $('div#supply_' + k.replace(' ', '-'), supplies);
+			var item = $('div#supply_' + k.replace(/ /g, '-'), supplies);
 			var num = Path.outfit[k];
 			total += num * Path.getWeight(k);
 			if(num > 0 && item.length === 0) {
@@ -371,7 +371,7 @@ var World = {
 	},
 
 	createItemDiv: function(name, num) {
-		var div = $('<div>').attr('id', 'supply_' + name.replace(' ', '-'))
+		var div = $('<div>').attr('id', 'supply_' + name.replace(/ /g, '-'))
 			.addClass('supplyItem')
 			.text(_('{0}:{1}',_(name), num));
 

@@ -74,7 +74,27 @@ var Graveyard = {
 			_('a stone with no name on it at all, only a date and a single line.'),
 			_('"one of the many. there was not time to find out which."'),
 			_('"curse the profane."')
-		]
+		],
+		[
+			_('when you incite an angry mob.'),
+			_('the smallest are trampled'),
+			_('"curse the profane."')
+		],
+		[
+			_('when all resources go to war'),
+			_('there are none to feed starving mouths'),
+			_('"curse the profane."')
+		],
+		[
+			_('the first people conquered and killed'),
+			_('the first to fall victim, were his own'),
+			_('"curse the profane."')
+		],
+		[
+			_('no one wins wars fought with child soldiers'),
+			_('small coffins weigh the heaviest'),
+			_('"curse the profane."')
+		],
 	],
 
 	/* The last stone the player reads, always. Placed last because everything

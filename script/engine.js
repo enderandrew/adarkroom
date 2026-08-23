@@ -1,8 +1,8 @@
 (function() {
 	var Engine = window.Engine = {
 
-		SITE_URL: encodeURIComponent("https://adr.enderandrew.com"),
-		VERSION: 1.3,
+		SITE_URL: encodeURIComponent("https://enderandrew.com/adarkerroom/"),
+		VERSION: 1.6,
 		MAX_STORE: 99999999999999,
 		SAVE_DISPLAY: 30 * 1000,
 		GAME_OVER: false,
@@ -944,13 +944,6 @@
 		},
 
 		turnLightsOff: function() {
-			/* No mobile special-case here any more.
-			 *
-			 * This used to divert to a bespoke mobile dark theme, because
-			 * css/dark.css restyles selectors that only css/main.css defines
-			 * and dropped an unstyled logo onto a page that loaded neither.
-			 * mobile.html now loads the desktop sheets, so dark.css applies
-			 * correctly there and one code path serves both. */
 			/* Keep the mobile colour variables in step with the desktop
 			 * sheet. dark.css still does the work for desktop-shaped
 			 * selectors; this only tells the mobile override layer to flip
@@ -1042,7 +1035,7 @@
 					start: {
 						text: [_("changelog: This is a fork that both changes features, and the story from original game. Go support the original!"),
 						_(" "),
-						_("In the mean time this is what has changed: The Executioner, The Fabricator, new ending, Hardcore mode, uber traps, new perk, new weapons, new upgrades, exapnded story, more enemies to encounter, more huts can be made on replays, April Fool's mode, key controls in combat, visual tweaks, bugfixes, and more to come!")
+						_("In the mean time this is what has changed: Ruins, Temple, Graveyard, Lab, Prison, easter eggs, 14 endings, mobile, Hardcore mode, uber traps, new perk, new weapons, new upgrades, expanded story, new enemies, April Fool's mode, key controls in combat, visual tweaks, bugfixes, and more to come!")
 						],
 						buttons: {
 							'yes': {
@@ -1720,9 +1713,6 @@ var april = function() {
 							'ok': {
 								text: _('check it out.'),
 								onChoose: function() {
-									/* Same fix, same reason: reload whichever page the
-									 * player is actually on rather than always sending
-									 * them to index.html. */
 									window.location = location.pathname;
 								}
 							},
