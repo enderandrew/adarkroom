@@ -257,6 +257,20 @@
 			$('body').off('keydown').keydown(Engine.keyDown);
 			$('body').off('keyup').keyup(Engine.keyUp);
 
+			/* The Konami code triggers Engine.enableGodMode().
+			 *
+			 * enableGodMode() has existed with no caller anywhere in the
+			 * codebase -- there was no way to reach it at all. Bound with
+			 * .on() rather than folded into Engine.keyDown above: that handler
+			 * gates on !Engine.keyPressed && !Engine.keyLock for movement
+			 * debounce, which would drop keystrokes partway through the
+			 * sequence depending on what else is happening on screen. A
+			 * separate listener has no interaction with movement state and
+			 * works identically regardless of which module is active -- which
+			 * matters here, since god mode is exactly the kind of thing you
+			 * would want to reach from any screen, not only from the Room. */
+			$('body').off('keydown.konami').on('keydown.konami', Engine.checkKonamiCode);
+
 			/* Register swipe handlers.
 			 *
 			 * The bindings are unchanged -- Swipe (script/swipe.js) emits the
@@ -1448,6 +1462,37 @@
 
 		},
 		
+		/* Up Up Down Down Left Right Left Right B A.
+		 *
+		 * e.which is used rather than e.code/e.key: the rest of this file's
+		 * key handling (Engine.keyDown/keyUp just above, the movement
+		 * switch below it) is all e.which-based, including the same arrow
+		 * key codes this sequence needs, so matching that convention means
+		 * one consistent way to read a key in this file rather than two. */
+		KONAMI_CODE: [38, 38, 40, 40, 37, 39, 37, 39, 66, 65],
+		_konamiProgress: 0,
+
+		checkKonamiCode: function(e) {
+			e = e || window.event;
+			var expected = Engine.KONAMI_CODE[Engine._konamiProgress];
+
+			if(e.which === expected) {
+				Engine._konamiProgress++;
+				if(Engine._konamiProgress === Engine.KONAMI_CODE.length) {
+					Engine._konamiProgress = 0;
+					Engine.enableGodMode();
+				}
+			} else {
+				/* Not a hard reset to 0: if the wrong key restarts the
+				 * sequence, typing the real thing with any stray keystroke
+				 * anywhere in the middle -- entirely plausible over ten
+				 * keys -- throws the whole attempt away. Re-checking against
+				 * the FIRST key lets a false start still count as the start
+				 * of a new attempt instead of losing it. */
+				Engine._konamiProgress = (e.which === Engine.KONAMI_CODE[0]) ? 1 : 0;
+			}
+		},
+
 		enableGodMode: function() {
 			// add all remaining craftables and goods
 			var buildSection = $('#buildBtns');

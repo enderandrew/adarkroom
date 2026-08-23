@@ -233,15 +233,15 @@ var Prison = {
 			function() { return _('your own footsteps come back to you from the wrong direction.'); },
 			function() { return _('nothing here gives you a straight line to fix on.'); },
 			function() { return _('a smear on the curve at head height, polished by repetition.'); },
-			function() { return _('you have been walking level the whole time. you are no longer sure.'); }
-			function() { return _('a morphing projection of this room and this planet.'); }
-			function() { return _('no focal point. you observe everything and nothing.'); }
-			function() { return _('the entire structure may be rotating around you. you are not sure.'); }
-			function() { return _('you move forward but a sphere has no end.'); }
-			function() { return _('a round wing with no point. there is no point. nothing to gleam.'); }
-			function() { return _('turn back rather than face an infinity of no meaning.'); }
-			function() { return _('there are no walls but that which we make.'); }
-			function() { return _('ⰑⰖⰔⱂⰃⰠ2ⰉⰉ Ⱀⱂ ⰄⰀ ⰒⰑⰆⰉ me2Ⱐ ⰄⰀ ⰂⰉⰄⰉ2Ⱐ ⰍⰑⰐⰠⰜⰠ ⰉⰆⰅ ⰔⰠⰄⰡⱂⰞⰨ'); }
+			function() { return _('you have been walking level the whole time. you are no longer sure.'); },
+			function() { return _('a morphing projection of this room and this planet.'); },
+			function() { return _('no focal point. you observe everything and nothing.'); },
+			function() { return _('the entire structure may be rotating around you. you are not sure.'); },
+			function() { return _('you move forward but a sphere has no end.'); },
+			function() { return _('a round wing with no point. there is no point. nothing to gleam.'); },
+			function() { return _('turn back rather than face an infinity of no meaning.'); },
+			function() { return _('there are no walls but that which we make.'); },
+			function() { return _('ⰑⰖⰔⱂⰃⰠ2ⰉⰉ Ⱀⱂ ⰄⰀ ⰒⰑⰆⰉ me2Ⱐ ⰄⰀ ⰂⰉⰄⰉ2Ⱐ ⰍⰑⰐⰠⰜⰠ ⰉⰆⰅ ⰔⰠⰄⰡⱂⰞⰨ'); },
 		],
 		core: [
 			function() { return _('the corridor runs straight, and it only runs one way.'); },
