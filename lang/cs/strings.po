@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-11-29 06:39+0100\n"
-"PO-Revision-Date: 2021-11-29 08:05+0100\n"
+"PO-Revision-Date: 2026-08-23 15:30+0100\n"
 "Last-Translator: Tadeáš Cipro <santen@email.cz>\n"
 "Language: cs\n"
 "Language-Team: Czech\n"
@@ -20,43 +20,43 @@ msgstr " a "
 #: script/outside.js:1709
 #: script/outside.js:1759
 msgid " and {0} "
-msgstr ""
+msgstr " a {0} "
 
 #: script/room.js:496
 msgid " builder says the villagers could make steel, given the tools."
-msgstr ""
+msgstr " stavitelka říká, že by vesničané mohli vyrábět ocel, kdyby měli nástroje."
 
 #: script/outside.js:1705
 #: script/outside.js:1755
 msgid ", {0} "
-msgstr ""
+msgstr ", {0} "
 
 #: script/events/road.js:871
 #: script/localization.js:7
 #: script/room.js:1334
 #: script/space.js:578
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: script/space.js:819
 msgid "...."
-msgstr ""
+msgstr "...."
 
 #: script/graveyard.js:65
 msgid "\"a physician. she treated both sides and said so out loud.\""
-msgstr ""
+msgstr "\"lékařka. léčila obě strany a říkala to nahlas.\""
 
 #: script/swamp.js:81
 msgid "\"and then a door was opened. i was not there. i have had a great deal of time to be grateful that i was not there.\""
-msgstr ""
+msgstr "\"a pak se otevřely dveře. nebyl jsem tam. měl jsem hodně času na to být vděčný, že jsem tam nebyl.\""
 
 #: script/graveyard.js:110
 msgid "\"curse the profane for all time, and curse the exile for releasing them.\""
-msgstr ""
+msgstr "\"proklet buď bezbožník po všechny časy a proklet buď vyhnanec za to, že je osvobodil.\""
 
 #: script/graveyard.js:41
 msgid "\"curse the profane, who was told what would happen and did it anyway.\""
-msgstr ""
+msgstr "\"proklet buď bezbožník, kterému bylo řečeno, co se stane, a přesto to udělal.\""
 
 #: script/graveyard.js:76
 #: script/graveyard.js:81
@@ -64,242 +64,242 @@ msgstr ""
 #: script/graveyard.js:91
 #: script/graveyard.js:96
 msgid "\"curse the profane.\""
-msgstr ""
+msgstr "\"proklet buď bezbožník.\""
 
 #: script/graveyard.js:35
 msgid "\"fell in the first bombardment, with the roof of his own house.\""
-msgstr ""
+msgstr "\"padl při prvním bombardování spolu se střechou vlastního domu.\""
 
 #: script/events/setpieces.js:1863
 msgid "\"forcing your will through violence? you have only proven why you deserve to be shunned.\""
-msgstr ""
+msgstr "\"vucování vlastní vůle násilím? jen jsi dokázal, proč si zasloužíš být zavržen.\""
 
 #: script/graveyard.js:40
 msgid "\"four years old. the sky came down.\""
-msgstr ""
+msgstr "\"čtyři roky. obloha spadla.\""
 
 #: script/swamp.js:137
 msgid "\"go home, commander.\""
-msgstr ""
+msgstr "\"jdi domů, veliteli.\""
 
 #: script/graveyard.js:60
 msgid "\"he stood at the profane's shoulder for nine years.\""
-msgstr ""
+msgstr "\"stál po boku bezbožníka po devět let.\""
 
 #: script/space.js:739
 msgid "\"i could never have done any of this without you. but you would never understand.\""
-msgstr ""
+msgstr "\"nic z toho bych bez tebe nedokázal. ale ty bys to nikdy nepochopil.\""
 
 #: script/swamp.js:93
 msgid "\"i have made my peace with never leaving. i recommend it. it is the only thing out here that gets easier.\""
-msgstr ""
+msgstr "\"smířil jsem se s tím, že odsud nikdy neodejdu. doporučuji to. je to jediná věc zde, která se stává snazší.\""
 
 #: script/swamp.js:147
 msgid "\"i have made my peace with never leaving. you have not. that is the whole of the difference between us.\""
-msgstr ""
+msgstr "\"já jsem se smířil s tím, že odsud nikdy neodejdu. ty ne. v tom spočívá celý rozdíl mezi námi.\""
 
 #: script/space.js:690
 msgid "\"i told you i had made my peace with never leaving,\" he says. \"i would like to formally revise that.\""
-msgstr ""
+msgstr "\"říkal jsem ti, že jsem se smířil s tím, že odsud nikdy neodejdu,\" říká. \"rád bych to formálně opravil.\""
 
 #: script/swamp.js:75
 msgid "\"i was second. whatever he signed, i countersigned.\""
-msgstr ""
+msgstr "\"byl jsem druhý. cokoliv podepsal, to jsem spolupodepsal.\""
 
 #: script/swamp.js:135
 msgid "\"keep it. you will not remember this and you will need something to be holding when you work it out again.\""
-msgstr ""
+msgstr "\"nech si to. nebudeš si to pamatovat a budeš potřebovat něco držet, až na to znovu přijdeš.\""
 
 #: script/graveyard.js:70
 msgid "\"lost with all hands, orbital action.\""
-msgstr ""
+msgstr "\"ztraceno se všemi členy posádky při orbitální akci.\""
 
 #: script/easterEggs.js:127
 msgid "\"nothing.\""
-msgstr ""
+msgstr "\"nic.\""
 
 #: script/graveyard.js:75
 msgid "\"one of the many. there was not time to find out which.\""
-msgstr ""
+msgstr "\"jeden z mnoha. nebyl čas zjistit který.\""
 
 #: script/graveyard.js:51
 msgid "\"one of the nine reported it. the profane had her executed inside the week.\""
-msgstr ""
+msgstr "\"jedna z devíti to nahlásila. bezbožník ji nechal do týdne popravit.\""
 
 #: script/easterEggs.js:134
 msgid "\"one weighed down with the weight of the stars in a prison without walls.\""
-msgstr ""
+msgstr "\"jeden zatížený vahou hvězd ve vězení bez zdí.\""
 
 #: script/events/setpieces.js:1884
 msgid "\"perhaps judgement will not be everlasting.\""
-msgstr ""
+msgstr "\"možná že soud nebude věčný.\""
 
 #: script/swamp.js:125
 msgid "\"she has been out here as long as i have and she did not have to be.\""
-msgstr ""
+msgstr "\"byla tu venku stejně dlouho jako já, a přitom nemusela.\""
 
 #: script/graveyard.js:50
 msgid "\"she said in a room of nine people that the war should stop.\""
-msgstr ""
+msgstr "\"v místnosti s devíti lidmi řekla, že by válka měla skončit.\""
 
 #: script/graveyard.js:30
 msgid "\"she went out when the call came. she believed it. that was the whole of her crime.\""
-msgstr ""
+msgstr "\"vyšla ven, když přišlo volání. věřila tomu. to byl celý její zločin.\""
 
 #: script/events/setpieces.js:3256
 #: script/events/setpieces.js:3340
 msgid "\"spend it on what will still be here after us.\""
-msgstr ""
+msgstr "\"utraťte to za to, co tu po nás stále zůstane.\""
 
 #: script/graveyard.js:31
 msgid "\"taken in the rising. curse the profane.\""
-msgstr ""
+msgstr "\"vzat při povstání. proklet buď bezbožník.\""
 
 #: script/easterEggs.js:128
 msgid "\"that is not a judgement.\""
-msgstr ""
+msgstr "\"to není rozsudek.\""
 
 #: script/swamp.js:131
 msgid "\"that is the part i had to make peace with. not that it was cruel. that it stopped being about us a very long time ago and did not stop.\""
-msgstr ""
+msgstr "\"s tím jsem se musel smířit. ne s tím, že to bylo kruté. ale s tím, že to už dávno přestalo být o nás a nepřestalo to.\""
 
 #: script/swamp.js:120
 msgid "\"that is worse. i know it is worse. i countersigned all of it and it is worse for me too.\""
-msgstr ""
+msgstr "\"to je horší. vím, že je to horší. všechno jsem spolupodepsal a je to horší i pro mě.\""
 
 #: script/graveyard.js:55
 msgid "\"the convoys stopped coming. it took the settlement eleven weeks.\""
-msgstr ""
+msgstr "\"konvoje přestaly jezdit. osadě to trvalo jedenáct týdnů.\""
 
 #: script/graveyard.js:66
 msgid "\"the profane had that called treason. curse him.\""
-msgstr ""
+msgstr "\"bezbožník to nazval zradou. buď proklet.\""
 
 #: script/graveyard.js:56
 msgid "\"the profane needed the lanes for something else. curse him for it.\""
-msgstr ""
+msgstr "\"bezbožník potřeboval ty trasy pro něco jiného. proklet buď za to.\""
 
 #: script/events/setpieces.js:2055
 msgid "\"the watcher does not pass judgement.\""
-msgstr ""
+msgstr "\"strážce nevynáší rozsudky.\""
 
 #: script/events/setpieces.js:2056
 msgid "\"the watcher observes judgement.\""
-msgstr ""
+msgstr "\"strážce pozoruje soud.\""
 
 #: script/events/setpieces.js:1991
 msgid "\"the watcher would not forbid someone from observing their own fate.\""
-msgstr ""
+msgstr "\"strážce by nikomu nezakázal pozorovat svůj vlastní osud.\""
 
 #: script/graveyard.js:61
 msgid "\"the wound is in his back. curse the profane, who could not even do that much to a man's face.\""
-msgstr ""
+msgstr "\"rána je v jeho zádech. proklet buď bezbožník, který se mu nedokázal podívat ani do tváře.\""
 
 #: script/events/setpieces.js:2364
 msgid "\"there is a fire at home. it is still lit. that is all i have to offer and i am offering it.\""
-msgstr ""
+msgstr "\"doma hoří oheň. stále svítí. to je vše, co mohu nabídnout, a nabízím to.\""
 
 #: script/events/setpieces.js:2363
 msgid "\"there is nothing in there but pain. i am not going to pretend i can stop you.\""
-msgstr ""
+msgstr "\"uvnitř není nic než bolest. nebudu předstírat, že tě mohu zastavit.\""
 
 #: script/swamp.js:115
 msgid "\"there is nothing left in you to lose. and some of what you have got left, you are holding shut on purpose. i can see you doing it.\""
-msgstr ""
+msgstr "\"už v tobě nezbylo nic, co bys mohl ztratit. a něco z toho, co ti zbylo, držíš záměrně zavřené. vidím, že to děláš.\""
 
 #: script/graveyard.js:46
 msgid "\"there was no end to them. the profane never intended one.\""
-msgstr ""
+msgstr "\"nebyl jim konec. bezbožník žádný nezamýšlel.\""
 
 #: script/graveyard.js:36
 msgid "\"there was no warning given. the profane did not consider one necessary.\""
-msgstr ""
+msgstr "\"nebylo dáno žádné varování. bezbožník to nepovažoval za nutné.\""
 
 #: script/events/setpieces.js:3716
 msgid "\"THEY SHOWED ME A THING THAT CANNOT BE TRUE. I KNEW IT WAS TRUE THE MOMENT I SAW IT. I HAVE NOT BEEN ABLE TO PUT IT DOWN SINCE.\""
-msgstr ""
+msgstr "\"UKÁZALI MI VĚC, KTERÁ NEMŮŽE BÝT PRAVDA. VĚDĚL JSEM, ŽE JE TO PRAVDA V MOMENTU, KDY JSEM JI UVIDĚL. OD TÉ DOBY JSEM JI NEDOKÁZAL ODLOŽIT.\""
 
 #: script/graveyard.js:71
 msgid "\"they were not told what they were firing on. curse the profane, who was.\""
-msgstr ""
+msgstr "\"nebylo jim řečeno, na co střílejí. proklet buď bezbožník, kterému to řečeno bylo.\""
 
 #: script/space.js:696
 #: script/space.js:701
 #: script/space.js:723
 msgid "\"to know someone is to love someone. you cannot help who you love.\""
-msgstr ""
+msgstr "\"znát někoho znamená někoho milovat. nemůžeš si pomoct, koho miluješ.\""
 
 #: script/graveyard.js:45
 msgid "\"twenty-one years in the wars. he was released twice and recalled twice.\""
-msgstr ""
+msgstr "\"dvacet jedna let ve válkách. byl dvakrát propuštěn a dvakrát povolán zpět.\""
 
 #: script/events/setpieces.js:3254
 msgid "\"we did not arrive together and we will not leave together. the water is one water.\""
-msgstr ""
+msgstr "\"nepřišli jsme společně a neodejdeme společně. voda je jedna voda.\""
 
 #: script/swamp.js:69
 msgid "\"we did not think we were monsters. that is not a defence. it is just what was true.\""
-msgstr ""
+msgstr "\"nemysleli jsme si, že jsme monstra. to není obhajoba. je to jen to, co byla pravda.\""
 
 #: script/events/setpieces.js:2020
 msgid "\"we do not ask the watcher to change fate, merely to help us understand it.\""
-msgstr ""
+msgstr "\"nežádáme strážce, aby změnil osud, pouze aby nám pomohl mu porozumět.\""
 
 #: script/events/setpieces.js:2019
 msgid "\"we help those in need if we are able, but our path is to watch, not to intervene.\""
-msgstr ""
+msgstr "\"pomáháme těm, kteří to potřebují, pokud jsme toho schopni, ale naší cestou je sledovat, nikoli zasahovat.\""
 
 #: script/events/setpieces.js:1953
 msgid "\"we help those in need if we are able.\""
-msgstr ""
+msgstr "\"pomáháme těm, kteří to potřebují, pokud jsme toho schopni.\""
 
 #: script/events/setpieces.js:1883
 msgid "\"we perceive the penitent.\""
-msgstr ""
+msgstr "\"vnímáme kajícího se.\""
 
 #: script/events/setpieces.js:1992
 msgid "\"we would be poor students of it if we did.\""
-msgstr ""
+msgstr "\"byli bychom jeho špatnými žáky, kdybychom to dělali.\""
 
 #: script/events/setpieces.js:1994
 msgid "\"what is down there is not a secret. it is only difficult.\""
-msgstr ""
+msgstr "\"to, co je tam dole, není tajemství. je to jen těžké.\""
 
 #: script/swamp.js:87
 msgid "\"you are holding its mark in your hand. that is where it ended up.\""
-msgstr ""
+msgstr "\"držíš jeho znamení v ruce. tam to skončilo.\""
 
 #: script/events/setpieces.js:2079
 msgid "\"you are who you always are. this is why you are shunned.\""
-msgstr ""
+msgstr "\"jsi tím, kým jsi vždycky byl. proto jsi zavrhován.\""
 
 #: script/events/encounters.js:1703
 msgid "\"you did not bring anybody either.\""
-msgstr ""
+msgstr "\"ty jsi také nikoho nepřivedl.\""
 
 #: script/swamp.js:107
 msgid "\"you have the scar. you always have the scar.\""
-msgstr ""
+msgstr "\"máš tu jizvu. vždycky máš tu jizvu.\""
 
 #: script/events/setpieces.js:2760
 msgid "\"you may observe your fate.\""
-msgstr ""
+msgstr "\"můžeš pozorovat svůj osud.\""
 
 #: script/events/setpieces.js:2761
 msgid "\"you may rarely change it.\""
-msgstr ""
+msgstr "\"zřídkakdy ho můžeš změnit.\""
 
 #: script/swamp.js:109
 msgid "\"you never remember. i have stopped finding that surprising and i have not stopped minding it.\""
-msgstr ""
+msgstr "\"nikdy si nevzpomeneš. přestalo mě to překvapovat, ale nepřestalo mi to vadit.\""
 
 #: script/room.js:251
 msgid "{0} could help hunt, given the means"
-msgstr ""
+msgstr "{0} by mohl pomoci lovit, kdyby k tomu měl prostředky"
 
 #: script/events/setpieces.js:3457
 msgid "{0} of the three are dark now. what is left is still lit."
-msgstr ""
+msgstr "{0} ze tří jsou nyní tmavé. to, co zbylo, stále svítí."
 
 #: script/engine.js:1271
 msgid "{0} per {1}s"
@@ -307,11 +307,11 @@ msgstr "{0} za {1}s"
 
 #: script/outside.js:1701
 msgid "{0} traps contain {1} "
-msgstr ""
+msgstr "{0} pastí obsahuje {1} "
 
 #: script/outside.js:1751
 msgid "{0} uber traps contain {1} "
-msgstr ""
+msgstr "{0} uber pastí obsahuje {1} "
 
 #: script/world.js:376
 msgid "{0}:{1}"
@@ -323,7 +323,7 @@ msgstr "*** UDÁLOST ***"
 
 #: script/events/setpieces.js:2994
 msgid "\\u2C00 \\u2C01 \\u2C02 \\u2C03 \\u2C04 \\u2C05, the same glyphs cut into the ruins, going back to before the infinite expanse."
-msgstr ""
+msgstr "\\u2C00 \\u2C01 \\u2C02 \\u2C03 \\u2C04 \\u2C05, stejné glyfy vysekané do ruin, sahající až do doby před nekonečným rozprostřením."
 
 #: script/events/outside.js:233
 msgid "1 medicine"
@@ -332,39 +332,39 @@ msgstr "1 léčivo"
 #: script/events/encounters.js:967
 #: script/events/encounters.js:975
 msgid "11B-X-1371"
-msgstr ""
+msgstr "11B-X-1371"
 
 #: script/events/encounters.js:976
 msgid "11B-X-1371 is still and silent."
-msgstr ""
+msgstr "11B-X-1371 je nehybný a tichý."
 
 #: script/events/outside.js:336
 msgid "3 medicine"
-msgstr ""
+msgstr "3 léčiva"
 
 #: script/events/room.js:465
 msgid "300 wood, paid up front"
-msgstr ""
+msgstr "300 dřeva, placeno předem"
 
 #: script/events/room.js:476
 msgid "500 wood, paid on completion"
-msgstr ""
+msgstr "500 dřeva, placeno po dokončení"
 
 #: script/events/path.js:81
 msgid "a bale goes over and is halfway to the treeline before anyone can get to it."
-msgstr ""
+msgstr "balík se převrátí a je v polovině cesty k lesu, než se k němu někdo dostane."
 
 #: script/village.js:200
 msgid "a band of scavengers comes out of the treeline in loose order, and they are not here to talk."
-msgstr ""
+msgstr "z lesa vystupuje skupina mrchožroutů a nepřišli si povídat."
 
 #: script/events/setpieces.js:307
 msgid "a bank of cells, most of them dead"
-msgstr ""
+msgstr "řada článků, většina nefunkčních"
 
 #: script/events/setpieces.js:304
 msgid "a bank of recesses runs the length of the wall, each one holding a slotted cell."
-msgstr ""
+msgstr "podél zdi se táhne řada výklenků, v každém z nich je zasazený článek."
 
 #: script/world.js:1374
 msgid "A Barren World"
@@ -404,15 +404,15 @@ msgstr "přišel žebrák."
 
 #: script/events/setpieces.js:2653
 msgid "a bench, and a row of instruments still under power, all of them pointed at the same kind of measurement."
-msgstr ""
+msgstr "lavice a řada přístrojů stále pod proudem, všechny zaměřené na stejný druh měření."
 
 #: script/lab.js:309
 msgid "a bench, wiped down. the tools on it are laid out in order of size."
-msgstr ""
+msgstr "utřený stůl. nástroje na něm jsou seřazeny podle velikosti."
 
 #: script/events/setpieces.js:2670
 msgid "a biohazard furnace, recently used"
-msgstr ""
+msgstr "spalovna nebezpečného odpadu, nedávno použitá"
 
 #: script/events/room.js:183
 msgid "a bundle of sticks lies just beyond the threshold, wrapped in coarse furs."
@@ -420,51 +420,51 @@ msgstr "na prahu leží svázané klestí zabalené v hrubé kožešině."
 
 #: script/events/room.js:185
 msgid "a bundle sits just outside, tied with a knot that took somebody a while."
-msgstr ""
+msgstr "venku leží balík svázaný uzlem, který někomu zabral nějaký čas."
 
 #: script/events/road.js:500
 msgid "a buried water cache"
-msgstr ""
+msgstr "zakopaná skrýš s vodou"
 
 #: script/events/setpieces.js:2992
 msgid "a cabinet of logs, in more hands and more languages than one observatory should have needed."
-msgstr ""
+msgstr "skříň s deníky napsanými více rukama a v více jazycích, než by jedna hvězdárna měla potřebovat."
 
 #: script/events/executioner.js:837
 msgid "a cacophony of decrepit machinery fills the room."
-msgstr ""
+msgstr "kakofonie chátralých strojů naplňuje místnost."
 
 #: script/events/road.js:31
 msgid "A Cairn"
-msgstr ""
+msgstr "Mohyla"
 
 #: script/events/road.js:42
 msgid "a cairn stands beside the track"
-msgstr ""
+msgstr "vedle stezky stojí mohyla"
 
 #: script/events/road.js:1624
 msgid "a camp that was finished with rather than abandoned"
-msgstr ""
+msgstr "tábor, který byl spíše dokončen než opuštěn"
 
 #: script/events/road.js:1620
 msgid "a camp, laid out properly, with a windbreak and a latrine trench and a fire ring used a great many times."
-msgstr ""
+msgstr "tábor řádně uspořádaný, s větrolamem, latrínou a ohništěm mnohokrát použitým."
 
 #: script/events/road.js:378
 msgid "a camp, not long abandoned. the ash is grey through but the ground under it is still dry."
-msgstr ""
+msgstr "nedávno opuštěný tábor. popel je zcela šedý, ale země pod ním je stále suchá."
 
 #: script/outside.js:798
 msgid "A Campsite"
-msgstr ""
+msgstr "Tábořiště"
 
 #: script/events/encounters.js:885
 msgid "A Carrion Drone"
-msgstr ""
+msgstr "Mrchožravý Dron"
 
 #: script/events/room.js:1138
 msgid "a cartographer is making a register"
-msgstr ""
+msgstr "kartograf sestavuje registr"
 
 #: script/events/setpieces.js:3960
 msgid "a cave lizard attacks"
@@ -472,55 +472,55 @@ msgstr "jeskyní ještěr útočí"
 
 #: script/prison.js:208
 msgid "a cell door, open, the inside as clean as the corridor."
-msgstr ""
+msgstr "dveře cely, otevřené, vnitřek stejně čistý jako chodba."
 
 #: script/events/setpieces.js:3565
 msgid "a cell, set into the wall of the assay hall, and much newer than the hall."
-msgstr ""
+msgstr "cela vsazená do zdi zkušební síně, mnohem novější než síň samotná."
 
 #: script/events/encounters.js:841
 msgid "A Chain-Gang Revenant"
-msgstr ""
+msgstr "Mstitel z řetězové čety"
 
 #: script/lab.js:326
 msgid "a chair bolted to the floor. the bolts are recent work."
-msgstr ""
+msgstr "židle přišroubovaná k podlaze. šrouby jsou nová práce."
 
 #: script/events/encounters.js:710
 msgid "A Chitinous Elk"
-msgstr ""
+msgstr "Chitinový los"
 
 #: script/events/encounters.js:747
 msgid "a chitinous elk charges with its thick armored hide."
-msgstr ""
+msgstr "chitinový los útočí se svou tlustou pancéřovanou kůží."
 
 #: script/village.js:172
 msgid "a chitinous elk walks into the middle of the settlement and does not stop walking."
-msgstr ""
+msgstr "chitinový los vchází do středu osady a nepřestává jít."
 
 #: script/events/road.js:371
 msgid "A Cold Camp"
-msgstr ""
+msgstr "Chladný tábor"
 
 #: script/events/encounters.js:1311
 msgid "a colossal shape emerges silently from the deep forest."
-msgstr ""
+msgstr "z hlubokého lesa se tiše vynořuje obří tvar."
 
 #: script/events/road.js:886
 msgid "A Column of Smoke"
-msgstr ""
+msgstr "Sloup kouře"
 
 #: script/events/road.js:893
 msgid "a column of smoke stands off to one side, too straight and too steady to be a fire."
-msgstr ""
+msgstr "stranou stojí sloup kouře, příliš rovný a stálý, než aby to byl oheň."
 
 #: script/events/road.js:897
 msgid "a column of smoke stands too straight to be a fire"
-msgstr ""
+msgstr "sloup kouře stojí příliš rovně, než aby to byl oheň"
 
 #: script/outside.js:891
 msgid "a concerned face"
-msgstr ""
+msgstr "ustaraná tvář"
 
 #: script/outside.js:239
 msgid "a convoy lurches in, equal parts worry and hope."
@@ -528,7 +528,7 @@ msgstr "připotácel se konvoj, rovným dílem strach a naděje."
 
 #: script/events/setpieces.js:160
 msgid "a corridor runs off at an angle that does not match the stair."
-msgstr ""
+msgstr "chodba vedoucí pod úhlem, který neodpovídá schodišti."
 
 #: script/events/setpieces.js:7047
 msgid "A Crashed Ship"
@@ -536,7 +536,7 @@ msgstr "Havarovaná Loď"
 
 #: script/outside.js:806
 msgid "A Crowded Encampment"
-msgstr ""
+msgstr "Přeplněný tábor"
 
 #: script/outside.js:127
 #: script/outside.js:160
@@ -545,35 +545,35 @@ msgstr "provizorní amulet"
 
 #: script/events/setpieces.js:3619
 msgid "a crystal cut with four faces, in a socket at the apex where the walls meet."
-msgstr ""
+msgstr "krystal se čtyřmi stěnami ve patici na vrcholu, kde se stýkají zdi."
 
 #: script/events/setpieces.js:3606
 msgid "a crystal, cut as a cube, sitting in a socket that was made for it."
-msgstr ""
+msgstr "krystal brus do tvaru kostky, sedící v patici vytvořené přímo pro něj."
 
 #: script/events/setpieces.js:3526
 msgid "a cube because a cube is what you build when a thing has to be the same from every side, and be seen to be."
-msgstr ""
+msgstr "kostka, protože kostka je to, co postavíte, když věc musí být stejná ze všech stran a tak vyhlížet."
 
 #: script/events/setpieces.js:3455
 msgid "a cube. a tetrahedron. a sphere. all three older than the wanderers, and all three used since for something the wanderers needed."
-msgstr ""
+msgstr "kostka. čtyřstěn. koule. všechny tři starší než tuláci a všechny tři od té doby použité k něčemu, co tuláci potřebovali."
 
 #: script/events/encounters.js:1708
 msgid "a curing fire, and racks enough for forty"
-msgstr ""
+msgstr "udírenský oheň a rošty dostatečné pro čtyřicet lidí"
 
 #: script/events/setpieces.js:3120
 msgid "a cut in the ground, forty feet of readable layers"
-msgstr ""
+msgstr "zářez v zemi, čtyřicet stop čitelných vrstev"
 
 #: script/events/encounters.js:1450
 msgid "A Cyborg Bear"
-msgstr ""
+msgstr "Kyborg medvěd"
 
 #: script/village.js:182
 msgid "a cyborg bear comes through the fence without appearing to notice the fence."
-msgstr ""
+msgstr "kyborg medvěd prošel plotem, aniž by si ho všiml."
 
 #: script/events/setpieces.js:3752
 msgid "A Damp Cave"
@@ -581,12 +581,12 @@ msgstr "Vlhká Jeskyně"
 
 #: script/room.js:1539
 msgid "A Dark Room was written by Michael Townsend for Doublespeak Games in 2013. It is open-source."
-msgstr ""
+msgstr "A Dark Room napsal Michael Townsend pro Doublespeak Games v roce 2013. Je to open-source."
 
 #: script/room.js:1344
 #: script/room.js:1477
 msgid "A Darker Room"
-msgstr ""
+msgstr "Temnější místnost"
 
 #: script/events/setpieces.js:4184
 msgid "A Deserted Town"
@@ -594,7 +594,7 @@ msgstr "Opuštěné Město"
 
 #: script/path.js:186
 msgid "a desperate weapon for desperate men."
-msgstr ""
+msgstr "zoufala zbraň pro zoufalé muže."
 
 #: script/events/setpieces.js:7496
 msgid "A Destroyed Village"
@@ -606,27 +606,27 @@ msgstr "v prachu se krčí zničená vesnice."
 
 #: script/events/setpieces.js:1993
 msgid "a disc of the same stone the temple is cut from is put into your hand. it has the three eyes on one face and nothing on the other."
-msgstr ""
+msgstr "disk ze stejného kamene, z jakého je vysekán chrám, ti je vložen do ruky. na jedné straně má tři oči a na druhé nic."
 
 #: script/events/setpieces.js:2339
 msgid "a door set into the ground, and no dust on the threshold"
-msgstr ""
+msgstr "dveře vsazené do země a na prahu žádný prach"
 
 #: script/events/setpieces.js:1094
 msgid "a door standing open in a wall with nothing on the other side of it."
-msgstr ""
+msgstr "dveře stojící otevřené ve zdi, za kterou nic není."
 
 #: script/lab.js:328
 msgid "a door with a window at standing height, and a bar across the outside."
-msgstr ""
+msgstr "dveře s okénkem ve výšce očí a závorou zvenčí."
 
 #: script/events/setpieces.js:726
 msgid "a dropped stone does not make a sound and does not come back up."
-msgstr ""
+msgstr "vhozený kámen nevydá žádný zvuk a nevrátí se zpět."
 
 #: script/events/encounters.js:49
 msgid "A Dust Wretch"
-msgstr ""
+msgstr "Prachový ubožák"
 
 #: script/path.js:33
 #: script/path.js:339
@@ -635,11 +635,11 @@ msgstr "Prašná cesta"
 
 #: script/events/executioner.js:440
 msgid "a dusty researcher clumsily hides in the shadows."
-msgstr ""
+msgstr "zaprášený výzkumník se neratně schovává ve stínu."
 
 #: script/lab.js:323
 msgid "a faint scent of smoke, and under it something organic."
-msgstr ""
+msgstr "slabý zápach kouře a pod ním něco organického."
 
 #: script/events/encounters.js:930
 msgid "A Feral Terror"
@@ -651,11 +651,11 @@ msgstr "několik věcí se opírá o zdi."
 
 #: script/events/executioner.js:1745
 msgid "a few dusty corpses can be seen further down, but this deck appears to have been spared most of the combat."
-msgstr ""
+msgstr "dále dole je vidět několik zaprášených mrtvol, ale zdá se, že tato paluba byla většiny bojů ušetřena."
 
 #: script/events/road.js:1550
 msgid "a few hundred paces along it the kneeling stops, all at once, in a clean line."
-msgstr ""
+msgstr "po několika stovkách kroků klečení naráz přestává v čisté linii."
 
 #: script/events/setpieces.js:6585
 msgid "a few items are scattered on the ground."
@@ -663,15 +663,15 @@ msgstr "po zemi je rozházených několik předmětů."
 
 #: script/events/road.js:762
 msgid "a few minutes at this distance is survivable. more is not."
-msgstr ""
+msgstr "několik minut v této vzdálenosti lze přežít. více ne."
 
 #: script/events/setpieces.js:932
 msgid "a few of the racks are not empty."
-msgstr ""
+msgstr "několik roštů není prázdných."
 
 #: script/events/executioner.js:1357
 msgid "a few useful items can be scavenged."
-msgstr ""
+msgstr "lze posbírat několik užitečných předmětů."
 
 #: script/events/setpieces.js:4652
 msgid "a fight, maybe."
@@ -691,11 +691,11 @@ msgstr "Osvětlená místnost"
 
 #: script/path.js:177
 msgid "a fleet mark. the emblem of a society that is not there any more."
-msgstr ""
+msgstr "flotilové znamení. emblém společnosti, která už neexistuje."
 
 #: script/lab.js:311
 msgid "a floor drain, and a faint slope in the concrete leading to it."
-msgstr ""
+msgstr "podlahový odtok a mírný sklon betonu k němu vedoucí."
 
 #: script/events/setpieces.js:6963
 msgid "A Forgotten Battlefield"
@@ -703,7 +703,7 @@ msgstr "Zapomenuté Bojiště"
 
 #: script/events/outside.js:911
 msgid "a foundation trench at the edge of the village turns up a marker stone, set upright and deliberate."
-msgstr ""
+msgstr "základový výkop na okraji vesnice odkrývá hraniční kámen, postavený kolmo a záměrně."
 
 #: script/events/setpieces.js:5224
 msgid "a frail man stands defiantly, blocking the path."
@@ -711,15 +711,15 @@ msgstr "ochablý muž vyzývavě blokuje vlastním tělem cestu."
 
 #: script/events/setpieces.js:438
 msgid "a gallery of alcoves, each holding a shape that is almost a person and is not."
-msgstr ""
+msgstr "galerie výklenků, v každém z nich je tvar, který je téměř člověkem a přesto není."
 
 #: script/events/encounters.js:194
 msgid "A Gaunt Human"
-msgstr ""
+msgstr "Vyzáblý člověk"
 
 #: script/events/encounters.js:226
 msgid "a gaunt human approaches, a crazed look in his eye. there is blood upon their teeth."
-msgstr ""
+msgstr "blíží se vyzáblý člověk se šíleným pohledem v očích. na jeho zubech je krev."
 
 #: script/events/setpieces.js:4028
 msgid "a giant lizard shambles forward"
@@ -727,39 +727,39 @@ msgstr "obří ještěr se vypotácel kupředu"
 
 #: script/events/encounters.js:478
 msgid "A Glass Wolf"
-msgstr ""
+msgstr "Skleněný vlk"
 
 #: script/events/setpieces.js:2123
 msgid "A Glassed Crater"
-msgstr ""
+msgstr "Zasklený kráter"
 
 #: script/events/setpieces.js:1594
 msgid "a glyph lock bars the last door"
-msgstr ""
+msgstr "glyfový zámek blokuje poslední dveře"
 
 #: script/events/setpieces.js:2683
 msgid "a glyph lock, the same as the ruins"
-msgstr ""
+msgstr "glyfový zámek, stejný jako v ruinách"
 
 #: script/events/road.js:285
 msgid "a good deal of distance is covered by somebody who was not trying to cover it."
-msgstr ""
+msgstr "značná vzdálenost byla překonána někoho, kdo se ji ani nesnažil překonat."
 
 #: script/events/encounters.js:1317
 msgid "A Grafted Colossus"
-msgstr ""
+msgstr "Roubovaný kolos"
 
 #: script/events/outside.js:915
 msgid "a grave marker is found under the village"
-msgstr ""
+msgstr "pod vesnicí byl nalezen nárožní kámen hrobu"
 
 #: script/events/setpieces.js:2776
 msgid "A Graveyard"
-msgstr ""
+msgstr "Hřbitov"
 
 #: script/events/setpieces.js:2788
 msgid "a graveyard, built over older graveyards"
-msgstr ""
+msgstr "hřbitov postavený nad staršími hřbitovy"
 
 #: script/events/setpieces.js:4273
 msgid "a green cross barely visible behind grimy windows."
@@ -767,7 +767,7 @@ msgstr "za potemnělými okny je sotva viditelný zelený kříž."
 
 #: script/events/setpieces.js:7235
 msgid "a grizzled soldier attacks, a trophy blade at his hip alongside the bayonet."
-msgstr ""
+msgstr "šedivý voják útočí, na boku má u bajonetu trofejní čepel."
 
 #: script/events/outside.js:566
 msgid "a gunshot rings through the trees."
@@ -775,19 +775,19 @@ msgstr "ze stromoví se ozývá střelba."
 
 #: script/events/setpieces.js:931
 msgid "a hall of racks, most of them empty, all of them the right shape to hold something that is gone."
-msgstr ""
+msgstr "síň roštů, většina z nich prázdná, všechny přesného tvaru k držení nečeho, co je pryč."
 
 #: script/events/setpieces.js:3524
 msgid "a hall, and in the middle of it, on a plinth, a bar of metal in a case that is still holding vacuum."
-msgstr ""
+msgstr "síň a uprostřed ní na podstavci kovová tyč v pouzdře, které stále drží vakuum."
 
 #: script/fabricator.js:57
 msgid "a handful of hypos. life in a vial."
-msgstr ""
+msgstr "hrst injekčních stříkaček. život v lahvičce."
 
 #: script/space.js:570
 msgid "a hatch you have never seen opens in the console housing."
-msgstr ""
+msgstr "v krytu konzole se otevírá poklop, který jsi nikdy neviděl."
 
 #: script/room.js:470
 msgid "a haze falls over the village as the steelworks fires up"
@@ -795,23 +795,23 @@ msgstr "vesnice se zahalila trpkou mlhou, jak nová ocelárna zahájila provoz"
 
 #: script/events/encounters.js:115
 msgid "a heavy armoured thing drags itself across the field."
-msgstr ""
+msgstr "po poli se táhne těžce pancéřovaná věc."
 
 #: script/graveyard.js:59
 msgid "a heavy stone, laid flat, the way you weight something you do not want disturbed."
-msgstr ""
+msgstr "těžký kámen položený naplocho, jak zatěžujete něco, co nechcete rušit."
 
 #: script/events/road.js:1093
 msgid "a hold gives out at head height and the catch is made with one arm and a lot of luck."
-msgstr ""
+msgstr "úchyt ve výšce hlavy povolil a zachycení se podařilo jednou rukou a se spoustou štěstí."
 
 #: script/events/encounters.js:797
 msgid "A Hollow Monk"
-msgstr ""
+msgstr "Dutý mnich"
 
 #: script/events/executioner.js:252
 msgid "a huge arthropod lunges from the shadows, its mandibles thrashing."
-msgstr ""
+msgstr "ze stínu vyráží obří členovec, jeho čelisti cvakají."
 
 #: script/events/setpieces.js:7017
 msgid "A Huge Borehole"
@@ -831,31 +831,31 @@ msgstr "obří ještěr se sápe z temnoty staré stanice metra."
 
 #: script/outside.js:1361
 msgid "a human is drawn in by the light and warmth of the fire. they look at you, point and call you wanderer."
-msgstr ""
+msgstr "člověk je přilákán světlem a teplem ohně. podívá se na tebe, ukáže a nazve tě tulákem."
 
 #: script/events/encounters.js:1042
 msgid "a human soldier still fighting a war they have long lost."
-msgstr ""
+msgstr "lidský voják, který stále bojuje ve válce, kterou dávno prohrál."
 
 #: script/room.js:156
 msgid "a hut comes down and goes back up in steel. it does not creak in the wind."
-msgstr ""
+msgstr "chatrč jde k zemi a staví se znovu z oceli. ve větru nevrzá."
 
 #: script/lab.js:315
 msgid "a jar of teeth and examination notes in weird glyphs."
-msgstr ""
+msgstr "sklenice zubů a poznámky z vyšetření v podivných glyfech."
 
 #: script/outside.js:1582
 msgid "a journal on the battlefield next to a dead wanderer speaks of a wanderer empire that stretches across the stars. they had unique powers."
-msgstr ""
+msgstr "deník na bojišti vedle mrtvého tuláka hovoří o tulácké říši rozpínající se napříč hvězdami. měli jedinečné schopnosti."
 
 #: script/events/setpieces.js:670
 msgid "a junction where four corridors meet, and all four are the same corridor."
-msgstr ""
+msgstr "křižovatka, kde se setkávají čtyři chodby, a všechny čtyři jsou stejná chodba."
 
 #: script/events/setpieces.js:3451
 msgid "a junction, and three ways off it, and each one ends in a shape you can see from here."
-msgstr ""
+msgstr "křižovatka a tři cesty z ní, a každá končí tvarem, který odsud vidíš."
 
 #: script/events/setpieces.js:3994
 msgid "a large beast charges out of the dark"
@@ -867,7 +867,7 @@ msgstr "na vrchu schodiště hnízdí velký pták."
 
 #: script/outside.js:822
 msgid "A Large City"
-msgstr ""
+msgstr "Velké město"
 
 #: script/events/encounters.js:631
 msgid "a large creature attacks, claws freshly bloodied"
@@ -879,15 +879,15 @@ msgstr "obří příšera útočí, její svaly se vlní ve světle pochodně"
 
 #: script/outside.js:804
 msgid "A Large Encampment"
-msgstr ""
+msgstr "Velký tábor"
 
 #: script/events/executioner.js:667
 msgid "a large hatch grinds open, and the wind rushes in."
-msgstr ""
+msgstr "velký poklop se se skřípěním otevírá a vítr vtrhne dovnitř."
 
 #: script/events/executioner.js:690
 msgid "a large hatch opens into a wide corridor."
-msgstr ""
+msgstr "velký poklop se otevírá do široké chodby."
 
 #: script/events/setpieces.js:5869
 msgid "a large man attacks, waving a bayonet."
@@ -903,27 +903,27 @@ msgstr "Velká vesnice"
 
 #: script/lab.js:341
 msgid "a ledger of numbers, no names. the numbers run to five figures."
-msgstr ""
+msgstr "účetní kniha čísel, žádná jména. čísla dosahují pětimístných hodnot."
 
 #: script/events/room.js:1071
 msgid "a life brutally ended"
-msgstr ""
+msgstr "život brutálně ukončen"
 
 #: script/events/path.js:278
 msgid "a line of marked stones runs out towards the flats"
-msgstr ""
+msgstr "linie označených kamenů směřuje k rovinám"
 
 #: script/events/road.js:148
 msgid "a line of snares runs across the slope, set by somebody who knew what they were doing."
-msgstr ""
+msgstr "přes svah se táhne řada pastí, nastražená někem, kdo věděl, co dělá."
 
 #: script/events/setpieces.js:3376
 msgid "A Locked-Down Prison"
-msgstr ""
+msgstr "Uzamčené vězení"
 
 #: script/events/road.js:1648
 msgid "a log kept daily for eleven years"
-msgstr ""
+msgstr "deník vedený denně po jedenáct let"
 
 #: script/events/setpieces.js:40
 msgid "a lone frog sits in the muck, silently."
@@ -935,11 +935,11 @@ msgstr "Osamělá chata"
 
 #: script/events/setpieces.js:615
 msgid "a long room, entirely empty, with a single chair at the far end facing away."
-msgstr ""
+msgstr "dlouhá místnost, zcela prázdná, s jedinou židlí na druhém konci otočenou zády."
 
 #: script/events/encounters.js:1047
 msgid "A madman"
-msgstr ""
+msgstr "Šílenec"
 
 #: script/events/setpieces.js:4484
 msgid "a madman attacks, screeching."
@@ -947,7 +947,7 @@ msgstr "šílenec, nepříčetně řva, útočí."
 
 #: script/events/executioner.js:598
 msgid "a maintenance panel is embedded in the wall next to a large sealed door."
-msgstr ""
+msgstr "údržbový panel je vsazen do zdi vedle velkých zapečetěných dveří."
 
 #: script/events/setpieces.js:6930
 msgid "a man charges down the hall, a rusty blade in his hand"
@@ -955,7 +955,7 @@ msgstr "muž se rozběhl napříč chodbou, svíraje v dlani rezavou čepel"
 
 #: script/events/path.js:529
 msgid "A Man Going Out"
-msgstr ""
+msgstr "Muž odcházející ven"
 
 #: script/events/room.js:966
 msgid "a man hobbles up, coughing."
@@ -977,7 +977,7 @@ msgstr "Lidojed"
 #: script/events/road.js:561
 #: script/events/road.js:568
 msgid "a mark goes on the underside of the stone, at the end of the list."
-msgstr ""
+msgstr "značka jde na spodní stranu kamene, na konec seznamu."
 
 #: script/events/setpieces.js:5963
 msgid "a masked soldier rounds the corner, gun drawn"
@@ -985,11 +985,11 @@ msgstr "maskovaný voják se zbraní ruce se vynořuje zpoza rohu"
 
 #: script/events/encounters.js:1494
 msgid "A Mech Warrior"
-msgstr ""
+msgstr "Mech válečník"
 
 #: script/events/executioner.js:86
 msgid "a medical drone wheels out of control."
-msgstr ""
+msgstr "lékařský dron se vymkl kontrole."
 
 #: script/events/setpieces.js:7078
 msgid "a military perimeter is set up around the mine."
@@ -1001,11 +1001,11 @@ msgstr "Vojenské Přepadení"
 
 #: script/events/executioner.js:46
 msgid "a mobile defence platform trundles around the corner."
-msgstr ""
+msgstr "mobilní obranná platforma se šine zpoza rohu."
 
 #: script/outside.js:802
 msgid "A Modest Encampment"
-msgstr ""
+msgstr "Skromný tábor"
 
 #: script/outside.js:816
 msgid "A Modest Village"
@@ -1013,15 +1013,15 @@ msgstr "Skromná vesnice"
 
 #: script/events/setpieces.js:1974
 msgid "a monk inclines its head very slightly. that appears to be the entire ceremony."
-msgstr ""
+msgstr "mnich velmi mírně nakloní hlavu. zdá se, že to je celý obřad."
 
 #: script/events/setpieces.js:2758
 msgid "a monk. three eyes, three ears, no mouth. it has been standing there long enough that it did not arrive."
-msgstr ""
+msgstr "mnich. tři oči, tři uši, žádná ústa. stojí tam dost dlouho na to, aby nepřišel."
 
 #: script/prison.js:237
 msgid "a morphing projection of this room and this planet."
-msgstr ""
+msgstr "proměnlivá projekce této místnosti a této planety."
 
 #: script/events/setpieces.js:35
 msgid "A Murky Swamp"
@@ -1029,11 +1029,11 @@ msgstr "Kalný Močál"
 
 #: script/events/encounters.js:1406
 msgid "A Mutant"
-msgstr ""
+msgstr "Mutant"
 
 #: script/events/executioner.js:2278
 msgid "a mutated beast leaps from its cell."
-msgstr ""
+msgstr "mutovaná stvůra vyskakuje ze své cely."
 
 #: script/events/room.js:543
 #: script/events/room.js:627
@@ -1042,11 +1042,11 @@ msgstr "záhadný tulák dorazil"
 
 #: script/ruins.js:59
 msgid "a name being struck out of something that was meant to be permanent."
-msgstr ""
+msgstr "jméno vyškrtnuté z nečeho, co mělo být trvalé."
 
 #: script/events/road.js:969
 msgid "a night is spent out here for nothing, and the cold gets into everything."
-msgstr ""
+msgstr "noc tu venku je strávena pro nic za nic a chlad proniká do všeho."
 
 #: script/events/room.js:16
 msgid "a nomad arrives, looking to trade"
@@ -1058,19 +1058,19 @@ msgstr "nomád se připlétá skrze dav. v provizorní nůši nese svázané kle
 
 #: script/room.js:1535
 msgid "A Note on This Fork"
-msgstr ""
+msgstr "Poznámka k teto verzi"
 
 #: script/events/encounters.js:1639
 msgid "a pack animal, alive, and carrying somebody else's work"
-msgstr ""
+msgstr "mula, živá a nesoucí práci někoho jiného"
 
 #: script/events/encounters.js:1635
 msgid "a pack animal, alive, standing in the open with nobody anywhere near it."
-msgstr ""
+msgstr "mula, živá, stojí na volném prostranství a nikde kolem nikdo není."
 
 #: script/events/encounters.js:636
 msgid "A Pack of Beasts"
-msgstr ""
+msgstr "Smečka stvůr"
 
 #: script/events/setpieces.js:5667
 msgid "a pack of lizards rounds the corner."
@@ -1084,7 +1084,7 @@ msgstr "z lesů se vyvalila smečka rozzuřených příšer."
 #: script/outside.js:1426
 #: script/outside.js:1443
 msgid "a pang"
-msgstr ""
+msgstr "bodnutí úzkosti"
 
 #: script/events/setpieces.js:4724
 msgid "a panicked scavenger bursts through the door, screaming."
@@ -1092,7 +1092,7 @@ msgstr "vyděšený křičící průzkumník proběhl dveřmi."
 
 #: script/events/path.js:388
 msgid "a party comes up the path, carrying one of their own"
-msgstr ""
+msgstr "skupina přichází po cestě a nese jednoho ze svých"
 
 #: script/events/outside.js:325
 msgid "a plague afflicts the village"
@@ -1100,19 +1100,19 @@ msgstr "vesnice je zasažena morem"
 
 #: script/events/encounters.js:1172
 msgid "A Plague Doctor"
-msgstr ""
+msgstr "Morový lékař"
 
 #: script/events/encounters.js:999
 msgid "a plague doctor emerges from the shadows with an alien and confusing message."
-msgstr ""
+msgstr "z šera se vynoří morový lékař s cizí a zmatečnou zprávou."
 
 #: script/graveyard.js:49
 msgid "a plain marker, and somebody has kept the weeds off it."
-msgstr ""
+msgstr "obyčejný pomník a někdo z něj odstraňoval plevel."
 
 #: script/prison.js:227
 msgid "a prisoner tried to repair this cell from the inside."
-msgstr ""
+msgstr "vězeň se pokusil tuto celu opravit zevnitř."
 
 #: script/events/setpieces.js:6625
 msgid "a pristine medicine cabinet at the end of a hallway."
@@ -1120,19 +1120,19 @@ msgstr "nedotčená lékárnička září na konci chodby."
 
 #: script/events/encounters.js:1538
 msgid "A Profane Cultist"
-msgstr ""
+msgstr "Bezbožný kultista"
 
 #: script/village.js:210
 msgid "a proper military column. matched kit, a line that holds, somebody in it giving orders."
-msgstr ""
+msgstr "řádný vojenský sloup. výstroj ladí, linie drží, někdo v ní dává rozkazy."
 
 #: script/events/encounters.js:310
 msgid "A Radiated Goat"
-msgstr ""
+msgstr "Ozařená koza"
 
 #: script/events/encounters.js:349
 msgid "a radiated goat charges with its mutated antlers"
-msgstr ""
+msgstr "ozařená koza útočí svými mutovanými parohy"
 
 #: script/room.js:1640
 msgid "a ragged stranger stumbles through the door and collapses in the corner"
@@ -1140,7 +1140,7 @@ msgstr "potrhaná cizinka se propotácela dveřmi a svalila se v rohu na zem"
 
 #: script/events/encounters.js:1079
 msgid "a random person runs out, swinging a spear around with drug-induced speed."
-msgstr ""
+msgstr "náhodný člověk vyběhne a mává kopím s rychlostí vyvolanou drogami."
 
 #: script/outside.js:820
 msgid "A Raucous Village"
@@ -1149,63 +1149,63 @@ msgstr "Nevázaná vesnice"
 #: script/events/executioner.js:179
 #: script/events/executioner.js:685
 msgid "A Ravaged Battleship"
-msgstr ""
+msgstr "Zničená bojová loď"
 
 #: script/events/encounters.js:120
 msgid "A Ravenous Beast"
-msgstr ""
+msgstr "Oravá stvůra"
 
 #: script/events/encounters.js:152
 msgid "a ravenous beast leaps out of the underbrush. hunger has made it desperate and dangerous."
-msgstr ""
+msgstr "žravá stvůra vyskočí z podrostu. hlad ji učinil zoufalou a nebezpečnou."
 
 #: script/events/road.js:382
 msgid "a recently abandoned camp"
-msgstr ""
+msgstr "nedávno opuštěný tábor"
 
 #: script/ruins.js:49
 msgid "a record read out to a room that goes very quiet."
-msgstr ""
+msgstr "záznam přečtený v místnosti, která zcela ztichne."
 
 #: script/events/executioner.js:1646
 msgid "a regenerative machine hums uncannily by one of the courses."
-msgstr ""
+msgstr "regenerační stroj tajuplně hučí u jedné z chodbiček."
 
 #: script/events/setpieces.js:725
 msgid "a reservoir of something that is not water, lit from below, perfectly still."
-msgstr ""
+msgstr "nádrž nečeho, co není voda, zdola osvětlená, zcela nehybná."
 
 #: script/events/setpieces.js:1114
 msgid "a room built to hold a crowd"
-msgstr ""
+msgstr "místnost postavená tak, aby pojmula dav"
 
 #: script/events/setpieces.js:392
 msgid "a room of columns, each one carrying a column of glyphs from floor to ceiling."
-msgstr ""
+msgstr "místnost sloupů, každý nese sloupec glyfů od podlahy až ke stropu."
 
 #: script/events/setpieces.js:3608
 msgid "a room of eleven. a vote taken by people who all know each other. the word RECORD, and somebody saying that whatever else is lost, the record is not lost."
-msgstr ""
+msgstr "místnost jedenácti lidí. hlasování lidí, kteří se všichni znají. slovo ZÁZNAM a někdo říká, že cokoliv jiného je ztraceno, záznam ztracen není."
 
 #: script/events/setpieces.js:1421
 msgid "a room of shallow basins set into the floor, each one holding a residue that has dried to powder."
-msgstr ""
+msgstr "místnost mělkých nádrží vsazených do podlahy, každá obsahuje zbytek, který uschl na prach."
 
 #: script/prison.js:228
 msgid "a room where the galaxy was once condemned and later an innocent was imprisoned."
-msgstr ""
+msgstr "místnost, kde byla kdysi odsouzena galaxie a později zde byl uvězněn nevinný."
 
 #: script/prison.js:224
 msgid "a room with 11 chairs and a 12th empty spot."
-msgstr ""
+msgstr "místnost s 11 židlemi a 12. prázdným místem."
 
 #: script/lab.js:344
 msgid "a room with no fittings at all, and a drain in the middle of the floor."
-msgstr ""
+msgstr "místnost zcela bez vybavení a s odtokem uprostřed podlahy."
 
 #: script/prison.js:241
 msgid "a round wing with no point. there is no point. nothing to gleam."
-msgstr ""
+msgstr "kruhové křídlo bez špičky. nemá to smysl. nic, co by se blýskalo."
 
 #: script/events/setpieces.js:4976
 msgid "A Ruined City"
@@ -1217,11 +1217,11 @@ msgstr "Zničená Past"
 
 #: script/events/encounters.js:81
 msgid "A Rust Beetle"
-msgstr ""
+msgstr "Rezavý brouk"
 
 #: script/events/path.js:210
 msgid "a sack of it is scraped off the barrel lids and taken inside."
-msgstr ""
+msgstr "pytel toho je seškrabán z vík sudů a odnesen dovnitř."
 
 #: script/events/setpieces.js:10
 #: script/events/setpieces.js:12
@@ -1234,7 +1234,7 @@ msgstr "Mrchožrout"
 
 #: script/events/encounters.js:268
 msgid "a scavenger draws close, hoping to add to their stores at the cost of your life."
-msgstr ""
+msgstr "mrchožrout se blíží v naději, že rozšíří své zásoby za cenu tvého života."
 
 #: script/events/setpieces.js:4362
 msgid "a scavenger waits just inside the door."
@@ -1242,11 +1242,11 @@ msgstr "přímo za dveřmi číhá mrchožrout."
 
 #: script/events/encounters.js:557
 msgid "A Scout"
-msgstr ""
+msgstr "Zvěd"
 
 #: script/events/encounters.js:594
 msgid "a scout spots you. they could pass by. but why leave a witness who has seen them?"
-msgstr ""
+msgstr "zvěd tě záhlédne. mohl by projít kolem. ale proč nechávat svědka, který ho viděl?"
 
 #: script/events/room.js:711
 msgid "a scout stops for the night"
@@ -1254,11 +1254,11 @@ msgstr "zvěd se zastavil na noc"
 
 #: script/events/road.js:318
 msgid "a scrape in the lee of a rock, the pack pulled over, and eight hours of not moving."
-msgstr ""
+msgstr "úkryt v závětří skály, batoh přetažený a osm hodin bez hnutí."
 
 #: script/events/setpieces.js:3200
 msgid "a sealed suit, and the pattern for another"
-msgstr ""
+msgstr "zapečetěný oblek a vzor pro další"
 
 #: script/events/setpieces.js:7174
 msgid "a second soldier joins the fight."
@@ -1270,23 +1270,23 @@ msgstr "druhý voják začíná pálit ze zbraně."
 
 #: script/events/setpieces.js:1684
 msgid "a second, larger lock"
-msgstr ""
+msgstr "druhý, větší zámek"
 
 #: script/events/executioner.js:1917
 msgid "a secure locker is set into one wall."
-msgstr ""
+msgstr "v jedné zdi je vsazena bezpečnostní skříňka."
 
 #: script/ruins.js:60
 msgid "a sentence read three times over so that nobody present can claim to have misheard it."
-msgstr ""
+msgstr "věta přečtená třikrát, aby nikdo z přítomných nemohl tvrdit, že ji přeslechl."
 
 #: script/events/setpieces.js:3228
 msgid "a settlement where everything still works and nobody is left"
-msgstr ""
+msgstr "osada, kde všechno stále funguje a nikdo nezůstal"
 
 #: script/events/setpieces.js:3223
 msgid "a settlement, intact, and running."
-msgstr ""
+msgstr "osada, nedotčená a fungující."
 
 #: script/events/setpieces.js:7518
 msgid "a shack stands at the center of the village."
@@ -1299,7 +1299,7 @@ msgstr "podivný stavitel prochází"
 
 #: script/events/setpieces.js:533
 msgid "a shaft drops away with no stair and no rail, and the far side is lit."
-msgstr ""
+msgstr "šachta klesá bez schodů a zábradlí a vzdálená strana je osvětlená."
 
 #: script/events/setpieces.js:4832
 msgid "a shame to let what he'd found go to waste."
@@ -1307,31 +1307,31 @@ msgstr "byla by škoda nechat přijít to, co zanechal, vniveč."
 
 #: script/events/setpieces.js:2203
 msgid "a shape crosses the glass without leaving a mark on it."
-msgstr ""
+msgstr "tvar přechází přes sklo, aniž by na něm zanechal stopu."
 
 #: script/events/setpieces.js:2561
 msgid "a shape resolves out of the dark, already moving"
-msgstr ""
+msgstr "ze tmy se vynořuje tvar, který už se pohybuje"
 
 #: script/events/setpieces.js:237
 msgid "a shape steps out of the wall it was part of a moment ago."
-msgstr ""
+msgstr "ze zdi, jejíž součástí byl ještě před chvílí, vystupuje tvar."
 
 #: script/room.js:1023
 msgid "a sharp blade can slay foes in the dangerous wilds. builder can make an iron sword but she knows this isn't for hunting animals."
-msgstr ""
+msgstr "ostrá čepel může zabíjet nepřátele v nebezpečné divočině. stavitelka může vyrobit železný meč, ale ví, že to není na lov zvířat."
 
 #: script/room.js:1060
 msgid "a sharper blade for more deadly foes in the dangerous wilds. builder can make an steel sword but asks you not to fight."
-msgstr ""
+msgstr "ostřejší čepel pro smrtonosnější nepřátele v nebezpečné divočině. stavitelka může vyrobit ocelový meč, ale prosí tě, abys nebojoval."
 
 #: script/events/encounters.js:515
 msgid "A Shivering Human"
-msgstr ""
+msgstr "Třesoucí se člověk"
 
 #: script/events/encounters.js:552
 msgid "a shivering human moves desperately through the bracing cold winds. the biting pain has driven them mad. they attack with surprising strength."
-msgstr ""
+msgstr "třesoucí se člověk se zoufale pohybuje chladným větrem. kousavá bolest ho přivedla k šílenství. útočí s překvapivou silou."
 
 #: script/events/encounters.js:1122
 msgid "a shot rings out, from somewhere in the long grass"
@@ -1347,7 +1347,7 @@ msgstr "nemoc se šíří napříč vesnicí."
 
 #: script/events/encounters.js:1220
 msgid "A Siege Automaton"
-msgstr ""
+msgstr "Oblehací automat"
 
 #: script/outside.js:175
 #: script/outside.js:793
@@ -1356,11 +1356,11 @@ msgstr "Tichý les"
 
 #: script/events/setpieces.js:1759
 msgid "A Silent Temple"
-msgstr ""
+msgstr "Tichý chrám"
 
 #: script/events/setpieces.js:3252
 msgid "a slab by the well, and the same text on it four times, in four scripts, none of which share an alphabet."
-msgstr ""
+msgstr "deska u studny a na ní čtyřikrát stejný text ve čtyřech písmech, z nichž ani jedno nesdílí abecedu."
 
 #: script/events/setpieces.js:4667
 msgid "a small basket of food is hidden under a park bench, with a note attached."
@@ -1376,19 +1376,19 @@ msgstr "dorazila malá skupina, samý prach a kosti."
 
 #: script/events/executioner.js:221
 msgid "a small knapsack hangs from a cluster of webs, a few feet from the floor."
-msgstr ""
+msgstr "ze shluku pavučin visí malý batoh, několik stop nad podlahou."
 
 #: script/path.js:184
 msgid "a small light against the overwhelming tide of darkness."
-msgstr ""
+msgstr "malé světlo proti drtivému přílivu temnoty."
 
 #: script/ruins.js:64
 msgid "a small number of them stand up, at the moment when standing up is the worst thing a person can do."
-msgstr ""
+msgstr "malý počet z nich se postaví v momentě, kdy postavit se je to nejhorší, co člověk může udělat."
 
 #: script/graveyard.js:39
 msgid "a small stone, and a short plot."
-msgstr ""
+msgstr "malý kámen a krátký hrob."
 
 #: script/events/setpieces.js:4188
 msgid "a small suburb lays ahead, empty houses scorched and peeling."
@@ -1400,12 +1400,12 @@ msgstr "na konci jeskyně je ukryta malá skrýš."
 
 #: script/prison.js:235
 msgid "a smear on the curve at head height, polished by repetition."
-msgstr ""
+msgstr "šmouha na zakřivení ve výšce hlavy, vyleštěná opakováním."
 
 #: script/fabricator.js:138
 #: script/path.js:185
 msgid "a smooth, perfect sphere. its light is inextinguishable."
-msgstr ""
+msgstr "hladká, dokonalá koule. její světlo je neuhasitelné."
 
 #: script/events/setpieces.js:5388
 msgid "a snarling beast jumps out from behind a car."
@@ -1425,7 +1425,7 @@ msgstr "zbystřený voják začal střílet."
 
 #: script/graveyard.js:29
 msgid "a soldier, by the shape of the plot, though the stone does not say which side."
-msgstr ""
+msgstr "voják, podle tvaru hrobu, ačkoliv kámen neříká, na které straně."
 
 #: script/events/setpieces.js:5440
 msgid "a sound comes from the tunnel, just ahead."
@@ -1433,23 +1433,23 @@ msgstr "z tunelu se ozývají podezřelé zvuky."
 
 #: script/events/executioner.js:1670
 msgid "a sparring automaton, still fully function and crusted with timeworn blood, lunges forward."
-msgstr ""
+msgstr "cvičný automat, stále plně funkční a pokrytý starou krví, vyrazí vpřed."
 
 #: script/prison.js:213
 msgid "a special meeting room abandoned."
-msgstr ""
+msgstr "speciální zasedací místnost opuštěna."
 
 #: script/events/setpieces.js:3554
 msgid "a sphere because a sphere has no corner to stand in and no direction to face. whoever built this wing understood exactly what they were building."
-msgstr ""
+msgstr "koule, protože koule nemá žádný roh, v němž by se dalo stát, a žádný směr. kdo postavil toto křídlo, přesně rozuměl tomu, co staví."
 
 #: script/events/road.js:732
 msgid "a split hull lies at the end of a long furrow"
-msgstr ""
+msgstr "rozpolcený trup leží na konci dlouhé rýhy"
 
 #: script/events/encounters.js:394
 msgid "A Spore-Choked Stag"
-msgstr ""
+msgstr "Výtrusy zadušený jelínek"
 
 #: script/events/setpieces.js:4272
 msgid "a squat building up ahead."
@@ -1461,15 +1461,15 @@ msgstr "mezi zárubněmi malé chatky stojí sebevědomě squatter."
 
 #: script/events/setpieces.js:1211
 msgid "a stair down, and at the bottom of it the air is dry enough to hurt."
-msgstr ""
+msgstr "schody dolů a na jejich dně je vzduch dost suchý na to, aby bolel."
 
 #: script/events/setpieces.js:128
 msgid "a stairwell descends into ruins that are still powered"
-msgstr ""
+msgstr "schodiště klesá do ruin, které jsou stále pod proudem"
 
 #: script/events/setpieces.js:2507
 msgid "a stairwell, going down. the air below is colder again."
-msgstr ""
+msgstr "schodiště směřující dolů. vzduch dole je opět chladnější."
 
 #: script/events/setpieces.js:3781
 #: script/events/setpieces.js:3926
@@ -1478,27 +1478,27 @@ msgstr "rozrušená nestvůra brání svůj domov"
 
 #: script/events/path.js:360
 msgid "a stone is set upright at the end of the line, unmarked."
-msgstr ""
+msgstr "na konci linie je vztyčen kámen, neoznačený."
 
 #: script/prison.js:225
 msgid "a stone monolith of what to dismantle and what to leave behind."
-msgstr ""
+msgstr "kamenný monolit toho, co rozebrat a co zanechat za sebou."
 
 #: script/graveyard.js:74
 msgid "a stone with no name on it at all, only a date and a single line."
-msgstr ""
+msgstr "kámen vůbec bez jména, pouze s datem a jedinou řádkou."
 
 #: script/events/road.js:1244
 msgid "a storm of powdered glass comes off the flats"
-msgstr ""
+msgstr "z rovin se valí bouře práškového skla"
 
 #: script/events/road.js:1712
 msgid "a storm stands still, with an edge to it"
-msgstr ""
+msgstr "bouře stojí nehybně s ostrým okrajem"
 
 #: script/events/executioner.js:668
 msgid "a strange device sits on the floor. looks important."
-msgstr ""
+msgstr "na podlaze leží podivné zařízení. vypadá důležitě."
 
 #: script/events/marketing.js:17
 msgid "a strange thrumming, pounding and crashing. and then gone."
@@ -1514,15 +1514,15 @@ msgstr "v noci přišel cizinec"
 
 #: script/events/road.js:126
 msgid "a strip of meat goes on top, next to the cup."
-msgstr ""
+msgstr "kus masa jde nahoru vedle hrnku."
 
 #: script/events/setpieces.js:3391
 msgid "a structure with no way into it"
-msgstr ""
+msgstr "struktura, do které není žádná cesta"
 
 #: script/events/setpieces.js:3196
 msgid "a suit, sealed at every seam, and whoever was in it did not come out of the hole."
-msgstr ""
+msgstr "oblek zapečetěný v každém švu a ten, kdo v něm byl, z té díry nevylezl."
 
 #: script/events/setpieces.js:42
 msgid "a swamp festers in the stagnant air."
@@ -1534,7 +1534,7 @@ msgstr "z tunelu se rojí zástupy krys."
 
 #: script/events/setpieces.js:1786
 msgid "a temple, cut from a single piece of stone"
-msgstr ""
+msgstr "chrám vysekaný z jediného kusu kamene"
 
 #: script/events/outside.js:322
 msgid "a terrible plague is fast spreading through the village."
@@ -1542,7 +1542,7 @@ msgstr "mor se rychle šíří napříč vesnicí."
 
 #: script/events/setpieces.js:3540
 msgid "a tetrahedron because it is the only shape that cannot be made to wobble, and because they knew what they were sitting in the middle of."
-msgstr ""
+msgstr "čtyřstěn, protože je to jediný tvar, který nelze rozkývat, a protože věděli, uprostřed čeho sedí."
 
 #: script/events/global.js:17
 msgid "a thief is caught"
@@ -1550,11 +1550,11 @@ msgstr "zloděj byl dopaden"
 
 #: script/events/encounters.js:76
 msgid "a thin figure rises out of the dust. it has been here a long time."
-msgstr ""
+msgstr "z prachu vstává hubená postava. je tu už dlouho."
 
 #: script/events/encounters.js:12
 msgid "A Thornback Hare"
-msgstr ""
+msgstr "Trnitý zajíc"
 
 #: script/events/setpieces.js:5339
 msgid "a thug is waiting on the other side of the wall."
@@ -1566,7 +1566,7 @@ msgstr "ze stínů vystupuje bandita."
 
 #: script/outside.js:800
 msgid "A Tiny Encampment"
-msgstr ""
+msgstr "Malý tábor"
 
 #: script/outside.js:814
 msgid "A Tiny Village"
@@ -1582,7 +1582,7 @@ msgstr "tržnice by vypomohla s obchodem"
 
 #: script/events/encounters.js:440
 msgid "A Trench Sentry"
-msgstr ""
+msgstr "Zákopová stráž"
 
 #: script/events/setpieces.js:5615
 msgid "a tribe of elderly squatters is camped out in this ward."
@@ -1590,39 +1590,39 @@ msgstr "v tomto oddělení sídlí kmen postarších squatterů."
 
 #: script/events/encounters.js:354
 msgid "A Two-Headed Creature"
-msgstr ""
+msgstr "Dvouhlavé stvoření"
 
 #: script/events/encounters.js:386
 msgid "a two-headed creature appears, the smaller head, poorly attached and trembling"
-msgstr ""
+msgstr "objevuje se dvouhlavé stvoření, menší hlava je špatně přirostlá a třese se"
 
 #: script/events/encounters.js:1167
 msgid "a venomous beast bares its fangs."
-msgstr ""
+msgstr "jedovatá stvůra cení tesáky."
 
 #: script/events/road.js:1472
 msgid "a vent, flush with the ground, wider than a person and going straight down."
-msgstr ""
+msgstr "větrací šachta zároveň se zemí, širší než člověk a vedoucí kolmo dolů."
 
 #: script/events/encounters.js:1445
 msgid "a victim of radiation, experimentation and bloodlust lurches forward."
-msgstr ""
+msgstr "oběť radiace, experimentů a krvežíznivosti se potácí kupředu."
 
 #: script/events/path.js:540
 msgid "a villager means to walk to the edge of the world"
-msgstr ""
+msgstr "vesničan má v úmyslu dojít až na kraj světa"
 
 #: script/events/encounters.js:473
 msgid "a voice calls a challenge in a language with no speakers left. then it fires."
-msgstr ""
+msgstr "hlas provolává výzvu v jazyce, kterým už nikdo nemluví. pak vystřelí."
 
 #: script/ruins.js:44
 msgid "a voice moving through a crowd without being spoken aloud."
-msgstr ""
+msgstr "hlas procházející davem, aniž by byl vysloven nahlas."
 
 #: script/events/road.js:38
 msgid "a waist-high pile of stones stands beside the track, built carefully and not recently."
-msgstr ""
+msgstr "hromada kamenů do výšky pasu stojí vedle stezky, pečlivě postavená a ne nedávno."
 
 #: script/world.js:734
 msgid "a wall of gnarled trees rises from the dust. their branches twist into a skeletal canopy overhead."
@@ -1630,7 +1630,7 @@ msgstr "z prachu vystupuje zeď pokřivených stromů. jejich větve jsou splete
 
 #: script/outside.js:1358
 msgid "a wanderer"
-msgstr ""
+msgstr "tulák"
 
 #: script/events/room.js:540
 msgid "a wanderer arrives with an empty cart. says if he leaves with wood, he'll be back with more."
@@ -1642,11 +1642,11 @@ msgstr "tulačka dorazila s prázdným vozíkem. tvrdí, že pokud jí darujeme 
 
 #: script/events/setpieces.js:2320
 msgid "A Wanderer Lab"
-msgstr ""
+msgstr "Tulácká laboratoř"
 
 #: script/events/encounters.js:1356
 msgid "A Warden Echo"
-msgstr ""
+msgstr "Ozvěna strážce"
 
 #: script/outside.js:235
 msgid "a weathered family takes up in one of the huts."
@@ -1654,32 +1654,32 @@ msgstr "ošuntělá rodina zabrala jednu z chatrčí."
 
 #: script/events/path.js:246
 msgid "a week of trying gets a handful of grey nothing and a lot of wasted wood."
-msgstr ""
+msgstr "týden snažení přinese jen hrst šedého ničeho a spoustu promrhaného dřeva."
 
 #: script/events/room.js:1168
 msgid "a while, she is told."
-msgstr ""
+msgstr "chvíli, je jí řečeno."
 
 #: script/fabricator.js:152
 #: script/fabricator.js:189
 msgid "A Whirring Fabricator"
-msgstr ""
+msgstr "Bzučící fabrikátor"
 
 #: script/events/setpieces.js:2931
 msgid "a white dome sits silent on the high ground, its shutter open to the empty sky."
-msgstr ""
+msgstr "bílá kopule stojí tichá na vyvýšeném místě, její okenice je otevřená do prázdné oblohy."
 
 #: script/events/setpieces.js:2935
 msgid "a white dome, open to an empty sky"
-msgstr ""
+msgstr "bílá kopule, otevřená do prázdné oblohy"
 
 #: script/events/room.js:1134
 msgid "a woman arrives with a satchel of paper and a brass instrument on a strap."
-msgstr ""
+msgstr "přichází žena s brašnou plnou papírů a mosazným přístrojem na popruhu."
 
 #: script/events/setpieces.js:2641
 msgid "a work surface, and on it a log that has been kept by hand for a very long time."
-msgstr ""
+msgstr "pracovní plocha a na ní deník, který byl ručně veden po velmi dlouhou dobu."
 
 #: script/events/setpieces.js:6060
 msgid "a youth lashes out with a tree branch."
@@ -1699,7 +1699,7 @@ msgstr "Zřícený&nbsp;Raketoplán"
 
 #: script/world.js:182
 msgid "A&nbsp;Crowded&nbsp;Graveyard"
-msgstr ""
+msgstr "Přeplněný&nbsp;Hřbitov"
 
 #: script/world.js:168
 msgid "A&nbsp;Damp&nbsp;Cave"
@@ -1711,7 +1711,7 @@ msgstr "Zničená&nbsp;Vesnice"
 
 #: script/world.js:178
 msgid "A&nbsp;Glassed&nbsp;Crater"
-msgstr ""
+msgstr "Zasklený&nbsp;Kráter"
 
 #: script/world.js:175
 msgid "A&nbsp;Murky&nbsp;Swamp"
@@ -1719,7 +1719,7 @@ msgstr "Kalný&nbsp;Močál"
 
 #: script/world.js:176
 msgid "A&nbsp;Ravaged&nbsp;Battleship"
-msgstr ""
+msgstr "Zničená&nbsp;Bojová&nbsp;Loď"
 
 #: script/world.js:170
 msgid "A&nbsp;Ruined&nbsp;City"
@@ -1727,43 +1727,43 @@ msgstr "Zničené&nbsp;Město"
 
 #: script/world.js:177
 msgid "A&nbsp;Silent&nbsp;Temple"
-msgstr ""
+msgstr "Tichý&nbsp;Chrám"
 
 #: script/world.js:184
 msgid "A&nbsp;Wanderer&nbsp;Lab"
-msgstr ""
+msgstr "Tulácká&nbsp;Laboratoř"
 
 #: script/events/setpieces.js:1777
 msgid "above the door there is a figure worked into the rock: three eyes, three ears, and no mouth at all."
-msgstr ""
+msgstr "nad dveřmi je do skály vyrytá postava: tři oči, tři uši a vůbec žádná ústa."
 
 #: script/events/road.js:547
 msgid "add a mark"
-msgstr ""
+msgstr "přidat značku"
 
 #: script/events/path.js:291
 msgid "add a stone to the end"
-msgstr ""
+msgstr "přidat kámen na konec"
 
 #: script/events/setpieces.js:3034
 msgid "aegis drone"
-msgstr ""
+msgstr "ochranný dron"
 
 #: script/swamp.js:146
 msgid "after a while he says the same thing he said before, in the same words, and you get the sense he would say it a hundred more times if you kept coming."
-msgstr ""
+msgstr "po chvíli říká totéž, co říkal předtím, stejnými slovy, a máš pocit, že by to řekl ještě stokrát, kdybys stále přicházel."
 
 #: script/events/road.js:1787
 msgid "after a while it becomes obvious that it is not a storm that has stopped. it is a storm that has been left running."
-msgstr ""
+msgstr "po chvíli je jasné, že to není bouře, která přestala. je to bouře, která byla ponechána v chodu."
 
 #: script/events/room.js:1432
 msgid "after a while nobody in the village hears it any more."
-msgstr ""
+msgstr "po chvíli už to ve vesnici nikdo neslyší."
 
 #: script/events/room.js:1724
 msgid "after a while the middle one says something to the other two and they leave."
-msgstr ""
+msgstr "po chvíli ten prostřední něco řekne ostatním dvěma a odejdou."
 
 #: script/events/room.js:771
 msgid "agree"
@@ -1771,7 +1771,7 @@ msgstr "souhlasit"
 
 #: script/events/executioner.js:2091
 msgid "air whistles as the doors open. this section must have lower pressure than the rest of the ship."
-msgstr ""
+msgstr "vzduch hvízdá, jak se dveře otevírají. tato sekce musí mít nižší tlak než zbytek lodi."
 
 #: script/localization.js:17
 #: script/ship.js:191
@@ -1780,7 +1780,7 @@ msgstr "hvězdocel"
 
 #: script/events/encounters.js:281
 msgid "alien bird"
-msgstr ""
+msgstr "cizí pták"
 
 #: script/events.js:1296
 msgid "all"
@@ -1788,11 +1788,11 @@ msgstr "vše"
 
 #: script/events/path.js:428
 msgid "all four join the village"
-msgstr ""
+msgstr "všichni čtyři se připojují k vesnici"
 
 #: script/events/path.js:426
 msgid "all four stay. the three who did the carrying never mention it again."
-msgstr ""
+msgstr "všichni čtyři zůstávají. ti tři, kteří nesli, už o tom nikdy nepromluví."
 
 #: script/events/room.js:1099
 msgid "all he has are some scales."
@@ -1800,11 +1800,11 @@ msgstr "vše co má je pár šupin."
 
 #: script/events/encounters.js:1326
 msgid "all of it stops at once."
-msgstr ""
+msgstr "všechno se to zastaví naráz."
 
 #: script/space.js:574
 msgid "all of it. the dog. it was the dog."
-msgstr ""
+msgstr "všechno to. ten pes. byl to pes."
 
 #: script/events/setpieces.js:7530
 msgid "all the work of a previous generation is here."
