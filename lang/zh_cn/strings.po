@@ -2528,7 +2528,6 @@ msgid "blow it down"
 msgstr "把它炸倒"
 
 #: script/fabricator.js:249
-#: script/mobile.js:52
 #: script/mobileUI.js:45
 msgid "blueprints"
 msgstr "蓝图"
@@ -2606,7 +2605,6 @@ msgstr "破损的医疗兵"
 msgid "broken streetlights stand, rusting. light hasn't graced this place in a long time."
 msgstr "早就损坏的街灯屹立着，锈迹斑斑。光明已经很久没有眷顾这里"
 
-#: script/mobile.js:44
 #: script/mobileUI.js:36
 msgid "build"
 msgstr "建造"
@@ -2768,7 +2766,6 @@ msgstr "木地板下面藏着一些补给品"
 msgid "butcher the dead"
 msgstr "屠宰死去的猎物"
 
-#: script/mobile.js:46
 #: script/mobileUI.js:38
 msgid "buy"
 msgstr "购买"
@@ -3383,7 +3380,6 @@ msgstr "盖上木桶"
 msgid "cover the supplies"
 msgstr "盖住补给"
 
-#: script/mobile.js:45
 #: script/mobileUI.js:37
 msgid "craft"
 msgstr "制作"
@@ -7526,7 +7522,6 @@ msgstr "或许沉默更安全?"
 msgid "perhaps the ship’s systems are still operational."
 msgstr "也许飞船的系统仍在运作。"
 
-#: script/mobile.js:51
 #: script/mobileUI.js:44
 #: script/path.js:112
 msgid "perks"
@@ -9481,7 +9476,6 @@ msgstr "偷来的流浪者科技,机甲战士轰隆隆地驰骋于原野之上�
 msgid "stop him"
 msgstr "阻止他"
 
-#: script/mobile.js:47
 #: script/mobileUI.js:34
 #: script/room.js:1674
 msgid "stores"
@@ -9578,7 +9572,6 @@ msgstr "硫磺矿工"
 msgid "Sulphur&nbsp;Mine"
 msgstr "硫磺矿"
 
-#: script/mobile.js:53
 #: script/mobileUI.js:46
 msgid "supplies"
 msgstr "补给"
@@ -12749,7 +12742,6 @@ msgstr "那头毒兽死了"
 msgid "the vent is being guarded by someone still on duty"
 msgstr "那处通风口正被一个仍在值勤的人看守着"
 
-#: script/mobile.js:50
 #: script/mobileUI.js:42
 msgid "the village"
 msgstr "村落"
@@ -12770,10 +12762,6 @@ msgstr "村落耗尽了木材,但所有人都活了下来"
 #: script/events/path.js:643
 msgid "the village goes back to work. nobody says anything about it, then or afterwards."
 msgstr "村落又恢复了劳作。没有人对此说过一句话,当时没有,后来也没有。"
-
-#: script/mobile.js:49
-msgid "the villagers"
-msgstr "村民们"
 
 #: script/events/global.js:13
 msgid "the villagers haul a filthy man out of the store room."
@@ -14561,7 +14549,6 @@ msgstr "水壶"
 msgid "weakness is a liabity, especially out here."
 msgstr "软弱是一种负担,在这里尤其如此。"
 
-#: script/mobile.js:48
 #: script/mobileUI.js:35
 #: script/room.js:1693
 msgid "weapons"
@@ -15273,3 +15260,6 @@ msgstr "ⰑⰖⰔⱂⰃⰠ2ⰉⰉ Ⱀⱂ ⰄⰀ ⰒⰑⰆⰉ me2Ⱐ ⰄⰀ Ⰲ�
 
 #~ msgid "a grizzled soldier attacks, waving a bayonet."
 #~ msgstr "一个头发斑白的士兵挥舞着刺刀发起了攻击"
+
+#~ msgid "the villagers"
+#~ msgstr "村民们"

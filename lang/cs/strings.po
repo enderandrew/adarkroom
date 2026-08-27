@@ -2524,7 +2524,6 @@ msgid "blow it down"
 msgstr "vyhodit to do vzduchu"
 
 #: script/fabricator.js:249
-#: script/mobile.js:52
 #: script/mobileUI.js:45
 msgid "blueprints"
 msgstr "stavební plány"
@@ -2602,7 +2601,6 @@ msgstr "rozbitý zdravotník"
 msgid "broken streetlights stand, rusting. light hasn't graced this place in a long time."
 msgstr "poničené zrezavělé pouliční osvětlení. světlo zde nezazářilo již velmi dlouho."
 
-#: script/mobile.js:44
 #: script/mobileUI.js:36
 msgid "build"
 msgstr "postavit"
@@ -2764,7 +2762,6 @@ msgstr "ale pod podlahou je skrýš s léčivem."
 msgid "butcher the dead"
 msgstr "rozporcovat mrtvé"
 
-#: script/mobile.js:46
 #: script/mobileUI.js:38
 msgid "buy"
 msgstr "koupit"
@@ -3379,7 +3376,6 @@ msgstr "zakrýt sudy"
 msgid "cover the supplies"
 msgstr "zakrýt zásoby"
 
-#: script/mobile.js:45
 #: script/mobileUI.js:37
 msgid "craft"
 msgstr "vyrobit"
@@ -7522,7 +7518,6 @@ msgstr "ticho je bezpečnější?"
 msgid "perhaps the ship’s systems are still operational."
 msgstr "možná jsou systémy lodi stále funkční."
 
-#: script/mobile.js:51
 #: script/mobileUI.js:44
 #: script/path.js:112
 msgid "perks"
@@ -9477,7 +9472,6 @@ msgstr "ukradená poutnická technologie, mechanický válečník se řítí př
 msgid "stop him"
 msgstr "zastavit ho"
 
-#: script/mobile.js:47
 #: script/mobileUI.js:34
 #: script/room.js:1674
 msgid "stores"
@@ -9574,7 +9568,6 @@ msgstr "horník síry"
 msgid "Sulphur&nbsp;Mine"
 msgstr "Sirný&nbsp;Důl"
 
-#: script/mobile.js:53
 #: script/mobileUI.js:46
 msgid "supplies"
 msgstr "zásoby"
@@ -12745,7 +12738,6 @@ msgstr "jedovatá bestie je mrtvá"
 msgid "the vent is being guarded by someone still on duty"
 msgstr "průduch je hlídán někým, kdo je stále ve službě"
 
-#: script/mobile.js:50
 #: script/mobileUI.js:42
 msgid "the village"
 msgstr "vesnice"
@@ -12766,10 +12758,6 @@ msgstr "vesnice spálí své dřevo, a všichni přežijí"
 #: script/events/path.js:643
 msgid "the village goes back to work. nobody says anything about it, then or afterwards."
 msgstr "vesnice se vrací k práci. nikdo o tom nic neříká, ani tehdy, ani potom."
-
-#: script/mobile.js:49
-msgid "the villagers"
-msgstr "vesničané"
 
 #: script/events/global.js:13
 msgid "the villagers haul a filthy man out of the store room."
@@ -14557,7 +14545,6 @@ msgstr "měch"
 msgid "weakness is a liabity, especially out here."
 msgstr "slabost je přítěž, obzvlášť tady venku."
 
-#: script/mobile.js:48
 #: script/mobileUI.js:35
 #: script/room.js:1693
 msgid "weapons"
@@ -15269,3 +15256,6 @@ msgstr "ⰑⰖⰔⱂⰃⰠ2ⰉⰉ Ⱀⱂ ⰄⰀ ⰒⰑⰆⰉ me2Ⱐ ⰄⰀ Ⰲ�
 
 #~ msgid "a grizzled soldier attacks, waving a bayonet."
 #~ msgstr "prošedivělý voják útočí, rozmachuje se bajonetem."
+
+#~ msgid "the villagers"
+#~ msgstr "vesničané"

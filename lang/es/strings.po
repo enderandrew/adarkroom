@@ -2527,7 +2527,6 @@ msgid "blow it down"
 msgstr "volarla"
 
 #: script/fabricator.js:249
-#: script/mobile.js:52
 #: script/mobileUI.js:45
 msgid "blueprints"
 msgstr "planos"
@@ -2605,7 +2604,6 @@ msgstr "médico averiado"
 msgid "broken streetlights stand, rusting. light hasn't graced this place in a long time."
 msgstr "luces exteriores rotas permanecen, oxidándose. la luz no ha llegado a este lugar en mucho tiempo."
 
-#: script/mobile.js:44
 #: script/mobileUI.js:36
 msgid "build"
 msgstr "construir"
@@ -2767,7 +2765,6 @@ msgstr "pero hay un alijo de medicinas bajo las tablas del suelo."
 msgid "butcher the dead"
 msgstr "descuartizar a los muertos"
 
-#: script/mobile.js:46
 #: script/mobileUI.js:38
 msgid "buy"
 msgstr "comprar"
@@ -3382,7 +3379,6 @@ msgstr "cubrir los barriles"
 msgid "cover the supplies"
 msgstr "cubrir los suministros"
 
-#: script/mobile.js:45
 #: script/mobileUI.js:37
 msgid "craft"
 msgstr "fabricar"
@@ -7525,7 +7521,6 @@ msgstr "¿tal vez el silencio es más seguro?"
 msgid "perhaps the ship’s systems are still operational."
 msgstr "tal vez los sistemas de la nave siguen operativos."
 
-#: script/mobile.js:51
 #: script/mobileUI.js:44
 #: script/path.js:112
 msgid "perks"
@@ -9480,7 +9475,6 @@ msgstr "tecnología errante robada, el guerrero mecánico arrasa a través de lo
 msgid "stop him"
 msgstr "detenerlo"
 
-#: script/mobile.js:47
 #: script/mobileUI.js:34
 #: script/room.js:1674
 msgid "stores"
@@ -9577,7 +9571,6 @@ msgstr "minero de azufre"
 msgid "Sulphur&nbsp;Mine"
 msgstr "Mina&nbsp;de&nbsp;Azufre"
 
-#: script/mobile.js:53
 #: script/mobileUI.js:46
 msgid "supplies"
 msgstr "suministros"
@@ -12748,7 +12741,6 @@ msgstr "la bestia venenosa está muerta"
 msgid "the vent is being guarded by someone still on duty"
 msgstr "el conducto está siendo custodiado por alguien todavía en servicio"
 
-#: script/mobile.js:50
 #: script/mobileUI.js:42
 msgid "the village"
 msgstr "el poblado"
@@ -12769,10 +12761,6 @@ msgstr "el poblado quema toda su madera, y todos sobreviven"
 #: script/events/path.js:643
 msgid "the village goes back to work. nobody says anything about it, then or afterwards."
 msgstr "el poblado vuelve al trabajo. nadie dice nada al respecto, ni entonces ni después."
-
-#: script/mobile.js:49
-msgid "the villagers"
-msgstr "los aldeanos"
 
 #: script/events/global.js:13
 msgid "the villagers haul a filthy man out of the store room."
@@ -14560,7 +14548,6 @@ msgstr "cantimplora"
 msgid "weakness is a liabity, especially out here."
 msgstr "la debilidad es un lastre, especialmente aquí afuera."
 
-#: script/mobile.js:48
 #: script/mobileUI.js:35
 #: script/room.js:1693
 msgid "weapons"
@@ -15272,3 +15259,6 @@ msgstr "ⰑⰖⰔⱂⰃⰠ2ⰉⰉ Ⱀⱂ ⰄⰀ ⰒⰑⰆⰉ me2Ⱐ ⰄⰀ Ⰲ�
 
 #~ msgid "a grizzled soldier attacks, waving a bayonet."
 #~ msgstr "un soldado canoso ataca, agitando una bayoneta."
+
+#~ msgid "the villagers"
+#~ msgstr "los aldeanos"

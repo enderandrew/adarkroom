@@ -2525,7 +2525,6 @@ msgid "blow it down"
 msgstr ""
 
 #: script/fabricator.js:249
-#: script/mobile.js:52
 #: script/mobileUI.js:45
 msgid "blueprints"
 msgstr ""
@@ -2603,7 +2602,6 @@ msgstr ""
 msgid "broken streetlights stand, rusting. light hasn't graced this place in a long time."
 msgstr "postes quebrados continuam em pé, enferrujando. luz não ilumina este lugar a muito tempo."
 
-#: script/mobile.js:44
 #: script/mobileUI.js:36
 msgid "build"
 msgstr ""
@@ -2765,7 +2763,6 @@ msgstr "mas há um esconderijo de remédios sob o assoalho."
 msgid "butcher the dead"
 msgstr ""
 
-#: script/mobile.js:46
 #: script/mobileUI.js:38
 msgid "buy"
 msgstr ""
@@ -3380,7 +3377,6 @@ msgstr ""
 msgid "cover the supplies"
 msgstr ""
 
-#: script/mobile.js:45
 #: script/mobileUI.js:37
 msgid "craft"
 msgstr ""
@@ -7523,7 +7519,6 @@ msgstr ""
 msgid "perhaps the ship’s systems are still operational."
 msgstr ""
 
-#: script/mobile.js:51
 #: script/mobileUI.js:44
 #: script/path.js:112
 msgid "perks"
@@ -9478,7 +9473,6 @@ msgstr ""
 msgid "stop him"
 msgstr ""
 
-#: script/mobile.js:47
 #: script/mobileUI.js:34
 #: script/room.js:1674
 msgid "stores"
@@ -9575,7 +9569,6 @@ msgstr "minerador de enxofre"
 msgid "Sulphur&nbsp;Mine"
 msgstr "Mina&nbsp;de&nbsp;Enxofre"
 
-#: script/mobile.js:53
 #: script/mobileUI.js:46
 msgid "supplies"
 msgstr ""
@@ -12746,7 +12739,6 @@ msgstr ""
 msgid "the vent is being guarded by someone still on duty"
 msgstr ""
 
-#: script/mobile.js:50
 #: script/mobileUI.js:42
 msgid "the village"
 msgstr ""
@@ -12766,10 +12758,6 @@ msgstr ""
 
 #: script/events/path.js:643
 msgid "the village goes back to work. nobody says anything about it, then or afterwards."
-msgstr ""
-
-#: script/mobile.js:49
-msgid "the villagers"
 msgstr ""
 
 #: script/events/global.js:13
@@ -14558,7 +14546,6 @@ msgstr "bolsa d'água"
 msgid "weakness is a liabity, especially out here."
 msgstr ""
 
-#: script/mobile.js:48
 #: script/mobileUI.js:35
 #: script/room.js:1693
 msgid "weapons"
