@@ -2,8 +2,11 @@ A Darker Room (v1.6-dev)
 ==================
 > "awake. head throbbing. vision blurry. come light the fire."
 
-A minimalist text adventure by Michael Townsend and all his friends.
-Inspired by Candy Box (https://candybox2.github.io/candybox)
+A Dark Room was written by Michael Townsend for Doublespeak Games in 2013. It is open-source.
+This is a fork and a re-imagining of the game with much more content, more story and more endings.
+I do not claim this to be an extension of Townsend's intent. I intentionally tried to make this story its own.
+Please support the original game.
+
 Contribute on GitHub! (https://github.com/enderandrew/adarkroom/)
 
 

@@ -7525,7 +7525,7 @@ msgstr "vielleicht sind die Systeme des Schiffs noch funktionsfähig."
 #: script/mobileUI.js:44
 #: script/path.js:112
 msgid "perks"
-msgstr "Fähigkeiten""
+msgstr "Fähigkeiten\""
 
 #: script/events/setpieces.js:1359
 msgid "persisting"
