@@ -1133,6 +1133,15 @@ var World = {
 			Engine.log('player death');
 			Engine.event('game event', 'death');
 			Engine.keyLock = true;
+			/* If death came from a maze combat, discard its deferred
+			 * "cleared" mark rather than let it linger -- see
+			 * Maze.checkTrigger() and Maze.discardPendingClear(). It was
+			 * never going to be confirmed (that only happens on a win), but
+			 * this guarantees it can't survive to attach itself to some
+			 * later, unrelated fight. */
+			if (typeof Maze !== 'undefined') {
+				Maze.discardPendingClear();
+			}
 			// Dead! Discard any world changes and go home
 			Notifications.notify(World, _('the world fades. death escapes you. is there no escape from here'));
 			World.state = null;

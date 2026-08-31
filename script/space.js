@@ -544,6 +544,12 @@ var Space = {
 
 	showExpansionEnding: () => {
 		return new Promise((resolve) => {
+			/* Switches body out of its normal centered-flex layout for the
+			 * duration of the ending -- see the body.ending rule in
+			 * space.css for why. Covers showEndingOptions() too, since that
+			 * appends .centerCont as a sibling of .outroContainer straight
+			 * onto body and needs the same scrollable, top-down layout. */
+			$('body').addClass('ending');
 			const c = $('<div>')
 				.addClass('outroContainer')
 				.appendTo('body');

@@ -7,7 +7,14 @@
 Events.Marketing = [{
   /* Play Penrose! */
   title: _('Penrose'),
-  isAvailable: () => !$SM.get('marketing.penrose'),
+  /* Previously had no gate at all beyond "hasn't been shown yet" -- no
+   * module check, no progress check -- so it could win the very first
+   * event roll of a brand-new game, before the player has done anything.
+   * A cross-promotion popup arriving before the player has even gathered
+   * their first piece of wood reads as the game being broken, not as an
+   * ad. Room.hasBasicProgress() is the same "has bought a cart" line used
+   * to gate the other earliest Room events, for the same reason. */
+  isAvailable: () => Engine.activeModule == Room && Room.hasBasicProgress() && !$SM.get('marketing.penrose'),
   scenes: {
     'start': {
       text: [

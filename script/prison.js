@@ -54,12 +54,18 @@ var Prison = {
 	WINGS: ['cube', 'tetra', 'sphere'],
 
 	/* Wing dimensions. Odd numbers -- the generator carves on a 2-step grid.
-	 * Larger than the Lab's: this is the last location in the game. */
+	 * Larger than the Lab's: this is the last location in the game.
+	 *
+	 * Bumped up alongside Lab.SIZE, and for the same reason: the automap
+	 * makes a maze's layout visible well before it stops being navigable
+	 * by feel, so size and encounter density are what actually keep these
+	 * wings feeling like something to get through rather than a floor plan
+	 * to walk across. */
 	SIZE: {
-		cube:   { w: 17, h: 13 },
-		tetra:  { w: 19, h: 13 },
-		sphere: { w: 19, h: 15 },
-		core:   { w: 15, h: 11 }
+		cube:   { w: 23, h: 17 },
+		tetra:  { w: 25, h: 17 },
+		sphere: { w: 25, h: 19 },
+		core:   { w: 19, h: 13 }
 	},
 
 	/* ---- the door ------------------------------------------------------ */
@@ -164,10 +170,14 @@ var Prison = {
 
 		/* Fights through the middle. The core has none -- there is nothing
 		 * left alive in there, and a fight would be the wrong note for the
-		 * last room in the game. */
+		 * last room in the game.
+		 *
+		 * Doubled from the original fixed 3 to go with the larger SIZE
+		 * above -- see the comment there. Same enemies, same stats; just
+		 * more of the wing to get through before reaching the crystal. */
 		if(wing !== 'core') {
 			var used = markers.length;
-			var fights = 3;
+			var fights = 6;
 			var stride = Math.max(1, Math.floor((cells.length - used) / (fights + 1)));
 			for(var f = 0; f < fights; f++) {
 				var idx = used + stride * (f + 1);

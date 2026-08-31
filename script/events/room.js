@@ -5,7 +5,7 @@ Events.Room = [
 	{ /* The Nomad  --  Merchant */
 		title: _('The Nomad'),
 		isAvailable: function() {
-			return Engine.activeModule == Room && $SM.get('stores.fur', true) > 0;
+			return Engine.activeModule == Room && Room.hasBasicProgress() && $SM.get('stores.fur', true) > 0;
 		},
 		scenes: {
 			'start': {
@@ -138,7 +138,7 @@ Events.Room = [
 	{ /* Noises Outside  --  gain wood/fur */
 		title: _('Noises'),
 		isAvailable: function() {
-			return Engine.activeModule == Room && $SM.get('stores.wood');
+			return Engine.activeModule == Room && Room.hasBasicProgress() && $SM.get('stores.wood');
 		},
 		scenes: {
 			'start': {
@@ -215,7 +215,7 @@ Events.Room = [
 	{ /* Noises Inside  --  trade wood for better good */
 		title: _('Noises'),
 		isAvailable: function() {
-			return Engine.activeModule == Room && $SM.get('stores.wood');
+			return Engine.activeModule == Room && Room.hasBasicProgress() && $SM.get('stores.wood');
 		},
 		scenes: {
 			start: {
@@ -323,7 +323,7 @@ Events.Room = [
 	{ /* The Beggar  --  trade fur for better good */
 		title: _('The Beggar'),
 		isAvailable: function() {
-			return Engine.activeModule == Room && $SM.get('stores.fur');
+			return Engine.activeModule == Room && Room.hasBasicProgress() && $SM.get('stores.fur');
 		},
 		scenes: {
 			start: {
@@ -532,7 +532,7 @@ Events.Room = [
 	{ /* Mysterious Wanderer  --  wood gambling */
 		title: _('The Mysterious Wanderer'),
 		isAvailable: function() {
-			return Engine.activeModule == Room && $SM.get('stores.wood');
+			return Engine.activeModule == Room && Room.hasBasicProgress() && $SM.get('stores.wood');
 		},
 		scenes: {
 			start: {
@@ -616,7 +616,7 @@ Events.Room = [
 	{ /* Mysterious Wanderer  --  fur gambling */
 		title: _('The Mysterious Wanderer'),
 		isAvailable: function() {
-			return Engine.activeModule == Room && $SM.get('stores.fur');
+			return Engine.activeModule == Room && Room.hasBasicProgress() && $SM.get('stores.fur');
 		},
 		scenes: {
 			start: {

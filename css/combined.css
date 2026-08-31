@@ -1071,6 +1071,35 @@ div#engineRow {
 	margin: 0 auto;
 }
 
+/* Fix for long endings whose text became unreachable.
+ *
+ * body is `display:flex; align-items:center` with an explicit height:100%
+ * (see main.css), which centers #wrapper nicely during normal play. But
+ * .outroContainer and .centerCont (space.js) are appended directly to body
+ * as siblings, and outro text keeps fading in over tens of seconds -- some
+ * endings run long enough that the combined height exceeds the viewport.
+ * When a centered flex item overflows its container, the overflow splits
+ * roughly evenly above and below the container's edges. The half pushed
+ * above y=0 is permanently unreachable (the document can't scroll to a
+ * negative position), while the half below is only reachable if the
+ * viewport/body can scroll at all -- and nothing here declares that it can.
+ * Net effect: however much text doesn't fit on one screen just disappears,
+ * with no scrollbar and no way to read the rest of the ending.
+ *
+ * Space.showExpansionEnding() adds this class to <body> right before the
+ * outro sequence starts, for exactly as long as the ending is on screen.
+ * It swaps body out of centered-flex layout into plain top-down block flow,
+ * so .outroContainer and .centerCont simply stack from the top of the page
+ * and the page scrolls normally however tall they get. Short endings lose
+ * their perfect vertical centering -- an acceptable trade against text
+ * silently vanishing. */
+body.ending {
+	display: block;
+	height: auto;
+	min-height: 100%;
+	overflow-y: auto;
+}
+
 .outro {
 	font-size: 1.5rem;
 	color: #FFF;

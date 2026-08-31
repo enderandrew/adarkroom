@@ -94,6 +94,14 @@ var Maze = {
 	_keyHandler: null,
 	_stylesInjected: false,
 
+	/* Set by checkTrigger() when the player steps onto a `once`-flagged
+	 * combat cell, and consumed by confirmPendingClear() only if that fight
+	 * is actually won -- see both for why. Deliberately NOT persisted
+	 * through $SM: it only needs to bridge the gap between stepping onto
+	 * the tile and the fight resolving, both of which happen within the
+	 * same page session. */
+	_pendingClear: null,
+
 	/* ---- authoring ---------------------------------------------------- */
 
 	define: function(id, def) {
@@ -584,7 +592,21 @@ var Maze = {
 		if(cell.once && Maze.isCleared(id, tag)) return false;
 
 		if(cell.type === 'combat' || cell.type === 'scene' || cell.type === 'exit') {
-			if(cell.once) Maze.markCleared(id, tag);
+			if(cell.once) {
+				if(cell.type === 'combat') {
+					/* Deferred -- see confirmPendingClear(). Marking cleared
+					 * here, before the fight even starts, meant the tag was
+					 * permanently disarmed the instant the player stepped
+					 * onto it, whether the fight that followed was won OR
+					 * lost. A death sends the player home without touching
+					 * any maze state (see World.die()), so a player who
+					 * died here came back to find this encounter already
+					 * cleared -- a free pass past an enemy they never beat. */
+					Maze._pendingClear = { id: id, tag: tag };
+				} else {
+					Maze.markCleared(id, tag);
+				}
+			}
 			if(typeof cell.onEnter === 'function') cell.onEnter();
 			if(cell.scene) {
 				Maze.teardown();
@@ -593,6 +615,28 @@ var Maze = {
 			}
 		}
 		return false;
+	},
+
+	/* Applies a combat cell's deferred "cleared" mark, but only once the
+	 * fight is actually won. Called from Events.winFight(), so every maze
+	 * combat cell in every dungeon gets correct win/loss handling for free,
+	 * with no per-scene wiring required in prison.js, lab.js, or any future
+	 * maze. A death, or any other non-win exit from the fight, leaves
+	 * _pendingClear unconsumed, so the encounter is still live the next
+	 * time the player reaches that tile. */
+	confirmPendingClear: function() {
+		if(Maze._pendingClear) {
+			Maze.markCleared(Maze._pendingClear.id, Maze._pendingClear.tag);
+			Maze._pendingClear = null;
+		}
+	},
+
+	/* Discards a deferred clear without applying it. Belt-and-braces: called
+	 * from World.die() so a pending clear can never survive past the fight
+	 * it belongs to and accidentally attach itself to a later, unrelated
+	 * encounter. */
+	discardPendingClear: function() {
+		Maze._pendingClear = null;
 	},
 
 	/* ---- lifecycle & styles --------------------------------------------- */

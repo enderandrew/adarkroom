@@ -9,6 +9,25 @@ var Room = {
 	_STOKE_COOLDOWN: 5, // cooldown to stoke the fire
 	_NEED_WOOD_DELAY: 15 * 1000, // from when the stranger shows up, to when you need wood
 	buttons:{},
+
+	/* Gate for the earliest random Room events (trading, gambling, and the
+	 * cross-promotion popup). Without this, a handful of Events.Room entries
+	 * only check for a nonzero resource count -- which is true after a
+	 * single gather click -- so a genuinely brand-new player could get
+	 * "The Nomad", "The Mysterious Wanderer", or the Penrose marketing
+	 * event on their very first random event roll, before they have built
+	 * anything at all, including the 30-wood cart. Playtesting reported
+	 * this reading as a soft-lock: a full-screen event with unfamiliar
+	 * trade buttons, no context, arriving before there is anything to
+	 * trade with or any sense of how the game works yet.
+	 *
+	 * Cart is the natural line: cheap (30 wood, reachable within the
+	 * first few gather clicks) but not instant, so it reads as "the
+	 * player has done something" rather than an arbitrary timer. */
+	hasBasicProgress: function() {
+		return $SM.get('game.buildings["cart"]', true) > 0;
+	},
+
 	Craftables: {
 		'trap': {
 			name: _('trap'),

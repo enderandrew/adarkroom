@@ -302,10 +302,29 @@ html.mobileUI #notifyGradient { display: none; }
 /* --- events ------------------------------------------------------------- */
 
 html.mobileUI .eventPanel {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	/* !important on the positioning, specifically.
+	 *
+	 * Reported: a combat panel rendered bottom-left instead of centred,
+	 * matching main.css's desktop default almost exactly
+	 * (position:absolute; left:250px; top:90px) -- which is what renders if
+	 * THIS rule fails to apply for any reason, not what renders if something
+	 * merely outranks it (nothing in this file did, checked directly).
+	 *
+	 * Events.startEvent() also sets an INLINE width for some scenes
+	 * (`Events.eventPanel().css('width', options.width)`), and inline
+	 * styles beat any non-!important rule outright. That call only touches
+	 * width today, but the panel is reused for combat, story and maze
+	 * scenes across a lot of code this stylesheet does not own, and a
+	 * future or overlooked call setting left/top/position inline would
+	 * silently reproduce exactly this. !important on the positioning
+	 * properties closes that off unconditionally rather than trusting every
+	 * call site to stay width-only forever. */
+	position: fixed !important;
+	top: 50% !important;
+	left: 50% !important;
+	right: auto !important;
+	bottom: auto !important;
+	transform: translate(-50%, -50%) !important;
 	width: calc(100vw - 24px);
 	max-width: 560px;
 	max-height: 85vh;
@@ -766,7 +785,14 @@ html.mobileUI #outsidePanel > .button {
 	width: 100% !important;
 }
 
-html.mobileUI #outsidePanel {
+/* :not(.mHidden) -- the guard this rule was missing.
+ *
+ * An unguarded copy of this rule survived after the guarded version was
+ * added elsewhere in the file. `display: grid` keyed on an id beats
+ * `.mHidden { display: none }` at class specificity, so this copy won and
+ * the village, villagers, gather wood and check traps stayed visible on
+ * every screen no matter what showOnly did. */
+html.mobileUI #outsidePanel:not(.mHidden) {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
 	gap: 0 8px;
@@ -1119,4 +1145,42 @@ html.mobileUI #map .player {
 
 html.mobileUI #map .player {
 	animation: mPlayerPulse 1.6s ease-in-out infinite;
+}
+
+/* ---------------------------------------------------------------------------
+ * Single-column flow for #wrapper's children
+ *
+ * #notifications and the settings panel are appended to #wrapper, and
+ * main.css positions div#notifications absolutely at width 200px. This file
+ * had grown three separate #notifications rules, so the effective result
+ * was no longer predictable and the log and settings ended up squeezed into
+ * a narrow strip beside the panel instead of below it.
+ *
+ * Rather than adjust one of those, this states the intent once, last: every
+ * direct child of #wrapper is a full-width block in normal flow, with
+ * positioned/floated/fixed-width desktop rules neutralised in one place.
+ *
+ * Deliberately does NOT set `display` -- .mHidden and .mClosed hide by
+ * display and a rule here would outrank them, which is exactly the bug
+ * being fixed above.
+ * ------------------------------------------------------------------------ */
+
+html.mobileUI #wrapper > * {
+	position: static;
+	float: none;
+	width: 100%;
+	max-width: 100%;
+	left: auto;
+	right: auto;
+	top: auto;
+	bottom: auto;
+	box-sizing: border-box;
+}
+
+html.mobileUI #notifications {
+	position: static;
+	width: 100%;
+	min-height: 30vh;
+	max-height: 55vh;
+	overflow-y: auto;
 }

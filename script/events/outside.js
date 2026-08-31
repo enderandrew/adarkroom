@@ -87,7 +87,14 @@ Events.Outside = [
 			 * COULD burn (see Village.SOLITARY_BURNABLE). Never both --
 			 * isSolitary() and having huts are mutually exclusive. */
 			if(Outside.isSolitary()) {
-				return Village.canReachPlayer() && Village.hasBurnable();
+				/* hasBurnable() alone is true the moment a solitary player
+				 * owns a single trap -- cheaper and earlier than the cart.
+				 * Same "give the player a few minutes before the world
+				 * starts taking things away" reasoning as the other
+				 * earliest Room events gated on Room.hasBasicProgress(); a
+				 * solitary run reaches that milestone just as fast as a
+				 * settlement run does, since cart is not doctrine-gated. */
+				return Village.canReachPlayer() && Room.hasBasicProgress() && Village.hasBurnable();
 			}
 			return Village.canReachPlayer() && $SM.get('game.buildings["hut"]', true) > 0 && $SM.get('game.population', true) > 50;
 		},

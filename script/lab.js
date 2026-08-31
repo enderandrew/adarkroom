@@ -45,10 +45,19 @@ var Lab = {
 
 	// Maze dimensions per level, in cells. Odd numbers: the generator carves
 	// on a 2-step grid, so even dimensions would waste a row and column.
+	//
+	// Deliberately larger than the original layouts. The automap (see
+	// Maze.hasScout()/render()) removes almost all of the navigational
+	// difficulty a maze is supposed to provide -- once the player can see
+	// the whole floor plan, "find the way through" stops being a real
+	// obstacle. Bigger levels, with proportionally more fights below, are
+	// the compensation: more ground to cover and more resistance while
+	// covering it, rather than relying on the player simply not being able
+	// to see where they're going.
 	SIZE: [
-		{ w: 15, h: 11 },
-		{ w: 17, h: 13 },
-		{ w: 19, h: 13 }
+		{ w: 21, h: 15 },
+		{ w: 23, h: 17 },
+		{ w: 25, h: 17 }
 	],
 
 	/* ---- gating ---------------------------------------------------------- */
@@ -260,8 +269,13 @@ var Lab = {
 
 		// Fights fill the mid-distance cells, so the player meets resistance
 		// on the way in rather than only at the far end.
+		//
+		// Roughly doubled from the original 2 + level (3/4/5) to go with the
+		// larger SIZE above -- see the comment there. Enemy stats are
+		// untouched; this is about there being more of them to get through,
+		// not any single one hitting harder.
 		var used = markers.length;
-		var fightCount = 2 + level;
+		var fightCount = 4 + level * 2;
 		var stride = Math.max(1, Math.floor((cells.length - used) / (fightCount + 1)));
 		for(var f = 0; f < fightCount; f++) {
 			var idx = used + stride * (f + 1);
