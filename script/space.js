@@ -7,7 +7,7 @@ var Space = {
 	SHIP_SPEED: 3,
 	BASE_ASTEROID_DELAY: 500,
 	BASE_ASTEROID_SPEED: 1500,
-	FTB_SPEED: 60000,
+	FTB_SPEED: 120000,
 	STAR_WIDTH: 3000,
 	STAR_HEIGHT: 3000,
 	NUM_STARS: 200,
@@ -37,7 +37,7 @@ var Space = {
 			.appendTo('#outerSlider');
 		
 		// Create the ship
-		Space.ship = $('<div>').text("@").attr('id', 'ship').appendTo(this.panel);
+		Space.ship = $('<div>').text("Δ").attr('id', 'ship').appendTo(this.panel);
 		
 		// Create the hull display
 		var h = $('<div>').attr('id', 'hullRemaining').appendTo(this.panel);
@@ -99,15 +99,15 @@ var Space = {
 	setTitle: function() {
 		if(Engine.activeModule == this) {
 			var t;
-			if(Space.altitude < 15) {
+			if(Space.altitude < 10) {
 				t = _("Troposphere");
-			} else if(Space.altitude < 30) {
+			} else if(Space.altitude < 20) {
 				t = _("Stratosphere");
-			} else if(Space.altitude < 45) {
+			} else if(Space.altitude < 30) {
 				t = _("Mesosphere");
-			} else if(Space.altitude < 60) {
+			} else if(Space.altitude < 40) {
 				t = _("Thermosphere");
-			} else if(Space.altitude < 75){
+			} else if(Space.altitude < 50){
 				t = _("Exosphere");
 			} else {
 				t = _("Space");
@@ -125,21 +125,11 @@ var Space = {
 	},
 	
 	createAsteroid: function(noNext) {
-		var r = Math.random();
-		var c;
-		if(r < 0.2)
-			c = '#';
-		else if(r < 0.4)
-			c = '$';
-		else if(r < 0.6)
-			c = '%';
-		else if(r < 0.8)
-			c = '&';
-		else
-			c = 'H';
+		var types = ['●', '⬢', '◈', '⯎', '⬡', '⚙', '✦', '✶', '¤', '▓', '▒'];
+		var c = types[Math.floor(Math.random() * types.length)];
 		
 		var x = Math.floor(Math.random() * 700);
-		var a = $('<div>').addClass('asteroid').text(c).appendTo('#spacePanel').css('left', x + 'px');
+		var a = $('<div>').addClass('asteroid').text(c).appendTo('#spacePanel').css('left', x + 'px');	
 		a.data({
 			xMin: x,
 			xMax: x + a.width(),
@@ -167,10 +157,10 @@ var Space = {
 						// play audio on asteroid hit
 						// higher altitudes play higher frequency hits
 						var r = Math.floor(Math.random() * 2);
-						if(Space.altitude > 40) {
+						if(Space.altitude > 80) {
 							r += 6;
 							AudioEngine.playSound(AudioLibrary['ASTEROID_HIT_' + r]);
-						} else if(Space.altitude > 20) {
+						} else if(Space.altitude > 40) {
 							r += 4;
 							AudioEngine.playSound(AudioLibrary['ASTEROID_HIT_' + r]);
 						} else  {
@@ -191,24 +181,24 @@ var Space = {
 		if(!noNext) {
 			
 			// Harder
-			if(Space.altitude > 10) {
+			if(Space.altitude > 20) {
 				Space.createAsteroid(true);
 			}
 			
 			// HARDER
-			if(Space.altitude > 20) {
-				Space.createAsteroid(true);
-				Space.createAsteroid(true);
-			}
-			
-			// HAAAAAARDERRRRR!!!!1
 			if(Space.altitude > 40) {
 				Space.createAsteroid(true);
 				Space.createAsteroid(true);
 			}
 			
+			// HAAAAAARDERRRRR!!!!1
+			if(Space.altitude > 80) {
+				Space.createAsteroid(true);
+				Space.createAsteroid(true);
+			}
+			
 			if(!Space.done) {
-				Engine.setTimeout(Space.createAsteroid, 1000 - (Space.altitude * 10), true);
+				Engine.setTimeout(Space.createAsteroid, Math.max(200, 1000 - (Space.altitude * 5)), true);
 			}
 		}
 	},
@@ -311,7 +301,7 @@ var Space = {
 			if(Space.altitude % 10 === 0) {
 				Space.setTitle();
 			}
-			if(Space.altitude > 60) {
+			if(Space.altitude > 120) {
 				clearInterval(Space._timer);
 			}
 		}, 1000);
@@ -326,29 +316,91 @@ var Space = {
 		Space.createAsteroid();
 	},
 
+	injectStarStyles: function() {
+		if ($('#starAnimationStyles').length) return;
+		var css = 
+			'@keyframes starTwinkle {\n' +
+			'	0%, 100% { opacity: 0.2; transform: scale(0.8); }\n' +
+			'	50% { opacity: 1; transform: scale(1.4); }\n' +
+			'}\n' +
+			'.star { position: absolute; user-select: none; font-family: monospace; line-height: 1.0; }\n' +
+			'.star.twinkle-1 { animation: starTwinkle 1.8s infinite ease-in-out; }\n' +
+			'.star.twinkle-2 { animation: starTwinkle 2.6s infinite ease-in-out 0.6s; }\n' +
+			'.star.twinkle-3 { animation: starTwinkle 3.4s infinite ease-in-out 1.2s; }\n' +
+			'.star.bright { color: #ffffff; text-shadow: 0 0 3px #ffffff; }\n' +
+			'.star.dim { color: #777777; opacity: 0.5; }\n' +
+			'#starsContainer { overflow: hidden; position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }\n';
+
+		$('<style>').attr('id', 'starAnimationStyles').text(css).appendTo('head');
+	},
+
 	drawStars: function(duration) {
-		var starsContainer = $('<div>').attr('id', 'starsContainer').appendTo('body');
-		Space.stars = $('<div>').css('bottom', '0px').attr('id', 'stars').appendTo(starsContainer);
-		var s1 = $('<div>').css({
-			width: Space.STAR_WIDTH + 'px',
-			height: Space.STAR_HEIGHT + 'px'
+		Space.injectStarStyles();
+
+		var starsContainer = $('#starsContainer');
+		if (!starsContainer.length) {
+			starsContainer = $('<div>').attr('id', 'starsContainer').appendTo('body');
+		} else {
+			starsContainer.empty();
+		}
+
+		// Defines 3 depth layers: [id, speedMultiplier, starCount, layerOpacity, sizeClass]
+		var layers = [
+			{ id: 'starsFar',  speedMult: 2.2, count: 350, opacity: 0.5, class: 'dim' },
+			{ id: 'starsMid',  speedMult: 1.0, count: 180, opacity: 0.8, class: '' },
+			{ id: 'starsNear', speedMult: 0.5, count: 60,  opacity: 1.0, class: 'bright' }
+		];
+
+		Space.starLayers = [];
+
+		layers.forEach(function(layer) {
+			var layerDiv = $('<div>')
+				.attr('id', layer.id)
+				.css({
+					position: 'absolute',
+					bottom: '0px',
+					left: '0px',
+					opacity: layer.opacity,
+					'z-index': -1
+				})
+				.appendTo(starsContainer);
+
+			var s1 = $('<div>').css({ width: Space.STAR_WIDTH + 'px', height: Space.STAR_HEIGHT + 'px', position: 'relative' });
+			var s2 = s1.clone();
+			layerDiv.append(s1).append(s2);
+
+			// Populate star layer
+			Space.populateLayerStars(s1, s2, layer.count, layer.class);
+
+			// Smaller speedMult duration = faster animation = closer to player
+			layerDiv.data('speed', Space.STAR_SPEED * layer.speedMult);
+			Space.startAnimation(layerDiv);
+			Space.starLayers.push(layerDiv);
 		});
-		var s2 = s1.clone();
-		Space.stars.append(s1).append(s2);
-		Space.drawStarAsync(s1, s2, 0);
-		Space.stars.data('speed', Space.STAR_SPEED);
-		Space.startAnimation(Space.stars);
-		
-		Space.starsBack = $('<div>').css('bottom', '0px').attr('id', 'starsBack').appendTo(starsContainer);
-		s1 = $('<div>').css({
-			width: Space.STAR_WIDTH + 'px',
-			height: Space.STAR_HEIGHT + 'px'
-		});
-		s2 = s1.clone();
-		Space.starsBack.append(s1).append(s2);
-		Space.drawStarAsync(s1, s2, 0);
-		Space.starsBack.data('speed', Space.STAR_SPEED * 2);
-		Space.startAnimation(Space.starsBack);
+	},
+
+	populateLayerStars: function(el1, el2, totalStars, extraClass) {
+		var glyphs = ['.', '·', '*', '°', '+'];
+
+		for (var i = 0; i < totalStars; i++) {
+			var top = Math.floor(Math.random() * Space.STAR_HEIGHT) + 'px';
+			var left = Math.floor(Math.random() * Space.STAR_WIDTH) + 'px';
+			var ch = glyphs[Math.floor(Math.random() * glyphs.length)];
+
+			var star = $('<div>')
+				.text(ch)
+				.addClass('star ' + (extraClass || ''))
+				.css({ top: top, left: left });
+
+			// Assign twinkle animation to ~35% of stars with varied timings
+			if (Math.random() < 0.35) {
+				var twinkleType = Math.floor(Math.random() * 3) + 1;
+				star.addClass('twinkle-' + twinkleType);
+			}
+
+			star.appendTo(el1);
+			star.clone().appendTo(el2);
+		}
 	},
 	
 	startAnimation: function(el) {
@@ -558,6 +610,15 @@ var Space = {
 			const alone = Space.wentAlone();
 			const crystal = (typeof Prison !== 'undefined') && Prison.hasFinalCrystal();
 
+			const finishEnding = (delay) => {
+				setTimeout(() => {
+					c.animate({ opacity: 0 }, 2000, () => {
+						c.remove();
+						resolve();
+					});
+				}, delay);
+			};
+
 			/* ---- April Fools ----
 			 *
 			 * Replaces everything. Requires BOTH the ?april=1 joke build AND
@@ -583,7 +644,7 @@ var Space = {
 				line('it barks once, politely, and the drives come up.', 36000);
 				line('...', 40000);
 				line('happy april fools. the door out of here still works and none of this happened.', 44000);
-				setTimeout(resolve, 49000);
+				finishEnding(49000);
 				return;
 			}
 
@@ -700,13 +761,35 @@ var Space = {
 						line('the builder has followed you through all of it, and you never once asked her to.', t(79000));
 						line('lovingly, she has given you everything. she asks for one thing back.<br>"why did you do it?"', t(84000));
 						line('"to know someone is to love someone. you cannot help who you love."', t(89000));
-						setTimeout(resolve, t(94000));
+						finishEnding(t(94000));
 					} else {
 						line('the builder has followed you through all of it, and you never once asked her to.', t(59000));
 						line('lovingly, she has given you everything. she asks for one thing back.<br>"why did you do it?"', t(64000));
 						line('"to know someone is to love someone. you cannot help who you love."', t(69000));
-						setTimeout(resolve, t(74000));
+						finishEnding(t(74000));
 					}
+					return;
+				}
+
+				if (redeemed && hasBeacon) {
+					line('it is not a memory. the others were memories.<br>this is a thing somebody made, deliberately, to be handed to one person.', t(19000));
+					line('four hundred centuries ago somebody sat in a shielded room, holding this, waiting for you to come and ask.', t(24000));
+					line('you see what they saw. it is exactly as impossible as it was the first time.<br>and it is exactly as true.', t(29000));
+					line('the difference is that this time you already know what it costs to act on it.', t(34000));
+
+					line('the beacon pulses. coordinates are locked. the fleet is expecting you.', t(39000));
+					line('the worldships come into view exactly where they should be, and they are running,<br>and there is not one living soul aboard any of them.', t(44000));
+					line('the builder goes to the controls. all of them.', t(49000));
+					line('she is working eight stations at once and touching none of them.<br>readouts move. locks release. the drives come up.', t(54000));
+					line('you should know how to do this. you are certain you should know how to do this.<br>nothing comes. you stand there and you are no use to her at all.', t(59000));
+					line('the stations around the planet find the fleet and open fire.', t(64000));
+					line('she holds it together long enough. the drives catch.', t(69000));
+					line('the sky folds over and the firing stops mattering.', t(74000));
+
+					line('the builder has followed you through all of it, and you never once asked her to.', t(79000));
+					line('lovingly, she has given you everything. she asks for one thing back.<br>"why did you do it?"', t(84000));
+					line('"to know someone is to love someone. you cannot help who you love."', t(89000));
+					finishEnding(t(94000));
 					return;
 				}
 
@@ -727,7 +810,7 @@ var Space = {
 					line('the builder has followed you through all of it, and you never once asked her to.', t(44000));
 					line('lovingly, she has given you everything. she asks for one thing back.<br>"why did you do it?"', t(49000));
 					line('"to know someone is to love someone. you cannot help who you love."', t(54000));
-					setTimeout(resolve, t(59000));
+					finishEnding(t(59000));
 				} else {
 					line('it is not a memory. the others were memories.<br>this is a thing somebody made, deliberately, to be handed to one person.', t(19000));
 					line('you see what they saw.', t(24000));
@@ -743,7 +826,7 @@ var Space = {
 					line('the builder has followed you through all of it, and you never once asked her to.', t(44000));
 					line('devotedly, she has given you everything. she asks for one thing back.<br>"why did you do it?"', t(49000));
 					line('"i could never have done any of this without you. but you would never understand."', t(54000));
-					setTimeout(resolve, t(59000));
+					finishEnding(t(59000));
 				}
 				return;
 			}
@@ -767,14 +850,14 @@ var Space = {
 						line('nothing explains it. the ship goes on climbing and nothing comes after it.', t(22000));
 						line('some part of you wonders whether you escaped at all,<br>or whether this is only the part where you get to leave.', t(27000));
 						line('the builder says nothing. the cabin is warm.<br>you drift off to sleep...', t(32000));
-						setTimeout(resolve, t(36000));
+						finishEnding(t(36000));
 					} else {
 						line('the stations turn. they find the ship. they fire.', t(17000));
 						line('the builder does not move. she does not reach for anything.', t(21000));
 						line('the light stops a long way short of the hull, bends, and goes back the way it came.<br>one station, then another, then the rest of the ring.', t(25000));
 						line('she has never mentioned being able to do that.<br>you have never seen her do anything like it.', t(30000));
 						line('there are things about her you do not remember and do not understand.<br>you drift off to sleep...', t(35000));
-						setTimeout(resolve, t(39000));
+						finishEnding(t(39000));
 					}
 					return;
 				}
@@ -791,13 +874,13 @@ var Space = {
 					line('she holds it together long enough. the drives catch.', t(30000));
 					line('the sky folds over and the firing stops mattering.', t(34000));
 					line('there are things about her you do not remember and do not understand.<br>you drift off to sleep, in hyperspace...', t(38000));
-					setTimeout(resolve, t(42000));
+					finishEnding(t(42000));
 				} else {
 					line('she is doing too much at once and you can see the moment it starts to come apart.', t(30000));
 					line('the jump takes. it takes wrong.', t(34000));
 					line('the whole fleet comes out somewhere with nothing in it but a weight,<br>and the weight has already got hold of them.', t(38000));
 					line('you wake from that nightmare in a dark room...', t(43000));
-					setTimeout(resolve, t(47000));
+					finishEnding(t(47000));
 				}
 				return;
 			}
@@ -817,13 +900,13 @@ var Space = {
 					/* Resolve after the last line rather than immediately, so
 					 * the ending options don't appear over the top of the
 					 * sequence the player is still reading. */
-					setTimeout(resolve, t(33000));
+					finishEnding(t(33000));
 				} else {
 					line('they are aimed down. at the ground. at the room.<br>the builder never mentioned them. the builder never prepared you for this.', t(17000));
 					line('the defenses turn. they find the ship.', t(22000));
 					line('there is no time to evade.', t(25000));
 					line('....', t(28000));
-					setTimeout(resolve, t(31000));
+					finishEnding(t(31000));
 				}
 				return;
 			}
@@ -853,13 +936,13 @@ var Space = {
 					text: _('wait'),
 					click: (btn) => {
 						btn.addClass('disabled');
-						c.animate({ opacity: 0 }, 5000, 'linear', () => {
+						c.animate({ opacity: 0 }, 3000, 'linear', () => {
 							c.remove();
-							setTimeout(resolve, t(3000));
-						})
+							resolve();
+						});
 					}
 				}).animate({ opacity: 1 }, 500).appendTo(c);
-			}, 29500)
+			}, 29500);
 		});
 	},
 
@@ -976,7 +1059,7 @@ var Space = {
 		if (Space.done) return;
 		
 		// lower audio as ship gets further into space
-		var progress = Space.altitude / 60;
+		var progress = Space.altitude / 120;
 		var newVolume = 1.0 - progress;
 		AudioEngine.setBackgroundMusicVolume(newVolume, 0.3);		
 	}
