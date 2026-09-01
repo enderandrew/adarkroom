@@ -922,8 +922,16 @@ div.supplyItem {
 	width: 70px;
 }
 
+div#hullRow, div#engineRow, div#laserRow {
+	width: 80px;
+}
+
 div#engineRow {
-	width: 70px;
+	margin-bottom: 0px;
+}
+
+div#laserRow {
+	width: 80px;
 	margin-bottom: 20px;
 }
 @-ms-keyframes spin {

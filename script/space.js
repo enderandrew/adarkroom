@@ -55,6 +55,7 @@ var Space = {
 		Engine.keyLock = false;
 		Space.hull = Ship.getMaxHull();
 		Space.altitude = 0;
+		Space.canFireLaser = true;
 		Space.setTitle();
 		AudioEngine.playBackgroundMusic(AudioLibrary.MUSIC_SPACE);
 		Space.updateHull();
@@ -72,6 +73,19 @@ var Space = {
 		Space._shipTimer = setInterval(Space.moveShip, 33);
 		Space._volumeTimer = setInterval(Space.lowerVolume, 1000);
 		AudioEngine.playBackgroundMusic(AudioLibrary.MUSIC_SPACE);
+
+		// Bind Laser controls (Spacebar and Tap/Click)
+		$(document).on('keydown.space_laser', function(e) {
+			if (e.which === 32) { // Spacebar
+				e.preventDefault();
+				Space.fireLaser();
+			}
+		});
+
+		$('#spacePanel').on('pointerdown.space_laser', function(e) {
+			e.preventDefault();
+			Space.fireLaser();
+		});
 		
 		/* Check if it is april fools day.
 		 *
@@ -94,6 +108,115 @@ var Space = {
 			$('body').append($('<iframe>').attr('src','https://www.youtube.com/embed/ZZ5LpwO-An4?autoplay=1').attr('frameborder',0));
 		}
 
+	},
+
+	// Firing Logic & Dynamic Cooldown
+	fireLaser: function() {
+		var laserLevel = $SM.get('game.spaceShip.lasers', true) || 0;
+		if (laserLevel <= 0 || !Space.canFireLaser || Space.done) return;
+
+		var cooldown = Math.max(500, 5000 - (laserLevel * 500));
+		Space.canFireLaser = false;
+		setTimeout(function() {
+			Space.canFireLaser = true;
+		}, cooldown);
+
+		// Audio feedback
+		AudioEngine.playSound(AudioLibrary.LASER);
+
+		// Spawn Laser Beam
+		var laserX = Space.shipX + 4;
+		var startY = Space.shipY - 12;
+
+		var $laser = $('<div>').addClass('shipLaser').text('!').css({
+			position: 'absolute',
+			left: laserX + 'px',
+			top: startY + 'px',
+			color: '#55ffff',
+			fontWeight: 'bold',
+			fontSize: '18px',
+			lineHeight: '18px',
+			zIndex: 10,
+			userSelect: 'none',
+			pointerEvents: 'none',
+			textShadow: '0 0 5px #55ffff'
+		}).appendTo('#spacePanel');
+
+		// Travel upwards & check collisions
+		$laser.animate({
+			top: '-30px'
+		}, {
+			duration: 250,
+			easing: 'linear',
+			progress: function() {
+				var lTop = parseFloat($laser.css('top'));
+				var lLeft = parseFloat($laser.css('left'));
+
+				$('.asteroid').each(function() {
+					var $ast = $(this);
+					var xMin = $ast.data('xMin');
+					var xMax = $ast.data('xMax');
+					var aTop = parseFloat($ast.css('top'));
+					var aH = $ast.data('height') || 32;
+
+					// Bounding box collision
+					if (lLeft >= xMin - 10 && lLeft <= xMax + 10) {
+						if (lTop <= aTop + aH && lTop >= aTop - 10) {
+							$laser.stop().remove();
+							var astX = parseFloat($ast.css('left'));
+							var astY = aTop;
+							$ast.stop().remove();
+
+							Space.spawnExplosion(astX + 12, astY + 12);
+							return false;
+						}
+					}
+				});
+			},
+			complete: function() {
+				$(this).remove();
+			}
+		});
+	},
+
+	// Particle Explosion
+	spawnExplosion: function(x, y) {
+		var particles = ['*', '·', '+', 'x', '¤', '°', '%'];
+		var count = 8;
+
+		if (typeof AudioEngine !== 'undefined') {
+			AudioEngine.playSound(AudioLibrary.ASTEROID_HIT_6 || AudioLibrary.CRASH);
+		}
+
+		for (var i = 0; i < count; i++) {
+			var angle = (Math.PI * 2 / count) * i + (Math.random() * 0.5 - 0.25);
+			var dist = 25 + Math.random() * 35;
+			var targetX = x + Math.cos(angle) * dist;
+			var targetY = y + Math.sin(angle) * dist;
+			var ch = particles[Math.floor(Math.random() * particles.length)];
+
+			var $p = $('<div>').text(ch).css({
+				position: 'absolute',
+				left: x + 'px',
+				top: y + 'px',
+				color: Math.random() > 0.4 ? '#ffaa00' : '#ffffff',
+				fontSize: (12 + Math.floor(Math.random() * 8)) + 'px',
+				fontWeight: 'bold',
+				zIndex: 15,
+				pointerEvents: 'none',
+				userSelect: 'none',
+				opacity: 1,
+				textShadow: '0 0 3px #ff8800'
+			}).appendTo('#spacePanel');
+
+			$p.animate({
+				left: targetX + 'px',
+				top: targetY + 'px',
+				opacity: 0
+			}, 350 + Math.random() * 200, 'linear', function() {
+				$(this).remove();
+			});
+		}
 	},
 	
 	setTitle: function() {
@@ -468,6 +591,8 @@ var Space = {
 		Engine.event('progress', 'crash');
 		AudioEngine.playSound(AudioLibrary.CRASH);
 		clearInterval(Space._volumeTimer);
+		$(document).off('.space_laser');
+		$('#spacePanel').off('.space_laser');
 	},
 	
 	endGame: function() {
@@ -484,6 +609,8 @@ var Space = {
 		clearTimeout(Events._eventTimeout);
 		clearTimeout(Room._fireTimer);
 		clearTimeout(Room._tempTimer);
+		$(document).off('.space_laser');
+		$('#spacePanel').off('.space_laser');
 		for(var j in Room.Craftables) {
 			Room.Craftables[j].button = null;
 		}

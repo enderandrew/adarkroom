@@ -69,6 +69,7 @@ var AudioLibrary = {
     LANDMARK_SWAMP: 'audio/landmark-swamp.flac',
     LANDMARK_TEMPLE: 'audio/temple.flac',
     LANDMARK_TOWN: 'audio/landmark-town.flac',
+	LASER: 'audio/laser.flac',
     LIFT_OFF: 'audio/lift-off.flac',
     LIGHT_FIRE: 'audio/light-fire.flac',
     MUSIC_DUSTY_PATH: 'audio/dusty-path.flac',

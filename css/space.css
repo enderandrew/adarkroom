@@ -1,3 +1,16 @@
+div#hullRow, div#engineRow, div#laserRow {
+	width: 80px;
+}
+
+div#engineRow {
+	margin-bottom: 0px;
+}
+
+div#laserRow {
+	width: 80px;
+	margin-bottom: 20px;
+}
+
 @-ms-keyframes spin {
 	0% { 
 		-ms-transform: rotate(0deg);
