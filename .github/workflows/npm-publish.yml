@@ -1,0 +1,59 @@
+# action名称
+name: Publish and Release
+
+# 代码合并到main分支，执行下列脚本
+on:
+  push:
+    branches: ["main"]
+# 任务
+jobs:
+  publish-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检查main分支
+        uses: actions/checkout@main
+
+      - name: 设置Node.js
+        uses: actions/setup-node@main
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org/ # 如果不配置将影响publish
+
+      - name: 安装依赖
+        run: npm install
+
+      #- name: 构建packages
+      #  run: npm run lib
+
+      #- name: 发布NPM包
+      #  env:
+      #    NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      #  run: |
+      #    npm publish
+      #- name: publish 成功通知
+      #  run: echo npm 推送成功，请访问 https://jackysoft.github.io/rocket-render-doc
+
+      - name: 读取当前版本号
+        id: version
+        uses: ashley-taylor/read-json-property-action@v1.0
+        with:
+          path: ./package.json
+          property: version
+
+      - name: 创建GitHub Release
+        id: create_release
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{steps.version.outputs.value}}
+          release_name: v${{steps.version.outputs.value}}
+          draft: false
+          prerelease: false
+
+      - name: Deploy
+        if: ${{ github.event_name == 'push' || inputs.deploy }}
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist
