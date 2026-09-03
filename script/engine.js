@@ -1186,11 +1186,19 @@
 		_resizeTimer: null,
 
 		getPanelWidth: function() {
-			return Engine._panelWidth;
+			if ($('html').hasClass('mobileUI')) {
+				return $(window).width();
+			}
+			var rootWidth = parseInt($(':root').css('--panel-width'), 10);
+			return rootWidth || 700;
 		},
-
+		
 		getPanelHeight: function() {
-			return Engine._panelHeight;
+			if ($('html').hasClass('mobileUI')) {
+				return $(window).height();
+			}
+			var rootHeight = parseInt($(':root').css('--panel-height'), 10);
+			return rootHeight || 700;
 		},
 
 		/* Recalculates the panel size from the viewport, publishes it to CSS as

@@ -65,10 +65,22 @@ var Space = {
 		Space.left = 
 		Space.right = false;
 		
+		// Show space canvas and hide base UI
+		$('body').addClass('inSpace');
+		$('#spacePanel').removeClass('mHidden');
+
+		var viewW = Space.getViewWidth();
+		var viewH = Space.getViewHeight();
+
+		// Center on desktop (350, 350); lower third on mobile portrait
+		Space.shipX = viewW / 2;
+		Space.shipY = $('html').hasClass('mobileUI') ? (viewH * 0.70) : (viewH / 2);
+
 		Space.ship.css({
-			top: '350px',
-			left: '350px'
+			top: Space.shipY + 'px',
+			left: Space.shipX + 'px'
 		});
+
 		Space.startAscent();
 		Space._shipTimer = setInterval(Space.moveShip, 33);
 		Space._volumeTimer = setInterval(Space.lowerVolume, 1000);
@@ -85,6 +97,63 @@ var Space = {
 		$('#spacePanel').on('pointerdown.space_laser', function(e) {
 			e.preventDefault();
 			Space.fireLaser();
+		});
+		
+		// Touch / Mobile controls
+		Space.isDragging = false;
+		Space.lastTouchX = null;
+		Space.lastTouchY = null;
+		Space.touchStartX = null;
+		Space.touchStartY = null;
+		
+		var $space = $('#spacePanel');
+		
+		$space.on('touchstart.space_touch', function(e) {
+			var touch = e.originalEvent.touches[0];
+			Space.isDragging = true;
+			Space.lastTouchX = touch.clientX;
+			Space.lastTouchY = touch.clientY;
+			Space.touchStartX = touch.clientX;
+			Space.touchStartY = touch.clientY;
+			Space.touchStartTime = Date.now();
+		});
+		
+		$space.on('touchmove.space_touch', function(e) {
+			if (!Space.isDragging || Space.done) return;
+			e.preventDefault();
+
+			var touch = e.originalEvent.touches[0];
+			var dx = touch.clientX - Space.lastTouchX;
+			var dy = touch.clientY - Space.lastTouchY;
+
+			var maxW = Space.getViewWidth() - 10;
+			var maxH = Space.getViewHeight() - 10;
+
+			var sensitivity = 1.25;
+			Space.shipX = Math.max(10, Math.min(maxW, Space.shipX + (dx * sensitivity)));
+			Space.shipY = Math.max(10, Math.min(maxH, Space.shipY + (dy * sensitivity)));
+
+			Space.ship.css({
+				left: Space.shipX + 'px',
+				top: Space.shipY + 'px'
+			});
+
+			Space.lastTouchX = touch.clientX;
+			Space.lastTouchY = touch.clientY;
+		});
+		
+		$space.on('touchend.space_touch touchcancel.space_touch', function(e) {
+			if (!Space.isDragging) return;
+			Space.isDragging = false;
+		
+			// If movement was less than 8px and quick (<250ms), register as a tap to fire lasers
+			var touch = e.originalEvent.changedTouches[0];
+			var dist = Math.hypot(touch.clientX - Space.touchStartX, touch.clientY - Space.touchStartY);
+			var elapsed = Date.now() - Space.touchStartTime;
+		
+			if (dist < 8 && elapsed < 250) {
+				Space.fireLaser();
+			}
 		});
 		
 		/* Check if it is april fools day.
@@ -250,19 +319,22 @@ var Space = {
 	createAsteroid: function(noNext) {
 		var types = ['●', '⬢', '◈', '⯎', '⬡', '⚙', '✦', '✶', '¤', '▓', '▒'];
 		var c = types[Math.floor(Math.random() * types.length)];
-		
-		var x = Math.floor(Math.random() * 700);
-		var a = $('<div>').addClass('asteroid').text(c).appendTo('#spacePanel').css('left', x + 'px');	
+
+		var viewW = Space.getViewWidth();
+		var viewH = Space.getViewHeight();
+		var x = Math.floor(Math.random() * (viewW - 40)) + 10;
+
+		var a = $('<div>').addClass('asteroid').text(c).appendTo('#spacePanel').css('left', x + 'px');
 		a.data({
 			xMin: x,
 			xMax: x + a.width(),
 			height: a.height()
 		});
 		a.animate({
-			top: '740px'
+			top: (viewH + 40) + 'px'
 		}, {
 			duration: Space.BASE_ASTEROID_SPEED - Math.floor(Math.random() * (Space.BASE_ASTEROID_SPEED * 0.65)),
-			easing: 'linear', 
+			easing: 'linear',
 			progress: function() {
 				// Collision detection
 				var t = $(this);
@@ -331,7 +403,12 @@ var Space = {
 		x = parseFloat(x.substring(0, x.length - 2));
 		var y = Space.ship.css('top');
 		y = parseFloat(y.substring(0, y.length - 2));
-		
+	
+		if (Space.targetX != null && Space.targetY != null) {
+			x += (Space.targetX - x) * 0.25;
+			y += (Space.targetY - y) * 0.25;
+		}
+	
 		var dx = 0, dy = 0;
 		
 		if(Space.up) {
@@ -358,16 +435,11 @@ var Space = {
 		
 		x = x + dx;
 		y = y + dy;
-		if(x < 10) {
-			x = 10;
-		} else if(x > 690) {
-			x = 690;
-		}
-		if(y < 10) {
-			y = 10;
-		} else if(y > 690) {
-			y = 690;
-		}
+		var maxW = Space.getViewWidth() - 10;
+		var maxH = Space.getViewHeight() - 10;
+
+		if(x < 10) x = 10; else if(x > maxW) x = maxW;
+		if(y < 10) y = 10; else if(y > maxH) y = maxH;
 		
 		Space.shipX = x;
 		Space.shipY = y;
@@ -562,7 +634,7 @@ var Space = {
 			body_color = '#272823';
 		else
 			body_color = '#FFFFFF';
-		// Craaaaash!
+
 		$('body').removeClass('noMask').stop().animate({
 			backgroundColor: body_color
 		}, {
@@ -574,8 +646,6 @@ var Space = {
 				$('#notifyGradient').attr('style', 'background-color:'+cur+';background:-webkit-' + s + ';background:' + s);
 			},
 			complete: function() {
-				Space.stars.remove();
-				Space.starsBack.remove();
 				Space.stars = Space.starsBack = null;
 				$('#starsContainer').remove();
 				$('body').attr('style', '');
@@ -593,6 +663,12 @@ var Space = {
 		clearInterval(Space._volumeTimer);
 		$(document).off('.space_laser');
 		$('#spacePanel').off('.space_laser');
+
+		// Correct module object passed to MobileUI
+		$('body').removeClass('inSpace');
+		if (typeof MobileUI !== 'undefined' && MobileUI.showOnly && typeof Ship !== 'undefined') {
+			MobileUI.showOnly(Ship);
+		}
 	},
 	
 	endGame: function() {
@@ -620,6 +696,7 @@ var Space = {
 		delete Outside._popTimeout;
 		
 		clearInterval(Space._volumeTimer);
+		$('body').removeClass('inSpace');
 		
 		$('#hullRemaining', Space.panel).animate({opacity: 0}, 500, 'linear');
 		Space.ship.animate({
@@ -1189,5 +1266,19 @@ var Space = {
 		var progress = Space.altitude / 120;
 		var newVolume = 1.0 - progress;
 		AudioEngine.setBackgroundMusicVolume(newVolume, 0.3);		
-	}
+	},
+
+	getViewWidth: function() {
+		if ($('html').hasClass('mobileUI')) {
+			return $(window).width() || 700;
+		}
+		return (typeof Engine !== 'undefined' && Engine.getPanelWidth) ? Engine.getPanelWidth() : 700;
+	},
+
+	getViewHeight: function() {
+		if ($('html').hasClass('mobileUI')) {
+			return $(window).height() || 700;
+		}
+		return (typeof Engine !== 'undefined' && Engine.getPanelHeight) ? Engine.getPanelHeight() : 700;
+	},
 };

@@ -18,6 +18,8 @@
  * point of the seam is that the event source changed and nothing else did.
  */
 var Swipe = {
+	
+	
 
 	/* Minimum travel, in pixels, before a gesture counts as a swipe. Below
 	 * this it's a tap or a twitch, and turning those into map movement would
@@ -52,20 +54,31 @@ var Swipe = {
 		if(!node) { return; }
 		Swipe._el = node;
 
+		// Prevent browser gesture interference (pull-to-refresh/scroll) over the swipe element
+		node.style.touchAction = 'none';
+
+		Swipe._preventScroll = function(e) {
+			if (e.cancelable) {
+				e.preventDefault();
+			}
+		};
+
 		node.addEventListener('pointerdown', Swipe.onDown, { passive: true });
 		node.addEventListener('pointerup', Swipe.onUp, { passive: true });
-		/* pointercancel matters on touch: the browser takes the pointer away
-		 * when it decides the gesture is a scroll, and without clearing state
-		 * here the NEXT unrelated pointerup would be measured against a stale
-		 * start point and fire a phantom swipe. */
 		node.addEventListener('pointercancel', Swipe.onCancel, { passive: true });
+		node.addEventListener('touchmove', Swipe._preventScroll, { passive: false });
 	},
 
 	detach: function() {
 		if(!Swipe._el) { return; }
+		Swipe._el.style.touchAction = '';
 		Swipe._el.removeEventListener('pointerdown', Swipe.onDown);
 		Swipe._el.removeEventListener('pointerup', Swipe.onUp);
 		Swipe._el.removeEventListener('pointercancel', Swipe.onCancel);
+		if(Swipe._preventScroll) {
+			Swipe._el.removeEventListener('touchmove', Swipe._preventScroll);
+			Swipe._preventScroll = null;
+		}
 		Swipe._el = null;
 		Swipe._start = null;
 	},

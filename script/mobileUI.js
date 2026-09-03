@@ -73,17 +73,20 @@ var MobileUI = {
 			MobileUI.showOnly(module);
 		};
 
-		/* Path.embark does NOT go through Engine.travelTo -- it sets
-		 * Engine.activeModule directly and slides #outerSlider by hand, so
-		 * the wrapper above never fired on embark. The World panel kept its
-		 * .mHidden and embark silently did nothing, with no error, because
-		 * from the game's point of view nothing had gone wrong.
-		 * World.onArrival is the one call every embark makes. */
 		if(typeof World !== 'undefined' && typeof World.onArrival === 'function') {
 			var arrive = World.onArrival;
 			World.onArrival = function() {
 				arrive.apply(World, arguments);
 				MobileUI.showOnly(World);
+			};
+		}
+
+		// Hook Space.onArrival to show Space and hide the other panels on mobile
+		if(typeof Space !== 'undefined' && typeof Space.onArrival === 'function') {
+			var spaceArrive = Space.onArrival;
+			Space.onArrival = function() {
+				spaceArrive.apply(Space, arguments);
+				MobileUI.showOnly(Space);
 			};
 		}
 
@@ -320,4 +323,23 @@ var MobileUI = {
 		 * .menu, so calling this first found nothing to collapse. */
 		MobileUI.collapseLanguagePicker(panel);
 	}
+};
+
+var originalSelectLocation = Engine.selectLocation;
+Engine.selectLocation = function(module) {
+    originalSelectLocation.apply(this, arguments);
+
+    // Sync mobile navigation bar
+    if (typeof MobileUI !== 'undefined' && module) {
+        var tabId = (module === Room) ? 'room' :
+                    (module === Outside) ? 'outside' :
+                    (module === Path || module === World) ? 'path' :
+                    (module === Ship) ? 'ship' :
+                    (module === Fabricator) ? 'fabricator' : null;
+
+        if (tabId) {
+            $('.mobileTab').removeClass('selected');
+            $('#mobileTab_' + tabId).addClass('selected');
+        }
+    }
 };

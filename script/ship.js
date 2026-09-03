@@ -3,10 +3,10 @@
  */
 var Ship = {
 	LIFTOFF_COOLDOWN: 120,
-	MAX_LASERS: 9,
-	BASE_HULL: 0,
-	BASE_THRUSTERS: 1,
-	BASE_LASERS: 0,
+    MAX_LASERS: 9,
+    BASE_HULL: 0,
+    BASE_THRUSTERS: 1,
+    BASE_LASERS: 0,
 
 	alloyCost: function(currentLevel) {
 		return currentLevel + 1;

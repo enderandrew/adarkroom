@@ -696,6 +696,16 @@ var Maze = {
 
 		Maze.setDistressContext(id);
 		Maze.bindKeys(id);
+		Swipe.attach(wrap);
+		Swipe.listen(function(dir) {
+			if (Maze._active !== id) return;
+			switch(dir) {
+				case 'up':    Maze.forward(id); break;
+				case 'down':  Maze.back(id);    break;
+				case 'left':  Maze.turn(id, -1); break;
+				case 'right': Maze.turn(id, 1);  break;
+			}
+		});
 		Maze.redraw(id);
 	},
 
@@ -744,6 +754,9 @@ var Maze = {
 		if(Maze._keyHandler) {
 			$(document).off('keydown.maze');
 			Maze._keyHandler = null;
+		}
+		if(typeof Swipe !== 'undefined') {
+			Swipe.detach();
 		}
 		var panel = Events.eventPanel();
 		if(panel) panel.removeClass('maze-panel');

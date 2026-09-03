@@ -17,6 +17,12 @@
  *
  * Everything is a single column, full width, with generous tap targets.
  * ------------------------------------------------------------------------ */
+/* Disable double-tap zoom delay on interactive elements */
+
+button, .button, #map, .mazeBtn, #spacePanel {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
 
 :root {
 	--ink: #000;
@@ -337,9 +343,17 @@ html.mobileUI .eventPanel {
 }
 
 html.mobileUI .eventPanel .eventTitle {
-	font-weight: bold;
-	text-align: center;
-	margin-bottom: 12px;
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    display: block !important;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 14px;
+}
+
+html.mobileUI .eventPanel .eventTitle::after {
+    display: none !important;
 }
 
 html.mobileUI #description { margin-bottom: 14px; }
@@ -1183,4 +1197,266 @@ html.mobileUI #notifications {
 	min-height: 30vh;
 	max-height: 55vh;
 	overflow-y: auto;
+}
+
+/* Stack 3D maze and automap vertically on narrow screens */
+@media (max-width: 600px) {
+    .eventPanel.maze-panel {
+        width: 95vw !important;
+        left: 2.5vw !important;
+        margin-left: 0 !important;
+        padding: 10px !important;
+    }
+
+    .mazeContainer {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 8px !important;
+    }
+
+    pre.mazeView {
+        font-size: 11px !important;
+    }
+
+    pre.mazeMap {
+        font-size: 10px !important;
+    }
+}
+
+/* Prevent browser pull-to-refresh and elastic rubber-banding during gameplay */
+html, body {
+	overscroll-behavior: none;
+	touch-action: manipulation;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+/* Base mobile container accounting for hardware notches, bottom home bars, and dynamic islands */
+@media screen and (max-width: 768px) {
+	:root {
+		--panel-width: 100vw;
+		--notification-gutter: 0px;
+	}
+
+	div#wrapper {
+		width: 100vw;
+		padding: env(safe-area-inset-top, 10px) env(safe-area-inset-right, 12px) env(safe-area-inset-bottom, 15px) env(safe-area-inset-left, 12px);
+		box-sizing: border-box;
+	}
+
+	/* Ensure all buttons meet Apple/Google 44px-48px touch target accessibility standards */
+	div.button, .btn, .headerButton, .mazeBtn {
+		min-height: 44px;
+		min-width: 44px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		touch-action: manipulation;
+		-webkit-tap-highlight-color: transparent;
+	}
+
+	/* Center modals and scale dynamically across 390px - 430px CSS viewports */
+	.eventPanel {
+		left: 50% !important;
+		transform: translateX(-50%) !important;
+		width: calc(100vw - 32px) !important;
+		max-width: 440px !important;
+		box-sizing: border-box !important;
+		padding: 16px !important;
+	}
+
+	.eventPanel.maze-panel {
+		width: calc(100vw - 24px) !important;
+		max-width: 460px !important;
+		margin-left: 0 !important;
+	}
+
+	#outerSlider > div {
+        width: 100vw !important;
+        height: 100vh !important;
+    }
+
+	/* --- Space Flight Mobile Viewport --- */
+	html.mobileUI #spacePanel {
+		display: none;
+	}
+	
+	html.mobileUI body.inSpace #spacePanel {
+		display: block !important;
+		position: fixed !important;
+		top: 0 !important;
+		left: 0 !important;
+		width: 100vw !important;
+		height: 100vh !important;
+		z-index: 100 !important;
+		overflow: hidden !important;
+		touch-action: none;
+		background: transparent !important;
+		color: #fff !important;
+	}
+	
+	html.mobileUI body.inSpace #ship {
+		color: #55ffff !important;
+		font-size: 22px;
+		font-weight: bold;
+		text-shadow: 0 0 6px #55ffff;
+	}
+	
+	html.mobileUI body.inSpace .asteroid {
+		color: #fff !important;
+	}
+	
+	html.mobileUI body.inSpace #hullRemaining {
+		position: absolute !important;
+		top: max(15px, env(safe-area-inset-top, 15px)) !important;
+		left: max(15px, env(safe-area-inset-left, 15px)) !important;
+		z-index: 110 !important;
+		color: #fff !important;
+		font-size: 16px;
+		font-weight: bold;
+		width: auto !important;
+	}
+	
+	html.mobileUI body.inSpace #starsContainer {
+		position: fixed !important;
+		top: 0 !important;
+		left: 0 !important;
+		width: 100vw !important;
+		height: 100vh !important;
+		z-index: 1 !important;
+		overflow: hidden !important;
+	}
+	
+	/* Hide standard UI elements while flying through space */
+	html.mobileUI body.inSpace #header,
+	html.mobileUI body.inSpace #main,
+	html.mobileUI body.inSpace #notifications,
+	html.mobileUI body.inSpace #mSettingsBtn,
+	html.mobileUI body.inSpace #mSettingsPanel {
+		display: none !important;
+	}
+}
+
+/* Prevent browser pull-to-refresh and elastic rubber-banding during gameplay */
+html, body {
+	overscroll-behavior: none;
+	touch-action: manipulation;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+/* Base mobile container accounting for hardware notches, bottom home bars, and dynamic islands */
+:root {
+	--panel-width: 100vw;
+	--notification-gutter: 0px;
+}
+
+div#wrapper {
+	width: 100vw;
+	padding: env(safe-area-inset-top, 10px) env(safe-area-inset-right, 12px) env(safe-area-inset-bottom, 15px) env(safe-area-inset-left, 12px);
+	box-sizing: border-box;
+}
+
+/* Ensure all buttons meet 44px-48px touch target accessibility standards */
+div.button, .btn, .headerButton, .mazeBtn {
+	min-height: 44px;
+	min-width: 44px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	touch-action: manipulation;
+	-webkit-tap-highlight-color: transparent;
+}
+
+/* Center modals and scale dynamically across mobile viewports */
+.eventPanel {
+	left: 50% !important;
+	transform: translateX(-50%) !important;
+	width: calc(100vw - 32px) !important;
+	max-width: 440px !important;
+	box-sizing: border-box !important;
+	padding: 16px !important;
+}
+
+.eventPanel.maze-panel {
+	width: calc(100vw - 24px) !important;
+	max-width: 460px !important;
+	margin-left: 0 !important;
+}
+
+/* --- Space Flight Mobile Viewport --- */
+html.mobileUI #spacePanel {
+	display: none;
+}
+
+html.mobileUI body.inSpace #outerSlider,
+html.mobileUI body.inSpace #content {
+	position: static !important;
+	width: 100% !important;
+	height: 100% !important;
+	overflow: visible !important;
+	top: 0 !important;
+	left: 0 !important;
+}
+
+html.mobileUI body.inSpace #spacePanel {
+	display: block !important;
+	position: fixed !important;
+	top: 0 !important;
+	left: 0 !important;
+	width: 100vw !important;
+	height: 100vh !important;
+	z-index: 100 !important;
+	overflow: hidden !important;
+	touch-action: none !important;
+	background: transparent !important;
+	color: #fff !important;
+}
+
+html.mobileUI body.inSpace #ship {
+	position: absolute !important;
+	color: #55ffff !important;
+	font-size: 24px !important;
+	font-weight: bold;
+	text-shadow: 0 0 6px #55ffff;
+	z-index: 105 !important;
+}
+
+html.mobileUI body.inSpace .asteroid {
+	position: absolute !important;
+	color: #fff !important;
+	font-size: 32px !important;
+	z-index: 102 !important;
+}
+
+html.mobileUI body.inSpace #hullRemaining {
+	position: absolute !important;
+	top: max(15px, env(safe-area-inset-top, 15px)) !important;
+	left: max(15px, env(safe-area-inset-left, 15px)) !important;
+	z-index: 110 !important;
+	color: #fff !important;
+	font-size: 16px;
+	font-weight: bold;
+	width: auto !important;
+}
+
+html.mobileUI body.inSpace #starsContainer {
+	position: fixed !important;
+	top: 0 !important;
+	left: 0 !important;
+	width: 100vw !important;
+	height: 100vh !important;
+	z-index: 1 !important;
+	overflow: hidden !important;
+}
+
+/* Hide standard UI elements completely while flying through space */
+html.mobileUI body.inSpace #header,
+html.mobileUI body.inSpace #main,
+html.mobileUI body.inSpace #notifications,
+html.mobileUI body.inSpace #mSettingsBtn,
+html.mobileUI body.inSpace #mSettingsPanel {
+	display: none !important;
 }
