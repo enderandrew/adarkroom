@@ -362,13 +362,24 @@ div.button.disabled, div.button.disabled:hover {
 	text-decoration: none;
 }
 
-div.button div.cooldown {
+/* Ensure button creates a local stacking context and clips overlay */
+div.button {
+	position: relative;
+	isolation: isolate;
+	overflow: hidden;
+}
+
+/* Position cooldown overlay across the full button */
+div.button div.cooldown,
+.cooldown {
 	position: absolute;
-	top: 0px;
-	left: 0px;
-	z-index: -1;
+	top: 0;
+	left: 0;
+	width: 100%;
 	height: 100%;
-	background-color: #DDDDDD;
+	background-color: rgba(0, 0, 0, 0.2);
+	z-index: -1;
+	pointer-events: none;
 }
 
 /* Up/Down buttons. They're complicated! */

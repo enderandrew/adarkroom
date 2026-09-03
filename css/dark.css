@@ -147,6 +147,14 @@ div.supplyItem {
 
 div.button {
 	border: 1px solid #EEE;
+	position: relative;
+	isolation: isolate;
+	overflow: hidden;
+}
+
+div.button div.cooldown,
+.cooldown {
+	background-color: rgba(255, 255, 255, 0.22);
 }
 
 div.button.disabled, div.button.disabled:hover {
