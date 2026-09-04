@@ -17,7 +17,7 @@ msgstr ""
 "X-POOTLE-MTIME: 1421483365.000000\n"
 "X-Poedit-SearchPath-0: ./../../script\n"
 
-#: script/events.js:1320
+#: script/events.js:1327
 msgid " and "
 msgstr "以及"
 
@@ -26,7 +26,7 @@ msgstr "以及"
 msgid " and {0} "
 msgstr " 和 {0} "
 
-#: script/room.js:496
+#: script/room.js:515
 msgid " builder says the villagers could make steel, given the tools."
 msgstr " 建造者说，只要有工具，村民们就能炼出钢铁。"
 
@@ -37,12 +37,12 @@ msgstr "，{0} "
 
 #: script/events/road.js:871
 #: script/localization.js:7
-#: script/room.js:1334
-#: script/space.js:578
+#: script/room.js:1353
+#: script/space.js:866
 msgid "..."
 msgstr "……"
 
-#: script/space.js:819
+#: script/space.js:1129
 msgid "...."
 msgstr "……"
 
@@ -90,7 +90,7 @@ msgstr "“回家吧，指挥官。”"
 msgid "\"he stood at the profane's shoulder for nine years.\""
 msgstr "“他在亵渎者身边侍立了九年。”"
 
-#: script/space.js:739
+#: script/space.js:1049
 msgid "\"i could never have done any of this without you. but you would never understand.\""
 msgstr "“没有你，我根本做不成这一切。但你永远不会明白。”"
 
@@ -102,7 +102,7 @@ msgstr "“我已经与永不离开这件事和解了。我建议你也这样做
 msgid "\"i have made my peace with never leaving. you have not. that is the whole of the difference between us.\""
 msgstr "“我已经与永不离开这件事和解了。你没有。这就是我们之间的全部区别。”"
 
-#: script/space.js:690
+#: script/space.js:978
 msgid "\"i told you i had made my peace with never leaving,\" he says. \"i would like to formally revise that.\""
 msgstr "“我告诉过你，我已经与永不离开这件事和解了，”他说，“我想正式修改这句话。”"
 
@@ -227,9 +227,10 @@ msgstr "“他们给我看了一样不可能为真的东西。我一看见它就
 msgid "\"they were not told what they were firing on. curse the profane, who was.\""
 msgstr "“他们不知道自己在朝什么开火。愿亵渎者受诅咒，他是知道的。”"
 
-#: script/space.js:696
-#: script/space.js:701
-#: script/space.js:723
+#: script/space.js:1012
+#: script/space.js:1033
+#: script/space.js:984
+#: script/space.js:989
 msgid "\"to know someone is to love someone. you cannot help who you love.\""
 msgstr "“了解一个人，便是爱一个人。你无法选择自己爱谁。”"
 
@@ -297,7 +298,7 @@ msgstr "“你很少能改变它。”"
 msgid "\"you never remember. i have stopped finding that surprising and i have not stopped minding it.\""
 msgstr "“你从不记得。我早已不再为此感到惊讶，却从未停止在意。”"
 
-#: script/room.js:251
+#: script/room.js:270
 msgid "{0} could help hunt, given the means"
 msgstr "{0} 若有合适的手段，便能帮忙狩猎"
 
@@ -305,7 +306,7 @@ msgstr "{0} 若有合适的手段，便能帮忙狩猎"
 msgid "{0} of the three are dark now. what is left is still lit."
 msgstr "三者中已有 {0} 熄灭。剩下的仍亮着。"
 
-#: script/engine.js:1271
+#: script/engine.js:1279
 msgid "{0} per {1}s"
 msgstr "{0} /{1}秒"
 
@@ -321,7 +322,7 @@ msgstr "{0} 个超级陷阱里有 {1} "
 msgid "{0}:{1}"
 msgstr "{0}:{1}"
 
-#: script/events.js:1792
+#: script/events.js:1799
 msgid "*** EVENT ***"
 msgstr "*** 消息 ***"
 
@@ -329,7 +330,7 @@ msgstr "*** 消息 ***"
 msgid "\\u2C00 \\u2C01 \\u2C02 \\u2C03 \\u2C04 \\u2C05, the same glyphs cut into the ruins, going back to before the infinite expanse."
 msgstr "\\u2C00 \\u2C01 \\u2C02 \\u2C03 \\u2C04 \\u2C05，与刻在废墟中的符文相同，可追溯到无尽苍穹之前。"
 
-#: script/events/outside.js:233
+#: script/events/outside.js:240
 msgid "1 medicine"
 msgstr "1支药剂"
 
@@ -342,7 +343,7 @@ msgstr "11B-X-1371"
 msgid "11B-X-1371 is still and silent."
 msgstr "11B-X-1371 静止无声。"
 
-#: script/events/outside.js:336
+#: script/events/outside.js:343
 msgid "3 medicine"
 msgstr "3 份药品"
 
@@ -370,7 +371,7 @@ msgstr "一排电池，大多已经报废"
 msgid "a bank of recesses runs the length of the wall, each one holding a slotted cell."
 msgstr "一排凹槽沿墙壁延伸，每一个都嵌着一块电池。"
 
-#: script/world.js:1374
+#: script/world.js:1383
 msgid "A Barren World"
 msgstr "荒芜世界"
 
@@ -382,7 +383,7 @@ msgstr "破损的公路标识竖立在这个曾经伟大的城市入口"
 msgid "a battle was fought here, long ago."
 msgstr "很久之前这里发生了战斗"
 
-#: script/events/outside.js:441
+#: script/events/outside.js:448
 msgid "A Beast Attack"
 msgstr "野兽来袭"
 
@@ -410,7 +411,7 @@ msgstr "乞丐徘徊在门前"
 msgid "a bench, and a row of instruments still under power, all of them pointed at the same kind of measurement."
 msgstr "一张工作台，一排仍在通电的仪器，全都指向同一种测量。"
 
-#: script/lab.js:309
+#: script/lab.js:323
 msgid "a bench, wiped down. the tools on it are laid out in order of size."
 msgstr "一张工作台，已经擦拭过。上面的工具按大小排列。"
 
@@ -474,7 +475,7 @@ msgstr "一位制图师正在编制名录"
 msgid "a cave lizard attacks"
 msgstr "一头洞穴蜥蜴袭来"
 
-#: script/prison.js:208
+#: script/prison.js:218
 msgid "a cell door, open, the inside as clean as the corridor."
 msgstr "一扇牢门，敞开着，内部和走廊一样干净。"
 
@@ -486,7 +487,7 @@ msgstr "一间牢房，嵌在检测厅的墙壁里，比大厅新得多。"
 msgid "A Chain-Gang Revenant"
 msgstr "一名囚徒亡魂"
 
-#: script/lab.js:326
+#: script/lab.js:340
 msgid "a chair bolted to the floor. the bolts are recent work."
 msgstr "一把螺栓固定在地板上的椅子。螺栓是新装的。"
 
@@ -583,12 +584,12 @@ msgstr "一头改造熊穿过栅栏，仿佛根本没注意到栅栏的存在。
 msgid "A Damp Cave"
 msgstr "潮湿洞穴"
 
-#: script/room.js:1539
+#: script/room.js:1558
 msgid "A Dark Room was written by Michael Townsend for Doublespeak Games in 2013. It is open-source."
 msgstr "《暗室》由迈克尔·汤森于2013年为Doublespeak Games编写。它是开源的。"
 
-#: script/room.js:1344
-#: script/room.js:1477
+#: script/room.js:1363
+#: script/room.js:1496
 msgid "A Darker Room"
 msgstr "更暗之室"
 
@@ -620,7 +621,7 @@ msgstr "一扇嵌在地面的门，门槛上没有灰尘"
 msgid "a door standing open in a wall with nothing on the other side of it."
 msgstr "一扇门在墙上敞开着，另一侧什么都没有。"
 
-#: script/lab.js:328
+#: script/lab.js:342
 msgid "a door with a window at standing height, and a bar across the outside."
 msgstr "一扇门，窗口开在站立视线的高度，外面横着一根门闩。"
 
@@ -641,7 +642,7 @@ msgstr "漫漫尘途"
 msgid "a dusty researcher clumsily hides in the shadows."
 msgstr "一位满身尘土的研究员笨拙地躲在阴影里。"
 
-#: script/lab.js:323
+#: script/lab.js:337
 msgid "a faint scent of smoke, and under it something organic."
 msgstr "一丝淡淡的烟味，其下还有某种有机物的气息。"
 
@@ -681,15 +682,15 @@ msgstr "可以从中拾取一些有用的物品。"
 msgid "a fight, maybe."
 msgstr "也许是在打架"
 
-#: script/events/outside.js:109
+#: script/events/outside.js:116
 msgid "a fire has started"
 msgstr "火灾已经开始"
 
-#: script/events/outside.js:104
+#: script/events/outside.js:111
 msgid "a fire rampages through one of the huts, destroying it."
 msgstr "火焰吞噬了一间屋子，将它摧毁殆尽"
 
-#: script/room.js:1477
+#: script/room.js:1496
 msgid "A Firelit Room"
 msgstr "生火间"
 
@@ -697,7 +698,7 @@ msgstr "生火间"
 msgid "a fleet mark. the emblem of a society that is not there any more."
 msgstr "一枚舰队标记。一个已不复存在的社会的徽章。"
 
-#: script/lab.js:311
+#: script/lab.js:325
 msgid "a floor drain, and a faint slope in the concrete leading to it."
 msgstr "一个地漏，混凝土地面朝它微微倾斜。"
 
@@ -705,7 +706,7 @@ msgstr "一个地漏，混凝土地面朝它微微倾斜。"
 msgid "A Forgotten Battlefield"
 msgstr "被遗忘的战场"
 
-#: script/events/outside.js:911
+#: script/events/outside.js:918
 msgid "a foundation trench at the edge of the village turns up a marker stone, set upright and deliberate."
 msgstr "村落边缘的一条地基沟渠中挖出一块界石，立得笔直，显然是刻意为之。"
 
@@ -753,7 +754,7 @@ msgstr "相当长的一段距离，是被一个并非有意赶路的人走完的
 msgid "A Grafted Colossus"
 msgstr "一具嫁接巨像"
 
-#: script/events/outside.js:915
+#: script/events/outside.js:922
 msgid "a grave marker is found under the village"
 msgstr "在村落地下发现了一块墓碑"
 
@@ -773,7 +774,7 @@ msgstr "绿草在肮脏的窗户后几乎看不见"
 msgid "a grizzled soldier attacks, a trophy blade at his hip alongside the bayonet."
 msgstr "一名灰发老兵发起攻击，腰间除刺刀外还挂着一柄战利品刀。"
 
-#: script/events/outside.js:566
+#: script/events/outside.js:573
 msgid "a gunshot rings through the trees."
 msgstr "枪声啸过树林"
 
@@ -789,11 +790,11 @@ msgstr "一座大厅，正中央的基座上，一根金属棒被封在仍保持
 msgid "a handful of hypos. life in a vial."
 msgstr "几支注射器。瓶中的生命。"
 
-#: script/space.js:570
+#: script/space.js:858
 msgid "a hatch you have never seen opens in the console housing."
 msgstr "控制台外壳上打开了一个你从未见过的舱口。"
 
-#: script/room.js:470
+#: script/room.js:489
 msgid "a haze falls over the village as the steelworks fires up"
 msgstr "炼钢坊开工后，一缕黑烟飘向村庄上空"
 
@@ -841,11 +842,11 @@ msgstr "一个人类被篝火的光与暖吸引而来。他们看着你，指着
 msgid "a human soldier still fighting a war they have long lost."
 msgstr "一名人类士兵，仍在打一场早已输掉的战争。"
 
-#: script/room.js:156
+#: script/room.js:175
 msgid "a hut comes down and goes back up in steel. it does not creak in the wind."
 msgstr "一间小屋被拆除，又以钢铁重建。它在风中不再吱呀作响。"
 
-#: script/lab.js:315
+#: script/lab.js:329
 msgid "a jar of teeth and examination notes in weird glyphs."
 msgstr "一罐牙齿，还有用奇异符文写成的检查记录。"
 
@@ -905,7 +906,7 @@ msgstr "街道上的帐篷一望无际"
 msgid "A Large Village"
 msgstr "大型村落"
 
-#: script/lab.js:341
+#: script/lab.js:355
 msgid "a ledger of numbers, no names. the numbers run to five figures."
 msgstr "一本只有数字、没有姓名的账簿。数字达到五位数。"
 
@@ -999,7 +1000,7 @@ msgstr "一台医疗无人机失控打转。"
 msgid "a military perimeter is set up around the mine."
 msgstr "矿井周围设立了军事边界"
 
-#: script/events/outside.js:553
+#: script/events/outside.js:560
 msgid "A Military Raid"
 msgstr "武装力量突袭"
 
@@ -1023,7 +1024,7 @@ msgstr "一位僧侣微微低头。这似乎就是整套仪式。"
 msgid "a monk. three eyes, three ears, no mouth. it has been standing there long enough that it did not arrive."
 msgstr "一位僧侣。三只眼睛，三只耳朵，没有嘴。它站在那里已经太久，久到仿佛从未“到来”过。"
 
-#: script/prison.js:237
+#: script/prison.js:247
 msgid "a morphing projection of this room and this planet."
 msgstr "这间房间和这颗行星的一幅变幻投影。"
 
@@ -1060,7 +1061,7 @@ msgstr "游牧部落抵达，想要进行贸易"
 msgid "a nomad shuffles into view, laden with makeshift bags bound with rough twine."
 msgstr "游牧部落慢吞吞地出现在视野中，带着许多用粗麻线扎起来的临时口袋"
 
-#: script/room.js:1535
+#: script/room.js:1554
 msgid "A Note on This Fork"
 msgstr "关于此分支版本的说明"
 
@@ -1098,7 +1099,7 @@ msgstr "惊慌的拾荒者尖叫着冲进了门"
 msgid "a party comes up the path, carrying one of their own"
 msgstr "一队人沿路而来，抬着自己人中的一个"
 
-#: script/events/outside.js:325
+#: script/events/outside.js:332
 msgid "a plague afflicts the village"
 msgstr "一场瘟疫席卷了村落"
 
@@ -1114,7 +1115,7 @@ msgstr "一位瘟疫医生从阴影中现身，带来一则古怪而费解的讯
 msgid "a plain marker, and somebody has kept the weeds off it."
 msgstr "一块朴素的界碑，有人一直替它清除杂草。"
 
-#: script/prison.js:227
+#: script/prison.js:237
 msgid "a prisoner tried to repair this cell from the inside."
 msgstr "一名囚犯曾试图从内部修复这间牢房。"
 
@@ -1138,7 +1139,7 @@ msgstr "一头被辐射的山羊"
 msgid "a radiated goat charges with its mutated antlers"
 msgstr "一头被辐射的山羊用它变异的鹿角发起冲锋"
 
-#: script/room.js:1640
+#: script/room.js:1659
 msgid "a ragged stranger stumbles through the door and collapses in the corner"
 msgstr "一个衣衫褴褛的陌生人步履蹒跚地步入门来，瘫倒在角落里"
 
@@ -1195,19 +1196,19 @@ msgstr "一间容纳十一人的房间。彼此相识的人进行投票。“记
 msgid "a room of shallow basins set into the floor, each one holding a residue that has dried to powder."
 msgstr "一间嵌着浅盆的房间，每个盆里都盛着已干成粉末的残留物。"
 
-#: script/prison.js:228
+#: script/prison.js:238
 msgid "a room where the galaxy was once condemned and later an innocent was imprisoned."
 msgstr "一间房间，星系曾在此被判罪，后来又有一名无辜者被囚禁于此。"
 
-#: script/prison.js:224
+#: script/prison.js:234
 msgid "a room with 11 chairs and a 12th empty spot."
 msgstr "一间房间，摆着11把椅子，还有第12个空位。"
 
-#: script/lab.js:344
+#: script/lab.js:358
 msgid "a room with no fittings at all, and a drain in the middle of the floor."
 msgstr "一间毫无陈设的房间，地板中央有一个排水口。"
 
-#: script/prison.js:241
+#: script/prison.js:251
 msgid "a round wing with no point. there is no point. nothing to gleam."
 msgstr "一座圆形的翼区，没有尖角。毫无意义。没有什么可以闪耀。"
 
@@ -1321,11 +1322,11 @@ msgstr "一个身影从黑暗中显形，已在移动"
 msgid "a shape steps out of the wall it was part of a moment ago."
 msgstr "一个身影从墙壁中走出，而片刻之前它还是墙壁的一部分。"
 
-#: script/room.js:1023
+#: script/room.js:1042
 msgid "a sharp blade can slay foes in the dangerous wilds. builder can make an iron sword but she knows this isn't for hunting animals."
 msgstr "一柄锋利的刀刃能在危险的荒野中斩杀敌人。建造者能打造一把铁剑，但她清楚这不是用来猎捕野兽的。"
 
-#: script/room.js:1060
+#: script/room.js:1079
 msgid "a sharper blade for more deadly foes in the dangerous wilds. builder can make an steel sword but asks you not to fight."
 msgstr "更锋利的刀刃，用来对付危险荒野中更致命的敌人。建造者能打造一把钢剑，但她请求你不要动武。"
 
@@ -1345,7 +1346,7 @@ msgstr "深草丛的某处射出了一发子弹"
 msgid "a sick man hobbles up"
 msgstr "患病男子一瘸一拐地走了过来"
 
-#: script/events/outside.js:226
+#: script/events/outside.js:233
 msgid "a sickness is spreading through the village."
 msgstr "疾病在村子中蔓延"
 
@@ -1402,7 +1403,7 @@ msgstr "前面是一小片住宅区，空无一人，徒留烧焦的残垣断壁
 msgid "a small supply cache is hidden at the back of the cave."
 msgstr "一个小型供给点藏在洞穴后方"
 
-#: script/prison.js:235
+#: script/prison.js:245
 msgid "a smear on the curve at head height, polished by repetition."
 msgstr "头部高度的曲面上有一道被反复摩擦而光滑的痕迹。"
 
@@ -1439,7 +1440,7 @@ msgstr "隧道的前面传来一阵声响"
 msgid "a sparring automaton, still fully function and crusted with timeworn blood, lunges forward."
 msgstr "一具训练用自动傀儡，功能仍完好，覆着经年的陈旧血迹，猛地扑了上来。"
 
-#: script/prison.js:213
+#: script/prison.js:223
 msgid "a special meeting room abandoned."
 msgstr "一间被遗弃的特别会议室。"
 
@@ -1484,7 +1485,7 @@ msgstr "受到惊吓的野兽正要捍卫它的巢穴"
 msgid "a stone is set upright at the end of the line, unmarked."
 msgstr "一块无字的石头竖立在队列末端。"
 
-#: script/prison.js:225
+#: script/prison.js:235
 msgid "a stone monolith of what to dismantle and what to leave behind."
 msgstr "一块石碑，记载着该拆除什么、该留下什么。"
 
@@ -1504,11 +1505,11 @@ msgstr "一场风暴静止不动，带着一道边缘"
 msgid "a strange device sits on the floor. looks important."
 msgstr "地板上放着一件奇怪的装置。看起来很重要。"
 
-#: script/events/marketing.js:17
+#: script/events/marketing.js:24
 msgid "a strange thrumming, pounding and crashing. and then gone."
 msgstr "一阵奇怪的嗡鸣、撞击与轰响。随即消失。"
 
-#: script/events/marketing.js:14
+#: script/events/marketing.js:21
 msgid "a strange thrumming, pounding and crashing. visions of people and places, of a huge machine and twisting curves."
 msgstr "一阵奇怪的嗡鸣、撞击与轰响。人与地方的幻象，一台巨大机器与扭曲曲线的幻象。"
 
@@ -1540,7 +1541,7 @@ msgstr "隧道里冲出一群老鼠"
 msgid "a temple, cut from a single piece of stone"
 msgstr "一座神庙，由整块石料凿成"
 
-#: script/events/outside.js:322
+#: script/events/outside.js:329
 msgid "a terrible plague is fast spreading through the village."
 msgstr "可怕的瘟疫迅速地村子里传播开来"
 
@@ -1576,11 +1577,11 @@ msgstr "一处微小的营地"
 msgid "A Tiny Village"
 msgstr "小型村落"
 
-#: script/room.js:619
+#: script/room.js:638
 msgid "a torch to keep the dark away"
 msgstr "驱散黑暗的火把"
 
-#: script/room.js:301
+#: script/room.js:320
 msgid "a trading post would make commerce easier"
 msgstr "贸易站让贸易变得更加便捷"
 
@@ -1778,7 +1779,7 @@ msgid "air whistles as the doors open. this section must have lower pressure tha
 msgstr "舱门打开时空气发出呼啸。这一区域的气压一定比船上其他地方低。"
 
 #: script/localization.js:17
-#: script/ship.js:191
+#: script/ship.js:192
 msgid "alien alloy"
 msgstr "外星合金"
 
@@ -1786,7 +1787,7 @@ msgstr "外星合金"
 msgid "alien bird"
 msgstr "异星飞鸟"
 
-#: script/events.js:1296
+#: script/events.js:1303
 msgid "all"
 msgstr "所有"
 
@@ -1806,7 +1807,7 @@ msgstr "全是些鳞片"
 msgid "all of it stops at once."
 msgstr "一切都在同一刻停止了。"
 
-#: script/space.js:574
+#: script/space.js:862
 msgid "all of it. the dog. it was the dog."
 msgstr "一切。那条狗。是那条狗。"
 
@@ -1847,7 +1848,7 @@ msgstr "一头远古野兽已将这片废墟据为巢穴。"
 msgid "an aqueduct comes down off the ridge in dressed stone, on piers, cut by hand. it feeds a condenser that is not stone and not hand-cut and is doing fusion, quietly, in a shed."
 msgstr "一条水渠沿着山脊而下,由手工凿制的石料和桥墩构成。它为一台冷凝器供水,而那台冷凝器既非石制也非手工打造,正在一间棚屋里悄然进行核聚变。"
 
-#: script/lab.js:334
+#: script/lab.js:348
 msgid "an archive with incomprehensible records"
 msgstr "一座存有费解记录的档案库"
 
@@ -1899,7 +1900,7 @@ msgstr "一块外星合金锭"
 msgid "an ingot. a device that fits in one hand, with a worn recess for a thumb. and another of the colourless crystals, set apart from the rest."
 msgstr "一块金属锭。一件单手可握的装置,上面有个磨损的拇指凹槽。还有一颗无色水晶,与其余的分开放置。"
 
-#: script/prison.js:214
+#: script/prison.js:224
 msgid "an office converted to a cell. but why?"
 msgstr "一间被改成囚室的办公室。但这是为什么?"
 
@@ -1935,8 +1936,8 @@ msgstr "一座古老的天文台"
 msgid "an old receiver has started speaking"
 msgstr "一台老式接收器开始说话了"
 
-#: script/ship.js:141
-#: script/ship.js:67
+#: script/ship.js:137
+#: script/ship.js:47
 msgid "An Old Starship"
 msgstr "破旧星舰"
 
@@ -2004,11 +2005,11 @@ msgstr "远古之怒"
 msgid "ancient. simple. effective."
 msgstr "古老。简单。有效。"
 
-#: script/space.js:627
+#: script/space.js:915
 msgid "and it comes back anyway, the way it has been coming back since you saw it:<br>the room, and the rows, and the lights going off past where you could see."
 msgstr "它还是回来了,和你看到它以来它一直回来的方式一样:<br>那间屋子,那些排列,还有那些在视线尽头逐一熄灭的灯。"
 
-#: script/space.js:689
+#: script/space.js:977
 msgid "and on the bridge, at a station that had no reason to have anybody standing at it, somebody is standing at it."
 msgstr "在舰桥上,一个本没有理由有人值守的岗位上,有人正站在那里。"
 
@@ -2020,7 +2021,7 @@ msgstr "还有别的东西,就在镜头能分辨的极限边缘:"
 msgid "and the one before that. and four further up."
 msgstr "还有它之前的那一个。以及更往上的四个。"
 
-#: script/space.js:651
+#: script/space.js:939
 msgid "and the thing at the bottom of the pack is still there."
 msgstr "而行囊底部的那样东西依然在那里。"
 
@@ -2056,7 +2057,7 @@ msgstr "而在下面:更古老的石层。一层层堆叠,还有墓穴的入口,
 msgid "and worked into the frame, so shallow you would only find it by running a hand over it:"
 msgstr "刻在框架里,浅得只有用手抚过才能察觉:"
 
-#: script/space.js:729
+#: script/space.js:1039
 msgid "and you understand, finally and completely, why you opened that door --<br>and that you would open it again, and that this is not remorse, and never was."
 msgstr "而你终于彻底明白了自己为何打开那扇门——<br>明白你还会再打开它一次,明白这不是悔恨,从来都不是。"
 
@@ -2064,7 +2065,7 @@ msgstr "而你终于彻底明白了自己为何打开那扇门——<br>明白�
 msgid "android"
 msgstr "android"
 
-#: script/space.js:909
+#: script/space.js:1219
 msgid "android."
 msgstr "android"
 
@@ -2076,7 +2077,7 @@ msgstr "另一头被噪音吸引的野兽从一片小树林中跃出。"
 msgid "another cairn, and this one has been counted."
 msgstr "又一座石冢,而这一座已经被计数过了。"
 
-#: script/room.js:206
+#: script/room.js:225
 msgid "another cell comes off the line. the foundry crew do not look up."
 msgstr "又一间囚室从生产线上下来。铸造工人们连头都没抬。"
 
@@ -2105,7 +2106,7 @@ msgstr "靠近"
 msgid "approach the platform"
 msgstr "靠近平台"
 
-#: script/engine.js:1707
+#: script/engine.js:1715
 msgid "april fools."
 msgstr "愚人节。"
 
@@ -2145,12 +2146,12 @@ msgstr "护甲扛住了"
 msgid "armourer"
 msgstr "军械工人"
 
-#: script/room.js:516
-#: script/room.js:542
+#: script/room.js:535
+#: script/room.js:561
 msgid "armoury"
 msgstr "军械坊"
 
-#: script/room.js:520
+#: script/room.js:539
 msgid "armoury's done, welcoming back the weapons of the past."
 msgstr "军械坊建好了，欢迎使用这些过时的武器"
 
@@ -2207,19 +2208,19 @@ msgstr "请求指点"
 msgid "ask how long they have been out"
 msgstr "问他们出来多久了"
 
-#: script/events/outside.js:933
+#: script/events/outside.js:940
 msgid "ask if anyone can read it"
 msgstr "问是否有人能读懂它"
 
-#: script/events/outside.js:779
+#: script/events/outside.js:786
 msgid "ask them what year they think it is"
 msgstr "问他们以为现在是哪一年"
 
-#: script/events/outside.js:811
+#: script/events/outside.js:818
 msgid "ask them where home was"
 msgstr "问他们家乡在哪里"
 
-#: script/events/outside.js:622
+#: script/events/outside.js:629
 msgid "ask them who sent them"
 msgstr "问是谁派他们来的"
 
@@ -2251,7 +2252,7 @@ msgstr "被问及通风口时,他回答说其通向何处属于机密,而你已�
 msgid "asked anything at all, he answers it the way a man answers a question he has answered several thousand times."
 msgstr "不论被问什么,他回答的方式,都像一个人回答一个已经答过几千遍的问题。"
 
-#: script/events/outside.js:800
+#: script/events/outside.js:807
 msgid "asked how long ago they worked it out, one of them says it is not the kind of thing you work out once."
 msgstr "被问及他们是多久前想通的,其中一人说这不是那种想通一次就完了的事。"
 
@@ -2259,11 +2260,11 @@ msgstr "被问及他们是多久前想通的,其中一人说这不是那种想�
 msgid "asked how long he has been posted here, he says his relief is due, and does not say when it was due from."
 msgstr "被问及他驻守此地多久了,他说换防的人该来了,却不说这个\"该来\"是从何时算起。"
 
-#: script/events/outside.js:799
+#: script/events/outside.js:806
 msgid "asked how they know, one of them looks at the lamp instead of answering."
 msgstr "被问及他们是怎么知道的,其中一人只是看着灯,没有回答。"
 
-#: script/events/outside.js:798
+#: script/events/outside.js:805
 msgid "asked how they know, one of them says: because we were, and we did not either."
 msgstr "被问及他们是怎么知道的,其中一人说:因为我们曾经也在那里,而我们也不知道。"
 
@@ -2295,8 +2296,8 @@ msgstr "被问及她为何不肯说出它的名字,她说说出名字从来没�
 msgid "asks for any spare furs to keep him warm at night."
 msgstr "祈求能施舍给他一些多余的毛皮，好让他不在夜里受冻"
 
-#: script/room.js:2048
-#: script/room.js:2055
+#: script/room.js:2067
+#: script/room.js:2074
 msgid "asks what it is for. asks why you are putting a roof over people you have not met."
 msgstr "问这是为了什么。问你为什么要给素未谋面的人一个屋檐。"
 
@@ -2378,7 +2379,7 @@ msgstr "自动炮塔"
 msgid "available"
 msgstr "可用"
 
-#: script/room.js:1335
+#: script/room.js:1354
 msgid "awake. head throbbing. vision blurry."
 msgstr "醒了。头突突作痛。视线模糊。"
 
@@ -2435,7 +2436,7 @@ msgstr "被打得皮开肉绽"
 msgid "become death, destroyer of worlds."
 msgstr "化身死神,世界的毁灭者。"
 
-#: script/room.js:1134
+#: script/room.js:1153
 msgid "become the destroyer of worlds. use a nuke to kill the most deadly of foes. builder can channel wanderer technology to craft a handheld nuke."
 msgstr "化身世界的毁灭者。用核弹消灭最致命的敌人。建造者能借助流浪者科技打造一枚手持核弹。"
 
@@ -2503,7 +2504,7 @@ msgstr "小片肉"
 msgid "bits of them can be scavenged."
 msgstr "它们的一些残片可以拾荒回收。"
 
-#: script/room.js:1081
+#: script/room.js:1100
 msgid "black powder and bullets, like the old days."
 msgstr "黑火药和子弹，就像过去那样"
 
@@ -2548,8 +2549,8 @@ msgstr "尸体散落在两侧的地面上。"
 msgid "bolas"
 msgstr "套索"
 
-#: script/room.js:757
-#: script/room.js:771
+#: script/room.js:776
+#: script/room.js:790
 msgid "bone spear"
 msgstr "骨枪"
 
@@ -2557,19 +2558,19 @@ msgstr "骨枪"
 msgid "both go out at the same instant."
 msgstr "两盏灯同时熄灭。"
 
-#: script/events/outside.js:855
+#: script/events/outside.js:862
 msgid "both groups are taken in"
 msgstr "两批人都被收留了"
 
-#: script/events/outside.js:887
+#: script/events/outside.js:894
 msgid "both groups are told there is no room."
 msgstr "两批人都被告知没有空位了。"
 
-#: script/events/outside.js:891
+#: script/events/outside.js:898
 msgid "both groups are turned away"
 msgstr "两批人都被拒之门外"
 
-#: script/events/outside.js:825
+#: script/events/outside.js:832
 msgid "both groups walked here. neither of them has aged a day more than the walk."
 msgstr "两批人都是走到这里的。他们的年岁都不比这段路途多一天。"
 
@@ -2613,8 +2614,8 @@ msgstr "建造"
 msgid "build the fire up"
 msgstr "把火烧旺"
 
-#: script/engine.js:1500
-#: script/room.js:2200
+#: script/engine.js:1508
+#: script/room.js:2219
 msgid "build:"
 msgstr "建筑物:"
 
@@ -2622,79 +2623,79 @@ msgstr "建筑物:"
 msgid "builder"
 msgstr "建造者"
 
-#: script/room.js:385
+#: script/room.js:404
 msgid "builder finishes the smokehouse. she looks hungry."
 msgstr "建造者造好了熏肉房。她看起来饥肠辘辘。"
 
-#: script/room.js:1879
+#: script/room.js:1898
 msgid "builder just shivers"
 msgstr "建造者还在瑟瑟发抖"
 
-#: script/world.js:1192
+#: script/world.js:1201
 msgid "builder knows the strange device when she sees it. takes it for herself real quick. doesn’t ask where it came from."
 msgstr "建造者一见到这件奇怪的装置就认出了它。她很快就据为己有。也不问它从哪来。"
 
-#: script/room.js:363
+#: script/room.js:382
 msgid "builder points to the furs from the dead beasts. she says leather could be useful. says the villagers could make it."
 msgstr "建造者指着那些死去野兽的皮毛。她说皮革会有用。说村民能做出来。"
 
-#: script/room.js:113
+#: script/room.js:132
 msgid "builder puts up a hut, out in the forest. says word will get around."
 msgstr "建造者在林中建起一栋小屋，她说消息很快就会流传出去"
 
-#: script/room.js:519
+#: script/room.js:538
 msgid "builder says an armoury can produce bullets, but she doesn't intend to touch a gun ever again"
 msgstr "建造者说军械库能生产子弹,但她再也不打算碰枪了"
 
-#: script/room.js:338
+#: script/room.js:357
 msgid "builder says leather could be useful. says the {0} could make it."
 msgstr "建造者说皮革会有用。说 {0} 能做出来。"
 
-#: script/room.js:55
+#: script/room.js:74
 msgid "builder says she can make a cart for carrying wood"
 msgstr "建造者说她能够制造出货车，用来运载木头"
 
-#: script/room.js:17
+#: script/room.js:36
 msgid "builder says she can make traps to catch any creatures might still be alive out there"
 msgstr "建造者说她能够制作陷阱来捕捉那些仍在野外活动的野兽"
 
-#: script/room.js:430
+#: script/room.js:449
 msgid "builder says she could make finer things, if she had the tools"
 msgstr "建造者说如果她有工具的话能做出一些更精良的东西"
 
-#: script/room.js:567
+#: script/room.js:586
 msgid "builder says she has come up with a better trap design"
 msgstr "建造者说她想出了一种更好的陷阱设计"
 
-#: script/room.js:591
+#: script/room.js:610
 msgid "builder says she has come up with a better trap design. wanderer ingenuity and steel versus the beasts of the wilds."
 msgstr "建造者说她想出了一种更好的陷阱设计。流浪者的智慧与钢铁,对抗荒野中的野兽。"
 
-#: script/room.js:469
+#: script/room.js:488
 msgid "builder says the {0} could make steel, given the tools"
 msgstr "建造者说,如果有工具,{0} 能炼出钢铁"
 
-#: script/room.js:155
+#: script/room.js:174
 msgid "builder says the huts could be rebuilt in steel. says they would not burn."
 msgstr "建造者说小屋能用钢铁重建。说那样就不会被烧毁了。"
 
-#: script/room.js:184
+#: script/room.js:203
 msgid "builder says the sulphur could be made to hold a charge, with the right furnace."
 msgstr "建造者说,只要有合适的熔炉,硫磺能被制成蓄能材料。"
 
-#: script/room.js:112
+#: script/room.js:131
 msgid "builder says there are more wanderers. says they'll work, too."
 msgstr "建造者说这里有许多流浪者，他们也会来工作"
 
-#: script/room.js:129
+#: script/room.js:148
 msgid "builder says there are more wanderers. says they'll work, too. the fire will attract them, but they will need a place to stay."
 msgstr "建造者说还有更多流浪者。说他们也会干活。篝火会吸引他们过来,但他们需要一个住处。"
 
-#: script/room.js:70
+#: script/room.js:89
 msgid "builder says to work smarter not harder. head still groggy but the fire needs more wood. having a cart means more time in the warm room and less time in the cold and dangerous woods."
 msgstr "建造者说要巧干而不是蛮干。头还昏沉沉的,但火堆需要更多柴火。有了推车,就能少花时间待在寒冷危险的树林里,多待在温暖的屋子中。"
 
-#: script/room.js:1602
+#: script/room.js:1621
 msgid "builder stokes the fire"
 msgstr "建造者添了柴火"
 
@@ -2738,7 +2739,7 @@ msgstr "不打开直接烧掉"
 msgid "burn the cards"
 msgstr "烧掉这些卡片"
 
-#: script/events/outside.js:347
+#: script/events/outside.js:354
 msgid "burn the infected huts"
 msgstr "烧掉受感染的小屋"
 
@@ -2746,11 +2747,11 @@ msgstr "烧掉受感染的小屋"
 msgid "burn whatever burns"
 msgstr "能烧的都烧了"
 
-#: script/room.js:1472
+#: script/room.js:1491
 msgid "burning"
 msgstr "燃烧着"
 
-#: script/events/outside.js:175
+#: script/events/outside.js:182
 msgid "but in the morning everyone who woke up is still here."
 msgstr "但到了早上,所有醒来的人都还在这里。"
 
@@ -2762,7 +2763,7 @@ msgstr "但随后注意到了那片空无。"
 msgid "but there is a cache of medicine under the floorboards."
 msgstr "木地板下面藏着一些补给品"
 
-#: script/events/outside.js:473
+#: script/events/outside.js:480
 msgid "butcher the dead"
 msgstr "屠宰死去的猎物"
 
@@ -2790,7 +2791,7 @@ msgstr "购买罗盘"
 msgid "buy map"
 msgstr "购买地图"
 
-#: script/events/outside.js:330
+#: script/events/outside.js:337
 msgid "buy medicine"
 msgstr "购买药剂"
 
@@ -2802,8 +2803,8 @@ msgstr "购买鳞片"
 msgid "buy teeth"
 msgstr "购买牙齿"
 
-#: script/engine.js:1511
-#: script/room.js:2214
+#: script/engine.js:1519
+#: script/room.js:2233
 msgid "buy:"
 msgstr "购买:"
 
@@ -2815,7 +2816,7 @@ msgstr "在灰蒙蒙的天光下,地面隆起成低矮的丘陵,风终于有了�
 msgid "by midday the ground is too hot to sit on and the air over it is not clear."
 msgstr "到了正午,地面烫得无法落座,上方的空气也变得浑浊。"
 
-#: script/events/outside.js:593
+#: script/events/outside.js:600
 msgid "by morning the wounded raiders are not a problem any more"
 msgstr "到了早上,受伤的袭击者已经不再是问题"
 
@@ -2827,7 +2828,7 @@ msgstr "到了早上,外面出现了脚印,很深的脚印,通向远处。"
 msgid "by the end of it you are not sweating any more, which is the part to worry about."
 msgstr "到最后你已经不再出汗了,而这正是该担心的地方。"
 
-#: script/lab.js:313
+#: script/lab.js:327
 msgid "cameras everwhere. but who is watching if anyone?"
 msgstr "到处都是摄像头。可如果真有人在看,又会是谁呢?"
 
@@ -2868,17 +2869,17 @@ msgstr "货运无人机"
 msgid "carrion drone"
 msgstr "腐尸无人机"
 
-#: script/room.js:796
+#: script/room.js:815
 msgid "carrying more means longer expeditions to the wilds"
 msgstr "荒野旅行时携带更多物资"
 
-#: script/room.js:52
-#: script/room.js:67
+#: script/room.js:71
+#: script/room.js:86
 msgid "cart"
 msgstr "货车"
 
-#: script/room.js:685
-#: script/room.js:700
+#: script/room.js:704
+#: script/room.js:719
 msgid "cask"
 msgstr "水桶"
 
@@ -2890,7 +2891,7 @@ msgstr "继续探索悬崖"
 msgid "celebrant"
 msgstr "司仪"
 
-#: script/room.js:181
+#: script/room.js:200
 msgid "cell foundry"
 msgstr "囚室铸造厂"
 
@@ -2933,7 +2934,7 @@ msgstr "符咒"
 msgid "charred bodies litter the ground."
 msgstr "遍地焦尸"
 
-#: script/engine.js:1759
+#: script/engine.js:1767
 msgid "check it out."
 msgstr "看看它。"
 
@@ -3111,11 +3112,11 @@ msgstr "煤矿"
 msgid "coil"
 msgstr "线圈"
 
-#: script/room.js:1451
+#: script/room.js:1470
 msgid "cold"
 msgstr "很冷"
 
-#: script/lab.js:322
+#: script/lab.js:336
 msgid "colder here. the filtration is louder."
 msgstr "这里更冷。过滤系统的声音更响了。"
 
@@ -3144,11 +3145,11 @@ msgid "committed"
 msgstr "已下定决心"
 
 #: script/localization.js:46
-#: script/room.js:1283
+#: script/room.js:1302
 msgid "compass"
 msgstr "罗盘"
 
-#: script/lab.js:327
+#: script/lab.js:341
 msgid "condensation on the pipes. it has been this cold for a very long time."
 msgstr "管道上凝结着水珠。这里已经冷了很长很长时间。"
 
@@ -3331,8 +3332,8 @@ msgstr "继续向右"
 msgid "convergence"
 msgstr "汇聚"
 
-#: script/room.js:862
-#: script/room.js:878
+#: script/room.js:881
+#: script/room.js:897
 msgid "convoy"
 msgstr "车队"
 
@@ -3384,8 +3385,8 @@ msgstr "盖住补给"
 msgid "craft"
 msgstr "制作"
 
-#: script/engine.js:1505
-#: script/room.js:2207
+#: script/engine.js:1513
+#: script/room.js:2226
 msgid "craft:"
 msgstr "制造:"
 
@@ -3393,7 +3394,7 @@ msgstr "制造:"
 msgid "crawler"
 msgstr "爬行者"
 
-#: script/room.js:34
+#: script/room.js:53
 msgid "creatures can be heard outside the room. builder says she can make traps to catch any creatures might still be alive out there."
 msgstr "屋外能听到生物的动静。建造者说她能做陷阱,抓住外面还活着的生物。"
 
@@ -3431,7 +3432,7 @@ msgstr "机械熊"
 msgid "damage"
 msgstr "伤害"
 
-#: script/room.js:317
+#: script/room.js:336
 msgid "dangerous as it is, there is a world outside this room. nomads pass by from time to time. builder says a trading post would make commerce easier"
 msgstr "尽管危险,这间屋子外面还有一个世界。游牧者时常经过。建造者说,一个贸易站能让交易变得更容易"
 
@@ -3443,11 +3444,11 @@ msgstr "没有妥善防护离开村子，远行很危险"
 msgid "darting between the trees in the dark, the shadow is barely seen. you hear it lunge as it is upon you."
 msgstr "在黑暗中的树木间穿梭,那道阴影几乎无法看清。你只在它扑向你时才听到动静。"
 
-#: script/room.js:1468
+#: script/room.js:1487
 msgid "dead"
 msgstr "熄灭了"
 
-#: script/room.js:545
+#: script/room.js:564
 msgid "deadly soldiers and raiders out in the wild. builder says she can make bullets though she hates guns"
 msgstr "荒野中有致命的士兵和袭击者。建造者说她能造子弹,尽管她讨厌枪"
 
@@ -3492,7 +3493,7 @@ msgstr "引爆"
 msgid "detour through the officer's lounge."
 msgstr "绕道穿过军官休息室。"
 
-#: script/space.js:738
+#: script/space.js:1048
 msgid "devotedly, she has given you everything. she asks for one thing back.<br>\"why did you do it?\""
 msgstr "她全心全意地把一切都给了你。她只要求一样东西作为回报。<br>\"你为什么要这么做?\""
 
@@ -3508,16 +3509,16 @@ msgstr "挖掘固守,等它过去"
 msgid "dig into the face"
 msgstr "向岩壁深挖"
 
-#: script/events/outside.js:1034
-#: script/events/outside.js:919
+#: script/events/outside.js:1041
+#: script/events/outside.js:926
 msgid "dig it out"
 msgstr "把它挖出来"
 
-#: script/events/outside.js:1012
+#: script/events/outside.js:1019
 msgid "dig it out anyway"
 msgstr "还是把它挖出来"
 
-#: script/engine.js:1640
+#: script/engine.js:1648
 msgid "disable audio"
 msgstr "禁用音频"
 
@@ -3558,7 +3559,7 @@ msgstr "求救信号。"
 msgid "do not look over"
 msgstr "不要看过去"
 
-#: script/events/outside.js:352
+#: script/events/outside.js:359
 msgid "do nothing"
 msgstr "置之不理"
 
@@ -3602,7 +3603,7 @@ msgstr "那阵动静引来了一些注意。"
 msgid "drones go out. they go out on a schedule, and the schedule is not regular -- it is triggered."
 msgstr "无人机会出动。它们按计划出动,而这计划并不规律——它是被触发的。"
 
-#: script/events.js:1176
+#: script/events.js:1183
 msgid "drop:"
 msgstr "丢弃:"
 
@@ -3628,7 +3629,7 @@ msgstr "干燥时,它什么都不是。潮湿时,它能塑形,而且不会松手
 msgid "dust wretch"
 msgstr "尘埃恶鬼"
 
-#: script/room.js:1469
+#: script/room.js:1488
 msgid "dying"
 msgstr "垂死"
 
@@ -3636,7 +3637,7 @@ msgstr "垂死"
 msgid "each step into the bracing cold wilds is difficult, and yet somehow there is a calling impossibly far away from here. perhaps even to the stars."
 msgstr "迈入凛冽荒野的每一步都很艰难,可不知为何,有一种呼唤来自远得难以想象的地方。或许直至群星。"
 
-#: script/engine.js:1630
+#: script/engine.js:1638
 msgid "ears flooded with new sensations."
 msgstr "耳中涌入全新的感觉。"
 
@@ -3684,7 +3685,7 @@ msgstr "空旷的天空"
 msgid "empty the snares"
 msgstr "清空陷阱"
 
-#: script/engine.js:1635
+#: script/engine.js:1643
 msgid "enable audio"
 msgstr "启用音频"
 
@@ -3701,7 +3702,7 @@ msgid "energy blade"
 msgstr "能量刃"
 
 #: script/localization.js:25
-#: script/room.js:201
+#: script/room.js:220
 msgid "energy cell"
 msgstr "能量元件"
 
@@ -3709,9 +3710,9 @@ msgstr "能量元件"
 msgid "engage"
 msgstr "交战"
 
-#: script/ship.js:84
-msgid "engine:"
-msgstr "引擎:"
+#: script/ship.js:64
+msgid "engine: "
+msgstr ""
 
 #: script/events/executioner.js:695
 msgid "engineering"
@@ -3725,7 +3726,7 @@ msgstr "工程翼区"
 msgid "enough is taken to matter and the rest goes back under, resealed, stones replaced."
 msgstr "取走了足够重要的部分,其余的重新埋回地下,重新封好,石块归位。"
 
-#: script/room.js:409
+#: script/room.js:428
 msgid "enough meat to no longer worry about starving. first bright light in these dark lands? should cure the meat, or it'll spoil. builder says she can fix something up."
 msgstr "肉够多了,不用再担心饿肚子。这片黑暗大地上难得一见的明亮天光?该把肉腌制起来,不然会坏掉。建造者说她能想办法解决。"
 
@@ -3740,7 +3741,7 @@ msgstr "肉够多了,不用再担心饿肚子。这片黑暗大地上难得一�
 msgid "enter"
 msgstr "进入"
 
-#: script/events/outside.js:364
+#: script/events/outside.js:371
 msgid "epidemic is eradicated eventually"
 msgstr "疫情终于被根除"
 
@@ -3748,7 +3749,7 @@ msgstr "疫情终于被根除"
 msgid "equally unnatural and deadly, the cyborg bear stands ready."
 msgstr "同样违反自然又同样致命,机械熊已经严阵以待。"
 
-#: script/space.js:810
+#: script/space.js:1120
 msgid "escape..."
 msgstr "逃脱……"
 
@@ -3780,7 +3781,7 @@ msgstr "即使他们不想留在过去"
 msgid "every container is drained and the wrappings are left open to the air."
 msgstr "每个容器都被抽空了,包装也敞开着暴露在空气中。"
 
-#: script/prison.js:204
+#: script/prison.js:214
 msgid "every corner is the same corner. you have stopped trusting your count."
 msgstr "每一个转角都是同一个转角。你已经不再相信自己数的数了。"
 
@@ -3788,7 +3789,7 @@ msgstr "每一个转角都是同一个转角。你已经不再相信自己数的
 msgid "every entry is the same shape. dispatch. transit. RECOVERY OF SAMPLE. return. hold for assay."
 msgstr "每一条记录的格式都一样。派遣。转运。样本回收。返还。留待检测。"
 
-#: script/room.js:157
+#: script/room.js:176
 msgid "every hut is steel already."
 msgstr "所有小屋都已经是钢铁的了。"
 
@@ -3804,11 +3805,11 @@ msgstr "它们全都朝着同一个方向。没有一个是朝着村落的。"
 msgid "every one of them is lined up on the same point, and the point is a long way further out than this."
 msgstr "它们全都对准了同一个点,而那个点比这里还要远得多。"
 
-#: script/lab.js:316
+#: script/lab.js:330
 msgid "every path impossibly seems to slope down and deeper."
 msgstr "每一条路都似乎不可思议地一路向下,越来越深。"
 
-#: script/prison.js:210
+#: script/prison.js:220
 msgid "every room of unerring consistency beyond what any machine can do."
 msgstr "每个房间都精确一致得超出了任何机器所能达到的程度。"
 
@@ -3816,7 +3817,7 @@ msgstr "每个房间都精确一致得超出了任何机器所能达到的程度
 msgid "every single one of them is you."
 msgstr "它们每一个都是你。"
 
-#: script/prison.js:218
+#: script/prison.js:228
 msgid "every surface is a triangle, and no two are the same triangle."
 msgstr "每个表面都是三角形,而且没有两个三角形是相同的。"
 
@@ -3852,7 +3853,7 @@ msgstr "这面墙上的一切都曾是某个人的现在时。它们没有一个
 msgid "everything that burns goes into the fires, including two of the hut frames."
 msgstr "一切能烧的都进了火堆,包括两副小屋的骨架。"
 
-#: script/events/outside.js:610
+#: script/events/outside.js:617
 msgid "execute them"
 msgstr "处决他们"
 
@@ -3864,15 +3865,15 @@ msgstr "放逐者"
 msgid "exiled"
 msgstr "被放逐"
 
-#: script/space.js:111
+#: script/space.js:316
 msgid "Exosphere"
 msgstr "外逸层"
 
-#: script/space.js:892
+#: script/space.js:1202
 msgid "expanded story. alternate ending. behind the scenes commentary. get the app."
 msgstr "尾声 游戏结束 评论 应用商店"
 
-#: script/room.js:809
+#: script/room.js:828
 msgid "expeditions require gear. builder can stitch leather together into a rucksack."
 msgstr "远征需要装备。建造者能把皮革缝制成背包。"
 
@@ -3905,7 +3906,7 @@ msgstr "通过 dropbox 导出或导入你的存档。"
 msgid "extinguish"
 msgstr "熄灭"
 
-#: script/room.js:1119
+#: script/room.js:1138
 msgid "extremely powerful handheld bomb that instantly destroys an enemy."
 msgstr "威力极强的手持炸弹,能瞬间消灭敌人。"
 
@@ -3929,7 +3930,7 @@ msgstr "facebook"
 msgid "faces, darkened by soot and blood, stare out from crooked huts."
 msgstr "一张张被煤烟和血熏黑了的脸望出小屋"
 
-#: script/maze.js:748
+#: script/maze.js:805
 msgid "facing {0}"
 msgstr "面朝 {0}"
 
@@ -3975,7 +3976,7 @@ msgstr "找出它是从哪里来的"
 msgid "Fire"
 msgstr "火灾"
 
-#: script/room.js:633
+#: script/room.js:652
 msgid "fire in this room attracted others in need. but fire can also keep the darkness at bay in the wilds. build suggests crafting torches."
 msgstr "这间屋子里的火光吸引了有需要的其他人。但火光也能在荒野中驱退黑暗。建造者建议制作火把。"
 
@@ -3999,7 +4000,7 @@ msgstr "侧翼组合"
 msgid "flare"
 msgstr "照明弹"
 
-#: script/room.js:1471
+#: script/room.js:1490
 msgid "flickering"
 msgstr "冒出火苗"
 
@@ -4088,8 +4089,9 @@ msgstr "在里面待了四小时。水消耗得比预期快,然后就没了。"
 msgid "four hundred attempts, all of them turned back"
 msgstr "四百次尝试,全都被逼退了"
 
-#: script/space.js:672
-#: script/space.js:709
+#: script/space.js:1019
+#: script/space.js:960
+#: script/space.js:997
 msgid "four hundred centuries ago somebody sat in a shielded room, holding this, waiting for you to come and ask."
 msgstr "四万年前,有人坐在一间屏蔽室里,握着这个东西,等着你来问。"
 
@@ -4106,7 +4108,7 @@ msgstr "背包剩余空间: {0}/{1}"
 msgid "free the live one and reset the line"
 msgstr "放走活着的那只,重设陷阱线"
 
-#: script/room.js:1450
+#: script/room.js:1469
 msgid "freezing"
 msgstr "寒冷刺骨"
 
@@ -4114,7 +4116,7 @@ msgstr "寒冷刺骨"
 msgid "frenzied"
 msgstr "狂暴"
 
-#: script/room.js:1449
+#: script/room.js:1468
 msgid "frigid"
 msgstr "冰冷刺骨"
 
@@ -4253,7 +4255,7 @@ msgstr "给她一个称呼"
 msgid "give him what he needs"
 msgstr "给他所需之物"
 
-#: script/events/marketing.js:21
+#: script/events/marketing.js:28
 msgid "give in"
 msgstr "屈服"
 
@@ -4281,7 +4283,7 @@ msgstr "玻璃狼从山脊上下来,共四只,移动的方式如流水一般。"
 msgid "glow stone"
 msgstr "发光石"
 
-#: script/prison.js:211
+#: script/prison.js:221
 msgid "glyphs in every tongue: peace through equity. equity through consistency."
 msgstr "各种语言写就的符文:公平带来和平。一致带来公平。"
 
@@ -4365,28 +4367,28 @@ msgstr "下到核心"
 msgid "Go Hardcore?"
 msgstr "开启极限模式?"
 
-#: script/events/outside.js:270
-#: script/events/outside.js:287
-#: script/events/outside.js:305
-#: script/events/outside.js:371
-#: script/events/outside.js:394
-#: script/events/outside.js:413
-#: script/events/outside.js:431
+#: script/events/outside.js:277
+#: script/events/outside.js:294
+#: script/events/outside.js:312
+#: script/events/outside.js:378
+#: script/events/outside.js:401
+#: script/events/outside.js:420
+#: script/events/outside.js:438
 #: script/events/outside.js:45
-#: script/events/outside.js:512
-#: script/events/outside.js:529
-#: script/events/outside.js:543
-#: script/events/outside.js:642
-#: script/events/outside.js:660
-#: script/events/outside.js:678
-#: script/events/outside.js:697
-#: script/events/outside.js:830
-#: script/events/outside.js:844
-#: script/events/outside.js:862
-#: script/events/outside.js:880
-#: script/events/outside.js:894
-#: script/events/outside.js:960
-#: script/events/outside.js:974
+#: script/events/outside.js:519
+#: script/events/outside.js:536
+#: script/events/outside.js:550
+#: script/events/outside.js:649
+#: script/events/outside.js:667
+#: script/events/outside.js:685
+#: script/events/outside.js:704
+#: script/events/outside.js:837
+#: script/events/outside.js:851
+#: script/events/outside.js:869
+#: script/events/outside.js:887
+#: script/events/outside.js:901
+#: script/events/outside.js:967
+#: script/events/outside.js:981
 #: script/events/path.js:339
 #: script/events/room.js:496
 #: script/events/room.js:523
@@ -4410,9 +4412,9 @@ msgstr "进去"
 msgid "go in after all"
 msgstr "最终还是进去"
 
-#: script/events/outside.js:180
-#: script/events/outside.js:192
-#: script/events/outside.js:210
+#: script/events/outside.js:187
+#: script/events/outside.js:199
+#: script/events/outside.js:217
 #: script/events/path.js:472
 #: script/events/path.js:486
 #: script/events/path.js:519
@@ -4561,7 +4563,7 @@ msgstr "不吃东西能坚持走的距离翻倍"
 msgid "go your own way"
 msgstr "走自己的路"
 
-#: script/lab.js:333
+#: script/lab.js:347
 msgid "going in circles? that handprint looks like your own."
 msgstr "在原地打转吗?那个手印看起来像是你自己的。"
 
@@ -4605,12 +4607,12 @@ msgstr "灰烬从晴朗的天空中飘落"
 msgid "grey falls out of a clear sky for two days."
 msgstr "灰色的东西从晴朗的天空中飘落了两天。"
 
-#: script/room.js:1117
-#: script/room.js:1131
+#: script/room.js:1136
+#: script/room.js:1150
 msgid "handheld nuke"
 msgstr "手持核弹"
 
-#: script/lab.js:342
+#: script/lab.js:356
 msgid "handprints on the inside of the glass. six fingers, and some with five."
 msgstr "玻璃内侧的手印。六根手指,有些是五根。"
 
@@ -4622,7 +4624,7 @@ msgstr "一双手。不是你的。娴熟而迅速地做着手头的事,要处�
 msgid "hang him"
 msgstr "绞死他"
 
-#: script/space.js:579
+#: script/space.js:867
 msgid "happy april fools. the door out of here still works and none of this happened."
 msgstr "愚人节快乐。这里通往外面的门仍然管用,这一切都没有发生过。"
 
@@ -4886,7 +4888,7 @@ msgstr "他把第二个护身符和第一个放在两只手上掂量,仿佛在�
 msgid "he works the store room door for a week."
 msgstr "他在储藏室的门上忙活了一个星期。"
 
-#: script/events/outside.js:166
+#: script/events/outside.js:173
 msgid "help her sort it"
 msgstr "帮她整理"
 
@@ -4922,7 +4924,7 @@ msgstr "空心僧侣"
 msgid "hollow warden"
 msgstr "空心守卫"
 
-#: script/room.js:1454
+#: script/room.js:1473
 msgid "hot"
 msgstr "很热"
 
@@ -4934,11 +4936,11 @@ msgstr "外壳打开"
 msgid "housing splits"
 msgstr "外壳裂开"
 
-#: script/lab.js:332
+#: script/lab.js:346
 msgid "how deep do these tunnels go? why is it so cold?"
 msgstr "这些隧道究竟有多深?为什么这么冷?"
 
-#: script/lab.js:318
+#: script/lab.js:332
 msgid "how did the watcher temple have a key to thos place?"
 msgstr "守望者神庙为什么会有通往那个地方的钥匙?"
 
@@ -4947,7 +4949,7 @@ msgstr "守望者神庙为什么会有通往那个地方的钥匙?"
 msgid "hp"
 msgstr "生命"
 
-#: script/world.js:1283
+#: script/world.js:1292
 #: script/world.js:369
 msgid "hp: {0}/{1}"
 msgstr "生命: {0}/{1}"
@@ -4956,19 +4958,16 @@ msgstr "生命: {0}/{1}"
 msgid "hull re-forms"
 msgstr "外壳重新成形"
 
-#: script/ship.js:78
-msgid "hull:"
-msgstr "外壳:"
-
+#: script/ship.js:58
 #: script/space.js:44
 msgid "hull: "
 msgstr "船身:"
 
-#: script/room.js:277
+#: script/room.js:296
 msgid "hungry mouths crave meat. beasts attack wanderers in the wild. wanderers want to strike back. builder says villagers could help hunt, given the means with a hunting lodge."
 msgstr "饥饿的嘴渴望着肉食。野兽在荒野中袭击流浪者。流浪者想要反击。建造者说,只要有一座猎屋提供条件,村民就能帮忙狩猎。"
 
-#: script/events/outside.js:485
+#: script/events/outside.js:492
 msgid "hunt the pack down"
 msgstr "追捕这群野兽"
 
@@ -4977,8 +4976,8 @@ msgstr "追捕这群野兽"
 msgid "hunter"
 msgstr "猎人"
 
-#: script/room.js:126
-#: script/room.js:87
+#: script/room.js:106
+#: script/room.js:145
 msgid "hut"
 msgstr "小屋"
 
@@ -4992,11 +4991,11 @@ msgstr "加速"
 msgid "hypo"
 msgstr "注射器"
 
-#: script/room.js:935
+#: script/room.js:954
 msgid "i armour"
 msgstr "铁甲"
 
-#: script/room.js:1541
+#: script/room.js:1560
 msgid "I do not claim this to be an extension of Townsend's intent. I intentionally tried to make this story its own."
 msgstr "我并不宣称这是对汤森德创作意图的延续。我有意让这个故事自成一体。"
 
@@ -5026,7 +5025,7 @@ msgstr "如果你倒在这里,会有人发现吗?这个行囊值得吗?它差点
 msgid "ignore her"
 msgstr "无视她"
 
-#: script/events/outside.js:257
+#: script/events/outside.js:264
 msgid "ignore it"
 msgstr "放任不管"
 
@@ -5109,11 +5108,11 @@ msgstr "用来测量某物偏移了多远的仪器"
 msgid "investigate"
 msgstr "调查"
 
-#: script/lab.js:352
+#: script/lab.js:366
 msgid "invisible death - radiation floods most of this level"
 msgstr "无形的死亡——辐射充斥着这一层的大部分区域"
 
-#: script/events/marketing.js:15
+#: script/events/marketing.js:22
 msgid "inviting. it would be so easy to give in, completely."
 msgstr "诱人。彻底屈服会是如此轻易的事。"
 
@@ -5121,7 +5120,7 @@ msgstr "诱人。彻底屈服会是如此轻易的事。"
 msgid "ios"
 msgstr "iOS"
 
-#: script/space.js:901
+#: script/space.js:1211
 msgid "iOS."
 msgstr "iOS"
 
@@ -5130,7 +5129,7 @@ msgstr "iOS"
 msgid "iron"
 msgstr "铁"
 
-#: script/room.js:949
+#: script/room.js:968
 msgid "iron armour"
 msgstr "铁甲"
 
@@ -5143,12 +5142,12 @@ msgstr "铁矿"
 msgid "iron miner"
 msgstr "铁矿工人"
 
-#: script/room.js:1005
-#: script/room.js:1020
+#: script/room.js:1024
+#: script/room.js:1039
 msgid "iron sword"
 msgstr "铁剑"
 
-#: script/room.js:938
+#: script/room.js:957
 msgid "iron's stronger than leather"
 msgstr "铁比皮要结实"
 
@@ -5168,11 +5167,11 @@ msgstr "这真的值得吗?"
 msgid "is something blocking some of the stars tonight?"
 msgstr "今晚是有什么东西挡住了部分星星吗?"
 
-#: script/space.js:575
+#: script/space.js:863
 msgid "it also did 9/11."
 msgstr "它还制造了9/11事件。"
 
-#: script/space.js:577
+#: script/space.js:865
 msgid "it barks once, politely, and the drives come up."
 msgstr "它礼貌地发出一声短鸣,驱动装置随即启动。"
 
@@ -5212,11 +5211,11 @@ msgstr "里面有一些小玩艺儿"
 msgid "it costs most of a season of gathering."
 msgstr "它耗费了几乎一整季的采集所得。"
 
-#: script/events/outside.js:174
+#: script/events/outside.js:181
 msgid "it costs. the village is smaller and colder for a while."
 msgstr "这是有代价的。村落有一段时间会变得更小、更冷。"
 
-#: script/events/outside.js:951
+#: script/events/outside.js:958
 msgid "it cuts the mortar rather than the other way round."
 msgstr "是它在切割灰泥,而不是反过来。"
 
@@ -5252,7 +5251,7 @@ msgstr "它对任何事都没有反应。"
 msgid "it does not resist. it does not appear to consider resisting."
 msgstr "它没有反抗。它似乎根本没考虑过反抗。"
 
-#: script/space.js:686
+#: script/space.js:974
 msgid "it does not say anything. it has never had anything to say anything with. but you understand, the way you understood the crystal, that what is being observed is not a judgement.<br>it is a redemption. and it is being witnessed, which is the only ceremony the watchers know how to hold."
 msgstr "它什么也没说。它从来就没有能用来说话的东西。但你明白,就像你明白那颗水晶一样,这里所观察的并非审判。<br>而是救赎。而它正被见证着,这是守望者所知的唯一仪式。"
 
@@ -5389,11 +5388,11 @@ msgstr "它已经奄奄一息。它没有站起来。"
 msgid "it is an agreement. who digs, who repairs, whose year it is when the years do not match."
 msgstr "这是一份协议。谁来挖掘,谁来修缮,当年份对不上时该算谁的年份。"
 
-#: script/room.js:1333
+#: script/room.js:1352
 msgid "it is bracingly cold. this place seems familiar. it is hard to think clearly with the cold."
 msgstr "寒气逼人。这个地方似乎很熟悉。这么冷很难让人思路清晰。"
 
-#: script/events/outside.js:630
+#: script/events/outside.js:637
 msgid "it is done against the wall of the store room."
 msgstr "这是靠在储藏室的墙边完成的。"
 
@@ -5437,13 +5436,14 @@ msgstr "它很轻,很冷,被击打时不会留下痕迹。"
 msgid "it is like being sanded. every exposed inch of you, for forty minutes, without pause."
 msgstr "那感觉像是被砂纸打磨。你暴露在外的每一寸皮肤,整整四十分钟,不曾停歇。"
 
-#: script/events/outside.js:502
+#: script/events/outside.js:509
 msgid "it is not a fight so much as a conclusion."
 msgstr "与其说这是一场战斗,不如说是一个结局。"
 
-#: script/space.js:671
-#: script/space.js:708
-#: script/space.js:726
+#: script/space.js:1018
+#: script/space.js:1036
+#: script/space.js:959
+#: script/space.js:996
 msgid "it is not a memory. the others were memories.<br>this is a thing somebody made, deliberately, to be handed to one person."
 msgstr "这不是一段记忆。其他的都是记忆。<br>这是有人特意制作、要交给某一个人的东西。"
 
@@ -5451,7 +5451,7 @@ msgstr "这不是一段记忆。其他的都是记忆。<br>这是有人特意�
 msgid "it is not a name anybody here can pronounce, and it belongs to a man who slept in this room and would not give it."
 msgstr "这里没人念得出这个名字,它属于一个曾在这间屋子里睡过、却不肯说出名字的人。"
 
-#: script/events/outside.js:984
+#: script/events/outside.js:991
 msgid "it is not a name. it is a rank, a fleet number, and a date of loss."
 msgstr "这不是一个名字。这是一个军衔、一个舰队编号,还有一个阵亡日期。"
 
@@ -5523,7 +5523,7 @@ msgstr "直到山脊最终将它遮挡住,它仍然站在那里。"
 msgid "it is still transmitting. it has always been still transmitting."
 msgstr "它仍在发送信号。它一直都在发送信号。"
 
-#: script/space.js:728
+#: script/space.js:1038
 msgid "it is still true. that is the part nobody ever believes and it has never once stopped being the part that matters."
 msgstr "这仍然是真的。这正是没人愿意相信的部分,却也从未有一刻不再重要。"
 
@@ -5535,7 +5535,7 @@ msgstr "第二天的大部分时间里它依然可见。它丝毫没有变化。
 msgid "it is the builder. she has walked out here, through all of it, on the leg that does not work properly, and she is not carrying anything."
 msgstr "是建造者。她拖着那条不听使唤的腿,穿过这一切走到了这里,身上什么都没带。"
 
-#: script/events/outside.js:952
+#: script/events/outside.js:959
 msgid "it is the only part of that hut that will still be standing in a hundred years."
 msgstr "这是那座小屋中,唯一能在一百年后依然屹立的部分。"
 
@@ -5551,11 +5551,11 @@ msgstr "安慰死者已经太迟了。但我们可以宽慰生者。"
 msgid "it is unpleasant and it works. the cold lifts on the fourth day, as unaccountably as it came."
 msgstr "这方法令人不快,但确实有效。寒意在第四天消退,来得莫名,去得也莫名。"
 
-#: script/events/outside.js:950
+#: script/events/outside.js:957
 msgid "it is very good stone. it is not from here."
 msgstr "这是非常上乘的石料。它不是产自这里的。"
 
-#: script/prison.js:250
+#: script/prison.js:260
 msgid "it is very quiet, and the quiet has the shape of a held breath."
 msgstr "这里非常安静,而这份安静有着屏住呼吸般的形状。"
 
@@ -5563,7 +5563,7 @@ msgstr "这里非常安静,而这份安静有着屏住呼吸般的形状。"
 msgid "it is warm. it is the same warmth as the one in the ruins, and you already know what happens if you touch it, and you touch it."
 msgstr "它是温热的。和废墟里那个的温度一模一样,你早已知道触碰它会发生什么,而你还是触碰了它。"
 
-#: script/space.js:572
+#: script/space.js:860
 msgid "it is wearing a small headset. it has been wearing it the entire time."
 msgstr "它戴着一个小型耳机。它一直都戴着它。"
 
@@ -5579,7 +5579,7 @@ msgstr "那是你的手。绝对是你的手,不会有错。"
 msgid "it is your handwriting. the ink is older than this settlement."
 msgstr "那是你的笔迹。墨迹比这个定居点的历史还要久远。"
 
-#: script/room.js:844
+#: script/room.js:863
 msgid "it isn't enough to carry the minimum to survive. the dead leave loot. builder can craft a wagon."
 msgstr "只带着维生的最低限度是不够的。死者会留下战利品。建造者能制作一辆手推车。"
 
@@ -5587,7 +5587,7 @@ msgstr "只带着维生的最低限度是不够的。死者会留下战利品。
 msgid "it lands next to one that is already the same mark, in the same hand, made the same way."
 msgstr "它落在了一个已经存在的标记旁边,同样的字迹,同样的刻法。"
 
-#: script/events/outside.js:869
+#: script/events/outside.js:876
 msgid "it lasts nine days."
 msgstr "它持续了九天。"
 
@@ -5595,7 +5595,7 @@ msgstr "它持续了九天。"
 msgid "it lists to the side in a deep crevasse, cut when it fell from the sky."
 msgstr "它侧倾陷在一道深深的裂隙中,那道裂隙是它坠落时切割出来的。"
 
-#: script/space.js:576
+#: script/space.js:864
 msgid "it looks at you with the total lack of remorse available only to a dog<br>that has never once been told no."
 msgstr "它看着你的眼神里,是那种唯有从未被拒绝过的狗才会有的、彻底的心安理得。<br>"
 
@@ -5687,7 +5687,7 @@ msgstr "它停止了移动。它看起来并不惊讶。"
 msgid "it stops on one date, and the date is not a mystery. everything on this world stops around then."
 msgstr "它停在了某一个日期上,而这个日期并不神秘。这个世界上的一切都在那前后停止了。"
 
-#: script/events/outside.js:402
+#: script/events/outside.js:409
 msgid "it stops there. it does stop there."
 msgstr "它就停在那里。它确实停在那里。"
 
@@ -5699,7 +5699,7 @@ msgstr "它停止了。房间依然亮着。"
 msgid "it takes a day and a half to reach the end of it."
 msgstr "走到尽头要花上一天半的时间。"
 
-#: script/events/outside.js:851
+#: script/events/outside.js:858
 msgid "it takes a month and most of the stores."
 msgstr "这要耗费一个月的时间和大部分储备。"
 
@@ -5759,7 +5759,7 @@ msgstr "它从来只是饥饿而已。"
 msgid "it was the floor a moment ago."
 msgstr "片刻之前它还是地板。"
 
-#: script/space.js:629
+#: script/space.js:917
 msgid "it will be you the way a copy of a page is the page."
 msgstr "它会是你,就像一页纸的副本仍是那一页纸一样。"
 
@@ -5767,7 +5767,7 @@ msgstr "它会是你,就像一页纸的副本仍是那一页纸一样。"
 msgid "it will go on doing that for nobody, for a long time, and then it will stop on its own."
 msgstr "它会为了无人继续这样做下去,持续很长时间,然后自行停止。"
 
-#: script/events/outside.js:382
+#: script/events/outside.js:389
 msgid "it works, mostly, and the mostly is a row of graves at the treeline."
 msgstr "这办法大体上是奏效的,而这个\"大体上\"就是林线边那一排坟墓。"
 
@@ -5791,7 +5791,7 @@ msgstr "寒风让关节变得僵硬。建造者走路略微跛脚,却努力想�
 msgid "just as deadly now as they were then."
 msgstr "就如从前一般致命"
 
-#: script/room.js:231
+#: script/room.js:250
 msgid "katana"
 msgstr "武士刀"
 
@@ -5850,7 +5850,7 @@ msgstr "动能护甲"
 msgid "knitting"
 msgstr "愈合中"
 
-#: script/room.js:900
+#: script/room.js:919
 msgid "l armour"
 msgstr "皮甲"
 
@@ -5878,13 +5878,21 @@ msgstr "巨大的路障将走廊一分为二,被武器炮火烧得焦黑。"
 msgid "large prints lead away, into the forest."
 msgstr "巨大的足印延伸至森林"
 
-#: script/room.js:881
+#: script/room.js:900
 msgid "larger conquests need to be carried back. builder can leverage wanderer engineering to craft a convoy."
 msgstr "更大的战利品需要运送回去。建造者能借助流浪者工程学制作一支运输队。"
 
 #: script/localization.js:47
 msgid "laser rifle"
 msgstr "激光步枪"
+
+#: script/ship.js:213
+msgid "lasers maxed"
+msgstr ""
+
+#: script/ship.js:70
+msgid "lasers: "
+msgstr ""
 
 #: script/events/setpieces.js:3660
 msgid "lattice warden"
@@ -5947,15 +5955,15 @@ msgstr "学会了有意识地出拳"
 msgid "leather"
 msgstr "皮革"
 
-#: script/room.js:914
+#: script/room.js:933
 msgid "leather armour"
 msgstr "皮甲"
 
-#: script/room.js:903
+#: script/room.js:922
 msgid "leather's not strong. better than rags, though."
 msgstr "皮革不算结实。总比披块破布强"
 
-#: script/events.js:1130
+#: script/events.js:1137
 #: script/events/executioner.js:1019
 #: script/events/executioner.js:1044
 #: script/events/executioner.js:1059
@@ -6194,8 +6202,8 @@ msgstr "离开城市"
 msgid "leave her to it"
 msgstr "让她自己处理"
 
-#: script/events/outside.js:783
-#: script/events/outside.js:815
+#: script/events/outside.js:790
+#: script/events/outside.js:822
 #: script/events/path.js:581
 #: script/events/road.js:519
 msgid "leave it"
@@ -6297,11 +6305,11 @@ msgstr "由她转移话题"
 msgid "let her keep yours"
 msgstr "让她留着你的那份"
 
-#: script/room.js:2116
+#: script/room.js:2135
 msgid "let her plan"
 msgstr "让她来计划"
 
-#: script/room.js:2102
+#: script/room.js:2121
 msgid "let her work"
 msgstr "让她工作"
 
@@ -6321,7 +6329,7 @@ msgstr "让它保持关闭"
 msgid "let it fall"
 msgstr "让它坠落"
 
-#: script/events/outside.js:615
+#: script/events/outside.js:622
 msgid "let them go"
 msgstr "放他们走"
 
@@ -6338,8 +6346,8 @@ msgstr "一缕光线射入尘土飞扬的阴霾"
 msgid "life in a vial."
 msgstr "瓶中生命。"
 
-#: script/ship.js:109
-#: script/ship.js:210
+#: script/ship.js:104
+#: script/ship.js:239
 msgid "lift off"
 msgstr "点火起飞"
 
@@ -6347,7 +6355,7 @@ msgstr "点火起飞"
 msgid "light feet"
 msgstr "轻盈的脚步"
 
-#: script/room.js:1357
+#: script/room.js:1376
 msgid "light fire"
 msgstr "生火"
 
@@ -6373,7 +6381,7 @@ msgstr "开灯"
 msgid "lines up the shot"
 msgstr "瞄准射击"
 
-#: script/ship.js:218
+#: script/ship.js:247
 msgid "linger"
 msgstr "裹足徘徊"
 
@@ -6405,7 +6413,7 @@ msgstr "正在从 dropbox 加载……"
 msgid "lob"
 msgstr "投掷"
 
-#: script/maze.js:456
+#: script/maze.js:464
 msgid "LOCKED"
 msgstr "已锁定"
 
@@ -6413,8 +6421,8 @@ msgstr "已锁定"
 msgid "Locked-Down&nbsp;Prison"
 msgstr "高度戒备监狱"
 
-#: script/room.js:248
-#: script/room.js:274
+#: script/room.js:267
+#: script/room.js:293
 msgid "lodge"
 msgstr "狩猎小屋"
 
@@ -6422,7 +6430,7 @@ msgstr "狩猎小屋"
 msgid "logs in more languages than one observatory should need"
 msgstr "日志所用的语言之多,远超一座观测站所需"
 
-#: script/space.js:809
+#: script/space.js:1119
 msgid "long enough."
 msgstr "够久了。"
 
@@ -6476,7 +6484,7 @@ msgstr "看起来他们曾试图用障碍物封锁电梯。"
 msgid "loses footing"
 msgstr "失足"
 
-#: script/lab.js:346
+#: script/lab.js:360
 msgid "lost? déjà vu? or have you been here before and forgot?"
 msgstr "迷路了?似曾相识?还是你曾来过这里却忘记了?"
 
@@ -6484,9 +6492,10 @@ msgstr "迷路了?似曾相识?还是你曾来过这里却忘记了?"
 msgid "lots of strange scales"
 msgstr "大量奇异的鳞片"
 
-#: script/space.js:695
-#: script/space.js:700
-#: script/space.js:722
+#: script/space.js:1011
+#: script/space.js:1032
+#: script/space.js:983
+#: script/space.js:988
 msgid "lovingly, she has given you everything. she asks for one thing back.<br>\"why did you do it?\""
 msgstr "她满怀爱意地把一切都给了你。她只求一样东西作为回报。<br>\"你为什么要这么做?\""
 
@@ -6538,7 +6547,7 @@ msgstr "地表地图仍能在残骸中找到。"
 msgid "marks on the door read 'research and development.' everything seems mostly untouched, but dead."
 msgstr "门上的标记写着\"研发部\"。一切看起来大多未被触动,却已死寂。"
 
-#: script/prison.js:206
+#: script/prison.js:216
 msgid "marks on the wall at shoulder height, grouped in fives."
 msgstr "墙上肩膀高度处的记号,五个一组。"
 
@@ -6562,7 +6571,7 @@ msgstr "物质回收器"
 msgid "maybe some useful stuff in the rubble."
 msgstr "也许瓦砾中有些有用的东西"
 
-#: script/room.js:2050
+#: script/room.js:2069
 msgid "maybe this journey belongs to the two of you alone. is there another way?"
 msgstr "也许这段旅程只属于你们两人。还有别的路吗?"
 
@@ -6606,8 +6615,8 @@ msgstr "医疗区"
 msgid "medicine"
 msgstr "药剂"
 
-#: script/events/outside.js:227
-#: script/events/outside.js:323
+#: script/events/outside.js:234
+#: script/events/outside.js:330
 msgid "medicine is needed immediately."
 msgstr "亟需药剂"
 
@@ -6623,11 +6632,11 @@ msgstr "记忆似乎和那些星辰一样遥远,一样遥不可及。你以前�
 msgid "men mill about, weapons at the ready."
 msgstr "武器已准备就绪"
 
-#: script/events/outside.js:669
+#: script/events/outside.js:676
 msgid "mercy is not always repaid. it is still worth extending."
 msgstr "仁慈并非总有回报。但它仍值得给予。"
 
-#: script/space.js:107
+#: script/space.js:312
 msgid "Mesosphere"
 msgstr "中气层"
 
@@ -6643,7 +6652,7 @@ msgstr "这里可能有些有用的东西。"
 msgid "might be things worth having still inside."
 msgstr "也许里面还有些有价值的东西"
 
-#: script/room.js:1452
+#: script/room.js:1471
 msgid "mild"
 msgstr "很宜人"
 
@@ -6651,7 +6660,7 @@ msgstr "很宜人"
 msgid "miss"
 msgstr "失手"
 
-#: script/lab.js:317
+#: script/lab.js:331
 msgid "modern. ancient. familiar. alien."
 msgstr "现代。古老。熟悉。异质。"
 
@@ -6663,7 +6672,7 @@ msgstr "还有更多不断到来"
 msgid "more medical robots stand frozen, attached by a network of wires."
 msgstr "更多医疗机器人静止不动地站立着,连接着一张电线网络。"
 
-#: script/events/outside.js:538
+#: script/events/outside.js:545
 msgid "more of them see the morning than would have."
 msgstr "比原本预期的更多人活着看到了早晨。"
 
@@ -6683,15 +6692,15 @@ msgstr "那些擅自占住别人房子的人簇拥在一起"
 msgid "more strange graffiti adorns the walls."
 msgstr "更多奇怪的涂鸦点缀着墙壁。"
 
-#: script/room.js:18
+#: script/room.js:37
 msgid "more traps to catch more creatures"
 msgstr "陷阱越多，抓到的猎物就越多"
 
-#: script/room.js:19
+#: script/room.js:38
 msgid "more traps won't help now"
 msgstr "再增加陷阱已毫无裨益"
 
-#: script/room.js:569
+#: script/room.js:588
 msgid "more uber traps would be for naught"
 msgstr "更多的超级陷阱也是徒劳"
 
@@ -6719,7 +6728,7 @@ msgstr "大多数架子都是空的"
 msgid "most of the windows at ground level are busted anyway."
 msgstr "很多落地窗被打碎了"
 
-#: script/events/outside.js:278
+#: script/events/outside.js:285
 msgid "most of them come back. not all of them."
 msgstr "他们中大多数人都回来了。不是所有人。"
 
@@ -6731,7 +6740,7 @@ msgstr "里面大部分的东西都散落在一个没人愿意再下去的洞穴
 msgid "motion from the centre of the yard."
 msgstr "院子中央有动静。"
 
-#: script/events/outside.js:135
+#: script/events/outside.js:142
 msgid "mourn"
 msgstr "哀悼"
 
@@ -6753,12 +6762,12 @@ msgstr "继续前进"
 msgid "move on at dawn"
 msgstr "黎明时分继续前进"
 
-#: script/events/outside.js:1025
-#: script/events/outside.js:924
+#: script/events/outside.js:1032
+#: script/events/outside.js:931
 msgid "move the trench"
 msgstr "移动壕沟"
 
-#: script/events/outside.js:1003
+#: script/events/outside.js:1010
 msgid "move the trench anyway"
 msgstr "还是移动壕沟"
 
@@ -6782,7 +6791,7 @@ msgstr "靠近顶部,有件陶瓷般的白色物品,划不出痕迹。"
 msgid "neither has been maintained in a very long time. both are still working."
 msgstr "两者都很久没有维护过了。但都仍在运转。"
 
-#: script/room.js:725
+#: script/room.js:744
 msgid "never go thirsty again"
 msgstr "再也不担心口渴"
 
@@ -6818,7 +6827,7 @@ msgstr "噩梦愈发严重"
 msgid "no"
 msgstr "否"
 
-#: script/prison.js:249
+#: script/prison.js:259
 msgid "no cells. no doors. this passage was built for one arrival."
 msgstr "没有囚室。没有门。这条通道是为一次到访而建造的。"
 
@@ -6830,7 +6839,7 @@ msgstr "没有角落可以背靠。没有墙壁可以面对。这道曲面在每
 msgid "no escape"
 msgstr "无处可逃"
 
-#: script/prison.js:238
+#: script/prison.js:248
 msgid "no focal point. you observe everything and nothing."
 msgstr "没有焦点。你既看到了一切,又什么都没看到。"
 
@@ -6846,15 +6855,15 @@ msgstr "同一符文不得在任何一行、任何一列或任何一个边框区
 msgid "no memory"
 msgstr "没有记忆"
 
-#: script/events/outside.js:651
+#: script/events/outside.js:658
 msgid "no message with it."
 msgstr "没有附带任何信息。"
 
-#: script/room.js:114
+#: script/room.js:133
 msgid "no more room for huts."
 msgstr "再没有可以建小屋的空地了"
 
-#: script/events/outside.js:105
+#: script/events/outside.js:112
 msgid "no one made it out in time."
 msgstr "没有人及时逃出来。"
 
@@ -6862,11 +6871,11 @@ msgstr "没有人及时逃出来。"
 msgid "no one wins wars fought with child soldiers"
 msgstr "用童兵打的战争没有赢家"
 
-#: script/engine.js:1765
+#: script/engine.js:1773
 msgid "no thanks."
 msgstr "不用了,谢谢。"
 
-#: script/room.js:1908
+#: script/room.js:1927
 msgid "no wooden huts left to rebuild."
 msgstr "已经没有木屋可以重建了。"
 
@@ -6882,7 +6891,7 @@ msgstr "没有人能就哪条路通向外面达成一致"
 msgid "nobody asks what happened, or where you have been, or what you intend to do next."
 msgstr "没有人问发生了什么,也没人问你去过哪里,或打算接下来做什么。"
 
-#: script/events/outside.js:403
+#: script/events/outside.js:410
 msgid "nobody asks who gave the order. everybody knows."
 msgstr "没有人问是谁下的命令。所有人都心知肚明。"
 
@@ -6902,7 +6911,7 @@ msgstr "村里没有人问发生了什么"
 msgid "nobody in the village can pronounce it. nobody in the village knows who it belonged to."
 msgstr "村里没有人能念出这个名字。村里也没有人知道它属于谁。"
 
-#: script/events/outside.js:1020
+#: script/events/outside.js:1027
 msgid "nobody in the village can read it, and nobody who comes through that season can either."
 msgstr "村里没有人能读懂它,那一季路过的人也没有一个能读懂。"
 
@@ -6918,7 +6927,7 @@ msgstr "村里没有人看着他离开。这需要一些安排。"
 msgid "nobody in the village worked out how to do this. one of the newer arrivals already knew."
 msgstr "村里没有人想出该怎么做。一个新来的人早就知道了。"
 
-#: script/events/outside.js:632
+#: script/events/outside.js:639
 msgid "nobody objects. that is the part worth noticing."
 msgstr "没有人反对。这是值得留意的地方。"
 
@@ -6968,7 +6977,7 @@ msgstr "这些东西都不值钱。但全都是有人搬到这里来的。"
 msgid "none of the ship's engines escaped the destruction."
 msgstr "这艘船的引擎无一幸免于难。"
 
-#: script/events/outside.js:687
+#: script/events/outside.js:694
 msgid "none of the three have existed for a very long time. they are told so."
 msgstr "这三者都已不复存在很长时间了。他们被这样告知。"
 
@@ -6976,13 +6985,14 @@ msgstr "这三者都已不复存在很长时间了。他们被这样告知。"
 msgid "none of them surrender. none of them run. the singing stops one voice at a time."
 msgstr "他们没有一个投降。没有一个逃跑。歌声一个接一个地停息下来。"
 
-#: script/room.js:1860
-#: script/room.js:1928
+#: script/room.js:1879
+#: script/room.js:1947
 msgid "not enough {0}"
 msgstr "{0} 不够"
 
-#: script/ship.js:148
-#: script/ship.js:164
+#: script/ship.js:144
+#: script/ship.js:159
+#: script/ship.js:174
 msgid "not enough alien alloy"
 msgstr "外星合金不足"
 
@@ -7030,7 +7040,7 @@ msgstr "牙齿不够了"
 msgid "not enough wood"
 msgstr "木头不够了"
 
-#: script/room.js:1515
+#: script/room.js:1534
 msgid "not enough wood to get the fire going"
 msgstr "木头不够生火了"
 
@@ -7070,11 +7080,11 @@ msgstr "不是两个。是六个。位置精确,彼此相距甚远,而且其中�
 msgid "note where it is and move on"
 msgstr "记下它的位置,继续前进"
 
-#: script/lab.js:310
+#: script/lab.js:324
 msgid "notes on the wall in ancient glyphs, in a small tidy hand."
 msgstr "墙上用古老符文写就的笔记,字迹小而工整。"
 
-#: script/events.js:1201
+#: script/events.js:1208
 #: script/events/room.js:869
 msgid "nothing"
 msgstr "一无所获"
@@ -7095,7 +7105,7 @@ msgstr "一片颓靡的双眼"
 msgid "nothing can be made of the ash"
 msgstr "这灰烬做不出任何东西"
 
-#: script/space.js:761
+#: script/space.js:1071
 msgid "nothing explains it. the ship goes on climbing and nothing comes after it."
 msgstr "没有任何解释。飞船继续攀升,而没有任何东西追赶上来。"
 
@@ -7127,7 +7137,7 @@ msgstr "这里根本没有任何东西存在过"
 msgid "nothing has been in here. not dust, not damp, not anything, for a length of time the mind refuses."
 msgstr "这里什么都不曾存在过。没有灰尘,没有潮气,什么都没有,持续了一段长得让人无法接受的时间。"
 
-#: script/prison.js:234
+#: script/prison.js:244
 msgid "nothing here gives you a straight line to fix on."
 msgstr "这里没有任何东西能给你一条可以依凭的直线。"
 
@@ -7151,7 +7161,7 @@ msgstr "没有损失,也没有收获。事后那片平地看起来一模一样�
 msgid "nothing more here."
 msgstr "这里没有别的了。"
 
-#: script/events.js:1266
+#: script/events.js:1273
 msgid "nothing to take"
 msgstr "一无所获"
 
@@ -7171,11 +7181,11 @@ msgstr "天气做的事没有一件是完美的。"
 msgid "noticing the builder staring is at you as if trying to figure something out."
 msgstr "你注意到建造者正盯着你看,仿佛在努力想弄明白什么。"
 
-#: script/room.js:302
+#: script/room.js:321
 msgid "now the nomads have a place to set up shop, they might stick around a while"
 msgstr "现在游牧部落有地方安营扎寨设立商铺了，他们也许会多逗留一段时间"
 
-#: script/prison.js:251
+#: script/prison.js:261
 msgid "nullified sound. what prisoner would necessitate should a prison"
 msgstr "无效化的声音。若真有一座监狱,囚犯所需要的东西"
 
@@ -7228,34 +7238,34 @@ msgstr "还是再献上一个护身符"
 #: script/outside.js:929
 #: script/outside.js:946
 #: script/outside.js:963
-#: script/room.js:1026
-#: script/room.js:1063
-#: script/room.js:1099
-#: script/room.js:1137
-#: script/room.js:1289
-#: script/room.js:132
-#: script/room.js:1546
-#: script/room.js:282
-#: script/room.js:320
-#: script/room.js:366
-#: script/room.js:37
-#: script/room.js:412
-#: script/room.js:450
-#: script/room.js:500
-#: script/room.js:548
-#: script/room.js:594
-#: script/room.js:636
-#: script/room.js:671
-#: script/room.js:706
-#: script/room.js:73
-#: script/room.js:742
-#: script/room.js:777
-#: script/room.js:812
-#: script/room.js:847
-#: script/room.js:884
-#: script/room.js:920
-#: script/room.js:955
-#: script/room.js:990
+#: script/room.js:1009
+#: script/room.js:1045
+#: script/room.js:1082
+#: script/room.js:1118
+#: script/room.js:1156
+#: script/room.js:1308
+#: script/room.js:151
+#: script/room.js:1565
+#: script/room.js:301
+#: script/room.js:339
+#: script/room.js:385
+#: script/room.js:431
+#: script/room.js:469
+#: script/room.js:519
+#: script/room.js:56
+#: script/room.js:567
+#: script/room.js:613
+#: script/room.js:655
+#: script/room.js:690
+#: script/room.js:725
+#: script/room.js:761
+#: script/room.js:796
+#: script/room.js:831
+#: script/room.js:866
+#: script/room.js:903
+#: script/room.js:92
+#: script/room.js:939
+#: script/room.js:974
 msgid "ok"
 msgstr "确认"
 
@@ -7275,7 +7285,7 @@ msgstr "到了第八天早上,门开着,而他不在门后。"
 msgid "on the seventh, something answers back."
 msgstr "到了第七天,有什么东西回应了。"
 
-#: script/events/outside.js:870
+#: script/events/outside.js:877
 msgid "on the tenth there is a fight at the store room over whose turn it was, and it does not stop at the store room."
 msgstr "到了第十天,储藏室爆发了一场关于轮到谁的争执,而这场争执并未止于储藏室。"
 
@@ -7335,7 +7345,7 @@ msgstr "其中一座防御炮塔仍能运作。"
 msgid "one of the hands is yours. the name it wrote is not one you have given anybody here."
 msgstr "其中一种笔迹是你的。它写下的名字不是你在这里给过任何人的名字。"
 
-#: script/events/outside.js:983
+#: script/events/outside.js:990
 msgid "one of the newer arrivals can. she reads it twice before she says anything."
 msgstr "一位新来的人能读懂。她读了两遍才开口说话。"
 
@@ -7359,7 +7369,7 @@ msgstr "他们中有一人正被抬着走,而且从其他三人的样子看,已�
 msgid "one of them keeps saying they only meant to be out for the afternoon."
 msgstr "他们中有一人一直在说,自己本来只打算出门一个下午。"
 
-#: script/events/outside.js:768
+#: script/events/outside.js:775
 msgid "one of them offers to prove it and then cannot remember what the proof was."
 msgstr "他们中有一人提出要证明这一点,却又想不起证据是什么了。"
 
@@ -7383,7 +7393,7 @@ msgstr "残骸中掉出了一块碎片"
 msgid "one walked straight and came back the way he left"
 msgstr "一个人走了直线,并沿着离开时的路线走了回来"
 
-#: script/events/outside.js:361
+#: script/events/outside.js:368
 msgid "only a few die."
 msgstr "只有少数人死去"
 
@@ -7408,7 +7418,7 @@ msgstr "打开门"
 msgid "open the inner door"
 msgstr "打开内门"
 
-#: script/events/outside.js:124
+#: script/events/outside.js:131
 msgid "open the stores"
 msgstr "打开储藏室"
 
@@ -7432,7 +7442,7 @@ msgstr "其他流浪者"
 msgid "others cower in the distance"
 msgstr "其他人蜷缩在远处"
 
-#: script/room.js:2049
+#: script/room.js:2068
 msgid "others have followed you before and suffered or been left behind."
 msgstr "曾有其他人跟随过你,却遭遇不幸或被抛下。"
 
@@ -7448,7 +7458,7 @@ msgstr "在那些模印字母之上,有人一遍又一遍地刻下了同样的�
 msgid "overcharging"
 msgstr "过度充能"
 
-#: script/room.js:1456
+#: script/room.js:1475
 msgid "overheating"
 msgstr "过热"
 
@@ -7514,7 +7524,7 @@ msgstr "凝视着黄铜目镜。星星并不在旧地图所标示的位置上。
 msgid "Penrose"
 msgstr "彭罗斯"
 
-#: script/engine.js:1631
+#: script/engine.js:1639
 msgid "perhaps silence is safer?"
 msgstr "或许沉默更安全?"
 
@@ -7547,7 +7557,7 @@ msgstr "在骨头堆里找到一些有用的小玩艺儿"
 msgid "pinterest"
 msgstr "pinterest"
 
-#: script/events/outside.js:315
+#: script/events/outside.js:322
 msgid "Plague"
 msgstr "瘟疫"
 
@@ -7583,7 +7593,7 @@ msgstr "装甲板沿着裂缝剥落,散落在草地的边缘。"
 msgid "plating is stripped from the outside of the hull"
 msgstr "装甲板从船体外部被剥离"
 
-#: script/room.js:1542
+#: script/room.js:1561
 msgid "Please support the original game."
 msgstr "请支持原版游戏。"
 
@@ -7595,7 +7605,7 @@ msgstr "背包"
 msgid "pop "
 msgstr "人口 "
 
-#: script/events/outside.js:424
+#: script/events/outside.js:431
 msgid "population is almost exterminated"
 msgstr "人口几近绝灭"
 
@@ -7607,6 +7617,11 @@ msgstr "沿天花板铺设的电缆在多处断裂,偶尔迸出火花。"
 msgid "power cycle"
 msgstr "电力循环"
 
+#: script/ship.js:218
+#: script/ship.js:95
+msgid "power lasers"
+msgstr ""
+
 #: script/engine.js:52
 msgid "precise"
 msgstr "精密"
@@ -7615,7 +7630,7 @@ msgstr "精密"
 msgid "precision"
 msgstr "精密"
 
-#: script/events/outside.js:474
+#: script/events/outside.js:481
 msgid "predators become prey. price is unfair"
 msgstr "猎手变成猎物。价格不公"
 
@@ -7716,7 +7731,7 @@ msgstr "继续读下去"
 msgid "read the stones"
 msgstr "读一读这些石头"
 
-#: script/ship.js:202
+#: script/ship.js:231
 msgid "Ready to Leave?"
 msgstr "准备好要离开了吗?"
 
@@ -7736,7 +7751,7 @@ msgstr "对自己的行为感到后悔"
 msgid "regrowing"
 msgstr "重新生长中"
 
-#: script/ship.js:91
+#: script/ship.js:77
 msgid "reinforce hull"
 msgstr "加固船身"
 
@@ -7750,7 +7765,7 @@ msgstr "重新愈合中"
 msgid "relic from the past"
 msgstr "来自往昔的遗物"
 
-#: script/lab.js:338
+#: script/lab.js:352
 msgid "remnants of genetic work, and notes in ancient glyphs."
 msgstr "基因研究的遗留物,以及用古老符文写就的笔记。"
 
@@ -7762,7 +7777,7 @@ msgstr "重新安置中"
 msgid "residue"
 msgstr "残留物"
 
-#: script/events/marketing.js:28
+#: script/events/marketing.js:35
 msgid "resist it"
 msgstr "抵抗它"
 
@@ -7784,7 +7799,7 @@ msgid "Restart?"
 msgstr "重开？"
 
 #: script/engine.js:225
-#: script/space.js:882
+#: script/space.js:1192
 msgid "restart."
 msgstr "重启"
 
@@ -7809,12 +7824,12 @@ msgstr "重写中"
 msgid "ribs flare"
 msgstr "肋骨张开"
 
-#: script/room.js:1079
-#: script/room.js:1093
+#: script/room.js:1098
+#: script/room.js:1112
 msgid "rifle"
 msgstr "步枪"
 
-#: script/room.js:1096
+#: script/room.js:1115
 msgid "rifles can kill at a safe distance. a more modern and deadly weapon. builder shows you how to make a rifle but won't touch it."
 msgstr "步枪能在安全距离外杀敌。一种更现代、更致命的武器。建造者教你如何制作步枪,但自己绝不碰它。"
 
@@ -7830,7 +7845,7 @@ msgstr "升起"
 msgid "roads carve only a small path through the vast barrens of the wasteland."
 msgstr "道路只在这片广袤荒原中开辟出一条窄窄的小径。"
 
-#: script/room.js:1473
+#: script/room.js:1492
 msgid "roaring"
 msgstr "熊熊燃烧"
 
@@ -7839,7 +7854,7 @@ msgstr "熊熊燃烧"
 msgid "rob the grave"
 msgstr "盗掘这座坟墓"
 
-#: script/room.js:1312
+#: script/room.js:1331
 msgid "Room"
 msgstr "房间"
 
@@ -7859,7 +7874,7 @@ msgstr "一排排失去活性的安保机器人悬挂在天花板上。"
 msgid "rows of kneeling figures, all facing the same way"
 msgstr "一排排跪着的身影,全都面朝同一个方向"
 
-#: script/lab.js:339
+#: script/lab.js:353
 msgid "rows of tanks, drained. the fittings at the base are sized for a body."
 msgstr "一排排水槽,已经排空。底部的配件大小正好容纳一具身躯。"
 
@@ -7867,8 +7882,8 @@ msgstr "一排排水槽,已经排空。底部的配件大小正好容纳一具�
 msgid "rows of vats, and every one of them is you"
 msgstr "一排排培养舱,而每一个里面都是你"
 
-#: script/room.js:792
-#: script/room.js:806
+#: script/room.js:811
+#: script/room.js:825
 #: script/world.js:347
 msgid "rucksack"
 msgstr "双肩包"
@@ -7900,7 +7915,7 @@ msgstr "锈甲甲虫"
 msgid "rusted chainlink is pulled across an alleyway."
 msgstr "锈迹斑斑的铁丝网横过小巷"
 
-#: script/room.js:970
+#: script/room.js:989
 msgid "s armour"
 msgstr "钢甲"
 
@@ -7981,7 +7996,7 @@ msgstr "说没有人知道"
 #: script/events/room.js:1389
 #: script/events/room.js:933
 #: script/events/room.js:949
-#: script/room.js:2130
+#: script/room.js:2149
 msgid "say nothing"
 msgstr "什么也不说"
 
@@ -8029,7 +8044,7 @@ msgstr "说他以前见过有人做过这一切,规模大得你难以置信,而�
 msgid "says he is going to walk until he reaches the edge of it. says he has worked out that there has to be one."
 msgstr "说他要一直走,直到走到它的边缘为止。说他已经想明白,边缘是一定存在的。"
 
-#: script/space.js:692
+#: script/space.js:980
 msgid "says he is prepared to follow you again, if you will have him. says the last time did not go especially well and that he has had four hundred centuries to think about what he would do differently."
 msgstr "说如果你愿意接纳,他准备好再次追随你。说上一次的结果不算特别理想,而他已经用了四万年的时间思考自己会怎么做得不一样。"
 
@@ -8049,7 +8064,7 @@ msgstr "说他曾是其中之一。说还有另外一个,她不在这里,而他�
 msgid "says he will be here. says that is not a promise, it is just the only fact he has left."
 msgstr "说他会在这里。说这不是一个承诺,只是他仅剩的一个事实。"
 
-#: script/room.js:2110
+#: script/room.js:2129
 msgid "says in that case the huts should be built to last, and that she knows how, given steel."
 msgstr "说既然如此,小屋就该建得经久耐用,而只要有钢铁,她知道该怎么做。"
 
@@ -8057,11 +8072,11 @@ msgstr "说既然如此,小屋就该建得经久耐用,而只要有钢铁,她知
 msgid "says it can't die."
 msgstr "说它不会死。"
 
-#: script/events/outside.js:161
+#: script/events/outside.js:168
 msgid "says it is not the first thing she has had to rebuild. says that is not much comfort and offers it anyway."
 msgstr "说这不是她第一次不得不重建的东西了。说这话说不上什么安慰,但她还是说了出来。"
 
-#: script/room.js:2111
+#: script/room.js:2130
 msgid "says people work better when they are not waiting for the roof to come down."
 msgstr "说人们在不用担心屋顶随时会塌下来时,干活会更有效率。"
 
@@ -8069,7 +8084,7 @@ msgstr "说人们在不用担心屋顶随时会塌下来时,干活会更有效�
 msgid "says she has stopped believing the answers and started keeping a list of who gave them."
 msgstr "说她已经不再相信那些答案,转而开始记录是谁给出的这些答案。"
 
-#: script/room.js:2095
+#: script/room.js:2114
 msgid "says she has watched people follow you before. says she has watched what it cost them."
 msgstr "说她以前见过有人追随你。说她见过他们为此付出的代价。"
 
@@ -8085,7 +8100,7 @@ msgstr "说等她能正常走路了,接下来打算试试往北走。"
 msgid "says she is making a register of settlements. asks what this one is called."
 msgstr "说她正在编制一份定居点名录。问这一个叫什么名字。"
 
-#: script/room.js:2056
+#: script/room.js:2075
 msgid "says she is not asking to be difficult. says the answer changes what she builds next."
 msgstr "说她提这个问题不是为了刁难。说答案会决定她接下来要建造什么。"
 
@@ -8129,11 +8144,11 @@ msgstr "说舰队已经不复存在。不是四散——是彻底消失了。说
 msgid "says the oldest ones do not give a name at all. they just point at the ground."
 msgstr "说最年长的那些人根本不给出名字。他们只是指向地面。"
 
-#: script/space.js:691
+#: script/space.js:979
 msgid "says the terms were never as fixed as he let you believe. says he stayed because he had nowhere he would rather be broken, and that this, apparently, is not that any more."
 msgstr "说条款从来没有他让你相信的那么固定。说他留下来,是因为没有别的地方更适合让他崩溃,而如今这里显然已经不再是那样的地方了。"
 
-#: script/room.js:2096
+#: script/room.js:2115
 msgid "says the traps will still fill. says she can salt what comes out of them, and that two people do not need a village to feed them."
 msgstr "说陷阱依然会有收获。说她能把捕到的东西腌制起来,而两个人根本不需要一个村落来养活。"
 
@@ -8157,7 +8172,7 @@ msgstr "说那之后还有另一位。他认为舰队被浪费在了一场已经
 msgid "says they locked that one up, and they were right to, and everyone agreed, and it held for a long time."
 msgstr "说他们把那一位关了起来,而这样做是对的,所有人都同意,而这局面维持了很长时间。"
 
-#: script/events/outside.js:839
+#: script/events/outside.js:846
 msgid "says this world is the only one that never got a name, and that is why they are all still on it."
 msgstr "说这个世界是唯一一个从未得到过名字的世界,而这正是他们都还留在这里的原因。"
 
@@ -8226,7 +8241,7 @@ msgstr "拾荒的流浪者在一片古战场上翻找尸体。一名流浪者发
 msgid "scoff at her weakness"
 msgstr "嘲笑她的软弱"
 
-#: script/space.js:866
+#: script/space.js:1176
 msgid "score for this game: {0}"
 msgstr "游戏得分: {0}"
 
@@ -8263,7 +8278,7 @@ msgstr "刻在岩石背面,恰好是一个躺在这里的人才能看见的位�
 msgid "scratched on the underside of the middle stone there is a list of marks in different hands."
 msgstr "中间那块石头的背面刻着一列记号,出自不同的笔迹。"
 
-#: script/prison.js:221
+#: script/prison.js:231
 msgid "scratches on a sloped face, made by someone lying down."
 msgstr "斜面上的划痕,是躺着的人刻下的。"
 
@@ -8315,7 +8330,7 @@ msgstr "这里的安保更加森严。"
 msgid "see farther"
 msgstr "看得更远"
 
-#: script/events/outside.js:591
+#: script/events/outside.js:598
 msgid "see to our own dead first"
 msgstr "先照顾好自己人的死者"
 
@@ -8335,7 +8350,7 @@ msgstr "让她继续上路"
 msgid "sentinel"
 msgstr "哨兵"
 
-#: script/events/outside.js:251
+#: script/events/outside.js:258
 msgid "separate the sick"
 msgstr "将病患隔离"
 
@@ -8356,7 +8371,7 @@ msgstr "自行调整就位"
 msgid "sets itself"
 msgstr "自动调整就位"
 
-#: script/mobileUI.js:296
+#: script/mobileUI.js:299
 msgid "settings"
 msgstr "设置"
 
@@ -8388,15 +8403,15 @@ msgstr "分享"
 msgid "shares what he knows about sneaking before he goes."
 msgstr "在离开前他分享了有关潜行的心得"
 
-#: script/room.js:987
+#: script/room.js:1006
 msgid "sharp teeth, hungry mouths and violent hearts desire blood. builder can make even stronger steel armour for protection."
 msgstr "尖牙、饥饿的血盆大口和狂暴的心渴望着鲜血。建造者能制作更坚固的钢甲以作防护。"
 
-#: script/room.js:952
+#: script/room.js:971
 msgid "sharp teeth, hungry mouths and violent hearts desire blood. builder can make stronger iron armour for protection. she likes to see you protected."
 msgstr "尖牙、饥饿的血盆大口和狂暴的心渴望着鲜血。建造者能制作更坚固的铁甲以作防护。她乐见你受到保护。"
 
-#: script/room.js:917
+#: script/room.js:936
 msgid "sharp teeth, hungry mouths and violent hearts desire blood. builder can stitch together leather armour for protection. she worries about you."
 msgstr "尖牙、饥饿的血盆大口和狂暴的心渴望着鲜血。建造者能缝制皮甲以作防护。她为你担心。"
 
@@ -8456,7 +8471,7 @@ msgstr "她数了两遍,数字并没有变。说她一个人的名字都不知�
 msgid "she does not argue. she writes something in the book, closes it, and walks."
 msgstr "她没有争辩。她在本子上写了些什么,合上本子,转身离开。"
 
-#: script/room.js:2124
+#: script/room.js:2143
 msgid "she does not argue. that is the part worth noticing."
 msgstr "她没有争辩。这一点值得留意。"
 
@@ -8472,7 +8487,7 @@ msgstr "她没有问外面发生了什么。她大致能看出来。说荒野本
 msgid "she does not explain how she found you. she asks you not to open the door."
 msgstr "她没有解释自己是怎么找到你的。她请求你不要打开那扇门。"
 
-#: script/room.js:2123
+#: script/room.js:2142
 msgid "she does not nod. she looks at the hut, and then at you, and then goes back to work."
 msgstr "她没有点头。她看了看那座小屋,又看了看你,然后回去继续干活。"
 
@@ -8536,7 +8551,7 @@ msgstr "她伤了手却什么都没说"
 msgid "she has more than she can use and no way to stop making it."
 msgstr "她拥有的比她能用的还多,却没有办法停止继续制造。"
 
-#: script/space.js:769
+#: script/space.js:1079
 msgid "she has never mentioned being able to do that.<br>you have never seen her do anything like it."
 msgstr "她从未提起过自己能做到这一点。<br>你也从未见她做过类似的事。"
 
@@ -8544,7 +8559,8 @@ msgstr "她从未提起过自己能做到这一点。<br>你也从未见她做�
 msgid "she hasn't completely escaped the dream. some of the terror remains in her face."
 msgstr "她还没有完全从梦中挣脱出来。脸上仍残留着一些恐惧的痕迹。"
 
-#: script/space.js:785
+#: script/space.js:1007
+#: script/space.js:1095
 msgid "she holds it together long enough. the drives catch."
 msgstr "她撑住场面直到最后一刻。驱动装置终于启动了。"
 
@@ -8552,7 +8568,7 @@ msgstr "她撑住场面直到最后一刻。驱动装置终于启动了。"
 msgid "she is careful with it in a way she is not careful with iron or coal. says she has seen what happens when this is stored wrong, and does not say where."
 msgstr "她对待这东西的谨慎程度,远超对待铁或煤的态度。说她见过储存不当会发生什么,却不说是在哪里见到的。"
 
-#: script/space.js:790
+#: script/space.js:1100
 msgid "she is doing too much at once and you can see the moment it starts to come apart."
 msgstr "她同时做的事太多了,你能看出局面开始失控的那一刻。"
 
@@ -8560,7 +8576,8 @@ msgstr "她同时做的事太多了,你能看出局面开始失控的那一刻�
 msgid "she is quiet for long enough that you think she is not going to say anything. then: that every name on a stone like that was a person who trusted somebody, once, right up until the point where trusting them was the mistake that killed them."
 msgstr "她沉默了很久,久到你以为她不会再说什么了。然后她说:那样一块石头上的每一个名字,都曾是一个信任过某人的人,一直信任到那份信任成了要了他们命的错误为止。"
 
-#: script/space.js:780
+#: script/space.js:1004
+#: script/space.js:1090
 msgid "she is working eight stations at once and touching none of them.<br>readouts move. locks release. the drives come up."
 msgstr "她同时操控着八个工作站,却没有触碰其中任何一个。<br>读数在跳动。锁扣纷纷释放。驱动装置陆续启动。"
 
@@ -8596,11 +8613,11 @@ msgstr "她头也不抬地提了一句,说自己叫艾拉。她再也没有提�
 msgid "she nods like she expected it, and does not write anything."
 msgstr "她点了点头,像是早有预料,没有写下任何东西。"
 
-#: script/room.js:2109
+#: script/room.js:2128
 msgid "she nods, and does not say anything for a bit, and then says good."
 msgstr "她点了点头,沉默了一会儿,然后说了声\"好\"。"
 
-#: script/room.js:2094
+#: script/room.js:2113
 msgid "she puts the plans down and does not pick them back up."
 msgstr "她放下了那些图纸,再也没有拿起来过。"
 
@@ -8672,7 +8689,7 @@ msgstr "她说神秘的流浪者能给出比她更好的答案。"
 msgid "she says the village is just over there. she gestures at a direction with nothing in it."
 msgstr "她说村落就在那边。她朝一个空无一物的方向比划了一下。"
 
-#: script/events/outside.js:992
+#: script/events/outside.js:999
 msgid "she says there are a great many of these. she says she has been walking past them her whole life."
 msgstr "她说这样的东西有很多。说她这辈子一直从它们身边走过。"
 
@@ -8729,7 +8746,7 @@ msgstr "她双手翻看着那块矿石,过了一会儿才开口。说不管是�
 msgid "she turns the page. there are forty names on it, in nine hands, and none of them agree."
 msgstr "她翻过一页。上面有四十个名字,出自九种笔迹,没有一个能对得上。"
 
-#: script/events/outside.js:988
+#: script/events/outside.js:995
 msgid "she turns the stone over looking for a mason's mark and finds one, scratched rather than cut."
 msgstr "她把石头翻过来,想找石匠的标记,结果找到了一个,是刮划出来的,而不是雕刻的。"
 
@@ -8749,7 +8766,7 @@ msgstr "外壳裂开"
 msgid "shielded"
 msgstr "已屏蔽"
 
-#: script/ship.js:51
+#: script/ship.js:33
 msgid "Ship"
 msgstr "飞船"
 
@@ -8765,7 +8782,7 @@ msgstr "开火"
 msgid "should be able to open it."
 msgstr "应该能打开它。"
 
-#: script/room.js:384
+#: script/room.js:403
 msgid "should cure the meat, or it'll spoil. builder says she can fix something up."
 msgstr "应该把肉熏一下，否则会腐坏掉。建造者说她能搞定这个。"
 
@@ -8777,7 +8794,7 @@ msgstr "大喊一声继续前进"
 msgid "shuffling noises can be heard from within."
 msgstr "能听到里面传来拖曳的声响。"
 
-#: script/events/outside.js:219
+#: script/events/outside.js:226
 msgid "Sickness"
 msgstr "疾病"
 
@@ -8878,12 +8895,12 @@ msgstr "柜子里有一处小型武器储藏点。"
 msgid "smash it"
 msgstr "砸碎它"
 
-#: script/room.js:381
-#: script/room.js:406
+#: script/room.js:400
+#: script/room.js:425
 msgid "smokehouse"
 msgstr "熏肉房"
 
-#: script/room.js:1470
+#: script/room.js:1489
 msgid "smoldering"
 msgstr "开始冒烟"
 
@@ -8900,23 +8917,23 @@ msgstr "狙击手"
 msgid "so are the shelves."
 msgstr "架子也是如此。"
 
-#: script/events/outside.js:106
+#: script/events/outside.js:113
 msgid "so dependent on fire for warmth and life until it takes it away."
 msgstr "如此依赖火来取暖续命,直到它将这一切夺走。"
 
-#: script/space.js:801
+#: script/space.js:1111
 msgid "so much debris of dead ships from long lost wars.<br>some wanderer ships. some others.<br>sky begins to clear into an endless expanse."
 msgstr "如此多来自早已湮没的战争、逝去舰船的残骸。<br>有些是流浪者的飞船。有些不是。<br>天空开始澄澈,化作一片无尽的疆域。"
 
-#: script/space.js:755
+#: script/space.js:1065
 msgid "so much debris of dead ships from long lost wars.<br>the sky opens out, and there is nobody aboard but the two of you."
 msgstr "如此多来自早已湮没的战争、逝去舰船的残骸。<br>天空豁然开阔,而船上除了你们两人再无他人。"
 
-#: script/room.js:2072
+#: script/room.js:2091
 msgid "so they have somewhere to be kept"
 msgstr "好让他们有个地方安置"
 
-#: script/room.js:2063
+#: script/room.js:2082
 msgid "so they have somewhere to belong"
 msgstr "好让他们有个归属之地"
 
@@ -8932,11 +8949,11 @@ msgstr "士兵"
 msgid "soldiers patrol the perimeter, rifles slung over their shoulders."
 msgstr "士兵肩上扛着步枪在周围巡逻"
 
-#: script/events/outside.js:229
+#: script/events/outside.js:236
 msgid "some {0} are ill"
 msgstr "一些 {0} 病了"
 
-#: script/events/outside.js:137
+#: script/events/outside.js:144
 msgid "some {0} have died"
 msgstr "一些 {0} 已经死去"
 
@@ -8972,11 +8989,11 @@ msgstr "其中一些是固定的,不会转动。其余的在指尖轻触下就�
 msgid "some of them are human. some of them are wanderers. none of them appear to consider this worth remarking on."
 msgstr "他们中有些是人类。有些是流浪者。似乎没有一个觉得这值得一提。"
 
-#: script/events/outside.js:201
+#: script/events/outside.js:208
 msgid "some of them are not anywhere."
 msgstr "他们中有些哪里都不在。"
 
-#: script/events/outside.js:200
+#: script/events/outside.js:207
 msgid "some of them are still outside the wall in the morning."
 msgstr "他们中有些到了早上仍待在墙外。"
 
@@ -8988,7 +9005,7 @@ msgstr "他们中有些跪了足够久,地面都已从膝盖周围隆起。"
 msgid "some of what it protected was worth protecting."
 msgstr "它所守护的东西,有一些确实值得守护。"
 
-#: script/space.js:762
+#: script/space.js:1072
 msgid "some part of you wonders whether you escaped at all,<br>or whether this is only the part where you get to leave."
 msgstr "你心中有一部分在怀疑,自己究竟是否真的逃脱了,<br>还是说这只是你获准离开的那一部分而已。"
 
@@ -9106,7 +9123,7 @@ msgstr "曾有人被放了出去,在离这里很远的地方,而这里就是为�
 msgid "somebody with your hand has signed this stone five times. you are signing it for the first time."
 msgstr "有个和你笔迹相同的人已经在这块石头上签过五次名了。你是第一次签。"
 
-#: script/prison.js:212
+#: script/prison.js:222
 msgid "someone drew a symbol in this cell. it looks like your charms."
 msgstr "有人在这间囚室里画了一个符号。看起来和你的护身符很像。"
 
@@ -9162,7 +9179,7 @@ msgstr "有什么东西已经在这里上上下下走过无数次。"
 msgid "something has settled out of the rain"
 msgstr "有什么东西从雨水中沉淀了下来"
 
-#: script/lab.js:347
+#: script/lab.js:361
 msgid "something in the back of your mind says to turn back now."
 msgstr "你脑海深处有个声音说,现在该回头了。"
 
@@ -9226,7 +9243,7 @@ msgstr "披着流浪者外皮的东西"
 msgid "Something Wearing a Wanderer"
 msgstr "披着流浪者外皮的东西"
 
-#: script/space.js:685
+#: script/space.js:973
 msgid "something with three eyes and no mouth is watching, and for once it does not look away."
 msgstr "一个长着三只眼睛、没有嘴巴的东西正注视着你,而这一次,它没有移开目光。"
 
@@ -9260,32 +9277,32 @@ msgstr "有时候,不战是上策。"
 msgid "sometimes it is best to fight without restraint."
 msgstr "有时候,全力开战才是上策。"
 
-#: script/ship.js:131
+#: script/ship.js:126
 msgid "somewhere above the debris cloud, the wanderer fleet hovers. been on this rock too long."
 msgstr "碎片云上方的某处，流浪者舰队徘徊着。在这块岩石上太久了。"
 
-#: script/lab.js:312
+#: script/lab.js:326
 msgid "somewhere behind the wall, a pump cycles, stops, and cycles again."
 msgstr "墙壁后方某处,一台水泵循环运转,停止,又再次循环运转。"
 
-#: script/space.js:730
+#: script/space.js:1040
 msgid "somewhere behind you the rock keeps turning. there is a room on it with a fire in it.<br>you do not look back at it."
 msgstr "在你身后的某处,那块岩石仍在不停旋转。上面有一间屋子,屋里有一堆火。<br>你没有回头去看它。"
 
-#: script/engine.js:1626
+#: script/engine.js:1634
 msgid "Sound Available!"
 msgstr "音效可用!"
 
-#: script/engine.js:1428
+#: script/engine.js:1436
 msgid "sound off."
 msgstr "音效关闭。"
 
-#: script/engine.js:1424
+#: script/engine.js:1432
 #: script/engine.js:189
 msgid "sound on."
 msgstr "音效开启。"
 
-#: script/space.js:113
+#: script/space.js:318
 msgid "Space"
 msgstr "太空"
 
@@ -9297,7 +9314,7 @@ msgstr "释放他"
 msgid "sparks cascade from a reactivated power junction, and catch."
 msgstr "火花从一处重新通电的接线盒中飞溅而出,并点燃了什么。"
 
-#: script/lab.js:324
+#: script/lab.js:338
 msgid "specimen racks, emptied and washed. the labels were peeled off."
 msgstr "标本架已被清空并冲洗干净。标签也被撕掉了。"
 
@@ -9309,7 +9326,7 @@ msgstr "孢子缠身的雄鹿"
 msgid "spores burst"
 msgstr "孢子炸裂"
 
-#: script/prison.js:203
+#: script/prison.js:213
 msgid "square in section, exactly, and it stays exactly square."
 msgstr "截面精确地呈正方形,而且始终保持精确的正方形。"
 
@@ -9341,7 +9358,7 @@ msgstr "站在那里"
 msgid "stars in the sky"
 msgstr "天空中的星星"
 
-#: script/events/outside.js:152
+#: script/events/outside.js:159
 msgid "start clearing the ash"
 msgstr "开始清理灰烬"
 
@@ -9376,24 +9393,24 @@ msgstr "蒸汽"
 msgid "steel"
 msgstr "钢"
 
-#: script/room.js:984
+#: script/room.js:1003
 msgid "steel armour"
 msgstr "钢甲"
 
-#: script/room.js:495
+#: script/room.js:514
 msgid "steel blades and armor are a defense against the ravages and savages of the wastes. more than that. wanderers once crossed the stars. making steel seems like a step towards the future."
 msgstr "钢铁的刀刃和护甲,是抵御荒原摧残与野蛮的防线。不止如此。流浪者曾经跨越星辰。打造钢铁似乎是迈向未来的一步。"
 
-#: script/room.js:152
+#: script/room.js:171
 msgid "steel hut"
 msgstr "钢铁小屋"
 
-#: script/room.js:1042
-#: script/room.js:1057
+#: script/room.js:1061
+#: script/room.js:1076
 msgid "steel sword"
 msgstr "钢剑"
 
-#: script/room.js:973
+#: script/room.js:992
 msgid "steel's stronger than iron"
 msgstr "钢的总比铁的强"
 
@@ -9402,8 +9419,8 @@ msgstr "钢的总比铁的强"
 msgid "steelworker"
 msgstr "炼钢工人"
 
-#: script/room.js:466
-#: script/room.js:492
+#: script/room.js:485
+#: script/room.js:511
 msgid "steelworks"
 msgstr "炼钢坊"
 
@@ -9424,7 +9441,7 @@ msgstr "走进去,机器嗡嗡作响。肌肉与骨骼重新愈合。焕然如�
 msgid "stepping off the safe roads into the dark forest where anything can be lurking amongst the trees."
 msgstr "走出安全的道路,踏入黑暗的森林,那里的树木间可能潜伏着任何东西。"
 
-#: script/lab.js:314
+#: script/lab.js:328
 msgid "sterile and clinical but with an almost organic thrum"
 msgstr "无菌而冷峻,却带着一种近乎有机的低鸣"
 
@@ -9464,7 +9481,7 @@ msgstr "兴奋剂"
 msgid "stinging"
 msgstr "刺痛"
 
-#: script/room.js:1367
+#: script/room.js:1386
 msgid "stoke fire"
 msgstr "添柴"
 
@@ -9477,7 +9494,7 @@ msgid "stop him"
 msgstr "阻止他"
 
 #: script/mobileUI.js:34
-#: script/room.js:1674
+#: script/room.js:1693
 msgid "stores"
 msgstr "库存"
 
@@ -9497,7 +9514,7 @@ msgstr "古怪鳞片"
 msgid "strange."
 msgstr "奇怪。"
 
-#: script/space.js:105
+#: script/space.js:310
 msgid "Stratosphere"
 msgstr "平流层"
 
@@ -9527,7 +9544,7 @@ msgstr "使其眩晕"
 msgid "stunned"
 msgstr "惊吓"
 
-#: script/lab.js:377
+#: script/lab.js:391
 msgid "sublevel {0}"
 msgstr "地下 {0} 层"
 
@@ -9547,11 +9564,11 @@ msgstr "地下二层。更冷。这里的过滤系统声音更响。"
 msgid "substrate"
 msgstr "基质"
 
-#: script/events/outside.js:267
+#: script/events/outside.js:274
 msgid "sufferers are healed"
 msgstr "受苦的人得到了救治"
 
-#: script/events/outside.js:298
+#: script/events/outside.js:305
 msgid "sufferers are left to die"
 msgstr "受苦的人等待着死亡"
 
@@ -9592,7 +9609,7 @@ msgstr "手术器械散落在地板上,靠近一处看似篝火余烬的地方�
 msgid "sustained"
 msgstr "持续"
 
-#: script/room.js:1455
+#: script/room.js:1474
 msgid "sweating"
 msgstr "冒汗"
 
@@ -9604,11 +9621,11 @@ msgstr "肿胀"
 msgid "swing"
 msgstr "挥斩"
 
-#: script/room.js:1008
+#: script/room.js:1027
 msgid "sword is sharp. good protection out in the wilds."
 msgstr "剑很锋利。能在野外提供不错的防护"
 
-#: script/events.js:1232
+#: script/events.js:1239
 #: script/events/setpieces.js:7523
 msgid "take"
 msgstr "带走"
@@ -9625,7 +9642,7 @@ msgstr "拿走全部四个"
 msgid "take all of it"
 msgstr "全部拿走"
 
-#: script/events.js:1314
+#: script/events.js:1321
 msgid "take all you can"
 msgstr "拿走可带走的一切"
 
@@ -9633,7 +9650,7 @@ msgstr "拿走可带走的一切"
 msgid "take device and leave"
 msgstr "拿走装置后离开"
 
-#: script/events.js:1314
+#: script/events.js:1321
 msgid "take everything"
 msgstr "拿走一切"
 
@@ -9649,15 +9666,15 @@ msgstr "拿走她的地图"
 msgid "take his bags"
 msgstr "拿走他的行囊"
 
-#: script/events/outside.js:733
+#: script/events/outside.js:740
 msgid "take in both"
 msgstr "两批都收留"
 
-#: script/events/outside.js:723
+#: script/events/outside.js:730
 msgid "take in the ones with iron"
 msgstr "收留带铁器的那批"
 
-#: script/events/outside.js:728
+#: script/events/outside.js:735
 msgid "take in the ones with the lamp"
 msgstr "收留带灯的那批"
 
@@ -9706,7 +9723,7 @@ msgstr "拿走上面的东西"
 msgid "take what is on the outside"
 msgstr "拿走外面的东西"
 
-#: script/events.js:1242
+#: script/events.js:1249
 msgid "take:"
 msgstr "获得:"
 
@@ -9735,12 +9752,12 @@ msgstr "水箱暴露在外"
 msgid "tanner"
 msgstr "皮革师"
 
-#: script/room.js:335
-#: script/room.js:360
+#: script/room.js:354
+#: script/room.js:379
 msgid "tannery"
 msgstr "制革屋"
 
-#: script/room.js:339
+#: script/room.js:358
 msgid "tannery goes up quick, on the edge of the village"
 msgstr "制革屋很快在村子一角建立了起来"
 
@@ -9760,7 +9777,7 @@ msgstr "三十步之外牙齿就会作痛。"
 msgid "tell him to leave"
 msgstr "请他离开"
 
-#: script/events/outside.js:493
+#: script/events/outside.js:500
 msgid "tend the wounded"
 msgstr "照料伤员"
 
@@ -9769,7 +9786,7 @@ msgstr "照料伤员"
 msgid "thank him"
 msgstr "向他道谢"
 
-#: script/lab.js:349
+#: script/lab.js:363
 msgid "that cannot be right. those glyphs seem to suggest..."
 msgstr "这不可能是对的。那些符文似乎在暗示……"
 
@@ -9797,11 +9814,11 @@ msgstr "那份存档数据无法读取。"
 msgid "the {0} hang the thief high in front of the store room."
 msgstr "{0} 把那个小偷高高吊起,示众于储藏室前。"
 
-#: script/events/outside.js:459
+#: script/events/outside.js:466
 msgid "the {0} retreat to mourn the dead."
 msgstr "{0} 退下去哀悼死者。"
 
-#: script/events/outside.js:631
+#: script/events/outside.js:638
 msgid "the {0} take their boots, and their belts, and their ammunition."
 msgstr "{0} 拿走了他们的靴子、腰带和弹药。"
 
@@ -9821,7 +9838,7 @@ msgstr "升上来的空气冷冽而清洁,是被某个仍在运作的装置过�
 msgid "the air coming up is old in a way the rest of this place is not. nothing has breathed it."
 msgstr "升上来的空气有一种陈旧感,是这地方其他部分所没有的。从未有生物呼吸过它。"
 
-#: script/lab.js:134
+#: script/lab.js:143
 msgid "the air down here is doing something to you."
 msgstr "这下面的空气正在对你产生某种影响。"
 
@@ -9841,11 +9858,11 @@ msgstr "这里的空气更凉爽。低矮的柜子环绕着房间,柜门上蒙�
 msgid "the air is filled with dust, driven relentlessly by the hard winds."
 msgstr "漫天的灰尘在风中飘荡"
 
-#: script/space.js:829
+#: script/space.js:1139
 msgid "the air is running out."
 msgstr "空气正在耗尽。"
 
-#: script/lab.js:308
+#: script/lab.js:322
 msgid "the air moves. something is still running the filtration."
 msgstr "空气在流动。有什么东西仍在运行着过滤系统。"
 
@@ -9857,7 +9874,7 @@ msgstr "前方的壁龛空无一物,而有什么东西已经在你身后了。"
 msgid "the alien bird lays dead at your feet."
 msgstr "那只异形飞鸟已经死在你脚边。"
 
-#: script/prison.js:222
+#: script/prison.js:232
 msgid "the angles are wrong in a way you can feel in your jaw."
 msgstr "这些角度不对劲,不对劲到你能用下颌感受到。"
 
@@ -9893,7 +9910,7 @@ msgstr "行囊很轻易就卸了下来。那是因为里面没有什么值得携
 msgid "the barrels are covered and the water stays clean."
 msgstr "木桶被盖上了,水保持着清洁。"
 
-#: script/events/outside.js:841
+#: script/events/outside.js:848
 msgid "the barren world is the only one that never got a name"
 msgstr "荒芜世界是唯一一个从未得到过名字的世界"
 
@@ -9905,16 +9922,17 @@ msgstr "这片荒原上标记着道路,昭示着文明的存在。"
 msgid "the barrens break at a sea of dying grass, swaying in the arid breeze."
 msgstr "荒草如海，在燥热的风中摇曳着，中间现出了一片荒地"
 
-#: script/space.js:828
+#: script/space.js:1138
 msgid "the beacon glows a solid blue, and then goes dim. the ship slows.<br>gradually, the vast wanderer homefleet comes into view.<br>massive worldships drift unnaturally through clouds of debris, scarred and dead. no crew respond"
 msgstr "信标发出纯净的蓝光,随后转暗。飞船减速。<br>渐渐地,庞大的流浪者母舰队映入眼帘。<br>巨大的世界船在残骸云中不自然地漂浮,伤痕累累,死气沉沉。没有任何船员回应"
 
-#: script/space.js:826
+#: script/space.js:1136
 msgid "the beacon pulses gently as the ship glides through space.<br>coordinates are locked."
 msgstr "信标在飞船滑行穿越太空时轻柔地闪动。<br>坐标已锁定。"
 
-#: script/space.js:676
-#: script/space.js:777
+#: script/space.js:1001
+#: script/space.js:1087
+#: script/space.js:964
 msgid "the beacon pulses. coordinates are locked. the fleet is expecting you."
 msgstr "信标闪动着。坐标已锁定。舰队正在等待你。"
 
@@ -9976,7 +9994,7 @@ msgstr "流浪者的尸体躺在狭小的洞穴里"
 msgid "the buckles are done up the way somebody does them when they expect to come back."
 msgstr "那些扣带系得整整齐齐,是那种预期自己还会回来的人才会有的系法。"
 
-#: script/room.js:2059
+#: script/room.js:2078
 msgid "the builder asks what the huts are for"
 msgstr "建造者问这些小屋是做什么用的"
 
@@ -9984,7 +10002,7 @@ msgstr "建造者问这些小屋是做什么用的"
 msgid "the builder can share when she wants to."
 msgstr "建造者想分享的时候自然会分享。"
 
-#: script/space.js:767
+#: script/space.js:1077
 msgid "the builder does not move. she does not reach for anything."
 msgstr "建造者没有动。她没有伸手去拿任何东西。"
 
@@ -9992,11 +10010,12 @@ msgstr "建造者没有动。她没有伸手去拿任何东西。"
 msgid "the builder does not reach for anything. she says that whatever it is has already decided, and that we will find out which way when the fire drops."
 msgstr "建造者没有伸手去拿任何东西。她说不管那是什么,已经做出了决定,而我们会在火势减弱时知道结果是哪一种。"
 
-#: script/room.js:2127
+#: script/room.js:2146
 msgid "the builder goes back to work without arguing"
 msgstr "建造者没有争辩,回去继续干活了"
 
-#: script/space.js:779
+#: script/space.js:1003
+#: script/space.js:1089
 msgid "the builder goes to the controls. all of them."
 msgstr "建造者走向控制台。全部的控制台。"
 
@@ -10004,14 +10023,15 @@ msgstr "建造者走向控制台。全部的控制台。"
 msgid "the builder has come out into the wastes"
 msgstr "建造者已经走进了荒原"
 
-#: script/space.js:694
-#: script/space.js:699
-#: script/space.js:721
-#: script/space.js:737
+#: script/space.js:1010
+#: script/space.js:1031
+#: script/space.js:1047
+#: script/space.js:982
+#: script/space.js:987
 msgid "the builder has followed you through all of it, and you never once asked her to."
 msgstr "建造者陪你走过了这一切,而你一次都没有要求过她这样做。"
 
-#: script/events/outside.js:160
+#: script/events/outside.js:167
 msgid "the builder is already sorting the wreckage into what can be saved and what cannot, before you have said anything."
 msgstr "你还没说什么,建造者就已经开始把残骸分类,哪些能救,哪些不能。"
 
@@ -10069,7 +10089,7 @@ msgstr "建造者说重建是件好事,能在荒野中开辟出一处安全的�
 msgid "the builder says many empires have come and gone. more will come in time. should a punishment outlive the empire itself?"
 msgstr "建造者说许多帝国来了又去。将来还会有更多帝国兴起。惩罚真的应该比帝国本身活得更久吗?"
 
-#: script/space.js:763
+#: script/space.js:1073
 msgid "the builder says nothing. the cabin is warm.<br>you drift off to sleep..."
 msgstr "建造者什么也没说。小屋里很温暖。<br>你渐渐睡去……"
 
@@ -10081,16 +10101,16 @@ msgstr "建造者说她会告诉别人。她说这话时并非责备。"
 msgid "the builder shivers in her sleep even with the fire. the bracing cold cuts right to the bone. was it always this dark and this cold?"
 msgstr "即使有火,建造者睡梦中仍在颤抖。那刺骨的寒意直透骨髓。这里一直都是这么黑、这么冷吗?"
 
-#: script/room.js:2047
-#: script/room.js:2054
+#: script/room.js:2066
+#: script/room.js:2073
 msgid "the builder stands looking at your plans for housing."
 msgstr "建造者站在那里,看着你的住房图纸。"
 
-#: script/room.js:2113
+#: script/room.js:2132
 msgid "the builder starts planning for something permanent"
 msgstr "建造者开始规划一些永久性的东西"
 
-#: script/room.js:2099
+#: script/room.js:2118
 msgid "the builder starts salting meat. there will be no huts."
 msgstr "建造者开始腌制肉类。不会再有小屋了。"
 
@@ -10098,7 +10118,7 @@ msgstr "建造者开始腌制肉类。不会再有小屋了。"
 msgid "the builder watches you do it and does not comment on how easily it came."
 msgstr "建造者看着你做完这件事,对它有多轻易只字未提。"
 
-#: script/space.js:834
+#: script/space.js:1144
 msgid "the builder wonders if they can bring villagers up as a skeleton crew. deep down you know there is even more you could have done."
 msgstr "建造者想知道能否带几个村民上来作为最基本的船员。你内心深处知道,自己本可以做得更多。"
 
@@ -10114,7 +10134,7 @@ msgstr "这座建筑是由一整块石头凿成的,没有窗户。"
 msgid "the bundle is gone by morning. so are the noises."
 msgstr "到早上,那个包裹不见了。那些声响也一并消失了。"
 
-#: script/events/outside.js:173
+#: script/events/outside.js:180
 msgid "the burned-out families are taken in and fed."
 msgstr "那些被烧得一无所有的家庭被收留并得到了食物。"
 
@@ -10145,11 +10165,11 @@ msgstr "营地被烧毁了"
 msgid "the camp is still, save for the crackling of the fires."
 msgstr "营地平静下来，除了劈啪作响的火苗"
 
-#: script/space.js:830
+#: script/space.js:1140
 msgid "the capsule is cold."
 msgstr "那个舱体是冰冷的。"
 
-#: script/events/outside.js:536
+#: script/events/outside.js:543
 msgid "the carcasses are left where they fell."
 msgstr "尸骸被留在了倒下的地方。"
 
@@ -10181,7 +10201,7 @@ msgstr "制图师的骡子"
 msgid "the case is intact. the bar inside it is still exactly the length. there is nothing left anywhere to check against it."
 msgstr "那个盒子完好无损。里面的量杆长度分毫不差。但如今已没有任何地方能拿来与之核对了。"
 
-#: script/room.js:689
+#: script/room.js:708
 msgid "the cask holds enough water for longer expeditions"
 msgstr "为更长的探索之旅提供充足的水源"
 
@@ -10282,7 +10302,7 @@ msgid "the command deck is empty, save for a squat figure sitting motionless in 
 msgstr "指挥甲板空无一人,只有一个矮壮的身影静止不动地坐在房间中央。"
 
 #: script/path.js:68
-#: script/room.js:2318
+#: script/room.js:2337
 msgid "the compass points {0}"
 msgstr "罗盘指向 {0}"
 
@@ -10330,7 +10350,7 @@ msgstr "冷凝器停止运转"
 msgid "the convict now confined to the grave"
 msgstr "那名囚犯如今被禁锢于坟墓之中"
 
-#: script/room.js:866
+#: script/room.js:885
 msgid "the convoy can haul mostly everything"
 msgstr "车队几乎能把所有东西都装下"
 
@@ -10378,7 +10398,7 @@ msgstr "走廊通向一处庞大的训练场,障碍物和设施都被实战熏�
 msgid "the corridor passes through a security checkpoint. the defences are blown apart, ragged edges scorched by laser fire."
 msgstr "走廊穿过一处安检站。防御设施已被炸得四分五裂,参差的断口被激光烧得焦黑。"
 
-#: script/prison.js:247
+#: script/prison.js:257
 msgid "the corridor runs straight, and it only runs one way."
 msgstr "这条走廊笔直延伸,而且只通往一个方向。"
 
@@ -10386,7 +10406,7 @@ msgstr "这条走廊笔直延伸,而且只通往一个方向。"
 msgid "the corridor widens into something that was meant to hold a crowd."
 msgstr "走廊渐渐变宽,通向一处显然是为容纳人群而建的空间。"
 
-#: script/lab.js:133
+#: script/lab.js:142
 msgid "the counter climbs. the suit takes most of it."
 msgstr "计数器读数攀升。防护服吸收了其中的大部分。"
 
@@ -10428,7 +10448,7 @@ msgid "the crystal pulses brightly, then goes dark. the assailant shimmers as it
 msgstr "水晶明亮地闪动了一下,随即黯淡下去。袭击者的身形开始模糊,微微闪烁。"
 
 #: script/events/setpieces.js:3467
-#: script/prison.js:264
+#: script/prison.js:274
 msgid "the cube"
 msgstr "立方体"
 
@@ -10452,7 +10472,7 @@ msgstr "黑暗中有什么占据在此,而且已经很久很久了。"
 msgid "the darkness is absolute"
 msgstr "漆黑一片"
 
-#: script/events/outside.js:985
+#: script/events/outside.js:992
 msgid "the date of loss is before the date the stone was cut. somebody put this here for someone they had not lost yet."
 msgstr "阵亡日期早于这块石头雕刻的日期。有人为一个当时尚未失去的人,提前立下了这块碑。"
 
@@ -10468,11 +10488,11 @@ msgstr "大约四年之后,这些日期不再是日期,而变成了一个只增�
 msgid "the day is waited out"
 msgstr "这一天被熬了过去"
 
-#: script/events/outside.js:295
+#: script/events/outside.js:302
 msgid "the days are spent with burials."
 msgstr "一场又一场葬礼"
 
-#: script/events/outside.js:187
+#: script/events/outside.js:194
 msgid "the dead are counted and buried."
 msgstr "死者被清点后安葬。"
 
@@ -10480,12 +10500,12 @@ msgstr "死者被清点后安葬。"
 msgid "the debris is denser here."
 msgstr "这里的残骸更多了"
 
-#: script/prison.js:267
+#: script/prison.js:277
 msgid "the deepest cell"
 msgstr "最深处的那间囚室"
 
-#: script/space.js:807
-#: script/space.js:817
+#: script/space.js:1117
+#: script/space.js:1127
 msgid "the defenses turn. they find the ship."
 msgstr "防御系统转动过来。它们发现了这艘飞船。"
 
@@ -10501,8 +10521,9 @@ msgstr "这段绕路耗费了半天时间,而那道边界始终纹丝不动地�
 msgid "the detour costs the water and most of the afternoon and she is already gone when it is done."
 msgstr "这段绕路耗尽了水,又耗去了大半个下午,等一切结束时她已经不在了。"
 
-#: script/space.js:674
-#: script/space.js:711
+#: script/space.js:1021
+#: script/space.js:962
+#: script/space.js:999
 msgid "the difference is that this time you already know what it costs to act on it."
 msgstr "不同之处在于,这一次你已经知道付诸行动要付出什么代价。"
 
@@ -10538,8 +10559,8 @@ msgstr "这扇门没有把手,也没有接缝,无论是推、是砸、还是大�
 msgid "the door is attended, and the attendant has noticed."
 msgstr "这扇门有人看守,而看守者已经注意到了。"
 
-#: script/maze.js:548
-#: script/maze.js:567
+#: script/maze.js:556
+#: script/maze.js:575
 msgid "the door is locked."
 msgstr "这扇门锁着。"
 
@@ -10607,7 +10628,7 @@ msgstr "最初的几页是一份计划。距离、配给、方位、一个出发
 msgid "the earth here is split, as if bearing an ancient wound"
 msgstr "大地裂开，宛如古老的伤痕"
 
-#: script/room.js:235
+#: script/room.js:254
 msgid "the edge goes on last, and it goes on very fine."
 msgstr "刃口是最后才开的,而且开得极其精细。"
 
@@ -10615,11 +10636,11 @@ msgstr "刃口是最后才开的,而且开得极其精细。"
 msgid "the edge takes the skin off everything it can reach and the water goes almost immediately."
 msgstr "那道锋刃所及之处都会刮去一层皮,水分几乎瞬间就流失了。"
 
-#: script/prison.js:239
+#: script/prison.js:249
 msgid "the entire structure may be rotating around you. you are not sure."
 msgstr "整座结构可能正围绕着你旋转。你并不确定。"
 
-#: script/lab.js:343
+#: script/lab.js:357
 msgid "the equipment down here was built to be cleaned quickly."
 msgstr "这下面的设备是为了便于快速清理而建造的。"
 
@@ -10671,12 +10692,12 @@ msgstr "火势升高,那圈盘旋在绕到一半时戛然而止,仿佛有什么�
 msgid "the fire holds it off"
 msgstr "篝火将它挡在了外面"
 
-#: script/room.js:1418
-#: script/room.js:1577
+#: script/room.js:1437
+#: script/room.js:1596
 msgid "the fire is {0}"
 msgstr "火堆{0}"
 
-#: script/room.js:1406
+#: script/room.js:1425
 msgid "The fire is {0}"
 msgstr "篝火{0}"
 
@@ -10704,15 +10725,15 @@ msgstr "篝火被控制得很小,所有人都挤在三间小屋里睡觉。"
 msgid "the fires are kept small. it is not enough, and it is not close to enough."
 msgstr "篝火被控制得很小。这远远不够,连接近够都算不上。"
 
-#: script/events/outside.js:716
+#: script/events/outside.js:723
 msgid "the first are carrying iron tools and a dead goat. the second are carrying nothing, and one of them has a lamp that needs no fuel."
 msgstr "第一批人带着铁制工具和一头死山羊。第二批人什么都没带,其中一人拿着一盏不需要燃料的灯。"
 
-#: script/events/outside.js:773
+#: script/events/outside.js:780
 msgid "the first group joins the village"
 msgstr "第一批人加入了村落"
 
-#: script/room.js:2038
+#: script/room.js:2057
 msgid "The First Hut"
 msgstr "第一间小屋"
 
@@ -10736,11 +10757,11 @@ msgstr "舰队如今是他的了,它正精确地执行着自己被建造出来�
 msgid "the floor ahead is not flat, and then it is not floor."
 msgstr "前方的地面并不平坦,而后它甚至不再是地面。"
 
-#: script/prison.js:219
+#: script/prison.js:229
 msgid "the floor is not quite level and never quite the same slope twice."
 msgstr "地面并不完全水平,而且坡度每次都不太一样。"
 
-#: script/prison.js:232
+#: script/prison.js:242
 msgid "the floor is the wall is the ceiling, and the curve never resolves."
 msgstr "地板即是墙壁即是天花板,这道曲面永远无法被理清。"
 
@@ -10776,15 +10797,15 @@ msgstr "力场依然稳固。培养舱继续做着它们该做的事。僧侣等
 msgid "the forest is silent."
 msgstr "森林归于静谧"
 
-#: script/room.js:205
+#: script/room.js:224
 msgid "the foundry can hold a charge in a cell now. it takes sulphur, and coal, and people."
 msgstr "熔炉如今能把电荷储存在一个储能格里了。这需要硫磺、煤炭,还有人力。"
 
-#: script/room.js:234
+#: script/room.js:253
 msgid "the foundry crew know the shape of a blade that cuts faster than it should."
 msgstr "铸造厂的工人知道一种比常理更快割开东西的刀刃形状。"
 
-#: script/room.js:185
+#: script/room.js:204
 msgid "the foundry goes up windowless, at the far end of the camp."
 msgstr "铸造厂在营地最远的一端拔地而起,没有窗户。"
 
@@ -10816,7 +10837,7 @@ msgstr "那些骨架没有均匀燃烧。外层木材烧掉了,核心却没有�
 msgid "the furnace is enormous and its log is longer than the one upstairs."
 msgstr "这座熔炉体积巨大,它的记录比楼上那座还要长。"
 
-#: script/events/outside.js:824
+#: script/events/outside.js:831
 msgid "the gap between the two answers is four hundred and eleven years."
 msgstr "这两个答案之间相差了四百一十一年。"
 
@@ -10832,7 +10853,7 @@ msgstr "护手一直伸进到手腕处。取出来时留下了印记,但完好�
 msgid "The Glass Storm"
 msgstr "玻璃风暴"
 
-#: script/lab.js:325
+#: script/lab.js:339
 msgid "the glyphs down here are corrections. someone kept revising the same line."
 msgstr "这下面的符文是一次次修正。有人一直在反复修改同一行。"
 
@@ -10984,11 +11005,11 @@ msgstr "房子被遗弃，但还没被洗劫过"
 msgid "the hull comes apart into black flakes, and they do not reflect anything."
 msgstr "船体碎裂成一片片黑色的薄片,不反射任何光线。"
 
-#: script/events/outside.js:522
+#: script/events/outside.js:529
 msgid "the hunt goes badly"
 msgstr "这次狩猎进行得很糟"
 
-#: script/room.js:252
+#: script/room.js:271
 msgid "the hunting lodge stands in the forest, a ways out of town"
 msgstr "狩猎小屋已经矗立在林中，距离村子不远"
 
@@ -10996,11 +11017,11 @@ msgstr "狩猎小屋已经矗立在林中，距离村子不远"
 msgid "the hut frames were built out of something that came down here"
 msgstr "小屋的骨架是用坠落在此的某样东西建造的"
 
-#: script/events/outside.js:401
+#: script/events/outside.js:408
 msgid "the huts are fired at both ends, in the night, while it is quiet."
 msgstr "那些小屋在寂静的夜里被两端同时点燃。"
 
-#: script/room.js:2097
+#: script/room.js:2116
 msgid "the huts are not going to be built. it is going to be the two of you."
 msgstr "不会再建小屋了。将只有你们两个人。"
 
@@ -11008,7 +11029,7 @@ msgstr "不会再建小屋了。将只有你们两个人。"
 msgid "the immortal wanderer attacks."
 msgstr "不朽的流浪者发起了攻击。"
 
-#: script/events/outside.js:405
+#: script/events/outside.js:412
 msgid "the infected huts are burned"
 msgstr "受感染的小屋被烧毁了"
 
@@ -11040,11 +11061,11 @@ msgstr "铁矿"
 msgid "the iron mine is clear of dangers"
 msgstr "铁矿现在没有危险了"
 
-#: script/prison.js:205
+#: script/prison.js:215
 msgid "the joins are so fine you cannot find them by touch."
 msgstr "这些接缝精细得连触摸都察觉不到。"
 
-#: script/space.js:791
+#: script/space.js:1101
 msgid "the jump takes. it takes wrong."
 msgstr "跃迁成功了。却出了差错。"
 
@@ -11072,7 +11093,7 @@ msgstr "跪伏者"
 msgid "the kneeling stops at a clean line"
 msgstr "跪伏的队列在一条清晰的界线处终止"
 
-#: script/lab.js:307
+#: script/lab.js:321
 msgid "the lab is empty, but not abandoned. nothing here is dusty."
 msgstr "实验室空无一人,却并未被遗弃。这里没有一处落满灰尘。"
 
@@ -11084,11 +11105,11 @@ msgstr "实验室打开了"
 msgid "the lab stays shut"
 msgstr "实验室依然紧闭"
 
-#: script/events/outside.js:853
+#: script/events/outside.js:860
 msgid "the lamp is still burning. the goat is long eaten. nobody has settled what year it is."
 msgstr "灯依然亮着。山羊早已被吃光。没有人能确定这是哪一年。"
 
-#: script/events/outside.js:889
+#: script/events/outside.js:896
 msgid "the lamp is visible for a long time after the rest of them are not."
 msgstr "当其他人都已看不见时,那盏灯的光亮依然久久可见。"
 
@@ -11192,7 +11213,7 @@ msgstr "刻字一直延伸到石头的边缘之外,仿佛雕刻它的人不断�
 msgid "the light comes apart and does not reassemble."
 msgstr "光线四散开来,不再重新聚合。"
 
-#: script/room.js:1580
+#: script/room.js:1599
 msgid "the light from the fire spills from the windows, out into the dark"
 msgstr "火光映出窗外，投入黑暗之中"
 
@@ -11204,15 +11225,15 @@ msgstr "这光没有来源。这里只是比外面更亮而已。"
 msgid "the light in the corridor goes out behind it, section by section."
 msgstr "走廊里的灯光在它身后一段接一段地熄灭。"
 
-#: script/prison.js:207
+#: script/prison.js:217
 msgid "the light is even everywhere. nothing casts a shadow to steer by."
 msgstr "这里的光线到处都很均匀。没有任何阴影可供辨向。"
 
-#: script/space.js:768
+#: script/space.js:1078
 msgid "the light stops a long way short of the hull, bends, and goes back the way it came.<br>one station, then another, then the rest of the ring."
 msgstr "光线在远未到达船体前就停下了,转弯,又循原路折返。<br>一个站点,接着又一个,然后是整个环带的其余部分。"
 
-#: script/lab.js:306
+#: script/lab.js:320
 msgid "the lights come on a corridor at a time, ahead of you."
 msgstr "灯光在你前方一段走廊接一段走廊地亮起。"
 
@@ -11244,7 +11265,7 @@ msgstr "这份名单延伸到了背面,又顺着侧边继续。它开始记录�
 msgid "the live one goes into the scrub without looking back. the line is reset and rebaited."
 msgstr "活着的那只头也不回地钻进了灌木丛。陷阱线被重新设置并装上了新饵。"
 
-#: script/events/outside.js:188
+#: script/events/outside.js:195
 msgid "the living find somewhere to sleep."
 msgstr "生者找到了栖身之所。"
 
@@ -11342,23 +11363,23 @@ msgstr "地图上已探知的地方扩大了一点"
 msgid "the maps are taken. she is left with nothing to sell."
 msgstr "地图被拿走了。她再也没有什么可以卖了。"
 
-#: script/events/outside.js:998
+#: script/events/outside.js:1005
 msgid "the mark under the stone is one you make without thinking"
 msgstr "石头下方的那个记号是你不假思索留下的"
 
-#: script/events/outside.js:904
+#: script/events/outside.js:911
 msgid "The Marker"
 msgstr "标记物"
 
-#: script/events/outside.js:999
+#: script/events/outside.js:1006
 msgid "the marker is a fleet loss record"
 msgstr "这个标记物是一份舰队损失记录"
 
-#: script/events/outside.js:956
+#: script/events/outside.js:963
 msgid "the marker is dug out"
 msgstr "这个标记物被挖了出来"
 
-#: script/events/outside.js:968
+#: script/events/outside.js:975
 msgid "the marker stays where it was put, by whoever put it there, for whoever it was put there for."
 msgstr "这个标记物留在被放置的地方,由放置它的人所放,是为了它本该属于的那个人而放。"
 
@@ -11390,7 +11411,7 @@ msgstr "肉已经吃完了"
 msgid "the mech warrior has been destroyed."
 msgstr "那名机甲战士已被摧毁。"
 
-#: script/events/outside.js:380
+#: script/events/outside.js:387
 msgid "the medicine goes to the worst of them first, which is the wrong order and the only bearable one."
 msgstr "药先给了伤势最重的人,这个顺序是错的,却也是唯一能够承受的顺序。"
 
@@ -11552,7 +11573,7 @@ msgstr "这一夜被燃尽了"
 msgid "the night is silent."
 msgstr "黑夜重归静谧"
 
-#: script/events/outside.js:537
+#: script/events/outside.js:544
 msgid "the night is spent holding wounds closed instead."
 msgstr "这一夜就这样耗在了按住伤口不让它裂开上。"
 
@@ -11572,8 +11593,8 @@ msgstr "噩梦又回来了。而且持续恶化。噩梦已经将她攫住。她
 msgid "the nightmares are back. they worsen. the nightmare has gripped her. she never speaks about what is happening in her nightmares."
 msgstr "噩梦又回来了。而且愈发严重。噩梦已经将她攫住。她从不谈论自己梦中发生的事。"
 
-#: script/events/outside.js:296
-#: script/events/outside.js:421
+#: script/events/outside.js:303
+#: script/events/outside.js:428
 msgid "the nights are rent with screams."
 msgstr "尖叫响彻黑夜"
 
@@ -11669,7 +11690,7 @@ msgstr "被抬来的那个人没能撑过这一周。药用在了一个已经病
 msgid "the one who was carried is walking inside a fortnight, badly, and then less badly."
 msgstr "被抬来的那个人在两周内就能走路了,起初走得很差,后来渐渐好转。"
 
-#: script/events/outside.js:837
+#: script/events/outside.js:844
 msgid "the one with the lamp does not answer for a while."
 msgstr "拿灯的那个人过了好一会儿才回答。"
 
@@ -11681,11 +11702,11 @@ msgstr "上一季反对他最激烈的那些人,如今却在为他辩护。"
 msgid "the ones who arrived most recently are put outside the huts, which is the same as a decision about who lives."
 msgstr "最近到来的人被安排在小屋外面,这实际上等同于一个关于谁能活下来的决定。"
 
-#: script/events/outside.js:520
+#: script/events/outside.js:527
 msgid "the ones who come back come back with less than they left with."
 msgstr "回来的那些人,回来时带的东西比出发时更少。"
 
-#: script/events/outside.js:422
+#: script/events/outside.js:429
 msgid "the only hope is a quick death."
 msgstr "人们只求速死"
 
@@ -11705,7 +11726,7 @@ msgstr "这些命令被销毁了"
 msgid "the other bank is shorter still. it holds the woman who keeps your fire."
 msgstr "另一排更短。里面装着为你守护篝火的那个女人。"
 
-#: script/events/outside.js:823
+#: script/events/outside.js:830
 msgid "the other group, asked the same question, gives a different year."
 msgstr "另一批人被问到同样的问题时,给出了不同的年份。"
 
@@ -11753,7 +11774,7 @@ msgstr "行囊垫在了你身下,你脸朝下扑倒在它上面。"
 msgid "the pack goes, and without it the climb is twenty minutes of unpleasantness rather than a question."
 msgstr "行囊被舍弃了,没有它,这段攀爬就只是二十分钟的难受,而不再是一个难题。"
 
-#: script/events/outside.js:504
+#: script/events/outside.js:511
 msgid "the pack is destroyed"
 msgstr "那个行囊被毁了"
 
@@ -11761,11 +11782,11 @@ msgstr "那个行囊被毁了"
 msgid "the pack is left at the bottom of the shaft"
 msgstr "那个行囊被留在了竖井底部"
 
-#: script/events/outside.js:501
+#: script/events/outside.js:508
 msgid "the pack is run down before dark, in a dry creek bed."
 msgstr "那群野兽在天黑之前、于一处干涸的溪床中被追上了。"
 
-#: script/events/outside.js:519
+#: script/events/outside.js:526
 msgid "the pack knows the ground better than the hunters do."
 msgstr "那群野兽对地形的了解胜过猎人。"
 
@@ -11857,19 +11878,19 @@ msgstr "这堆东西不是标记。它是终结于此的旅程的计数。"
 msgid "the place has been swept clean by scavengers."
 msgstr "这里被拾荒者们清扫的很干净"
 
-#: script/events/outside.js:387
+#: script/events/outside.js:394
 msgid "the plague is halted, but not everywhere"
 msgstr "瘟疫被遏制住了,但并非在每一处都是如此"
 
-#: script/events/outside.js:360
+#: script/events/outside.js:367
 msgid "the plague is kept from spreading."
 msgstr "瘟疫得到了控制"
 
-#: script/events/outside.js:420
+#: script/events/outside.js:427
 msgid "the plague rips through the village."
 msgstr "瘟疫席卷村落。"
 
-#: script/events/outside.js:384
+#: script/events/outside.js:391
 msgid "the plague stops. it does not stop everywhere at once."
 msgstr "瘟疫停止了。但不是在所有地方同时停止的。"
 
@@ -11909,15 +11930,15 @@ msgstr "这些粉末的颜色和墙壁一模一样,而墙壁上恰好缺失了�
 msgid "the prints stop a pace short of the pack, both feet together, as if whoever it was had halted to be told something."
 msgstr "脚印在离行囊一步之遥处停住,双脚并拢,仿佛那个人是停下来听什么指示的。"
 
-#: script/events/outside.js:634
+#: script/events/outside.js:641
 msgid "the prisoners are executed"
 msgstr "囚犯们被处决了"
 
-#: script/events/outside.js:690
+#: script/events/outside.js:697
 msgid "the prisoners are questioned"
 msgstr "囚犯们被审问了"
 
-#: script/events/outside.js:653
+#: script/events/outside.js:660
 msgid "the prisoners are released"
 msgstr "囚犯们被释放了"
 
@@ -11978,7 +11999,7 @@ msgstr "那头孤僻的野兽瘫倒进了草丛中。"
 msgid "the register has forty names for this place"
 msgstr "这份名录为这个地方记录了四十个名字"
 
-#: script/events/outside.js:671
+#: script/events/outside.js:678
 msgid "the released soldiers return"
 msgstr "获释的士兵们回来了"
 
@@ -12006,7 +12027,7 @@ msgstr "旧房子的遗址矗立在那里，像一座简朴年代的纪念碑"
 msgid "the residue in the nearest basin stands up out of it."
 msgstr "最近那个盆池里的残留物从中直立而起。"
 
-#: script/events/outside.js:362
+#: script/events/outside.js:369
 msgid "the rest bury them."
 msgstr "幸存者埋葬了他们"
 
@@ -12018,7 +12039,7 @@ msgstr "医院的其他房间是空的"
 msgid "The Returning Party"
 msgstr "归来者"
 
-#: script/room.js:56
+#: script/room.js:75
 msgid "the rickety cart will carry more wood from the forest"
 msgstr "摇摇晃晃的货车满载从森林运出的木头"
 
@@ -12034,7 +12055,7 @@ msgstr "边缘让开了一点"
 msgid "the robbery goes badly"
 msgstr "这次抢劫进展不顺"
 
-#: script/space.js:649
+#: script/space.js:937
 msgid "the rock falls away. the sky goes from blue to black without appearing to change."
 msgstr "岩石渐渐远去。天空从蓝色变成黑色,却似乎没有经历任何变化的过程。"
 
@@ -12054,10 +12075,10 @@ msgstr "它后面的房间狭小干燥,封闭的时间早于这个世界上任�
 msgid "the room beyond is a storage facility, and it is very large, and almost all of it is in use."
 msgstr "里面是一处储藏设施,规模庞大,几乎全部都在使用中。"
 
-#: script/room.js:1405
-#: script/room.js:1419
-#: script/room.js:1617
-#: script/room.js:1621
+#: script/room.js:1424
+#: script/room.js:1438
+#: script/room.js:1636
+#: script/room.js:1640
 msgid "The room is {0}"
 msgstr "房间{0}"
 
@@ -12105,7 +12126,7 @@ msgstr "那名侦察兵不会再回来汇报了。"
 msgid "the scratches are not all the same. the last dozen are cut at an angle, short, by somebody holding the blade the way you hold a blade."
 msgstr "这些刻痕并非全部一致。最后十几道是斜着刻的,短促,出自一个握刀方式和你一样的人。"
 
-#: script/events/outside.js:912
+#: script/events/outside.js:919
 msgid "the script on it is narrow and very even. nobody here can read it."
 msgstr "上面的字迹细窄而工整。这里没有人能读懂。"
 
@@ -12125,7 +12146,7 @@ msgstr "封印会脱落。防护服会撑得足够久。"
 msgid "the sealed pack liner holds. what is inside it is still food."
 msgstr "密封的行囊内衬完好无损。里面的东西仍然是食物。"
 
-#: script/events/outside.js:804
+#: script/events/outside.js:811
 msgid "the second group joins the village"
 msgstr "第二批人加入了村落"
 
@@ -12203,7 +12224,7 @@ msgstr "被烧毁的汽车挡住了入口"
 msgid "the shell of an abandoned hospital looms ahead."
 msgstr "一座被废弃的医院横在前方"
 
-#: script/space.js:569
+#: script/space.js:857
 msgid "the ship clears the debris field. the controls go dead.<br>something else has them."
 msgstr "飞船穿出了残骸场。操控系统失灵了。<br>有别的东西接管了它们。"
 
@@ -12223,7 +12244,7 @@ msgstr "这一声呼喊在这里传得很远。她没有动。"
 msgid "the shunning stops for exactly as long as the question takes to answer."
 msgstr "这份排斥,恰好在回答这个问题所需的时间内停止。"
 
-#: script/events/outside.js:277
+#: script/events/outside.js:284
 msgid "the sick are moved to the edge of the village."
 msgstr "病患被转移到了村落的边缘。"
 
@@ -12231,15 +12252,15 @@ msgstr "病患被转移到了村落的边缘。"
 msgid "The Sick Man"
 msgstr "患病男子"
 
-#: script/events/outside.js:280
+#: script/events/outside.js:287
 msgid "the sickness is contained, at a cost"
 msgstr "疫情得到了控制,但付出了代价"
 
-#: script/events/outside.js:265
+#: script/events/outside.js:272
 msgid "the sickness is cured in time."
 msgstr "疾病及时得到了控制"
 
-#: script/events/outside.js:294
+#: script/events/outside.js:301
 msgid "the sickness spreads through the village."
 msgstr "疾病在村子中蔓延"
 
@@ -12255,7 +12276,8 @@ msgstr "这个信号是一支舰队的集结令"
 msgid "the signature is his."
 msgstr "这个签名是他的。"
 
-#: script/space.js:786
+#: script/space.js:1008
+#: script/space.js:1096
 msgid "the sky folds over and the firing stops mattering."
 msgstr "天空自行折叠起来,开火已不再重要。"
 
@@ -12275,7 +12297,7 @@ msgstr "小定居点明显已经燃烧了一段时间了"
 msgid "the smallest are trampled"
 msgstr "最弱小的那些被践踏了"
 
-#: script/lab.js:340
+#: script/lab.js:354
 msgid "the smell is stronger here. smoke, and decomposition, and something sweet."
 msgstr "这里的气味更浓了。烟味,腐败的气息,还有一丝甜腻。"
 
@@ -12332,7 +12354,7 @@ msgid "the sounds stop."
 msgstr "声响停止了"
 
 #: script/events/setpieces.js:3479
-#: script/prison.js:266
+#: script/prison.js:276
 msgid "the sphere"
 msgstr "球体"
 
@@ -12360,19 +12382,20 @@ msgstr "楼梯井通向一处平台,平台上有三扇门,全都亮着灯。"
 msgid "the stars are not where the maps say"
 msgstr "星星并不在地图所标示的位置"
 
-#: script/space.js:782
+#: script/space.js:1006
+#: script/space.js:1092
 msgid "the stations around the planet find the fleet and open fire."
 msgstr "环绕行星的空间站发现了这支舰队,并开火了。"
 
-#: script/space.js:766
+#: script/space.js:1076
 msgid "the stations turn. they find the ship. they fire."
 msgstr "空间站转向了。它们发现了这艘飞船。它们开火了。"
 
-#: script/space.js:760
+#: script/space.js:1070
 msgid "the stations turn. they find the ship. they hold there, and do not fire."
 msgstr "空间站转向了。它们发现了这艘飞船。它们按兵不动,没有开火。"
 
-#: script/room.js:1045
+#: script/room.js:1064
 msgid "the steel is strong, and the blade true."
 msgstr "好钢出利刃"
 
@@ -12384,7 +12407,7 @@ msgstr "腐烂死尸散发的恶臭弥漫了整间手术室"
 msgid "the steps stop being steps and become a ramp, worn in a single track down the middle."
 msgstr "台阶不再是台阶,而变成了一道斜坡,中间被磨出了一道单独的凹槽。"
 
-#: script/events/outside.js:948
+#: script/events/outside.js:955
 msgid "the stone goes into the wall of the new hut, script inward, where it will not have to be looked at."
 msgstr "那块石头被砌进了新小屋的墙壁,刻字朝内,再也不必被人看见。"
 
@@ -12440,15 +12463,15 @@ msgstr "这场风暴把地面剥蚀到了露出层层堆砌的构造"
 msgid "the storm takes its price in skin"
 msgstr "这场风暴以皮肉为代价索取"
 
-#: script/room.js:1651
+#: script/room.js:1670
 msgid "the stranger in the corner stops shivering. her breathing calms."
 msgstr "角落里的陌生人不再颤抖了，她的呼吸平静了下来"
 
-#: script/room.js:1432
+#: script/room.js:1451
 msgid "The stranger is standing by the fire. She says she can help. Says she builds things."
 msgstr "那个陌生人站在火堆旁。她说她能帮忙。说她会建造东西。"
 
-#: script/room.js:1648
+#: script/room.js:1667
 msgid "the stranger shivers, and mumbles quietly. her words are unintelligible."
 msgstr "陌生人瑟瑟发抖，呢喃不已，听不清在说些什么"
 
@@ -12504,11 +12527,11 @@ msgstr "补给保持干燥"
 msgid "the surveyor's kit is taken"
 msgstr "测绘工具被拿走了"
 
-#: script/events/outside.js:177
+#: script/events/outside.js:184
 msgid "the survivors are taken in"
 msgstr "幸存者被收留了"
 
-#: script/events/outside.js:203
+#: script/events/outside.js:210
 msgid "the survivors are turned out"
 msgstr "幸存者被赶走了"
 
@@ -12538,7 +12561,7 @@ msgid "the tentacular horror is defeated."
 msgstr "触手怪被打败了"
 
 #: script/events/setpieces.js:3473
-#: script/prison.js:265
+#: script/prison.js:275
 msgid "the tetrahedron"
 msgstr "四面体"
 
@@ -12674,19 +12697,19 @@ msgstr "树木都消失了，唯留下干裂的大地和飞扬的尘土"
 msgid "the trees yield to dry grass. the yellowed brush rustles in the wind."
 msgstr "树木歪倒在干草丛中，枯黄的灌木在风中沙沙作响"
 
-#: script/events/outside.js:967
+#: script/events/outside.js:974
 msgid "the trench goes around. it costs a week and a great deal of wood."
 msgstr "壕沟绕道而行。这耗费了一周时间和大量木材。"
 
-#: script/events/outside.js:971
+#: script/events/outside.js:978
 msgid "the trench is moved around the marker"
 msgstr "壕沟绕着标记物改道了"
 
-#: script/events/outside.js:913
+#: script/events/outside.js:920
 msgid "the trench needs to go through where it stands."
 msgstr "壕沟需要穿过它所在的位置。"
 
-#: script/events/outside.js:1021
+#: script/events/outside.js:1028
 msgid "the trench waits. the marker waits. it has waited longer than this."
 msgstr "壕沟在等待。标记物也在等待。它等待的时间比这更久。"
 
@@ -12718,11 +12741,11 @@ msgstr "那口箱子被搁置在一旁。他没有回来取走它"
 msgid "the tunnel opens up at another platform."
 msgstr "隧道出口在另一边的站台"
 
-#: script/events/outside.js:827
+#: script/events/outside.js:834
 msgid "the two groups are four hundred years apart"
 msgstr "这两批人相隔了四百年"
 
-#: script/events/outside.js:873
+#: script/events/outside.js:880
 msgid "the two groups cannot be housed together"
 msgstr "这两批人无法安置在一起"
 
@@ -12730,7 +12753,7 @@ msgstr "这两批人无法安置在一起"
 msgid "the uber trap goes up fast -- whatever wanderer part made it better made it burn better too."
 msgstr "超级陷阱燃烧得很快——不管是什么流浪者部件让它变得更好,同时也让它更易燃。"
 
-#: script/space.js:573
+#: script/space.js:861
 msgid "the vats. the cycle. the fire that goes out every twenty minutes.<br>the wanderer fleet. the profane. the door you opened."
 msgstr "那些培养舱。那个循环。那堆每二十分钟就会熄灭的篝火。<br>那支流浪者舰队。那个渎神者。你打开的那扇门。"
 
@@ -12751,7 +12774,7 @@ msgstr "村落"
 msgid "the village answers it for six nights, in turns, reading the reply off a scrap of paper."
 msgstr "村落连续六个夜晚轮流回应它,从一张纸片上念出回复。"
 
-#: script/events/outside.js:969
+#: script/events/outside.js:976
 msgid "the village builds around it and after a while stops noticing it."
 msgstr "村落围绕着它建造起来,过了一阵子便不再注意到它。"
 
@@ -12776,7 +12799,7 @@ msgstr "这个声音平静而耐心,它对着无人诉说这句话的时间,比�
 msgid "the voice on the recording is the old wanderer"
 msgstr "录音中的那个声音是那位老流浪者"
 
-#: script/room.js:830
+#: script/room.js:849
 msgid "the wagon can carry a lot of supplies"
 msgstr "篷车能够携带许多物资"
 
@@ -12837,7 +12860,7 @@ msgstr "这些墙壁在一场古老的战争中被烧焦了"
 msgid "the walls are still dressed stone. the shaft still runs off level. the choice is the same one it was."
 msgstr "墙壁依然是雕琢过的石料。竖井依然偏离水平。这个抉择依然和从前一样。"
 
-#: script/prison.js:248
+#: script/prison.js:258
 msgid "the walls here were finished by hand. someone cared how this looked."
 msgstr "这里的墙壁是手工完成的。有人在乎它看起来怎样。"
 
@@ -12845,7 +12868,7 @@ msgstr "这里的墙壁是手工完成的。有人在乎它看起来怎样。"
 msgid "the walls hum faintly."
 msgstr "墙壁发出微弱的嗡鸣。"
 
-#: script/prison.js:217
+#: script/prison.js:227
 msgid "the walls lean in overhead and meet."
 msgstr "墙壁在头顶向内倾斜,合拢在一起。"
 
@@ -12927,7 +12950,7 @@ msgstr "出去的路径是笔直穿过瓦砾向上,不需要用到双手。"
 msgid "the webs part, and a grotesque insect lurches forward."
 msgstr "蛛网分开了,一只丑陋的昆虫踉跄冲出。"
 
-#: script/space.js:792
+#: script/space.js:1102
 msgid "the whole fleet comes out somewhere with nothing in it but a weight,<br>and the weight has already got hold of them."
 msgstr "整支舰队跃迁到了某个空无一物、只有一种重压的地方,<br>而那份重压早已将他们攫住。"
 
@@ -12943,7 +12966,7 @@ msgstr "野草在这里终止,标记着流浪者铺就道路的边界。"
 msgid "the wind changes while the packs are being filled."
 msgstr "行囊还在装填时,风向变了。"
 
-#: script/room.js:1632
+#: script/room.js:1651
 msgid "the wind howls outside"
 msgstr "屋外寒风呼啸"
 
@@ -12963,11 +12986,11 @@ msgstr "这一整个翼区就是那间囚室"
 msgid "the wing the wanderers cut for themselves"
 msgstr "流浪者为自己凿出的那个翼区"
 
-#: script/room.js:1559
+#: script/room.js:1578
 msgid "the wood has run out"
 msgstr "木头用光了"
 
-#: script/room.js:1633
+#: script/room.js:1652
 msgid "the wood is running out"
 msgstr "木头就快烧完了"
 
@@ -12991,19 +13014,20 @@ msgstr "流浪者舰队的主力担当。"
 msgid "the workshop goes up with everything in it. it takes the longest to burn and the longest to rebuild."
 msgstr "工坊连同里面的一切都被烧毁了。它烧得最久,重建起来也耗时最长。"
 
-#: script/world.js:1137
+#: script/world.js:1146
 msgid "the world fades. death escapes you. is there no escape from here"
 msgstr "世界渐渐消退。死亡将你放过。难道这里就没有出路吗"
 
-#: script/space.js:778
+#: script/space.js:1002
+#: script/space.js:1088
 msgid "the worldships come into view exactly where they should be, and they are running,<br>and there is not one living soul aboard any of them."
 msgstr "那些世界船正好出现在它们该在的位置,并且仍在运行,<br>而它们之中没有一艘船上还有活着的灵魂。"
 
-#: script/space.js:677
+#: script/space.js:965
 msgid "the worldships come into view exactly where they should be, and this time they are not running empty.<br>there are people on the rails, working, the way a ship is worked when there is a reason to keep it."
 msgstr "那些世界船正好出现在它们该在的位置,而这一次它们并非空转。<br>轨道上有人正在工作,那正是一艘还有理由被维系下去的飞船该有的运作方式。"
 
-#: script/events/outside.js:540
+#: script/events/outside.js:547
 msgid "the wounded are tended"
 msgstr "伤员得到了照料"
 
@@ -13063,7 +13087,7 @@ msgstr "然后它就不见了。"
 msgid "then picks them up again and starts walking, in no particular direction."
 msgstr "然后又把它们捡起来,漫无目的地走了起来。"
 
-#: script/events/outside.js:838
+#: script/events/outside.js:845
 msgid "then says: it does not matter. says the fleets came through, and after the fleets came through there was not a home to be from."
 msgstr "然后说:这不重要。说舰队曾经过境,而舰队过境之后,就再没有一个可以称为家乡的地方了。"
 
@@ -13087,7 +13111,7 @@ msgstr "然后岔口的地面整个一下子缩了回去,露出楼梯,一路向�
 msgid "then two of them come up, and one of them stays down there."
 msgstr "然后他们中有两个上来了,还有一个留在了下面。"
 
-#: script/lab.js:335
+#: script/lab.js:349
 msgid "there appear to be body-sized drag marks."
 msgstr "看起来有人体大小的拖拽痕迹。"
 
@@ -13107,7 +13131,7 @@ msgstr "有更值得做的事情。"
 msgid "there are brackets set into the wall at regular intervals, at a height that is wrong for carrying a lamp."
 msgstr "墙壁上按固定间隔嵌着一些托架,高度却不适合用来挂灯。"
 
-#: script/room.js:774
+#: script/room.js:793
 msgid "there are dangerous beasts outside. builder can craft bone spears for hunting."
 msgstr "外面有危险的野兽。建造者能制作骨矛用于狩猎。"
 
@@ -13136,7 +13160,7 @@ msgstr "下面亮着灯。有什么东西仍在为它们供电。"
 msgid "there are more than four hundred uprights."
 msgstr "这里有四百多根立柱。"
 
-#: script/prison.js:231
+#: script/prison.js:241
 msgid "there are no corners anywhere in this wing."
 msgstr "这个翼区里没有任何一处角落。"
 
@@ -13152,7 +13176,7 @@ msgstr "这里没有任何刻痕。一道都没有。要么没有人曾被关押
 msgid "there are no tracks. the ground is soft enough that there should be."
 msgstr "这里没有踪迹。而地面软得本该留下踪迹才对。"
 
-#: script/prison.js:243
+#: script/prison.js:253
 msgid "there are no walls but that which we make."
 msgstr "除了我们自己筑起的,再无其他围墙。"
 
@@ -13172,15 +13196,15 @@ msgstr "这里有记录,而这些记录不是一份犯罪档案。它们是一�
 msgid "there are still supplies inside."
 msgstr "里头似乎还有些物资"
 
-#: script/lab.js:345
+#: script/lab.js:359
 msgid "there are subtle carvings of three eyes and three ears."
 msgstr "这里有三只眼睛和三只耳朵的精细雕刻。"
 
-#: script/space.js:787
+#: script/space.js:1097
 msgid "there are things about her you do not remember and do not understand.<br>you drift off to sleep, in hyperspace..."
 msgstr "关于她,有些事你不记得,也不理解。<br>你在超空间中渐渐睡去……"
 
-#: script/space.js:770
+#: script/space.js:1080
 msgid "there are things about her you do not remember and do not understand.<br>you drift off to sleep..."
 msgstr "关于她,有些事你不记得,也不理解。<br>你渐渐睡去……"
 
@@ -13196,16 +13220,16 @@ msgstr "他们有三个人,坐在地上,而这在这里是不该做的事。"
 msgid "there is a figure a long way off, sitting down, not moving. sitting down out here is how it ends."
 msgstr "远处有个身影坐在那里,一动不动。在这里坐下,便是终结的方式。"
 
-#: script/events/outside.js:945
+#: script/events/outside.js:952
 msgid "there is a hollow under it, lined and sealed and completely empty."
 msgstr "它下方有一处空腔,内壁经过铺衬和密封,完全空无一物。"
 
-#: script/room.js:1286
+#: script/room.js:1305
 msgid "there is a larger world outside these walls, dangerous as it is. wanderers without direction get lost. a compass can point the way in the wilds."
 msgstr "这些墙壁之外有一个更广阔的世界,尽管危险。没有方向的流浪者会迷失。一枚罗盘能在荒野中指明道路。"
 
 #: script/events/room.js:52
-#: script/room.js:1271
+#: script/room.js:1290
 msgid "there is a larger world outside these walls, dangerous as it is. wanderers without direction get lost. a compass can point the way in the wilds. the old compass is dented and dusty, but it looks to work."
 msgstr "这些墙壁之外有一个更广阔的世界,尽管危险。没有方向的流浪者会迷失。一枚罗盘能在荒野中指明道路。这枚旧罗盘布满凹痕和灰尘,但看起来还能用。"
 
@@ -13221,7 +13245,7 @@ msgstr "第一个陷阱的木钉上刻着一个记号。那不是制作者的标
 msgid "there is a name scratched at head height and then scratched out, thoroughly, by the same hand."
 msgstr "有个名字刻在头部高度处,后来又被同一个人彻底划掉了。"
 
-#: script/engine.js:1755
+#: script/engine.js:1763
 msgid "there is a new layout, would you like to use it?"
 msgstr "有一个新的布局,你想使用它吗?"
 
@@ -13241,11 +13265,11 @@ msgstr "它旁边有一处凹槽,形状是为你没有的某样东西量身定�
 msgid "there is a rhythm in it, underneath the noise, too slow to be weather and too regular to be anything else out here."
 msgstr "噪音之下藏着一种节奏,太过缓慢不像是天气所致,又太过规律,不像这里会有的任何其他东西。"
 
-#: script/space.js:609
+#: script/space.js:897
 msgid "there is a route through it now. you did not work it out so much as stop having to."
 msgstr "现在已经有一条穿越它的路径了。与其说是你想通了,不如说是你不再需要去想了。"
 
-#: script/space.js:571
+#: script/space.js:859
 msgid "there is a shiba inu inside it. it is sitting in front of a bank of equipment<br>that is very obviously the thing that has been running all of this."
 msgstr "里面有一只柴犬。它正坐在一排设备前,<br>而这排设备显然就是一直在运行这一切的东西。"
 
@@ -13277,11 +13301,11 @@ msgstr "门边有一个供盘,没有人看守着它。"
 msgid "there is another door behind the rack"
 msgstr "架子后面还有一扇门"
 
-#: script/room.js:2081
+#: script/room.js:2100
 msgid "there is another way"
 msgstr "还有别的办法"
 
-#: script/events/outside.js:381
+#: script/events/outside.js:388
 msgid "there is enough for most of the huts. the arithmetic of which most is done quickly and not out loud."
 msgstr "数量足够重建大部分小屋。至于是哪一部分,这道算术很快就算完了,而且没有说出口。"
 
@@ -13297,7 +13321,7 @@ msgstr "时间足够把它全部拿走。"
 msgid "there is firewood stacked against the door, cut short enough for this stove specifically."
 msgstr "门边堆着柴火,专门为这个炉子截得短短的。"
 
-#: script/events/outside.js:163
+#: script/events/outside.js:170
 msgid "there is less standing than there was"
 msgstr "如今屹立的比从前少了"
 
@@ -13313,7 +13337,7 @@ msgstr "方圆一小时路程内没有任何掩护。"
 msgid "there is no dust on the threshold. something still uses this."
 msgstr "门槛上没有灰尘。有什么东西仍在使用这里。"
 
-#: script/space.js:831
+#: script/space.js:1141
 msgid "there is no fire to light."
 msgstr "没有火可以点燃。"
 
@@ -13337,7 +13361,7 @@ msgstr "这里没有架子。所有东西都只是简单地堆在地板上,仿�
 msgid "there is no shelter on this stretch and no wood worth the name. the wind comes across flat ground and does not slow down for anything."
 msgstr "这段路上没有遮蔽,也没有称得上木材的东西。风穿过平坦的地面,不会为任何东西而减速。"
 
-#: script/space.js:818
+#: script/space.js:1128
 msgid "there is no time to evade."
 msgstr "没有时间躲避了。"
 
@@ -13386,7 +13410,7 @@ msgstr "这段记忆里没有别的东西。没有声音,没有其他人,没有�
 msgid "there is nothing in it now. it is warm."
 msgstr "现在里面什么都没有了。它是温热的。"
 
-#: script/space.js:650
+#: script/space.js:938
 msgid "there is nothing left to do for a while, and nowhere left to go, and nothing left to reach for."
 msgstr "暂时没有什么事可做了,也没有地方可去,更没有什么可以伸手去够的了。"
 
@@ -13402,11 +13426,11 @@ msgstr "在这里做的事没有一件对任何人有好处,而做完这些还�
 msgid "there is nothing to mark the spot afterwards, which was the idea."
 msgstr "事后没有留下任何标记这个地点的东西,而这正是本意。"
 
-#: script/events/outside.js:946
+#: script/events/outside.js:953
 msgid "there is nothing under it, and the ground below has never been broken. the marker was set, not buried."
 msgstr "它下面什么都没有,下方的地面从未被翻动过。这个标记物是被安放上去的,而不是被埋进去的。"
 
-#: script/events/outside.js:944
+#: script/events/outside.js:951
 msgid "there is nothing under it. no box, no bones, no ash."
 msgstr "它下面什么都没有。没有盒子,没有骨骸,没有灰烬。"
 
@@ -13442,8 +13466,8 @@ msgstr "有人站在你身后。她已经站在那里一阵子了。"
 msgid "there is something carved by the well"
 msgstr "井边刻着什么东西"
 
-#: script/space.js:756
-#: script/space.js:802
+#: script/space.js:1066
+#: script/space.js:1112
 msgid "there is something else out here.<br>rings of it, vast and old, held close around the planet."
 msgstr "这里外面还有别的东西。<br>它的环带,浩瀚而古老,紧紧环绕着这颗行星。"
 
@@ -13451,7 +13475,7 @@ msgstr "这里外面还有别的东西。<br>它的环带,浩瀚而古老,紧紧
 msgid "there is stock stacked against one wall, sealed, and the seals have held."
 msgstr "靠墙堆放着一批存货,密封着,而封条依然完好。"
 
-#: script/lab.js:319
+#: script/lab.js:333
 msgid "there was a sound behind you and then suddenly nothing."
 msgstr "你身后传来一声响动,然后突然归于寂静。"
 
@@ -13459,7 +13483,7 @@ msgstr "你身后传来一声响动,然后突然归于寂静。"
 msgid "there was no fighting here."
 msgstr "这里没有发生过战斗。"
 
-#: script/events/outside.js:100
+#: script/events/outside.js:107
 msgid "there was no one to raise an alarm, and no one else it could have spread to."
 msgstr "没有人拉响警报,也没有别人可以让这件事蔓延开去。"
 
@@ -13480,19 +13504,19 @@ msgstr "不是很多，但仍然能找到一些有用的"
 msgid "there's nothing else here."
 msgstr "这里没别的了"
 
-#: script/space.js:109
+#: script/space.js:314
 msgid "Thermosphere"
 msgstr "增温层"
 
-#: script/events/outside.js:685
+#: script/events/outside.js:692
 msgid "they answer readily. they have been waiting a long time for someone to ask."
 msgstr "他们爽快地回答了。他们已经等了很久,等着有人来问。"
 
-#: script/space.js:806
+#: script/space.js:1116
 msgid "they are aimed down. at the ground. at the room.<br>maybe this is why the builder seemed resigned to staying."
 msgstr "它们对准了下方。对准了地面。对准了这间屋子。<br>也许这就是建造者看起来对留下来一事听天由命的原因。"
 
-#: script/space.js:816
+#: script/space.js:1126
 msgid "they are aimed down. at the ground. at the room.<br>the builder never mentioned them. the builder never prepared you for this."
 msgstr "它们对准了下方。对准了地面。对准了这间屋子。<br>建造者从未提起过它们。建造者也从未让你为此做好准备。"
 
@@ -13524,7 +13548,7 @@ msgstr "他们请求进来。被抬着的那个人什么都没有请求。"
 msgid "they are beaten back. they were not well armed and they knew the ground better than we did."
 msgstr "他们被击退了。他们装备不精良,却比我们更熟悉地形。"
 
-#: script/events/outside.js:767
+#: script/events/outside.js:774
 msgid "they are certain of this. they name a year to prove it. it is not this year."
 msgstr "他们对此确信无疑。他们说出一个年份来证明,而那不是今年。"
 
@@ -13532,7 +13556,7 @@ msgstr "他们对此确信无疑。他们说出一个年份来证明,而那不�
 msgid "they are driven off. nobody is comfortable about how coordinated it was."
 msgstr "他们被击退了。这次行动的协调程度让所有人都心里发毛。"
 
-#: script/events/outside.js:761
+#: script/events/outside.js:768
 msgid "they are good workers and they are grateful, and they eat a great deal."
 msgstr "他们是勤劳的工人,心怀感激,而且饭量很大。"
 
@@ -13540,11 +13564,11 @@ msgstr "他们是勤劳的工人,心怀感激,而且饭量很大。"
 msgid "they are looking for drift. degradation. changes between one sample and the next."
 msgstr "他们在寻找偏移。衰变。样本之间的变化。"
 
-#: script/space.js:803
+#: script/space.js:1113
 msgid "they are not aimed outward.<br>nothing out here was ever what they were built to stop."
 msgstr "它们没有对准外面。<br>这里外面从来就不是它们被建造出来要阻止的东西。"
 
-#: script/space.js:757
+#: script/space.js:1067
 msgid "they are not aimed outward.<br>they are aimed down. at the ground. at the room."
 msgstr "它们没有对准外面。<br>它们对准了下方。对准了地面。对准了这间屋子。"
 
@@ -13564,7 +13588,7 @@ msgstr "它们没有死,也不是雕像。它们在呼吸,缓慢地,彼此相隔
 msgid "they are not in a hurry, which is the part that should worry you."
 msgstr "它们并不着急,而这一点才是应该让你担心的地方。"
 
-#: script/events/outside.js:769
+#: script/events/outside.js:776
 msgid "they are not lying. that is what makes it difficult."
 msgstr "他们没有撒谎。这正是让人为难的地方。"
 
@@ -13580,11 +13604,11 @@ msgstr "它们堆在一起不是因为一个接一个地到来。它们堆在一
 msgid "they are not statues. they are not switched on either."
 msgstr "它们不是雕像。但也没有被开启。"
 
-#: script/events/outside.js:794
+#: script/events/outside.js:801
 msgid "they are polite in a way that suggests a great deal of practice at being new somewhere."
 msgstr "他们礼貌得像是在某处初来乍到这件事上练习了很多次。"
 
-#: script/events/outside.js:792
+#: script/events/outside.js:799
 msgid "they are quiet and they keep to themselves, and they do not eat much at all."
 msgstr "他们很安静,独来独往,而且吃得很少。"
 
@@ -13601,7 +13625,7 @@ msgstr "天光散尽时它们仍在继续。进来的那两人没有走到墙边
 msgid "they are tallies, in groups of five, in at least four different hands."
 msgstr "它们是计数标记,五个一组,至少出自四种不同的笔迹。"
 
-#: script/events/outside.js:199
+#: script/events/outside.js:206
 msgid "they are told there is no room. it is not true."
 msgstr "他们被告知没有空位。这不是真的。"
 
@@ -13613,8 +13637,8 @@ msgstr "它们全程都均匀地偏高。凿出这里的人,比后来走过这�
 msgid "they are turned back at the bottom of the path."
 msgstr "他们在小路的尽头被逼退了。"
 
-#: script/events/outside.js:649
-#: script/events/outside.js:667
+#: script/events/outside.js:656
+#: script/events/outside.js:674
 msgid "they are walked to the treeline and pointed away from the village."
 msgstr "他们被带到林线,然后被指向远离村落的方向。"
 
@@ -13626,7 +13650,7 @@ msgstr "他们裹着并不保暖、也从未打算保暖的布料。厚度完全
 msgid "they break and run once it turns. some of them are barely fighting at all."
 msgstr "一旦局势逆转,他们就崩溃逃窜了。他们中有些人几乎根本没在战斗。"
 
-#: script/events/outside.js:668
+#: script/events/outside.js:675
 msgid "they come back before the month is out, and they bring more of themselves."
 msgstr "不到一个月他们就回来了,而且还带来了更多他们的同类。"
 
@@ -13642,11 +13666,11 @@ msgstr "他们没有失败。他们做的是这块岩石上任何人做过的最
 msgid "they do not argue. that is the part that stays with the people who watched."
 msgstr "他们没有争辩。这正是留在旁观者心中挥之不去的部分。"
 
-#: script/events/outside.js:852
+#: script/events/outside.js:859
 msgid "they do not become friends. they do become neighbours, which is harder and worth more."
 msgstr "他们没有成为朋友。但他们成为了邻居,而这更难得,也更有价值。"
 
-#: script/events/outside.js:688
+#: script/events/outside.js:695
 msgid "they do not believe it. they are given food and sent back to their post."
 msgstr "他们不相信。他们得到了食物,被送回了自己的岗位。"
 
@@ -13654,19 +13678,19 @@ msgstr "他们不相信。他们得到了食物,被送回了自己的岗位。"
 msgid "they do not burn like paper. they curl, and go grey, and stop."
 msgstr "它们燃烧的方式不像纸。它们卷曲,变灰,然后停止。"
 
-#: script/events/outside.js:606
+#: script/events/outside.js:613
 msgid "they do not seem to know that."
 msgstr "他们似乎并不知道这一点。"
 
-#: script/events/outside.js:605
+#: script/events/outside.js:612
 msgid "they give a unit designation and a rank. both belong to an army that has no one left to report to."
 msgstr "他们报出了一个部队番号和一个军衔。两者都属于一支已经没有人可以汇报的军队。"
 
-#: script/events/outside.js:822
+#: script/events/outside.js:829
 msgid "they give a year, and a month, and the name of a harvest festival that was two weeks out when they left."
 msgstr "他们说出了一个年份、一个月份,以及一个在他们离开时还有两周才到的丰收节的名字。"
 
-#: script/events/outside.js:888
+#: script/events/outside.js:895
 msgid "they go back into the trees in opposite directions, still arguing."
 msgstr "他们朝着相反的方向重新走入树林,仍在争论不休。"
 
@@ -13690,11 +13714,11 @@ msgstr "他们绕开你行走的方式,就像水绕过一块岩石那样,兴趣�
 msgid "they must be here for a reason."
 msgstr "听起来不是什么好事"
 
-#: script/events/outside.js:686
+#: script/events/outside.js:693
 msgid "they name a garrison, a supply line, and a commanding officer."
 msgstr "他们说出了一个驻防地、一条补给线,以及一位指挥官。"
 
-#: script/space.js:808
+#: script/space.js:1118
 msgid "they pause."
 msgstr "他们停顿了一下。"
 
@@ -13702,11 +13726,11 @@ msgstr "他们停顿了一下。"
 msgid "they put the one who makes things stand up in the last room the old world built to stay standing. somebody chose that too."
 msgstr "他们把那个能让东西立起来的人,关在了旧世界为求屹立不倒而建造的最后一间屋子里。这也是有人特意选择的。"
 
-#: script/events/outside.js:796
+#: script/events/outside.js:803
 msgid "they say the others are a long way from home and do not know it yet."
 msgstr "他们说其他人离家很远,却还不知道这一点。"
 
-#: script/events/outside.js:765
+#: script/events/outside.js:772
 msgid "they say the others are liars. say the lamp is a trick, and that nothing like it exists."
 msgstr "他们说其他人在撒谎。说那盏灯是个骗局,说根本不存在那样的东西。"
 
@@ -13714,7 +13738,7 @@ msgstr "他们说其他人在撒谎。说那盏灯是个骗局,说根本不存�
 msgid "they say they have been out since the afternoon"
 msgstr "他们说自己从下午起就出来了"
 
-#: script/events/outside.js:763
+#: script/events/outside.js:770
 msgid "they set up exactly the way people set up who have done this several times already."
 msgstr "他们安营扎寨的方式,和那些已经这样做过好几次的人一模一样。"
 
@@ -13738,7 +13762,7 @@ msgstr "他们对这次闯入毫不在意。"
 msgid "they take the food, and they are grateful for it, and they keep walking."
 msgstr "他们接过食物,心怀感激,然后继续前行。"
 
-#: script/events/outside.js:793
+#: script/events/outside.js:800
 msgid "they take the smallest hut without being offered it and do not come out of it much."
 msgstr "没人主动提供,他们就自己选了最小的那间小屋,而且很少从里面出来。"
 
@@ -13754,15 +13778,15 @@ msgstr "他们拿到了他们来此要找的东西，然后离开了"
 msgid "they were not measuring for the sake of it. an expanse that size only holds together if a part made at one end fits a machine at the other. this room is the reason any of it worked."
 msgstr "他们测量并非只是为了测量本身。像那样规模的疆域,唯有一端制造的零件能与另一端的机器契合,才能维系不散。这间屋子正是这一切得以运作的原因。"
 
-#: script/events/outside.js:717
+#: script/events/outside.js:724
 msgid "they will not share a fire. each says the other cannot possibly be here."
 msgstr "他们不愿共用一堆篝火。双方都说对方不可能出现在这里。"
 
-#: script/space.js:628
+#: script/space.js:916
 msgid "they will try again. they are very good at it and they have had a great deal of practice.<br>but whatever comes up out of that glass will not have been out here. it will not have carried this."
 msgstr "他们会再试一次。他们非常擅长此道,而且已经练习了很多很多次。<br>但不管从那块玻璃里出来的是什么,它都不曾在这外面待过。它不会承载这一切。"
 
-#: script/events/outside.js:762
+#: script/events/outside.js:769
 msgid "they work without being asked and go quiet whenever anybody thanks them."
 msgstr "他们无需吩咐便主动干活,每当有人道谢时都会沉默下来。"
 
@@ -13782,7 +13806,7 @@ msgstr "小偷"
 msgid "things unsaid"
 msgstr "未曾言说之事"
 
-#: script/lab.js:330
+#: script/lab.js:344
 msgid "this area has been overly sanitized as if to erase something foul."
 msgstr "这片区域被过度清理过,仿佛是为了抹去某种污秽的痕迹。"
 
@@ -13794,7 +13818,7 @@ msgstr "这间囚室是从内部修复的"
 msgid "this ground has been a cemetery for longer than anything above it has been standing."
 msgstr "这片土地作为墓地存在的时间,比其上任何屹立之物存在的时间都要长。"
 
-#: script/room.js:1540
+#: script/room.js:1559
 msgid "This is a fork and a re-imagining of the game with much more content, more story and more endings."
 msgstr "这是本游戏的一个分支版本,也是一次重新构想,拥有更多内容、更多剧情、更多结局。"
 
@@ -13838,7 +13862,7 @@ msgstr "这一个一直在等待"
 msgid "this room does not matter. this fire does not matter. escape is all that matters."
 msgstr "这间屋子不重要。这堆篝火不重要。唯有逃脱才重要。"
 
-#: script/lab.js:329
+#: script/lab.js:343
 msgid "this room has impossible star charts."
 msgstr "这间屋子里有不可能存在的星图。"
 
@@ -13846,7 +13870,7 @@ msgstr "这间屋子里有不可能存在的星图。"
 msgid "this settlement will be in the register. it will have a note beside it."
 msgstr "这个定居点将会被记入名录。旁边还会附上一条注记。"
 
-#: script/room.js:760
+#: script/room.js:779
 msgid "this spear's not elegant, but it's pretty good at stabbing"
 msgstr "这柄标枪不怎么精致，但用来戳刺手感不错"
 
@@ -13858,7 +13882,7 @@ msgstr "这个测试对象未能产出结果。"
 msgid "this ward has been converted to a makeshift strategy room, maps scrawled hastily on any flat surface."
 msgstr "这间病房已被改造成一间临时作战室,地图潦草地涂画在任何一处平整的表面上。"
 
-#: script/room.js:655
+#: script/room.js:674
 msgid "this waterskin'll hold a bit of water, at least"
 msgstr "起码能装那么点儿水"
 
@@ -13866,7 +13890,7 @@ msgstr "起码能装那么点儿水"
 msgid "this wing is newer than the other two by an order of magnitude, and it is still very old."
 msgstr "这一翼区比另外两个新了一个数量级,而它依然十分古老。"
 
-#: script/prison.js:226
+#: script/prison.js:236
 msgid "this wing represents a simple shape that should be stable for failed for some reason."
 msgstr "这个翼区代表了一种本该稳定的简单形状,却不知为何失败了。"
 
@@ -13962,7 +13986,7 @@ msgstr "扎刺"
 msgid "time to get out of here."
 msgstr "是时候离开这里了。"
 
-#: script/ship.js:206
+#: script/ship.js:235
 msgid "time to get out of this place. won't be coming back."
 msgstr "是时候离开这里了。不再回头"
 
@@ -13970,7 +13994,7 @@ msgstr "是时候离开这里了。不再回头"
 msgid "time to move on."
 msgstr "该走了"
 
-#: script/space.js:827
+#: script/space.js:1137
 msgid "time to rejoin the other wanderers, alone no more.<br>the fleet knows the way home. nothing to do but wait."
 msgstr "是时候重新加入其他流浪者了,不再孤身一人。<br>舰队知道回家的路。此刻除了等待别无他事。"
 
@@ -13982,21 +14006,21 @@ msgstr "大量散落的牙齿"
 msgid "too many limbs, and none of them agree on how old they are."
 msgstr "肢体太多了,而且没有哪两条能说清自己到底有多老。"
 
-#: script/prison.js:209
+#: script/prison.js:219
 msgid "tools for measurement, but only for one specific size."
 msgstr "用于测量的工具,但只适用于一个特定的尺寸。"
 
 #: script/localization.js:26
-#: script/room.js:616
-#: script/room.js:630
+#: script/room.js:635
+#: script/room.js:649
 msgid "torch"
 msgstr "火把"
 
-#: script/room.js:1836
+#: script/room.js:1855
 msgid "total"
 msgstr "总计"
 
-#: script/space.js:873
+#: script/space.js:1183
 msgid "total score: {0}"
 msgstr "总分: {0}"
 
@@ -14013,8 +14037,8 @@ msgstr "追踪"
 msgid "trade with her"
 msgstr "与她交易"
 
-#: script/room.js:298
-#: script/room.js:314
+#: script/room.js:317
+#: script/room.js:333
 msgid "trading post"
 msgstr "贸易站"
 
@@ -14022,8 +14046,8 @@ msgstr "贸易站"
 msgid "traitor. anathema. from this day he has no name but the exile, and will have no other, ever."
 msgstr "叛徒。诅咒之人。从今日起,他再无别的名字,唯有放逐者,而且永远不会再有其他名字。"
 
-#: script/room.js:14
-#: script/room.js:31
+#: script/room.js:33
+#: script/room.js:50
 msgid "trap"
 msgstr "陷阱"
 
@@ -14060,11 +14084,11 @@ msgstr "三位一体"
 msgid "tripped a motion sensor."
 msgstr "触发了一个动作传感器。"
 
-#: script/events/outside.js:571
+#: script/events/outside.js:578
 msgid "troops storm the village"
 msgstr "军队席卷了村落"
 
-#: script/space.js:103
+#: script/space.js:308
 msgid "Troposphere"
 msgstr "对流层"
 
@@ -14080,7 +14104,7 @@ msgstr "再次尝试攀爬"
 msgid "try to wake one"
 msgstr "试着叫醒一个"
 
-#: script/room.js:447
+#: script/room.js:466
 msgid "trying to carve out some semblence of civilization amongst the unforgiving wastes. builder says she could make finer things, if she had the tools"
 msgstr "试图在这片无情的荒原中开辟出一丝文明的模样。建造者说,如果有工具,她能做出更精细的东西"
 
@@ -14093,11 +14117,11 @@ msgstr "tumblr"
 msgid "turn back"
 msgstr "回头"
 
-#: script/prison.js:242
+#: script/prison.js:252
 msgid "turn back rather than face an infinity of no meaning."
 msgstr "宁可回头,也不愿面对一片毫无意义的无穷。"
 
-#: script/events/outside.js:749
+#: script/events/outside.js:756
 msgid "turn both away"
 msgstr "把两批人都拒之门外"
 
@@ -14111,7 +14135,7 @@ msgstr "撵走她"
 msgid "turn him away"
 msgstr "撵走他"
 
-#: script/events/outside.js:143
+#: script/events/outside.js:150
 msgid "turn the survivors out"
 msgstr "把幸存者赶出去"
 
@@ -14143,7 +14167,7 @@ msgstr "两只被杀死了。其余的从容地脱离,还没等人能够追赶�
 msgid "two bedrolls are wedged into a corner."
 msgstr "两卷睡袋被塞在角落里。"
 
-#: script/events/outside.js:707
+#: script/events/outside.js:714
 msgid "Two Camps"
 msgstr "两处营地"
 
@@ -14155,11 +14179,11 @@ msgstr "两人进来了。两人没有"
 msgid "two feet in, the spoil starts to burn where it touches skin, and the burn does not stop when it is brushed off."
 msgstr "深入六十厘米,这些废料一接触皮肤便开始灼烧,而拍掉之后灼痛感也不会停止。"
 
-#: script/events/outside.js:719
+#: script/events/outside.js:726
 msgid "two groups arrive, and will not share a fire"
 msgstr "两批人到来了,却不愿共用一堆篝火"
 
-#: script/events/outside.js:715
+#: script/events/outside.js:722
 msgid "two groups come out of the trees within an hour of each other, from opposite directions."
 msgstr "两批人在一小时之内先后从树林中走出,分别来自相反的方向。"
 
@@ -14167,11 +14191,11 @@ msgstr "两批人在一小时之内先后从树林中走出,分别来自相反�
 msgid "two hundred years of orders, all of them withdrawals"
 msgstr "两百年的命令,全都是撤退令"
 
-#: script/events/outside.js:604
+#: script/events/outside.js:611
 msgid "two of them are dragged out of the mud, disarmed."
 msgstr "他们中有两人被从泥浆中拖了出来,解除了武装。"
 
-#: script/events/outside.js:584
+#: script/events/outside.js:591
 msgid "two of them are still alive"
 msgstr "他们中有两人还活着"
 
@@ -14195,12 +14219,12 @@ msgstr "两组脚印。一堆篝火。没有围栏,没有小屋,也没有别人�
 msgid "two-headed creature"
 msgstr "双头生物"
 
-#: script/room.js:564
-#: script/room.js:588
+#: script/room.js:583
+#: script/room.js:607
 msgid "uber trap"
 msgstr "超级陷阱"
 
-#: script/room.js:568
+#: script/room.js:587
 msgid "uber traps leverage wanderer technology to catch more important resources"
 msgstr "超级陷阱利用流浪者科技来捕获更重要的资源"
 
@@ -14264,7 +14288,7 @@ msgstr "桀骜的焊工"
 msgid "unsealing"
 msgstr "解封中"
 
-#: script/lab.js:351
+#: script/lab.js:365
 msgid "unseen workers must be keeping this operation going"
 msgstr "看不见的工人一定还在维持着这项作业的运转"
 
@@ -14276,11 +14300,11 @@ msgstr "不稳定自动机"
 msgid "unstable prototype"
 msgstr "不稳定原型机"
 
-#: script/engine.js:1751
+#: script/engine.js:1759
 msgid "Update"
 msgstr "更新"
 
-#: script/ship.js:100
+#: script/ship.js:86
 msgid "upgrade engine"
 msgstr "升级引擎"
 
@@ -14365,12 +14389,12 @@ msgstr "村民"
 msgid "villagers"
 msgstr "村民们"
 
-#: script/room.js:826
-#: script/room.js:841
+#: script/room.js:845
+#: script/room.js:860
 msgid "wagon"
 msgstr "篷车"
 
-#: script/space.js:847
+#: script/space.js:1157
 msgid "wait"
 msgstr "等待"
 
@@ -14494,7 +14518,7 @@ msgstr "守卫构造体"
 msgid "warden echo"
 msgstr "守卫回响"
 
-#: script/room.js:1453
+#: script/room.js:1472
 msgid "warm"
 msgstr "暖和"
 
@@ -14510,15 +14534,15 @@ msgstr "看看下面那两个人会发生什么"
 msgid "water"
 msgstr "水"
 
-#: script/room.js:739
+#: script/room.js:758
 msgid "water is needed to survive while exploring the wilds. a cask can only hold so much. builder suggests crafting a water tank to really explore the wilds."
 msgstr "在荒野中探索需要水才能生存。一个木桶能装的量有限。建造者建议制作一个水箱,以便真正深入探索荒野。"
 
-#: script/room.js:703
+#: script/room.js:722
 msgid "water is needed to survive while exploring the wilds. a waterskin can only hold so much. builder suggests crafting a cask to safely explore further."
 msgstr "在荒野中探索需要水才能生存。一个水袋能装的量有限。建造者建议制作一个木桶,以便更安全地深入探索。"
 
-#: script/room.js:668
+#: script/room.js:687
 msgid "water is needed to survive while exploring the wilds. builder suggests crafting a waterskin to safely explore the wilds."
 msgstr "在荒野中探索需要水才能生存。建造者建议制作一个水袋,以便安全地探索荒野。"
 
@@ -14527,12 +14551,12 @@ msgid "water out, water in. waste not, want not."
 msgstr "水出,水入。不浪费,就不匮乏。"
 
 #: script/events/setpieces.js:6872
-#: script/world.js:1339
+#: script/world.js:1348
 msgid "water replenished"
 msgstr "水补充好了"
 
-#: script/room.js:721
-#: script/room.js:736
+#: script/room.js:740
+#: script/room.js:755
 msgid "water tank"
 msgstr "水罐"
 
@@ -14540,8 +14564,8 @@ msgstr "水罐"
 msgid "water:{0}"
 msgstr "水:{0}"
 
-#: script/room.js:651
-#: script/room.js:665
+#: script/room.js:670
+#: script/room.js:684
 msgid "waterskin"
 msgstr "水壶"
 
@@ -14550,7 +14574,7 @@ msgid "weakness is a liabity, especially out here."
 msgstr "软弱是一种负担,在这里尤其如此。"
 
 #: script/mobileUI.js:35
-#: script/room.js:1693
+#: script/room.js:1712
 msgid "weapons"
 msgstr "武器"
 
@@ -14558,7 +14582,7 @@ msgstr "武器"
 msgid "weapons are strewn about the medical dispatch bay. must have been used as a muster point."
 msgstr "武器散落在医疗调度舱各处。这里想必曾被用作集结点。"
 
-#: script/events/outside.js:650
+#: script/events/outside.js:657
 msgid "weeks later a bundle is left at the wall. ammunition, and a hand-drawn map of where not to go."
 msgstr "几周后,一个包裹被留在了墙边。弹药,还有一张手绘地图,标注着不能去的地方。"
 
@@ -14574,7 +14598,7 @@ msgstr "负重"
 msgid "what comes off it is not what was underneath."
 msgstr "从它上面脱落下来的,不是原本在下面的东西。"
 
-#: script/lab.js:331
+#: script/lab.js:345
 msgid "what did the builder not want you to find down here?"
 msgstr "建造者不希望你在这下面发现什么?"
 
@@ -14582,7 +14606,7 @@ msgstr "建造者不希望你在这下面发现什么?"
 msgid "what finally stops it is not a weapon. it is the thing inside it giving out."
 msgstr "最终让它停下的不是武器。而是它内部的某样东西衰竭了。"
 
-#: script/room.js:2125
+#: script/room.js:2144
 msgid "what gets built after this gets built differently, and nobody calls them wanderers any more."
 msgstr "这之后建造的东西,建造方式已经不同了,而且再也没有人称呼他们为流浪者了。"
 
@@ -14614,7 +14638,7 @@ msgstr "里面的东西已经很久很久没有移动过了,却仍在持续汲�
 msgid "what is in the pack has taken it up. it does not smell of anything, which is worse."
 msgstr "行囊里的东西已经沾染上了它。它没有任何气味,而这更令人不安。"
 
-#: script/events/outside.js:871
+#: script/events/outside.js:878
 msgid "what is left of both groups leaves in the same direction, separately."
 msgstr "两批人剩下的成员各自朝同一个方向离开了。"
 
@@ -14714,7 +14738,7 @@ msgstr "校舍的窗玻璃并没有碎掉，却被烟熏黑了"
 msgid "who is this Profane that they worshiped?"
 msgstr "他们所崇拜的这位渎神者究竟是谁?"
 
-#: script/room.js:278
+#: script/room.js:297
 msgid "who will hunt the beasts?"
 msgstr "谁来猎杀这些野兽?"
 
@@ -14743,7 +14767,7 @@ msgstr "设下这些的人一直在走出去,停下,又走回来。一遍又一�
 msgid "whoever was held here took the cell apart and put it back together better. the bunk is reseated. the vent has been rebuilt and it draws properly now. there is a bracket in the corner that is not standard issue and is doing a job the original design got wrong."
 msgstr "被关押在这里的人把这间囚室拆开,又重新组装得更好。床铺被重新安放过。通风口已被重建,如今能正常抽气了。角落里有一个托架不是标准配置,却完成了原始设计所没能做好的一项功能。"
 
-#: script/events/outside.js:462
+#: script/events/outside.js:469
 msgid "wild beasts attack the {0}"
 msgstr "野兽袭击了 {0}"
 
@@ -14807,12 +14831,12 @@ msgstr "wordpress"
 msgid "work it"
 msgstr "处理它"
 
-#: script/room.js:427
-#: script/room.js:444
+#: script/room.js:446
+#: script/room.js:463
 msgid "workshop"
 msgstr "工坊"
 
-#: script/room.js:431
+#: script/room.js:450
 msgid "workshop's finally ready. builder's excited to get to it"
 msgstr "工坊终于建好了，建造者激动不已"
 
@@ -14840,7 +14864,7 @@ msgstr "弄错了药瓶"
 msgid "yes"
 msgstr "是"
 
-#: script/space.js:610
+#: script/space.js:898
 msgid "you are getting better at this.<br>you are not sure that is the same thing as getting free of it."
 msgstr "你在这方面变得越来越熟练了。<br>你并不确定这是否就等同于摆脱了它。"
 
@@ -14856,7 +14880,7 @@ msgstr "你就站在你现在所站的地方。这间屋子还是那间屋子。
 msgid "you come out the other side with less skin than you went in with."
 msgstr "你从另一端出来时,身上的皮肤比进去时少了一些。"
 
-#: script/lab.js:350
+#: script/lab.js:364
 msgid "you could backtrack and climb out this very moment."
 msgstr "你此刻就可以原路返回,爬出去。"
 
@@ -14872,7 +14896,7 @@ msgstr "你不记得自己来过这里。你对这六十一次中的任何一次
 msgid "you do not remember writing any of them, and you have just written another."
 msgstr "你不记得自己写过其中任何一条,而你刚刚又写下了一条新的。"
 
-#: script/space.js:630
+#: script/space.js:918
 msgid "you find that you are not prepared for this version of you to die.<br>you have never once minded before."
 msgstr "你发现自己没有准备好让这个版本的自己死去。<br>而以前你从来不曾在意过。"
 
@@ -14880,11 +14904,11 @@ msgstr "你发现自己没有准备好让这个版本的自己死去。<br>而�
 msgid "you get the gloves out of the pack without deciding to. you have handled every other one of these barehanded and you are not going to handle this one barehanded and you could not tell anybody why."
 msgstr "你不假思索地从行囊里拿出了手套。你以前徒手处理过其他所有这类东西,而这一次你却不打算徒手处理,你说不清为什么。"
 
-#: script/prison.js:236
+#: script/prison.js:246
 msgid "you have been walking level the whole time. you are no longer sure."
 msgstr "你一直以为自己走的是平地。而现在你已经不再确定了。"
 
-#: script/space.js:608
+#: script/space.js:896
 msgid "you have done this quickly. quicker than last time, and last time was quicker than the one before."
 msgstr "你这次做得很快。比上一次更快,而上一次又比再前一次更快。"
 
@@ -14892,15 +14916,15 @@ msgstr "你这次做得很快。比上一次更快,而上一次又比再前一�
 msgid "you have frequently looted your own kills. the living had more need of these things than the dead."
 msgstr "你经常从自己猎杀的对象身上搜刮东西。活人比死人更需要这些。"
 
-#: script/events/outside.js:989
+#: script/events/outside.js:996
 msgid "you have made that mark. you make it without thinking, on things you want to find again."
 msgstr "那个记号是你留下的。你在想再次找到的东西上留下它时,总是不假思索。"
 
-#: script/events/outside.js:990
+#: script/events/outside.js:997
 msgid "you have never been here, and the scratch has been under that stone longer than the village has stood."
 msgstr "你从未来过这里,而那道刻痕在那块石头下存在的时间,比这个村落存在的时间还要长。"
 
-#: script/space.js:836
+#: script/space.js:1146
 msgid "you have never felt so alone..."
 msgstr "你从未感到如此孤独……"
 
@@ -14908,7 +14932,7 @@ msgstr "你从未感到如此孤独……"
 msgid "you have never seen this book before."
 msgstr "你以前从未见过这本书。"
 
-#: script/space.js:626
+#: script/space.js:914
 msgid "you have not died once. not this time."
 msgstr "你一次都没有死。这一次没有。"
 
@@ -14916,7 +14940,7 @@ msgstr "你一次都没有死。这一次没有。"
 msgid "you have seen that before. you know exactly where."
 msgstr "你以前见过这个。你清楚地知道是在哪里。"
 
-#: script/prison.js:220
+#: script/prison.js:230
 msgid "you keep ducking for a ceiling that is higher than it looks."
 msgstr "你一直在为一个看起来比实际更高的天花板而弯腰躲避。"
 
@@ -14932,7 +14956,7 @@ msgstr "你知道这个生物不属于这个世界。"
 msgid "you lift it. you know the name. you have never once written it down."
 msgstr "你把它举起来。你知道这个名字。但你从未写下过它,一次都没有。"
 
-#: script/lab.js:348
+#: script/lab.js:362
 msgid "you long for the warm fire in your room."
 msgstr "你渴望着自己屋里那堆温暖的篝火。"
 
@@ -14940,11 +14964,11 @@ msgstr "你渴望着自己屋里那堆温暖的篝火。"
 msgid "you may observe your fate"
 msgstr "你可以观看自己的命运"
 
-#: script/prison.js:240
+#: script/prison.js:250
 msgid "you move forward but a sphere has no end."
 msgstr "你继续前进,可球体没有尽头。"
 
-#: script/space.js:712
+#: script/space.js:1022
 msgid "you put it down. you do not put it away.<br>the fleet goes on climbing."
 msgstr "你把它放下了。但你没有收起它。<br>舰队继续攀升。"
 
@@ -14956,16 +14980,17 @@ msgstr "你把它放进行囊的最底部,压在所有东西之下,再也没有�
 msgid "you see a symbol they bear, somehow knowing it to represent The Profane."
 msgstr "你看到他们身上带着一个符号,不知怎么就知道它代表着渎神者。"
 
-#: script/prison.js:223
+#: script/prison.js:233
 msgid "you see modern repairs in this ancient structure."
 msgstr "你在这座古老的建筑中看到了现代化的修补痕迹。"
 
-#: script/space.js:727
+#: script/space.js:1037
 msgid "you see what they saw."
 msgstr "你看到了他们所看到的。"
 
-#: script/space.js:673
-#: script/space.js:710
+#: script/space.js:1020
+#: script/space.js:961
+#: script/space.js:998
 msgid "you see what they saw. it is exactly as impossible as it was the first time.<br>and it is exactly as true."
 msgstr "你看到了他们所看到的。它和第一次一样,完全不可能。<br>而它也和第一次一样,完全真实。"
 
@@ -14973,7 +14998,8 @@ msgstr "你看到了他们所看到的。它和第一次一样,完全不可能�
 msgid "you send this beast back from whence it came."
 msgstr "你把这头野兽送回了它来的地方。"
 
-#: script/space.js:781
+#: script/space.js:1005
+#: script/space.js:1091
 msgid "you should know how to do this. you are certain you should know how to do this.<br>nothing comes. you stand there and you are no use to her at all."
 msgstr "你应该知道该怎么做。你确信自己应该知道该怎么做。<br>可什么都想不起来。你站在那里,对她毫无用处。"
 
@@ -14989,11 +15015,11 @@ msgstr "你站在那里,双掌平贴在一块毫无标记的石头上,你知道�
 msgid "you take it with gloves on"
 msgstr "你戴着手套拿起了它"
 
-#: script/space.js:652
+#: script/space.js:940
 msgid "you take the gloves off."
 msgstr "你脱下了手套。"
 
-#: script/space.js:793
+#: script/space.js:1103
 msgid "you wake from that nightmare in a dark room..."
 msgstr "你从那场噩梦中在一间黑暗的屋子里醒来……"
 
@@ -15029,12 +15055,12 @@ msgstr "你们的心灵再次相触。她回想起一场血红天空下的战斗
 msgid "your minds touch again. somehow both remembering stars in the deep, dark sky."
 msgstr "你们的心灵再次相触。不知怎么你们都想起了那片深邃黑暗天空中的星辰。"
 
-#: script/prison.js:233
+#: script/prison.js:243
 msgid "your own footsteps come back to you from the wrong direction."
 msgstr "你自己的脚步声从错误的方向传回到你耳中。"
 
-#: script/prison.js:244
-#: script/prison.js:252
+#: script/prison.js:254
+#: script/prison.js:262
 msgid "ⰑⰖⰔⱂⰃⰠ2ⰉⰉ Ⱀⱂ ⰄⰀ ⰒⰑⰆⰉ me2Ⱐ ⰄⰀ ⰂⰉⰄⰉ2Ⱐ ⰍⰑⰐⰠⰜⰠ ⰉⰆⰅ ⰔⰠⰄⰡⱂⰞⰨ"
 msgstr "ⰑⰖⰔⱂⰃⰠ2ⰉⰉ Ⱀⱂ ⰄⰀ ⰒⰑⰆⰉ me2Ⱐ ⰄⰀ ⰂⰉⰄⰉ2Ⱐ ⰍⰑⰐⰠⰜⰠ ⰉⰆⰅ ⰔⰠⰄⰡⱂⰞⰨ"
 
@@ -15263,3 +15289,9 @@ msgstr "ⰑⰖⰔⱂⰃⰠ2ⰉⰉ Ⱀⱂ ⰄⰀ ⰒⰑⰆⰉ me2Ⱐ ⰄⰀ Ⰲ�
 
 #~ msgid "the villagers"
 #~ msgstr "村民们"
+
+#~ msgid "engine:"
+#~ msgstr "引擎:"
+
+#~ msgid "hull:"
+#~ msgstr "外壳:"

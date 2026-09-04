@@ -16,7 +16,7 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ./../../script\n"
 
-#: script/events.js:1320
+#: script/events.js:1327
 msgid " and "
 msgstr ""
 
@@ -25,7 +25,7 @@ msgstr ""
 msgid " and {0} "
 msgstr ""
 
-#: script/room.js:496
+#: script/room.js:515
 msgid " builder says the villagers could make steel, given the tools."
 msgstr ""
 
@@ -36,12 +36,12 @@ msgstr ""
 
 #: script/events/road.js:871
 #: script/localization.js:7
-#: script/room.js:1334
-#: script/space.js:578
+#: script/room.js:1353
+#: script/space.js:866
 msgid "..."
 msgstr ""
 
-#: script/space.js:819
+#: script/space.js:1129
 msgid "...."
 msgstr ""
 
@@ -89,7 +89,7 @@ msgstr ""
 msgid "\"he stood at the profane's shoulder for nine years.\""
 msgstr ""
 
-#: script/space.js:739
+#: script/space.js:1049
 msgid "\"i could never have done any of this without you. but you would never understand.\""
 msgstr ""
 
@@ -101,7 +101,7 @@ msgstr ""
 msgid "\"i have made my peace with never leaving. you have not. that is the whole of the difference between us.\""
 msgstr ""
 
-#: script/space.js:690
+#: script/space.js:978
 msgid "\"i told you i had made my peace with never leaving,\" he says. \"i would like to formally revise that.\""
 msgstr ""
 
@@ -226,9 +226,10 @@ msgstr ""
 msgid "\"they were not told what they were firing on. curse the profane, who was.\""
 msgstr ""
 
-#: script/space.js:696
-#: script/space.js:701
-#: script/space.js:723
+#: script/space.js:1012
+#: script/space.js:1033
+#: script/space.js:984
+#: script/space.js:989
 msgid "\"to know someone is to love someone. you cannot help who you love.\""
 msgstr ""
 
@@ -296,7 +297,7 @@ msgstr ""
 msgid "\"you never remember. i have stopped finding that surprising and i have not stopped minding it.\""
 msgstr ""
 
-#: script/room.js:251
+#: script/room.js:270
 msgid "{0} could help hunt, given the means"
 msgstr ""
 
@@ -304,7 +305,7 @@ msgstr ""
 msgid "{0} of the three are dark now. what is left is still lit."
 msgstr ""
 
-#: script/engine.js:1271
+#: script/engine.js:1279
 msgid "{0} per {1}s"
 msgstr "{0} per {1}s"
 
@@ -320,7 +321,7 @@ msgstr ""
 msgid "{0}:{1}"
 msgstr "{0}:{1}"
 
-#: script/events.js:1792
+#: script/events.js:1799
 msgid "*** EVENT ***"
 msgstr "*** HÄNDELSE ***"
 
@@ -328,7 +329,7 @@ msgstr "*** HÄNDELSE ***"
 msgid "\\u2C00 \\u2C01 \\u2C02 \\u2C03 \\u2C04 \\u2C05, the same glyphs cut into the ruins, going back to before the infinite expanse."
 msgstr ""
 
-#: script/events/outside.js:233
+#: script/events/outside.js:240
 msgid "1 medicine"
 msgstr "1 medicin"
 
@@ -341,7 +342,7 @@ msgstr ""
 msgid "11B-X-1371 is still and silent."
 msgstr ""
 
-#: script/events/outside.js:336
+#: script/events/outside.js:343
 msgid "3 medicine"
 msgstr ""
 
@@ -369,7 +370,7 @@ msgstr ""
 msgid "a bank of recesses runs the length of the wall, each one holding a slotted cell."
 msgstr ""
 
-#: script/world.js:1374
+#: script/world.js:1383
 msgid "A Barren World"
 msgstr "En Karg Värld"
 
@@ -381,7 +382,7 @@ msgstr ""
 msgid "a battle was fought here, long ago."
 msgstr ""
 
-#: script/events/outside.js:441
+#: script/events/outside.js:448
 msgid "A Beast Attack"
 msgstr "Attack Från En Best"
 
@@ -409,7 +410,7 @@ msgstr "en tiggare kommer."
 msgid "a bench, and a row of instruments still under power, all of them pointed at the same kind of measurement."
 msgstr ""
 
-#: script/lab.js:309
+#: script/lab.js:323
 msgid "a bench, wiped down. the tools on it are laid out in order of size."
 msgstr ""
 
@@ -473,7 +474,7 @@ msgstr ""
 msgid "a cave lizard attacks"
 msgstr "en grottödla attackerar"
 
-#: script/prison.js:208
+#: script/prison.js:218
 msgid "a cell door, open, the inside as clean as the corridor."
 msgstr ""
 
@@ -485,7 +486,7 @@ msgstr ""
 msgid "A Chain-Gang Revenant"
 msgstr ""
 
-#: script/lab.js:326
+#: script/lab.js:340
 msgid "a chair bolted to the floor. the bolts are recent work."
 msgstr ""
 
@@ -582,12 +583,12 @@ msgstr ""
 msgid "A Damp Cave"
 msgstr "En Fuktig Grotta"
 
-#: script/room.js:1539
+#: script/room.js:1558
 msgid "A Dark Room was written by Michael Townsend for Doublespeak Games in 2013. It is open-source."
 msgstr ""
 
-#: script/room.js:1344
-#: script/room.js:1477
+#: script/room.js:1363
+#: script/room.js:1496
 msgid "A Darker Room"
 msgstr ""
 
@@ -619,7 +620,7 @@ msgstr ""
 msgid "a door standing open in a wall with nothing on the other side of it."
 msgstr ""
 
-#: script/lab.js:328
+#: script/lab.js:342
 msgid "a door with a window at standing height, and a bar across the outside."
 msgstr ""
 
@@ -640,7 +641,7 @@ msgstr ""
 msgid "a dusty researcher clumsily hides in the shadows."
 msgstr ""
 
-#: script/lab.js:323
+#: script/lab.js:337
 msgid "a faint scent of smoke, and under it something organic."
 msgstr ""
 
@@ -680,15 +681,15 @@ msgstr ""
 msgid "a fight, maybe."
 msgstr ""
 
-#: script/events/outside.js:109
+#: script/events/outside.js:116
 msgid "a fire has started"
 msgstr ""
 
-#: script/events/outside.js:104
+#: script/events/outside.js:111
 msgid "a fire rampages through one of the huts, destroying it."
 msgstr ""
 
-#: script/room.js:1477
+#: script/room.js:1496
 msgid "A Firelit Room"
 msgstr "Ett Eldupplyst Rum"
 
@@ -696,7 +697,7 @@ msgstr "Ett Eldupplyst Rum"
 msgid "a fleet mark. the emblem of a society that is not there any more."
 msgstr ""
 
-#: script/lab.js:311
+#: script/lab.js:325
 msgid "a floor drain, and a faint slope in the concrete leading to it."
 msgstr ""
 
@@ -704,7 +705,7 @@ msgstr ""
 msgid "A Forgotten Battlefield"
 msgstr "Ett&nbsp;slagfält"
 
-#: script/events/outside.js:911
+#: script/events/outside.js:918
 msgid "a foundation trench at the edge of the village turns up a marker stone, set upright and deliberate."
 msgstr ""
 
@@ -752,7 +753,7 @@ msgstr ""
 msgid "A Grafted Colossus"
 msgstr ""
 
-#: script/events/outside.js:915
+#: script/events/outside.js:922
 msgid "a grave marker is found under the village"
 msgstr ""
 
@@ -772,7 +773,7 @@ msgstr ""
 msgid "a grizzled soldier attacks, a trophy blade at his hip alongside the bayonet."
 msgstr ""
 
-#: script/events/outside.js:566
+#: script/events/outside.js:573
 msgid "a gunshot rings through the trees."
 msgstr "ett skott brinner av bland träden."
 
@@ -788,11 +789,11 @@ msgstr ""
 msgid "a handful of hypos. life in a vial."
 msgstr ""
 
-#: script/space.js:570
+#: script/space.js:858
 msgid "a hatch you have never seen opens in the console housing."
 msgstr ""
 
-#: script/room.js:470
+#: script/room.js:489
 msgid "a haze falls over the village as the steelworks fires up"
 msgstr "röken lägger sig över byn när stålverket startar ungnarna"
 
@@ -840,11 +841,11 @@ msgstr ""
 msgid "a human soldier still fighting a war they have long lost."
 msgstr ""
 
-#: script/room.js:156
+#: script/room.js:175
 msgid "a hut comes down and goes back up in steel. it does not creak in the wind."
 msgstr ""
 
-#: script/lab.js:315
+#: script/lab.js:329
 msgid "a jar of teeth and examination notes in weird glyphs."
 msgstr ""
 
@@ -904,7 +905,7 @@ msgstr ""
 msgid "A Large Village"
 msgstr "En Stor By"
 
-#: script/lab.js:341
+#: script/lab.js:355
 msgid "a ledger of numbers, no names. the numbers run to five figures."
 msgstr ""
 
@@ -998,7 +999,7 @@ msgstr ""
 msgid "a military perimeter is set up around the mine."
 msgstr ""
 
-#: script/events/outside.js:553
+#: script/events/outside.js:560
 msgid "A Military Raid"
 msgstr "Ett Militäranfall"
 
@@ -1022,7 +1023,7 @@ msgstr ""
 msgid "a monk. three eyes, three ears, no mouth. it has been standing there long enough that it did not arrive."
 msgstr ""
 
-#: script/prison.js:237
+#: script/prison.js:247
 msgid "a morphing projection of this room and this planet."
 msgstr ""
 
@@ -1059,7 +1060,7 @@ msgstr "en nomad anländer, han vill göra affärer"
 msgid "a nomad shuffles into view, laden with makeshift bags bound with rough twine."
 msgstr "en nomad hasar innom synhåll. Lastad med olika påsar bundna med garn."
 
-#: script/room.js:1535
+#: script/room.js:1554
 msgid "A Note on This Fork"
 msgstr ""
 
@@ -1097,7 +1098,7 @@ msgstr ""
 msgid "a party comes up the path, carrying one of their own"
 msgstr ""
 
-#: script/events/outside.js:325
+#: script/events/outside.js:332
 msgid "a plague afflicts the village"
 msgstr "pesten far fram genom byn."
 
@@ -1113,7 +1114,7 @@ msgstr ""
 msgid "a plain marker, and somebody has kept the weeds off it."
 msgstr ""
 
-#: script/prison.js:227
+#: script/prison.js:237
 msgid "a prisoner tried to repair this cell from the inside."
 msgstr ""
 
@@ -1137,7 +1138,7 @@ msgstr ""
 msgid "a radiated goat charges with its mutated antlers"
 msgstr ""
 
-#: script/room.js:1640
+#: script/room.js:1659
 msgid "a ragged stranger stumbles through the door and collapses in the corner"
 msgstr "en sliten främling tumlar in genom dörren och kollapsar i hörnet"
 
@@ -1194,19 +1195,19 @@ msgstr ""
 msgid "a room of shallow basins set into the floor, each one holding a residue that has dried to powder."
 msgstr ""
 
-#: script/prison.js:228
+#: script/prison.js:238
 msgid "a room where the galaxy was once condemned and later an innocent was imprisoned."
 msgstr ""
 
-#: script/prison.js:224
+#: script/prison.js:234
 msgid "a room with 11 chairs and a 12th empty spot."
 msgstr ""
 
-#: script/lab.js:344
+#: script/lab.js:358
 msgid "a room with no fittings at all, and a drain in the middle of the floor."
 msgstr ""
 
-#: script/prison.js:241
+#: script/prison.js:251
 msgid "a round wing with no point. there is no point. nothing to gleam."
 msgstr ""
 
@@ -1320,11 +1321,11 @@ msgstr ""
 msgid "a shape steps out of the wall it was part of a moment ago."
 msgstr ""
 
-#: script/room.js:1023
+#: script/room.js:1042
 msgid "a sharp blade can slay foes in the dangerous wilds. builder can make an iron sword but she knows this isn't for hunting animals."
 msgstr ""
 
-#: script/room.js:1060
+#: script/room.js:1079
 msgid "a sharper blade for more deadly foes in the dangerous wilds. builder can make an steel sword but asks you not to fight."
 msgstr ""
 
@@ -1344,7 +1345,7 @@ msgstr "ett skott hörs, det kommer från det långa gräset"
 msgid "a sick man hobbles up"
 msgstr "en sjuk man stapplar fram"
 
-#: script/events/outside.js:226
+#: script/events/outside.js:233
 msgid "a sickness is spreading through the village."
 msgstr "en sjukdom sprider sig i byn."
 
@@ -1401,7 +1402,7 @@ msgstr "en liten förort med tomma,brända och flagande hus."
 msgid "a small supply cache is hidden at the back of the cave."
 msgstr "en liten förrådslåda ligger längst in i grottan."
 
-#: script/prison.js:235
+#: script/prison.js:245
 msgid "a smear on the curve at head height, polished by repetition."
 msgstr ""
 
@@ -1438,7 +1439,7 @@ msgstr ""
 msgid "a sparring automaton, still fully function and crusted with timeworn blood, lunges forward."
 msgstr ""
 
-#: script/prison.js:213
+#: script/prison.js:223
 msgid "a special meeting room abandoned."
 msgstr ""
 
@@ -1483,7 +1484,7 @@ msgstr "en skrämd best försvarar sitt hem"
 msgid "a stone is set upright at the end of the line, unmarked."
 msgstr ""
 
-#: script/prison.js:225
+#: script/prison.js:235
 msgid "a stone monolith of what to dismantle and what to leave behind."
 msgstr ""
 
@@ -1503,11 +1504,11 @@ msgstr ""
 msgid "a strange device sits on the floor. looks important."
 msgstr ""
 
-#: script/events/marketing.js:17
+#: script/events/marketing.js:24
 msgid "a strange thrumming, pounding and crashing. and then gone."
 msgstr ""
 
-#: script/events/marketing.js:14
+#: script/events/marketing.js:21
 msgid "a strange thrumming, pounding and crashing. visions of people and places, of a huge machine and twisting curves."
 msgstr ""
 
@@ -1539,7 +1540,7 @@ msgstr ""
 msgid "a temple, cut from a single piece of stone"
 msgstr ""
 
-#: script/events/outside.js:322
+#: script/events/outside.js:329
 msgid "a terrible plague is fast spreading through the village."
 msgstr "en fruktandsvärd pest tar snabbt fäste i byn."
 
@@ -1575,11 +1576,11 @@ msgstr ""
 msgid "A Tiny Village"
 msgstr "En Liten By"
 
-#: script/room.js:619
+#: script/room.js:638
 msgid "a torch to keep the dark away"
 msgstr "en fackla för att hålla mörkret borta"
 
-#: script/room.js:301
+#: script/room.js:320
 msgid "a trading post would make commerce easier"
 msgstr "en handelsplats skulle göra det enklare att byta varor"
 
@@ -1777,7 +1778,7 @@ msgid "air whistles as the doors open. this section must have lower pressure tha
 msgstr ""
 
 #: script/localization.js:17
-#: script/ship.js:191
+#: script/ship.js:192
 msgid "alien alloy"
 msgstr "främmande legering"
 
@@ -1785,7 +1786,7 @@ msgstr "främmande legering"
 msgid "alien bird"
 msgstr ""
 
-#: script/events.js:1296
+#: script/events.js:1303
 msgid "all"
 msgstr ""
 
@@ -1805,7 +1806,7 @@ msgstr "allt han har är några fjäll."
 msgid "all of it stops at once."
 msgstr ""
 
-#: script/space.js:574
+#: script/space.js:862
 msgid "all of it. the dog. it was the dog."
 msgstr ""
 
@@ -1846,7 +1847,7 @@ msgstr ""
 msgid "an aqueduct comes down off the ridge in dressed stone, on piers, cut by hand. it feeds a condenser that is not stone and not hand-cut and is doing fusion, quietly, in a shed."
 msgstr ""
 
-#: script/lab.js:334
+#: script/lab.js:348
 msgid "an archive with incomprehensible records"
 msgstr ""
 
@@ -1898,7 +1899,7 @@ msgstr ""
 msgid "an ingot. a device that fits in one hand, with a worn recess for a thumb. and another of the colourless crystals, set apart from the rest."
 msgstr ""
 
-#: script/prison.js:214
+#: script/prison.js:224
 msgid "an office converted to a cell. but why?"
 msgstr ""
 
@@ -1934,8 +1935,8 @@ msgstr ""
 msgid "an old receiver has started speaking"
 msgstr ""
 
-#: script/ship.js:141
-#: script/ship.js:67
+#: script/ship.js:137
+#: script/ship.js:47
 msgid "An Old Starship"
 msgstr "Ett Gammalt Rymdskepp"
 
@@ -2003,11 +2004,11 @@ msgstr ""
 msgid "ancient. simple. effective."
 msgstr ""
 
-#: script/space.js:627
+#: script/space.js:915
 msgid "and it comes back anyway, the way it has been coming back since you saw it:<br>the room, and the rows, and the lights going off past where you could see."
 msgstr ""
 
-#: script/space.js:689
+#: script/space.js:977
 msgid "and on the bridge, at a station that had no reason to have anybody standing at it, somebody is standing at it."
 msgstr ""
 
@@ -2019,7 +2020,7 @@ msgstr ""
 msgid "and the one before that. and four further up."
 msgstr ""
 
-#: script/space.js:651
+#: script/space.js:939
 msgid "and the thing at the bottom of the pack is still there."
 msgstr ""
 
@@ -2055,7 +2056,7 @@ msgstr ""
 msgid "and worked into the frame, so shallow you would only find it by running a hand over it:"
 msgstr ""
 
-#: script/space.js:729
+#: script/space.js:1039
 msgid "and you understand, finally and completely, why you opened that door --<br>and that you would open it again, and that this is not remorse, and never was."
 msgstr ""
 
@@ -2063,7 +2064,7 @@ msgstr ""
 msgid "android"
 msgstr ""
 
-#: script/space.js:909
+#: script/space.js:1219
 msgid "android."
 msgstr ""
 
@@ -2075,7 +2076,7 @@ msgstr ""
 msgid "another cairn, and this one has been counted."
 msgstr ""
 
-#: script/room.js:206
+#: script/room.js:225
 msgid "another cell comes off the line. the foundry crew do not look up."
 msgstr ""
 
@@ -2104,7 +2105,7 @@ msgstr ""
 msgid "approach the platform"
 msgstr ""
 
-#: script/engine.js:1707
+#: script/engine.js:1715
 msgid "april fools."
 msgstr ""
 
@@ -2144,12 +2145,12 @@ msgstr ""
 msgid "armourer"
 msgstr "vapensmed"
 
-#: script/room.js:516
-#: script/room.js:542
+#: script/room.js:535
+#: script/room.js:561
 msgid "armoury"
 msgstr "vapensmedja"
 
-#: script/room.js:520
+#: script/room.js:539
 msgid "armoury's done, welcoming back the weapons of the past."
 msgstr "vapensmedjan är klar, forna tiders vapen är tillbaka."
 
@@ -2206,19 +2207,19 @@ msgstr ""
 msgid "ask how long they have been out"
 msgstr ""
 
-#: script/events/outside.js:933
+#: script/events/outside.js:940
 msgid "ask if anyone can read it"
 msgstr ""
 
-#: script/events/outside.js:779
+#: script/events/outside.js:786
 msgid "ask them what year they think it is"
 msgstr ""
 
-#: script/events/outside.js:811
+#: script/events/outside.js:818
 msgid "ask them where home was"
 msgstr ""
 
-#: script/events/outside.js:622
+#: script/events/outside.js:629
 msgid "ask them who sent them"
 msgstr ""
 
@@ -2250,7 +2251,7 @@ msgstr ""
 msgid "asked anything at all, he answers it the way a man answers a question he has answered several thousand times."
 msgstr ""
 
-#: script/events/outside.js:800
+#: script/events/outside.js:807
 msgid "asked how long ago they worked it out, one of them says it is not the kind of thing you work out once."
 msgstr ""
 
@@ -2258,11 +2259,11 @@ msgstr ""
 msgid "asked how long he has been posted here, he says his relief is due, and does not say when it was due from."
 msgstr ""
 
-#: script/events/outside.js:799
+#: script/events/outside.js:806
 msgid "asked how they know, one of them looks at the lamp instead of answering."
 msgstr ""
 
-#: script/events/outside.js:798
+#: script/events/outside.js:805
 msgid "asked how they know, one of them says: because we were, and we did not either."
 msgstr ""
 
@@ -2294,8 +2295,8 @@ msgstr ""
 msgid "asks for any spare furs to keep him warm at night."
 msgstr "frågar efter om det finns några pälsar över, för att hålla honom varm på natten."
 
-#: script/room.js:2048
-#: script/room.js:2055
+#: script/room.js:2067
+#: script/room.js:2074
 msgid "asks what it is for. asks why you are putting a roof over people you have not met."
 msgstr ""
 
@@ -2377,7 +2378,7 @@ msgstr ""
 msgid "available"
 msgstr "tillgänglig"
 
-#: script/room.js:1335
+#: script/room.js:1354
 msgid "awake. head throbbing. vision blurry."
 msgstr ""
 
@@ -2434,7 +2435,7 @@ msgstr ""
 msgid "become death, destroyer of worlds."
 msgstr ""
 
-#: script/room.js:1134
+#: script/room.js:1153
 msgid "become the destroyer of worlds. use a nuke to kill the most deadly of foes. builder can channel wanderer technology to craft a handheld nuke."
 msgstr ""
 
@@ -2502,7 +2503,7 @@ msgstr "bitar av kött"
 msgid "bits of them can be scavenged."
 msgstr ""
 
-#: script/room.js:1081
+#: script/room.js:1100
 msgid "black powder and bullets, like the old days."
 msgstr "svartkrut och kulor, som i gamla tider."
 
@@ -2547,8 +2548,8 @@ msgstr ""
 msgid "bolas"
 msgstr "bolas"
 
-#: script/room.js:757
-#: script/room.js:771
+#: script/room.js:776
+#: script/room.js:790
 msgid "bone spear"
 msgstr "benspjut"
 
@@ -2556,19 +2557,19 @@ msgstr "benspjut"
 msgid "both go out at the same instant."
 msgstr ""
 
-#: script/events/outside.js:855
+#: script/events/outside.js:862
 msgid "both groups are taken in"
 msgstr ""
 
-#: script/events/outside.js:887
+#: script/events/outside.js:894
 msgid "both groups are told there is no room."
 msgstr ""
 
-#: script/events/outside.js:891
+#: script/events/outside.js:898
 msgid "both groups are turned away"
 msgstr ""
 
-#: script/events/outside.js:825
+#: script/events/outside.js:832
 msgid "both groups walked here. neither of them has aged a day more than the walk."
 msgstr ""
 
@@ -2612,8 +2613,8 @@ msgstr ""
 msgid "build the fire up"
 msgstr ""
 
-#: script/engine.js:1500
-#: script/room.js:2200
+#: script/engine.js:1508
+#: script/room.js:2219
 msgid "build:"
 msgstr "bygg:"
 
@@ -2621,79 +2622,79 @@ msgstr "bygg:"
 msgid "builder"
 msgstr "byggare"
 
-#: script/room.js:385
+#: script/room.js:404
 msgid "builder finishes the smokehouse. she looks hungry."
 msgstr "byggaren färdigställer rökeriet, hon ser hungrig ut."
 
-#: script/room.js:1879
+#: script/room.js:1898
 msgid "builder just shivers"
 msgstr "byggaren sköter om elden"
 
-#: script/world.js:1192
+#: script/world.js:1201
 msgid "builder knows the strange device when she sees it. takes it for herself real quick. doesn’t ask where it came from."
 msgstr ""
 
-#: script/room.js:363
+#: script/room.js:382
 msgid "builder points to the furs from the dead beasts. she says leather could be useful. says the villagers could make it."
 msgstr ""
 
-#: script/room.js:113
+#: script/room.js:132
 msgid "builder puts up a hut, out in the forest. says word will get around."
 msgstr "byggaren sätter upp en hydda i skogen. hon säger att ryktet kommer gå."
 
-#: script/room.js:519
+#: script/room.js:538
 msgid "builder says an armoury can produce bullets, but she doesn't intend to touch a gun ever again"
 msgstr ""
 
-#: script/room.js:338
+#: script/room.js:357
 msgid "builder says leather could be useful. says the {0} could make it."
 msgstr ""
 
-#: script/room.js:55
+#: script/room.js:74
 msgid "builder says she can make a cart for carrying wood"
 msgstr "byggaren säger att hon kan bygga en vedskälke"
 
-#: script/room.js:17
+#: script/room.js:36
 msgid "builder says she can make traps to catch any creatures might still be alive out there"
 msgstr "byggaren säger att hon kan göra fällor för att fånga djur som finns kvar ute"
 
-#: script/room.js:430
+#: script/room.js:449
 msgid "builder says she could make finer things, if she had the tools"
 msgstr "byggaren säger hon kan göra finare saker om hon hade rätt verktyg"
 
-#: script/room.js:567
+#: script/room.js:586
 msgid "builder says she has come up with a better trap design"
 msgstr ""
 
-#: script/room.js:591
+#: script/room.js:610
 msgid "builder says she has come up with a better trap design. wanderer ingenuity and steel versus the beasts of the wilds."
 msgstr ""
 
-#: script/room.js:469
+#: script/room.js:488
 msgid "builder says the {0} could make steel, given the tools"
 msgstr ""
 
-#: script/room.js:155
+#: script/room.js:174
 msgid "builder says the huts could be rebuilt in steel. says they would not burn."
 msgstr ""
 
-#: script/room.js:184
+#: script/room.js:203
 msgid "builder says the sulphur could be made to hold a charge, with the right furnace."
 msgstr ""
 
-#: script/room.js:112
+#: script/room.js:131
 msgid "builder says there are more wanderers. says they'll work, too."
 msgstr "byggaren säger det finns fler vandrare. hon säger att de också ska jobba."
 
-#: script/room.js:129
+#: script/room.js:148
 msgid "builder says there are more wanderers. says they'll work, too. the fire will attract them, but they will need a place to stay."
 msgstr ""
 
-#: script/room.js:70
+#: script/room.js:89
 msgid "builder says to work smarter not harder. head still groggy but the fire needs more wood. having a cart means more time in the warm room and less time in the cold and dangerous woods."
 msgstr ""
 
-#: script/room.js:1602
+#: script/room.js:1621
 msgid "builder stokes the fire"
 msgstr "byggaren sköter om elden"
 
@@ -2737,7 +2738,7 @@ msgstr ""
 msgid "burn the cards"
 msgstr ""
 
-#: script/events/outside.js:347
+#: script/events/outside.js:354
 msgid "burn the infected huts"
 msgstr ""
 
@@ -2745,11 +2746,11 @@ msgstr ""
 msgid "burn whatever burns"
 msgstr ""
 
-#: script/room.js:1472
+#: script/room.js:1491
 msgid "burning"
 msgstr "brinnande"
 
-#: script/events/outside.js:175
+#: script/events/outside.js:182
 msgid "but in the morning everyone who woke up is still here."
 msgstr ""
 
@@ -2761,7 +2762,7 @@ msgstr ""
 msgid "but there is a cache of medicine under the floorboards."
 msgstr ""
 
-#: script/events/outside.js:473
+#: script/events/outside.js:480
 msgid "butcher the dead"
 msgstr ""
 
@@ -2789,7 +2790,7 @@ msgstr "köp kompass"
 msgid "buy map"
 msgstr "köp karta"
 
-#: script/events/outside.js:330
+#: script/events/outside.js:337
 msgid "buy medicine"
 msgstr "1 medicin"
 
@@ -2801,8 +2802,8 @@ msgstr "köp fjäll"
 msgid "buy teeth"
 msgstr "köp tänder"
 
-#: script/engine.js:1511
-#: script/room.js:2214
+#: script/engine.js:1519
+#: script/room.js:2233
 msgid "buy:"
 msgstr "köp:"
 
@@ -2814,7 +2815,7 @@ msgstr ""
 msgid "by midday the ground is too hot to sit on and the air over it is not clear."
 msgstr ""
 
-#: script/events/outside.js:593
+#: script/events/outside.js:600
 msgid "by morning the wounded raiders are not a problem any more"
 msgstr ""
 
@@ -2826,7 +2827,7 @@ msgstr ""
 msgid "by the end of it you are not sweating any more, which is the part to worry about."
 msgstr ""
 
-#: script/lab.js:313
+#: script/lab.js:327
 msgid "cameras everwhere. but who is watching if anyone?"
 msgstr ""
 
@@ -2867,17 +2868,17 @@ msgstr ""
 msgid "carrion drone"
 msgstr ""
 
-#: script/room.js:796
+#: script/room.js:815
 msgid "carrying more means longer expeditions to the wilds"
 msgstr "bära fler förnödenheter innebär längre expeditioner"
 
-#: script/room.js:52
-#: script/room.js:67
+#: script/room.js:71
+#: script/room.js:86
 msgid "cart"
 msgstr "kälke"
 
-#: script/room.js:685
-#: script/room.js:700
+#: script/room.js:704
+#: script/room.js:719
 msgid "cask"
 msgstr "flaska"
 
@@ -2889,7 +2890,7 @@ msgstr ""
 msgid "celebrant"
 msgstr ""
 
-#: script/room.js:181
+#: script/room.js:200
 msgid "cell foundry"
 msgstr ""
 
@@ -2932,7 +2933,7 @@ msgstr "talisman"
 msgid "charred bodies litter the ground."
 msgstr ""
 
-#: script/engine.js:1759
+#: script/engine.js:1767
 msgid "check it out."
 msgstr ""
 
@@ -3110,11 +3111,11 @@ msgstr "Kolgruva"
 msgid "coil"
 msgstr ""
 
-#: script/room.js:1451
+#: script/room.js:1470
 msgid "cold"
 msgstr "kallt"
 
-#: script/lab.js:322
+#: script/lab.js:336
 msgid "colder here. the filtration is louder."
 msgstr ""
 
@@ -3143,11 +3144,11 @@ msgid "committed"
 msgstr ""
 
 #: script/localization.js:46
-#: script/room.js:1283
+#: script/room.js:1302
 msgid "compass"
 msgstr "kompass"
 
-#: script/lab.js:327
+#: script/lab.js:341
 msgid "condensation on the pipes. it has been this cold for a very long time."
 msgstr ""
 
@@ -3330,8 +3331,8 @@ msgstr ""
 msgid "convergence"
 msgstr ""
 
-#: script/room.js:862
-#: script/room.js:878
+#: script/room.js:881
+#: script/room.js:897
 msgid "convoy"
 msgstr "karavan"
 
@@ -3383,8 +3384,8 @@ msgstr ""
 msgid "craft"
 msgstr ""
 
-#: script/engine.js:1505
-#: script/room.js:2207
+#: script/engine.js:1513
+#: script/room.js:2226
 msgid "craft:"
 msgstr "tillverka:"
 
@@ -3392,7 +3393,7 @@ msgstr "tillverka:"
 msgid "crawler"
 msgstr ""
 
-#: script/room.js:34
+#: script/room.js:53
 msgid "creatures can be heard outside the room. builder says she can make traps to catch any creatures might still be alive out there."
 msgstr ""
 
@@ -3430,7 +3431,7 @@ msgstr ""
 msgid "damage"
 msgstr ""
 
-#: script/room.js:317
+#: script/room.js:336
 msgid "dangerous as it is, there is a world outside this room. nomads pass by from time to time. builder says a trading post would make commerce easier"
 msgstr ""
 
@@ -3442,11 +3443,11 @@ msgstr "farligt att vara så här långt från byn utan riktigt skydd"
 msgid "darting between the trees in the dark, the shadow is barely seen. you hear it lunge as it is upon you."
 msgstr ""
 
-#: script/room.js:1468
+#: script/room.js:1487
 msgid "dead"
 msgstr "död"
 
-#: script/room.js:545
+#: script/room.js:564
 msgid "deadly soldiers and raiders out in the wild. builder says she can make bullets though she hates guns"
 msgstr ""
 
@@ -3491,7 +3492,7 @@ msgstr ""
 msgid "detour through the officer's lounge."
 msgstr ""
 
-#: script/space.js:738
+#: script/space.js:1048
 msgid "devotedly, she has given you everything. she asks for one thing back.<br>\"why did you do it?\""
 msgstr ""
 
@@ -3507,16 +3508,16 @@ msgstr ""
 msgid "dig into the face"
 msgstr ""
 
-#: script/events/outside.js:1034
-#: script/events/outside.js:919
+#: script/events/outside.js:1041
+#: script/events/outside.js:926
 msgid "dig it out"
 msgstr ""
 
-#: script/events/outside.js:1012
+#: script/events/outside.js:1019
 msgid "dig it out anyway"
 msgstr ""
 
-#: script/engine.js:1640
+#: script/engine.js:1648
 msgid "disable audio"
 msgstr ""
 
@@ -3557,7 +3558,7 @@ msgstr ""
 msgid "do not look over"
 msgstr ""
 
-#: script/events/outside.js:352
+#: script/events/outside.js:359
 msgid "do nothing"
 msgstr "gör ingenting"
 
@@ -3601,7 +3602,7 @@ msgstr ""
 msgid "drones go out. they go out on a schedule, and the schedule is not regular -- it is triggered."
 msgstr ""
 
-#: script/events.js:1176
+#: script/events.js:1183
 msgid "drop:"
 msgstr "ta bort:"
 
@@ -3627,7 +3628,7 @@ msgstr ""
 msgid "dust wretch"
 msgstr ""
 
-#: script/room.js:1469
+#: script/room.js:1488
 msgid "dying"
 msgstr ""
 
@@ -3635,7 +3636,7 @@ msgstr ""
 msgid "each step into the bracing cold wilds is difficult, and yet somehow there is a calling impossibly far away from here. perhaps even to the stars."
 msgstr ""
 
-#: script/engine.js:1630
+#: script/engine.js:1638
 msgid "ears flooded with new sensations."
 msgstr ""
 
@@ -3683,7 +3684,7 @@ msgstr ""
 msgid "empty the snares"
 msgstr ""
 
-#: script/engine.js:1635
+#: script/engine.js:1643
 msgid "enable audio"
 msgstr ""
 
@@ -3700,7 +3701,7 @@ msgid "energy blade"
 msgstr ""
 
 #: script/localization.js:25
-#: script/room.js:201
+#: script/room.js:220
 msgid "energy cell"
 msgstr "energipaket"
 
@@ -3708,9 +3709,9 @@ msgstr "energipaket"
 msgid "engage"
 msgstr ""
 
-#: script/ship.js:84
-msgid "engine:"
-msgstr "motor:"
+#: script/ship.js:64
+msgid "engine: "
+msgstr ""
 
 #: script/events/executioner.js:695
 msgid "engineering"
@@ -3724,7 +3725,7 @@ msgstr ""
 msgid "enough is taken to matter and the rest goes back under, resealed, stones replaced."
 msgstr ""
 
-#: script/room.js:409
+#: script/room.js:428
 msgid "enough meat to no longer worry about starving. first bright light in these dark lands? should cure the meat, or it'll spoil. builder says she can fix something up."
 msgstr ""
 
@@ -3739,7 +3740,7 @@ msgstr ""
 msgid "enter"
 msgstr "gå in"
 
-#: script/events/outside.js:364
+#: script/events/outside.js:371
 msgid "epidemic is eradicated eventually"
 msgstr ""
 
@@ -3747,7 +3748,7 @@ msgstr ""
 msgid "equally unnatural and deadly, the cyborg bear stands ready."
 msgstr ""
 
-#: script/space.js:810
+#: script/space.js:1120
 msgid "escape..."
 msgstr ""
 
@@ -3779,7 +3780,7 @@ msgstr ""
 msgid "every container is drained and the wrappings are left open to the air."
 msgstr ""
 
-#: script/prison.js:204
+#: script/prison.js:214
 msgid "every corner is the same corner. you have stopped trusting your count."
 msgstr ""
 
@@ -3787,7 +3788,7 @@ msgstr ""
 msgid "every entry is the same shape. dispatch. transit. RECOVERY OF SAMPLE. return. hold for assay."
 msgstr ""
 
-#: script/room.js:157
+#: script/room.js:176
 msgid "every hut is steel already."
 msgstr ""
 
@@ -3803,11 +3804,11 @@ msgstr ""
 msgid "every one of them is lined up on the same point, and the point is a long way further out than this."
 msgstr ""
 
-#: script/lab.js:316
+#: script/lab.js:330
 msgid "every path impossibly seems to slope down and deeper."
 msgstr ""
 
-#: script/prison.js:210
+#: script/prison.js:220
 msgid "every room of unerring consistency beyond what any machine can do."
 msgstr ""
 
@@ -3815,7 +3816,7 @@ msgstr ""
 msgid "every single one of them is you."
 msgstr ""
 
-#: script/prison.js:218
+#: script/prison.js:228
 msgid "every surface is a triangle, and no two are the same triangle."
 msgstr ""
 
@@ -3851,7 +3852,7 @@ msgstr ""
 msgid "everything that burns goes into the fires, including two of the hut frames."
 msgstr ""
 
-#: script/events/outside.js:610
+#: script/events/outside.js:617
 msgid "execute them"
 msgstr ""
 
@@ -3863,15 +3864,15 @@ msgstr ""
 msgid "exiled"
 msgstr ""
 
-#: script/space.js:111
+#: script/space.js:316
 msgid "Exosphere"
 msgstr "Exosvären"
 
-#: script/space.js:892
+#: script/space.js:1202
 msgid "expanded story. alternate ending. behind the scenes commentary. get the app."
 msgstr ""
 
-#: script/room.js:809
+#: script/room.js:828
 msgid "expeditions require gear. builder can stitch leather together into a rucksack."
 msgstr ""
 
@@ -3904,7 +3905,7 @@ msgstr ""
 msgid "extinguish"
 msgstr ""
 
-#: script/room.js:1119
+#: script/room.js:1138
 msgid "extremely powerful handheld bomb that instantly destroys an enemy."
 msgstr ""
 
@@ -3928,7 +3929,7 @@ msgstr "facebook"
 msgid "faces, darkened by soot and blood, stare out from crooked huts."
 msgstr ""
 
-#: script/maze.js:748
+#: script/maze.js:805
 msgid "facing {0}"
 msgstr ""
 
@@ -3974,7 +3975,7 @@ msgstr ""
 msgid "Fire"
 msgstr ""
 
-#: script/room.js:633
+#: script/room.js:652
 msgid "fire in this room attracted others in need. but fire can also keep the darkness at bay in the wilds. build suggests crafting torches."
 msgstr ""
 
@@ -3998,7 +3999,7 @@ msgstr ""
 msgid "flare"
 msgstr ""
 
-#: script/room.js:1471
+#: script/room.js:1490
 msgid "flickering"
 msgstr "flämtande"
 
@@ -4087,8 +4088,9 @@ msgstr ""
 msgid "four hundred attempts, all of them turned back"
 msgstr ""
 
-#: script/space.js:672
-#: script/space.js:709
+#: script/space.js:1019
+#: script/space.js:960
+#: script/space.js:997
 msgid "four hundred centuries ago somebody sat in a shielded room, holding this, waiting for you to come and ask."
 msgstr ""
 
@@ -4105,7 +4107,7 @@ msgstr "ledigt {0}/{1}"
 msgid "free the live one and reset the line"
 msgstr ""
 
-#: script/room.js:1450
+#: script/room.js:1469
 msgid "freezing"
 msgstr "frysande"
 
@@ -4113,7 +4115,7 @@ msgstr "frysande"
 msgid "frenzied"
 msgstr ""
 
-#: script/room.js:1449
+#: script/room.js:1468
 msgid "frigid"
 msgstr ""
 
@@ -4252,7 +4254,7 @@ msgstr ""
 msgid "give him what he needs"
 msgstr ""
 
-#: script/events/marketing.js:21
+#: script/events/marketing.js:28
 msgid "give in"
 msgstr ""
 
@@ -4280,7 +4282,7 @@ msgstr ""
 msgid "glow stone"
 msgstr ""
 
-#: script/prison.js:211
+#: script/prison.js:221
 msgid "glyphs in every tongue: peace through equity. equity through consistency."
 msgstr ""
 
@@ -4364,28 +4366,28 @@ msgstr ""
 msgid "Go Hardcore?"
 msgstr ""
 
-#: script/events/outside.js:270
-#: script/events/outside.js:287
-#: script/events/outside.js:305
-#: script/events/outside.js:371
-#: script/events/outside.js:394
-#: script/events/outside.js:413
-#: script/events/outside.js:431
+#: script/events/outside.js:277
+#: script/events/outside.js:294
+#: script/events/outside.js:312
+#: script/events/outside.js:378
+#: script/events/outside.js:401
+#: script/events/outside.js:420
+#: script/events/outside.js:438
 #: script/events/outside.js:45
-#: script/events/outside.js:512
-#: script/events/outside.js:529
-#: script/events/outside.js:543
-#: script/events/outside.js:642
-#: script/events/outside.js:660
-#: script/events/outside.js:678
-#: script/events/outside.js:697
-#: script/events/outside.js:830
-#: script/events/outside.js:844
-#: script/events/outside.js:862
-#: script/events/outside.js:880
-#: script/events/outside.js:894
-#: script/events/outside.js:960
-#: script/events/outside.js:974
+#: script/events/outside.js:519
+#: script/events/outside.js:536
+#: script/events/outside.js:550
+#: script/events/outside.js:649
+#: script/events/outside.js:667
+#: script/events/outside.js:685
+#: script/events/outside.js:704
+#: script/events/outside.js:837
+#: script/events/outside.js:851
+#: script/events/outside.js:869
+#: script/events/outside.js:887
+#: script/events/outside.js:901
+#: script/events/outside.js:967
+#: script/events/outside.js:981
 #: script/events/path.js:339
 #: script/events/room.js:496
 #: script/events/room.js:523
@@ -4409,9 +4411,9 @@ msgstr ""
 msgid "go in after all"
 msgstr ""
 
-#: script/events/outside.js:180
-#: script/events/outside.js:192
-#: script/events/outside.js:210
+#: script/events/outside.js:187
+#: script/events/outside.js:199
+#: script/events/outside.js:217
 #: script/events/path.js:472
 #: script/events/path.js:486
 #: script/events/path.js:519
@@ -4560,7 +4562,7 @@ msgstr "gå dubbelt så lungt utan att äta"
 msgid "go your own way"
 msgstr ""
 
-#: script/lab.js:333
+#: script/lab.js:347
 msgid "going in circles? that handprint looks like your own."
 msgstr ""
 
@@ -4604,12 +4606,12 @@ msgstr ""
 msgid "grey falls out of a clear sky for two days."
 msgstr ""
 
-#: script/room.js:1117
-#: script/room.js:1131
+#: script/room.js:1136
+#: script/room.js:1150
 msgid "handheld nuke"
 msgstr ""
 
-#: script/lab.js:342
+#: script/lab.js:356
 msgid "handprints on the inside of the glass. six fingers, and some with five."
 msgstr ""
 
@@ -4621,7 +4623,7 @@ msgstr ""
 msgid "hang him"
 msgstr "häng honnom"
 
-#: script/space.js:579
+#: script/space.js:867
 msgid "happy april fools. the door out of here still works and none of this happened."
 msgstr ""
 
@@ -4885,7 +4887,7 @@ msgstr ""
 msgid "he works the store room door for a week."
 msgstr ""
 
-#: script/events/outside.js:166
+#: script/events/outside.js:173
 msgid "help her sort it"
 msgstr ""
 
@@ -4921,7 +4923,7 @@ msgstr ""
 msgid "hollow warden"
 msgstr ""
 
-#: script/room.js:1454
+#: script/room.js:1473
 msgid "hot"
 msgstr "hett"
 
@@ -4933,11 +4935,11 @@ msgstr ""
 msgid "housing splits"
 msgstr ""
 
-#: script/lab.js:332
+#: script/lab.js:346
 msgid "how deep do these tunnels go? why is it so cold?"
 msgstr ""
 
-#: script/lab.js:318
+#: script/lab.js:332
 msgid "how did the watcher temple have a key to thos place?"
 msgstr ""
 
@@ -4946,7 +4948,7 @@ msgstr ""
 msgid "hp"
 msgstr ""
 
-#: script/world.js:1283
+#: script/world.js:1292
 #: script/world.js:369
 msgid "hp: {0}/{1}"
 msgstr "hp: {0}/{1}"
@@ -4955,19 +4957,16 @@ msgstr "hp: {0}/{1}"
 msgid "hull re-forms"
 msgstr ""
 
-#: script/ship.js:78
-msgid "hull:"
-msgstr "skrov:"
-
+#: script/ship.js:58
 #: script/space.js:44
 msgid "hull: "
 msgstr "skrovс: "
 
-#: script/room.js:277
+#: script/room.js:296
 msgid "hungry mouths crave meat. beasts attack wanderers in the wild. wanderers want to strike back. builder says villagers could help hunt, given the means with a hunting lodge."
 msgstr ""
 
-#: script/events/outside.js:485
+#: script/events/outside.js:492
 msgid "hunt the pack down"
 msgstr ""
 
@@ -4976,8 +4975,8 @@ msgstr ""
 msgid "hunter"
 msgstr "jägare"
 
-#: script/room.js:126
-#: script/room.js:87
+#: script/room.js:106
+#: script/room.js:145
 msgid "hut"
 msgstr "hydda"
 
@@ -4991,11 +4990,11 @@ msgstr ""
 msgid "hypo"
 msgstr ""
 
-#: script/room.js:935
+#: script/room.js:954
 msgid "i armour"
 msgstr "järnrustning"
 
-#: script/room.js:1541
+#: script/room.js:1560
 msgid "I do not claim this to be an extension of Townsend's intent. I intentionally tried to make this story its own."
 msgstr ""
 
@@ -5025,7 +5024,7 @@ msgstr ""
 msgid "ignore her"
 msgstr ""
 
-#: script/events/outside.js:257
+#: script/events/outside.js:264
 msgid "ignore it"
 msgstr "strunta i det"
 
@@ -5108,11 +5107,11 @@ msgstr ""
 msgid "investigate"
 msgstr "undersök"
 
-#: script/lab.js:352
+#: script/lab.js:366
 msgid "invisible death - radiation floods most of this level"
 msgstr ""
 
-#: script/events/marketing.js:15
+#: script/events/marketing.js:22
 msgid "inviting. it would be so easy to give in, completely."
 msgstr ""
 
@@ -5120,7 +5119,7 @@ msgstr ""
 msgid "ios"
 msgstr ""
 
-#: script/space.js:901
+#: script/space.js:1211
 msgid "iOS."
 msgstr ""
 
@@ -5129,7 +5128,7 @@ msgstr ""
 msgid "iron"
 msgstr "järn"
 
-#: script/room.js:949
+#: script/room.js:968
 msgid "iron armour"
 msgstr ""
 
@@ -5142,12 +5141,12 @@ msgstr "järn gruva"
 msgid "iron miner"
 msgstr "järngruvarbetare"
 
-#: script/room.js:1005
-#: script/room.js:1020
+#: script/room.js:1024
+#: script/room.js:1039
 msgid "iron sword"
 msgstr "järnsvärf"
 
-#: script/room.js:938
+#: script/room.js:957
 msgid "iron's stronger than leather"
 msgstr "järn är starkare än läder"
 
@@ -5167,11 +5166,11 @@ msgstr ""
 msgid "is something blocking some of the stars tonight?"
 msgstr ""
 
-#: script/space.js:575
+#: script/space.js:863
 msgid "it also did 9/11."
 msgstr ""
 
-#: script/space.js:577
+#: script/space.js:865
 msgid "it barks once, politely, and the drives come up."
 msgstr ""
 
@@ -5211,11 +5210,11 @@ msgstr ""
 msgid "it costs most of a season of gathering."
 msgstr ""
 
-#: script/events/outside.js:174
+#: script/events/outside.js:181
 msgid "it costs. the village is smaller and colder for a while."
 msgstr ""
 
-#: script/events/outside.js:951
+#: script/events/outside.js:958
 msgid "it cuts the mortar rather than the other way round."
 msgstr ""
 
@@ -5251,7 +5250,7 @@ msgstr ""
 msgid "it does not resist. it does not appear to consider resisting."
 msgstr ""
 
-#: script/space.js:686
+#: script/space.js:974
 msgid "it does not say anything. it has never had anything to say anything with. but you understand, the way you understood the crystal, that what is being observed is not a judgement.<br>it is a redemption. and it is being witnessed, which is the only ceremony the watchers know how to hold."
 msgstr ""
 
@@ -5388,11 +5387,11 @@ msgstr ""
 msgid "it is an agreement. who digs, who repairs, whose year it is when the years do not match."
 msgstr ""
 
-#: script/room.js:1333
+#: script/room.js:1352
 msgid "it is bracingly cold. this place seems familiar. it is hard to think clearly with the cold."
 msgstr ""
 
-#: script/events/outside.js:630
+#: script/events/outside.js:637
 msgid "it is done against the wall of the store room."
 msgstr ""
 
@@ -5436,13 +5435,14 @@ msgstr ""
 msgid "it is like being sanded. every exposed inch of you, for forty minutes, without pause."
 msgstr ""
 
-#: script/events/outside.js:502
+#: script/events/outside.js:509
 msgid "it is not a fight so much as a conclusion."
 msgstr ""
 
-#: script/space.js:671
-#: script/space.js:708
-#: script/space.js:726
+#: script/space.js:1018
+#: script/space.js:1036
+#: script/space.js:959
+#: script/space.js:996
 msgid "it is not a memory. the others were memories.<br>this is a thing somebody made, deliberately, to be handed to one person."
 msgstr ""
 
@@ -5450,7 +5450,7 @@ msgstr ""
 msgid "it is not a name anybody here can pronounce, and it belongs to a man who slept in this room and would not give it."
 msgstr ""
 
-#: script/events/outside.js:984
+#: script/events/outside.js:991
 msgid "it is not a name. it is a rank, a fleet number, and a date of loss."
 msgstr ""
 
@@ -5522,7 +5522,7 @@ msgstr ""
 msgid "it is still transmitting. it has always been still transmitting."
 msgstr ""
 
-#: script/space.js:728
+#: script/space.js:1038
 msgid "it is still true. that is the part nobody ever believes and it has never once stopped being the part that matters."
 msgstr ""
 
@@ -5534,7 +5534,7 @@ msgstr ""
 msgid "it is the builder. she has walked out here, through all of it, on the leg that does not work properly, and she is not carrying anything."
 msgstr ""
 
-#: script/events/outside.js:952
+#: script/events/outside.js:959
 msgid "it is the only part of that hut that will still be standing in a hundred years."
 msgstr ""
 
@@ -5550,11 +5550,11 @@ msgstr ""
 msgid "it is unpleasant and it works. the cold lifts on the fourth day, as unaccountably as it came."
 msgstr ""
 
-#: script/events/outside.js:950
+#: script/events/outside.js:957
 msgid "it is very good stone. it is not from here."
 msgstr ""
 
-#: script/prison.js:250
+#: script/prison.js:260
 msgid "it is very quiet, and the quiet has the shape of a held breath."
 msgstr ""
 
@@ -5562,7 +5562,7 @@ msgstr ""
 msgid "it is warm. it is the same warmth as the one in the ruins, and you already know what happens if you touch it, and you touch it."
 msgstr ""
 
-#: script/space.js:572
+#: script/space.js:860
 msgid "it is wearing a small headset. it has been wearing it the entire time."
 msgstr ""
 
@@ -5578,7 +5578,7 @@ msgstr ""
 msgid "it is your handwriting. the ink is older than this settlement."
 msgstr ""
 
-#: script/room.js:844
+#: script/room.js:863
 msgid "it isn't enough to carry the minimum to survive. the dead leave loot. builder can craft a wagon."
 msgstr ""
 
@@ -5586,7 +5586,7 @@ msgstr ""
 msgid "it lands next to one that is already the same mark, in the same hand, made the same way."
 msgstr ""
 
-#: script/events/outside.js:869
+#: script/events/outside.js:876
 msgid "it lasts nine days."
 msgstr ""
 
@@ -5594,7 +5594,7 @@ msgstr ""
 msgid "it lists to the side in a deep crevasse, cut when it fell from the sky."
 msgstr ""
 
-#: script/space.js:576
+#: script/space.js:864
 msgid "it looks at you with the total lack of remorse available only to a dog<br>that has never once been told no."
 msgstr ""
 
@@ -5686,7 +5686,7 @@ msgstr ""
 msgid "it stops on one date, and the date is not a mystery. everything on this world stops around then."
 msgstr ""
 
-#: script/events/outside.js:402
+#: script/events/outside.js:409
 msgid "it stops there. it does stop there."
 msgstr ""
 
@@ -5698,7 +5698,7 @@ msgstr ""
 msgid "it takes a day and a half to reach the end of it."
 msgstr ""
 
-#: script/events/outside.js:851
+#: script/events/outside.js:858
 msgid "it takes a month and most of the stores."
 msgstr ""
 
@@ -5758,7 +5758,7 @@ msgstr ""
 msgid "it was the floor a moment ago."
 msgstr ""
 
-#: script/space.js:629
+#: script/space.js:917
 msgid "it will be you the way a copy of a page is the page."
 msgstr ""
 
@@ -5766,7 +5766,7 @@ msgstr ""
 msgid "it will go on doing that for nobody, for a long time, and then it will stop on its own."
 msgstr ""
 
-#: script/events/outside.js:382
+#: script/events/outside.js:389
 msgid "it works, mostly, and the mostly is a row of graves at the treeline."
 msgstr ""
 
@@ -5790,7 +5790,7 @@ msgstr ""
 msgid "just as deadly now as they were then."
 msgstr ""
 
-#: script/room.js:231
+#: script/room.js:250
 msgid "katana"
 msgstr ""
 
@@ -5849,7 +5849,7 @@ msgstr ""
 msgid "knitting"
 msgstr ""
 
-#: script/room.js:900
+#: script/room.js:919
 msgid "l armour"
 msgstr "läderrustning"
 
@@ -5877,13 +5877,21 @@ msgstr ""
 msgid "large prints lead away, into the forest."
 msgstr "stora spår leder in i skogen."
 
-#: script/room.js:881
+#: script/room.js:900
 msgid "larger conquests need to be carried back. builder can leverage wanderer engineering to craft a convoy."
 msgstr ""
 
 #: script/localization.js:47
 msgid "laser rifle"
 msgstr "lasergevär"
+
+#: script/ship.js:213
+msgid "lasers maxed"
+msgstr ""
+
+#: script/ship.js:70
+msgid "lasers: "
+msgstr ""
 
 #: script/events/setpieces.js:3660
 msgid "lattice warden"
@@ -5946,15 +5954,15 @@ msgstr "undervisad i att slå slag med kraft"
 msgid "leather"
 msgstr "läder"
 
-#: script/room.js:914
+#: script/room.js:933
 msgid "leather armour"
 msgstr ""
 
-#: script/room.js:903
+#: script/room.js:922
 msgid "leather's not strong. better than rags, though."
 msgstr "läder är inte starkt, men bättre än inget."
 
-#: script/events.js:1130
+#: script/events.js:1137
 #: script/events/executioner.js:1019
 #: script/events/executioner.js:1044
 #: script/events/executioner.js:1059
@@ -6193,8 +6201,8 @@ msgstr "lämna grottan"
 msgid "leave her to it"
 msgstr ""
 
-#: script/events/outside.js:783
-#: script/events/outside.js:815
+#: script/events/outside.js:790
+#: script/events/outside.js:822
 #: script/events/path.js:581
 #: script/events/road.js:519
 msgid "leave it"
@@ -6296,11 +6304,11 @@ msgstr ""
 msgid "let her keep yours"
 msgstr ""
 
-#: script/room.js:2116
+#: script/room.js:2135
 msgid "let her plan"
 msgstr ""
 
-#: script/room.js:2102
+#: script/room.js:2121
 msgid "let her work"
 msgstr ""
 
@@ -6320,7 +6328,7 @@ msgstr ""
 msgid "let it fall"
 msgstr ""
 
-#: script/events/outside.js:615
+#: script/events/outside.js:622
 msgid "let them go"
 msgstr ""
 
@@ -6337,8 +6345,8 @@ msgstr ""
 msgid "life in a vial."
 msgstr ""
 
-#: script/ship.js:109
-#: script/ship.js:210
+#: script/ship.js:104
+#: script/ship.js:239
 msgid "lift off"
 msgstr "avfyra"
 
@@ -6346,7 +6354,7 @@ msgstr "avfyra"
 msgid "light feet"
 msgstr ""
 
-#: script/room.js:1357
+#: script/room.js:1376
 msgid "light fire"
 msgstr "tänd brasa"
 
@@ -6372,7 +6380,7 @@ msgstr "ljus på."
 msgid "lines up the shot"
 msgstr ""
 
-#: script/ship.js:218
+#: script/ship.js:247
 msgid "linger"
 msgstr "dröj kvar"
 
@@ -6404,7 +6412,7 @@ msgstr ""
 msgid "lob"
 msgstr "lobba"
 
-#: script/maze.js:456
+#: script/maze.js:464
 msgid "LOCKED"
 msgstr ""
 
@@ -6412,8 +6420,8 @@ msgstr ""
 msgid "Locked-Down&nbsp;Prison"
 msgstr ""
 
-#: script/room.js:248
-#: script/room.js:274
+#: script/room.js:267
+#: script/room.js:293
 msgid "lodge"
 msgstr "ordensloge"
 
@@ -6421,7 +6429,7 @@ msgstr "ordensloge"
 msgid "logs in more languages than one observatory should need"
 msgstr ""
 
-#: script/space.js:809
+#: script/space.js:1119
 msgid "long enough."
 msgstr ""
 
@@ -6475,7 +6483,7 @@ msgstr ""
 msgid "loses footing"
 msgstr ""
 
-#: script/lab.js:346
+#: script/lab.js:360
 msgid "lost? déjà vu? or have you been here before and forgot?"
 msgstr ""
 
@@ -6483,9 +6491,10 @@ msgstr ""
 msgid "lots of strange scales"
 msgstr ""
 
-#: script/space.js:695
-#: script/space.js:700
-#: script/space.js:722
+#: script/space.js:1011
+#: script/space.js:1032
+#: script/space.js:983
+#: script/space.js:988
 msgid "lovingly, she has given you everything. she asks for one thing back.<br>\"why did you do it?\""
 msgstr ""
 
@@ -6537,7 +6546,7 @@ msgstr ""
 msgid "marks on the door read 'research and development.' everything seems mostly untouched, but dead."
 msgstr ""
 
-#: script/prison.js:206
+#: script/prison.js:216
 msgid "marks on the wall at shoulder height, grouped in fives."
 msgstr ""
 
@@ -6561,7 +6570,7 @@ msgstr ""
 msgid "maybe some useful stuff in the rubble."
 msgstr ""
 
-#: script/room.js:2050
+#: script/room.js:2069
 msgid "maybe this journey belongs to the two of you alone. is there another way?"
 msgstr ""
 
@@ -6605,8 +6614,8 @@ msgstr ""
 msgid "medicine"
 msgstr "medicin"
 
-#: script/events/outside.js:227
-#: script/events/outside.js:323
+#: script/events/outside.js:234
+#: script/events/outside.js:330
 msgid "medicine is needed immediately."
 msgstr "medicin behövs omedelbart."
 
@@ -6622,11 +6631,11 @@ msgstr ""
 msgid "men mill about, weapons at the ready."
 msgstr ""
 
-#: script/events/outside.js:669
+#: script/events/outside.js:676
 msgid "mercy is not always repaid. it is still worth extending."
 msgstr ""
 
-#: script/space.js:107
+#: script/space.js:312
 msgid "Mesosphere"
 msgstr "Mesosvären"
 
@@ -6642,7 +6651,7 @@ msgstr ""
 msgid "might be things worth having still inside."
 msgstr ""
 
-#: script/room.js:1452
+#: script/room.js:1471
 msgid "mild"
 msgstr "ljummet"
 
@@ -6650,7 +6659,7 @@ msgstr "ljummet"
 msgid "miss"
 msgstr "miss"
 
-#: script/lab.js:317
+#: script/lab.js:331
 msgid "modern. ancient. familiar. alien."
 msgstr ""
 
@@ -6662,7 +6671,7 @@ msgstr ""
 msgid "more medical robots stand frozen, attached by a network of wires."
 msgstr ""
 
-#: script/events/outside.js:538
+#: script/events/outside.js:545
 msgid "more of them see the morning than would have."
 msgstr ""
 
@@ -6682,15 +6691,15 @@ msgstr ""
 msgid "more strange graffiti adorns the walls."
 msgstr ""
 
-#: script/room.js:18
+#: script/room.js:37
 msgid "more traps to catch more creatures"
 msgstr "fler fällor för att fånga fler djur"
 
-#: script/room.js:19
+#: script/room.js:38
 msgid "more traps won't help now"
 msgstr "fler fällor är inte till någon nytta"
 
-#: script/room.js:569
+#: script/room.js:588
 msgid "more uber traps would be for naught"
 msgstr ""
 
@@ -6718,7 +6727,7 @@ msgstr ""
 msgid "most of the windows at ground level are busted anyway."
 msgstr ""
 
-#: script/events/outside.js:278
+#: script/events/outside.js:285
 msgid "most of them come back. not all of them."
 msgstr ""
 
@@ -6730,7 +6739,7 @@ msgstr ""
 msgid "motion from the centre of the yard."
 msgstr ""
 
-#: script/events/outside.js:135
+#: script/events/outside.js:142
 msgid "mourn"
 msgstr "skydd"
 
@@ -6752,12 +6761,12 @@ msgstr ""
 msgid "move on at dawn"
 msgstr ""
 
-#: script/events/outside.js:1025
-#: script/events/outside.js:924
+#: script/events/outside.js:1032
+#: script/events/outside.js:931
 msgid "move the trench"
 msgstr ""
 
-#: script/events/outside.js:1003
+#: script/events/outside.js:1010
 msgid "move the trench anyway"
 msgstr ""
 
@@ -6781,7 +6790,7 @@ msgstr ""
 msgid "neither has been maintained in a very long time. both are still working."
 msgstr ""
 
-#: script/room.js:725
+#: script/room.js:744
 msgid "never go thirsty again"
 msgstr "gå aldrig törstig igen"
 
@@ -6817,7 +6826,7 @@ msgstr ""
 msgid "no"
 msgstr "nej"
 
-#: script/prison.js:249
+#: script/prison.js:259
 msgid "no cells. no doors. this passage was built for one arrival."
 msgstr ""
 
@@ -6829,7 +6838,7 @@ msgstr ""
 msgid "no escape"
 msgstr ""
 
-#: script/prison.js:238
+#: script/prison.js:248
 msgid "no focal point. you observe everything and nothing."
 msgstr ""
 
@@ -6845,15 +6854,15 @@ msgstr ""
 msgid "no memory"
 msgstr ""
 
-#: script/events/outside.js:651
+#: script/events/outside.js:658
 msgid "no message with it."
 msgstr ""
 
-#: script/room.js:114
+#: script/room.js:133
 msgid "no more room for huts."
 msgstr "inte tillräckligt med platser att bygga hyddor"
 
-#: script/events/outside.js:105
+#: script/events/outside.js:112
 msgid "no one made it out in time."
 msgstr ""
 
@@ -6861,11 +6870,11 @@ msgstr ""
 msgid "no one wins wars fought with child soldiers"
 msgstr ""
 
-#: script/engine.js:1765
+#: script/engine.js:1773
 msgid "no thanks."
 msgstr ""
 
-#: script/room.js:1908
+#: script/room.js:1927
 msgid "no wooden huts left to rebuild."
 msgstr ""
 
@@ -6881,7 +6890,7 @@ msgstr ""
 msgid "nobody asks what happened, or where you have been, or what you intend to do next."
 msgstr ""
 
-#: script/events/outside.js:403
+#: script/events/outside.js:410
 msgid "nobody asks who gave the order. everybody knows."
 msgstr ""
 
@@ -6901,7 +6910,7 @@ msgstr ""
 msgid "nobody in the village can pronounce it. nobody in the village knows who it belonged to."
 msgstr ""
 
-#: script/events/outside.js:1020
+#: script/events/outside.js:1027
 msgid "nobody in the village can read it, and nobody who comes through that season can either."
 msgstr ""
 
@@ -6917,7 +6926,7 @@ msgstr ""
 msgid "nobody in the village worked out how to do this. one of the newer arrivals already knew."
 msgstr ""
 
-#: script/events/outside.js:632
+#: script/events/outside.js:639
 msgid "nobody objects. that is the part worth noticing."
 msgstr ""
 
@@ -6967,7 +6976,7 @@ msgstr ""
 msgid "none of the ship's engines escaped the destruction."
 msgstr ""
 
-#: script/events/outside.js:687
+#: script/events/outside.js:694
 msgid "none of the three have existed for a very long time. they are told so."
 msgstr ""
 
@@ -6975,13 +6984,14 @@ msgstr ""
 msgid "none of them surrender. none of them run. the singing stops one voice at a time."
 msgstr ""
 
-#: script/room.js:1860
-#: script/room.js:1928
+#: script/room.js:1879
+#: script/room.js:1947
 msgid "not enough {0}"
 msgstr ""
 
-#: script/ship.js:148
-#: script/ship.js:164
+#: script/ship.js:144
+#: script/ship.js:159
+#: script/ship.js:174
 msgid "not enough alien alloy"
 msgstr "inte tillräckligt med främmande legering"
 
@@ -7029,7 +7039,7 @@ msgstr "inte tillräckligt med tänder"
 msgid "not enough wood"
 msgstr "inte tillräckligt med trä"
 
-#: script/room.js:1515
+#: script/room.js:1534
 msgid "not enough wood to get the fire going"
 msgstr "inte tillräckligt med ved för att starta elden"
 
@@ -7069,11 +7079,11 @@ msgstr ""
 msgid "note where it is and move on"
 msgstr ""
 
-#: script/lab.js:310
+#: script/lab.js:324
 msgid "notes on the wall in ancient glyphs, in a small tidy hand."
 msgstr ""
 
-#: script/events.js:1201
+#: script/events.js:1208
 #: script/events/room.js:869
 msgid "nothing"
 msgstr "ingenting"
@@ -7094,7 +7104,7 @@ msgstr ""
 msgid "nothing can be made of the ash"
 msgstr ""
 
-#: script/space.js:761
+#: script/space.js:1071
 msgid "nothing explains it. the ship goes on climbing and nothing comes after it."
 msgstr ""
 
@@ -7126,7 +7136,7 @@ msgstr ""
 msgid "nothing has been in here. not dust, not damp, not anything, for a length of time the mind refuses."
 msgstr ""
 
-#: script/prison.js:234
+#: script/prison.js:244
 msgid "nothing here gives you a straight line to fix on."
 msgstr ""
 
@@ -7150,7 +7160,7 @@ msgstr ""
 msgid "nothing more here."
 msgstr ""
 
-#: script/events.js:1266
+#: script/events.js:1273
 msgid "nothing to take"
 msgstr "ingenting"
 
@@ -7170,11 +7180,11 @@ msgstr ""
 msgid "noticing the builder staring is at you as if trying to figure something out."
 msgstr ""
 
-#: script/room.js:302
+#: script/room.js:321
 msgid "now the nomads have a place to set up shop, they might stick around a while"
 msgstr "nu när nomaderna har någonstans att sälja sina saker kanske dom stännar kvar längre"
 
-#: script/prison.js:251
+#: script/prison.js:261
 msgid "nullified sound. what prisoner would necessitate should a prison"
 msgstr ""
 
@@ -7227,34 +7237,34 @@ msgstr ""
 #: script/outside.js:929
 #: script/outside.js:946
 #: script/outside.js:963
-#: script/room.js:1026
-#: script/room.js:1063
-#: script/room.js:1099
-#: script/room.js:1137
-#: script/room.js:1289
-#: script/room.js:132
-#: script/room.js:1546
-#: script/room.js:282
-#: script/room.js:320
-#: script/room.js:366
-#: script/room.js:37
-#: script/room.js:412
-#: script/room.js:450
-#: script/room.js:500
-#: script/room.js:548
-#: script/room.js:594
-#: script/room.js:636
-#: script/room.js:671
-#: script/room.js:706
-#: script/room.js:73
-#: script/room.js:742
-#: script/room.js:777
-#: script/room.js:812
-#: script/room.js:847
-#: script/room.js:884
-#: script/room.js:920
-#: script/room.js:955
-#: script/room.js:990
+#: script/room.js:1009
+#: script/room.js:1045
+#: script/room.js:1082
+#: script/room.js:1118
+#: script/room.js:1156
+#: script/room.js:1308
+#: script/room.js:151
+#: script/room.js:1565
+#: script/room.js:301
+#: script/room.js:339
+#: script/room.js:385
+#: script/room.js:431
+#: script/room.js:469
+#: script/room.js:519
+#: script/room.js:56
+#: script/room.js:567
+#: script/room.js:613
+#: script/room.js:655
+#: script/room.js:690
+#: script/room.js:725
+#: script/room.js:761
+#: script/room.js:796
+#: script/room.js:831
+#: script/room.js:866
+#: script/room.js:903
+#: script/room.js:92
+#: script/room.js:939
+#: script/room.js:974
 msgid "ok"
 msgstr "ok"
 
@@ -7274,7 +7284,7 @@ msgstr ""
 msgid "on the seventh, something answers back."
 msgstr ""
 
-#: script/events/outside.js:870
+#: script/events/outside.js:877
 msgid "on the tenth there is a fight at the store room over whose turn it was, and it does not stop at the store room."
 msgstr ""
 
@@ -7334,7 +7344,7 @@ msgstr ""
 msgid "one of the hands is yours. the name it wrote is not one you have given anybody here."
 msgstr ""
 
-#: script/events/outside.js:983
+#: script/events/outside.js:990
 msgid "one of the newer arrivals can. she reads it twice before she says anything."
 msgstr ""
 
@@ -7358,7 +7368,7 @@ msgstr ""
 msgid "one of them keeps saying they only meant to be out for the afternoon."
 msgstr ""
 
-#: script/events/outside.js:768
+#: script/events/outside.js:775
 msgid "one of them offers to prove it and then cannot remember what the proof was."
 msgstr ""
 
@@ -7382,7 +7392,7 @@ msgstr ""
 msgid "one walked straight and came back the way he left"
 msgstr ""
 
-#: script/events/outside.js:361
+#: script/events/outside.js:368
 msgid "only a few die."
 msgstr "endast ett fåtal dör."
 
@@ -7407,7 +7417,7 @@ msgstr ""
 msgid "open the inner door"
 msgstr ""
 
-#: script/events/outside.js:124
+#: script/events/outside.js:131
 msgid "open the stores"
 msgstr ""
 
@@ -7431,7 +7441,7 @@ msgstr ""
 msgid "others cower in the distance"
 msgstr ""
 
-#: script/room.js:2049
+#: script/room.js:2068
 msgid "others have followed you before and suffered or been left behind."
 msgstr ""
 
@@ -7447,7 +7457,7 @@ msgstr ""
 msgid "overcharging"
 msgstr ""
 
-#: script/room.js:1456
+#: script/room.js:1475
 msgid "overheating"
 msgstr ""
 
@@ -7513,7 +7523,7 @@ msgstr ""
 msgid "Penrose"
 msgstr ""
 
-#: script/engine.js:1631
+#: script/engine.js:1639
 msgid "perhaps silence is safer?"
 msgstr ""
 
@@ -7546,7 +7556,7 @@ msgstr ""
 msgid "pinterest"
 msgstr ""
 
-#: script/events/outside.js:315
+#: script/events/outside.js:322
 msgid "Plague"
 msgstr "Pest"
 
@@ -7582,7 +7592,7 @@ msgstr ""
 msgid "plating is stripped from the outside of the hull"
 msgstr ""
 
-#: script/room.js:1542
+#: script/room.js:1561
 msgid "Please support the original game."
 msgstr ""
 
@@ -7594,7 +7604,7 @@ msgstr "fickor"
 msgid "pop "
 msgstr ""
 
-#: script/events/outside.js:424
+#: script/events/outside.js:431
 msgid "population is almost exterminated"
 msgstr ""
 
@@ -7606,6 +7616,11 @@ msgstr ""
 msgid "power cycle"
 msgstr ""
 
+#: script/ship.js:218
+#: script/ship.js:95
+msgid "power lasers"
+msgstr ""
+
 #: script/engine.js:52
 msgid "precise"
 msgstr "träffsäkerhet"
@@ -7614,7 +7629,7 @@ msgstr "träffsäkerhet"
 msgid "precision"
 msgstr "precision"
 
-#: script/events/outside.js:474
+#: script/events/outside.js:481
 msgid "predators become prey. price is unfair"
 msgstr "rovdjur blir till bytesdjur. rovdjur blir till byte"
 
@@ -7715,7 +7730,7 @@ msgstr ""
 msgid "read the stones"
 msgstr ""
 
-#: script/ship.js:202
+#: script/ship.js:231
 msgid "Ready to Leave?"
 msgstr "Redo att lämna?"
 
@@ -7735,7 +7750,7 @@ msgstr ""
 msgid "regrowing"
 msgstr ""
 
-#: script/ship.js:91
+#: script/ship.js:77
 msgid "reinforce hull"
 msgstr "förstärk skrovet"
 
@@ -7749,7 +7764,7 @@ msgstr ""
 msgid "relic from the past"
 msgstr ""
 
-#: script/lab.js:338
+#: script/lab.js:352
 msgid "remnants of genetic work, and notes in ancient glyphs."
 msgstr ""
 
@@ -7761,7 +7776,7 @@ msgstr ""
 msgid "residue"
 msgstr ""
 
-#: script/events/marketing.js:28
+#: script/events/marketing.js:35
 msgid "resist it"
 msgstr ""
 
@@ -7783,7 +7798,7 @@ msgid "Restart?"
 msgstr "Starta om?"
 
 #: script/engine.js:225
-#: script/space.js:882
+#: script/space.js:1192
 msgid "restart."
 msgstr "starta om."
 
@@ -7808,12 +7823,12 @@ msgstr ""
 msgid "ribs flare"
 msgstr ""
 
-#: script/room.js:1079
-#: script/room.js:1093
+#: script/room.js:1098
+#: script/room.js:1112
 msgid "rifle"
 msgstr "gevär"
 
-#: script/room.js:1096
+#: script/room.js:1115
 msgid "rifles can kill at a safe distance. a more modern and deadly weapon. builder shows you how to make a rifle but won't touch it."
 msgstr ""
 
@@ -7829,7 +7844,7 @@ msgstr ""
 msgid "roads carve only a small path through the vast barrens of the wasteland."
 msgstr ""
 
-#: script/room.js:1473
+#: script/room.js:1492
 msgid "roaring"
 msgstr "sprakande"
 
@@ -7838,7 +7853,7 @@ msgstr "sprakande"
 msgid "rob the grave"
 msgstr ""
 
-#: script/room.js:1312
+#: script/room.js:1331
 msgid "Room"
 msgstr "Rum"
 
@@ -7858,7 +7873,7 @@ msgstr ""
 msgid "rows of kneeling figures, all facing the same way"
 msgstr ""
 
-#: script/lab.js:339
+#: script/lab.js:353
 msgid "rows of tanks, drained. the fittings at the base are sized for a body."
 msgstr ""
 
@@ -7866,8 +7881,8 @@ msgstr ""
 msgid "rows of vats, and every one of them is you"
 msgstr ""
 
-#: script/room.js:792
-#: script/room.js:806
+#: script/room.js:811
+#: script/room.js:825
 #: script/world.js:347
 msgid "rucksack"
 msgstr "ryggsäck"
@@ -7899,7 +7914,7 @@ msgstr ""
 msgid "rusted chainlink is pulled across an alleyway."
 msgstr ""
 
-#: script/room.js:970
+#: script/room.js:989
 msgid "s armour"
 msgstr "stålrustning"
 
@@ -7980,7 +7995,7 @@ msgstr ""
 #: script/events/room.js:1389
 #: script/events/room.js:933
 #: script/events/room.js:949
-#: script/room.js:2130
+#: script/room.js:2149
 msgid "say nothing"
 msgstr ""
 
@@ -8028,7 +8043,7 @@ msgstr ""
 msgid "says he is going to walk until he reaches the edge of it. says he has worked out that there has to be one."
 msgstr ""
 
-#: script/space.js:692
+#: script/space.js:980
 msgid "says he is prepared to follow you again, if you will have him. says the last time did not go especially well and that he has had four hundred centuries to think about what he would do differently."
 msgstr ""
 
@@ -8048,7 +8063,7 @@ msgstr ""
 msgid "says he will be here. says that is not a promise, it is just the only fact he has left."
 msgstr ""
 
-#: script/room.js:2110
+#: script/room.js:2129
 msgid "says in that case the huts should be built to last, and that she knows how, given steel."
 msgstr ""
 
@@ -8056,11 +8071,11 @@ msgstr ""
 msgid "says it can't die."
 msgstr ""
 
-#: script/events/outside.js:161
+#: script/events/outside.js:168
 msgid "says it is not the first thing she has had to rebuild. says that is not much comfort and offers it anyway."
 msgstr ""
 
-#: script/room.js:2111
+#: script/room.js:2130
 msgid "says people work better when they are not waiting for the roof to come down."
 msgstr ""
 
@@ -8068,7 +8083,7 @@ msgstr ""
 msgid "says she has stopped believing the answers and started keeping a list of who gave them."
 msgstr ""
 
-#: script/room.js:2095
+#: script/room.js:2114
 msgid "says she has watched people follow you before. says she has watched what it cost them."
 msgstr ""
 
@@ -8084,7 +8099,7 @@ msgstr ""
 msgid "says she is making a register of settlements. asks what this one is called."
 msgstr ""
 
-#: script/room.js:2056
+#: script/room.js:2075
 msgid "says she is not asking to be difficult. says the answer changes what she builds next."
 msgstr ""
 
@@ -8128,11 +8143,11 @@ msgstr ""
 msgid "says the oldest ones do not give a name at all. they just point at the ground."
 msgstr ""
 
-#: script/space.js:691
+#: script/space.js:979
 msgid "says the terms were never as fixed as he let you believe. says he stayed because he had nowhere he would rather be broken, and that this, apparently, is not that any more."
 msgstr ""
 
-#: script/room.js:2096
+#: script/room.js:2115
 msgid "says the traps will still fill. says she can salt what comes out of them, and that two people do not need a village to feed them."
 msgstr ""
 
@@ -8156,7 +8171,7 @@ msgstr ""
 msgid "says they locked that one up, and they were right to, and everyone agreed, and it held for a long time."
 msgstr ""
 
-#: script/events/outside.js:839
+#: script/events/outside.js:846
 msgid "says this world is the only one that never got a name, and that is why they are all still on it."
 msgstr ""
 
@@ -8225,7 +8240,7 @@ msgstr ""
 msgid "scoff at her weakness"
 msgstr ""
 
-#: script/space.js:866
+#: script/space.js:1176
 msgid "score for this game: {0}"
 msgstr ""
 
@@ -8262,7 +8277,7 @@ msgstr ""
 msgid "scratched on the underside of the middle stone there is a list of marks in different hands."
 msgstr ""
 
-#: script/prison.js:221
+#: script/prison.js:231
 msgid "scratches on a sloped face, made by someone lying down."
 msgstr ""
 
@@ -8314,7 +8329,7 @@ msgstr ""
 msgid "see farther"
 msgstr "se längre"
 
-#: script/events/outside.js:591
+#: script/events/outside.js:598
 msgid "see to our own dead first"
 msgstr ""
 
@@ -8334,7 +8349,7 @@ msgstr ""
 msgid "sentinel"
 msgstr ""
 
-#: script/events/outside.js:251
+#: script/events/outside.js:258
 msgid "separate the sick"
 msgstr ""
 
@@ -8355,7 +8370,7 @@ msgstr ""
 msgid "sets itself"
 msgstr ""
 
-#: script/mobileUI.js:296
+#: script/mobileUI.js:299
 msgid "settings"
 msgstr ""
 
@@ -8387,15 +8402,15 @@ msgstr "dela."
 msgid "shares what he knows about sneaking before he goes."
 msgstr "han delar med sig vad han vet om att smyga innan han går."
 
-#: script/room.js:987
+#: script/room.js:1006
 msgid "sharp teeth, hungry mouths and violent hearts desire blood. builder can make even stronger steel armour for protection."
 msgstr ""
 
-#: script/room.js:952
+#: script/room.js:971
 msgid "sharp teeth, hungry mouths and violent hearts desire blood. builder can make stronger iron armour for protection. she likes to see you protected."
 msgstr ""
 
-#: script/room.js:917
+#: script/room.js:936
 msgid "sharp teeth, hungry mouths and violent hearts desire blood. builder can stitch together leather armour for protection. she worries about you."
 msgstr ""
 
@@ -8455,7 +8470,7 @@ msgstr ""
 msgid "she does not argue. she writes something in the book, closes it, and walks."
 msgstr ""
 
-#: script/room.js:2124
+#: script/room.js:2143
 msgid "she does not argue. that is the part worth noticing."
 msgstr ""
 
@@ -8471,7 +8486,7 @@ msgstr ""
 msgid "she does not explain how she found you. she asks you not to open the door."
 msgstr ""
 
-#: script/room.js:2123
+#: script/room.js:2142
 msgid "she does not nod. she looks at the hut, and then at you, and then goes back to work."
 msgstr ""
 
@@ -8535,7 +8550,7 @@ msgstr ""
 msgid "she has more than she can use and no way to stop making it."
 msgstr ""
 
-#: script/space.js:769
+#: script/space.js:1079
 msgid "she has never mentioned being able to do that.<br>you have never seen her do anything like it."
 msgstr ""
 
@@ -8543,7 +8558,8 @@ msgstr ""
 msgid "she hasn't completely escaped the dream. some of the terror remains in her face."
 msgstr ""
 
-#: script/space.js:785
+#: script/space.js:1007
+#: script/space.js:1095
 msgid "she holds it together long enough. the drives catch."
 msgstr ""
 
@@ -8551,7 +8567,7 @@ msgstr ""
 msgid "she is careful with it in a way she is not careful with iron or coal. says she has seen what happens when this is stored wrong, and does not say where."
 msgstr ""
 
-#: script/space.js:790
+#: script/space.js:1100
 msgid "she is doing too much at once and you can see the moment it starts to come apart."
 msgstr ""
 
@@ -8559,7 +8575,8 @@ msgstr ""
 msgid "she is quiet for long enough that you think she is not going to say anything. then: that every name on a stone like that was a person who trusted somebody, once, right up until the point where trusting them was the mistake that killed them."
 msgstr ""
 
-#: script/space.js:780
+#: script/space.js:1004
+#: script/space.js:1090
 msgid "she is working eight stations at once and touching none of them.<br>readouts move. locks release. the drives come up."
 msgstr ""
 
@@ -8595,11 +8612,11 @@ msgstr ""
 msgid "she nods like she expected it, and does not write anything."
 msgstr ""
 
-#: script/room.js:2109
+#: script/room.js:2128
 msgid "she nods, and does not say anything for a bit, and then says good."
 msgstr ""
 
-#: script/room.js:2094
+#: script/room.js:2113
 msgid "she puts the plans down and does not pick them back up."
 msgstr ""
 
@@ -8671,7 +8688,7 @@ msgstr ""
 msgid "she says the village is just over there. she gestures at a direction with nothing in it."
 msgstr ""
 
-#: script/events/outside.js:992
+#: script/events/outside.js:999
 msgid "she says there are a great many of these. she says she has been walking past them her whole life."
 msgstr ""
 
@@ -8728,7 +8745,7 @@ msgstr ""
 msgid "she turns the page. there are forty names on it, in nine hands, and none of them agree."
 msgstr ""
 
-#: script/events/outside.js:988
+#: script/events/outside.js:995
 msgid "she turns the stone over looking for a mason's mark and finds one, scratched rather than cut."
 msgstr ""
 
@@ -8748,7 +8765,7 @@ msgstr ""
 msgid "shielded"
 msgstr ""
 
-#: script/ship.js:51
+#: script/ship.js:33
 msgid "Ship"
 msgstr "Skepp"
 
@@ -8764,7 +8781,7 @@ msgstr "skjut"
 msgid "should be able to open it."
 msgstr ""
 
-#: script/room.js:384
+#: script/room.js:403
 msgid "should cure the meat, or it'll spoil. builder says she can fix something up."
 msgstr "kan röka kött, annars går det till spillo. byggaren säger att hon kan ordna något."
 
@@ -8776,7 +8793,7 @@ msgstr ""
 msgid "shuffling noises can be heard from within."
 msgstr ""
 
-#: script/events/outside.js:219
+#: script/events/outside.js:226
 msgid "Sickness"
 msgstr "Sjukdom"
 
@@ -8877,12 +8894,12 @@ msgstr ""
 msgid "smash it"
 msgstr ""
 
-#: script/room.js:381
-#: script/room.js:406
+#: script/room.js:400
+#: script/room.js:425
 msgid "smokehouse"
 msgstr "rökeri"
 
-#: script/room.js:1470
+#: script/room.js:1489
 msgid "smoldering"
 msgstr "pyrande"
 
@@ -8899,23 +8916,23 @@ msgstr "prickskytt"
 msgid "so are the shelves."
 msgstr ""
 
-#: script/events/outside.js:106
+#: script/events/outside.js:113
 msgid "so dependent on fire for warmth and life until it takes it away."
 msgstr ""
 
-#: script/space.js:801
+#: script/space.js:1111
 msgid "so much debris of dead ships from long lost wars.<br>some wanderer ships. some others.<br>sky begins to clear into an endless expanse."
 msgstr ""
 
-#: script/space.js:755
+#: script/space.js:1065
 msgid "so much debris of dead ships from long lost wars.<br>the sky opens out, and there is nobody aboard but the two of you."
 msgstr ""
 
-#: script/room.js:2072
+#: script/room.js:2091
 msgid "so they have somewhere to be kept"
 msgstr ""
 
-#: script/room.js:2063
+#: script/room.js:2082
 msgid "so they have somewhere to belong"
 msgstr ""
 
@@ -8931,11 +8948,11 @@ msgstr "soldat"
 msgid "soldiers patrol the perimeter, rifles slung over their shoulders."
 msgstr ""
 
-#: script/events/outside.js:229
+#: script/events/outside.js:236
 msgid "some {0} are ill"
 msgstr ""
 
-#: script/events/outside.js:137
+#: script/events/outside.js:144
 msgid "some {0} have died"
 msgstr ""
 
@@ -8971,11 +8988,11 @@ msgstr ""
 msgid "some of them are human. some of them are wanderers. none of them appear to consider this worth remarking on."
 msgstr ""
 
-#: script/events/outside.js:201
+#: script/events/outside.js:208
 msgid "some of them are not anywhere."
 msgstr ""
 
-#: script/events/outside.js:200
+#: script/events/outside.js:207
 msgid "some of them are still outside the wall in the morning."
 msgstr ""
 
@@ -8987,7 +9004,7 @@ msgstr ""
 msgid "some of what it protected was worth protecting."
 msgstr ""
 
-#: script/space.js:762
+#: script/space.js:1072
 msgid "some part of you wonders whether you escaped at all,<br>or whether this is only the part where you get to leave."
 msgstr ""
 
@@ -9105,7 +9122,7 @@ msgstr ""
 msgid "somebody with your hand has signed this stone five times. you are signing it for the first time."
 msgstr ""
 
-#: script/prison.js:212
+#: script/prison.js:222
 msgid "someone drew a symbol in this cell. it looks like your charms."
 msgstr ""
 
@@ -9161,7 +9178,7 @@ msgstr ""
 msgid "something has settled out of the rain"
 msgstr ""
 
-#: script/lab.js:347
+#: script/lab.js:361
 msgid "something in the back of your mind says to turn back now."
 msgstr ""
 
@@ -9225,7 +9242,7 @@ msgstr ""
 msgid "Something Wearing a Wanderer"
 msgstr ""
 
-#: script/space.js:685
+#: script/space.js:973
 msgid "something with three eyes and no mouth is watching, and for once it does not look away."
 msgstr ""
 
@@ -9259,32 +9276,32 @@ msgstr ""
 msgid "sometimes it is best to fight without restraint."
 msgstr ""
 
-#: script/ship.js:131
+#: script/ship.js:126
 msgid "somewhere above the debris cloud, the wanderer fleet hovers. been on this rock too long."
 msgstr "någonstans ovanför molnet av spillror svävar vandrar flottan. den har varit på den här platsen för länge."
 
-#: script/lab.js:312
+#: script/lab.js:326
 msgid "somewhere behind the wall, a pump cycles, stops, and cycles again."
 msgstr ""
 
-#: script/space.js:730
+#: script/space.js:1040
 msgid "somewhere behind you the rock keeps turning. there is a room on it with a fire in it.<br>you do not look back at it."
 msgstr ""
 
-#: script/engine.js:1626
+#: script/engine.js:1634
 msgid "Sound Available!"
 msgstr ""
 
-#: script/engine.js:1428
+#: script/engine.js:1436
 msgid "sound off."
 msgstr ""
 
-#: script/engine.js:1424
+#: script/engine.js:1432
 #: script/engine.js:189
 msgid "sound on."
 msgstr ""
 
-#: script/space.js:113
+#: script/space.js:318
 msgid "Space"
 msgstr "Rymden"
 
@@ -9296,7 +9313,7 @@ msgstr "låt honom gå"
 msgid "sparks cascade from a reactivated power junction, and catch."
 msgstr ""
 
-#: script/lab.js:324
+#: script/lab.js:338
 msgid "specimen racks, emptied and washed. the labels were peeled off."
 msgstr ""
 
@@ -9308,7 +9325,7 @@ msgstr ""
 msgid "spores burst"
 msgstr ""
 
-#: script/prison.js:203
+#: script/prison.js:213
 msgid "square in section, exactly, and it stays exactly square."
 msgstr ""
 
@@ -9340,7 +9357,7 @@ msgstr ""
 msgid "stars in the sky"
 msgstr ""
 
-#: script/events/outside.js:152
+#: script/events/outside.js:159
 msgid "start clearing the ash"
 msgstr ""
 
@@ -9375,24 +9392,24 @@ msgstr ""
 msgid "steel"
 msgstr "stål"
 
-#: script/room.js:984
+#: script/room.js:1003
 msgid "steel armour"
 msgstr ""
 
-#: script/room.js:495
+#: script/room.js:514
 msgid "steel blades and armor are a defense against the ravages and savages of the wastes. more than that. wanderers once crossed the stars. making steel seems like a step towards the future."
 msgstr ""
 
-#: script/room.js:152
+#: script/room.js:171
 msgid "steel hut"
 msgstr ""
 
-#: script/room.js:1042
-#: script/room.js:1057
+#: script/room.js:1061
+#: script/room.js:1076
 msgid "steel sword"
 msgstr "stålsvärd"
 
-#: script/room.js:973
+#: script/room.js:992
 msgid "steel's stronger than iron"
 msgstr "stål är starkare än järn"
 
@@ -9401,8 +9418,8 @@ msgstr "stål är starkare än järn"
 msgid "steelworker"
 msgstr "stålarbetare"
 
-#: script/room.js:466
-#: script/room.js:492
+#: script/room.js:485
+#: script/room.js:511
 msgid "steelworks"
 msgstr "stålverk"
 
@@ -9423,7 +9440,7 @@ msgstr ""
 msgid "stepping off the safe roads into the dark forest where anything can be lurking amongst the trees."
 msgstr ""
 
-#: script/lab.js:314
+#: script/lab.js:328
 msgid "sterile and clinical but with an almost organic thrum"
 msgstr ""
 
@@ -9463,7 +9480,7 @@ msgstr ""
 msgid "stinging"
 msgstr ""
 
-#: script/room.js:1367
+#: script/room.js:1386
 msgid "stoke fire"
 msgstr "elda"
 
@@ -9476,7 +9493,7 @@ msgid "stop him"
 msgstr ""
 
 #: script/mobileUI.js:34
-#: script/room.js:1674
+#: script/room.js:1693
 msgid "stores"
 msgstr "förråd"
 
@@ -9496,7 +9513,7 @@ msgstr "konstiga fjäll"
 msgid "strange."
 msgstr ""
 
-#: script/space.js:105
+#: script/space.js:310
 msgid "Stratosphere"
 msgstr "Stratosvären"
 
@@ -9526,7 +9543,7 @@ msgstr ""
 msgid "stunned"
 msgstr "bedövad"
 
-#: script/lab.js:377
+#: script/lab.js:391
 msgid "sublevel {0}"
 msgstr ""
 
@@ -9546,11 +9563,11 @@ msgstr ""
 msgid "substrate"
 msgstr ""
 
-#: script/events/outside.js:267
+#: script/events/outside.js:274
 msgid "sufferers are healed"
 msgstr ""
 
-#: script/events/outside.js:298
+#: script/events/outside.js:305
 msgid "sufferers are left to die"
 msgstr ""
 
@@ -9591,7 +9608,7 @@ msgstr ""
 msgid "sustained"
 msgstr ""
 
-#: script/room.js:1455
+#: script/room.js:1474
 msgid "sweating"
 msgstr ""
 
@@ -9603,11 +9620,11 @@ msgstr ""
 msgid "swing"
 msgstr "svinga"
 
-#: script/room.js:1008
+#: script/room.js:1027
 msgid "sword is sharp. good protection out in the wilds."
 msgstr "svärdet är vasst. bra skydd ute i vildmarken."
 
-#: script/events.js:1232
+#: script/events.js:1239
 #: script/events/setpieces.js:7523
 msgid "take"
 msgstr "ta"
@@ -9624,7 +9641,7 @@ msgstr ""
 msgid "take all of it"
 msgstr ""
 
-#: script/events.js:1314
+#: script/events.js:1321
 msgid "take all you can"
 msgstr ""
 
@@ -9632,7 +9649,7 @@ msgstr ""
 msgid "take device and leave"
 msgstr ""
 
-#: script/events.js:1314
+#: script/events.js:1321
 msgid "take everything"
 msgstr ""
 
@@ -9648,15 +9665,15 @@ msgstr ""
 msgid "take his bags"
 msgstr ""
 
-#: script/events/outside.js:733
+#: script/events/outside.js:740
 msgid "take in both"
 msgstr ""
 
-#: script/events/outside.js:723
+#: script/events/outside.js:730
 msgid "take in the ones with iron"
 msgstr ""
 
-#: script/events/outside.js:728
+#: script/events/outside.js:735
 msgid "take in the ones with the lamp"
 msgstr ""
 
@@ -9705,7 +9722,7 @@ msgstr ""
 msgid "take what is on the outside"
 msgstr ""
 
-#: script/events.js:1242
+#: script/events.js:1249
 msgid "take:"
 msgstr "ta:"
 
@@ -9734,12 +9751,12 @@ msgstr ""
 msgid "tanner"
 msgstr "garvare"
 
-#: script/room.js:335
-#: script/room.js:360
+#: script/room.js:354
+#: script/room.js:379
 msgid "tannery"
 msgstr "garveri"
 
-#: script/room.js:339
+#: script/room.js:358
 msgid "tannery goes up quick, on the edge of the village"
 msgstr "garveriet kommer snabbt upp i utkanten av byn"
 
@@ -9759,7 +9776,7 @@ msgstr ""
 msgid "tell him to leave"
 msgstr "be honom att gå"
 
-#: script/events/outside.js:493
+#: script/events/outside.js:500
 msgid "tend the wounded"
 msgstr ""
 
@@ -9768,7 +9785,7 @@ msgstr ""
 msgid "thank him"
 msgstr ""
 
-#: script/lab.js:349
+#: script/lab.js:363
 msgid "that cannot be right. those glyphs seem to suggest..."
 msgstr ""
 
@@ -9796,11 +9813,11 @@ msgstr ""
 msgid "the {0} hang the thief high in front of the store room."
 msgstr ""
 
-#: script/events/outside.js:459
+#: script/events/outside.js:466
 msgid "the {0} retreat to mourn the dead."
 msgstr ""
 
-#: script/events/outside.js:631
+#: script/events/outside.js:638
 msgid "the {0} take their boots, and their belts, and their ammunition."
 msgstr ""
 
@@ -9820,7 +9837,7 @@ msgstr ""
 msgid "the air coming up is old in a way the rest of this place is not. nothing has breathed it."
 msgstr ""
 
-#: script/lab.js:134
+#: script/lab.js:143
 msgid "the air down here is doing something to you."
 msgstr ""
 
@@ -9840,11 +9857,11 @@ msgstr ""
 msgid "the air is filled with dust, driven relentlessly by the hard winds."
 msgstr ""
 
-#: script/space.js:829
+#: script/space.js:1139
 msgid "the air is running out."
 msgstr ""
 
-#: script/lab.js:308
+#: script/lab.js:322
 msgid "the air moves. something is still running the filtration."
 msgstr ""
 
@@ -9856,7 +9873,7 @@ msgstr ""
 msgid "the alien bird lays dead at your feet."
 msgstr ""
 
-#: script/prison.js:222
+#: script/prison.js:232
 msgid "the angles are wrong in a way you can feel in your jaw."
 msgstr ""
 
@@ -9892,7 +9909,7 @@ msgstr ""
 msgid "the barrels are covered and the water stays clean."
 msgstr ""
 
-#: script/events/outside.js:841
+#: script/events/outside.js:848
 msgid "the barren world is the only one that never got a name"
 msgstr ""
 
@@ -9904,16 +9921,17 @@ msgstr ""
 msgid "the barrens break at a sea of dying grass, swaying in the arid breeze."
 msgstr "ödemarken bryter av till ett hav av döende gräs, sakta vajande i den torra vinden."
 
-#: script/space.js:828
+#: script/space.js:1138
 msgid "the beacon glows a solid blue, and then goes dim. the ship slows.<br>gradually, the vast wanderer homefleet comes into view.<br>massive worldships drift unnaturally through clouds of debris, scarred and dead. no crew respond"
 msgstr ""
 
-#: script/space.js:826
+#: script/space.js:1136
 msgid "the beacon pulses gently as the ship glides through space.<br>coordinates are locked."
 msgstr ""
 
-#: script/space.js:676
-#: script/space.js:777
+#: script/space.js:1001
+#: script/space.js:1087
+#: script/space.js:964
 msgid "the beacon pulses. coordinates are locked. the fleet is expecting you."
 msgstr ""
 
@@ -9975,7 +9993,7 @@ msgstr "kroppen av en vandrare ligger i ett litet hålrum."
 msgid "the buckles are done up the way somebody does them when they expect to come back."
 msgstr ""
 
-#: script/room.js:2059
+#: script/room.js:2078
 msgid "the builder asks what the huts are for"
 msgstr ""
 
@@ -9983,7 +10001,7 @@ msgstr ""
 msgid "the builder can share when she wants to."
 msgstr ""
 
-#: script/space.js:767
+#: script/space.js:1077
 msgid "the builder does not move. she does not reach for anything."
 msgstr ""
 
@@ -9991,11 +10009,12 @@ msgstr ""
 msgid "the builder does not reach for anything. she says that whatever it is has already decided, and that we will find out which way when the fire drops."
 msgstr ""
 
-#: script/room.js:2127
+#: script/room.js:2146
 msgid "the builder goes back to work without arguing"
 msgstr ""
 
-#: script/space.js:779
+#: script/space.js:1003
+#: script/space.js:1089
 msgid "the builder goes to the controls. all of them."
 msgstr ""
 
@@ -10003,14 +10022,15 @@ msgstr ""
 msgid "the builder has come out into the wastes"
 msgstr ""
 
-#: script/space.js:694
-#: script/space.js:699
-#: script/space.js:721
-#: script/space.js:737
+#: script/space.js:1010
+#: script/space.js:1031
+#: script/space.js:1047
+#: script/space.js:982
+#: script/space.js:987
 msgid "the builder has followed you through all of it, and you never once asked her to."
 msgstr ""
 
-#: script/events/outside.js:160
+#: script/events/outside.js:167
 msgid "the builder is already sorting the wreckage into what can be saved and what cannot, before you have said anything."
 msgstr ""
 
@@ -10068,7 +10088,7 @@ msgstr ""
 msgid "the builder says many empires have come and gone. more will come in time. should a punishment outlive the empire itself?"
 msgstr ""
 
-#: script/space.js:763
+#: script/space.js:1073
 msgid "the builder says nothing. the cabin is warm.<br>you drift off to sleep..."
 msgstr ""
 
@@ -10080,16 +10100,16 @@ msgstr ""
 msgid "the builder shivers in her sleep even with the fire. the bracing cold cuts right to the bone. was it always this dark and this cold?"
 msgstr ""
 
-#: script/room.js:2047
-#: script/room.js:2054
+#: script/room.js:2066
+#: script/room.js:2073
 msgid "the builder stands looking at your plans for housing."
 msgstr ""
 
-#: script/room.js:2113
+#: script/room.js:2132
 msgid "the builder starts planning for something permanent"
 msgstr ""
 
-#: script/room.js:2099
+#: script/room.js:2118
 msgid "the builder starts salting meat. there will be no huts."
 msgstr ""
 
@@ -10097,7 +10117,7 @@ msgstr ""
 msgid "the builder watches you do it and does not comment on how easily it came."
 msgstr ""
 
-#: script/space.js:834
+#: script/space.js:1144
 msgid "the builder wonders if they can bring villagers up as a skeleton crew. deep down you know there is even more you could have done."
 msgstr ""
 
@@ -10113,7 +10133,7 @@ msgstr ""
 msgid "the bundle is gone by morning. so are the noises."
 msgstr ""
 
-#: script/events/outside.js:173
+#: script/events/outside.js:180
 msgid "the burned-out families are taken in and fed."
 msgstr ""
 
@@ -10144,11 +10164,11 @@ msgstr ""
 msgid "the camp is still, save for the crackling of the fires."
 msgstr ""
 
-#: script/space.js:830
+#: script/space.js:1140
 msgid "the capsule is cold."
 msgstr ""
 
-#: script/events/outside.js:536
+#: script/events/outside.js:543
 msgid "the carcasses are left where they fell."
 msgstr ""
 
@@ -10180,7 +10200,7 @@ msgstr ""
 msgid "the case is intact. the bar inside it is still exactly the length. there is nothing left anywhere to check against it."
 msgstr ""
 
-#: script/room.js:689
+#: script/room.js:708
 msgid "the cask holds enough water for longer expeditions"
 msgstr "flaskan hǻller nog med vatten för längre expositioner "
 
@@ -10281,7 +10301,7 @@ msgid "the command deck is empty, save for a squat figure sitting motionless in 
 msgstr ""
 
 #: script/path.js:68
-#: script/room.js:2318
+#: script/room.js:2337
 msgid "the compass points {0}"
 msgstr ""
 
@@ -10329,7 +10349,7 @@ msgstr ""
 msgid "the convict now confined to the grave"
 msgstr ""
 
-#: script/room.js:866
+#: script/room.js:885
 msgid "the convoy can haul mostly everything"
 msgstr "karavanen kan frakta nästan allting"
 
@@ -10377,7 +10397,7 @@ msgstr ""
 msgid "the corridor passes through a security checkpoint. the defences are blown apart, ragged edges scorched by laser fire."
 msgstr ""
 
-#: script/prison.js:247
+#: script/prison.js:257
 msgid "the corridor runs straight, and it only runs one way."
 msgstr ""
 
@@ -10385,7 +10405,7 @@ msgstr ""
 msgid "the corridor widens into something that was meant to hold a crowd."
 msgstr ""
 
-#: script/lab.js:133
+#: script/lab.js:142
 msgid "the counter climbs. the suit takes most of it."
 msgstr ""
 
@@ -10427,7 +10447,7 @@ msgid "the crystal pulses brightly, then goes dark. the assailant shimmers as it
 msgstr ""
 
 #: script/events/setpieces.js:3467
-#: script/prison.js:264
+#: script/prison.js:274
 msgid "the cube"
 msgstr ""
 
@@ -10451,7 +10471,7 @@ msgstr ""
 msgid "the darkness is absolute"
 msgstr "mörkret är totalt"
 
-#: script/events/outside.js:985
+#: script/events/outside.js:992
 msgid "the date of loss is before the date the stone was cut. somebody put this here for someone they had not lost yet."
 msgstr ""
 
@@ -10467,11 +10487,11 @@ msgstr ""
 msgid "the day is waited out"
 msgstr ""
 
-#: script/events/outside.js:295
+#: script/events/outside.js:302
 msgid "the days are spent with burials."
 msgstr "dagarna är fyllda med begravningar."
 
-#: script/events/outside.js:187
+#: script/events/outside.js:194
 msgid "the dead are counted and buried."
 msgstr ""
 
@@ -10479,12 +10499,12 @@ msgstr ""
 msgid "the debris is denser here."
 msgstr ""
 
-#: script/prison.js:267
+#: script/prison.js:277
 msgid "the deepest cell"
 msgstr ""
 
-#: script/space.js:807
-#: script/space.js:817
+#: script/space.js:1117
+#: script/space.js:1127
 msgid "the defenses turn. they find the ship."
 msgstr ""
 
@@ -10500,8 +10520,9 @@ msgstr ""
 msgid "the detour costs the water and most of the afternoon and she is already gone when it is done."
 msgstr ""
 
-#: script/space.js:674
-#: script/space.js:711
+#: script/space.js:1021
+#: script/space.js:962
+#: script/space.js:999
 msgid "the difference is that this time you already know what it costs to act on it."
 msgstr ""
 
@@ -10537,8 +10558,8 @@ msgstr ""
 msgid "the door is attended, and the attendant has noticed."
 msgstr ""
 
-#: script/maze.js:548
-#: script/maze.js:567
+#: script/maze.js:556
+#: script/maze.js:575
 msgid "the door is locked."
 msgstr ""
 
@@ -10606,7 +10627,7 @@ msgstr ""
 msgid "the earth here is split, as if bearing an ancient wound"
 msgstr "marken är sprucken, som ett uråldrigt sår"
 
-#: script/room.js:235
+#: script/room.js:254
 msgid "the edge goes on last, and it goes on very fine."
 msgstr ""
 
@@ -10614,11 +10635,11 @@ msgstr ""
 msgid "the edge takes the skin off everything it can reach and the water goes almost immediately."
 msgstr ""
 
-#: script/prison.js:239
+#: script/prison.js:249
 msgid "the entire structure may be rotating around you. you are not sure."
 msgstr ""
 
-#: script/lab.js:343
+#: script/lab.js:357
 msgid "the equipment down here was built to be cleaned quickly."
 msgstr ""
 
@@ -10670,12 +10691,12 @@ msgstr ""
 msgid "the fire holds it off"
 msgstr ""
 
-#: script/room.js:1418
-#: script/room.js:1577
+#: script/room.js:1437
+#: script/room.js:1596
 msgid "the fire is {0}"
 msgstr "elden är {0}"
 
-#: script/room.js:1406
+#: script/room.js:1425
 msgid "The fire is {0}"
 msgstr ""
 
@@ -10703,15 +10724,15 @@ msgstr ""
 msgid "the fires are kept small. it is not enough, and it is not close to enough."
 msgstr ""
 
-#: script/events/outside.js:716
+#: script/events/outside.js:723
 msgid "the first are carrying iron tools and a dead goat. the second are carrying nothing, and one of them has a lamp that needs no fuel."
 msgstr ""
 
-#: script/events/outside.js:773
+#: script/events/outside.js:780
 msgid "the first group joins the village"
 msgstr ""
 
-#: script/room.js:2038
+#: script/room.js:2057
 msgid "The First Hut"
 msgstr ""
 
@@ -10735,11 +10756,11 @@ msgstr ""
 msgid "the floor ahead is not flat, and then it is not floor."
 msgstr ""
 
-#: script/prison.js:219
+#: script/prison.js:229
 msgid "the floor is not quite level and never quite the same slope twice."
 msgstr ""
 
-#: script/prison.js:232
+#: script/prison.js:242
 msgid "the floor is the wall is the ceiling, and the curve never resolves."
 msgstr ""
 
@@ -10775,15 +10796,15 @@ msgstr ""
 msgid "the forest is silent."
 msgstr "skogen är tyst."
 
-#: script/room.js:205
+#: script/room.js:224
 msgid "the foundry can hold a charge in a cell now. it takes sulphur, and coal, and people."
 msgstr ""
 
-#: script/room.js:234
+#: script/room.js:253
 msgid "the foundry crew know the shape of a blade that cuts faster than it should."
 msgstr ""
 
-#: script/room.js:185
+#: script/room.js:204
 msgid "the foundry goes up windowless, at the far end of the camp."
 msgstr ""
 
@@ -10815,7 +10836,7 @@ msgstr ""
 msgid "the furnace is enormous and its log is longer than the one upstairs."
 msgstr ""
 
-#: script/events/outside.js:824
+#: script/events/outside.js:831
 msgid "the gap between the two answers is four hundred and eleven years."
 msgstr ""
 
@@ -10831,7 +10852,7 @@ msgstr ""
 msgid "The Glass Storm"
 msgstr ""
 
-#: script/lab.js:325
+#: script/lab.js:339
 msgid "the glyphs down here are corrections. someone kept revising the same line."
 msgstr ""
 
@@ -10983,11 +11004,11 @@ msgstr ""
 msgid "the hull comes apart into black flakes, and they do not reflect anything."
 msgstr ""
 
-#: script/events/outside.js:522
+#: script/events/outside.js:529
 msgid "the hunt goes badly"
 msgstr ""
 
-#: script/room.js:252
+#: script/room.js:271
 msgid "the hunting lodge stands in the forest, a ways out of town"
 msgstr "jaktstugan står i skogen, lite långt ifrån byn"
 
@@ -10995,11 +11016,11 @@ msgstr "jaktstugan står i skogen, lite långt ifrån byn"
 msgid "the hut frames were built out of something that came down here"
 msgstr ""
 
-#: script/events/outside.js:401
+#: script/events/outside.js:408
 msgid "the huts are fired at both ends, in the night, while it is quiet."
 msgstr ""
 
-#: script/room.js:2097
+#: script/room.js:2116
 msgid "the huts are not going to be built. it is going to be the two of you."
 msgstr ""
 
@@ -11007,7 +11028,7 @@ msgstr ""
 msgid "the immortal wanderer attacks."
 msgstr ""
 
-#: script/events/outside.js:405
+#: script/events/outside.js:412
 msgid "the infected huts are burned"
 msgstr ""
 
@@ -11039,11 +11060,11 @@ msgstr "järn gruva"
 msgid "the iron mine is clear of dangers"
 msgstr ""
 
-#: script/prison.js:205
+#: script/prison.js:215
 msgid "the joins are so fine you cannot find them by touch."
 msgstr ""
 
-#: script/space.js:791
+#: script/space.js:1101
 msgid "the jump takes. it takes wrong."
 msgstr ""
 
@@ -11071,7 +11092,7 @@ msgstr ""
 msgid "the kneeling stops at a clean line"
 msgstr ""
 
-#: script/lab.js:307
+#: script/lab.js:321
 msgid "the lab is empty, but not abandoned. nothing here is dusty."
 msgstr ""
 
@@ -11083,11 +11104,11 @@ msgstr ""
 msgid "the lab stays shut"
 msgstr ""
 
-#: script/events/outside.js:853
+#: script/events/outside.js:860
 msgid "the lamp is still burning. the goat is long eaten. nobody has settled what year it is."
 msgstr ""
 
-#: script/events/outside.js:889
+#: script/events/outside.js:896
 msgid "the lamp is visible for a long time after the rest of them are not."
 msgstr ""
 
@@ -11191,7 +11212,7 @@ msgstr ""
 msgid "the light comes apart and does not reassemble."
 msgstr ""
 
-#: script/room.js:1580
+#: script/room.js:1599
 msgid "the light from the fire spills from the windows, out into the dark"
 msgstr "ljuset från elden läcker ut genom fönstren, ut i mörkret utanför"
 
@@ -11203,15 +11224,15 @@ msgstr ""
 msgid "the light in the corridor goes out behind it, section by section."
 msgstr ""
 
-#: script/prison.js:207
+#: script/prison.js:217
 msgid "the light is even everywhere. nothing casts a shadow to steer by."
 msgstr ""
 
-#: script/space.js:768
+#: script/space.js:1078
 msgid "the light stops a long way short of the hull, bends, and goes back the way it came.<br>one station, then another, then the rest of the ring."
 msgstr ""
 
-#: script/lab.js:306
+#: script/lab.js:320
 msgid "the lights come on a corridor at a time, ahead of you."
 msgstr ""
 
@@ -11243,7 +11264,7 @@ msgstr ""
 msgid "the live one goes into the scrub without looking back. the line is reset and rebaited."
 msgstr ""
 
-#: script/events/outside.js:188
+#: script/events/outside.js:195
 msgid "the living find somewhere to sleep."
 msgstr ""
 
@@ -11341,23 +11362,23 @@ msgstr "kartan synliggör en del av världen"
 msgid "the maps are taken. she is left with nothing to sell."
 msgstr ""
 
-#: script/events/outside.js:998
+#: script/events/outside.js:1005
 msgid "the mark under the stone is one you make without thinking"
 msgstr ""
 
-#: script/events/outside.js:904
+#: script/events/outside.js:911
 msgid "The Marker"
 msgstr ""
 
-#: script/events/outside.js:999
+#: script/events/outside.js:1006
 msgid "the marker is a fleet loss record"
 msgstr ""
 
-#: script/events/outside.js:956
+#: script/events/outside.js:963
 msgid "the marker is dug out"
 msgstr ""
 
-#: script/events/outside.js:968
+#: script/events/outside.js:975
 msgid "the marker stays where it was put, by whoever put it there, for whoever it was put there for."
 msgstr ""
 
@@ -11389,7 +11410,7 @@ msgstr "köttet har tagit slut"
 msgid "the mech warrior has been destroyed."
 msgstr ""
 
-#: script/events/outside.js:380
+#: script/events/outside.js:387
 msgid "the medicine goes to the worst of them first, which is the wrong order and the only bearable one."
 msgstr ""
 
@@ -11551,7 +11572,7 @@ msgstr ""
 msgid "the night is silent."
 msgstr "natten är tyst."
 
-#: script/events/outside.js:537
+#: script/events/outside.js:544
 msgid "the night is spent holding wounds closed instead."
 msgstr ""
 
@@ -11571,8 +11592,8 @@ msgstr ""
 msgid "the nightmares are back. they worsen. the nightmare has gripped her. she never speaks about what is happening in her nightmares."
 msgstr ""
 
-#: script/events/outside.js:296
-#: script/events/outside.js:421
+#: script/events/outside.js:303
+#: script/events/outside.js:428
 msgid "the nights are rent with screams."
 msgstr "på nätterna hörs plågade skrik."
 
@@ -11668,7 +11689,7 @@ msgstr ""
 msgid "the one who was carried is walking inside a fortnight, badly, and then less badly."
 msgstr ""
 
-#: script/events/outside.js:837
+#: script/events/outside.js:844
 msgid "the one with the lamp does not answer for a while."
 msgstr ""
 
@@ -11680,11 +11701,11 @@ msgstr ""
 msgid "the ones who arrived most recently are put outside the huts, which is the same as a decision about who lives."
 msgstr ""
 
-#: script/events/outside.js:520
+#: script/events/outside.js:527
 msgid "the ones who come back come back with less than they left with."
 msgstr ""
 
-#: script/events/outside.js:422
+#: script/events/outside.js:429
 msgid "the only hope is a quick death."
 msgstr "enda hoppet är en snabb död."
 
@@ -11704,7 +11725,7 @@ msgstr ""
 msgid "the other bank is shorter still. it holds the woman who keeps your fire."
 msgstr ""
 
-#: script/events/outside.js:823
+#: script/events/outside.js:830
 msgid "the other group, asked the same question, gives a different year."
 msgstr ""
 
@@ -11752,7 +11773,7 @@ msgstr ""
 msgid "the pack goes, and without it the climb is twenty minutes of unpleasantness rather than a question."
 msgstr ""
 
-#: script/events/outside.js:504
+#: script/events/outside.js:511
 msgid "the pack is destroyed"
 msgstr ""
 
@@ -11760,11 +11781,11 @@ msgstr ""
 msgid "the pack is left at the bottom of the shaft"
 msgstr ""
 
-#: script/events/outside.js:501
+#: script/events/outside.js:508
 msgid "the pack is run down before dark, in a dry creek bed."
 msgstr ""
 
-#: script/events/outside.js:519
+#: script/events/outside.js:526
 msgid "the pack knows the ground better than the hunters do."
 msgstr ""
 
@@ -11856,19 +11877,19 @@ msgstr ""
 msgid "the place has been swept clean by scavengers."
 msgstr ""
 
-#: script/events/outside.js:387
+#: script/events/outside.js:394
 msgid "the plague is halted, but not everywhere"
 msgstr ""
 
-#: script/events/outside.js:360
+#: script/events/outside.js:367
 msgid "the plague is kept from spreading."
 msgstr "pesten är hindrad från att sprida sig."
 
-#: script/events/outside.js:420
+#: script/events/outside.js:427
 msgid "the plague rips through the village."
 msgstr "pesten far fram genom byn."
 
-#: script/events/outside.js:384
+#: script/events/outside.js:391
 msgid "the plague stops. it does not stop everywhere at once."
 msgstr ""
 
@@ -11908,15 +11929,15 @@ msgstr ""
 msgid "the prints stop a pace short of the pack, both feet together, as if whoever it was had halted to be told something."
 msgstr ""
 
-#: script/events/outside.js:634
+#: script/events/outside.js:641
 msgid "the prisoners are executed"
 msgstr ""
 
-#: script/events/outside.js:690
+#: script/events/outside.js:697
 msgid "the prisoners are questioned"
 msgstr ""
 
-#: script/events/outside.js:653
+#: script/events/outside.js:660
 msgid "the prisoners are released"
 msgstr ""
 
@@ -11977,7 +11998,7 @@ msgstr ""
 msgid "the register has forty names for this place"
 msgstr ""
 
-#: script/events/outside.js:671
+#: script/events/outside.js:678
 msgid "the released soldiers return"
 msgstr ""
 
@@ -12005,7 +12026,7 @@ msgstr "återstoden av ett gammalt läger ligger inuti grottan."
 msgid "the residue in the nearest basin stands up out of it."
 msgstr ""
 
-#: script/events/outside.js:362
+#: script/events/outside.js:369
 msgid "the rest bury them."
 msgstr "byborna begraver de döda."
 
@@ -12017,7 +12038,7 @@ msgstr ""
 msgid "The Returning Party"
 msgstr ""
 
-#: script/room.js:56
+#: script/room.js:75
 msgid "the rickety cart will carry more wood from the forest"
 msgstr "kälken kan bära mer ved från skogen"
 
@@ -12033,7 +12054,7 @@ msgstr ""
 msgid "the robbery goes badly"
 msgstr ""
 
-#: script/space.js:649
+#: script/space.js:937
 msgid "the rock falls away. the sky goes from blue to black without appearing to change."
 msgstr ""
 
@@ -12053,10 +12074,10 @@ msgstr ""
 msgid "the room beyond is a storage facility, and it is very large, and almost all of it is in use."
 msgstr ""
 
-#: script/room.js:1405
-#: script/room.js:1419
-#: script/room.js:1617
-#: script/room.js:1621
+#: script/room.js:1424
+#: script/room.js:1438
+#: script/room.js:1636
+#: script/room.js:1640
 msgid "The room is {0}"
 msgstr ""
 
@@ -12104,7 +12125,7 @@ msgstr ""
 msgid "the scratches are not all the same. the last dozen are cut at an angle, short, by somebody holding the blade the way you hold a blade."
 msgstr ""
 
-#: script/events/outside.js:912
+#: script/events/outside.js:919
 msgid "the script on it is narrow and very even. nobody here can read it."
 msgstr ""
 
@@ -12124,7 +12145,7 @@ msgstr ""
 msgid "the sealed pack liner holds. what is inside it is still food."
 msgstr ""
 
-#: script/events/outside.js:804
+#: script/events/outside.js:811
 msgid "the second group joins the village"
 msgstr ""
 
@@ -12202,7 +12223,7 @@ msgstr ""
 msgid "the shell of an abandoned hospital looms ahead."
 msgstr ""
 
-#: script/space.js:569
+#: script/space.js:857
 msgid "the ship clears the debris field. the controls go dead.<br>something else has them."
 msgstr ""
 
@@ -12222,7 +12243,7 @@ msgstr ""
 msgid "the shunning stops for exactly as long as the question takes to answer."
 msgstr ""
 
-#: script/events/outside.js:277
+#: script/events/outside.js:284
 msgid "the sick are moved to the edge of the village."
 msgstr ""
 
@@ -12230,15 +12251,15 @@ msgstr ""
 msgid "The Sick Man"
 msgstr "Den Sjuka Mannen"
 
-#: script/events/outside.js:280
+#: script/events/outside.js:287
 msgid "the sickness is contained, at a cost"
 msgstr ""
 
-#: script/events/outside.js:265
+#: script/events/outside.js:272
 msgid "the sickness is cured in time."
 msgstr "sjukdommen är behandlad i tid."
 
-#: script/events/outside.js:294
+#: script/events/outside.js:301
 msgid "the sickness spreads through the village."
 msgstr "sjukdommen sprider sig i byn."
 
@@ -12254,7 +12275,8 @@ msgstr ""
 msgid "the signature is his."
 msgstr ""
 
-#: script/space.js:786
+#: script/space.js:1008
+#: script/space.js:1096
 msgid "the sky folds over and the firing stops mattering."
 msgstr ""
 
@@ -12274,7 +12296,7 @@ msgstr ""
 msgid "the smallest are trampled"
 msgstr ""
 
-#: script/lab.js:340
+#: script/lab.js:354
 msgid "the smell is stronger here. smoke, and decomposition, and something sweet."
 msgstr ""
 
@@ -12331,7 +12353,7 @@ msgid "the sounds stop."
 msgstr "ljudet tystnar."
 
 #: script/events/setpieces.js:3479
-#: script/prison.js:266
+#: script/prison.js:276
 msgid "the sphere"
 msgstr ""
 
@@ -12359,19 +12381,20 @@ msgstr ""
 msgid "the stars are not where the maps say"
 msgstr ""
 
-#: script/space.js:782
+#: script/space.js:1006
+#: script/space.js:1092
 msgid "the stations around the planet find the fleet and open fire."
 msgstr ""
 
-#: script/space.js:766
+#: script/space.js:1076
 msgid "the stations turn. they find the ship. they fire."
 msgstr ""
 
-#: script/space.js:760
+#: script/space.js:1070
 msgid "the stations turn. they find the ship. they hold there, and do not fire."
 msgstr ""
 
-#: script/room.js:1045
+#: script/room.js:1064
 msgid "the steel is strong, and the blade true."
 msgstr "stålet är starkt, och klingan är vass."
 
@@ -12383,7 +12406,7 @@ msgstr ""
 msgid "the steps stop being steps and become a ramp, worn in a single track down the middle."
 msgstr ""
 
-#: script/events/outside.js:948
+#: script/events/outside.js:955
 msgid "the stone goes into the wall of the new hut, script inward, where it will not have to be looked at."
 msgstr ""
 
@@ -12439,15 +12462,15 @@ msgstr ""
 msgid "the storm takes its price in skin"
 msgstr ""
 
-#: script/room.js:1651
+#: script/room.js:1670
 msgid "the stranger in the corner stops shivering. her breathing calms."
 msgstr "främlingen i hörnet slutar skaka. hennes andning lungar sig"
 
-#: script/room.js:1432
+#: script/room.js:1451
 msgid "The stranger is standing by the fire. She says she can help. Says she builds things."
 msgstr ""
 
-#: script/room.js:1648
+#: script/room.js:1667
 msgid "the stranger shivers, and mumbles quietly. her words are unintelligible."
 msgstr "främmlingen skakar och mumlar tyst. hennes ord är osammanhängande."
 
@@ -12503,11 +12526,11 @@ msgstr ""
 msgid "the surveyor's kit is taken"
 msgstr ""
 
-#: script/events/outside.js:177
+#: script/events/outside.js:184
 msgid "the survivors are taken in"
 msgstr ""
 
-#: script/events/outside.js:203
+#: script/events/outside.js:210
 msgid "the survivors are turned out"
 msgstr ""
 
@@ -12537,7 +12560,7 @@ msgid "the tentacular horror is defeated."
 msgstr "den förvildade fasan är död"
 
 #: script/events/setpieces.js:3473
-#: script/prison.js:265
+#: script/prison.js:275
 msgid "the tetrahedron"
 msgstr ""
 
@@ -12673,19 +12696,19 @@ msgstr "träden är borta. uttorkad jord och blåsande damm är dåliga ersätta
 msgid "the trees yield to dry grass. the yellowed brush rustles in the wind."
 msgstr "träden ger efter till torrt gräs. de gula buskarna rasslar i vinden."
 
-#: script/events/outside.js:967
+#: script/events/outside.js:974
 msgid "the trench goes around. it costs a week and a great deal of wood."
 msgstr ""
 
-#: script/events/outside.js:971
+#: script/events/outside.js:978
 msgid "the trench is moved around the marker"
 msgstr ""
 
-#: script/events/outside.js:913
+#: script/events/outside.js:920
 msgid "the trench needs to go through where it stands."
 msgstr ""
 
-#: script/events/outside.js:1021
+#: script/events/outside.js:1028
 msgid "the trench waits. the marker waits. it has waited longer than this."
 msgstr ""
 
@@ -12717,11 +12740,11 @@ msgstr ""
 msgid "the tunnel opens up at another platform."
 msgstr ""
 
-#: script/events/outside.js:827
+#: script/events/outside.js:834
 msgid "the two groups are four hundred years apart"
 msgstr ""
 
-#: script/events/outside.js:873
+#: script/events/outside.js:880
 msgid "the two groups cannot be housed together"
 msgstr ""
 
@@ -12729,7 +12752,7 @@ msgstr ""
 msgid "the uber trap goes up fast -- whatever wanderer part made it better made it burn better too."
 msgstr ""
 
-#: script/space.js:573
+#: script/space.js:861
 msgid "the vats. the cycle. the fire that goes out every twenty minutes.<br>the wanderer fleet. the profane. the door you opened."
 msgstr ""
 
@@ -12750,7 +12773,7 @@ msgstr ""
 msgid "the village answers it for six nights, in turns, reading the reply off a scrap of paper."
 msgstr ""
 
-#: script/events/outside.js:969
+#: script/events/outside.js:976
 msgid "the village builds around it and after a while stops noticing it."
 msgstr ""
 
@@ -12775,7 +12798,7 @@ msgstr ""
 msgid "the voice on the recording is the old wanderer"
 msgstr ""
 
-#: script/room.js:830
+#: script/room.js:849
 msgid "the wagon can carry a lot of supplies"
 msgstr "vagnen kan lasta många saker"
 
@@ -12836,7 +12859,7 @@ msgstr ""
 msgid "the walls are still dressed stone. the shaft still runs off level. the choice is the same one it was."
 msgstr ""
 
-#: script/prison.js:248
+#: script/prison.js:258
 msgid "the walls here were finished by hand. someone cared how this looked."
 msgstr ""
 
@@ -12844,7 +12867,7 @@ msgstr ""
 msgid "the walls hum faintly."
 msgstr ""
 
-#: script/prison.js:217
+#: script/prison.js:227
 msgid "the walls lean in overhead and meet."
 msgstr ""
 
@@ -12926,7 +12949,7 @@ msgstr ""
 msgid "the webs part, and a grotesque insect lurches forward."
 msgstr ""
 
-#: script/space.js:792
+#: script/space.js:1102
 msgid "the whole fleet comes out somewhere with nothing in it but a weight,<br>and the weight has already got hold of them."
 msgstr ""
 
@@ -12942,7 +12965,7 @@ msgstr ""
 msgid "the wind changes while the packs are being filled."
 msgstr ""
 
-#: script/room.js:1632
+#: script/room.js:1651
 msgid "the wind howls outside"
 msgstr "vinden viner utanför"
 
@@ -12962,11 +12985,11 @@ msgstr ""
 msgid "the wing the wanderers cut for themselves"
 msgstr ""
 
-#: script/room.js:1559
+#: script/room.js:1578
 msgid "the wood has run out"
 msgstr "veden har tagit slut"
 
-#: script/room.js:1633
+#: script/room.js:1652
 msgid "the wood is running out"
 msgstr "veden håller på att ta slut"
 
@@ -12990,19 +13013,20 @@ msgstr ""
 msgid "the workshop goes up with everything in it. it takes the longest to burn and the longest to rebuild."
 msgstr ""
 
-#: script/world.js:1137
+#: script/world.js:1146
 msgid "the world fades. death escapes you. is there no escape from here"
 msgstr ""
 
-#: script/space.js:778
+#: script/space.js:1002
+#: script/space.js:1088
 msgid "the worldships come into view exactly where they should be, and they are running,<br>and there is not one living soul aboard any of them."
 msgstr ""
 
-#: script/space.js:677
+#: script/space.js:965
 msgid "the worldships come into view exactly where they should be, and this time they are not running empty.<br>there are people on the rails, working, the way a ship is worked when there is a reason to keep it."
 msgstr ""
 
-#: script/events/outside.js:540
+#: script/events/outside.js:547
 msgid "the wounded are tended"
 msgstr ""
 
@@ -13062,7 +13086,7 @@ msgstr ""
 msgid "then picks them up again and starts walking, in no particular direction."
 msgstr ""
 
-#: script/events/outside.js:838
+#: script/events/outside.js:845
 msgid "then says: it does not matter. says the fleets came through, and after the fleets came through there was not a home to be from."
 msgstr ""
 
@@ -13086,7 +13110,7 @@ msgstr ""
 msgid "then two of them come up, and one of them stays down there."
 msgstr ""
 
-#: script/lab.js:335
+#: script/lab.js:349
 msgid "there appear to be body-sized drag marks."
 msgstr ""
 
@@ -13106,7 +13130,7 @@ msgstr ""
 msgid "there are brackets set into the wall at regular intervals, at a height that is wrong for carrying a lamp."
 msgstr ""
 
-#: script/room.js:774
+#: script/room.js:793
 msgid "there are dangerous beasts outside. builder can craft bone spears for hunting."
 msgstr ""
 
@@ -13135,7 +13159,7 @@ msgstr ""
 msgid "there are more than four hundred uprights."
 msgstr ""
 
-#: script/prison.js:231
+#: script/prison.js:241
 msgid "there are no corners anywhere in this wing."
 msgstr ""
 
@@ -13151,7 +13175,7 @@ msgstr ""
 msgid "there are no tracks. the ground is soft enough that there should be."
 msgstr ""
 
-#: script/prison.js:243
+#: script/prison.js:253
 msgid "there are no walls but that which we make."
 msgstr ""
 
@@ -13171,15 +13195,15 @@ msgstr ""
 msgid "there are still supplies inside."
 msgstr "det finns fortfarande förnödenheter där inne."
 
-#: script/lab.js:345
+#: script/lab.js:359
 msgid "there are subtle carvings of three eyes and three ears."
 msgstr ""
 
-#: script/space.js:787
+#: script/space.js:1097
 msgid "there are things about her you do not remember and do not understand.<br>you drift off to sleep, in hyperspace..."
 msgstr ""
 
-#: script/space.js:770
+#: script/space.js:1080
 msgid "there are things about her you do not remember and do not understand.<br>you drift off to sleep..."
 msgstr ""
 
@@ -13195,16 +13219,16 @@ msgstr ""
 msgid "there is a figure a long way off, sitting down, not moving. sitting down out here is how it ends."
 msgstr ""
 
-#: script/events/outside.js:945
+#: script/events/outside.js:952
 msgid "there is a hollow under it, lined and sealed and completely empty."
 msgstr ""
 
-#: script/room.js:1286
+#: script/room.js:1305
 msgid "there is a larger world outside these walls, dangerous as it is. wanderers without direction get lost. a compass can point the way in the wilds."
 msgstr ""
 
 #: script/events/room.js:52
-#: script/room.js:1271
+#: script/room.js:1290
 msgid "there is a larger world outside these walls, dangerous as it is. wanderers without direction get lost. a compass can point the way in the wilds. the old compass is dented and dusty, but it looks to work."
 msgstr ""
 
@@ -13220,7 +13244,7 @@ msgstr ""
 msgid "there is a name scratched at head height and then scratched out, thoroughly, by the same hand."
 msgstr ""
 
-#: script/engine.js:1755
+#: script/engine.js:1763
 msgid "there is a new layout, would you like to use it?"
 msgstr ""
 
@@ -13240,11 +13264,11 @@ msgstr ""
 msgid "there is a rhythm in it, underneath the noise, too slow to be weather and too regular to be anything else out here."
 msgstr ""
 
-#: script/space.js:609
+#: script/space.js:897
 msgid "there is a route through it now. you did not work it out so much as stop having to."
 msgstr ""
 
-#: script/space.js:571
+#: script/space.js:859
 msgid "there is a shiba inu inside it. it is sitting in front of a bank of equipment<br>that is very obviously the thing that has been running all of this."
 msgstr ""
 
@@ -13276,11 +13300,11 @@ msgstr ""
 msgid "there is another door behind the rack"
 msgstr ""
 
-#: script/room.js:2081
+#: script/room.js:2100
 msgid "there is another way"
 msgstr ""
 
-#: script/events/outside.js:381
+#: script/events/outside.js:388
 msgid "there is enough for most of the huts. the arithmetic of which most is done quickly and not out loud."
 msgstr ""
 
@@ -13296,7 +13320,7 @@ msgstr ""
 msgid "there is firewood stacked against the door, cut short enough for this stove specifically."
 msgstr ""
 
-#: script/events/outside.js:163
+#: script/events/outside.js:170
 msgid "there is less standing than there was"
 msgstr ""
 
@@ -13312,7 +13336,7 @@ msgstr ""
 msgid "there is no dust on the threshold. something still uses this."
 msgstr ""
 
-#: script/space.js:831
+#: script/space.js:1141
 msgid "there is no fire to light."
 msgstr ""
 
@@ -13336,7 +13360,7 @@ msgstr ""
 msgid "there is no shelter on this stretch and no wood worth the name. the wind comes across flat ground and does not slow down for anything."
 msgstr ""
 
-#: script/space.js:818
+#: script/space.js:1128
 msgid "there is no time to evade."
 msgstr ""
 
@@ -13385,7 +13409,7 @@ msgstr ""
 msgid "there is nothing in it now. it is warm."
 msgstr ""
 
-#: script/space.js:650
+#: script/space.js:938
 msgid "there is nothing left to do for a while, and nowhere left to go, and nothing left to reach for."
 msgstr ""
 
@@ -13401,11 +13425,11 @@ msgstr ""
 msgid "there is nothing to mark the spot afterwards, which was the idea."
 msgstr ""
 
-#: script/events/outside.js:946
+#: script/events/outside.js:953
 msgid "there is nothing under it, and the ground below has never been broken. the marker was set, not buried."
 msgstr ""
 
-#: script/events/outside.js:944
+#: script/events/outside.js:951
 msgid "there is nothing under it. no box, no bones, no ash."
 msgstr ""
 
@@ -13441,8 +13465,8 @@ msgstr ""
 msgid "there is something carved by the well"
 msgstr ""
 
-#: script/space.js:756
-#: script/space.js:802
+#: script/space.js:1066
+#: script/space.js:1112
 msgid "there is something else out here.<br>rings of it, vast and old, held close around the planet."
 msgstr ""
 
@@ -13450,7 +13474,7 @@ msgstr ""
 msgid "there is stock stacked against one wall, sealed, and the seals have held."
 msgstr ""
 
-#: script/lab.js:319
+#: script/lab.js:333
 msgid "there was a sound behind you and then suddenly nothing."
 msgstr ""
 
@@ -13458,7 +13482,7 @@ msgstr ""
 msgid "there was no fighting here."
 msgstr ""
 
-#: script/events/outside.js:100
+#: script/events/outside.js:107
 msgid "there was no one to raise an alarm, and no one else it could have spread to."
 msgstr ""
 
@@ -13479,19 +13503,19 @@ msgstr ""
 msgid "there's nothing else here."
 msgstr ""
 
-#: script/space.js:109
+#: script/space.js:314
 msgid "Thermosphere"
 msgstr "Termosvären"
 
-#: script/events/outside.js:685
+#: script/events/outside.js:692
 msgid "they answer readily. they have been waiting a long time for someone to ask."
 msgstr ""
 
-#: script/space.js:806
+#: script/space.js:1116
 msgid "they are aimed down. at the ground. at the room.<br>maybe this is why the builder seemed resigned to staying."
 msgstr ""
 
-#: script/space.js:816
+#: script/space.js:1126
 msgid "they are aimed down. at the ground. at the room.<br>the builder never mentioned them. the builder never prepared you for this."
 msgstr ""
 
@@ -13523,7 +13547,7 @@ msgstr ""
 msgid "they are beaten back. they were not well armed and they knew the ground better than we did."
 msgstr ""
 
-#: script/events/outside.js:767
+#: script/events/outside.js:774
 msgid "they are certain of this. they name a year to prove it. it is not this year."
 msgstr ""
 
@@ -13531,7 +13555,7 @@ msgstr ""
 msgid "they are driven off. nobody is comfortable about how coordinated it was."
 msgstr ""
 
-#: script/events/outside.js:761
+#: script/events/outside.js:768
 msgid "they are good workers and they are grateful, and they eat a great deal."
 msgstr ""
 
@@ -13539,11 +13563,11 @@ msgstr ""
 msgid "they are looking for drift. degradation. changes between one sample and the next."
 msgstr ""
 
-#: script/space.js:803
+#: script/space.js:1113
 msgid "they are not aimed outward.<br>nothing out here was ever what they were built to stop."
 msgstr ""
 
-#: script/space.js:757
+#: script/space.js:1067
 msgid "they are not aimed outward.<br>they are aimed down. at the ground. at the room."
 msgstr ""
 
@@ -13563,7 +13587,7 @@ msgstr ""
 msgid "they are not in a hurry, which is the part that should worry you."
 msgstr ""
 
-#: script/events/outside.js:769
+#: script/events/outside.js:776
 msgid "they are not lying. that is what makes it difficult."
 msgstr ""
 
@@ -13579,11 +13603,11 @@ msgstr ""
 msgid "they are not statues. they are not switched on either."
 msgstr ""
 
-#: script/events/outside.js:794
+#: script/events/outside.js:801
 msgid "they are polite in a way that suggests a great deal of practice at being new somewhere."
 msgstr ""
 
-#: script/events/outside.js:792
+#: script/events/outside.js:799
 msgid "they are quiet and they keep to themselves, and they do not eat much at all."
 msgstr ""
 
@@ -13600,7 +13624,7 @@ msgstr ""
 msgid "they are tallies, in groups of five, in at least four different hands."
 msgstr ""
 
-#: script/events/outside.js:199
+#: script/events/outside.js:206
 msgid "they are told there is no room. it is not true."
 msgstr ""
 
@@ -13612,8 +13636,8 @@ msgstr ""
 msgid "they are turned back at the bottom of the path."
 msgstr ""
 
-#: script/events/outside.js:649
-#: script/events/outside.js:667
+#: script/events/outside.js:656
+#: script/events/outside.js:674
 msgid "they are walked to the treeline and pointed away from the village."
 msgstr ""
 
@@ -13625,7 +13649,7 @@ msgstr ""
 msgid "they break and run once it turns. some of them are barely fighting at all."
 msgstr ""
 
-#: script/events/outside.js:668
+#: script/events/outside.js:675
 msgid "they come back before the month is out, and they bring more of themselves."
 msgstr ""
 
@@ -13641,11 +13665,11 @@ msgstr ""
 msgid "they do not argue. that is the part that stays with the people who watched."
 msgstr ""
 
-#: script/events/outside.js:852
+#: script/events/outside.js:859
 msgid "they do not become friends. they do become neighbours, which is harder and worth more."
 msgstr ""
 
-#: script/events/outside.js:688
+#: script/events/outside.js:695
 msgid "they do not believe it. they are given food and sent back to their post."
 msgstr ""
 
@@ -13653,19 +13677,19 @@ msgstr ""
 msgid "they do not burn like paper. they curl, and go grey, and stop."
 msgstr ""
 
-#: script/events/outside.js:606
+#: script/events/outside.js:613
 msgid "they do not seem to know that."
 msgstr ""
 
-#: script/events/outside.js:605
+#: script/events/outside.js:612
 msgid "they give a unit designation and a rank. both belong to an army that has no one left to report to."
 msgstr ""
 
-#: script/events/outside.js:822
+#: script/events/outside.js:829
 msgid "they give a year, and a month, and the name of a harvest festival that was two weeks out when they left."
 msgstr ""
 
-#: script/events/outside.js:888
+#: script/events/outside.js:895
 msgid "they go back into the trees in opposite directions, still arguing."
 msgstr ""
 
@@ -13689,11 +13713,11 @@ msgstr ""
 msgid "they must be here for a reason."
 msgstr ""
 
-#: script/events/outside.js:686
+#: script/events/outside.js:693
 msgid "they name a garrison, a supply line, and a commanding officer."
 msgstr ""
 
-#: script/space.js:808
+#: script/space.js:1118
 msgid "they pause."
 msgstr ""
 
@@ -13701,11 +13725,11 @@ msgstr ""
 msgid "they put the one who makes things stand up in the last room the old world built to stay standing. somebody chose that too."
 msgstr ""
 
-#: script/events/outside.js:796
+#: script/events/outside.js:803
 msgid "they say the others are a long way from home and do not know it yet."
 msgstr ""
 
-#: script/events/outside.js:765
+#: script/events/outside.js:772
 msgid "they say the others are liars. say the lamp is a trick, and that nothing like it exists."
 msgstr ""
 
@@ -13713,7 +13737,7 @@ msgstr ""
 msgid "they say they have been out since the afternoon"
 msgstr ""
 
-#: script/events/outside.js:763
+#: script/events/outside.js:770
 msgid "they set up exactly the way people set up who have done this several times already."
 msgstr ""
 
@@ -13737,7 +13761,7 @@ msgstr ""
 msgid "they take the food, and they are grateful for it, and they keep walking."
 msgstr ""
 
-#: script/events/outside.js:793
+#: script/events/outside.js:800
 msgid "they take the smallest hut without being offered it and do not come out of it much."
 msgstr ""
 
@@ -13753,15 +13777,15 @@ msgstr ""
 msgid "they were not measuring for the sake of it. an expanse that size only holds together if a part made at one end fits a machine at the other. this room is the reason any of it worked."
 msgstr ""
 
-#: script/events/outside.js:717
+#: script/events/outside.js:724
 msgid "they will not share a fire. each says the other cannot possibly be here."
 msgstr ""
 
-#: script/space.js:628
+#: script/space.js:916
 msgid "they will try again. they are very good at it and they have had a great deal of practice.<br>but whatever comes up out of that glass will not have been out here. it will not have carried this."
 msgstr ""
 
-#: script/events/outside.js:762
+#: script/events/outside.js:769
 msgid "they work without being asked and go quiet whenever anybody thanks them."
 msgstr ""
 
@@ -13781,7 +13805,7 @@ msgstr "tjyvar"
 msgid "things unsaid"
 msgstr ""
 
-#: script/lab.js:330
+#: script/lab.js:344
 msgid "this area has been overly sanitized as if to erase something foul."
 msgstr ""
 
@@ -13793,7 +13817,7 @@ msgstr ""
 msgid "this ground has been a cemetery for longer than anything above it has been standing."
 msgstr ""
 
-#: script/room.js:1540
+#: script/room.js:1559
 msgid "This is a fork and a re-imagining of the game with much more content, more story and more endings."
 msgstr ""
 
@@ -13837,7 +13861,7 @@ msgstr ""
 msgid "this room does not matter. this fire does not matter. escape is all that matters."
 msgstr ""
 
-#: script/lab.js:329
+#: script/lab.js:343
 msgid "this room has impossible star charts."
 msgstr ""
 
@@ -13845,7 +13869,7 @@ msgstr ""
 msgid "this settlement will be in the register. it will have a note beside it."
 msgstr ""
 
-#: script/room.js:760
+#: script/room.js:779
 msgid "this spear's not elegant, but it's pretty good at stabbing"
 msgstr "spjutet är inte elegant, men det fungerar bra att stöta med"
 
@@ -13857,7 +13881,7 @@ msgstr ""
 msgid "this ward has been converted to a makeshift strategy room, maps scrawled hastily on any flat surface."
 msgstr ""
 
-#: script/room.js:655
+#: script/room.js:674
 msgid "this waterskin'll hold a bit of water, at least"
 msgstr "vattenskinnet håller lite vatten iallafall"
 
@@ -13865,7 +13889,7 @@ msgstr "vattenskinnet håller lite vatten iallafall"
 msgid "this wing is newer than the other two by an order of magnitude, and it is still very old."
 msgstr ""
 
-#: script/prison.js:226
+#: script/prison.js:236
 msgid "this wing represents a simple shape that should be stable for failed for some reason."
 msgstr ""
 
@@ -13961,7 +13985,7 @@ msgstr "stöt"
 msgid "time to get out of here."
 msgstr ""
 
-#: script/ship.js:206
+#: script/ship.js:235
 msgid "time to get out of this place. won't be coming back."
 msgstr "Dax att lämna detta ställe. Kommer inte tillbaka"
 
@@ -13969,7 +13993,7 @@ msgstr "Dax att lämna detta ställe. Kommer inte tillbaka"
 msgid "time to move on."
 msgstr ""
 
-#: script/space.js:827
+#: script/space.js:1137
 msgid "time to rejoin the other wanderers, alone no more.<br>the fleet knows the way home. nothing to do but wait."
 msgstr ""
 
@@ -13981,21 +14005,21 @@ msgstr ""
 msgid "too many limbs, and none of them agree on how old they are."
 msgstr ""
 
-#: script/prison.js:209
+#: script/prison.js:219
 msgid "tools for measurement, but only for one specific size."
 msgstr ""
 
 #: script/localization.js:26
-#: script/room.js:616
-#: script/room.js:630
+#: script/room.js:635
+#: script/room.js:649
 msgid "torch"
 msgstr "fackla"
 
-#: script/room.js:1836
+#: script/room.js:1855
 msgid "total"
 msgstr ""
 
-#: script/space.js:873
+#: script/space.js:1183
 msgid "total score: {0}"
 msgstr ""
 
@@ -14012,8 +14036,8 @@ msgstr "följ efter spåren"
 msgid "trade with her"
 msgstr ""
 
-#: script/room.js:298
-#: script/room.js:314
+#: script/room.js:317
+#: script/room.js:333
 msgid "trading post"
 msgstr "handelsplats"
 
@@ -14021,8 +14045,8 @@ msgstr "handelsplats"
 msgid "traitor. anathema. from this day he has no name but the exile, and will have no other, ever."
 msgstr ""
 
-#: script/room.js:14
-#: script/room.js:31
+#: script/room.js:33
+#: script/room.js:50
 msgid "trap"
 msgstr "fälla"
 
@@ -14059,11 +14083,11 @@ msgstr ""
 msgid "tripped a motion sensor."
 msgstr ""
 
-#: script/events/outside.js:571
+#: script/events/outside.js:578
 msgid "troops storm the village"
 msgstr "pesten far fram genom byn."
 
-#: script/space.js:103
+#: script/space.js:308
 msgid "Troposphere"
 msgstr "Tropossvären"
 
@@ -14079,7 +14103,7 @@ msgstr ""
 msgid "try to wake one"
 msgstr ""
 
-#: script/room.js:447
+#: script/room.js:466
 msgid "trying to carve out some semblence of civilization amongst the unforgiving wastes. builder says she could make finer things, if she had the tools"
 msgstr ""
 
@@ -14092,11 +14116,11 @@ msgstr ""
 msgid "turn back"
 msgstr ""
 
-#: script/prison.js:242
+#: script/prison.js:252
 msgid "turn back rather than face an infinity of no meaning."
 msgstr ""
 
-#: script/events/outside.js:749
+#: script/events/outside.js:756
 msgid "turn both away"
 msgstr ""
 
@@ -14110,7 +14134,7 @@ msgstr "be henne att gå"
 msgid "turn him away"
 msgstr "be honom att gå"
 
-#: script/events/outside.js:143
+#: script/events/outside.js:150
 msgid "turn the survivors out"
 msgstr ""
 
@@ -14142,7 +14166,7 @@ msgstr ""
 msgid "two bedrolls are wedged into a corner."
 msgstr ""
 
-#: script/events/outside.js:707
+#: script/events/outside.js:714
 msgid "Two Camps"
 msgstr ""
 
@@ -14154,11 +14178,11 @@ msgstr ""
 msgid "two feet in, the spoil starts to burn where it touches skin, and the burn does not stop when it is brushed off."
 msgstr ""
 
-#: script/events/outside.js:719
+#: script/events/outside.js:726
 msgid "two groups arrive, and will not share a fire"
 msgstr ""
 
-#: script/events/outside.js:715
+#: script/events/outside.js:722
 msgid "two groups come out of the trees within an hour of each other, from opposite directions."
 msgstr ""
 
@@ -14166,11 +14190,11 @@ msgstr ""
 msgid "two hundred years of orders, all of them withdrawals"
 msgstr ""
 
-#: script/events/outside.js:604
+#: script/events/outside.js:611
 msgid "two of them are dragged out of the mud, disarmed."
 msgstr ""
 
-#: script/events/outside.js:584
+#: script/events/outside.js:591
 msgid "two of them are still alive"
 msgstr ""
 
@@ -14194,12 +14218,12 @@ msgstr ""
 msgid "two-headed creature"
 msgstr ""
 
-#: script/room.js:564
-#: script/room.js:588
+#: script/room.js:583
+#: script/room.js:607
 msgid "uber trap"
 msgstr ""
 
-#: script/room.js:568
+#: script/room.js:587
 msgid "uber traps leverage wanderer technology to catch more important resources"
 msgstr ""
 
@@ -14263,7 +14287,7 @@ msgstr ""
 msgid "unsealing"
 msgstr ""
 
-#: script/lab.js:351
+#: script/lab.js:365
 msgid "unseen workers must be keeping this operation going"
 msgstr ""
 
@@ -14275,11 +14299,11 @@ msgstr ""
 msgid "unstable prototype"
 msgstr ""
 
-#: script/engine.js:1751
+#: script/engine.js:1759
 msgid "Update"
 msgstr ""
 
-#: script/ship.js:100
+#: script/ship.js:86
 msgid "upgrade engine"
 msgstr "uppgradera motorn"
 
@@ -14364,12 +14388,12 @@ msgstr ""
 msgid "villagers"
 msgstr ""
 
-#: script/room.js:826
-#: script/room.js:841
+#: script/room.js:845
+#: script/room.js:860
 msgid "wagon"
 msgstr "vagn"
 
-#: script/space.js:847
+#: script/space.js:1157
 msgid "wait"
 msgstr ""
 
@@ -14493,7 +14517,7 @@ msgstr ""
 msgid "warden echo"
 msgstr ""
 
-#: script/room.js:1453
+#: script/room.js:1472
 msgid "warm"
 msgstr "varm"
 
@@ -14509,15 +14533,15 @@ msgstr ""
 msgid "water"
 msgstr "vatten"
 
-#: script/room.js:739
+#: script/room.js:758
 msgid "water is needed to survive while exploring the wilds. a cask can only hold so much. builder suggests crafting a water tank to really explore the wilds."
 msgstr ""
 
-#: script/room.js:703
+#: script/room.js:722
 msgid "water is needed to survive while exploring the wilds. a waterskin can only hold so much. builder suggests crafting a cask to safely explore further."
 msgstr ""
 
-#: script/room.js:668
+#: script/room.js:687
 msgid "water is needed to survive while exploring the wilds. builder suggests crafting a waterskin to safely explore the wilds."
 msgstr ""
 
@@ -14526,12 +14550,12 @@ msgid "water out, water in. waste not, want not."
 msgstr ""
 
 #: script/events/setpieces.js:6872
-#: script/world.js:1339
+#: script/world.js:1348
 msgid "water replenished"
 msgstr ""
 
-#: script/room.js:721
-#: script/room.js:736
+#: script/room.js:740
+#: script/room.js:755
 msgid "water tank"
 msgstr "vattentank"
 
@@ -14539,8 +14563,8 @@ msgstr "vattentank"
 msgid "water:{0}"
 msgstr "vatten:{0}"
 
-#: script/room.js:651
-#: script/room.js:665
+#: script/room.js:670
+#: script/room.js:684
 msgid "waterskin"
 msgstr "vattenskin"
 
@@ -14549,7 +14573,7 @@ msgid "weakness is a liabity, especially out here."
 msgstr ""
 
 #: script/mobileUI.js:35
-#: script/room.js:1693
+#: script/room.js:1712
 msgid "weapons"
 msgstr "vapen"
 
@@ -14557,7 +14581,7 @@ msgstr "vapen"
 msgid "weapons are strewn about the medical dispatch bay. must have been used as a muster point."
 msgstr ""
 
-#: script/events/outside.js:650
+#: script/events/outside.js:657
 msgid "weeks later a bundle is left at the wall. ammunition, and a hand-drawn map of where not to go."
 msgstr ""
 
@@ -14573,7 +14597,7 @@ msgstr "vikt"
 msgid "what comes off it is not what was underneath."
 msgstr ""
 
-#: script/lab.js:331
+#: script/lab.js:345
 msgid "what did the builder not want you to find down here?"
 msgstr ""
 
@@ -14581,7 +14605,7 @@ msgstr ""
 msgid "what finally stops it is not a weapon. it is the thing inside it giving out."
 msgstr ""
 
-#: script/room.js:2125
+#: script/room.js:2144
 msgid "what gets built after this gets built differently, and nobody calls them wanderers any more."
 msgstr ""
 
@@ -14613,7 +14637,7 @@ msgstr ""
 msgid "what is in the pack has taken it up. it does not smell of anything, which is worse."
 msgstr ""
 
-#: script/events/outside.js:871
+#: script/events/outside.js:878
 msgid "what is left of both groups leaves in the same direction, separately."
 msgstr ""
 
@@ -14713,7 +14737,7 @@ msgstr "där fönsterglasen inte är trasiga på skolhuset, är dom svarta av so
 msgid "who is this Profane that they worshiped?"
 msgstr ""
 
-#: script/room.js:278
+#: script/room.js:297
 msgid "who will hunt the beasts?"
 msgstr ""
 
@@ -14742,7 +14766,7 @@ msgstr ""
 msgid "whoever was held here took the cell apart and put it back together better. the bunk is reseated. the vent has been rebuilt and it draws properly now. there is a bracket in the corner that is not standard issue and is doing a job the original design got wrong."
 msgstr ""
 
-#: script/events/outside.js:462
+#: script/events/outside.js:469
 msgid "wild beasts attack the {0}"
 msgstr ""
 
@@ -14806,12 +14830,12 @@ msgstr ""
 msgid "work it"
 msgstr ""
 
-#: script/room.js:427
-#: script/room.js:444
+#: script/room.js:446
+#: script/room.js:463
 msgid "workshop"
 msgstr "verkstad"
 
-#: script/room.js:431
+#: script/room.js:450
 msgid "workshop's finally ready. builder's excited to get to it"
 msgstr "verkstaden är äntligen klar, byggaren är uppspelt att börja"
 
@@ -14839,7 +14863,7 @@ msgstr ""
 msgid "yes"
 msgstr "ja"
 
-#: script/space.js:610
+#: script/space.js:898
 msgid "you are getting better at this.<br>you are not sure that is the same thing as getting free of it."
 msgstr ""
 
@@ -14855,7 +14879,7 @@ msgstr ""
 msgid "you come out the other side with less skin than you went in with."
 msgstr ""
 
-#: script/lab.js:350
+#: script/lab.js:364
 msgid "you could backtrack and climb out this very moment."
 msgstr ""
 
@@ -14871,7 +14895,7 @@ msgstr ""
 msgid "you do not remember writing any of them, and you have just written another."
 msgstr ""
 
-#: script/space.js:630
+#: script/space.js:918
 msgid "you find that you are not prepared for this version of you to die.<br>you have never once minded before."
 msgstr ""
 
@@ -14879,11 +14903,11 @@ msgstr ""
 msgid "you get the gloves out of the pack without deciding to. you have handled every other one of these barehanded and you are not going to handle this one barehanded and you could not tell anybody why."
 msgstr ""
 
-#: script/prison.js:236
+#: script/prison.js:246
 msgid "you have been walking level the whole time. you are no longer sure."
 msgstr ""
 
-#: script/space.js:608
+#: script/space.js:896
 msgid "you have done this quickly. quicker than last time, and last time was quicker than the one before."
 msgstr ""
 
@@ -14891,15 +14915,15 @@ msgstr ""
 msgid "you have frequently looted your own kills. the living had more need of these things than the dead."
 msgstr ""
 
-#: script/events/outside.js:989
+#: script/events/outside.js:996
 msgid "you have made that mark. you make it without thinking, on things you want to find again."
 msgstr ""
 
-#: script/events/outside.js:990
+#: script/events/outside.js:997
 msgid "you have never been here, and the scratch has been under that stone longer than the village has stood."
 msgstr ""
 
-#: script/space.js:836
+#: script/space.js:1146
 msgid "you have never felt so alone..."
 msgstr ""
 
@@ -14907,7 +14931,7 @@ msgstr ""
 msgid "you have never seen this book before."
 msgstr ""
 
-#: script/space.js:626
+#: script/space.js:914
 msgid "you have not died once. not this time."
 msgstr ""
 
@@ -14915,7 +14939,7 @@ msgstr ""
 msgid "you have seen that before. you know exactly where."
 msgstr ""
 
-#: script/prison.js:220
+#: script/prison.js:230
 msgid "you keep ducking for a ceiling that is higher than it looks."
 msgstr ""
 
@@ -14931,7 +14955,7 @@ msgstr ""
 msgid "you lift it. you know the name. you have never once written it down."
 msgstr ""
 
-#: script/lab.js:348
+#: script/lab.js:362
 msgid "you long for the warm fire in your room."
 msgstr ""
 
@@ -14939,11 +14963,11 @@ msgstr ""
 msgid "you may observe your fate"
 msgstr ""
 
-#: script/prison.js:240
+#: script/prison.js:250
 msgid "you move forward but a sphere has no end."
 msgstr ""
 
-#: script/space.js:712
+#: script/space.js:1022
 msgid "you put it down. you do not put it away.<br>the fleet goes on climbing."
 msgstr ""
 
@@ -14955,16 +14979,17 @@ msgstr ""
 msgid "you see a symbol they bear, somehow knowing it to represent The Profane."
 msgstr ""
 
-#: script/prison.js:223
+#: script/prison.js:233
 msgid "you see modern repairs in this ancient structure."
 msgstr ""
 
-#: script/space.js:727
+#: script/space.js:1037
 msgid "you see what they saw."
 msgstr ""
 
-#: script/space.js:673
-#: script/space.js:710
+#: script/space.js:1020
+#: script/space.js:961
+#: script/space.js:998
 msgid "you see what they saw. it is exactly as impossible as it was the first time.<br>and it is exactly as true."
 msgstr ""
 
@@ -14972,7 +14997,8 @@ msgstr ""
 msgid "you send this beast back from whence it came."
 msgstr ""
 
-#: script/space.js:781
+#: script/space.js:1005
+#: script/space.js:1091
 msgid "you should know how to do this. you are certain you should know how to do this.<br>nothing comes. you stand there and you are no use to her at all."
 msgstr ""
 
@@ -14988,11 +15014,11 @@ msgstr ""
 msgid "you take it with gloves on"
 msgstr ""
 
-#: script/space.js:652
+#: script/space.js:940
 msgid "you take the gloves off."
 msgstr ""
 
-#: script/space.js:793
+#: script/space.js:1103
 msgid "you wake from that nightmare in a dark room..."
 msgstr ""
 
@@ -15028,12 +15054,12 @@ msgstr ""
 msgid "your minds touch again. somehow both remembering stars in the deep, dark sky."
 msgstr ""
 
-#: script/prison.js:233
+#: script/prison.js:243
 msgid "your own footsteps come back to you from the wrong direction."
 msgstr ""
 
-#: script/prison.js:244
-#: script/prison.js:252
+#: script/prison.js:254
+#: script/prison.js:262
 msgid "ⰑⰖⰔⱂⰃⰠ2ⰉⰉ Ⱀⱂ ⰄⰀ ⰒⰑⰆⰉ me2Ⱐ ⰄⰀ ⰂⰉⰄⰉ2Ⱐ ⰍⰑⰐⰠⰜⰠ ⰉⰆⰅ ⰔⰠⰄⰡⱂⰞⰨ"
 msgstr ""
 
@@ -15241,3 +15267,9 @@ msgstr ""
 
 #~ msgid "unfathomable destruction to fuel wanderer hungers."
 #~ msgstr "ofattbar förstörelse för att mätta vandrarnas hunger."
+
+#~ msgid "engine:"
+#~ msgstr "motor:"
+
+#~ msgid "hull:"
+#~ msgstr "skrov:"
