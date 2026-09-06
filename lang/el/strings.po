@@ -381,6 +381,10 @@ msgstr "Μια ταλαιπωρημένη πινακίδα στέκεται φρ
 msgid "a battle was fought here, long ago."
 msgstr "κάποια μάχη έγινε εδώ, παλιά πολύ."
 
+#: script/world.js:173
+msgid "A Battlefield"
+msgstr "Πεδίο Μάχης"
+
 #: script/events/outside.js:448
 msgid "A Beast Attack"
 msgstr "Επίθεση Θηρίου"
@@ -416,6 +420,10 @@ msgstr "ένας πάγκος, σκουπισμένος. τα εργαλεία �
 #: script/events/setpieces.js:2670
 msgid "a biohazard furnace, recently used"
 msgstr "ένας κλίβανος βιολογικού κινδύνου, πρόσφατα χρησιμοποιημένος"
+
+#: script/world.js:172
+msgid "A Borehole"
+msgstr "Μια Τρύπα"
 
 #: script/events/room.js:183
 msgid "a bundle of sticks lies just beyond the threshold, wrapped in coarse furs."
@@ -537,9 +545,17 @@ msgstr "ένας διάδρομος διακλαδίζεται σε γωνία �
 msgid "A Crashed Ship"
 msgstr "Συντρίμμια Πλοίου"
 
+#: script/world.js:171
+msgid "A Crashed Starship"
+msgstr "Συντρίμμια Πλοίου"
+
 #: script/outside.js:806
 msgid "A Crowded Encampment"
 msgstr "Ένας Στριμωγμένος Καταυλισμός"
+
+#: script/world.js:182
+msgid "A Crowded Graveyard"
+msgstr "Ένα Στριμωγμένο Νεκροταφείο"
 
 #: script/outside.js:127
 #: script/outside.js:160
@@ -579,8 +595,9 @@ msgid "a cyborg bear comes through the fence without appearing to notice the fen
 msgstr "μια κυβερνο-αρκούδα περνάει μέσα από τον φράχτη χωρίς να φαίνεται να τον προσέχει καν."
 
 #: script/events/setpieces.js:3752
+#: script/world.js:168
 msgid "A Damp Cave"
-msgstr "Μια Υγρή Σπηλιά"
+msgstr "Υγρή Σπήλια"
 
 #: script/room.js:1558
 msgid "A Dark Room was written by Michael Townsend for Doublespeak Games in 2013. It is open-source."
@@ -600,6 +617,7 @@ msgid "a desperate weapon for desperate men."
 msgstr "ένα απελπισμένο όπλο για απελπισμένους άντρες."
 
 #: script/events/setpieces.js:7496
+#: script/world.js:188
 msgid "A Destroyed Village"
 msgstr "Κατεστραμμένο Χωριό"
 
@@ -733,6 +751,7 @@ msgid "A Glass Wolf"
 msgstr "Ένας Γυάλινος Λύκος"
 
 #: script/events/setpieces.js:2123
+#: script/world.js:178
 msgid "A Glassed Crater"
 msgstr "Ένας Υαλωμένος Κρατήρας"
 
@@ -1027,8 +1046,9 @@ msgid "a morphing projection of this room and this planet."
 msgstr "μια μεταλλασσόμενη προβολή αυτού του δωματίου και αυτού του πλανήτη."
 
 #: script/events/setpieces.js:35
+#: script/world.js:175
 msgid "A Murky Swamp"
-msgstr "Ένας Ζοφερός Βάλτος"
+msgstr "Ζοφερός Βάλτος"
 
 #: script/events/encounters.js:1406
 msgid "A Mutant"
@@ -1151,6 +1171,7 @@ msgstr "Φασαριόζικο Χωριό"
 
 #: script/events/executioner.js:179
 #: script/events/executioner.js:685
+#: script/world.js:176
 msgid "A Ravaged Battleship"
 msgstr "Ένα Ρημαγμένο Θωρηκτό"
 
@@ -1211,8 +1232,9 @@ msgid "a round wing with no point. there is no point. nothing to gleam."
 msgstr "μια στρογγυλή πτέρυγα χωρίς αιχμή. δεν υπάρχει αιχμή. τίποτα να λάμπει."
 
 #: script/events/setpieces.js:4976
+#: script/world.js:170
 msgid "A Ruined City"
-msgstr "Μια Κατεστραμμένη Πόλη"
+msgstr "Εγκαταλειμμένη Πόλη"
 
 #: script/events/outside.js:6
 msgid "A Ruined Trap"
@@ -1358,6 +1380,7 @@ msgid "A Silent Forest"
 msgstr "Αθόρυβο Δάσος"
 
 #: script/events/setpieces.js:1759
+#: script/world.js:177
 msgid "A Silent Temple"
 msgstr "Ένας Σιωπηλός Ναός"
 
@@ -1644,6 +1667,7 @@ msgid "a wanderer arrives with an empty cart. says if she leaves with furs, she'
 msgstr "ένας οδοιπόρος καταφτάνει με ένα άδειο καρότσι. λέει ότι αν πάρει γούνες, θα τις επιστρέψει με το παραπάνω."
 
 #: script/events/setpieces.js:2320
+#: script/world.js:184
 msgid "A Wanderer Lab"
 msgstr "Ένα Εργαστήριο Περιπλανώμενων"
 
@@ -1687,54 +1711,6 @@ msgstr "μια επιφάνεια εργασίας, και πάνω της έν�
 #: script/events/setpieces.js:6060
 msgid "a youth lashes out with a tree branch."
 msgstr "ένας νεαρός πετάγεται μπροστά με ένα κλαδί δέντρου."
-
-#: script/world.js:173
-msgid "A&nbsp;Battlefield"
-msgstr "Πεδίο&nbsp;Μάχης"
-
-#: script/world.js:172
-msgid "A&nbsp;Borehole"
-msgstr "Μια&nbsp;Τρύπα"
-
-#: script/world.js:171
-msgid "A&nbsp;Crashed&nbsp;Starship"
-msgstr "Συντρίμμια&nbsp;Πλοίου"
-
-#: script/world.js:182
-msgid "A&nbsp;Crowded&nbsp;Graveyard"
-msgstr "Ένα Στριμωγμένο Νεκροταφείο"
-
-#: script/world.js:168
-msgid "A&nbsp;Damp&nbsp;Cave"
-msgstr "Υγρή&nbsp;Σπήλια"
-
-#: script/world.js:188
-msgid "A&nbsp;Destroyed&nbsp;Village"
-msgstr "Κατεστραμμένο&nbsp;Χωριό"
-
-#: script/world.js:178
-msgid "A&nbsp;Glassed&nbsp;Crater"
-msgstr "Ένας Υαλωμένος Κρατήρας"
-
-#: script/world.js:175
-msgid "A&nbsp;Murky&nbsp;Swamp"
-msgstr "Ζοφερός&nbsp;Βάλτος"
-
-#: script/world.js:176
-msgid "A&nbsp;Ravaged&nbsp;Battleship"
-msgstr "Ένα Ρημαγμένο Θωρηκτό"
-
-#: script/world.js:170
-msgid "A&nbsp;Ruined&nbsp;City"
-msgstr "Εγκαταλειμμένη&nbsp;Πόλη"
-
-#: script/world.js:177
-msgid "A&nbsp;Silent&nbsp;Temple"
-msgstr "Ένας Σιωπηλός Ναός"
-
-#: script/world.js:184
-msgid "A&nbsp;Wanderer&nbsp;Lab"
-msgstr "Ένα Εργαστήριο Περιπλανώμενων"
 
 #: script/events/setpieces.js:1777
 msgid "above the door there is a figure worked into the rock: three eyes, three ears, and no mouth at all."
@@ -1830,6 +1806,10 @@ msgstr "τουλάχιστον, λειτουργούσε πάντα πριν."
 msgid "ambushed on the street."
 msgstr "ενέδρα στο δρόμο."
 
+#: script/world.js:169
+msgid "An Abandoned Town"
+msgstr "Εγκαταλελειμμένη Πόλη"
+
 #: script/events/encounters.js:273
 msgid "An Alien Bird"
 msgstr "Ένα Ξένο Πουλί"
@@ -1907,8 +1887,9 @@ msgid "an old case is wedged behind a rock, covered in a thick layer of dust."
 msgstr "μια παλιά θήκη είναι σφηνωμένη πίσω από ένα βράχο, καλυμμένη με ένα παχύ στρώμα σκόνης."
 
 #: script/events/setpieces.js:6845
+#: script/world.js:167
 msgid "An Old House"
-msgstr "Ένα Παλιό Σπίτι"
+msgstr "Παλιό Σπίτι"
 
 #: script/events/setpieces.js:6849
 msgid "an old house remains here, once white siding yellowed and peeling."
@@ -1927,6 +1908,7 @@ msgid "an old man bursts through a door, wielding a scalpel."
 msgstr "Ένας γέρος πετάγεται από μια πόρτα, κρατώντας ένα νυστέρι."
 
 #: script/events/setpieces.js:2926
+#: script/world.js:179
 msgid "An Old Observatory"
 msgstr "Ένα Παλιό Αστεροσκοπείο"
 
@@ -1960,6 +1942,7 @@ msgid "an operative waits in ambush around the corner."
 msgstr "ένας πράκτορας ενεδρεύει στη γωνία."
 
 #: script/events/setpieces.js:6
+#: script/world.js:163
 msgid "An Outpost"
 msgstr "Ένα Φυλάκιο"
 
@@ -1974,22 +1957,6 @@ msgstr "ένα ανεστραμμένο τροχόσπιτο είναι μέσ' 
 #: script/events/executioner.js:1130
 msgid "an unfinished automaton whirs to life."
 msgstr "ένα ημιτελές αυτόματο ζωντανεύει βουίζοντας."
-
-#: script/world.js:169
-msgid "An&nbsp;Abandoned&nbsp;Town"
-msgstr "Εγκαταλελειμμένη&nbsp;Πόλη"
-
-#: script/world.js:167
-msgid "An&nbsp;Old&nbsp;House"
-msgstr "Παλιό&nbsp;Σπίτι"
-
-#: script/world.js:179
-msgid "An&nbsp;Old&nbsp;Observatory"
-msgstr "Ένα Παλιό Αστεροσκοπείο"
-
-#: script/world.js:163
-msgid "An&nbsp;Outpost"
-msgstr "Ένα&nbsp;Φυλάκιο"
 
 #: script/events/executioner.js:543
 msgid "ancient beast"
@@ -3097,14 +3064,14 @@ msgstr "κάρβουνο"
 msgid "coal mine"
 msgstr "ορυχείο άνθρακα"
 
+#: script/world.js:165
+msgid "Coal Mine"
+msgstr "Ορυχείο Άνθρακα"
+
 #: script/localization.js:37
 #: script/outside.js:63
 msgid "coal miner"
 msgstr "ανθρακωρύχος"
-
-#: script/world.js:165
-msgid "Coal&nbsp;Mine"
-msgstr "Ορυχείο&nbsp;Άνθρακα"
 
 #: script/events/setpieces.js:495
 msgid "coil"
@@ -5135,6 +5102,10 @@ msgstr "σιδερένια πανοπλία"
 msgid "iron mine"
 msgstr "ορυχείο Σιδήρου"
 
+#: script/world.js:164
+msgid "Iron Mine"
+msgstr "Ορυχείο Σιδήρου"
+
 #: script/localization.js:35
 #: script/outside.js:55
 msgid "iron miner"
@@ -5148,10 +5119,6 @@ msgstr "σιδερένιο σπαθί"
 #: script/room.js:957
 msgid "iron's stronger than leather"
 msgstr "το σίδερο είναι πιο δυνατό από το δέρμα"
-
-#: script/world.js:164
-msgid "Iron&nbsp;Mine"
-msgstr "Ορυχείο&nbsp;Σιδήρου"
 
 #: script/outside.js:1463
 msgid "is escape possible? somehow the land becomes even more bleak and unforgiving moving further from the fire. is this place some sort of exile?"
@@ -6416,7 +6383,7 @@ msgid "LOCKED"
 msgstr "ΚΛΕΙΔΩΜΕΝΟ"
 
 #: script/world.js:183
-msgid "Locked-Down&nbsp;Prison"
+msgid "Locked-Down Prison"
 msgstr "Ασφαλισμένη Φυλακή"
 
 #: script/room.js:267
@@ -9578,14 +9545,14 @@ msgstr "θειάφι"
 msgid "sulphur mine"
 msgstr "παραγωγός θειαφιού"
 
+#: script/world.js:166
+msgid "Sulphur Mine"
+msgstr "Ορυχείο Θειαφιού"
+
 #: script/localization.js:39
 #: script/outside.js:71
 msgid "sulphur miner"
 msgstr "ορυχείο θειαφιού"
-
-#: script/world.js:166
-msgid "Sulphur&nbsp;Mine"
-msgstr "Ορυχείο&nbsp;Θειαφιού"
 
 #: script/mobileUI.js:46
 msgid "supplies"
@@ -10337,6 +10304,7 @@ msgid "the compass points west"
 msgstr "η πυξίδα δείχνει δυτικά"
 
 #: script/events/setpieces.js:3215
+#: script/world.js:181
 msgid "The Concordance"
 msgstr "Η Συμφωνία"
 
@@ -12474,6 +12442,7 @@ msgid "the stranger shivers, and mumbles quietly. her words are unintelligible."
 msgstr "η ξένη στην γωνία τρέμει από το κρύο, και μιλάει ακαταλαβίστικα"
 
 #: script/events/setpieces.js:3108
+#: script/world.js:180
 msgid "The Strata"
 msgstr "Τα Στρώματα"
 
@@ -12767,6 +12736,10 @@ msgstr "ο αεραγωγός φυλάσσεται από κάποιον ακό�
 msgid "the village"
 msgstr "το χωριό"
 
+#: script/world.js:1108
+msgid "The Village"
+msgstr "Το Χωριό"
+
 #: script/events/room.js:1401
 #: script/events/room.js:1417
 msgid "the village answers it for six nights, in turns, reading the reply off a scrap of paper."
@@ -13048,18 +13021,6 @@ msgstr "επιβιώνεται από το ναυάγιο, μετά βίας"
 #: script/events/setpieces.js:6507
 msgid "the young settler was carrying a canvas sack."
 msgstr "ο νεαρός άποικος μετέφερε ένα σάκο από καμβά."
-
-#: script/world.js:181
-msgid "The&nbsp;Concordance"
-msgstr "Η Συμφωνία"
-
-#: script/world.js:180
-msgid "The&nbsp;Strata"
-msgstr "Τα Στρώματα"
-
-#: script/world.js:1108
-msgid "The&nbsp;Village"
-msgstr "Το&nbsp;Χωριό"
 
 #: script/events/path.js:126
 msgid "their cloth has been mended forty or fifty times, in a lot of different thread."
@@ -14251,11 +14212,8 @@ msgid "under where the cup was sitting there is a flat stone with a scratch on i
 msgstr "κάτω από εκεί που καθόταν το κύπελλο υπάρχει μια επίπεδη πέτρα με μια χαρακιά πάνω της."
 
 #: script/events/setpieces.js:111
-msgid "Underground Ruins"
-msgstr "Υπόγεια Ερείπια"
-
 #: script/world.js:174
-msgid "Underground&nbsp;Ruins"
+msgid "Underground Ruins"
 msgstr "Υπόγεια Ερείπια"
 
 #: script/events/setpieces.js:3184

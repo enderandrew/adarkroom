@@ -380,6 +380,10 @@ msgstr "terdapat sebuah tanda jalan raya rusak di pintu masuk kota yang pernah j
 msgid "a battle was fought here, long ago."
 msgstr "sebuah pertempuran terjadi di sini, dahulu kala."
 
+#: script/world.js:173
+msgid "A Battlefield"
+msgstr "Sebuah Medan Perang"
+
 #: script/events/outside.js:448
 msgid "A Beast Attack"
 msgstr "Serangan Binatang"
@@ -415,6 +419,10 @@ msgstr "sebuah bangku, sudah dibersihkan. peralatan di atasnya tersusun berdasar
 #: script/events/setpieces.js:2670
 msgid "a biohazard furnace, recently used"
 msgstr "tungku bahaya hayati, baru saja digunakan"
+
+#: script/world.js:172
+msgid "A Borehole"
+msgstr "Sebuah Lubang Bor"
 
 #: script/events/room.js:183
 msgid "a bundle of sticks lies just beyond the threshold, wrapped in coarse furs."
@@ -536,9 +544,17 @@ msgstr "sebuah koridor membentang dengan sudut yang tak sesuai dengan tangga."
 msgid "A Crashed Ship"
 msgstr "Kapal Karam"
 
+#: script/world.js:171
+msgid "A Crashed Starship"
+msgstr "Sebuah Pesawat Jatuh"
+
 #: script/outside.js:806
 msgid "A Crowded Encampment"
 msgstr "Perkemahan Padat"
+
+#: script/world.js:182
+msgid "A Crowded Graveyard"
+msgstr "Pemakaman Padat"
 
 #: script/outside.js:127
 #: script/outside.js:160
@@ -578,8 +594,9 @@ msgid "a cyborg bear comes through the fence without appearing to notice the fen
 msgstr "seekor beruang siborg menerobos pagar tanpa tampak menyadari keberadaan pagar itu."
 
 #: script/events/setpieces.js:3752
+#: script/world.js:168
 msgid "A Damp Cave"
-msgstr "Gua Lembab"
+msgstr "Sebuah Gua Lembab"
 
 #: script/room.js:1558
 msgid "A Dark Room was written by Michael Townsend for Doublespeak Games in 2013. It is open-source."
@@ -599,8 +616,9 @@ msgid "a desperate weapon for desperate men."
 msgstr "senjata putus asa untuk orang-orang putus asa."
 
 #: script/events/setpieces.js:7496
+#: script/world.js:188
 msgid "A Destroyed Village"
-msgstr "Desa Hancur"
+msgstr "Sebuah Desa Hancur"
 
 #: script/events/setpieces.js:7500
 msgid "a destroyed village lies in the dust."
@@ -732,6 +750,7 @@ msgid "A Glass Wolf"
 msgstr "Serigala Kaca"
 
 #: script/events/setpieces.js:2123
+#: script/world.js:178
 msgid "A Glassed Crater"
 msgstr "Kawah Berkaca"
 
@@ -1026,8 +1045,9 @@ msgid "a morphing projection of this room and this planet."
 msgstr "sebuah proyeksi berubah-ubah dari ruangan ini dan planet ini."
 
 #: script/events/setpieces.js:35
+#: script/world.js:175
 msgid "A Murky Swamp"
-msgstr "Rawa Gelap"
+msgstr "Sebuah Rawa Gelap"
 
 #: script/events/encounters.js:1406
 msgid "A Mutant"
@@ -1150,6 +1170,7 @@ msgstr "Desa Ramai"
 
 #: script/events/executioner.js:179
 #: script/events/executioner.js:685
+#: script/world.js:176
 msgid "A Ravaged Battleship"
 msgstr "Kapal Perang Porak-Poranda"
 
@@ -1210,8 +1231,9 @@ msgid "a round wing with no point. there is no point. nothing to gleam."
 msgstr "sebuah sayap bundar tanpa ujung runcing. tak ada ujung runcing. tak ada yang berkilau."
 
 #: script/events/setpieces.js:4976
+#: script/world.js:170
 msgid "A Ruined City"
-msgstr "Kota Hancur"
+msgstr "Sebuah Kota Hancur"
 
 #: script/events/outside.js:6
 msgid "A Ruined Trap"
@@ -1357,6 +1379,7 @@ msgid "A Silent Forest"
 msgstr "Hutan Sunyi"
 
 #: script/events/setpieces.js:1759
+#: script/world.js:177
 msgid "A Silent Temple"
 msgstr "Candi Sunyi"
 
@@ -1643,6 +1666,7 @@ msgid "a wanderer arrives with an empty cart. says if she leaves with furs, she'
 msgstr "seorang pengembara tiba dengan sebuah gerobak kosong. dia mengatakan jika diberikan bulu, dia akan mengembalikan lebih banyak."
 
 #: script/events/setpieces.js:2320
+#: script/world.js:184
 msgid "A Wanderer Lab"
 msgstr "Laboratorium Pengembara"
 
@@ -1686,54 +1710,6 @@ msgstr "sebuah permukaan kerja, dan di atasnya sebuah catatan yang telah ditulis
 #: script/events/setpieces.js:6060
 msgid "a youth lashes out with a tree branch."
 msgstr "seorang pemuda mengamuk dengan cabang pohon."
-
-#: script/world.js:173
-msgid "A&nbsp;Battlefield"
-msgstr "Sebuah&nbsp;Medan&nbsp;Perang"
-
-#: script/world.js:172
-msgid "A&nbsp;Borehole"
-msgstr "Sebuah&nbsp;Lubang&nbsp;Bor"
-
-#: script/world.js:171
-msgid "A&nbsp;Crashed&nbsp;Starship"
-msgstr "Sebuah&nbsp;Pesawat&nbsp;Jatuh"
-
-#: script/world.js:182
-msgid "A&nbsp;Crowded&nbsp;Graveyard"
-msgstr "Pemakaman&nbsp;Padat"
-
-#: script/world.js:168
-msgid "A&nbsp;Damp&nbsp;Cave"
-msgstr "Sebuah&nbsp;Gua&nbsp;Lembab"
-
-#: script/world.js:188
-msgid "A&nbsp;Destroyed&nbsp;Village"
-msgstr "Sebuah&nbsp;Desa&nbsp;Hancur"
-
-#: script/world.js:178
-msgid "A&nbsp;Glassed&nbsp;Crater"
-msgstr "Kawah&nbsp;Berkaca"
-
-#: script/world.js:175
-msgid "A&nbsp;Murky&nbsp;Swamp"
-msgstr "Sebuah&nbsp;Rawa&nbsp;Gelap"
-
-#: script/world.js:176
-msgid "A&nbsp;Ravaged&nbsp;Battleship"
-msgstr "Kapal&nbsp;Perang&nbsp;Porak-Poranda"
-
-#: script/world.js:170
-msgid "A&nbsp;Ruined&nbsp;City"
-msgstr "Sebuah&nbsp;Kota&nbsp;Hancur"
-
-#: script/world.js:177
-msgid "A&nbsp;Silent&nbsp;Temple"
-msgstr "Candi&nbsp;Sunyi"
-
-#: script/world.js:184
-msgid "A&nbsp;Wanderer&nbsp;Lab"
-msgstr "Laboratorium&nbsp;Pengembara"
 
 #: script/events/setpieces.js:1777
 msgid "above the door there is a figure worked into the rock: three eyes, three ears, and no mouth at all."
@@ -1829,6 +1805,10 @@ msgstr "selalu berhasil sebelumnya, setidaknya."
 msgid "ambushed on the street."
 msgstr "disergap di jalan."
 
+#: script/world.js:169
+msgid "An Abandoned Town"
+msgstr "Sebuah Kota Mati"
+
 #: script/events/encounters.js:273
 msgid "An Alien Bird"
 msgstr "Burung Asing"
@@ -1906,8 +1886,9 @@ msgid "an old case is wedged behind a rock, covered in a thick layer of dust."
 msgstr "terdapat sebuah peti tua di belakang batu, dan diselimuti debu tebal."
 
 #: script/events/setpieces.js:6845
+#: script/world.js:167
 msgid "An Old House"
-msgstr "Rumah Tua"
+msgstr "Sebuah Rumah Tua"
 
 #: script/events/setpieces.js:6849
 msgid "an old house remains here, once white siding yellowed and peeling."
@@ -1926,6 +1907,7 @@ msgid "an old man bursts through a door, wielding a scalpel."
 msgstr "seorang pria tua mendobrak masuk pintu, sambil membawa sebuah pisau bedah."
 
 #: script/events/setpieces.js:2926
+#: script/world.js:179
 msgid "An Old Observatory"
 msgstr "Observatorium Tua"
 
@@ -1959,8 +1941,9 @@ msgid "an operative waits in ambush around the corner."
 msgstr "seorang agen menunggu dalam penyergapan di balik sudut."
 
 #: script/events/setpieces.js:6
+#: script/world.js:163
 msgid "An Outpost"
-msgstr "Pos"
+msgstr "Sebuah Pos"
 
 #: script/outside.js:808
 msgid "An Overcrowded Ghetto"
@@ -1973,22 +1956,6 @@ msgstr "terdapat sebuah karavan terbalik di atas jalanan rusak."
 #: script/events/executioner.js:1130
 msgid "an unfinished automaton whirs to life."
 msgstr "sebuah automaton yang belum selesai berdengung hidup."
-
-#: script/world.js:169
-msgid "An&nbsp;Abandoned&nbsp;Town"
-msgstr "Sebuah&nbsp;Kota&nbsp;Mati"
-
-#: script/world.js:167
-msgid "An&nbsp;Old&nbsp;House"
-msgstr "Sebuah&nbsp;Rumah&nbsp;Tua"
-
-#: script/world.js:179
-msgid "An&nbsp;Old&nbsp;Observatory"
-msgstr "Observatorium&nbsp;Tua"
-
-#: script/world.js:163
-msgid "An&nbsp;Outpost"
-msgstr "Sebuah&nbsp;Pos"
 
 #: script/events/executioner.js:543
 msgid "ancient beast"
@@ -3096,14 +3063,14 @@ msgstr "batu bara"
 msgid "coal mine"
 msgstr "tambang batu bara"
 
+#: script/world.js:165
+msgid "Coal Mine"
+msgstr "Tambang Batu Bara"
+
 #: script/localization.js:37
 #: script/outside.js:63
 msgid "coal miner"
 msgstr "penambang batu bara"
-
-#: script/world.js:165
-msgid "Coal&nbsp;Mine"
-msgstr "Tambang&nbsp;Batu&nbsp;Bara"
 
 #: script/events/setpieces.js:495
 msgid "coil"
@@ -5134,6 +5101,10 @@ msgstr "zirah besi"
 msgid "iron mine"
 msgstr "tambang besi"
 
+#: script/world.js:164
+msgid "Iron Mine"
+msgstr "Tambang Besi"
+
 #: script/localization.js:35
 #: script/outside.js:55
 msgid "iron miner"
@@ -5147,10 +5118,6 @@ msgstr "pedang besi"
 #: script/room.js:957
 msgid "iron's stronger than leather"
 msgstr "besi lebih kuat dari kulit"
-
-#: script/world.js:164
-msgid "Iron&nbsp;Mine"
-msgstr "Tambang&nbsp;Besi"
 
 #: script/outside.js:1463
 msgid "is escape possible? somehow the land becomes even more bleak and unforgiving moving further from the fire. is this place some sort of exile?"
@@ -6415,8 +6382,8 @@ msgid "LOCKED"
 msgstr "TERKUNCI"
 
 #: script/world.js:183
-msgid "Locked-Down&nbsp;Prison"
-msgstr "Penjara&nbsp;Terkunci"
+msgid "Locked-Down Prison"
+msgstr "Penjara Terkunci"
 
 #: script/room.js:267
 #: script/room.js:293
@@ -9577,14 +9544,14 @@ msgstr "sulfur"
 msgid "sulphur mine"
 msgstr "tambang sulfur"
 
+#: script/world.js:166
+msgid "Sulphur Mine"
+msgstr "Tambang Sulfur"
+
 #: script/localization.js:39
 #: script/outside.js:71
 msgid "sulphur miner"
 msgstr "penambang sulfur"
-
-#: script/world.js:166
-msgid "Sulphur&nbsp;Mine"
-msgstr "Tambang&nbsp;Sulfur"
 
 #: script/mobileUI.js:46
 msgid "supplies"
@@ -10336,6 +10303,7 @@ msgid "the compass points west"
 msgstr "kompas menunjuk ke barat"
 
 #: script/events/setpieces.js:3215
+#: script/world.js:181
 msgid "The Concordance"
 msgstr "Sang Konkordansi"
 
@@ -12473,6 +12441,7 @@ msgid "the stranger shivers, and mumbles quietly. her words are unintelligible."
 msgstr "orang asing gemetaran dan meracau dengan pelan."
 
 #: script/events/setpieces.js:3108
+#: script/world.js:180
 msgid "The Strata"
 msgstr "Lapisan Batuan"
 
@@ -12766,6 +12735,10 @@ msgstr "ventilasi itu sedang dijaga oleh seseorang yang masih bertugas"
 msgid "the village"
 msgstr "desa itu"
 
+#: script/world.js:1108
+msgid "The Village"
+msgstr "Desa"
+
 #: script/events/room.js:1401
 #: script/events/room.js:1417
 msgid "the village answers it for six nights, in turns, reading the reply off a scrap of paper."
@@ -13047,18 +13020,6 @@ msgstr "bangkai kapal itu diselamati, nyaris tak selamat"
 #: script/events/setpieces.js:6507
 msgid "the young settler was carrying a canvas sack."
 msgstr "penghuni muda itu membawa karung kanvas."
-
-#: script/world.js:181
-msgid "The&nbsp;Concordance"
-msgstr "Sang&nbsp;Konkordansi"
-
-#: script/world.js:180
-msgid "The&nbsp;Strata"
-msgstr "Lapisan&nbsp;Batuan"
-
-#: script/world.js:1108
-msgid "The&nbsp;Village"
-msgstr "Desa"
 
 #: script/events/path.js:126
 msgid "their cloth has been mended forty or fifty times, in a lot of different thread."
@@ -14250,12 +14211,9 @@ msgid "under where the cup was sitting there is a flat stone with a scratch on i
 msgstr "di bawah tempat cangkir itu berada ada sebuah batu pipih dengan goresan padanya."
 
 #: script/events/setpieces.js:111
+#: script/world.js:174
 msgid "Underground Ruins"
 msgstr "Reruntuhan Bawah Tanah"
-
-#: script/world.js:174
-msgid "Underground&nbsp;Ruins"
-msgstr "Reruntuhan&nbsp;Bawah&nbsp;Tanah"
 
 #: script/events/setpieces.js:3184
 msgid "unfold what is left of their kit"

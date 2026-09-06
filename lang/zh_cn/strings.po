@@ -383,6 +383,10 @@ msgstr "破损的公路标识竖立在这个曾经伟大的城市入口"
 msgid "a battle was fought here, long ago."
 msgstr "很久之前这里发生了战斗"
 
+#: script/world.js:173
+msgid "A Battlefield"
+msgstr "战场"
+
 #: script/events/outside.js:448
 msgid "A Beast Attack"
 msgstr "野兽来袭"
@@ -418,6 +422,10 @@ msgstr "一张工作台，已经擦拭过。上面的工具按大小排列。"
 #: script/events/setpieces.js:2670
 msgid "a biohazard furnace, recently used"
 msgstr "一座生物危害焚化炉，最近使用过"
+
+#: script/world.js:172
+msgid "A Borehole"
+msgstr "巨坑"
 
 #: script/events/room.js:183
 msgid "a bundle of sticks lies just beyond the threshold, wrapped in coarse furs."
@@ -539,9 +547,17 @@ msgstr "一条走廊以一个与楼梯不符的角度延伸出去。"
 msgid "A Crashed Ship"
 msgstr "坠毁星舰"
 
+#: script/world.js:171
+msgid "A Crashed Starship"
+msgstr "坠毁星舰"
+
 #: script/outside.js:806
 msgid "A Crowded Encampment"
 msgstr "一处拥挤的营地"
+
+#: script/world.js:182
+msgid "A Crowded Graveyard"
+msgstr "拥挤的墓园"
 
 #: script/outside.js:127
 #: script/outside.js:160
@@ -581,6 +597,7 @@ msgid "a cyborg bear comes through the fence without appearing to notice the fen
 msgstr "一头改造熊穿过栅栏，仿佛根本没注意到栅栏的存在。"
 
 #: script/events/setpieces.js:3752
+#: script/world.js:168
 msgid "A Damp Cave"
 msgstr "潮湿洞穴"
 
@@ -602,6 +619,7 @@ msgid "a desperate weapon for desperate men."
 msgstr "绝望之人的绝望武器。"
 
 #: script/events/setpieces.js:7496
+#: script/world.js:188
 msgid "A Destroyed Village"
 msgstr "被摧毁的村落"
 
@@ -735,8 +753,9 @@ msgid "A Glass Wolf"
 msgstr "一头玻璃狼"
 
 #: script/events/setpieces.js:2123
+#: script/world.js:178
 msgid "A Glassed Crater"
-msgstr "一座玻璃化陨坑"
+msgstr "玻璃化的陨坑"
 
 #: script/events/setpieces.js:1594
 msgid "a glyph lock bars the last door"
@@ -1029,6 +1048,7 @@ msgid "a morphing projection of this room and this planet."
 msgstr "这间房间和这颗行星的一幅变幻投影。"
 
 #: script/events/setpieces.js:35
+#: script/world.js:175
 msgid "A Murky Swamp"
 msgstr "迷雾沼泽"
 
@@ -1153,8 +1173,9 @@ msgstr "喧嚣小镇"
 
 #: script/events/executioner.js:179
 #: script/events/executioner.js:685
+#: script/world.js:176
 msgid "A Ravaged Battleship"
-msgstr "一艘残破的战舰"
+msgstr "残破的战舰"
 
 #: script/events/encounters.js:120
 msgid "A Ravenous Beast"
@@ -1213,6 +1234,7 @@ msgid "a round wing with no point. there is no point. nothing to gleam."
 msgstr "一座圆形的翼区，没有尖角。毫无意义。没有什么可以闪耀。"
 
 #: script/events/setpieces.js:4976
+#: script/world.js:170
 msgid "A Ruined City"
 msgstr "被毁的城市"
 
@@ -1360,8 +1382,9 @@ msgid "A Silent Forest"
 msgstr "静谧森林"
 
 #: script/events/setpieces.js:1759
+#: script/world.js:177
 msgid "A Silent Temple"
-msgstr "一座寂静的神庙"
+msgstr "寂静的神庙"
 
 #: script/events/setpieces.js:3252
 msgid "a slab by the well, and the same text on it four times, in four scripts, none of which share an alphabet."
@@ -1646,8 +1669,9 @@ msgid "a wanderer arrives with an empty cart. says if she leaves with furs, she'
 msgstr "一名流浪者推着货车来到村子，声称如果让她带着毛皮离开，她会带回更多毛皮"
 
 #: script/events/setpieces.js:2320
+#: script/world.js:184
 msgid "A Wanderer Lab"
-msgstr "一座流浪者实验室"
+msgstr "流浪者实验室"
 
 #: script/events/encounters.js:1356
 msgid "A Warden Echo"
@@ -1689,54 +1713,6 @@ msgstr "一张工作台，上面放着一本长年手写记录的日志。"
 #: script/events/setpieces.js:6060
 msgid "a youth lashes out with a tree branch."
 msgstr "一个小伙子挥打着一根树枝"
-
-#: script/world.js:173
-msgid "A&nbsp;Battlefield"
-msgstr "战场"
-
-#: script/world.js:172
-msgid "A&nbsp;Borehole"
-msgstr "巨坑"
-
-#: script/world.js:171
-msgid "A&nbsp;Crashed&nbsp;Starship"
-msgstr "坠毁星舰"
-
-#: script/world.js:182
-msgid "A&nbsp;Crowded&nbsp;Graveyard"
-msgstr "拥挤的墓园"
-
-#: script/world.js:168
-msgid "A&nbsp;Damp&nbsp;Cave"
-msgstr "潮湿洞穴"
-
-#: script/world.js:188
-msgid "A&nbsp;Destroyed&nbsp;Village"
-msgstr "被摧毁的村落"
-
-#: script/world.js:178
-msgid "A&nbsp;Glassed&nbsp;Crater"
-msgstr "玻璃化的陨坑"
-
-#: script/world.js:175
-msgid "A&nbsp;Murky&nbsp;Swamp"
-msgstr "迷雾沼泽"
-
-#: script/world.js:176
-msgid "A&nbsp;Ravaged&nbsp;Battleship"
-msgstr "残破的战舰"
-
-#: script/world.js:170
-msgid "A&nbsp;Ruined&nbsp;City"
-msgstr "被毁的城市"
-
-#: script/world.js:177
-msgid "A&nbsp;Silent&nbsp;Temple"
-msgstr "寂静的神庙"
-
-#: script/world.js:184
-msgid "A&nbsp;Wanderer&nbsp;Lab"
-msgstr "流浪者实验室"
 
 #: script/events/setpieces.js:1777
 msgid "above the door there is a figure worked into the rock: three eyes, three ears, and no mouth at all."
@@ -1832,6 +1808,10 @@ msgstr "至少目前来看非常有效"
 msgid "ambushed on the street."
 msgstr "街头有埋伏"
 
+#: script/world.js:169
+msgid "An Abandoned Town"
+msgstr "废弃小镇"
+
 #: script/events/encounters.js:273
 msgid "An Alien Bird"
 msgstr "一只异星飞鸟"
@@ -1909,8 +1889,9 @@ msgid "an old case is wedged behind a rock, covered in a thick layer of dust."
 msgstr "岩石下嵌着一个旧盒子，上面覆满一层薄灰"
 
 #: script/events/setpieces.js:6845
+#: script/world.js:167
 msgid "An Old House"
-msgstr "旧房子"
+msgstr "破旧小屋"
 
 #: script/events/setpieces.js:6849
 msgid "an old house remains here, once white siding yellowed and peeling."
@@ -1929,6 +1910,7 @@ msgid "an old man bursts through a door, wielding a scalpel."
 msgstr "一个老人挥舞着手术刀，从一扇门里跳出"
 
 #: script/events/setpieces.js:2926
+#: script/world.js:179
 msgid "An Old Observatory"
 msgstr "一座古老的天文台"
 
@@ -1962,6 +1944,7 @@ msgid "an operative waits in ambush around the corner."
 msgstr "一名特工正埋伏在拐角处。"
 
 #: script/events/setpieces.js:6
+#: script/world.js:163
 msgid "An Outpost"
 msgstr "前哨"
 
@@ -1976,22 +1959,6 @@ msgstr "蜿蜒曲折的街道上，一支忙碌的商队正在整理翻倒的篷
 #: script/events/executioner.js:1130
 msgid "an unfinished automaton whirs to life."
 msgstr "一台未完工的自动机嗡嗡作响,苏醒过来。"
-
-#: script/world.js:169
-msgid "An&nbsp;Abandoned&nbsp;Town"
-msgstr "废弃小镇"
-
-#: script/world.js:167
-msgid "An&nbsp;Old&nbsp;House"
-msgstr "破旧小屋"
-
-#: script/world.js:179
-msgid "An&nbsp;Old&nbsp;Observatory"
-msgstr "一座古老的天文台"
-
-#: script/world.js:163
-msgid "An&nbsp;Outpost"
-msgstr "前哨"
 
 #: script/events/executioner.js:543
 msgid "ancient beast"
@@ -3099,14 +3066,14 @@ msgstr "煤"
 msgid "coal mine"
 msgstr "煤矿"
 
+#: script/world.js:165
+msgid "Coal Mine"
+msgstr "煤矿"
+
 #: script/localization.js:37
 #: script/outside.js:63
 msgid "coal miner"
 msgstr "煤矿工人"
-
-#: script/world.js:165
-msgid "Coal&nbsp;Mine"
-msgstr "煤矿"
 
 #: script/events/setpieces.js:495
 msgid "coil"
@@ -5137,6 +5104,10 @@ msgstr "铁甲"
 msgid "iron mine"
 msgstr "铁矿"
 
+#: script/world.js:164
+msgid "Iron Mine"
+msgstr "铁矿"
+
 #: script/localization.js:35
 #: script/outside.js:55
 msgid "iron miner"
@@ -5150,10 +5121,6 @@ msgstr "铁剑"
 #: script/room.js:957
 msgid "iron's stronger than leather"
 msgstr "铁比皮要结实"
-
-#: script/world.js:164
-msgid "Iron&nbsp;Mine"
-msgstr "铁矿"
 
 #: script/outside.js:1463
 msgid "is escape possible? somehow the land becomes even more bleak and unforgiving moving further from the fire. is this place some sort of exile?"
@@ -6418,7 +6385,7 @@ msgid "LOCKED"
 msgstr "已锁定"
 
 #: script/world.js:183
-msgid "Locked-Down&nbsp;Prison"
+msgid "Locked-Down Prison"
 msgstr "高度戒备监狱"
 
 #: script/room.js:267
@@ -9580,14 +9547,14 @@ msgstr "硫磺"
 msgid "sulphur mine"
 msgstr "硫磺矿"
 
+#: script/world.js:166
+msgid "Sulphur Mine"
+msgstr "硫磺矿"
+
 #: script/localization.js:39
 #: script/outside.js:71
 msgid "sulphur miner"
 msgstr "硫磺矿工"
-
-#: script/world.js:166
-msgid "Sulphur&nbsp;Mine"
-msgstr "硫磺矿"
 
 #: script/mobileUI.js:46
 msgid "supplies"
@@ -10339,6 +10306,7 @@ msgid "the compass points west"
 msgstr "罗盘指向西方"
 
 #: script/events/setpieces.js:3215
+#: script/world.js:181
 msgid "The Concordance"
 msgstr "协和体"
 
@@ -12476,6 +12444,7 @@ msgid "the stranger shivers, and mumbles quietly. her words are unintelligible."
 msgstr "陌生人瑟瑟发抖，呢喃不已，听不清在说些什么"
 
 #: script/events/setpieces.js:3108
+#: script/world.js:180
 msgid "The Strata"
 msgstr "地层"
 
@@ -12769,6 +12738,10 @@ msgstr "那处通风口正被一个仍在值勤的人看守着"
 msgid "the village"
 msgstr "村落"
 
+#: script/world.js:1108
+msgid "The Village"
+msgstr "村庄"
+
 #: script/events/room.js:1401
 #: script/events/room.js:1417
 msgid "the village answers it for six nights, in turns, reading the reply off a scrap of paper."
@@ -13050,18 +13023,6 @@ msgstr "勉强在这场残骸事故中幸存了下来"
 #: script/events/setpieces.js:6507
 msgid "the young settler was carrying a canvas sack."
 msgstr "年轻的定居者携带着一个帆布袋"
-
-#: script/world.js:181
-msgid "The&nbsp;Concordance"
-msgstr "协和体"
-
-#: script/world.js:180
-msgid "The&nbsp;Strata"
-msgstr "地层"
-
-#: script/world.js:1108
-msgid "The&nbsp;Village"
-msgstr "村庄"
 
 #: script/events/path.js:126
 msgid "their cloth has been mended forty or fifty times, in a lot of different thread."
@@ -14253,11 +14214,8 @@ msgid "under where the cup was sitting there is a flat stone with a scratch on i
 msgstr "杯子原本所在的位置下方,有一块带着刻痕的扁平石头。"
 
 #: script/events/setpieces.js:111
-msgid "Underground Ruins"
-msgstr "地下废墟"
-
 #: script/world.js:174
-msgid "Underground&nbsp;Ruins"
+msgid "Underground Ruins"
 msgstr "地下废墟"
 
 #: script/events/setpieces.js:3184

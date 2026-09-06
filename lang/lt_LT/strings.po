@@ -380,6 +380,10 @@ msgstr "aplamdytas kelio ženklas stovi lyg sargas prie įėjimo į šį kadaise
 msgid "a battle was fought here, long ago."
 msgstr "kažkada seniai čia įvyko kova."
 
+#: script/world.js:173
+msgid "A Battlefield"
+msgstr "Mūšio laukas"
+
 #: script/events/outside.js:448
 msgid "A Beast Attack"
 msgstr "Žvėrių Išpuolis"
@@ -415,6 +419,10 @@ msgstr "nušluostytas suolas. ant jo įrankiai sudėti pagal dydį."
 #: script/events/setpieces.js:2670
 msgid "a biohazard furnace, recently used"
 msgstr "biologinio pavojaus krosnis, neseniai naudota"
+
+#: script/world.js:172
+msgid "A Borehole"
+msgstr "Gręžinys"
 
 #: script/events/room.js:183
 msgid "a bundle of sticks lies just beyond the threshold, wrapped in coarse furs."
@@ -536,9 +544,17 @@ msgstr "koridorius nukrypsta kampu, neatitinkančiu laiptų."
 msgid "A Crashed Ship"
 msgstr "Sudužęs Laivas"
 
+#: script/world.js:171
+msgid "A Crashed Starship"
+msgstr "Sudužęs Erdvėlaivis"
+
 #: script/outside.js:806
 msgid "A Crowded Encampment"
 msgstr "Perpildyta Stovykla"
+
+#: script/world.js:182
+msgid "A Crowded Graveyard"
+msgstr "Perpildytos Kapinės"
 
 #: script/outside.js:127
 #: script/outside.js:160
@@ -578,6 +594,7 @@ msgid "a cyborg bear comes through the fence without appearing to notice the fen
 msgstr "kiborginė meška praeina pro tvorą, tarsi jos net nepastebėdama."
 
 #: script/events/setpieces.js:3752
+#: script/world.js:168
 msgid "A Damp Cave"
 msgstr "Drėgna Ola"
 
@@ -599,8 +616,9 @@ msgid "a desperate weapon for desperate men."
 msgstr "beviltiškas ginklas beviltiškiems žmonėms."
 
 #: script/events/setpieces.js:7496
+#: script/world.js:188
 msgid "A Destroyed Village"
-msgstr "Sunaikintas Kaimas"
+msgstr "Suniokotas Kaimas"
 
 #: script/events/setpieces.js:7500
 msgid "a destroyed village lies in the dust."
@@ -732,6 +750,7 @@ msgid "A Glass Wolf"
 msgstr "Stiklinis Vilkas"
 
 #: script/events/setpieces.js:2123
+#: script/world.js:178
 msgid "A Glassed Crater"
 msgstr "Sustiklėjęs Krateris"
 
@@ -1026,6 +1045,7 @@ msgid "a morphing projection of this room and this planet."
 msgstr "kintanti šio kambario ir šios planetos projekcija."
 
 #: script/events/setpieces.js:35
+#: script/world.js:175
 msgid "A Murky Swamp"
 msgstr "Drumzli Pelkė"
 
@@ -1150,6 +1170,7 @@ msgstr "Gyvas ir Klestintis Kaimas"
 
 #: script/events/executioner.js:179
 #: script/events/executioner.js:685
+#: script/world.js:176
 msgid "A Ravaged Battleship"
 msgstr "Nusiaubtas Karo Laivas"
 
@@ -1210,6 +1231,7 @@ msgid "a round wing with no point. there is no point. nothing to gleam."
 msgstr "apvalus sparnas be smaigalio. smaigalio nėra. nieko, kas žvilgėtų."
 
 #: script/events/setpieces.js:4976
+#: script/world.js:170
 msgid "A Ruined City"
 msgstr "Apgriuvęs Miestas"
 
@@ -1357,6 +1379,7 @@ msgid "A Silent Forest"
 msgstr "Tylus Miškas"
 
 #: script/events/setpieces.js:1759
+#: script/world.js:177
 msgid "A Silent Temple"
 msgstr "Tyli Šventykla"
 
@@ -1643,6 +1666,7 @@ msgid "a wanderer arrives with an empty cart. says if she leaves with furs, she'
 msgstr "keliautoja grįžta tuščiu vežimu. sako, jeigu duosi jai kailių, ji juos gražins su kaupu."
 
 #: script/events/setpieces.js:2320
+#: script/world.js:184
 msgid "A Wanderer Lab"
 msgstr "Keliautojų Laboratorija"
 
@@ -1686,54 +1710,6 @@ msgstr "darbo paviršius, o ant jo žurnalas, ranka vestas labai ilgą laiką."
 #: script/events/setpieces.js:6060
 msgid "a youth lashes out with a tree branch."
 msgstr "jaunuolis puola nešinas medžio šaka."
-
-#: script/world.js:173
-msgid "A&nbsp;Battlefield"
-msgstr "Mūšio&nbsp;laukas"
-
-#: script/world.js:172
-msgid "A&nbsp;Borehole"
-msgstr "Gręžinys"
-
-#: script/world.js:171
-msgid "A&nbsp;Crashed&nbsp;Starship"
-msgstr "Sudužęs&nbsp;Erdvėlaivis"
-
-#: script/world.js:182
-msgid "A&nbsp;Crowded&nbsp;Graveyard"
-msgstr "Perpildytos&nbsp;Kapinės"
-
-#: script/world.js:168
-msgid "A&nbsp;Damp&nbsp;Cave"
-msgstr "Drėgna&nbsp;Ola"
-
-#: script/world.js:188
-msgid "A&nbsp;Destroyed&nbsp;Village"
-msgstr "Suniokotas&nbsp;Kaimas"
-
-#: script/world.js:178
-msgid "A&nbsp;Glassed&nbsp;Crater"
-msgstr "Sustiklėjęs&nbsp;Krateris"
-
-#: script/world.js:175
-msgid "A&nbsp;Murky&nbsp;Swamp"
-msgstr "Drumzli&nbsp;Pelkė"
-
-#: script/world.js:176
-msgid "A&nbsp;Ravaged&nbsp;Battleship"
-msgstr "Nusiaubtas&nbsp;Karo&nbsp;Laivas"
-
-#: script/world.js:170
-msgid "A&nbsp;Ruined&nbsp;City"
-msgstr "Apgriuvęs&nbsp;Miestas"
-
-#: script/world.js:177
-msgid "A&nbsp;Silent&nbsp;Temple"
-msgstr "Tyli&nbsp;Šventykla"
-
-#: script/world.js:184
-msgid "A&nbsp;Wanderer&nbsp;Lab"
-msgstr "Keliautojų&nbsp;Laboratorija"
 
 #: script/events/setpieces.js:1777
 msgid "above the door there is a figure worked into the rock: three eyes, three ears, and no mouth at all."
@@ -1829,6 +1805,10 @@ msgstr "bent anksčiau suveikdavo visada."
 msgid "ambushed on the street."
 msgstr "užpultas gatvėje."
 
+#: script/world.js:169
+msgid "An Abandoned Town"
+msgstr "Apleistas Miestelis"
+
 #: script/events/encounters.js:273
 msgid "An Alien Bird"
 msgstr "Svetimžemis Paukštis"
@@ -1906,8 +1886,9 @@ msgid "an old case is wedged behind a rock, covered in a thick layer of dust."
 msgstr "už akmens užkritus sena, dulkėta dėžė."
 
 #: script/events/setpieces.js:6845
+#: script/world.js:167
 msgid "An Old House"
-msgstr "Senas Namas."
+msgstr "Senas Namas"
 
 #: script/events/setpieces.js:6849
 msgid "an old house remains here, once white siding yellowed and peeling."
@@ -1926,6 +1907,7 @@ msgid "an old man bursts through a door, wielding a scalpel."
 msgstr "pro duris įsiveržia senis, rankoje laikydamas skalpelį."
 
 #: script/events/setpieces.js:2926
+#: script/world.js:179
 msgid "An Old Observatory"
 msgstr "Sena Observatorija"
 
@@ -1959,6 +1941,7 @@ msgid "an operative waits in ambush around the corner."
 msgstr "agentas laukia pasaloje už kampo."
 
 #: script/events/setpieces.js:6
+#: script/world.js:163
 msgid "An Outpost"
 msgstr "Stebėjimo Postas"
 
@@ -1973,22 +1956,6 @@ msgstr "apverstas vežimas išsitaškęs ant gatvės."
 #: script/events/executioner.js:1130
 msgid "an unfinished automaton whirs to life."
 msgstr "nebaigtas automatas dūzgdamas atgyja."
-
-#: script/world.js:169
-msgid "An&nbsp;Abandoned&nbsp;Town"
-msgstr "Apleistas&nbsp;Miestelis"
-
-#: script/world.js:167
-msgid "An&nbsp;Old&nbsp;House"
-msgstr "Senas&nbsp;Namas"
-
-#: script/world.js:179
-msgid "An&nbsp;Old&nbsp;Observatory"
-msgstr "Sena&nbsp;Observatorija"
-
-#: script/world.js:163
-msgid "An&nbsp;Outpost"
-msgstr "Stebėjimo&nbsp;Postas"
 
 #: script/events/executioner.js:543
 msgid "ancient beast"
@@ -3096,14 +3063,14 @@ msgstr "anglis"
 msgid "coal mine"
 msgstr "anglies kasykla"
 
+#: script/world.js:165
+msgid "Coal Mine"
+msgstr "Anglies Kasykla"
+
 #: script/localization.js:37
 #: script/outside.js:63
 msgid "coal miner"
 msgstr "angliakasys"
-
-#: script/world.js:165
-msgid "Coal&nbsp;Mine"
-msgstr "Anglies&nbsp;Kasykla"
 
 #: script/events/setpieces.js:495
 msgid "coil"
@@ -5134,6 +5101,10 @@ msgstr "geležiniai šarvai"
 msgid "iron mine"
 msgstr "geležies kasykla"
 
+#: script/world.js:164
+msgid "Iron Mine"
+msgstr "Geležies Kasykla"
+
 #: script/localization.js:35
 #: script/outside.js:55
 msgid "iron miner"
@@ -5147,10 +5118,6 @@ msgstr "geležinis kardas"
 #: script/room.js:957
 msgid "iron's stronger than leather"
 msgstr "geležis stipresnė už odą"
-
-#: script/world.js:164
-msgid "Iron&nbsp;Mine"
-msgstr "Geležies&nbsp;Kasykla"
 
 #: script/outside.js:1463
 msgid "is escape possible? somehow the land becomes even more bleak and unforgiving moving further from the fire. is this place some sort of exile?"
@@ -6415,8 +6382,8 @@ msgid "LOCKED"
 msgstr "UŽRAKINTA"
 
 #: script/world.js:183
-msgid "Locked-Down&nbsp;Prison"
-msgstr "Užrakintas&nbsp;Kalėjimas"
+msgid "Locked-Down Prison"
+msgstr "Užrakintas Kalėjimas"
 
 #: script/room.js:267
 #: script/room.js:293
@@ -9577,14 +9544,14 @@ msgstr "siera"
 msgid "sulphur mine"
 msgstr "sieros kasykla"
 
+#: script/world.js:166
+msgid "Sulphur Mine"
+msgstr "Sieros Kasykla"
+
 #: script/localization.js:39
 #: script/outside.js:71
 msgid "sulphur miner"
 msgstr "sieros kasėjas"
-
-#: script/world.js:166
-msgid "Sulphur&nbsp;Mine"
-msgstr "Sieros&nbsp;Kasykla"
 
 #: script/mobileUI.js:46
 msgid "supplies"
@@ -10336,6 +10303,7 @@ msgid "the compass points west"
 msgstr "kompasas rodo į vakarus"
 
 #: script/events/setpieces.js:3215
+#: script/world.js:181
 msgid "The Concordance"
 msgstr "Santarvė"
 
@@ -12473,6 +12441,7 @@ msgid "the stranger shivers, and mumbles quietly. her words are unintelligible."
 msgstr "drebanti nepažįstamoji kažką suburba po nosimi."
 
 #: script/events/setpieces.js:3108
+#: script/world.js:180
 msgid "The Strata"
 msgstr "Sluoksniai"
 
@@ -12766,6 +12735,10 @@ msgstr "angą saugo kažkas, vis dar budintis"
 msgid "the village"
 msgstr "kaimas"
 
+#: script/world.js:1108
+msgid "The Village"
+msgstr "Kaimas"
+
 #: script/events/room.js:1401
 #: script/events/room.js:1417
 msgid "the village answers it for six nights, in turns, reading the reply off a scrap of paper."
@@ -13047,18 +13020,6 @@ msgstr "nuolaužoje išgyvenama, vos vos"
 #: script/events/setpieces.js:6507
 msgid "the young settler was carrying a canvas sack."
 msgstr "jaunasis naujakurys nešėsi lininį maišą."
-
-#: script/world.js:181
-msgid "The&nbsp;Concordance"
-msgstr "Santarvė"
-
-#: script/world.js:180
-msgid "The&nbsp;Strata"
-msgstr "Sluoksniai"
-
-#: script/world.js:1108
-msgid "The&nbsp;Village"
-msgstr "Kaimas"
 
 #: script/events/path.js:126
 msgid "their cloth has been mended forty or fifty times, in a lot of different thread."
@@ -14250,12 +14211,9 @@ msgid "under where the cup was sitting there is a flat stone with a scratch on i
 msgstr "ten, kur stovėjo puodelis, yra plokščias akmuo su įbrėžimu."
 
 #: script/events/setpieces.js:111
+#: script/world.js:174
 msgid "Underground Ruins"
 msgstr "Požemio Griuvėsiai"
-
-#: script/world.js:174
-msgid "Underground&nbsp;Ruins"
-msgstr "Požemio&nbsp;Griuvėsiai"
 
 #: script/events/setpieces.js:3184
 msgid "unfold what is left of their kit"

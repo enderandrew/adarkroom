@@ -381,6 +381,10 @@ msgstr "сломанный дорожный знак стоит на страж�
 msgid "a battle was fought here, long ago."
 msgstr "когда-то здесь происходило сражение, но это было очень давно."
 
+#: script/world.js:173
+msgid "A Battlefield"
+msgstr "Поле боя"
+
 #: script/events/outside.js:448
 msgid "A Beast Attack"
 msgstr "Нападение зверей"
@@ -416,6 +420,10 @@ msgstr "верстак, протёртый начисто. инструмент�
 #: script/events/setpieces.js:2670
 msgid "a biohazard furnace, recently used"
 msgstr "печь биологической утилизации, недавно использовавшаяся"
+
+#: script/world.js:172
+msgid "A Borehole"
+msgstr "Скважина"
 
 #: script/events/room.js:183
 msgid "a bundle of sticks lies just beyond the threshold, wrapped in coarse furs."
@@ -537,9 +545,17 @@ msgstr "коридор уходит под углом, не совпадающи
 msgid "A Crashed Ship"
 msgstr "Разбитый корабль"
 
+#: script/world.js:171
+msgid "A Crashed Starship"
+msgstr "Разбившийся космический корабль"
+
 #: script/outside.js:806
 msgid "A Crowded Encampment"
 msgstr "Многолюдный лагерь"
+
+#: script/world.js:182
+msgid "A Crowded Graveyard"
+msgstr "Многолюдное кладбище"
 
 #: script/outside.js:127
 #: script/outside.js:160
@@ -579,8 +595,9 @@ msgid "a cyborg bear comes through the fence without appearing to notice the fen
 msgstr "медведь-киборг проходит сквозь забор, будто вовсе его не замечая."
 
 #: script/events/setpieces.js:3752
+#: script/world.js:168
 msgid "A Damp Cave"
-msgstr "Сырая Пещера"
+msgstr "Сырая пещера"
 
 #: script/room.js:1558
 msgid "A Dark Room was written by Michael Townsend for Doublespeak Games in 2013. It is open-source."
@@ -600,8 +617,9 @@ msgid "a desperate weapon for desperate men."
 msgstr "оружие отчаяния для отчаявшихся людей."
 
 #: script/events/setpieces.js:7496
+#: script/world.js:188
 msgid "A Destroyed Village"
-msgstr "Разрушенная Деревня"
+msgstr "Уничтоженная деревня"
 
 #: script/events/setpieces.js:7500
 msgid "a destroyed village lies in the dust."
@@ -733,6 +751,7 @@ msgid "A Glass Wolf"
 msgstr "Стеклянный волк"
 
 #: script/events/setpieces.js:2123
+#: script/world.js:178
 msgid "A Glassed Crater"
 msgstr "Остеклённый кратер"
 
@@ -1027,8 +1046,9 @@ msgid "a morphing projection of this room and this planet."
 msgstr "меняющаяся проекция этой комнаты и этой планеты."
 
 #: script/events/setpieces.js:35
+#: script/world.js:175
 msgid "A Murky Swamp"
-msgstr "Тёмное Болото"
+msgstr "Мутное болото"
 
 #: script/events/encounters.js:1406
 msgid "A Mutant"
@@ -1151,6 +1171,7 @@ msgstr "Огромная деревня"
 
 #: script/events/executioner.js:179
 #: script/events/executioner.js:685
+#: script/world.js:176
 msgid "A Ravaged Battleship"
 msgstr "Разорённый линкор"
 
@@ -1211,6 +1232,7 @@ msgid "a round wing with no point. there is no point. nothing to gleam."
 msgstr "круглое крыло без острия. смысла нет. нечему блестеть."
 
 #: script/events/setpieces.js:4976
+#: script/world.js:170
 msgid "A Ruined City"
 msgstr "Разрушенный город"
 
@@ -1358,6 +1380,7 @@ msgid "A Silent Forest"
 msgstr "Тихий лес"
 
 #: script/events/setpieces.js:1759
+#: script/world.js:177
 msgid "A Silent Temple"
 msgstr "Безмолвный храм"
 
@@ -1644,6 +1667,7 @@ msgid "a wanderer arrives with an empty cart. says if she leaves with furs, she'
 msgstr "прибыла странница с пустой тележкой. говорит, что если вы дадите ей меха, то она потом вернёт больше."
 
 #: script/events/setpieces.js:2320
+#: script/world.js:184
 msgid "A Wanderer Lab"
 msgstr "Лаборатория странников"
 
@@ -1687,54 +1711,6 @@ msgstr "рабочая поверхность, а на ней журнал, ко
 #: script/events/setpieces.js:6060
 msgid "a youth lashes out with a tree branch."
 msgstr "группа подростков спрыгивает с дерева."
-
-#: script/world.js:173
-msgid "A&nbsp;Battlefield"
-msgstr "Поле&nbsp;боя"
-
-#: script/world.js:172
-msgid "A&nbsp;Borehole"
-msgstr "Скважина"
-
-#: script/world.js:171
-msgid "A&nbsp;Crashed&nbsp;Starship"
-msgstr "Разбившийся&nbsp;космический&nbsp;корабль"
-
-#: script/world.js:182
-msgid "A&nbsp;Crowded&nbsp;Graveyard"
-msgstr "Многолюдное кладбище"
-
-#: script/world.js:168
-msgid "A&nbsp;Damp&nbsp;Cave"
-msgstr "Сырая&nbsp;пещера"
-
-#: script/world.js:188
-msgid "A&nbsp;Destroyed&nbsp;Village"
-msgstr "Уничтоженная&nbsp;деревня"
-
-#: script/world.js:178
-msgid "A&nbsp;Glassed&nbsp;Crater"
-msgstr "Остеклённый кратер"
-
-#: script/world.js:175
-msgid "A&nbsp;Murky&nbsp;Swamp"
-msgstr "Мутное&nbsp;болото"
-
-#: script/world.js:176
-msgid "A&nbsp;Ravaged&nbsp;Battleship"
-msgstr "Разорённый линкор"
-
-#: script/world.js:170
-msgid "A&nbsp;Ruined&nbsp;City"
-msgstr "Разрушенный&nbsp;город"
-
-#: script/world.js:177
-msgid "A&nbsp;Silent&nbsp;Temple"
-msgstr "Безмолвный храм"
-
-#: script/world.js:184
-msgid "A&nbsp;Wanderer&nbsp;Lab"
-msgstr "Лаборатория странников"
 
 #: script/events/setpieces.js:1777
 msgid "above the door there is a figure worked into the rock: three eyes, three ears, and no mouth at all."
@@ -1830,6 +1806,10 @@ msgstr "по крайней мере, раньше это всегда рабо�
 msgid "ambushed on the street."
 msgstr "на улице была засада."
 
+#: script/world.js:169
+msgid "An Abandoned Town"
+msgstr "Заброшенный город"
+
 #: script/events/encounters.js:273
 msgid "An Alien Bird"
 msgstr "Чужеродная птица"
@@ -1907,6 +1887,7 @@ msgid "an old case is wedged behind a rock, covered in a thick layer of dust."
 msgstr "позади камня стоит, покрытый пылью, старый шкаф"
 
 #: script/events/setpieces.js:6845
+#: script/world.js:167
 msgid "An Old House"
 msgstr "Старое здание"
 
@@ -1927,6 +1908,7 @@ msgid "an old man bursts through a door, wielding a scalpel."
 msgstr "старик, в руках у которого скальпель, врывается из двери."
 
 #: script/events/setpieces.js:2926
+#: script/world.js:179
 msgid "An Old Observatory"
 msgstr "Старая обсерватория"
 
@@ -1960,6 +1942,7 @@ msgid "an operative waits in ambush around the corner."
 msgstr "за углом в засаде поджидает агент."
 
 #: script/events/setpieces.js:6
+#: script/world.js:163
 msgid "An Outpost"
 msgstr "Сторожка"
 
@@ -1974,22 +1957,6 @@ msgstr "на дороге лежит перевёрнутый караван."
 #: script/events/executioner.js:1130
 msgid "an unfinished automaton whirs to life."
 msgstr "недостроенный автомат с жужжанием оживает."
-
-#: script/world.js:169
-msgid "An&nbsp;Abandoned&nbsp;Town"
-msgstr "Заброшенный&nbsp;город"
-
-#: script/world.js:167
-msgid "An&nbsp;Old&nbsp;House"
-msgstr "Старое&nbsp;здание"
-
-#: script/world.js:179
-msgid "An&nbsp;Old&nbsp;Observatory"
-msgstr "Старая обсерватория"
-
-#: script/world.js:163
-msgid "An&nbsp;Outpost"
-msgstr "Сторожка"
 
 #: script/events/executioner.js:543
 msgid "ancient beast"
@@ -3097,14 +3064,14 @@ msgstr "уголь"
 msgid "coal mine"
 msgstr "угольный рудник"
 
+#: script/world.js:165
+msgid "Coal Mine"
+msgstr "Угольная шахта"
+
 #: script/localization.js:37
 #: script/outside.js:63
 msgid "coal miner"
 msgstr "добыватель угля"
-
-#: script/world.js:165
-msgid "Coal&nbsp;Mine"
-msgstr "Угольная&nbsp;шахта"
 
 #: script/events/setpieces.js:495
 msgid "coil"
@@ -5135,6 +5102,10 @@ msgstr "железная броня"
 msgid "iron mine"
 msgstr "железный рудник"
 
+#: script/world.js:164
+msgid "Iron Mine"
+msgstr "Железная шахта"
+
 #: script/localization.js:35
 #: script/outside.js:55
 msgid "iron miner"
@@ -5148,10 +5119,6 @@ msgstr "железный меч"
 #: script/room.js:957
 msgid "iron's stronger than leather"
 msgstr "железо прочнее кожи"
-
-#: script/world.js:164
-msgid "Iron&nbsp;Mine"
-msgstr "Железная&nbsp;шахта"
 
 #: script/outside.js:1463
 msgid "is escape possible? somehow the land becomes even more bleak and unforgiving moving further from the fire. is this place some sort of exile?"
@@ -6416,7 +6383,7 @@ msgid "LOCKED"
 msgstr "ЗАБЛОКИРОВАНО"
 
 #: script/world.js:183
-msgid "Locked-Down&nbsp;Prison"
+msgid "Locked-Down Prison"
 msgstr "Тюрьма на карантине"
 
 #: script/room.js:267
@@ -9578,14 +9545,14 @@ msgstr "сера"
 msgid "sulphur mine"
 msgstr "серная шахта"
 
+#: script/world.js:166
+msgid "Sulphur Mine"
+msgstr "Серная Шахта"
+
 #: script/localization.js:39
 #: script/outside.js:71
 msgid "sulphur miner"
 msgstr "спелеолог"
-
-#: script/world.js:166
-msgid "Sulphur&nbsp;Mine"
-msgstr "Серная&nbsp;Шахта"
 
 #: script/mobileUI.js:46
 msgid "supplies"
@@ -10337,6 +10304,7 @@ msgid "the compass points west"
 msgstr "компас указывает на запад"
 
 #: script/events/setpieces.js:3215
+#: script/world.js:181
 msgid "The Concordance"
 msgstr "Согласие"
 
@@ -12474,6 +12442,7 @@ msgid "the stranger shivers, and mumbles quietly. her words are unintelligible."
 msgstr "незнакомец дрожит и что-то тихо неразборчиво бормочет."
 
 #: script/events/setpieces.js:3108
+#: script/world.js:180
 msgid "The Strata"
 msgstr "Пласты"
 
@@ -12767,6 +12736,10 @@ msgstr "вентиляционное отверстие охраняет кто-
 msgid "the village"
 msgstr "деревня"
 
+#: script/world.js:1108
+msgid "The Village"
+msgstr "Деревня"
+
 #: script/events/room.js:1401
 #: script/events/room.js:1417
 msgid "the village answers it for six nights, in turns, reading the reply off a scrap of paper."
@@ -13048,18 +13021,6 @@ msgstr "крушение пережито, едва-едва"
 #: script/events/setpieces.js:6507
 msgid "the young settler was carrying a canvas sack."
 msgstr "молодой поселенец несёт за собой мешок."
-
-#: script/world.js:181
-msgid "The&nbsp;Concordance"
-msgstr "Согласие"
-
-#: script/world.js:180
-msgid "The&nbsp;Strata"
-msgstr "Пласты"
-
-#: script/world.js:1108
-msgid "The&nbsp;Village"
-msgstr "Деревня"
 
 #: script/events/path.js:126
 msgid "their cloth has been mended forty or fifty times, in a lot of different thread."
@@ -14251,11 +14212,8 @@ msgid "under where the cup was sitting there is a flat stone with a scratch on i
 msgstr "там, где стояла кружка, лежит плоский камень с царапиной на нём."
 
 #: script/events/setpieces.js:111
-msgid "Underground Ruins"
-msgstr "Подземные Руины"
-
 #: script/world.js:174
-msgid "Underground&nbsp;Ruins"
+msgid "Underground Ruins"
 msgstr "Подземные Руины"
 
 #: script/events/setpieces.js:3184

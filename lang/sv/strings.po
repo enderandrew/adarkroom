@@ -382,6 +382,10 @@ msgstr ""
 msgid "a battle was fought here, long ago."
 msgstr ""
 
+#: script/world.js:173
+msgid "A Battlefield"
+msgstr "Ett slagfält"
+
 #: script/events/outside.js:448
 msgid "A Beast Attack"
 msgstr "Attack Från En Best"
@@ -417,6 +421,10 @@ msgstr ""
 #: script/events/setpieces.js:2670
 msgid "a biohazard furnace, recently used"
 msgstr ""
+
+#: script/world.js:172
+msgid "A Borehole"
+msgstr "Ett borrhål"
 
 #: script/events/room.js:183
 msgid "a bundle of sticks lies just beyond the threshold, wrapped in coarse furs."
@@ -538,8 +546,16 @@ msgstr ""
 msgid "A Crashed Ship"
 msgstr ""
 
+#: script/world.js:171
+msgid "A Crashed Starship"
+msgstr "Ett kraschat rymdskepp"
+
 #: script/outside.js:806
 msgid "A Crowded Encampment"
+msgstr ""
+
+#: script/world.js:182
+msgid "A Crowded Graveyard"
 msgstr ""
 
 #: script/outside.js:127
@@ -580,6 +596,7 @@ msgid "a cyborg bear comes through the fence without appearing to notice the fen
 msgstr ""
 
 #: script/events/setpieces.js:3752
+#: script/world.js:168
 msgid "A Damp Cave"
 msgstr "En Fuktig Grotta"
 
@@ -601,8 +618,9 @@ msgid "a desperate weapon for desperate men."
 msgstr ""
 
 #: script/events/setpieces.js:7496
+#: script/world.js:188
 msgid "A Destroyed Village"
-msgstr "En Måttlig By"
+msgstr "En förstörd by"
 
 #: script/events/setpieces.js:7500
 msgid "a destroyed village lies in the dust."
@@ -703,7 +721,7 @@ msgstr ""
 
 #: script/events/setpieces.js:6963
 msgid "A Forgotten Battlefield"
-msgstr "Ett&nbsp;slagfält"
+msgstr "Ett slagfält"
 
 #: script/events/outside.js:918
 msgid "a foundation trench at the edge of the village turns up a marker stone, set upright and deliberate."
@@ -734,6 +752,7 @@ msgid "A Glass Wolf"
 msgstr ""
 
 #: script/events/setpieces.js:2123
+#: script/world.js:178
 msgid "A Glassed Crater"
 msgstr ""
 
@@ -819,7 +838,7 @@ msgstr ""
 
 #: script/events/setpieces.js:7017
 msgid "A Huge Borehole"
-msgstr "Ett&nbsp;borrhål"
+msgstr "Ett borrhål"
 
 #: script/events/setpieces.js:7021
 msgid "a huge hole is cut deep into the earth, evidence of the past harvest."
@@ -1028,8 +1047,9 @@ msgid "a morphing projection of this room and this planet."
 msgstr ""
 
 #: script/events/setpieces.js:35
+#: script/world.js:175
 msgid "A Murky Swamp"
-msgstr "Ett Grumligt Träsk"
+msgstr "Ett grumligt träsk"
 
 #: script/events/encounters.js:1406
 msgid "A Mutant"
@@ -1152,6 +1172,7 @@ msgstr "En Bullrig By"
 
 #: script/events/executioner.js:179
 #: script/events/executioner.js:685
+#: script/world.js:176
 msgid "A Ravaged Battleship"
 msgstr ""
 
@@ -1212,8 +1233,9 @@ msgid "a round wing with no point. there is no point. nothing to gleam."
 msgstr ""
 
 #: script/events/setpieces.js:4976
+#: script/world.js:170
 msgid "A Ruined City"
-msgstr "En förstörd fälla"
+msgstr "En Förstörd Stad"
 
 #: script/events/outside.js:6
 msgid "A Ruined Trap"
@@ -1359,6 +1381,7 @@ msgid "A Silent Forest"
 msgstr "En Tyst Skog"
 
 #: script/events/setpieces.js:1759
+#: script/world.js:177
 msgid "A Silent Temple"
 msgstr ""
 
@@ -1645,6 +1668,7 @@ msgid "a wanderer arrives with an empty cart. says if she leaves with furs, she'
 msgstr "en vandrare anlämder med en tom kälke, säger att om hon får pälsar kommer hontillbaka med mer."
 
 #: script/events/setpieces.js:2320
+#: script/world.js:184
 msgid "A Wanderer Lab"
 msgstr ""
 
@@ -1687,54 +1711,6 @@ msgstr ""
 
 #: script/events/setpieces.js:6060
 msgid "a youth lashes out with a tree branch."
-msgstr ""
-
-#: script/world.js:173
-msgid "A&nbsp;Battlefield"
-msgstr "Ett&nbsp;slagfält"
-
-#: script/world.js:172
-msgid "A&nbsp;Borehole"
-msgstr "Ett&nbsp;borrhål"
-
-#: script/world.js:171
-msgid "A&nbsp;Crashed&nbsp;Starship"
-msgstr "Ett&nbsp;kraschat&nbsp;rymdskepp"
-
-#: script/world.js:182
-msgid "A&nbsp;Crowded&nbsp;Graveyard"
-msgstr ""
-
-#: script/world.js:168
-msgid "A&nbsp;Damp&nbsp;Cave"
-msgstr "En&nbsp;Fuktig&nbsp;Grotta"
-
-#: script/world.js:188
-msgid "A&nbsp;Destroyed&nbsp;Village"
-msgstr "En&nbsp;förstörd&nbsp;by"
-
-#: script/world.js:178
-msgid "A&nbsp;Glassed&nbsp;Crater"
-msgstr ""
-
-#: script/world.js:175
-msgid "A&nbsp;Murky&nbsp;Swamp"
-msgstr "Ett&nbsp;grumligt&nbsp;träsk"
-
-#: script/world.js:176
-msgid "A&nbsp;Ravaged&nbsp;Battleship"
-msgstr ""
-
-#: script/world.js:170
-msgid "A&nbsp;Ruined&nbsp;City"
-msgstr "En&nbsp;Förstörd&nbsp;Stad"
-
-#: script/world.js:177
-msgid "A&nbsp;Silent&nbsp;Temple"
-msgstr ""
-
-#: script/world.js:184
-msgid "A&nbsp;Wanderer&nbsp;Lab"
 msgstr ""
 
 #: script/events/setpieces.js:1777
@@ -1831,6 +1807,10 @@ msgstr ""
 msgid "ambushed on the street."
 msgstr "bakhåll på gatan"
 
+#: script/world.js:169
+msgid "An Abandoned Town"
+msgstr "En Övergiven Stad"
+
 #: script/events/encounters.js:273
 msgid "An Alien Bird"
 msgstr ""
@@ -1908,8 +1888,9 @@ msgid "an old case is wedged behind a rock, covered in a thick layer of dust."
 msgstr "en gammal väska med tjockt lager damm är inkilad bakom en klippa."
 
 #: script/events/setpieces.js:6845
+#: script/world.js:167
 msgid "An Old House"
-msgstr ""
+msgstr "Ett Gammalt Hus"
 
 #: script/events/setpieces.js:6849
 msgid "an old house remains here, once white siding yellowed and peeling."
@@ -1928,6 +1909,7 @@ msgid "an old man bursts through a door, wielding a scalpel."
 msgstr ""
 
 #: script/events/setpieces.js:2926
+#: script/world.js:179
 msgid "An Old Observatory"
 msgstr ""
 
@@ -1961,6 +1943,7 @@ msgid "an operative waits in ambush around the corner."
 msgstr ""
 
 #: script/events/setpieces.js:6
+#: script/world.js:163
 msgid "An Outpost"
 msgstr "En Utpost"
 
@@ -1975,22 +1958,6 @@ msgstr ""
 #: script/events/executioner.js:1130
 msgid "an unfinished automaton whirs to life."
 msgstr ""
-
-#: script/world.js:169
-msgid "An&nbsp;Abandoned&nbsp;Town"
-msgstr "En&nbsp;Övergiven&nbsp;Stad"
-
-#: script/world.js:167
-msgid "An&nbsp;Old&nbsp;House"
-msgstr "Ett&nbsp;Gammalt&nbsp;Hus"
-
-#: script/world.js:179
-msgid "An&nbsp;Old&nbsp;Observatory"
-msgstr ""
-
-#: script/world.js:163
-msgid "An&nbsp;Outpost"
-msgstr "En&nbsp;Utpost"
 
 #: script/events/executioner.js:543
 msgid "ancient beast"
@@ -3098,14 +3065,14 @@ msgstr "kol"
 msgid "coal mine"
 msgstr "kol gruva"
 
+#: script/world.js:165
+msgid "Coal Mine"
+msgstr "Kolgruva"
+
 #: script/localization.js:37
 #: script/outside.js:63
 msgid "coal miner"
 msgstr "kolgruvarbetare"
-
-#: script/world.js:165
-msgid "Coal&nbsp;Mine"
-msgstr "Kolgruva"
 
 #: script/events/setpieces.js:495
 msgid "coil"
@@ -5136,6 +5103,10 @@ msgstr ""
 msgid "iron mine"
 msgstr "järn gruva"
 
+#: script/world.js:164
+msgid "Iron Mine"
+msgstr "Järngruva"
+
 #: script/localization.js:35
 #: script/outside.js:55
 msgid "iron miner"
@@ -5149,10 +5120,6 @@ msgstr "järnsvärf"
 #: script/room.js:957
 msgid "iron's stronger than leather"
 msgstr "järn är starkare än läder"
-
-#: script/world.js:164
-msgid "Iron&nbsp;Mine"
-msgstr "Järngruva"
 
 #: script/outside.js:1463
 msgid "is escape possible? somehow the land becomes even more bleak and unforgiving moving further from the fire. is this place some sort of exile?"
@@ -6417,7 +6384,7 @@ msgid "LOCKED"
 msgstr ""
 
 #: script/world.js:183
-msgid "Locked-Down&nbsp;Prison"
+msgid "Locked-Down Prison"
 msgstr ""
 
 #: script/room.js:267
@@ -9579,14 +9546,14 @@ msgstr "svavel"
 msgid "sulphur mine"
 msgstr "svavel gruva"
 
+#: script/world.js:166
+msgid "Sulphur Mine"
+msgstr "Svavelgruva"
+
 #: script/localization.js:39
 #: script/outside.js:71
 msgid "sulphur miner"
 msgstr "svavelgruvarbetare"
-
-#: script/world.js:166
-msgid "Sulphur&nbsp;Mine"
-msgstr "Svavelgruva"
 
 #: script/mobileUI.js:46
 msgid "supplies"
@@ -10338,6 +10305,7 @@ msgid "the compass points west"
 msgstr "kompassen pekar västerut"
 
 #: script/events/setpieces.js:3215
+#: script/world.js:181
 msgid "The Concordance"
 msgstr ""
 
@@ -12475,6 +12443,7 @@ msgid "the stranger shivers, and mumbles quietly. her words are unintelligible."
 msgstr "främmlingen skakar och mumlar tyst. hennes ord är osammanhängande."
 
 #: script/events/setpieces.js:3108
+#: script/world.js:180
 msgid "The Strata"
 msgstr ""
 
@@ -12768,6 +12737,10 @@ msgstr ""
 msgid "the village"
 msgstr ""
 
+#: script/world.js:1108
+msgid "The Village"
+msgstr "Byn"
+
 #: script/events/room.js:1401
 #: script/events/room.js:1417
 msgid "the village answers it for six nights, in turns, reading the reply off a scrap of paper."
@@ -13049,18 +13022,6 @@ msgstr ""
 #: script/events/setpieces.js:6507
 msgid "the young settler was carrying a canvas sack."
 msgstr ""
-
-#: script/world.js:181
-msgid "The&nbsp;Concordance"
-msgstr ""
-
-#: script/world.js:180
-msgid "The&nbsp;Strata"
-msgstr ""
-
-#: script/world.js:1108
-msgid "The&nbsp;Village"
-msgstr "Byn"
 
 #: script/events/path.js:126
 msgid "their cloth has been mended forty or fifty times, in a lot of different thread."
@@ -14252,11 +14213,8 @@ msgid "under where the cup was sitting there is a flat stone with a scratch on i
 msgstr ""
 
 #: script/events/setpieces.js:111
-msgid "Underground Ruins"
-msgstr ""
-
 #: script/world.js:174
-msgid "Underground&nbsp;Ruins"
+msgid "Underground Ruins"
 msgstr ""
 
 #: script/events/setpieces.js:3184

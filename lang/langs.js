@@ -15,6 +15,7 @@ var langs = {
 	'lt_LT':'lietuvių',
 	'lv':'latviešu valoda',
 	'nb':'norsk',
+	'nl':'nederlands',
 	'pl':'polski',
 	'pt':'português',
 	'pt_br':'português (brasil)',

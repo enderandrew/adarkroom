@@ -379,6 +379,10 @@ msgstr "otlučená značka střeží vjezd do tohoto, kdysi mocného, města."
 msgid "a battle was fought here, long ago."
 msgstr "kdysi dávno zde proběhla velká bitva."
 
+#: script/world.js:173
+msgid "A Battlefield"
+msgstr "Bojiště"
+
 #: script/events/outside.js:448
 msgid "A Beast Attack"
 msgstr "Příšera Útočí"
@@ -414,6 +418,10 @@ msgstr "utřený stůl. nástroje na něm jsou seřazeny podle velikosti."
 #: script/events/setpieces.js:2670
 msgid "a biohazard furnace, recently used"
 msgstr "spalovna nebezpečného odpadu, nedávno použitá"
+
+#: script/world.js:172
+msgid "A Borehole"
+msgstr "Vrt"
 
 #: script/events/room.js:183
 msgid "a bundle of sticks lies just beyond the threshold, wrapped in coarse furs."
@@ -535,9 +543,17 @@ msgstr "chodba vedoucí pod úhlem, který neodpovídá schodišti."
 msgid "A Crashed Ship"
 msgstr "Havarovaná Loď"
 
+#: script/world.js:171
+msgid "A Crashed Starship"
+msgstr "Zřícený Raketoplán"
+
 #: script/outside.js:806
 msgid "A Crowded Encampment"
 msgstr "Přeplněný tábor"
+
+#: script/world.js:182
+msgid "A Crowded Graveyard"
+msgstr "Přeplněný Hřbitov"
 
 #: script/outside.js:127
 #: script/outside.js:160
@@ -577,6 +593,7 @@ msgid "a cyborg bear comes through the fence without appearing to notice the fen
 msgstr "kyborg medvěd prošel plotem, aniž by si ho všiml."
 
 #: script/events/setpieces.js:3752
+#: script/world.js:168
 msgid "A Damp Cave"
 msgstr "Vlhká Jeskyně"
 
@@ -598,8 +615,9 @@ msgid "a desperate weapon for desperate men."
 msgstr "zoufala zbraň pro zoufalé muže."
 
 #: script/events/setpieces.js:7496
+#: script/world.js:188
 msgid "A Destroyed Village"
-msgstr "Zničený Vesnice"
+msgstr "Zničená Vesnice"
 
 #: script/events/setpieces.js:7500
 msgid "a destroyed village lies in the dust."
@@ -731,8 +749,9 @@ msgid "A Glass Wolf"
 msgstr "Skleněný vlk"
 
 #: script/events/setpieces.js:2123
+#: script/world.js:178
 msgid "A Glassed Crater"
-msgstr "Zasklený kráter"
+msgstr "Zasklený Kráter"
 
 #: script/events/setpieces.js:1594
 msgid "a glyph lock bars the last door"
@@ -1025,6 +1044,7 @@ msgid "a morphing projection of this room and this planet."
 msgstr "proměnlivá projekce této místnosti a této planety."
 
 #: script/events/setpieces.js:35
+#: script/world.js:175
 msgid "A Murky Swamp"
 msgstr "Kalný Močál"
 
@@ -1149,8 +1169,9 @@ msgstr "Nevázaná vesnice"
 
 #: script/events/executioner.js:179
 #: script/events/executioner.js:685
+#: script/world.js:176
 msgid "A Ravaged Battleship"
-msgstr "Zničená bojová loď"
+msgstr "Zničená Bojová Loď"
 
 #: script/events/encounters.js:120
 msgid "A Ravenous Beast"
@@ -1209,8 +1230,9 @@ msgid "a round wing with no point. there is no point. nothing to gleam."
 msgstr "kruhové křídlo bez špičky. nemá to smysl. nic, co by se blýskalo."
 
 #: script/events/setpieces.js:4976
+#: script/world.js:170
 msgid "A Ruined City"
-msgstr "Zničené město"
+msgstr "Zničené Město"
 
 #: script/events/outside.js:6
 msgid "A Ruined Trap"
@@ -1356,8 +1378,9 @@ msgid "A Silent Forest"
 msgstr "Tichý les"
 
 #: script/events/setpieces.js:1759
+#: script/world.js:177
 msgid "A Silent Temple"
-msgstr "Tichý chrám"
+msgstr "Tichý Chrám"
 
 #: script/events/setpieces.js:3252
 msgid "a slab by the well, and the same text on it four times, in four scripts, none of which share an alphabet."
@@ -1642,8 +1665,9 @@ msgid "a wanderer arrives with an empty cart. says if she leaves with furs, she'
 msgstr "tulačka dorazila s prázdným vozíkem. tvrdí, že pokud jí darujeme kožešiny, vrátí se později a přiveze jich více."
 
 #: script/events/setpieces.js:2320
+#: script/world.js:184
 msgid "A Wanderer Lab"
-msgstr "Tulácká laboratoř"
+msgstr "Tulácká Laboratoř"
 
 #: script/events/encounters.js:1356
 msgid "A Warden Echo"
@@ -1685,54 +1709,6 @@ msgstr "pracovní plocha a na ní deník, který byl ručně veden po velmi dlou
 #: script/events/setpieces.js:6060
 msgid "a youth lashes out with a tree branch."
 msgstr "mladík nadějně útočí větví stromu."
-
-#: script/world.js:173
-msgid "A&nbsp;Battlefield"
-msgstr "Bojiště"
-
-#: script/world.js:172
-msgid "A&nbsp;Borehole"
-msgstr "Vrt"
-
-#: script/world.js:171
-msgid "A&nbsp;Crashed&nbsp;Starship"
-msgstr "Zřícený&nbsp;Raketoplán"
-
-#: script/world.js:182
-msgid "A&nbsp;Crowded&nbsp;Graveyard"
-msgstr "Přeplněný&nbsp;Hřbitov"
-
-#: script/world.js:168
-msgid "A&nbsp;Damp&nbsp;Cave"
-msgstr "Vlhká&nbsp;Jeskyně"
-
-#: script/world.js:188
-msgid "A&nbsp;Destroyed&nbsp;Village"
-msgstr "Zničená&nbsp;Vesnice"
-
-#: script/world.js:178
-msgid "A&nbsp;Glassed&nbsp;Crater"
-msgstr "Zasklený&nbsp;Kráter"
-
-#: script/world.js:175
-msgid "A&nbsp;Murky&nbsp;Swamp"
-msgstr "Kalný&nbsp;Močál"
-
-#: script/world.js:176
-msgid "A&nbsp;Ravaged&nbsp;Battleship"
-msgstr "Zničená&nbsp;Bojová&nbsp;Loď"
-
-#: script/world.js:170
-msgid "A&nbsp;Ruined&nbsp;City"
-msgstr "Zničené&nbsp;Město"
-
-#: script/world.js:177
-msgid "A&nbsp;Silent&nbsp;Temple"
-msgstr "Tichý&nbsp;Chrám"
-
-#: script/world.js:184
-msgid "A&nbsp;Wanderer&nbsp;Lab"
-msgstr "Tulácká&nbsp;Laboratoř"
 
 #: script/events/setpieces.js:1777
 msgid "above the door there is a figure worked into the rock: three eyes, three ears, and no mouth at all."
@@ -1828,6 +1804,10 @@ msgstr "alespoň vždy předtím to tak fungovalo."
 msgid "ambushed on the street."
 msgstr "přepaden na ulici."
 
+#: script/world.js:169
+msgid "An Abandoned Town"
+msgstr "Opuštěné Město"
+
 #: script/events/encounters.js:273
 msgid "An Alien Bird"
 msgstr "Cizí Pták"
@@ -1905,6 +1885,7 @@ msgid "an old case is wedged behind a rock, covered in a thick layer of dust."
 msgstr "za kamenem je zaražena stará truhlice pokrytá tenkou vrstvou prachu."
 
 #: script/events/setpieces.js:6845
+#: script/world.js:167
 msgid "An Old House"
 msgstr "Starý Dům"
 
@@ -1925,6 +1906,7 @@ msgid "an old man bursts through a door, wielding a scalpel."
 msgstr "starý muž vyrazil ze dveří, v ruce skalpel."
 
 #: script/events/setpieces.js:2926
+#: script/world.js:179
 msgid "An Old Observatory"
 msgstr "Stará Observatoř"
 
@@ -1958,6 +1940,7 @@ msgid "an operative waits in ambush around the corner."
 msgstr "agent čeká v záloze za rohem."
 
 #: script/events/setpieces.js:6
+#: script/world.js:163
 msgid "An Outpost"
 msgstr "Útočiště"
 
@@ -1972,22 +1955,6 @@ msgstr "zdevastovaná karavana je rozsypaná po vymlácené ulici."
 #: script/events/executioner.js:1130
 msgid "an unfinished automaton whirs to life."
 msgstr "nedokončený automat se s bzučením probouzí k životu."
-
-#: script/world.js:169
-msgid "An&nbsp;Abandoned&nbsp;Town"
-msgstr "Opuštěné&nbsp;Město"
-
-#: script/world.js:167
-msgid "An&nbsp;Old&nbsp;House"
-msgstr "Starý&nbsp;Dům"
-
-#: script/world.js:179
-msgid "An&nbsp;Old&nbsp;Observatory"
-msgstr "Stará Observatoř"
-
-#: script/world.js:163
-msgid "An&nbsp;Outpost"
-msgstr "Útočiště"
 
 #: script/events/executioner.js:543
 msgid "ancient beast"
@@ -3095,14 +3062,14 @@ msgstr "uhlí"
 msgid "coal mine"
 msgstr "uhelný důl"
 
+#: script/world.js:165
+msgid "Coal Mine"
+msgstr "Uhelný Důl"
+
 #: script/localization.js:37
 #: script/outside.js:63
 msgid "coal miner"
 msgstr "havíř"
-
-#: script/world.js:165
-msgid "Coal&nbsp;Mine"
-msgstr "Uhelný&nbsp;Důl"
 
 #: script/events/setpieces.js:495
 msgid "coil"
@@ -5133,6 +5100,10 @@ msgstr "železné brnění"
 msgid "iron mine"
 msgstr "železný důl"
 
+#: script/world.js:164
+msgid "Iron Mine"
+msgstr "Železorudný Důl"
+
 #: script/localization.js:35
 #: script/outside.js:55
 msgid "iron miner"
@@ -5146,10 +5117,6 @@ msgstr "železný meč"
 #: script/room.js:957
 msgid "iron's stronger than leather"
 msgstr "železo je odolnější než useň"
-
-#: script/world.js:164
-msgid "Iron&nbsp;Mine"
-msgstr "Železorudný&nbsp;Důl"
 
 #: script/outside.js:1463
 msgid "is escape possible? somehow the land becomes even more bleak and unforgiving moving further from the fire. is this place some sort of exile?"
@@ -6414,7 +6381,7 @@ msgid "LOCKED"
 msgstr "ZAMČENO"
 
 #: script/world.js:183
-msgid "Locked-Down&nbsp;Prison"
+msgid "Locked-Down Prison"
 msgstr "Zabezpečené Vězení"
 
 #: script/room.js:267
@@ -9576,14 +9543,14 @@ msgstr "síra"
 msgid "sulphur mine"
 msgstr "sírový důl"
 
+#: script/world.js:166
+msgid "Sulphur Mine"
+msgstr "Sirný Důl"
+
 #: script/localization.js:39
 #: script/outside.js:71
 msgid "sulphur miner"
 msgstr "horník síry"
-
-#: script/world.js:166
-msgid "Sulphur&nbsp;Mine"
-msgstr "Sirný&nbsp;Důl"
 
 #: script/mobileUI.js:46
 msgid "supplies"
@@ -10335,6 +10302,7 @@ msgid "the compass points west"
 msgstr "kompas ukazuje na západ"
 
 #: script/events/setpieces.js:3215
+#: script/world.js:181
 msgid "The Concordance"
 msgstr "Souzvuk"
 
@@ -12472,6 +12440,7 @@ msgid "the stranger shivers, and mumbles quietly. her words are unintelligible."
 msgstr "cizinka se chvěje a tiše cosi mumlá. není jí rozumět."
 
 #: script/events/setpieces.js:3108
+#: script/world.js:180
 msgid "The Strata"
 msgstr "Vrstvy"
 
@@ -12765,6 +12734,10 @@ msgstr "průduch je hlídán někým, kdo je stále ve službě"
 msgid "the village"
 msgstr "vesnice"
 
+#: script/world.js:1108
+msgid "The Village"
+msgstr "Vesnice"
+
 #: script/events/room.js:1401
 #: script/events/room.js:1417
 msgid "the village answers it for six nights, in turns, reading the reply off a scrap of paper."
@@ -13046,18 +13019,6 @@ msgstr "vrak je přežit, sotva"
 #: script/events/setpieces.js:6507
 msgid "the young settler was carrying a canvas sack."
 msgstr "mladý osadník u sebe měl plátěný pytel."
-
-#: script/world.js:181
-msgid "The&nbsp;Concordance"
-msgstr "Souzvuk"
-
-#: script/world.js:180
-msgid "The&nbsp;Strata"
-msgstr "Vrstvy"
-
-#: script/world.js:1108
-msgid "The&nbsp;Village"
-msgstr "Vesnice"
 
 #: script/events/path.js:126
 msgid "their cloth has been mended forty or fifty times, in a lot of different thread."
@@ -14249,11 +14210,8 @@ msgid "under where the cup was sitting there is a flat stone with a scratch on i
 msgstr "tam, kde stál hrnek, je plochý kámen s rýhou."
 
 #: script/events/setpieces.js:111
-msgid "Underground Ruins"
-msgstr "Podzemní Ruiny"
-
 #: script/world.js:174
-msgid "Underground&nbsp;Ruins"
+msgid "Underground Ruins"
 msgstr "Podzemní Ruiny"
 
 #: script/events/setpieces.js:3184

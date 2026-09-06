@@ -380,6 +380,10 @@ msgstr "batita landstrata signo staras garde ĉe la enirejo de ĉi tiu iam-grand
 msgid "a battle was fought here, long ago."
 msgstr "batalo okazis ĉi tie, antaŭ longa tempo."
 
+#: script/world.js:173
+msgid "A Battlefield"
+msgstr "Batalejo"
+
 #: script/events/outside.js:448
 msgid "A Beast Attack"
 msgstr "Besta Atako"
@@ -415,6 +419,10 @@ msgstr "benko, viŝita. la iloj sur ĝi estas metitaj laŭ grandeco."
 #: script/events/setpieces.js:2670
 msgid "a biohazard furnace, recently used"
 msgstr "biorriska forno, ĵus uzita"
+
+#: script/world.js:172
+msgid "A Borehole"
+msgstr "Boraĵo"
 
 #: script/events/room.js:183
 msgid "a bundle of sticks lies just beyond the threshold, wrapped in coarse furs."
@@ -536,9 +544,17 @@ msgstr "koridoro etendiĝas laŭ angulo kiu ne kongruas kun la ŝtuparo."
 msgid "A Crashed Ship"
 msgstr "Faleginta Ŝipo"
 
+#: script/world.js:171
+msgid "A Crashed Starship"
+msgstr "Faleginta Stelŝipo"
+
 #: script/outside.js:806
 msgid "A Crowded Encampment"
 msgstr "Homplena Tendaro"
+
+#: script/world.js:182
+msgid "A Crowded Graveyard"
+msgstr "Homplena Tombejo"
 
 #: script/outside.js:127
 #: script/outside.js:160
@@ -578,6 +594,7 @@ msgid "a cyborg bear comes through the fence without appearing to notice the fen
 msgstr "kiborga urso trairas la barilon sen ŝajne rimarki la barilon."
 
 #: script/events/setpieces.js:3752
+#: script/world.js:168
 msgid "A Damp Cave"
 msgstr "Malseka Kaverno"
 
@@ -599,6 +616,7 @@ msgid "a desperate weapon for desperate men."
 msgstr "malespera armilo por malesperaj homoj."
 
 #: script/events/setpieces.js:7496
+#: script/world.js:188
 msgid "A Destroyed Village"
 msgstr "Detruita Vilaĝo"
 
@@ -732,6 +750,7 @@ msgid "A Glass Wolf"
 msgstr "Vitra Lupo"
 
 #: script/events/setpieces.js:2123
+#: script/world.js:178
 msgid "A Glassed Crater"
 msgstr "Vitriĝinta Kratero"
 
@@ -1026,6 +1045,7 @@ msgid "a morphing projection of this room and this planet."
 msgstr "ŝanĝiĝanta projekcio de ĉi tiu ĉambro kaj ĉi tiu planedo."
 
 #: script/events/setpieces.js:35
+#: script/world.js:175
 msgid "A Murky Swamp"
 msgstr "Malluma Marĉo"
 
@@ -1150,6 +1170,7 @@ msgstr "Raŭka Vilaĝo"
 
 #: script/events/executioner.js:179
 #: script/events/executioner.js:685
+#: script/world.js:176
 msgid "A Ravaged Battleship"
 msgstr "Ruinigita Batalŝipo"
 
@@ -1210,6 +1231,7 @@ msgid "a round wing with no point. there is no point. nothing to gleam."
 msgstr "ronda flugilo sen pinto. estas neniu pinto. nenio por brili."
 
 #: script/events/setpieces.js:4976
+#: script/world.js:170
 msgid "A Ruined City"
 msgstr "Ruina Urbo"
 
@@ -1357,6 +1379,7 @@ msgid "A Silent Forest"
 msgstr "Silenta Arbaro"
 
 #: script/events/setpieces.js:1759
+#: script/world.js:177
 msgid "A Silent Temple"
 msgstr "Silenta Templo"
 
@@ -1643,6 +1666,7 @@ msgid "a wanderer arrives with an empty cart. says if she leaves with furs, she'
 msgstr "alvenas vaganto kun malplena ĉaro. diras, ke se ŝi foriras kun feloj ŝi revenos kun pli."
 
 #: script/events/setpieces.js:2320
+#: script/world.js:184
 msgid "A Wanderer Lab"
 msgstr "Laboratorio de Vagintoj"
 
@@ -1686,54 +1710,6 @@ msgstr "labortablo, kaj sur ĝi protokolo kiu estis mane tenata dum tre longa te
 #: script/events/setpieces.js:6060
 msgid "a youth lashes out with a tree branch."
 msgstr "junulo atakas per branĉo."
-
-#: script/world.js:173
-msgid "A&nbsp;Battlefield"
-msgstr "Batalejo"
-
-#: script/world.js:172
-msgid "A&nbsp;Borehole"
-msgstr "Boraĵo"
-
-#: script/world.js:171
-msgid "A&nbsp;Crashed&nbsp;Starship"
-msgstr "Faleginta&nbsp;Stelŝipo"
-
-#: script/world.js:182
-msgid "A&nbsp;Crowded&nbsp;Graveyard"
-msgstr "Homplena&nbsp;Tombejo"
-
-#: script/world.js:168
-msgid "A&nbsp;Damp&nbsp;Cave"
-msgstr "Malseka&nbsp;Kaverno"
-
-#: script/world.js:188
-msgid "A&nbsp;Destroyed&nbsp;Village"
-msgstr "Detruita&nbsp;Vilaĝo"
-
-#: script/world.js:178
-msgid "A&nbsp;Glassed&nbsp;Crater"
-msgstr "Vitriĝinta&nbsp;Kratero"
-
-#: script/world.js:175
-msgid "A&nbsp;Murky&nbsp;Swamp"
-msgstr "Malluma&nbsp;Marĉo"
-
-#: script/world.js:176
-msgid "A&nbsp;Ravaged&nbsp;Battleship"
-msgstr "Ruinigita&nbsp;Batalŝipo"
-
-#: script/world.js:170
-msgid "A&nbsp;Ruined&nbsp;City"
-msgstr "Ruina&nbsp;Urbo"
-
-#: script/world.js:177
-msgid "A&nbsp;Silent&nbsp;Temple"
-msgstr "Silenta&nbsp;Templo"
-
-#: script/world.js:184
-msgid "A&nbsp;Wanderer&nbsp;Lab"
-msgstr "Laboratorio&nbsp;de&nbsp;Vagintoj"
 
 #: script/events/setpieces.js:1777
 msgid "above the door there is a figure worked into the rock: three eyes, three ears, and no mouth at all."
@@ -1829,6 +1805,10 @@ msgstr "nu, ĉiam kutime justis."
 msgid "ambushed on the street."
 msgstr "embuske atakita sur la strato."
 
+#: script/world.js:169
+msgid "An Abandoned Town"
+msgstr "Forlasita Urbeto"
+
 #: script/events/encounters.js:273
 msgid "An Alien Bird"
 msgstr "Fremda Birdo"
@@ -1906,6 +1886,7 @@ msgid "an old case is wedged behind a rock, covered in a thick layer of dust."
 msgstr "malnova kesto estas kojnumita malantaŭ ŝtono, kovrita per dika tavolo da polvo."
 
 #: script/events/setpieces.js:6845
+#: script/world.js:167
 msgid "An Old House"
 msgstr "Malnova Domo"
 
@@ -1926,6 +1907,7 @@ msgid "an old man bursts through a door, wielding a scalpel."
 msgstr "maljuna viro ekĵetas sin tra pordo, portante sekcilon."
 
 #: script/events/setpieces.js:2926
+#: script/world.js:179
 msgid "An Old Observatory"
 msgstr "Malnova Observatorio"
 
@@ -1959,6 +1941,7 @@ msgid "an operative waits in ambush around the corner."
 msgstr "agento atendas embuske ĉirkaŭ la angulo."
 
 #: script/events/setpieces.js:6
+#: script/world.js:163
 msgid "An Outpost"
 msgstr "Pikedo"
 
@@ -1973,22 +1956,6 @@ msgstr "renversita karavano diskuŝas trans la multtrua strato."
 #: script/events/executioner.js:1130
 msgid "an unfinished automaton whirs to life."
 msgstr "nefinita aŭtomato zumas al vivo."
-
-#: script/world.js:169
-msgid "An&nbsp;Abandoned&nbsp;Town"
-msgstr "Forlasita&nbsp;Urbeto"
-
-#: script/world.js:167
-msgid "An&nbsp;Old&nbsp;House"
-msgstr "Malnova&nbsp;Domo"
-
-#: script/world.js:179
-msgid "An&nbsp;Old&nbsp;Observatory"
-msgstr "Malnova&nbsp;Observatorio"
-
-#: script/world.js:163
-msgid "An&nbsp;Outpost"
-msgstr "Pikedo"
 
 #: script/events/executioner.js:543
 msgid "ancient beast"
@@ -3096,14 +3063,14 @@ msgstr "karbo"
 msgid "coal mine"
 msgstr "karba minejo"
 
+#: script/world.js:165
+msgid "Coal Mine"
+msgstr "Karba Minejo"
+
 #: script/localization.js:37
 #: script/outside.js:63
 msgid "coal miner"
 msgstr "karba ministo"
-
-#: script/world.js:165
-msgid "Coal&nbsp;Mine"
-msgstr "Karba&nbsp;Minejo"
 
 #: script/events/setpieces.js:495
 msgid "coil"
@@ -5134,6 +5101,10 @@ msgstr "fera kiraso"
 msgid "iron mine"
 msgstr "fera minejo"
 
+#: script/world.js:164
+msgid "Iron Mine"
+msgstr "Fera Minejo"
+
 #: script/localization.js:35
 #: script/outside.js:55
 msgid "iron miner"
@@ -5147,10 +5118,6 @@ msgstr "fera glavo"
 #: script/room.js:957
 msgid "iron's stronger than leather"
 msgstr "fero estas pli forta ol ledo"
-
-#: script/world.js:164
-msgid "Iron&nbsp;Mine"
-msgstr "Fera&nbsp;Minejo"
 
 #: script/outside.js:1463
 msgid "is escape possible? somehow the land becomes even more bleak and unforgiving moving further from the fire. is this place some sort of exile?"
@@ -6415,8 +6382,8 @@ msgid "LOCKED"
 msgstr "ŜLOSITA"
 
 #: script/world.js:183
-msgid "Locked-Down&nbsp;Prison"
-msgstr "Ŝlosita&nbsp;Malliberejo"
+msgid "Locked-Down Prison"
+msgstr "Ŝlosita Malliberejo"
 
 #: script/room.js:267
 #: script/room.js:293
@@ -9577,14 +9544,14 @@ msgstr "sulfuro"
 msgid "sulphur mine"
 msgstr "sulfura minejo"
 
+#: script/world.js:166
+msgid "Sulphur Mine"
+msgstr "Sulfura Minejo"
+
 #: script/localization.js:39
 #: script/outside.js:71
 msgid "sulphur miner"
 msgstr "sulfura ministo"
-
-#: script/world.js:166
-msgid "Sulphur&nbsp;Mine"
-msgstr "Sulfura&nbsp;Minejo"
 
 #: script/mobileUI.js:46
 msgid "supplies"
@@ -10336,6 +10303,7 @@ msgid "the compass points west"
 msgstr "la kompaso indikas okcidenten"
 
 #: script/events/setpieces.js:3215
+#: script/world.js:181
 msgid "The Concordance"
 msgstr "La Konkordo"
 
@@ -12473,6 +12441,7 @@ msgid "the stranger shivers, and mumbles quietly. her words are unintelligible."
 msgstr "la nekonato tremas, kaj mallaŭte murmuras. ŝiaj vortoj nesencas."
 
 #: script/events/setpieces.js:3108
+#: script/world.js:180
 msgid "The Strata"
 msgstr "La Tavoloj"
 
@@ -12766,6 +12735,10 @@ msgstr "la aertubo estas gardata de iu ankoraŭ deĵoranta"
 msgid "the village"
 msgstr "la vilaĝo"
 
+#: script/world.js:1108
+msgid "The Village"
+msgstr "La Vilaĝo"
+
 #: script/events/room.js:1401
 #: script/events/room.js:1417
 msgid "the village answers it for six nights, in turns, reading the reply off a scrap of paper."
@@ -13047,18 +13020,6 @@ msgstr "la vrako estas travivita, apenaŭ"
 #: script/events/setpieces.js:6507
 msgid "the young settler was carrying a canvas sack."
 msgstr "la juna enloĝinto portis kanvasan sakon."
-
-#: script/world.js:181
-msgid "The&nbsp;Concordance"
-msgstr "La&nbsp;Konkordo"
-
-#: script/world.js:180
-msgid "The&nbsp;Strata"
-msgstr "La&nbsp;Tavoloj"
-
-#: script/world.js:1108
-msgid "The&nbsp;Village"
-msgstr "La&nbsp;Vilaĝo"
 
 #: script/events/path.js:126
 msgid "their cloth has been mended forty or fifty times, in a lot of different thread."
@@ -14250,12 +14211,9 @@ msgid "under where the cup was sitting there is a flat stone with a scratch on i
 msgstr "sub kie la taso sidis estas plata ŝtono kun grato sur ĝi."
 
 #: script/events/setpieces.js:111
+#: script/world.js:174
 msgid "Underground Ruins"
 msgstr "Subteraj Ruinoj"
-
-#: script/world.js:174
-msgid "Underground&nbsp;Ruins"
-msgstr "Subteraj&nbsp;Ruinoj"
 
 #: script/events/setpieces.js:3184
 msgid "unfold what is left of their kit"

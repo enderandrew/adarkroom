@@ -380,6 +380,10 @@ msgstr "찌그러진 고속도로 표지판이 한 때는 번성했던 이 도�
 msgid "a battle was fought here, long ago."
 msgstr "예전에 여기서 전쟁이 일어난 모양이다."
 
+#: script/world.js:173
+msgid "A Battlefield"
+msgstr "전장"
+
 #: script/events/outside.js:448
 msgid "A Beast Attack"
 msgstr "맹수 습격"
@@ -415,6 +419,10 @@ msgstr "깨끗이 닦인 작업대. 그 위의 도구들은 크기순으로 정�
 #: script/events/setpieces.js:2670
 msgid "a biohazard furnace, recently used"
 msgstr "생물학적 위험물 소각로, 최근에 사용됨"
+
+#: script/world.js:172
+msgid "A Borehole"
+msgstr "시추공"
 
 #: script/events/room.js:183
 msgid "a bundle of sticks lies just beyond the threshold, wrapped in coarse furs."
@@ -536,9 +544,17 @@ msgstr "복도가 계단과 맞지 않는 각도로 뻗어 있다."
 msgid "A Crashed Ship"
 msgstr "부서진 우주선"
 
+#: script/world.js:171
+msgid "A Crashed Starship"
+msgstr "추락한 우주선"
+
 #: script/outside.js:806
 msgid "A Crowded Encampment"
 msgstr "붐비는 야영지"
+
+#: script/world.js:182
+msgid "A Crowded Graveyard"
+msgstr "붐비는 묘지"
 
 #: script/outside.js:127
 #: script/outside.js:160
@@ -578,6 +594,7 @@ msgid "a cyborg bear comes through the fence without appearing to notice the fen
 msgstr "사이보그 곰이 울타리를 알아채지도 못한 듯 뚫고 온다."
 
 #: script/events/setpieces.js:3752
+#: script/world.js:168
 msgid "A Damp Cave"
 msgstr "축축한 동굴"
 
@@ -599,6 +616,7 @@ msgid "a desperate weapon for desperate men."
 msgstr "절박한 자들을 위한 절박한 무기."
 
 #: script/events/setpieces.js:7496
+#: script/world.js:188
 msgid "A Destroyed Village"
 msgstr "파괴된 마을"
 
@@ -732,6 +750,7 @@ msgid "A Glass Wolf"
 msgstr "유리 늑대"
 
 #: script/events/setpieces.js:2123
+#: script/world.js:178
 msgid "A Glassed Crater"
 msgstr "유리화된 분화구"
 
@@ -1026,8 +1045,9 @@ msgid "a morphing projection of this room and this planet."
 msgstr "이 방과 이 행성의 변화하는 투영."
 
 #: script/events/setpieces.js:35
+#: script/world.js:175
 msgid "A Murky Swamp"
-msgstr "눅눅한 늪"
+msgstr "늪지대"
 
 #: script/events/encounters.js:1406
 msgid "A Mutant"
@@ -1150,6 +1170,7 @@ msgstr "북적북적한 마을"
 
 #: script/events/executioner.js:179
 #: script/events/executioner.js:685
+#: script/world.js:176
 msgid "A Ravaged Battleship"
 msgstr "파괴된 전함"
 
@@ -1210,8 +1231,9 @@ msgid "a round wing with no point. there is no point. nothing to gleam."
 msgstr "뾰족함이 없는 둥근 날개. 뾰족함은 없다. 반짝일 것도 없다."
 
 #: script/events/setpieces.js:4976
+#: script/world.js:170
 msgid "A Ruined City"
-msgstr "폐허 도시"
+msgstr "황폐한 도시"
 
 #: script/events/outside.js:6
 msgid "A Ruined Trap"
@@ -1357,6 +1379,7 @@ msgid "A Silent Forest"
 msgstr "침묵의 숲"
 
 #: script/events/setpieces.js:1759
+#: script/world.js:177
 msgid "A Silent Temple"
 msgstr "침묵의 신전"
 
@@ -1643,6 +1666,7 @@ msgid "a wanderer arrives with an empty cart. says if she leaves with furs, she'
 msgstr "빈 수레를 끌고 떠돌이가 나타난다. 모피를 주면 더 많은 모피를 가져온다고 한다."
 
 #: script/events/setpieces.js:2320
+#: script/world.js:184
 msgid "A Wanderer Lab"
 msgstr "나그네 연구소"
 
@@ -1686,54 +1710,6 @@ msgstr "작업대, 그 위에는 아주 오랫동안 손으로 작성해 온 기
 #: script/events/setpieces.js:6060
 msgid "a youth lashes out with a tree branch."
 msgstr "젊은이 하나가 나뭇가지를 휘두르며 나타난다."
-
-#: script/world.js:173
-msgid "A&nbsp;Battlefield"
-msgstr "전장"
-
-#: script/world.js:172
-msgid "A&nbsp;Borehole"
-msgstr "시추공"
-
-#: script/world.js:171
-msgid "A&nbsp;Crashed&nbsp;Starship"
-msgstr "추락한 우주선"
-
-#: script/world.js:182
-msgid "A&nbsp;Crowded&nbsp;Graveyard"
-msgstr "붐비는&nbsp;묘지"
-
-#: script/world.js:168
-msgid "A&nbsp;Damp&nbsp;Cave"
-msgstr "축축한 동굴"
-
-#: script/world.js:188
-msgid "A&nbsp;Destroyed&nbsp;Village"
-msgstr "파괴된 마을"
-
-#: script/world.js:178
-msgid "A&nbsp;Glassed&nbsp;Crater"
-msgstr "유리화된&nbsp;분화구"
-
-#: script/world.js:175
-msgid "A&nbsp;Murky&nbsp;Swamp"
-msgstr "늪지대"
-
-#: script/world.js:176
-msgid "A&nbsp;Ravaged&nbsp;Battleship"
-msgstr "파괴된&nbsp;전함"
-
-#: script/world.js:170
-msgid "A&nbsp;Ruined&nbsp;City"
-msgstr "황폐한 도시"
-
-#: script/world.js:177
-msgid "A&nbsp;Silent&nbsp;Temple"
-msgstr "침묵의&nbsp;신전"
-
-#: script/world.js:184
-msgid "A&nbsp;Wanderer&nbsp;Lab"
-msgstr "나그네&nbsp;연구소"
 
 #: script/events/setpieces.js:1777
 msgid "above the door there is a figure worked into the rock: three eyes, three ears, and no mouth at all."
@@ -1829,6 +1805,10 @@ msgstr "지금까지는 틀린 적이 없다."
 msgid "ambushed on the street."
 msgstr "거리에서 습격을 당한다."
 
+#: script/world.js:169
+msgid "An Abandoned Town"
+msgstr "버려진 마을"
+
 #: script/events/encounters.js:273
 msgid "An Alien Bird"
 msgstr "외계의 새"
@@ -1906,6 +1886,7 @@ msgid "an old case is wedged behind a rock, covered in a thick layer of dust."
 msgstr "두꺼운 먼지로 뒤덮인 낡은 상자가 바위 뒤에 끼어있다."
 
 #: script/events/setpieces.js:6845
+#: script/world.js:167
 msgid "An Old House"
 msgstr "오래된 집"
 
@@ -1926,6 +1907,7 @@ msgid "an old man bursts through a door, wielding a scalpel."
 msgstr "외과용 메스를 휘두르면서 늙은이가 문을 박차고 나온다."
 
 #: script/events/setpieces.js:2926
+#: script/world.js:179
 msgid "An Old Observatory"
 msgstr "오래된 관측소"
 
@@ -1959,6 +1941,7 @@ msgid "an operative waits in ambush around the corner."
 msgstr "요원이 모퉁이에서 매복해 기다리고 있다."
 
 #: script/events/setpieces.js:6
+#: script/world.js:163
 msgid "An Outpost"
 msgstr "전초 기지"
 
@@ -1973,22 +1956,6 @@ msgstr "짐마차가 자빠져서 엉망진창인 거리 주위에 널부러져 
 #: script/events/executioner.js:1130
 msgid "an unfinished automaton whirs to life."
 msgstr "미완성 자동기계가 윙 소리를 내며 깨어난다."
-
-#: script/world.js:169
-msgid "An&nbsp;Abandoned&nbsp;Town"
-msgstr "버려진 마을"
-
-#: script/world.js:167
-msgid "An&nbsp;Old&nbsp;House"
-msgstr "오래된 집"
-
-#: script/world.js:179
-msgid "An&nbsp;Old&nbsp;Observatory"
-msgstr "오래된&nbsp;관측소"
-
-#: script/world.js:163
-msgid "An&nbsp;Outpost"
-msgstr "전초 기지"
 
 #: script/events/executioner.js:543
 msgid "ancient beast"
@@ -3096,14 +3063,14 @@ msgstr "석탄"
 msgid "coal mine"
 msgstr "석탄 광산"
 
+#: script/world.js:165
+msgid "Coal Mine"
+msgstr "석탄 광산"
+
 #: script/localization.js:37
 #: script/outside.js:63
 msgid "coal miner"
 msgstr "석탄 광부"
-
-#: script/world.js:165
-msgid "Coal&nbsp;Mine"
-msgstr "석탄 광산"
 
 #: script/events/setpieces.js:495
 msgid "coil"
@@ -5134,6 +5101,10 @@ msgstr "철갑옷"
 msgid "iron mine"
 msgstr "철 광산"
 
+#: script/world.js:164
+msgid "Iron Mine"
+msgstr "철 광산"
+
 #: script/localization.js:35
 #: script/outside.js:55
 msgid "iron miner"
@@ -5147,10 +5118,6 @@ msgstr "철검"
 #: script/room.js:957
 msgid "iron's stronger than leather"
 msgstr "철은 가죽보다 튼튼하다"
-
-#: script/world.js:164
-msgid "Iron&nbsp;Mine"
-msgstr "철 광산"
 
 #: script/outside.js:1463
 msgid "is escape possible? somehow the land becomes even more bleak and unforgiving moving further from the fire. is this place some sort of exile?"
@@ -6415,8 +6382,8 @@ msgid "LOCKED"
 msgstr "잠김"
 
 #: script/world.js:183
-msgid "Locked-Down&nbsp;Prison"
-msgstr "봉쇄된&nbsp;감옥"
+msgid "Locked-Down Prison"
+msgstr "봉쇄된 감옥"
 
 #: script/room.js:267
 #: script/room.js:293
@@ -9577,14 +9544,14 @@ msgstr "유황"
 msgid "sulphur mine"
 msgstr "유황 광산"
 
+#: script/world.js:166
+msgid "Sulphur Mine"
+msgstr "유황 광산"
+
 #: script/localization.js:39
 #: script/outside.js:71
 msgid "sulphur miner"
 msgstr "유황 광부"
-
-#: script/world.js:166
-msgid "Sulphur&nbsp;Mine"
-msgstr "유황 광산"
 
 #: script/mobileUI.js:46
 msgid "supplies"
@@ -10336,6 +10303,7 @@ msgid "the compass points west"
 msgstr "나침반이 서쪽을 가리킨다"
 
 #: script/events/setpieces.js:3215
+#: script/world.js:181
 msgid "The Concordance"
 msgstr "조화체"
 
@@ -12473,6 +12441,7 @@ msgid "the stranger shivers, and mumbles quietly. her words are unintelligible."
 msgstr "여자는 부들부들 떨며 나지막이 중얼거린다. 무슨 말인지 알아들을 수 없다."
 
 #: script/events/setpieces.js:3108
+#: script/world.js:180
 msgid "The Strata"
 msgstr "지층"
 
@@ -12766,6 +12735,10 @@ msgstr "통기구는 여전히 근무 중인 누군가에 의해 지켜지고 �
 msgid "the village"
 msgstr "마을"
 
+#: script/world.js:1108
+msgid "The Village"
+msgstr "마을"
+
 #: script/events/room.js:1401
 #: script/events/room.js:1417
 msgid "the village answers it for six nights, in turns, reading the reply off a scrap of paper."
@@ -13047,18 +13020,6 @@ msgstr "그 난파선에서, 간신히, 살아남는다"
 #: script/events/setpieces.js:6507
 msgid "the young settler was carrying a canvas sack."
 msgstr "젊은 주민이 마대 자루를 지고 있었다."
-
-#: script/world.js:181
-msgid "The&nbsp;Concordance"
-msgstr "조화체"
-
-#: script/world.js:180
-msgid "The&nbsp;Strata"
-msgstr "지층"
-
-#: script/world.js:1108
-msgid "The&nbsp;Village"
-msgstr "마을"
 
 #: script/events/path.js:126
 msgid "their cloth has been mended forty or fifty times, in a lot of different thread."
@@ -14250,12 +14211,9 @@ msgid "under where the cup was sitting there is a flat stone with a scratch on i
 msgstr "컵이 놓여 있던 자리 아래에는 긁힌 자국이 있는 평평한 돌이 있다."
 
 #: script/events/setpieces.js:111
+#: script/world.js:174
 msgid "Underground Ruins"
 msgstr "지하 유적"
-
-#: script/world.js:174
-msgid "Underground&nbsp;Ruins"
-msgstr "지하&nbsp;유적"
 
 #: script/events/setpieces.js:3184
 msgid "unfold what is left of their kit"

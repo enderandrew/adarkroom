@@ -381,6 +381,10 @@ msgstr ""
 msgid "a battle was fought here, long ago."
 msgstr ""
 
+#: script/world.js:173
+msgid "A Battlefield"
+msgstr "Savaş Alanı"
+
 #: script/events/outside.js:448
 msgid "A Beast Attack"
 msgstr "Kocaman Bir Yaratık Saldırdı"
@@ -416,6 +420,10 @@ msgstr ""
 #: script/events/setpieces.js:2670
 msgid "a biohazard furnace, recently used"
 msgstr ""
+
+#: script/world.js:172
+msgid "A Borehole"
+msgstr "Domuz İni"
 
 #: script/events/room.js:183
 msgid "a bundle of sticks lies just beyond the threshold, wrapped in coarse furs."
@@ -537,8 +545,16 @@ msgstr ""
 msgid "A Crashed Ship"
 msgstr ""
 
+#: script/world.js:171
+msgid "A Crashed Starship"
+msgstr "Düşmüş Yıldız Gemisi"
+
 #: script/outside.js:806
 msgid "A Crowded Encampment"
+msgstr ""
+
+#: script/world.js:182
+msgid "A Crowded Graveyard"
 msgstr ""
 
 #: script/outside.js:127
@@ -579,8 +595,9 @@ msgid "a cyborg bear comes through the fence without appearing to notice the fen
 msgstr ""
 
 #: script/events/setpieces.js:3752
+#: script/world.js:168
 msgid "A Damp Cave"
-msgstr "Rutubetli bir Mağara"
+msgstr "Mağara"
 
 #: script/room.js:1558
 msgid "A Dark Room was written by Michael Townsend for Doublespeak Games in 2013. It is open-source."
@@ -600,8 +617,9 @@ msgid "a desperate weapon for desperate men."
 msgstr ""
 
 #: script/events/setpieces.js:7496
+#: script/world.js:188
 msgid "A Destroyed Village"
-msgstr "Modern Bir Köy"
+msgstr "Yıkık Köy"
 
 #: script/events/setpieces.js:7500
 msgid "a destroyed village lies in the dust."
@@ -702,7 +720,7 @@ msgstr ""
 
 #: script/events/setpieces.js:6963
 msgid "A Forgotten Battlefield"
-msgstr "Savaş&nbsp;Alanı"
+msgstr "Savaş Alanı"
 
 #: script/events/outside.js:918
 msgid "a foundation trench at the edge of the village turns up a marker stone, set upright and deliberate."
@@ -733,6 +751,7 @@ msgid "A Glass Wolf"
 msgstr ""
 
 #: script/events/setpieces.js:2123
+#: script/world.js:178
 msgid "A Glassed Crater"
 msgstr ""
 
@@ -818,7 +837,7 @@ msgstr ""
 
 #: script/events/setpieces.js:7017
 msgid "A Huge Borehole"
-msgstr "Domuz&nbsp;İni"
+msgstr "Domuz İni"
 
 #: script/events/setpieces.js:7021
 msgid "a huge hole is cut deep into the earth, evidence of the past harvest."
@@ -1027,8 +1046,9 @@ msgid "a morphing projection of this room and this planet."
 msgstr ""
 
 #: script/events/setpieces.js:35
+#: script/world.js:175
 msgid "A Murky Swamp"
-msgstr "Sisli Bir Bataklık"
+msgstr "Karanlık Bataklık"
 
 #: script/events/encounters.js:1406
 msgid "A Mutant"
@@ -1151,6 +1171,7 @@ msgstr "Gürültülü Bir Köy"
 
 #: script/events/executioner.js:179
 #: script/events/executioner.js:685
+#: script/world.js:176
 msgid "A Ravaged Battleship"
 msgstr ""
 
@@ -1211,8 +1232,9 @@ msgid "a round wing with no point. there is no point. nothing to gleam."
 msgstr ""
 
 #: script/events/setpieces.js:4976
+#: script/world.js:170
 msgid "A Ruined City"
-msgstr "Bozulmuş Tuzak"
+msgstr "Yıkık Şehir"
 
 #: script/events/outside.js:6
 msgid "A Ruined Trap"
@@ -1358,6 +1380,7 @@ msgid "A Silent Forest"
 msgstr "Sessiz bir Orman"
 
 #: script/events/setpieces.js:1759
+#: script/world.js:177
 msgid "A Silent Temple"
 msgstr ""
 
@@ -1644,6 +1667,7 @@ msgid "a wanderer arrives with an empty cart. says if she leaves with furs, she'
 msgstr "gezgin bir kadın boş bir at arabası ile çıkageldi. köyden kürk ile ayrılırsa daha fazlasıyla geri döneceğini dile getirdi."
 
 #: script/events/setpieces.js:2320
+#: script/world.js:184
 msgid "A Wanderer Lab"
 msgstr ""
 
@@ -1686,54 +1710,6 @@ msgstr ""
 
 #: script/events/setpieces.js:6060
 msgid "a youth lashes out with a tree branch."
-msgstr ""
-
-#: script/world.js:173
-msgid "A&nbsp;Battlefield"
-msgstr "Savaş&nbsp;Alanı"
-
-#: script/world.js:172
-msgid "A&nbsp;Borehole"
-msgstr "Domuz&nbsp;İni"
-
-#: script/world.js:171
-msgid "A&nbsp;Crashed&nbsp;Starship"
-msgstr "Düşmüş&nbsp;Yıldız&nbsp;Gemisi"
-
-#: script/world.js:182
-msgid "A&nbsp;Crowded&nbsp;Graveyard"
-msgstr ""
-
-#: script/world.js:168
-msgid "A&nbsp;Damp&nbsp;Cave"
-msgstr "Mağara"
-
-#: script/world.js:188
-msgid "A&nbsp;Destroyed&nbsp;Village"
-msgstr "Yıkık&nbsp;Köy"
-
-#: script/world.js:178
-msgid "A&nbsp;Glassed&nbsp;Crater"
-msgstr ""
-
-#: script/world.js:175
-msgid "A&nbsp;Murky&nbsp;Swamp"
-msgstr "Karanlık&nbsp;Bataklık"
-
-#: script/world.js:176
-msgid "A&nbsp;Ravaged&nbsp;Battleship"
-msgstr ""
-
-#: script/world.js:170
-msgid "A&nbsp;Ruined&nbsp;City"
-msgstr "Yıkık&nbsp;Şehir"
-
-#: script/world.js:177
-msgid "A&nbsp;Silent&nbsp;Temple"
-msgstr ""
-
-#: script/world.js:184
-msgid "A&nbsp;Wanderer&nbsp;Lab"
 msgstr ""
 
 #: script/events/setpieces.js:1777
@@ -1830,6 +1806,10 @@ msgstr ""
 msgid "ambushed on the street."
 msgstr "yolda tuzağa düşürüldün."
 
+#: script/world.js:169
+msgid "An Abandoned Town"
+msgstr "Terk Edilmiş Kent"
+
 #: script/events/encounters.js:273
 msgid "An Alien Bird"
 msgstr ""
@@ -1907,8 +1887,9 @@ msgid "an old case is wedged behind a rock, covered in a thick layer of dust."
 msgstr "kayanın arkasına, kalın bir toz tabakasıyla kaplı, eski bir çanta sıkıştırılmış."
 
 #: script/events/setpieces.js:6845
+#: script/world.js:167
 msgid "An Old House"
-msgstr "Eski bir ev"
+msgstr "Eski Bir Ev"
 
 #: script/events/setpieces.js:6849
 msgid "an old house remains here, once white siding yellowed and peeling."
@@ -1927,6 +1908,7 @@ msgid "an old man bursts through a door, wielding a scalpel."
 msgstr ""
 
 #: script/events/setpieces.js:2926
+#: script/world.js:179
 msgid "An Old Observatory"
 msgstr ""
 
@@ -1960,8 +1942,9 @@ msgid "an operative waits in ambush around the corner."
 msgstr ""
 
 #: script/events/setpieces.js:6
+#: script/world.js:163
 msgid "An Outpost"
-msgstr "Bir Karakol"
+msgstr "Karakol"
 
 #: script/outside.js:808
 msgid "An Overcrowded Ghetto"
@@ -1974,22 +1957,6 @@ msgstr ""
 #: script/events/executioner.js:1130
 msgid "an unfinished automaton whirs to life."
 msgstr ""
-
-#: script/world.js:169
-msgid "An&nbsp;Abandoned&nbsp;Town"
-msgstr "Terk&nbsp;Edilmiş&nbsp;Kent"
-
-#: script/world.js:167
-msgid "An&nbsp;Old&nbsp;House"
-msgstr "Eski&nbsp;Bir&nbsp;Ev"
-
-#: script/world.js:179
-msgid "An&nbsp;Old&nbsp;Observatory"
-msgstr ""
-
-#: script/world.js:163
-msgid "An&nbsp;Outpost"
-msgstr "Karakol"
 
 #: script/events/executioner.js:543
 msgid "ancient beast"
@@ -3097,14 +3064,14 @@ msgstr "kömür"
 msgid "coal mine"
 msgstr "kömür madeni"
 
+#: script/world.js:165
+msgid "Coal Mine"
+msgstr "Kömür Madeni"
+
 #: script/localization.js:37
 #: script/outside.js:63
 msgid "coal miner"
 msgstr "kömür madencisi"
-
-#: script/world.js:165
-msgid "Coal&nbsp;Mine"
-msgstr "Kömür&nbsp;Madeni"
 
 #: script/events/setpieces.js:495
 msgid "coil"
@@ -5135,6 +5102,10 @@ msgstr ""
 msgid "iron mine"
 msgstr "demir madeni"
 
+#: script/world.js:164
+msgid "Iron Mine"
+msgstr "Demir Madeni"
+
 #: script/localization.js:35
 #: script/outside.js:55
 msgid "iron miner"
@@ -5148,10 +5119,6 @@ msgstr "demir kılıç"
 #: script/room.js:957
 msgid "iron's stronger than leather"
 msgstr "demir, deriden daha güçlü"
-
-#: script/world.js:164
-msgid "Iron&nbsp;Mine"
-msgstr "Demir&nbsp;Madeni"
 
 #: script/outside.js:1463
 msgid "is escape possible? somehow the land becomes even more bleak and unforgiving moving further from the fire. is this place some sort of exile?"
@@ -6416,7 +6383,7 @@ msgid "LOCKED"
 msgstr ""
 
 #: script/world.js:183
-msgid "Locked-Down&nbsp;Prison"
+msgid "Locked-Down Prison"
 msgstr ""
 
 #: script/room.js:267
@@ -9578,14 +9545,14 @@ msgstr "sülfür"
 msgid "sulphur mine"
 msgstr "sülfür madeni"
 
+#: script/world.js:166
+msgid "Sulphur Mine"
+msgstr "Sülfür Madeni"
+
 #: script/localization.js:39
 #: script/outside.js:71
 msgid "sulphur miner"
 msgstr "sülfür madencisi"
-
-#: script/world.js:166
-msgid "Sulphur&nbsp;Mine"
-msgstr "Sülfür&nbsp;Madeni"
 
 #: script/mobileUI.js:46
 msgid "supplies"
@@ -10337,6 +10304,7 @@ msgid "the compass points west"
 msgstr "pusula batıyı gösteriyor."
 
 #: script/events/setpieces.js:3215
+#: script/world.js:181
 msgid "The Concordance"
 msgstr ""
 
@@ -12474,6 +12442,7 @@ msgid "the stranger shivers, and mumbles quietly. her words are unintelligible."
 msgstr "yabancı titriyor, tuhaf şeyler mırıldanıyor. anlamsız şeyler konuşuyor."
 
 #: script/events/setpieces.js:3108
+#: script/world.js:180
 msgid "The Strata"
 msgstr ""
 
@@ -12767,6 +12736,10 @@ msgstr ""
 msgid "the village"
 msgstr ""
 
+#: script/world.js:1108
+msgid "The Village"
+msgstr "Köy"
+
 #: script/events/room.js:1401
 #: script/events/room.js:1417
 msgid "the village answers it for six nights, in turns, reading the reply off a scrap of paper."
@@ -13048,18 +13021,6 @@ msgstr ""
 #: script/events/setpieces.js:6507
 msgid "the young settler was carrying a canvas sack."
 msgstr ""
-
-#: script/world.js:181
-msgid "The&nbsp;Concordance"
-msgstr ""
-
-#: script/world.js:180
-msgid "The&nbsp;Strata"
-msgstr ""
-
-#: script/world.js:1108
-msgid "The&nbsp;Village"
-msgstr "Köy"
 
 #: script/events/path.js:126
 msgid "their cloth has been mended forty or fifty times, in a lot of different thread."
@@ -14251,11 +14212,8 @@ msgid "under where the cup was sitting there is a flat stone with a scratch on i
 msgstr ""
 
 #: script/events/setpieces.js:111
-msgid "Underground Ruins"
-msgstr ""
-
 #: script/world.js:174
-msgid "Underground&nbsp;Ruins"
+msgid "Underground Ruins"
 msgstr ""
 
 #: script/events/setpieces.js:3184

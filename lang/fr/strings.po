@@ -382,6 +382,10 @@ msgstr "un large panneau cabossé monte la garde à l'entrée de la ville, seul 
 msgid "a battle was fought here, long ago."
 msgstr "on s'est battu ici, il y a bien longtemps."
 
+#: script/world.js:173
+msgid "A Battlefield"
+msgstr "Un champ de bataille"
+
 #: script/events/outside.js:448
 msgid "A Beast Attack"
 msgstr "Une attaque de bête"
@@ -417,6 +421,10 @@ msgstr "un établi essuyé. les outils y sont rangés par ordre de taille."
 #: script/events/setpieces.js:2670
 msgid "a biohazard furnace, recently used"
 msgstr "un four à risque biologique, utilisé récemment"
+
+#: script/world.js:172
+msgid "A Borehole"
+msgstr "Un forage"
 
 #: script/events/room.js:183
 msgid "a bundle of sticks lies just beyond the threshold, wrapped in coarse furs."
@@ -538,9 +546,17 @@ msgstr "un corridor part selon un angle qui ne correspond pas à l'escalier."
 msgid "A Crashed Ship"
 msgstr "Un Vaisseau Accidenté"
 
+#: script/world.js:171
+msgid "A Crashed Starship"
+msgstr "Un vaisseau spatial écrasé"
+
 #: script/outside.js:806
 msgid "A Crowded Encampment"
 msgstr "Un Campement Bondé"
+
+#: script/world.js:182
+msgid "A Crowded Graveyard"
+msgstr "Un Cimetière Bondé"
 
 #: script/outside.js:127
 #: script/outside.js:160
@@ -580,8 +596,9 @@ msgid "a cyborg bear comes through the fence without appearing to notice the fen
 msgstr "un ours cyborg traverse la clôture sans sembler remarquer la clôture."
 
 #: script/events/setpieces.js:3752
+#: script/world.js:168
 msgid "A Damp Cave"
-msgstr "Une grotte humide"
+msgstr "Une cave humide"
 
 #: script/room.js:1558
 msgid "A Dark Room was written by Michael Townsend for Doublespeak Games in 2013. It is open-source."
@@ -601,8 +618,9 @@ msgid "a desperate weapon for desperate men."
 msgstr "une arme désespérée pour des hommes désespérés."
 
 #: script/events/setpieces.js:7496
+#: script/world.js:188
 msgid "A Destroyed Village"
-msgstr "Un Village Détruit"
+msgstr "Un village détruit"
 
 #: script/events/setpieces.js:7500
 msgid "a destroyed village lies in the dust."
@@ -734,6 +752,7 @@ msgid "A Glass Wolf"
 msgstr "Un Loup de Verre"
 
 #: script/events/setpieces.js:2123
+#: script/world.js:178
 msgid "A Glassed Crater"
 msgstr "Un Cratère Vitrifié"
 
@@ -1028,6 +1047,7 @@ msgid "a morphing projection of this room and this planet."
 msgstr "une projection changeante de cette salle et de cette planète."
 
 #: script/events/setpieces.js:35
+#: script/world.js:175
 msgid "A Murky Swamp"
 msgstr "Un marais boueux"
 
@@ -1152,6 +1172,7 @@ msgstr "Un village bruyant"
 
 #: script/events/executioner.js:179
 #: script/events/executioner.js:685
+#: script/world.js:176
 msgid "A Ravaged Battleship"
 msgstr "Un Cuirassé Ravagé"
 
@@ -1212,8 +1233,9 @@ msgid "a round wing with no point. there is no point. nothing to gleam."
 msgstr "une aile ronde sans pointe. il n'y a pas de pointe. rien ne brille."
 
 #: script/events/setpieces.js:4976
+#: script/world.js:170
 msgid "A Ruined City"
-msgstr "Une Ville en Ruine"
+msgstr "Une ville en ruine"
 
 #: script/events/outside.js:6
 msgid "A Ruined Trap"
@@ -1359,6 +1381,7 @@ msgid "A Silent Forest"
 msgstr "Une forêt silencieuse"
 
 #: script/events/setpieces.js:1759
+#: script/world.js:177
 msgid "A Silent Temple"
 msgstr "Un Temple Silencieux"
 
@@ -1645,6 +1668,7 @@ msgid "a wanderer arrives with an empty cart. says if she leaves with furs, she'
 msgstr "une vagabonde arrive avec une charrette vide. elle dit que si elle peut emmener des fourrures, elle en ramènera encore plus."
 
 #: script/events/setpieces.js:2320
+#: script/world.js:184
 msgid "A Wanderer Lab"
 msgstr "Un Laboratoire de Vagabonds"
 
@@ -1688,54 +1712,6 @@ msgstr "un plan de travail, et dessus un journal tenu à la main depuis très lo
 #: script/events/setpieces.js:6060
 msgid "a youth lashes out with a tree branch."
 msgstr "un jeune déchaîné brandit une branche d'arbre."
-
-#: script/world.js:173
-msgid "A&nbsp;Battlefield"
-msgstr "Un&nbsp;champ&nbsp;de&nbsp;bataille"
-
-#: script/world.js:172
-msgid "A&nbsp;Borehole"
-msgstr "Un&nbsp;forage"
-
-#: script/world.js:171
-msgid "A&nbsp;Crashed&nbsp;Starship"
-msgstr "Un&nbsp;vaisseau&nbsp;spatial&nbsp;écrasé"
-
-#: script/world.js:182
-msgid "A&nbsp;Crowded&nbsp;Graveyard"
-msgstr "Un Cimetière Bondé"
-
-#: script/world.js:168
-msgid "A&nbsp;Damp&nbsp;Cave"
-msgstr "Une&nbsp;cave&nbsp;humide"
-
-#: script/world.js:188
-msgid "A&nbsp;Destroyed&nbsp;Village"
-msgstr "Un&nbsp;village&nbsp;détruit"
-
-#: script/world.js:178
-msgid "A&nbsp;Glassed&nbsp;Crater"
-msgstr "Un Cratère Vitrifié"
-
-#: script/world.js:175
-msgid "A&nbsp;Murky&nbsp;Swamp"
-msgstr "Un&nbsp;marais&nbsp;boueux"
-
-#: script/world.js:176
-msgid "A&nbsp;Ravaged&nbsp;Battleship"
-msgstr "Un Cuirassé Ravagé"
-
-#: script/world.js:170
-msgid "A&nbsp;Ruined&nbsp;City"
-msgstr "Une&nbsp;ville&nbsp;en&nbsp;ruine"
-
-#: script/world.js:177
-msgid "A&nbsp;Silent&nbsp;Temple"
-msgstr "Un Temple Silencieux"
-
-#: script/world.js:184
-msgid "A&nbsp;Wanderer&nbsp;Lab"
-msgstr "Un Laboratoire de Vagabonds"
 
 #: script/events/setpieces.js:1777
 msgid "above the door there is a figure worked into the rock: three eyes, three ears, and no mouth at all."
@@ -1831,6 +1807,10 @@ msgstr "ça a fonctionné jusqu'ici, en tous cas."
 msgid "ambushed on the street."
 msgstr "une embuscade dans la rue."
 
+#: script/world.js:169
+msgid "An Abandoned Town"
+msgstr "Une ville abandonnée"
+
 #: script/events/encounters.js:273
 msgid "An Alien Bird"
 msgstr "Un Oiseau Étrange"
@@ -1908,8 +1888,9 @@ msgid "an old case is wedged behind a rock, covered in a thick layer of dust."
 msgstr "une vieille valise est posée contre un rocher. elle est recouverte d'une épaisse couche de poussière."
 
 #: script/events/setpieces.js:6845
+#: script/world.js:167
 msgid "An Old House"
-msgstr "Une Vieille Maison"
+msgstr "Une vieille maison"
 
 #: script/events/setpieces.js:6849
 msgid "an old house remains here, once white siding yellowed and peeling."
@@ -1928,6 +1909,7 @@ msgid "an old man bursts through a door, wielding a scalpel."
 msgstr "un vieillard apparaît dans l'embrasure de la porte, un scalpel en main."
 
 #: script/events/setpieces.js:2926
+#: script/world.js:179
 msgid "An Old Observatory"
 msgstr "Un Vieil Observatoire"
 
@@ -1961,6 +1943,7 @@ msgid "an operative waits in ambush around the corner."
 msgstr "un agent attend en embuscade au coin."
 
 #: script/events/setpieces.js:6
+#: script/world.js:163
 msgid "An Outpost"
 msgstr "Un avant poste"
 
@@ -1975,22 +1958,6 @@ msgstr "une caravane renversée a déversé sa cargaison sur la route pavée."
 #: script/events/executioner.js:1130
 msgid "an unfinished automaton whirs to life."
 msgstr "un automate inachevé s'anime en ronronnant."
-
-#: script/world.js:169
-msgid "An&nbsp;Abandoned&nbsp;Town"
-msgstr "Une&nbsp;ville&nbsp;abandonnée"
-
-#: script/world.js:167
-msgid "An&nbsp;Old&nbsp;House"
-msgstr "Une&nbsp;vieille&nbsp;maison"
-
-#: script/world.js:179
-msgid "An&nbsp;Old&nbsp;Observatory"
-msgstr "Un Vieil Observatoire"
-
-#: script/world.js:163
-msgid "An&nbsp;Outpost"
-msgstr "Un&nbsp;avant&nbsp;poste"
 
 #: script/events/executioner.js:543
 msgid "ancient beast"
@@ -3098,14 +3065,14 @@ msgstr "charbon"
 msgid "coal mine"
 msgstr "mine de charbon"
 
+#: script/world.js:165
+msgid "Coal Mine"
+msgstr "Mine de charbon"
+
 #: script/localization.js:37
 #: script/outside.js:63
 msgid "coal miner"
 msgstr "mineur de charbon"
-
-#: script/world.js:165
-msgid "Coal&nbsp;Mine"
-msgstr "Mine&nbsp;de&nbsp;charbon"
 
 #: script/events/setpieces.js:495
 msgid "coil"
@@ -5136,6 +5103,10 @@ msgstr "armure de fer"
 msgid "iron mine"
 msgstr "mine de fer"
 
+#: script/world.js:164
+msgid "Iron Mine"
+msgstr "Mine&nbsp:de fer"
+
 #: script/localization.js:35
 #: script/outside.js:55
 msgid "iron miner"
@@ -5149,10 +5120,6 @@ msgstr "épée en fer"
 #: script/room.js:957
 msgid "iron's stronger than leather"
 msgstr "le fer est plus dur que le cuir"
-
-#: script/world.js:164
-msgid "Iron&nbsp;Mine"
-msgstr "Mine&nbsp:de&nbsp;fer"
 
 #: script/outside.js:1463
 msgid "is escape possible? somehow the land becomes even more bleak and unforgiving moving further from the fire. is this place some sort of exile?"
@@ -6417,7 +6384,7 @@ msgid "LOCKED"
 msgstr "VERROUILLÉ"
 
 #: script/world.js:183
-msgid "Locked-Down&nbsp;Prison"
+msgid "Locked-Down Prison"
 msgstr "Prison Verrouillée"
 
 #: script/room.js:267
@@ -9579,14 +9546,14 @@ msgstr "soufre"
 msgid "sulphur mine"
 msgstr "mine de soufre"
 
+#: script/world.js:166
+msgid "Sulphur Mine"
+msgstr "Mine de souffre"
+
 #: script/localization.js:39
 #: script/outside.js:71
 msgid "sulphur miner"
 msgstr "mineur de souffre"
-
-#: script/world.js:166
-msgid "Sulphur&nbsp;Mine"
-msgstr "Mine&nbsp;de&nbsp;souffre"
 
 #: script/mobileUI.js:46
 msgid "supplies"
@@ -10338,6 +10305,7 @@ msgid "the compass points west"
 msgstr "le boussole pointe vers l'ouest"
 
 #: script/events/setpieces.js:3215
+#: script/world.js:181
 msgid "The Concordance"
 msgstr "La Concordance"
 
@@ -12475,6 +12443,7 @@ msgid "the stranger shivers, and mumbles quietly. her words are unintelligible."
 msgstr "l'étrangère tremble, marmonne quelques mots. ses mots sont inintelligibles."
 
 #: script/events/setpieces.js:3108
+#: script/world.js:180
 msgid "The Strata"
 msgstr "Les Strates"
 
@@ -12768,6 +12737,10 @@ msgstr "le conduit est gardé par quelqu'un encore en service"
 msgid "the village"
 msgstr "le village"
 
+#: script/world.js:1108
+msgid "The Village"
+msgstr "Le village"
+
 #: script/events/room.js:1401
 #: script/events/room.js:1417
 msgid "the village answers it for six nights, in turns, reading the reply off a scrap of paper."
@@ -13049,18 +13022,6 @@ msgstr "on survit à l'épave, de justesse"
 #: script/events/setpieces.js:6507
 msgid "the young settler was carrying a canvas sack."
 msgstr "le jeune homme portait un sac en toile de jute."
-
-#: script/world.js:181
-msgid "The&nbsp;Concordance"
-msgstr "La Concordance"
-
-#: script/world.js:180
-msgid "The&nbsp;Strata"
-msgstr "Les Strates"
-
-#: script/world.js:1108
-msgid "The&nbsp;Village"
-msgstr "Le&nbsp;village"
 
 #: script/events/path.js:126
 msgid "their cloth has been mended forty or fifty times, in a lot of different thread."
@@ -14252,11 +14213,8 @@ msgid "under where the cup was sitting there is a flat stone with a scratch on i
 msgstr "là où reposait le gobelet se trouve une pierre plate avec une rayure dessus."
 
 #: script/events/setpieces.js:111
-msgid "Underground Ruins"
-msgstr "Ruines Souterraines"
-
 #: script/world.js:174
-msgid "Underground&nbsp;Ruins"
+msgid "Underground Ruins"
 msgstr "Ruines Souterraines"
 
 #: script/events/setpieces.js:3184

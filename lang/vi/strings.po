@@ -380,6 +380,10 @@ msgstr "một biển báo bị đập nát đứng canh ở lối vào thành ph
 msgid "a battle was fought here, long ago."
 msgstr "một trận chiến đã diễn ra ở đây, từ lâu rồi."
 
+#: script/world.js:173
+msgid "A Battlefield"
+msgstr "Chiến Trường"
+
 #: script/events/outside.js:448
 msgid "A Beast Attack"
 msgstr "Quái Thú Tấn Công"
@@ -415,6 +419,10 @@ msgstr ""
 #: script/events/setpieces.js:2670
 msgid "a biohazard furnace, recently used"
 msgstr ""
+
+#: script/world.js:172
+msgid "A Borehole"
+msgstr "Giếng Khoan"
 
 #: script/events/room.js:183
 msgid "a bundle of sticks lies just beyond the threshold, wrapped in coarse furs."
@@ -536,8 +544,16 @@ msgstr ""
 msgid "A Crashed Ship"
 msgstr "Một Chiếc Tàu Bị Đắm"
 
+#: script/world.js:171
+msgid "A Crashed Starship"
+msgstr "Đĩa Bay Gặp Nạn"
+
 #: script/outside.js:806
 msgid "A Crowded Encampment"
+msgstr ""
+
+#: script/world.js:182
+msgid "A Crowded Graveyard"
 msgstr ""
 
 #: script/outside.js:127
@@ -578,8 +594,9 @@ msgid "a cyborg bear comes through the fence without appearing to notice the fen
 msgstr ""
 
 #: script/events/setpieces.js:3752
+#: script/world.js:168
 msgid "A Damp Cave"
-msgstr "Hang Động Ẩm"
+msgstr "Hang Ẩm Ướt"
 
 #: script/room.js:1558
 msgid "A Dark Room was written by Michael Townsend for Doublespeak Games in 2013. It is open-source."
@@ -599,8 +616,9 @@ msgid "a desperate weapon for desperate men."
 msgstr ""
 
 #: script/events/setpieces.js:7496
+#: script/world.js:188
 msgid "A Destroyed Village"
-msgstr "Một Ngôi Làng Bị Phá Hủy"
+msgstr "Ngôi Làng Bị Hủy Diệt"
 
 #: script/events/setpieces.js:7500
 msgid "a destroyed village lies in the dust."
@@ -732,6 +750,7 @@ msgid "A Glass Wolf"
 msgstr ""
 
 #: script/events/setpieces.js:2123
+#: script/world.js:178
 msgid "A Glassed Crater"
 msgstr ""
 
@@ -1026,8 +1045,9 @@ msgid "a morphing projection of this room and this planet."
 msgstr ""
 
 #: script/events/setpieces.js:35
+#: script/world.js:175
 msgid "A Murky Swamp"
-msgstr "Đầm Lầy Tăm Tối"
+msgstr "Đầm Lầy Tối Tăm"
 
 #: script/events/encounters.js:1406
 msgid "A Mutant"
@@ -1150,6 +1170,7 @@ msgstr "Một Ngôi Làng Náo Nhiệt"
 
 #: script/events/executioner.js:179
 #: script/events/executioner.js:685
+#: script/world.js:176
 msgid "A Ravaged Battleship"
 msgstr ""
 
@@ -1210,8 +1231,9 @@ msgid "a round wing with no point. there is no point. nothing to gleam."
 msgstr ""
 
 #: script/events/setpieces.js:4976
+#: script/world.js:170
 msgid "A Ruined City"
-msgstr "Một Thành Phố Bị Phá"
+msgstr "Thành Phố Bị Phá Hủy"
 
 #: script/events/outside.js:6
 msgid "A Ruined Trap"
@@ -1357,6 +1379,7 @@ msgid "A Silent Forest"
 msgstr "Khu Rừng Yên Ắng"
 
 #: script/events/setpieces.js:1759
+#: script/world.js:177
 msgid "A Silent Temple"
 msgstr ""
 
@@ -1643,6 +1666,7 @@ msgid "a wanderer arrives with an empty cart. says if she leaves with furs, she'
 msgstr "một kẻ lang thang đến, với một chiếc củi gỗ trống hộc, nói rằng cho hắn một ít da, hắn sẽ quay lại với nhiều da hơn."
 
 #: script/events/setpieces.js:2320
+#: script/world.js:184
 msgid "A Wanderer Lab"
 msgstr ""
 
@@ -1686,54 +1710,6 @@ msgstr ""
 #: script/events/setpieces.js:6060
 msgid "a youth lashes out with a tree branch."
 msgstr "một thanh niên lao ra với một nhánh cây."
-
-#: script/world.js:173
-msgid "A&nbsp;Battlefield"
-msgstr "Chiến&nbsp;Trường"
-
-#: script/world.js:172
-msgid "A&nbsp;Borehole"
-msgstr "Giếng&nbsp;Khoan"
-
-#: script/world.js:171
-msgid "A&nbsp;Crashed&nbsp;Starship"
-msgstr "Đĩa&nbsp;Bay&nbsp;Gặp&nbsp;Nạn"
-
-#: script/world.js:182
-msgid "A&nbsp;Crowded&nbsp;Graveyard"
-msgstr ""
-
-#: script/world.js:168
-msgid "A&nbsp;Damp&nbsp;Cave"
-msgstr "Hang&nbsp;Ẩm&nbsp;Ướt"
-
-#: script/world.js:188
-msgid "A&nbsp;Destroyed&nbsp;Village"
-msgstr "Ngôi&nbsp;Làng&nbsp;Bị&nbsp;Hủy&nbsp;Diệt"
-
-#: script/world.js:178
-msgid "A&nbsp;Glassed&nbsp;Crater"
-msgstr ""
-
-#: script/world.js:175
-msgid "A&nbsp;Murky&nbsp;Swamp"
-msgstr "Đầm&nbsp;Lầy&nbsp;Tối&nbsp;Tăm"
-
-#: script/world.js:176
-msgid "A&nbsp;Ravaged&nbsp;Battleship"
-msgstr ""
-
-#: script/world.js:170
-msgid "A&nbsp;Ruined&nbsp;City"
-msgstr "Thành&nbsp;Phố&nbsp;Bị&nbsp;Phá&nbsp;Hủy"
-
-#: script/world.js:177
-msgid "A&nbsp;Silent&nbsp;Temple"
-msgstr ""
-
-#: script/world.js:184
-msgid "A&nbsp;Wanderer&nbsp;Lab"
-msgstr ""
 
 #: script/events/setpieces.js:1777
 msgid "above the door there is a figure worked into the rock: three eyes, three ears, and no mouth at all."
@@ -1829,6 +1805,10 @@ msgstr "ít nhất, luôn luôn làm việc."
 msgid "ambushed on the street."
 msgstr "phục kích trên đường phố."
 
+#: script/world.js:169
+msgid "An Abandoned Town"
+msgstr "Thành Phố Bỏ Hoang"
+
 #: script/events/encounters.js:273
 msgid "An Alien Bird"
 msgstr ""
@@ -1906,6 +1886,7 @@ msgid "an old case is wedged behind a rock, covered in a thick layer of dust."
 msgstr "một chiếc vali cũ được nằm sau một tảng đá, phủ một lớp bụi dày."
 
 #: script/events/setpieces.js:6845
+#: script/world.js:167
 msgid "An Old House"
 msgstr "Một Ngôi Nhà Cũ"
 
@@ -1926,6 +1907,7 @@ msgid "an old man bursts through a door, wielding a scalpel."
 msgstr "một ông già xông qua một cánh cửa, cầm một con dao."
 
 #: script/events/setpieces.js:2926
+#: script/world.js:179
 msgid "An Old Observatory"
 msgstr ""
 
@@ -1959,8 +1941,9 @@ msgid "an operative waits in ambush around the corner."
 msgstr ""
 
 #: script/events/setpieces.js:6
+#: script/world.js:163
 msgid "An Outpost"
-msgstr "Một Đồn Quan Sát"
+msgstr "Một Đồn Điền"
 
 #: script/outside.js:808
 msgid "An Overcrowded Ghetto"
@@ -1973,22 +1956,6 @@ msgstr "một đoàn caravan di chuyển trên các đường phố ."
 #: script/events/executioner.js:1130
 msgid "an unfinished automaton whirs to life."
 msgstr ""
-
-#: script/world.js:169
-msgid "An&nbsp;Abandoned&nbsp;Town"
-msgstr "Thành&nbsp;Phố&nbsp;Bỏ&nbsp;Hoang"
-
-#: script/world.js:167
-msgid "An&nbsp;Old&nbsp;House"
-msgstr "Một&nbsp;Ngôi&nbsp;Nhà&nbsp;Cũ"
-
-#: script/world.js:179
-msgid "An&nbsp;Old&nbsp;Observatory"
-msgstr ""
-
-#: script/world.js:163
-msgid "An&nbsp;Outpost"
-msgstr "Một&nbsp;Đồn&nbsp;Điền"
 
 #: script/events/executioner.js:543
 msgid "ancient beast"
@@ -3096,14 +3063,14 @@ msgstr "than"
 msgid "coal mine"
 msgstr "mỏ than"
 
+#: script/world.js:165
+msgid "Coal Mine"
+msgstr "Mỏ Than"
+
 #: script/localization.js:37
 #: script/outside.js:63
 msgid "coal miner"
 msgstr "thợ mỏ"
-
-#: script/world.js:165
-msgid "Coal&nbsp;Mine"
-msgstr "Mỏ&nbsp;Than"
 
 #: script/events/setpieces.js:495
 msgid "coil"
@@ -5134,6 +5101,10 @@ msgstr ""
 msgid "iron mine"
 msgstr "mỏ sắt"
 
+#: script/world.js:164
+msgid "Iron Mine"
+msgstr "Mỏ Sắt"
+
 #: script/localization.js:35
 #: script/outside.js:55
 msgid "iron miner"
@@ -5147,10 +5118,6 @@ msgstr "kiếm sắt"
 #: script/room.js:957
 msgid "iron's stronger than leather"
 msgstr "sắt đương nhiên phải cứng hơn da rồi"
-
-#: script/world.js:164
-msgid "Iron&nbsp;Mine"
-msgstr "Mỏ&nbsp;Sắt"
 
 #: script/outside.js:1463
 msgid "is escape possible? somehow the land becomes even more bleak and unforgiving moving further from the fire. is this place some sort of exile?"
@@ -6415,7 +6382,7 @@ msgid "LOCKED"
 msgstr ""
 
 #: script/world.js:183
-msgid "Locked-Down&nbsp;Prison"
+msgid "Locked-Down Prison"
 msgstr ""
 
 #: script/room.js:267
@@ -9577,14 +9544,14 @@ msgstr "lưu huỳnh"
 msgid "sulphur mine"
 msgstr "mỏ lưu huỳnh"
 
+#: script/world.js:166
+msgid "Sulphur Mine"
+msgstr "Mỏ Lưu Huỳnh"
+
 #: script/localization.js:39
 #: script/outside.js:71
 msgid "sulphur miner"
 msgstr "thợ mỏ"
-
-#: script/world.js:166
-msgid "Sulphur&nbsp;Mine"
-msgstr "Mỏ&nbsp;Lưu&nbsp;Huỳnh"
 
 #: script/mobileUI.js:46
 msgid "supplies"
@@ -10336,6 +10303,7 @@ msgid "the compass points west"
 msgstr "la bàn chỉ hướng tây"
 
 #: script/events/setpieces.js:3215
+#: script/world.js:181
 msgid "The Concordance"
 msgstr ""
 
@@ -12473,6 +12441,7 @@ msgid "the stranger shivers, and mumbles quietly. her words are unintelligible."
 msgstr "kẻ lạ mặt rùng mình và lầm bầm. cô ấy nói gì cũng không rõ."
 
 #: script/events/setpieces.js:3108
+#: script/world.js:180
 msgid "The Strata"
 msgstr ""
 
@@ -12766,6 +12735,10 @@ msgstr ""
 msgid "the village"
 msgstr ""
 
+#: script/world.js:1108
+msgid "The Village"
+msgstr "Ngôi Làng"
+
 #: script/events/room.js:1401
 #: script/events/room.js:1417
 msgid "the village answers it for six nights, in turns, reading the reply off a scrap of paper."
@@ -13047,18 +13020,6 @@ msgstr ""
 #: script/events/setpieces.js:6507
 msgid "the young settler was carrying a canvas sack."
 msgstr "người định cư trẻ bế một bao vải."
-
-#: script/world.js:181
-msgid "The&nbsp;Concordance"
-msgstr ""
-
-#: script/world.js:180
-msgid "The&nbsp;Strata"
-msgstr ""
-
-#: script/world.js:1108
-msgid "The&nbsp;Village"
-msgstr "Ngôi&nbsp;Làng"
 
 #: script/events/path.js:126
 msgid "their cloth has been mended forty or fifty times, in a lot of different thread."
@@ -14250,11 +14211,8 @@ msgid "under where the cup was sitting there is a flat stone with a scratch on i
 msgstr ""
 
 #: script/events/setpieces.js:111
-msgid "Underground Ruins"
-msgstr ""
-
 #: script/world.js:174
-msgid "Underground&nbsp;Ruins"
+msgid "Underground Ruins"
 msgstr ""
 
 #: script/events/setpieces.js:3184
