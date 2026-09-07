@@ -488,7 +488,7 @@ var Maze = {
 					else if(ch === '#') html += '<span class="maze-map-wall">#</span>';
 					else html += '<span class="maze-map-poi">' + ch + '</span>';
 				} else {
-					html += '&nbsp;';
+					html += ' ';
 				}
 			}
 			html += '\n';

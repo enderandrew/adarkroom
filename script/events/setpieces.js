@@ -3426,10 +3426,10 @@ Events.Setpieces = {
 			'handprints': {
 				text: [
 					_('your hands go up before you have decided to raise them.'),
-					_('not two. six. the placements are exact and they are nowhere near each other, and three of them are at heights you cannot reach.'),
-					_('you stand there with both palms flat on stone that has no markings on it, and you know -- the way you know your own name, which you do not -- that this is wrong. that it is supposed to be six. that it was never a lock at all, only a thing that could not be done alone.'),
-					_('the wall reads what is there and finds four fewer hands than it needs.'),
-					_('and then it opens anyway, because whatever is inside recognised you before the sensors did.')
+					_('not two. six. the placements are exact and designed for three humans to concur. a thing that could not be done alone.'),
+					_('they did not anticipate a wanderer race with six arms. after the cloning lab enough memory returns.'),
+					_('400 centuries ago you were here and opened this once before. your hands know the way.'),
+					_('the placement may not have been perfect, but whatever is inside recognised you before the sensors did.')
 				],
 				notification: _('the wall opens'),
 				onLoad: function() {

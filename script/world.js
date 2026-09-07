@@ -160,32 +160,32 @@ var World = {
 		World.TILE_PROBS[World.TILE.BARRENS] = 0.5;
 
 		// Setpiece definitions
-		World.LANDMARKS[World.TILE.OUTPOST] = { num: 1, minRadius: 21, maxRadius: 25, scene: 'outpost', label: _('An&nbsp;Outpost') };
-		World.LANDMARKS[World.TILE.IRON_MINE] = { num: 1, minRadius: 5, maxRadius: 5, scene: 'ironmine', label:  _('Iron&nbsp;Mine') };
-		World.LANDMARKS[World.TILE.COAL_MINE] = { num: 1, minRadius: 10, maxRadius: 10, scene: 'coalmine', label:  _('Coal&nbsp;Mine') };
-		World.LANDMARKS[World.TILE.SULPHUR_MINE] = { num: 1, minRadius: 20, maxRadius: 20, scene: 'sulphurmine', label:  _('Sulphur&nbsp;Mine') };
-		World.LANDMARKS[World.TILE.HOUSE] = { num: 13, minRadius: 0, maxRadius: World.RADIUS * 1.5, scene: 'house', label:  _('An&nbsp;Old&nbsp;House') };
-		World.LANDMARKS[World.TILE.CAVE] = { num: 6, minRadius: 3, maxRadius: 11, scene: 'cave', label:  _('A&nbsp;Damp&nbsp;Cave') };
-		World.LANDMARKS[World.TILE.TOWN] = { num: 10, minRadius: 10, maxRadius: 20, scene: 'town', label:  _('An&nbsp;Abandoned&nbsp;Town') };
-		World.LANDMARKS[World.TILE.CITY] = { num: 25, minRadius: 20, maxRadius: World.RADIUS * 1.5, scene: 'city', label:  _('A&nbsp;Ruined&nbsp;City') };
-		World.LANDMARKS[World.TILE.SHIP] = { num: 1, minRadius: 29, maxRadius: 29, scene: 'ship', label:  _('A&nbsp;Crashed&nbsp;Starship')};
-		World.LANDMARKS[World.TILE.BOREHOLE] = { num: 13, minRadius: 15, maxRadius: World.RADIUS * 1.5, scene: 'borehole', label:  _('A&nbsp;Borehole')};
-		World.LANDMARKS[World.TILE.BATTLEFIELD] = { num: 7, minRadius: 18, maxRadius: World.RADIUS * 1.5, scene: 'battlefield', label:  _('A&nbsp;Battlefield')};
-		World.LANDMARKS[World.TILE.RUINS] = { num: 6, minRadius: 28, maxRadius: World.RADIUS * 1.5, scene: 'ruins', label:  _('Underground&nbsp;Ruins')};
-		World.LANDMARKS[World.TILE.SWAMP] = { num: 1, minRadius: 15, maxRadius: World.RADIUS * 1.5, scene: 'swamp', label:  _('A&nbsp;Murky&nbsp;Swamp')};
-		World.LANDMARKS[World.TILE.EXECUTIONER] = { num: 1, minRadius: 30, maxRadius: 32, scene: 'executioner', 'label': _('A&nbsp;Ravaged&nbsp;Battleship')};
-		World.LANDMARKS[World.TILE.TEMPLE] = { num: 1, minRadius: 20, maxRadius: World.RADIUS * 2, scene: 'temple', 'label': _('A&nbsp;Silent&nbsp;Temple')};
-		World.LANDMARKS[World.TILE.CRATER] = { num: 1, minRadius: 22, maxRadius: 30, scene: 'crater', 'label': _('A&nbsp;Glassed&nbsp;Crater')};
-		World.LANDMARKS[World.TILE.OBSERVATORY] = { num: 1, minRadius: 28, maxRadius: 38, scene: 'observatory', 'label': _('An&nbsp;Old&nbsp;Observatory')};
-		World.LANDMARKS[World.TILE.STRATA] = { num: 1, minRadius: 16, maxRadius: 26, scene: 'strata', 'label': _('The&nbsp;Strata')};
-		World.LANDMARKS[World.TILE.CONCORDANCE] = { num: 1, minRadius: 30, maxRadius: 40, scene: 'concordance', 'label': _('The&nbsp;Concordance')};
-		World.LANDMARKS[World.TILE.GRAVEYARD] = { num: 1, minRadius: 26, maxRadius: 26, scene: 'graveyard', 'label': _('A&nbsp;Crowded&nbsp;Graveyard')};
-		World.LANDMARKS[World.TILE.PRISON] = { num: 1, minRadius: 30, maxRadius: 32, scene: 'prison', 'label': _('Locked-Down&nbsp;Prison')};
-		World.LANDMARKS[World.TILE.LAB] = { num: 1, minRadius: 25, maxRadius: 32, scene: 'lab', 'label': _('A&nbsp;Wanderer&nbsp;Lab')};
+		World.LANDMARKS[World.TILE.OUTPOST] = { num: 1, minRadius: 21, maxRadius: 25, scene: 'outpost', label: _('An Outpost') };
+		World.LANDMARKS[World.TILE.IRON_MINE] = { num: 1, minRadius: 5, maxRadius: 5, scene: 'ironmine', label:  _('Iron Mine') };
+		World.LANDMARKS[World.TILE.COAL_MINE] = { num: 1, minRadius: 10, maxRadius: 10, scene: 'coalmine', label:  _('Coal Mine') };
+		World.LANDMARKS[World.TILE.SULPHUR_MINE] = { num: 1, minRadius: 20, maxRadius: 20, scene: 'sulphurmine', label:  _('Sulphur Mine') };
+		World.LANDMARKS[World.TILE.HOUSE] = { num: 13, minRadius: 0, maxRadius: World.RADIUS * 1.5, scene: 'house', label:  _('An Old House') };
+		World.LANDMARKS[World.TILE.CAVE] = { num: 6, minRadius: 3, maxRadius: 11, scene: 'cave', label:  _('A Damp Cave') };
+		World.LANDMARKS[World.TILE.TOWN] = { num: 10, minRadius: 10, maxRadius: 20, scene: 'town', label:  _('An Abandoned Town') };
+		World.LANDMARKS[World.TILE.CITY] = { num: 25, minRadius: 20, maxRadius: World.RADIUS * 1.5, scene: 'city', label:  _('A Ruined City') };
+		World.LANDMARKS[World.TILE.SHIP] = { num: 1, minRadius: 29, maxRadius: 29, scene: 'ship', label:  _('A Crashed Starship')};
+		World.LANDMARKS[World.TILE.BOREHOLE] = { num: 13, minRadius: 15, maxRadius: World.RADIUS * 1.5, scene: 'borehole', label:  _('A Borehole')};
+		World.LANDMARKS[World.TILE.BATTLEFIELD] = { num: 7, minRadius: 18, maxRadius: World.RADIUS * 1.5, scene: 'battlefield', label:  _('A Battlefield')};
+		World.LANDMARKS[World.TILE.RUINS] = { num: 6, minRadius: 28, maxRadius: World.RADIUS * 1.5, scene: 'ruins', label:  _('Underground Ruins')};
+		World.LANDMARKS[World.TILE.SWAMP] = { num: 1, minRadius: 15, maxRadius: World.RADIUS * 1.5, scene: 'swamp', label:  _('A Murky Swamp')};
+		World.LANDMARKS[World.TILE.EXECUTIONER] = { num: 1, minRadius: 30, maxRadius: 32, scene: 'executioner', 'label': _('A Ravaged Battleship')};
+		World.LANDMARKS[World.TILE.TEMPLE] = { num: 1, minRadius: 20, maxRadius: World.RADIUS * 2, scene: 'temple', 'label': _('A Silent Temple')};
+		World.LANDMARKS[World.TILE.CRATER] = { num: 1, minRadius: 22, maxRadius: 30, scene: 'crater', 'label': _('A Glassed Crater')};
+		World.LANDMARKS[World.TILE.OBSERVATORY] = { num: 1, minRadius: 28, maxRadius: 38, scene: 'observatory', 'label': _('An Old Observatory')};
+		World.LANDMARKS[World.TILE.STRATA] = { num: 1, minRadius: 16, maxRadius: 26, scene: 'strata', 'label': _('The Strata')};
+		World.LANDMARKS[World.TILE.CONCORDANCE] = { num: 1, minRadius: 30, maxRadius: 40, scene: 'concordance', 'label': _('The Concordance')};
+		World.LANDMARKS[World.TILE.GRAVEYARD] = { num: 1, minRadius: 26, maxRadius: 26, scene: 'graveyard', 'label': _('A Crowded Graveyard')};
+		World.LANDMARKS[World.TILE.PRISON] = { num: 1, minRadius: 30, maxRadius: 32, scene: 'prison', 'label': _('Locked-Down Prison')};
+		World.LANDMARKS[World.TILE.LAB] = { num: 1, minRadius: 25, maxRadius: 32, scene: 'lab', 'label': _('A Wanderer Lab')};
 
 		// Only add the cache if there is prestige data
 		if($SM.get('previous.stores')) {
-			World.LANDMARKS[World.TILE.CACHE] = { num: 1, minRadius: 10, maxRadius: World.RADIUS * 1.5, scene: 'cache', label:  _('A&nbsp;Destroyed&nbsp;Village')};
+			World.LANDMARKS[World.TILE.CACHE] = { num: 1, minRadius: 10, maxRadius: World.RADIUS * 1.5, scene: 'cache', label:  _('A Destroyed Village')};
 		}
 
 		if(typeof $SM.get('features.location.world') == 'undefined') {
@@ -1105,7 +1105,7 @@ var World = {
 					var c = World.state.map[i][j];
 					switch(c) {
 						case World.TILE.VILLAGE:
-							mapString += '<span class="landmark">' + c + '<div class="tooltip' + ttClass + '">'+_('The&nbsp;Village')+'</div></span>';
+							mapString += '<span class="landmark">' + c + '<div class="tooltip' + ttClass + '">'+_('The Village')+'</div></span>';
 							break;
 						default:
 							if(typeof World.LANDMARKS[c] != 'undefined' && (c != World.TILE.OUTPOST || !World.outpostUsed(i, j))) {
@@ -1119,7 +1119,7 @@ var World = {
 							break;
 					}
 				} else {
-					mapString += '&nbsp;';
+					mapString += ' ';
 				}
 			}
 			mapString += '<br/>';

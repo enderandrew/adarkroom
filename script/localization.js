@@ -69,7 +69,16 @@
 		_('the compass points northeast'),
 		_('the compass points northwest'),
 		_('the compass points southeast'),
-		_('the compass points southwest')
+		_('the compass points southwest'),
+		_('fleet beacon'),
+		_('disruptor blueprint'),
+		_('glowstone blueprint'),
+		_('hazard suit blueprint'),
+		_('hypo blueprint'),
+		_('kinetic armour blueprint'),
+		_('plasma rifle blueprint'),
+		_('recycler blueprint'),
+		_('stim blueprint')
 	]; 
 
 	_keywords = null;

@@ -99,32 +99,40 @@ var Space = {
 			Space.fireLaser();
 		});
 		
-		// Touch / Mobile controls
+		// Unified Pointer Controls (handles mouse drag, touch drag, and taps)
 		Space.isDragging = false;
-		Space.lastTouchX = null;
-		Space.lastTouchY = null;
-		Space.touchStartX = null;
-		Space.touchStartY = null;
-		
+		Space.lastPointerX = null;
+		Space.lastPointerY = null;
+		Space.pointerStartX = null;
+		Space.pointerStartY = null;
+		Space.pointerStartTime = 0;
+
 		var $space = $('#spacePanel');
-		
-		$space.on('touchstart.space_touch', function(e) {
-			var touch = e.originalEvent.touches[0];
+
+		$space.on('pointerdown.space_control', function(e) {
+			if (e.button && e.button !== 0) return; // Only respond to primary click/touch
+
 			Space.isDragging = true;
-			Space.lastTouchX = touch.clientX;
-			Space.lastTouchY = touch.clientY;
-			Space.touchStartX = touch.clientX;
-			Space.touchStartY = touch.clientY;
-			Space.touchStartTime = Date.now();
+			Space.lastPointerX = e.clientX;
+			Space.lastPointerY = e.clientY;
+			Space.pointerStartX = e.clientX;
+			Space.pointerStartY = e.clientY;
+			Space.pointerStartTime = Date.now();
+
+			// Capture pointer so fast drags outside the panel don't lose tracking
+			if (e.target && typeof e.target.setPointerCapture === 'function') {
+				try {
+					e.target.setPointerCapture(e.pointerId);
+				} catch(err) {}
+			}
 		});
-		
-		$space.on('touchmove.space_touch', function(e) {
+
+		$space.on('pointermove.space_control', function(e) {
 			if (!Space.isDragging || Space.done) return;
 			e.preventDefault();
 
-			var touch = e.originalEvent.touches[0];
-			var dx = touch.clientX - Space.lastTouchX;
-			var dy = touch.clientY - Space.lastTouchY;
+			var dx = e.clientX - Space.lastPointerX;
+			var dy = e.clientY - Space.lastPointerY;
 
 			var maxW = Space.getViewWidth() - 10;
 			var maxH = Space.getViewHeight() - 10;
@@ -138,20 +146,25 @@ var Space = {
 				top: Space.shipY + 'px'
 			});
 
-			Space.lastTouchX = touch.clientX;
-			Space.lastTouchY = touch.clientY;
+			Space.lastPointerX = e.clientX;
+			Space.lastPointerY = e.clientY;
 		});
-		
-		$space.on('touchend.space_touch touchcancel.space_touch', function(e) {
+
+		$space.on('pointerup.space_control pointercancel.space_control', function(e) {
 			if (!Space.isDragging) return;
 			Space.isDragging = false;
-		
-			// If movement was less than 8px and quick (<250ms), register as a tap to fire lasers
-			var touch = e.originalEvent.changedTouches[0];
-			var dist = Math.hypot(touch.clientX - Space.touchStartX, touch.clientY - Space.touchStartY);
-			var elapsed = Date.now() - Space.touchStartTime;
-		
-			if (dist < 8 && elapsed < 250) {
+
+			if (e.target && typeof e.target.releasePointerCapture === 'function') {
+				try {
+					e.target.releasePointerCapture(e.pointerId);
+				} catch(err) {}
+			}
+
+			// If movement was quick (<300ms) and short (<10px), treat as tap/click to fire laser
+			var dist = Math.hypot(e.clientX - Space.pointerStartX, e.clientY - Space.pointerStartY);
+			var elapsed = Date.now() - Space.pointerStartTime;
+
+			if (dist < 10 && elapsed < 300) {
 				Space.fireLaser();
 			}
 		});
@@ -432,22 +445,24 @@ var Space = {
 			dx *= dt / 33;
 			dy *= dt / 33;
 		}
-		
-		x = x + dx;
-		y = y + dy;
-		var maxW = Space.getViewWidth() - 10;
-		var maxH = Space.getViewHeight() - 10;
 
-		if(x < 10) x = 10; else if(x > maxW) x = maxW;
-		if(y < 10) y = 10; else if(y > maxH) y = maxH;
-		
-		Space.shipX = x;
-		Space.shipY = y;
-		
-		Space.ship.css({
-			left: x + 'px',
-			top: y + 'px'
-		});
+		if (dx !== 0 || dy !== 0) {
+			var x = (Space.shipX || 350) + dx;
+			var y = (Space.shipY || 350) + dy;
+			var maxW = Space.getViewWidth() - 10;
+			var maxH = Space.getViewHeight() - 10;
+
+			if(x < 10) x = 10; else if(x > maxW) x = maxW;
+			if(y < 10) y = 10; else if(y > maxH) y = maxH;
+			
+			Space.shipX = x;
+			Space.shipY = y;
+			
+			Space.ship.css({
+				left: x + 'px',
+				top: y + 'px'
+			});
+		}
 		
 		Space.lastMove = Date.now();
 	},
@@ -662,6 +677,7 @@ var Space = {
 		AudioEngine.playSound(AudioLibrary.CRASH);
 		clearInterval(Space._volumeTimer);
 		$(document).off('.space_laser');
+		$('#spacePanel').off('.space_control');
 		$('#spacePanel').off('.space_laser');
 
 		// Correct module object passed to MobileUI
@@ -686,6 +702,7 @@ var Space = {
 		clearTimeout(Room._fireTimer);
 		clearTimeout(Room._tempTimer);
 		$(document).off('.space_laser');
+		$('#spacePanel').off('.space_control');
 		$('#spacePanel').off('.space_laser');
 		for(var j in Room.Craftables) {
 			Room.Craftables[j].button = null;
