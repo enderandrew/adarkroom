@@ -348,6 +348,10 @@ msgstr "3 health potion"
 msgid "300 wood, paid up front"
 msgstr "300 deadfall, paid up front"
 
+#: script/events/setpieces.js:3431
+msgid "400 centuries ago you were here and opened this once before. your hands know the way."
+msgstr "400 centuries ago you were here and opened this once before. your hands know the way."
+
 #: script/events/room.js:476
 msgid "500 wood, paid on completion"
 msgstr "500 deadfall, paid on completion"
@@ -2005,10 +2009,6 @@ msgstr "and then it is gone, and you are holding four flat faces and you cannot 
 msgid "and then it is gone, and your hand closes on it, and you are shaking and cannot immediately say why."
 msgstr "and then it is gone, and your hand closes on it, and you are shaking and cannot immediately say why."
 
-#: script/events/setpieces.js:3432
-msgid "and then it opens anyway, because whatever is inside recognised you before the sensors did."
-msgstr "and then it opens anyway, because whatever is inside recognised you before the sensors did."
-
 #: script/events/setpieces.js:2746
 msgid "and then the row of you. the row of you goes on past where the lights end."
 msgstr "and then the row of you. the row of you goes on past where the lights end."
@@ -3510,6 +3510,10 @@ msgstr "disposal. disposal. disposal. the entries run for pages, and the interva
 msgid "disruptor"
 msgstr "staff of static"
 
+#: script/localization.js:74
+msgid "disruptor blueprint"
+msgstr "disruptor blueprint"
+
 #: script/distress.js:124
 #: script/engine.js:207
 msgid "distress off."
@@ -3964,6 +3968,10 @@ msgstr "flanking pair"
 msgid "flare"
 msgstr "flare"
 
+#: script/localization.js:73
+msgid "fleet beacon"
+msgstr "wyrm-calling horn"
+
 #: script/room.js:1490
 msgid "flickering"
 msgstr "sputtering"
@@ -4246,6 +4254,10 @@ msgstr "glass wolves come down off the ridge, four of them, moving the way water
 #: script/fabricator.js:135
 msgid "glow stone"
 msgstr "glow stone"
+
+#: script/localization.js:75
+msgid "glowstone blueprint"
+msgstr "glowstone blueprint"
 
 #: script/prison.js:221
 msgid "glyphs in every tongue: peace through equity. equity through consistency."
@@ -4602,6 +4614,10 @@ msgstr "hardcore."
 msgid "hazard suit"
 msgstr "dragonscale oilskins"
 
+#: script/localization.js:76
+msgid "hazard suit blueprint"
+msgstr "hazard suit blueprint"
+
 #: script/events/road.js:938
 msgid "he arrives at dusk, alone, in armour that was very good once and has not been repaired in living memory."
 msgstr "he arrives at dusk, alone, in armour that was very good once and has not been repaired in living memory."
@@ -4954,6 +4970,10 @@ msgstr "agile."
 #: script/fabricator.js:54
 msgid "hypo"
 msgstr "hypo"
+
+#: script/localization.js:77
+msgid "hypo blueprint"
+msgstr "hypo blueprint"
 
 #: script/room.js:954
 msgid "i armour"
@@ -5808,6 +5828,10 @@ msgstr "kinetic"
 #: script/fabricator.js:35
 msgid "kinetic armour"
 msgstr "kinetic armour"
+
+#: script/localization.js:78
+msgid "kinetic armour blueprint"
+msgstr "kinetic armour blueprint"
 
 #: script/events/encounters.js:813
 #: script/events/setpieces.js:6167
@@ -7037,8 +7061,8 @@ msgid "not somebody like you. you. the same hands. the same set to the jaw. the 
 msgstr "not somebody like you. you. the same hands. the same set to the jaw. the scar you have had as long as you can remember, already there on a body that has never been outside that glass."
 
 #: script/events/setpieces.js:3429
-msgid "not two. six. the placements are exact and they are nowhere near each other, and three of them are at heights you cannot reach."
-msgstr "not two. six. the placements are exact and they are nowhere near each other, and three of them are at heights you cannot reach."
+msgid "not two. six. the placements are exact and designed for three humans to concur. a thing that could not be done alone."
+msgstr "not two. six. the placements are exact and designed for three humans to concur. a thing that could not be done alone."
 
 #: script/events/road.js:904
 msgid "note where it is and move on"
@@ -7537,6 +7561,10 @@ msgstr "plague meddyg brings deadly precision from a deadly premonition."
 msgid "plasma rifle"
 msgstr "magic boomstick"
 
+#: script/localization.js:79
+msgid "plasma rifle blueprint"
+msgstr "plasma rifle blueprint"
+
 #: script/events/setpieces.js:1242
 msgid "plates parting"
 msgstr "plates parting"
@@ -7702,6 +7730,10 @@ msgstr "Ready to Clear Off?"
 #: script/events/setpieces.js:1565
 msgid "reasserting"
 msgstr "reasserting"
+
+#: script/localization.js:80
+msgid "recycler blueprint"
+msgstr "recycler blueprint"
 
 #: script/engine.js:867
 msgid "reddit"
@@ -9435,11 +9467,15 @@ msgstr "still, was it worth more than a life?"
 
 #: script/fabricator.js:17
 msgid "stillsuit"
-msgstr "stillsuit"
+msgstr "wee-drinking-suit"
 
 #: script/fabricator.js:64
 msgid "stim"
 msgstr "stim"
+
+#: script/localization.js:81
+msgid "stim blueprint"
+msgstr "stim blueprint"
 
 #: script/events/setpieces.js:6224
 msgid "stinging"
@@ -11843,6 +11879,10 @@ msgstr "the pile is not a marker. it is a tally of trips that ended here."
 msgid "the place has been swept clean by scavengers."
 msgstr "the place has been swept clean by sheep-shaggers."
 
+#: script/events/setpieces.js:3432
+msgid "the placement may not have been perfect, but whatever is inside recognised you before the sensors did."
+msgstr "the placement may not have been perfect, but whatever is inside recognised you before the sensors did."
+
 #: script/events/outside.js:394
 msgid "the plague is halted, but not everywhere"
 msgstr "the plague is halted, but not everywhere"
@@ -12798,10 +12838,6 @@ msgstr "the walker is brought round"
 msgid "the wall opens"
 msgstr "the wall opens"
 
-#: script/events/setpieces.js:3431
-msgid "the wall reads what is there and finds four fewer hands than it needs."
-msgstr "the wall reads what is there and finds four fewer hands than it needs."
-
 #: script/events/setpieces.js:125
 msgid "the walls are a single piece. no joins, no courses, no tool marks, and no wear where ten thousand years of feet should have worn them."
 msgstr "the walls are a single piece. no joins, no courses, no tool marks, and no wear where ten thousand years of feet should have worn them."
@@ -13615,6 +13651,10 @@ msgstr "they come back before the month is out, and they bring more of themselve
 #: script/events/room.js:1733
 msgid "they decide against it"
 msgstr "they decide against it"
+
+#: script/events/setpieces.js:3430
+msgid "they did not anticipate a wanderer race with six arms. after the cloning lab enough memory returns."
+msgstr "they did not anticipate a ranger race with six arms. after the alchemist's lean-to enough memory returns."
 
 #: script/events/setpieces.js:3280
 msgid "they did not fail. they were doing the hardest thing anybody on this rock ever managed and they were still doing it when the wars reached them."
@@ -14962,10 +15002,6 @@ msgstr "you should know how to do this. you are certain you should know how to d
 msgid "you stand in the light where the shape of you is unambiguous, and you do not say anything."
 msgstr "you stand in the light where the shape of you is unambiguous, and you do not say anything."
 
-#: script/events/setpieces.js:3430
-msgid "you stand there with both palms flat on stone that has no markings on it, and you know -- the way you know your own name, which you do not -- that this is wrong. that it is supposed to be six. that it was never a lock at all, only a thing that could not be done alone."
-msgstr "you stand there with both palms flat on stone that has no markings on it, and you know -- the way you know your own name, which you do not -- that this is wrong. that it is supposed to be six. that it was never a lock at all, only a thing that could not be done alone."
-
 #: script/events/setpieces.js:3738
 msgid "you take it with gloves on"
 msgstr "you take it with your gloves equipped"
@@ -15238,3 +15274,15 @@ msgstr "ⰑⰖⰔⱂⰃⰠ2ⰉⰉ Ⱀⱂ ⰄⰀ ⰒⰑⰆⰉ me2Ⱐ ⰄⰀ Ⰲ�
 
 #~ msgid "hull:"
 #~ msgstr "strength:"
+
+#~ msgid "and then it opens anyway, because whatever is inside recognised you before the sensors did."
+#~ msgstr "and then it opens anyway, because whatever is inside recognised you before the sensors did."
+
+#~ msgid "not two. six. the placements are exact and they are nowhere near each other, and three of them are at heights you cannot reach."
+#~ msgstr "not two. six. the placements are exact and they are nowhere near each other, and three of them are at heights you cannot reach."
+
+#~ msgid "the wall reads what is there and finds four fewer hands than it needs."
+#~ msgstr "the wall reads what is there and finds four fewer hands than it needs."
+
+#~ msgid "you stand there with both palms flat on stone that has no markings on it, and you know -- the way you know your own name, which you do not -- that this is wrong. that it is supposed to be six. that it was never a lock at all, only a thing that could not be done alone."
+#~ msgstr "you stand there with both palms flat on stone that has no markings on it, and you know -- the way you know your own name, which you do not -- that this is wrong. that it is supposed to be six. that it was never a lock at all, only a thing that could not be done alone."

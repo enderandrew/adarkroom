@@ -348,6 +348,10 @@ msgstr ""
 msgid "300 wood, paid up front"
 msgstr ""
 
+#: script/events/setpieces.js:3431
+msgid "400 centuries ago you were here and opened this once before. your hands know the way."
+msgstr ""
+
 #: script/events/room.js:476
 msgid "500 wood, paid on completion"
 msgstr ""
@@ -2005,10 +2009,6 @@ msgstr ""
 msgid "and then it is gone, and your hand closes on it, and you are shaking and cannot immediately say why."
 msgstr ""
 
-#: script/events/setpieces.js:3432
-msgid "and then it opens anyway, because whatever is inside recognised you before the sensors did."
-msgstr ""
-
 #: script/events/setpieces.js:2746
 msgid "and then the row of you. the row of you goes on past where the lights end."
 msgstr ""
@@ -3510,6 +3510,10 @@ msgstr ""
 msgid "disruptor"
 msgstr ""
 
+#: script/localization.js:74
+msgid "disruptor blueprint"
+msgstr ""
+
 #: script/distress.js:124
 #: script/engine.js:207
 msgid "distress off."
@@ -3964,6 +3968,10 @@ msgstr ""
 msgid "flare"
 msgstr ""
 
+#: script/localization.js:73
+msgid "fleet beacon"
+msgstr ""
+
 #: script/room.js:1490
 msgid "flickering"
 msgstr "dzirksteļojošs"
@@ -4245,6 +4253,10 @@ msgstr ""
 
 #: script/fabricator.js:135
 msgid "glow stone"
+msgstr ""
+
+#: script/localization.js:75
+msgid "glowstone blueprint"
 msgstr ""
 
 #: script/prison.js:221
@@ -4602,6 +4614,10 @@ msgstr ""
 msgid "hazard suit"
 msgstr ""
 
+#: script/localization.js:76
+msgid "hazard suit blueprint"
+msgstr ""
+
 #: script/events/road.js:938
 msgid "he arrives at dusk, alone, in armour that was very good once and has not been repaired in living memory."
 msgstr ""
@@ -4953,6 +4969,10 @@ msgstr "hiperātrums."
 
 #: script/fabricator.js:54
 msgid "hypo"
+msgstr ""
+
+#: script/localization.js:77
+msgid "hypo blueprint"
 msgstr ""
 
 #: script/room.js:954
@@ -5807,6 +5827,10 @@ msgstr ""
 
 #: script/fabricator.js:35
 msgid "kinetic armour"
+msgstr ""
+
+#: script/localization.js:78
+msgid "kinetic armour blueprint"
 msgstr ""
 
 #: script/events/encounters.js:813
@@ -7037,7 +7061,7 @@ msgid "not somebody like you. you. the same hands. the same set to the jaw. the 
 msgstr ""
 
 #: script/events/setpieces.js:3429
-msgid "not two. six. the placements are exact and they are nowhere near each other, and three of them are at heights you cannot reach."
+msgid "not two. six. the placements are exact and designed for three humans to concur. a thing that could not be done alone."
 msgstr ""
 
 #: script/events/road.js:904
@@ -7537,6 +7561,10 @@ msgstr ""
 msgid "plasma rifle"
 msgstr ""
 
+#: script/localization.js:79
+msgid "plasma rifle blueprint"
+msgstr ""
+
 #: script/events/setpieces.js:1242
 msgid "plates parting"
 msgstr ""
@@ -7701,6 +7729,10 @@ msgstr "Gatavi Ceļam?"
 
 #: script/events/setpieces.js:1565
 msgid "reasserting"
+msgstr ""
+
+#: script/localization.js:80
+msgid "recycler blueprint"
 msgstr ""
 
 #: script/engine.js:867
@@ -9439,6 +9471,10 @@ msgstr ""
 
 #: script/fabricator.js:64
 msgid "stim"
+msgstr ""
+
+#: script/localization.js:81
+msgid "stim blueprint"
 msgstr ""
 
 #: script/events/setpieces.js:6224
@@ -11843,6 +11879,10 @@ msgstr ""
 msgid "the place has been swept clean by scavengers."
 msgstr "sirotāji šo vietu iztīrījuši tukšu."
 
+#: script/events/setpieces.js:3432
+msgid "the placement may not have been perfect, but whatever is inside recognised you before the sensors did."
+msgstr ""
+
 #: script/events/outside.js:394
 msgid "the plague is halted, but not everywhere"
 msgstr ""
@@ -12798,10 +12838,6 @@ msgstr ""
 msgid "the wall opens"
 msgstr ""
 
-#: script/events/setpieces.js:3431
-msgid "the wall reads what is there and finds four fewer hands than it needs."
-msgstr ""
-
 #: script/events/setpieces.js:125
 msgid "the walls are a single piece. no joins, no courses, no tool marks, and no wear where ten thousand years of feet should have worn them."
 msgstr ""
@@ -13614,6 +13650,10 @@ msgstr ""
 
 #: script/events/room.js:1733
 msgid "they decide against it"
+msgstr ""
+
+#: script/events/setpieces.js:3430
+msgid "they did not anticipate a wanderer race with six arms. after the cloning lab enough memory returns."
 msgstr ""
 
 #: script/events/setpieces.js:3280
@@ -14960,10 +15000,6 @@ msgstr ""
 
 #: script/events/room.js:1723
 msgid "you stand in the light where the shape of you is unambiguous, and you do not say anything."
-msgstr ""
-
-#: script/events/setpieces.js:3430
-msgid "you stand there with both palms flat on stone that has no markings on it, and you know -- the way you know your own name, which you do not -- that this is wrong. that it is supposed to be six. that it was never a lock at all, only a thing that could not be done alone."
 msgstr ""
 
 #: script/events/setpieces.js:3738

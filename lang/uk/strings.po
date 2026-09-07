@@ -349,6 +349,10 @@ msgstr "3 аптечки"
 msgid "300 wood, paid up front"
 msgstr "300 деревини, оплата наперед"
 
+#: script/events/setpieces.js:3431
+msgid "400 centuries ago you were here and opened this once before. your hands know the way."
+msgstr ""
+
 #: script/events/room.js:476
 msgid "500 wood, paid on completion"
 msgstr "500 деревини, оплата по завершенню"
@@ -2006,10 +2010,6 @@ msgstr "а потім воно зникає, і ви тримаєте чотир
 msgid "and then it is gone, and your hand closes on it, and you are shaking and cannot immediately say why."
 msgstr "а потім воно зникає, і ваша рука стискається довкола нього, і ви тремтите й не можете одразу сказати чому."
 
-#: script/events/setpieces.js:3432
-msgid "and then it opens anyway, because whatever is inside recognised you before the sensors did."
-msgstr "і все одно відкривається, бо те, що всередині, впізнало вас раніше за датчики."
-
 #: script/events/setpieces.js:2746
 msgid "and then the row of you. the row of you goes on past where the lights end."
 msgstr "а потім - ряд вас. ряд вас тягнеться далі, ніж закінчуються вогні."
@@ -3511,6 +3511,10 @@ msgstr "утилізація. утилізація. утилізація. зап
 msgid "disruptor"
 msgstr "дезінтегратор"
 
+#: script/localization.js:74
+msgid "disruptor blueprint"
+msgstr ""
+
 #: script/distress.js:124
 #: script/engine.js:207
 msgid "distress off."
@@ -3965,6 +3969,10 @@ msgstr "фланговая пара"
 msgid "flare"
 msgstr "сигнальна ракета"
 
+#: script/localization.js:73
+msgid "fleet beacon"
+msgstr ""
+
 #: script/room.js:1490
 msgid "flickering"
 msgstr "поблискує"
@@ -4247,6 +4255,10 @@ msgstr "скляні вовки спускаються з хребта, четв
 #: script/fabricator.js:135
 msgid "glow stone"
 msgstr "світляний камінь"
+
+#: script/localization.js:75
+msgid "glowstone blueprint"
+msgstr ""
 
 #: script/prison.js:221
 msgid "glyphs in every tongue: peace through equity. equity through consistency."
@@ -4603,6 +4615,10 @@ msgstr "хардкор."
 msgid "hazard suit"
 msgstr "захисний костюм"
 
+#: script/localization.js:76
+msgid "hazard suit blueprint"
+msgstr ""
+
 #: script/events/road.js:938
 msgid "he arrives at dusk, alone, in armour that was very good once and has not been repaired in living memory."
 msgstr "він приходить у сутінках, сам, у обладунках, що колись були дуже добрими, а на пам'яті живих їх не лагодили."
@@ -4955,6 +4971,10 @@ msgstr "швидк."
 #: script/fabricator.js:54
 msgid "hypo"
 msgstr "шприц"
+
+#: script/localization.js:77
+msgid "hypo blueprint"
+msgstr ""
 
 #: script/room.js:954
 msgid "i armour"
@@ -5809,6 +5829,10 @@ msgstr "кінетична"
 #: script/fabricator.js:35
 msgid "kinetic armour"
 msgstr "кінетична броня"
+
+#: script/localization.js:78
+msgid "kinetic armour blueprint"
+msgstr ""
 
 #: script/events/encounters.js:813
 #: script/events/setpieces.js:6167
@@ -7038,8 +7062,8 @@ msgid "not somebody like you. you. the same hands. the same set to the jaw. the 
 msgstr "не хтось схожий на вас. ви. ті самі руки. той самий вигин щелепи. шрам, який у вас відколи себе пам'ятаєте, вже на тілі, що ніколи не покидало те скло."
 
 #: script/events/setpieces.js:3429
-msgid "not two. six. the placements are exact and they are nowhere near each other, and three of them are at heights you cannot reach."
-msgstr "не два. шість. розташування точні, і вони зовсім не поруч одне з одним, а три - на висоті, куди ви не дотягнетеся."
+msgid "not two. six. the placements are exact and designed for three humans to concur. a thing that could not be done alone."
+msgstr ""
 
 #: script/events/road.js:904
 msgid "note where it is and move on"
@@ -7538,6 +7562,10 @@ msgstr "чумний лікар несе смертоносну точність
 msgid "plasma rifle"
 msgstr "плазмова гвинтівка"
 
+#: script/localization.js:79
+msgid "plasma rifle blueprint"
+msgstr ""
+
 #: script/events/setpieces.js:1242
 msgid "plates parting"
 msgstr "пластини розходяться"
@@ -7703,6 +7731,10 @@ msgstr "Готовий покинути все?"
 #: script/events/setpieces.js:1565
 msgid "reasserting"
 msgstr "відновлюючись"
+
+#: script/localization.js:80
+msgid "recycler blueprint"
+msgstr ""
 
 #: script/engine.js:867
 msgid "reddit"
@@ -9441,6 +9473,10 @@ msgstr "дистикостюм"
 #: script/fabricator.js:64
 msgid "stim"
 msgstr "стимулятор"
+
+#: script/localization.js:81
+msgid "stim blueprint"
+msgstr ""
 
 #: script/events/setpieces.js:6224
 msgid "stinging"
@@ -11844,6 +11880,10 @@ msgstr "ця купа - не позначка. це облік подороже�
 msgid "the place has been swept clean by scavengers."
 msgstr "це місце було розграбоване сміттярями."
 
+#: script/events/setpieces.js:3432
+msgid "the placement may not have been perfect, but whatever is inside recognised you before the sensors did."
+msgstr ""
+
 #: script/events/outside.js:394
 msgid "the plague is halted, but not everywhere"
 msgstr "чуму зупинено, та не всюди"
@@ -12799,10 +12839,6 @@ msgstr "мандрівницю приводять до тями"
 msgid "the wall opens"
 msgstr "стіна відчиняється"
 
-#: script/events/setpieces.js:3431
-msgid "the wall reads what is there and finds four fewer hands than it needs."
-msgstr "стіна зчитує те, що там є, і виявляє на чотири руки менше, ніж потрібно."
-
 #: script/events/setpieces.js:125
 msgid "the walls are a single piece. no joins, no courses, no tool marks, and no wear where ten thousand years of feet should have worn them."
 msgstr "стіни - суцільний шматок. жодних з'єднань, шарів, слідів інструментів, і жодного зносу там, де десять тисяч років ніг мали б їх стерти."
@@ -13616,6 +13652,10 @@ msgstr "вони повертаються до кінця місяця, і пр�
 #: script/events/room.js:1733
 msgid "they decide against it"
 msgstr "вони вирішують проти цього"
+
+#: script/events/setpieces.js:3430
+msgid "they did not anticipate a wanderer race with six arms. after the cloning lab enough memory returns."
+msgstr ""
 
 #: script/events/setpieces.js:3280
 msgid "they did not fail. they were doing the hardest thing anybody on this rock ever managed and they were still doing it when the wars reached them."
@@ -14963,10 +15003,6 @@ msgstr "ви маєте знати, як це робити. ви впевнен�
 msgid "you stand in the light where the shape of you is unambiguous, and you do not say anything."
 msgstr "ви стоїте у світлі, де ваша форма недвозначна, і нічого не кажете."
 
-#: script/events/setpieces.js:3430
-msgid "you stand there with both palms flat on stone that has no markings on it, and you know -- the way you know your own name, which you do not -- that this is wrong. that it is supposed to be six. that it was never a lock at all, only a thing that could not be done alone."
-msgstr "ви стоїте там, поклавши обидві долоні на камінь без жодних позначок, і знаєте -- так, як знаєте власне ім'я, якого насправді не знаєте -- що це неправильно. що мало б бути шестеро. що це ніколи й не було замком, лише річчю, яку не можна зробити самотужки."
-
 #: script/events/setpieces.js:3738
 msgid "you take it with gloves on"
 msgstr "ви берете це в рукавицях"
@@ -15245,3 +15281,15 @@ msgstr "ⰑⰖⰔⱂⰃⰠ2ⰉⰉ Ⱀⱂ ⰄⰀ ⰒⰑⰆⰉ me2Ⱐ ⰄⰀ Ⰲ�
 
 #~ msgid "hull:"
 #~ msgstr "корпус:"
+
+#~ msgid "and then it opens anyway, because whatever is inside recognised you before the sensors did."
+#~ msgstr "і все одно відкривається, бо те, що всередині, впізнало вас раніше за датчики."
+
+#~ msgid "not two. six. the placements are exact and they are nowhere near each other, and three of them are at heights you cannot reach."
+#~ msgstr "не два. шість. розташування точні, і вони зовсім не поруч одне з одним, а три - на висоті, куди ви не дотягнетеся."
+
+#~ msgid "the wall reads what is there and finds four fewer hands than it needs."
+#~ msgstr "стіна зчитує те, що там є, і виявляє на чотири руки менше, ніж потрібно."
+
+#~ msgid "you stand there with both palms flat on stone that has no markings on it, and you know -- the way you know your own name, which you do not -- that this is wrong. that it is supposed to be six. that it was never a lock at all, only a thing that could not be done alone."
+#~ msgstr "ви стоїте там, поклавши обидві долоні на камінь без жодних позначок, і знаєте -- так, як знаєте власне ім'я, якого насправді не знаєте -- що це неправильно. що мало б бути шестеро. що це ніколи й не було замком, лише річчю, яку не можна зробити самотужки."

@@ -349,6 +349,10 @@ msgstr "3 лекарства"
 msgid "300 wood, paid up front"
 msgstr "300 древесины, оплата вперёд"
 
+#: script/events/setpieces.js:3431
+msgid "400 centuries ago you were here and opened this once before. your hands know the way."
+msgstr ""
+
 #: script/events/room.js:476
 msgid "500 wood, paid on completion"
 msgstr "500 древесины, оплата по завершении"
@@ -2006,10 +2010,6 @@ msgstr "а потом это исчезает, и в руках у тебя че
 msgid "and then it is gone, and your hand closes on it, and you are shaking and cannot immediately say why."
 msgstr "а потом это исчезает, и рука сжимается вокруг него, и тебя трясёт, и ты не можешь сразу сказать почему."
 
-#: script/events/setpieces.js:3432
-msgid "and then it opens anyway, because whatever is inside recognised you before the sensors did."
-msgstr "а потом она всё же открывается, потому что то, что внутри, узнало тебя раньше, чем это сделали датчики."
-
 #: script/events/setpieces.js:2746
 msgid "and then the row of you. the row of you goes on past where the lights end."
 msgstr "а потом ряд из тебя же самого. ряд из тебя же самого тянется дальше, чем заканчиваются огни."
@@ -3511,6 +3511,10 @@ msgstr "утилизация. утилизация. утилизация. зап
 msgid "disruptor"
 msgstr "дезинтегратор"
 
+#: script/localization.js:74
+msgid "disruptor blueprint"
+msgstr ""
+
 #: script/distress.js:124
 #: script/engine.js:207
 msgid "distress off."
@@ -3965,6 +3969,10 @@ msgstr "фланговая пара"
 msgid "flare"
 msgstr "сигнальная ракета"
 
+#: script/localization.js:73
+msgid "fleet beacon"
+msgstr ""
+
 #: script/room.js:1490
 msgid "flickering"
 msgstr "мерцает"
@@ -4247,6 +4255,10 @@ msgstr "стеклянные волки спускаются с гребня, ч
 #: script/fabricator.js:135
 msgid "glow stone"
 msgstr "светящийся камень"
+
+#: script/localization.js:75
+msgid "glowstone blueprint"
+msgstr ""
 
 #: script/prison.js:221
 msgid "glyphs in every tongue: peace through equity. equity through consistency."
@@ -4603,6 +4615,10 @@ msgstr "хардкор."
 msgid "hazard suit"
 msgstr "защитный костюм"
 
+#: script/localization.js:76
+msgid "hazard suit blueprint"
+msgstr ""
+
 #: script/events/road.js:938
 msgid "he arrives at dusk, alone, in armour that was very good once and has not been repaired in living memory."
 msgstr "он прибывает в сумерках, один, в доспехах, которые когда-то были очень хороши и не ремонтировались на памяти живущих."
@@ -4955,6 +4971,10 @@ msgstr "гипер."
 #: script/fabricator.js:54
 msgid "hypo"
 msgstr "шприц"
+
+#: script/localization.js:77
+msgid "hypo blueprint"
+msgstr ""
 
 #: script/room.js:954
 msgid "i armour"
@@ -5809,6 +5829,10 @@ msgstr "кинетический"
 #: script/fabricator.js:35
 msgid "kinetic armour"
 msgstr "кинетическая броня"
+
+#: script/localization.js:78
+msgid "kinetic armour blueprint"
+msgstr ""
 
 #: script/events/encounters.js:813
 #: script/events/setpieces.js:6167
@@ -7038,8 +7062,8 @@ msgid "not somebody like you. you. the same hands. the same set to the jaw. the 
 msgstr "не кто-то похожий на тебя. ты. те же руки. тот же разворот челюсти. шрам, который у тебя с тех пор, как ты себя помнишь, уже есть на теле, которое никогда не было за пределами этого стекла."
 
 #: script/events/setpieces.js:3429
-msgid "not two. six. the placements are exact and they are nowhere near each other, and three of them are at heights you cannot reach."
-msgstr "не два. шесть. расположены они точно и совсем не рядом друг с другом, и три из них — на высоте, до которой тебе не дотянуться."
+msgid "not two. six. the placements are exact and designed for three humans to concur. a thing that could not be done alone."
+msgstr ""
 
 #: script/events/road.js:904
 msgid "note where it is and move on"
@@ -7538,6 +7562,10 @@ msgstr "чумной доктор приносит смертоносную то
 msgid "plasma rifle"
 msgstr "плазменная винтовка"
 
+#: script/localization.js:79
+msgid "plasma rifle blueprint"
+msgstr ""
+
 #: script/events/setpieces.js:1242
 msgid "plates parting"
 msgstr "пластины расходятся"
@@ -7703,6 +7731,10 @@ msgstr "Готовы покинуть это место?"
 #: script/events/setpieces.js:1565
 msgid "reasserting"
 msgstr "вновь утверждаясь"
+
+#: script/localization.js:80
+msgid "recycler blueprint"
+msgstr ""
 
 #: script/engine.js:867
 msgid "reddit"
@@ -9441,6 +9473,10 @@ msgstr "дистикомб"
 #: script/fabricator.js:64
 msgid "stim"
 msgstr "стимулятор"
+
+#: script/localization.js:81
+msgid "stim blueprint"
+msgstr ""
 
 #: script/events/setpieces.js:6224
 msgid "stinging"
@@ -11844,6 +11880,10 @@ msgstr "эта куча — не указатель. это подсчёт пу�
 msgid "the place has been swept clean by scavengers."
 msgstr "это место было разграблено мусорщиками."
 
+#: script/events/setpieces.js:3432
+msgid "the placement may not have been perfect, but whatever is inside recognised you before the sensors did."
+msgstr ""
+
 #: script/events/outside.js:394
 msgid "the plague is halted, but not everywhere"
 msgstr "чуму останавливают, но не везде"
@@ -12799,10 +12839,6 @@ msgstr "путницу приводят в чувство"
 msgid "the wall opens"
 msgstr "стена открывается"
 
-#: script/events/setpieces.js:3431
-msgid "the wall reads what is there and finds four fewer hands than it needs."
-msgstr "стена считывает то, что есть, и обнаруживает нехватку четырёх рук."
-
 #: script/events/setpieces.js:125
 msgid "the walls are a single piece. no joins, no courses, no tool marks, and no wear where ten thousand years of feet should have worn them."
 msgstr "стены — единое целое. никаких соединений, никаких слоёв кладки, никаких следов инструмента, и никакого износа там, где десять тысяч лет ходьбы должны были бы его оставить."
@@ -13616,6 +13652,10 @@ msgstr "они возвращаются до конца месяца, и при�
 #: script/events/room.js:1733
 msgid "they decide against it"
 msgstr "они решают против этого"
+
+#: script/events/setpieces.js:3430
+msgid "they did not anticipate a wanderer race with six arms. after the cloning lab enough memory returns."
+msgstr ""
 
 #: script/events/setpieces.js:3280
 msgid "they did not fail. they were doing the hardest thing anybody on this rock ever managed and they were still doing it when the wars reached them."
@@ -14963,10 +15003,6 @@ msgstr "ты должен знать, как это делается. ты ув�
 msgid "you stand in the light where the shape of you is unambiguous, and you do not say anything."
 msgstr "ты стоишь в свету, где твой силуэт однозначен, и ничего не говоришь."
 
-#: script/events/setpieces.js:3430
-msgid "you stand there with both palms flat on stone that has no markings on it, and you know -- the way you know your own name, which you do not -- that this is wrong. that it is supposed to be six. that it was never a lock at all, only a thing that could not be done alone."
-msgstr "ты стоишь там, прижав обе ладони к камню без каких-либо отметок, и знаешь — так же, как знаешь своё собственное имя, которого не знаешь, — что это неправильно. что должно быть шесть. что это никогда не было замком вообще, лишь чем-то, что нельзя было сделать в одиночку."
-
 #: script/events/setpieces.js:3738
 msgid "you take it with gloves on"
 msgstr "ты берёшь это в перчатках"
@@ -15251,3 +15287,15 @@ msgstr "ⰑⰖⰔⱂⰃⰠ2ⰉⰉ Ⱀⱂ ⰄⰀ ⰒⰑⰆⰉ me2Ⱐ ⰄⰀ Ⰲ�
 
 #~ msgid "hull:"
 #~ msgstr "корпус:"
+
+#~ msgid "and then it opens anyway, because whatever is inside recognised you before the sensors did."
+#~ msgstr "а потом она всё же открывается, потому что то, что внутри, узнало тебя раньше, чем это сделали датчики."
+
+#~ msgid "not two. six. the placements are exact and they are nowhere near each other, and three of them are at heights you cannot reach."
+#~ msgstr "не два. шесть. расположены они точно и совсем не рядом друг с другом, и три из них — на высоте, до которой тебе не дотянуться."
+
+#~ msgid "the wall reads what is there and finds four fewer hands than it needs."
+#~ msgstr "стена считывает то, что есть, и обнаруживает нехватку четырёх рук."
+
+#~ msgid "you stand there with both palms flat on stone that has no markings on it, and you know -- the way you know your own name, which you do not -- that this is wrong. that it is supposed to be six. that it was never a lock at all, only a thing that could not be done alone."
+#~ msgstr "ты стоишь там, прижав обе ладони к камню без каких-либо отметок, и знаешь — так же, как знаешь своё собственное имя, которого не знаешь, — что это неправильно. что должно быть шесть. что это никогда не было замком вообще, лишь чем-то, что нельзя было сделать в одиночку."

@@ -348,6 +348,10 @@ msgstr "医薬品3個"
 msgid "300 wood, paid up front"
 msgstr "木材300、前払い"
 
+#: script/events/setpieces.js:3431
+msgid "400 centuries ago you were here and opened this once before. your hands know the way."
+msgstr ""
+
 #: script/events/room.js:476
 msgid "500 wood, paid on completion"
 msgstr "木材500、完成時払い"
@@ -2005,10 +2009,6 @@ msgstr "そしてそれは消え去り、あなたは四つの平面を握りし
 msgid "and then it is gone, and your hand closes on it, and you are shaking and cannot immediately say why."
 msgstr "そしてそれは消え去り、あなたの手はそれを握りしめ、震えているが、すぐには理由を言葉にできない。"
 
-#: script/events/setpieces.js:3432
-msgid "and then it opens anyway, because whatever is inside recognised you before the sensors did."
-msgstr "それでもそれは開く。中にいる何かが、センサーよりも先にあなたを認識したからだ。"
-
 #: script/events/setpieces.js:2746
 msgid "and then the row of you. the row of you goes on past where the lights end."
 msgstr "そしてあなたの列。あなたの列は光が尽きる先までも続いている。"
@@ -3510,6 +3510,10 @@ msgstr "処分。処分。処分。記録は何ページにもわたって続き
 msgid "disruptor"
 msgstr "妨害装置"
 
+#: script/localization.js:74
+msgid "disruptor blueprint"
+msgstr ""
+
 #: script/distress.js:124
 #: script/engine.js:207
 msgid "distress off."
@@ -3964,6 +3968,10 @@ msgstr "側面につく一対"
 msgid "flare"
 msgstr "照明弾"
 
+#: script/localization.js:73
+msgid "fleet beacon"
+msgstr ""
+
 #: script/room.js:1490
 msgid "flickering"
 msgstr "ちらついている"
@@ -4246,6 +4254,10 @@ msgstr "ガラスの狼が尾根から降りてくる。四頭、水が流れる
 #: script/fabricator.js:135
 msgid "glow stone"
 msgstr "発光石"
+
+#: script/localization.js:75
+msgid "glowstone blueprint"
+msgstr ""
 
 #: script/prison.js:221
 msgid "glyphs in every tongue: peace through equity. equity through consistency."
@@ -4602,6 +4614,10 @@ msgstr "ハードコア。"
 msgid "hazard suit"
 msgstr "防護服"
 
+#: script/localization.js:76
+msgid "hazard suit blueprint"
+msgstr ""
+
 #: script/events/road.js:938
 msgid "he arrives at dusk, alone, in armour that was very good once and has not been repaired in living memory."
 msgstr "彼は黄昏時に、一人で到着する。かつては上等だった鎧を着て、記憶にある限り修理されたことはない。"
@@ -4954,6 +4970,10 @@ msgstr "ハイパー。"
 #: script/fabricator.js:54
 msgid "hypo"
 msgstr "注射器"
+
+#: script/localization.js:77
+msgid "hypo blueprint"
+msgstr ""
 
 #: script/room.js:954
 msgid "i armour"
@@ -5808,6 +5828,10 @@ msgstr "運動エネルギー"
 #: script/fabricator.js:35
 msgid "kinetic armour"
 msgstr "運動エネルギー装甲"
+
+#: script/localization.js:78
+msgid "kinetic armour blueprint"
+msgstr ""
 
 #: script/events/encounters.js:813
 #: script/events/setpieces.js:6167
@@ -7037,8 +7061,8 @@ msgid "not somebody like you. you. the same hands. the same set to the jaw. the 
 msgstr "あなたに似た誰かではない。あなただ。同じ手。同じ顎の輪郭。物心ついた頃からある傷跡が、あのガラスの外に一度も出たことのない体にすでに刻まれている。"
 
 #: script/events/setpieces.js:3429
-msgid "not two. six. the placements are exact and they are nowhere near each other, and three of them are at heights you cannot reach."
-msgstr "二つではない。六つだ。配置は正確で、互いに近くはなく、そのうち三つはあなたの手が届かない高さにある。"
+msgid "not two. six. the placements are exact and designed for three humans to concur. a thing that could not be done alone."
+msgstr ""
 
 #: script/events/road.js:904
 msgid "note where it is and move on"
@@ -7537,6 +7561,10 @@ msgstr "疫病医師は、致命的な予兆から致命的な精密さをもた
 msgid "plasma rifle"
 msgstr "プラズマライフル"
 
+#: script/localization.js:79
+msgid "plasma rifle blueprint"
+msgstr ""
+
 #: script/events/setpieces.js:1242
 msgid "plates parting"
 msgstr "板が分かれる"
@@ -7702,6 +7730,10 @@ msgstr "出発の準備はできましたか？"
 #: script/events/setpieces.js:1565
 msgid "reasserting"
 msgstr "再主張する"
+
+#: script/localization.js:80
+msgid "recycler blueprint"
+msgstr ""
 
 #: script/engine.js:867
 msgid "reddit"
@@ -9440,6 +9472,10 @@ msgstr "蒸留服"
 #: script/fabricator.js:64
 msgid "stim"
 msgstr "興奮剤"
+
+#: script/localization.js:81
+msgid "stim blueprint"
+msgstr ""
 
 #: script/events/setpieces.js:6224
 msgid "stinging"
@@ -11843,6 +11879,10 @@ msgstr "その積み荷は標ではない。ここで終わった旅の数え印
 msgid "the place has been swept clean by scavengers."
 msgstr "ここはゴミ漁りにきれいに掃除された後だ。"
 
+#: script/events/setpieces.js:3432
+msgid "the placement may not have been perfect, but whatever is inside recognised you before the sensors did."
+msgstr ""
+
 #: script/events/outside.js:394
 msgid "the plague is halted, but not everywhere"
 msgstr "疫病は止められるが、すべての場所でではない"
@@ -12798,10 +12838,6 @@ msgstr "歩いていた者は意識を取り戻す"
 msgid "the wall opens"
 msgstr "壁が開く"
 
-#: script/events/setpieces.js:3431
-msgid "the wall reads what is there and finds four fewer hands than it needs."
-msgstr "壁はそこにあるものを読み取り、必要な数より四つ少ない手を見つける。"
-
 #: script/events/setpieces.js:125
 msgid "the walls are a single piece. no joins, no courses, no tool marks, and no wear where ten thousand years of feet should have worn them."
 msgstr "壁は一枚岩だ。継ぎ目も、層も、工具の跡もなく、一万年の足で磨り減っているはずの場所にも摩耗がない。"
@@ -13615,6 +13651,10 @@ msgstr "彼らは月が終わる前に戻ってくる。そして仲間をさら
 #: script/events/room.js:1733
 msgid "they decide against it"
 msgstr "彼らはそれをしないことに決める"
+
+#: script/events/setpieces.js:3430
+msgid "they did not anticipate a wanderer race with six arms. after the cloning lab enough memory returns."
+msgstr ""
 
 #: script/events/setpieces.js:3280
 msgid "they did not fail. they were doing the hardest thing anybody on this rock ever managed and they were still doing it when the wars reached them."
@@ -14962,10 +15002,6 @@ msgstr "あなたはこれのやり方を知っているはずだ。それを知
 msgid "you stand in the light where the shape of you is unambiguous, and you do not say anything."
 msgstr "あなたは自分の輪郭が紛れもなく分かる光の中に立ち、何も言わない。"
 
-#: script/events/setpieces.js:3430
-msgid "you stand there with both palms flat on stone that has no markings on it, and you know -- the way you know your own name, which you do not -- that this is wrong. that it is supposed to be six. that it was never a lock at all, only a thing that could not be done alone."
-msgstr "あなたは印のない石に両手のひらを平らに当てて立ち、分かっている――自分の名前を知っているのと同じように、実際は知らないのだが――これが間違っていると。本来は六つであるべきだと。それは決して鍵ではなく、ただ一人ではできないものにすぎなかったのだと。"
-
 #: script/events/setpieces.js:3738
 msgid "you take it with gloves on"
 msgstr "あなたは手袋をつけたままそれを取る"
@@ -15232,3 +15268,15 @@ msgstr "ⰑⰖⰔⱂⰃⰠ2ⰉⰉ Ⱀⱂ ⰄⰀ ⰒⰑⰆⰉ me2Ⱐ ⰄⰀ Ⰲ�
 
 #~ msgid "hull:"
 #~ msgstr "船体："
+
+#~ msgid "and then it opens anyway, because whatever is inside recognised you before the sensors did."
+#~ msgstr "それでもそれは開く。中にいる何かが、センサーよりも先にあなたを認識したからだ。"
+
+#~ msgid "not two. six. the placements are exact and they are nowhere near each other, and three of them are at heights you cannot reach."
+#~ msgstr "二つではない。六つだ。配置は正確で、互いに近くはなく、そのうち三つはあなたの手が届かない高さにある。"
+
+#~ msgid "the wall reads what is there and finds four fewer hands than it needs."
+#~ msgstr "壁はそこにあるものを読み取り、必要な数より四つ少ない手を見つける。"
+
+#~ msgid "you stand there with both palms flat on stone that has no markings on it, and you know -- the way you know your own name, which you do not -- that this is wrong. that it is supposed to be six. that it was never a lock at all, only a thing that could not be done alone."
+#~ msgstr "あなたは印のない石に両手のひらを平らに当てて立ち、分かっている――自分の名前を知っているのと同じように、実際は知らないのだが――これが間違っていると。本来は六つであるべきだと。それは決して鍵ではなく、ただ一人ではできないものにすぎなかったのだと。"

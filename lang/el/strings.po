@@ -349,6 +349,10 @@ msgstr "3 φάρμακα"
 msgid "300 wood, paid up front"
 msgstr "300 ξύλο, πληρωμένο εκ των προτέρων"
 
+#: script/events/setpieces.js:3431
+msgid "400 centuries ago you were here and opened this once before. your hands know the way."
+msgstr ""
+
 #: script/events/room.js:476
 msgid "500 wood, paid on completion"
 msgstr "500 ξύλο, πληρωμένο κατά την ολοκλήρωση"
@@ -2006,10 +2010,6 @@ msgstr "και μετά χάνεται, και κρατάς τέσσερις ε�
 msgid "and then it is gone, and your hand closes on it, and you are shaking and cannot immediately say why."
 msgstr "και μετά χάνεται, και το χέρι σου κλείνει πάνω του, και τρέμεις και δεν μπορείς να πεις αμέσως γιατί."
 
-#: script/events/setpieces.js:3432
-msgid "and then it opens anyway, because whatever is inside recognised you before the sensors did."
-msgstr "και μετά ανοίγει ούτως ή άλλως, γιατί ό,τι είναι μέσα σε αναγνώρισε πριν το κάνουν οι αισθητήρες."
-
 #: script/events/setpieces.js:2746
 msgid "and then the row of you. the row of you goes on past where the lights end."
 msgstr "και μετά η σειρά από εσένα. η σειρά από εσένα συνεχίζεται πέρα από όπου τελειώνουν τα φώτα."
@@ -3511,6 +3511,10 @@ msgstr "απόρριψη. απόρριψη. απόρριψη. οι καταχω�
 msgid "disruptor"
 msgstr "διαταράκτης"
 
+#: script/localization.js:74
+msgid "disruptor blueprint"
+msgstr ""
+
 #: script/distress.js:124
 #: script/engine.js:207
 msgid "distress off."
@@ -3965,6 +3969,10 @@ msgstr "ζεύγος υπερκέρασης"
 msgid "flare"
 msgstr "φωτοβολίδα"
 
+#: script/localization.js:73
+msgid "fleet beacon"
+msgstr ""
+
 #: script/room.js:1490
 msgid "flickering"
 msgstr "τρεμοσβήνει"
@@ -4247,6 +4255,10 @@ msgstr "γυάλινοι λύκοι κατεβαίνουν από τη ράχη,
 #: script/fabricator.js:135
 msgid "glow stone"
 msgstr "πέτρα φωτισμού"
+
+#: script/localization.js:75
+msgid "glowstone blueprint"
+msgstr ""
 
 #: script/prison.js:221
 msgid "glyphs in every tongue: peace through equity. equity through consistency."
@@ -4603,6 +4615,10 @@ msgstr "σκληρό επίπεδο."
 msgid "hazard suit"
 msgstr "στολή κινδύνου"
 
+#: script/localization.js:76
+msgid "hazard suit blueprint"
+msgstr ""
+
 #: script/events/road.js:938
 msgid "he arrives at dusk, alone, in armour that was very good once and has not been repaired in living memory."
 msgstr "φτάνει το σούρουπο, μόνος, με μια πανοπλία που κάποτε ήταν πολύ καλή και δεν έχει επισκευαστεί μέσα σε μνήμη ανθρώπου."
@@ -4955,6 +4971,10 @@ msgstr "υπερ-λειτουργία."
 #: script/fabricator.js:54
 msgid "hypo"
 msgstr "σύριγγα"
+
+#: script/localization.js:77
+msgid "hypo blueprint"
+msgstr ""
 
 #: script/room.js:954
 msgid "i armour"
@@ -5809,6 +5829,10 @@ msgstr "κινητική"
 #: script/fabricator.js:35
 msgid "kinetic armour"
 msgstr "κινητική πανοπλία"
+
+#: script/localization.js:78
+msgid "kinetic armour blueprint"
+msgstr ""
 
 #: script/events/encounters.js:813
 #: script/events/setpieces.js:6167
@@ -7038,8 +7062,8 @@ msgid "not somebody like you. you. the same hands. the same set to the jaw. the 
 msgstr "όχι κάποιος σαν εσένα. εσύ. τα ίδια χέρια. η ίδια στάση του σαγονιού. η ουλή που έχεις από τότε που θυμάσαι, ήδη εκεί πάνω σε ένα σώμα που δεν βγήκε ποτέ έξω από εκείνο το γυαλί."
 
 #: script/events/setpieces.js:3429
-msgid "not two. six. the placements are exact and they are nowhere near each other, and three of them are at heights you cannot reach."
-msgstr "όχι δύο. έξι. οι τοποθετήσεις είναι ακριβείς και δεν είναι καθόλου κοντά μεταξύ τους, και τρεις από αυτές είναι σε ύψη που δεν μπορείς να φτάσεις."
+msgid "not two. six. the placements are exact and designed for three humans to concur. a thing that could not be done alone."
+msgstr ""
 
 #: script/events/road.js:904
 msgid "note where it is and move on"
@@ -7538,6 +7562,10 @@ msgstr "ο γιατρός της πανούκλας φέρνει θανάσιμ�
 msgid "plasma rifle"
 msgstr "τυφέκιο πλάσματος"
 
+#: script/localization.js:79
+msgid "plasma rifle blueprint"
+msgstr ""
+
 #: script/events/setpieces.js:1242
 msgid "plates parting"
 msgstr "πλάκες που χωρίζουν"
@@ -7703,6 +7731,10 @@ msgstr "Φεύγουμε;"
 #: script/events/setpieces.js:1565
 msgid "reasserting"
 msgstr "επιβεβαιώνοντας ξανά"
+
+#: script/localization.js:80
+msgid "recycler blueprint"
+msgstr ""
 
 #: script/engine.js:867
 msgid "reddit"
@@ -9441,6 +9473,10 @@ msgstr "στολή απόσταξης"
 #: script/fabricator.js:64
 msgid "stim"
 msgstr "διεγερτικό"
+
+#: script/localization.js:81
+msgid "stim blueprint"
+msgstr ""
 
 #: script/events/setpieces.js:6224
 msgid "stinging"
@@ -11844,6 +11880,10 @@ msgstr "ο σωρός δεν είναι σημάδι. είναι ένα μέτρ
 msgid "the place has been swept clean by scavengers."
 msgstr "ο τόπος έχει αδειάσει από περισυλλέκτες."
 
+#: script/events/setpieces.js:3432
+msgid "the placement may not have been perfect, but whatever is inside recognised you before the sensors did."
+msgstr ""
+
 #: script/events/outside.js:394
 msgid "the plague is halted, but not everywhere"
 msgstr "η πανούκλα σταματάει, αλλά όχι παντού"
@@ -12799,10 +12839,6 @@ msgstr "η περιπατήτρια συνέρχεται"
 msgid "the wall opens"
 msgstr "ο τοίχος ανοίγει"
 
-#: script/events/setpieces.js:3431
-msgid "the wall reads what is there and finds four fewer hands than it needs."
-msgstr "ο τοίχος διαβάζει ό,τι υπάρχει εκεί και βρίσκει τέσσερα λιγότερα χέρια απ' όσα χρειάζεται."
-
 #: script/events/setpieces.js:125
 msgid "the walls are a single piece. no joins, no courses, no tool marks, and no wear where ten thousand years of feet should have worn them."
 msgstr "οι τοίχοι είναι ένα ενιαίο κομμάτι. καμία ένωση, καμία στρώση, κανένα σημάδι εργαλείου, και καμία φθορά εκεί όπου δέκα χιλιάδες χρόνια ποδιών θα έπρεπε να τους έχουν φθείρει."
@@ -13616,6 +13652,10 @@ msgstr "επιστρέφουν πριν τελειώσει ο μήνας, και
 #: script/events/room.js:1733
 msgid "they decide against it"
 msgstr "αποφασίζουν να μην το κάνουν"
+
+#: script/events/setpieces.js:3430
+msgid "they did not anticipate a wanderer race with six arms. after the cloning lab enough memory returns."
+msgstr ""
 
 #: script/events/setpieces.js:3280
 msgid "they did not fail. they were doing the hardest thing anybody on this rock ever managed and they were still doing it when the wars reached them."
@@ -14963,10 +15003,6 @@ msgstr "θα έπρεπε να ξέρεις πώς να το κάνεις αυτ
 msgid "you stand in the light where the shape of you is unambiguous, and you do not say anything."
 msgstr "στέκεσαι στο φως όπου το σχήμα σου είναι σαφές, και δεν λες τίποτα."
 
-#: script/events/setpieces.js:3430
-msgid "you stand there with both palms flat on stone that has no markings on it, and you know -- the way you know your own name, which you do not -- that this is wrong. that it is supposed to be six. that it was never a lock at all, only a thing that could not be done alone."
-msgstr "στέκεσαι εκεί με τις δύο παλάμες επίπεδες σε μια πέτρα χωρίς κανένα σημάδι πάνω της, και ξέρεις -- με τον τρόπο που ξέρεις το ίδιο σου το όνομα, το οποίο δεν ξέρεις -- ότι αυτό είναι λάθος. ότι υποτίθεται πρέπει να είναι έξι. ότι δεν ήταν ποτέ κλειδαριά, μόνο ένα πράγμα που δεν μπορούσε να γίνει μόνος."
-
 #: script/events/setpieces.js:3738
 msgid "you take it with gloves on"
 msgstr "το παίρνεις με τα γάντια φορεμένα"
@@ -15242,3 +15278,15 @@ msgstr "ⰑⰖⰔⱂⰃⰠ2ⰉⰉ Ⱀⱂ ⰄⰀ ⰒⰑⰆⰉ me2Ⱐ ⰄⰀ Ⰲ�
 
 #~ msgid "hull:"
 #~ msgstr "σκελετός:"
+
+#~ msgid "and then it opens anyway, because whatever is inside recognised you before the sensors did."
+#~ msgstr "και μετά ανοίγει ούτως ή άλλως, γιατί ό,τι είναι μέσα σε αναγνώρισε πριν το κάνουν οι αισθητήρες."
+
+#~ msgid "not two. six. the placements are exact and they are nowhere near each other, and three of them are at heights you cannot reach."
+#~ msgstr "όχι δύο. έξι. οι τοποθετήσεις είναι ακριβείς και δεν είναι καθόλου κοντά μεταξύ τους, και τρεις από αυτές είναι σε ύψη που δεν μπορείς να φτάσεις."
+
+#~ msgid "the wall reads what is there and finds four fewer hands than it needs."
+#~ msgstr "ο τοίχος διαβάζει ό,τι υπάρχει εκεί και βρίσκει τέσσερα λιγότερα χέρια απ' όσα χρειάζεται."
+
+#~ msgid "you stand there with both palms flat on stone that has no markings on it, and you know -- the way you know your own name, which you do not -- that this is wrong. that it is supposed to be six. that it was never a lock at all, only a thing that could not be done alone."
+#~ msgstr "στέκεσαι εκεί με τις δύο παλάμες επίπεδες σε μια πέτρα χωρίς κανένα σημάδι πάνω της, και ξέρεις -- με τον τρόπο που ξέρεις το ίδιο σου το όνομα, το οποίο δεν ξέρεις -- ότι αυτό είναι λάθος. ότι υποτίθεται πρέπει να είναι έξι. ότι δεν ήταν ποτέ κλειδαριά, μόνο ένα πράγμα που δεν μπορούσε να γίνει μόνος."

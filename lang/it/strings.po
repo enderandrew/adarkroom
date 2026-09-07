@@ -349,6 +349,10 @@ msgstr "3 medicine"
 msgid "300 wood, paid up front"
 msgstr "300 legno, pagato in anticipo"
 
+#: script/events/setpieces.js:3431
+msgid "400 centuries ago you were here and opened this once before. your hands know the way."
+msgstr ""
+
 #: script/events/room.js:476
 msgid "500 wood, paid on completion"
 msgstr "500 legno, pagato a lavoro ultimato"
@@ -2006,10 +2010,6 @@ msgstr "e poi svanisce, e tieni in mano quattro facce piatte e non sai dire cosa
 msgid "and then it is gone, and your hand closes on it, and you are shaking and cannot immediately say why."
 msgstr "e poi svanisce, e la tua mano si chiude su di esso, e stai tremando e non sai dire subito perché."
 
-#: script/events/setpieces.js:3432
-msgid "and then it opens anyway, because whatever is inside recognised you before the sensors did."
-msgstr "e poi si apre comunque, perché qualunque cosa ci sia dentro ti ha riconosciuto prima dei sensori."
-
 #: script/events/setpieces.js:2746
 msgid "and then the row of you. the row of you goes on past where the lights end."
 msgstr "e poi la fila di te. la fila di te continua oltre dove finiscono le luci."
@@ -3511,6 +3511,10 @@ msgstr "smaltimento. smaltimento. smaltimento. le voci si susseguono per pagine,
 msgid "disruptor"
 msgstr "disgregatore"
 
+#: script/localization.js:74
+msgid "disruptor blueprint"
+msgstr ""
+
 #: script/distress.js:124
 #: script/engine.js:207
 msgid "distress off."
@@ -3965,6 +3969,10 @@ msgstr "coppia di fiancheggiamento"
 msgid "flare"
 msgstr "razzo"
 
+#: script/localization.js:73
+msgid "fleet beacon"
+msgstr ""
+
 #: script/room.js:1490
 msgid "flickering"
 msgstr "tremola"
@@ -4247,6 +4255,10 @@ msgstr "lupi di vetro scendono dal crinale, quattro di loro, muovendosi come si 
 #: script/fabricator.js:135
 msgid "glow stone"
 msgstr "pietra luminescente"
+
+#: script/localization.js:75
+msgid "glowstone blueprint"
+msgstr ""
 
 #: script/prison.js:221
 msgid "glyphs in every tongue: peace through equity. equity through consistency."
@@ -4603,6 +4615,10 @@ msgstr "difficile."
 msgid "hazard suit"
 msgstr "tuta di protezione"
 
+#: script/localization.js:76
+msgid "hazard suit blueprint"
+msgstr ""
+
 #: script/events/road.js:938
 msgid "he arrives at dusk, alone, in armour that was very good once and has not been repaired in living memory."
 msgstr "arriva al crepuscolo, solo, in un'armatura che un tempo era ottima e non è stata riparata a memoria d'uomo."
@@ -4955,6 +4971,10 @@ msgstr "iper."
 #: script/fabricator.js:54
 msgid "hypo"
 msgstr "siringa"
+
+#: script/localization.js:77
+msgid "hypo blueprint"
+msgstr ""
 
 #: script/room.js:954
 msgid "i armour"
@@ -5809,6 +5829,10 @@ msgstr "cinetico"
 #: script/fabricator.js:35
 msgid "kinetic armour"
 msgstr "armatura cinetica"
+
+#: script/localization.js:78
+msgid "kinetic armour blueprint"
+msgstr ""
 
 #: script/events/encounters.js:813
 #: script/events/setpieces.js:6167
@@ -7038,8 +7062,8 @@ msgid "not somebody like you. you. the same hands. the same set to the jaw. the 
 msgstr "non qualcuno come te. tu. le stesse mani. la stessa piega della mandibola. la cicatrice che hai da quando riesci a ricordare, già presente su un corpo che non è mai stato fuori da quel vetro."
 
 #: script/events/setpieces.js:3429
-msgid "not two. six. the placements are exact and they are nowhere near each other, and three of them are at heights you cannot reach."
-msgstr "non due. sei. le posizioni sono precise e non sono vicine tra loro, e tre di esse sono ad altezze che non puoi raggiungere."
+msgid "not two. six. the placements are exact and designed for three humans to concur. a thing that could not be done alone."
+msgstr ""
 
 #: script/events/road.js:904
 msgid "note where it is and move on"
@@ -7538,6 +7562,10 @@ msgstr "il medico della peste porta precisione letale da una premonizione letale
 msgid "plasma rifle"
 msgstr "fucile al plasma"
 
+#: script/localization.js:79
+msgid "plasma rifle blueprint"
+msgstr ""
+
 #: script/events/setpieces.js:1242
 msgid "plates parting"
 msgstr "piastre che si separano"
@@ -7703,6 +7731,10 @@ msgstr "Pronto a Partire?"
 #: script/events/setpieces.js:1565
 msgid "reasserting"
 msgstr "riaffermando"
+
+#: script/localization.js:80
+msgid "recycler blueprint"
+msgstr ""
 
 #: script/engine.js:867
 msgid "reddit"
@@ -9441,6 +9473,10 @@ msgstr "distillatuta"
 #: script/fabricator.js:64
 msgid "stim"
 msgstr "stimolante"
+
+#: script/localization.js:81
+msgid "stim blueprint"
+msgstr ""
 
 #: script/events/setpieces.js:6224
 msgid "stinging"
@@ -11844,6 +11880,10 @@ msgstr "il mucchio non è un segnale. è un conteggio di viaggi finiti qui."
 msgid "the place has been swept clean by scavengers."
 msgstr "il posto è stato spogliato di tutto dai saccheggiatori."
 
+#: script/events/setpieces.js:3432
+msgid "the placement may not have been perfect, but whatever is inside recognised you before the sensors did."
+msgstr ""
+
 #: script/events/outside.js:394
 msgid "the plague is halted, but not everywhere"
 msgstr "la peste viene fermata, ma non ovunque"
@@ -12799,10 +12839,6 @@ msgstr "la camminatrice viene fatta rinvenire"
 msgid "the wall opens"
 msgstr "il muro si apre"
 
-#: script/events/setpieces.js:3431
-msgid "the wall reads what is there and finds four fewer hands than it needs."
-msgstr "il muro legge ciò che c'è e trova quattro mani in meno di quante ne servano."
-
 #: script/events/setpieces.js:125
 msgid "the walls are a single piece. no joins, no courses, no tool marks, and no wear where ten thousand years of feet should have worn them."
 msgstr "i muri sono un pezzo unico. nessuna giuntura, nessuno strato, nessun segno di attrezzo, e nessuna usura dove diecimila anni di passi avrebbero dovuto consumarli."
@@ -13616,6 +13652,10 @@ msgstr "tornano prima della fine del mese, e portano altri dei loro."
 #: script/events/room.js:1733
 msgid "they decide against it"
 msgstr "decidono di non farlo"
+
+#: script/events/setpieces.js:3430
+msgid "they did not anticipate a wanderer race with six arms. after the cloning lab enough memory returns."
+msgstr ""
 
 #: script/events/setpieces.js:3280
 msgid "they did not fail. they were doing the hardest thing anybody on this rock ever managed and they were still doing it when the wars reached them."
@@ -14963,10 +15003,6 @@ msgstr "dovresti sapere come fare questo. sei certo che dovresti sapere come far
 msgid "you stand in the light where the shape of you is unambiguous, and you do not say anything."
 msgstr "stai nella luce dove la tua forma è inequivocabile, e non dici niente."
 
-#: script/events/setpieces.js:3430
-msgid "you stand there with both palms flat on stone that has no markings on it, and you know -- the way you know your own name, which you do not -- that this is wrong. that it is supposed to be six. that it was never a lock at all, only a thing that could not be done alone."
-msgstr "stai lì con entrambe le palme piatte su una pietra senza alcun segno sopra, e sai -- nel modo in cui sai il tuo stesso nome, che non sai -- che questo è sbagliato. che dovrebbero essere sei. che non fu mai una serratura del tutto, solo una cosa che non poteva essere fatta da soli."
-
 #: script/events/setpieces.js:3738
 msgid "you take it with gloves on"
 msgstr "lo prendi con i guanti indossati"
@@ -15248,3 +15284,15 @@ msgstr "ⰑⰖⰔⱂⰃⰠ2ⰉⰉ Ⱀⱂ ⰄⰀ ⰒⰑⰆⰉ me2Ⱐ ⰄⰀ Ⰲ�
 
 #~ msgid "hull:"
 #~ msgstr "scafo:"
+
+#~ msgid "and then it opens anyway, because whatever is inside recognised you before the sensors did."
+#~ msgstr "e poi si apre comunque, perché qualunque cosa ci sia dentro ti ha riconosciuto prima dei sensori."
+
+#~ msgid "not two. six. the placements are exact and they are nowhere near each other, and three of them are at heights you cannot reach."
+#~ msgstr "non due. sei. le posizioni sono precise e non sono vicine tra loro, e tre di esse sono ad altezze che non puoi raggiungere."
+
+#~ msgid "the wall reads what is there and finds four fewer hands than it needs."
+#~ msgstr "il muro legge ciò che c'è e trova quattro mani in meno di quante ne servano."
+
+#~ msgid "you stand there with both palms flat on stone that has no markings on it, and you know -- the way you know your own name, which you do not -- that this is wrong. that it is supposed to be six. that it was never a lock at all, only a thing that could not be done alone."
+#~ msgstr "stai lì con entrambe le palme piatte su una pietra senza alcun segno sopra, e sai -- nel modo in cui sai il tuo stesso nome, che non sai -- che questo è sbagliato. che dovrebbero essere sei. che non fu mai una serratura del tutto, solo una cosa che non poteva essere fatta da soli."

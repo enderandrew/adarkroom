@@ -345,6 +345,10 @@ msgstr "3 medicijnen"
 msgid "300 wood, paid up front"
 msgstr "300 hout, vooraf betaald"
 
+#: script/events/setpieces.js:3431
+msgid "400 centuries ago you were here and opened this once before. your hands know the way."
+msgstr ""
+
 #: script/events/room.js:476
 msgid "500 wood, paid on completion"
 msgstr "500 hout, betaald bij voltooiing"
@@ -2002,10 +2006,6 @@ msgstr "en dan is het weg, en je houdt vier platte vlakken vast en je kunt niet 
 msgid "and then it is gone, and your hand closes on it, and you are shaking and cannot immediately say why."
 msgstr "en dan is het weg, en je hand sluit zich eromheen, en je beeft en kunt niet meteen zeggen waarom."
 
-#: script/events/setpieces.js:3432
-msgid "and then it opens anyway, because whatever is inside recognised you before the sensors did."
-msgstr "en toch gaat het open, want wat er ook binnenin zit herkende je voordat de sensoren het deden."
-
 #: script/events/setpieces.js:2746
 msgid "and then the row of you. the row of you goes on past where the lights end."
 msgstr "en dan de rij van jou. de rij van jou gaat verder dan waar de lichten eindigen."
@@ -3507,6 +3507,10 @@ msgstr "afvoer. afvoer. afvoer. de vermeldingen lopen door over pagina's, en de 
 msgid "disruptor"
 msgstr "verstoorder"
 
+#: script/localization.js:74
+msgid "disruptor blueprint"
+msgstr ""
+
 #: script/distress.js:124
 #: script/engine.js:207
 msgid "distress off."
@@ -3961,6 +3965,10 @@ msgstr "flankerend paar"
 msgid "flare"
 msgstr "lichtkogel"
 
+#: script/localization.js:73
+msgid "fleet beacon"
+msgstr ""
+
 #: script/room.js:1490
 msgid "flickering"
 msgstr "flikkerend"
@@ -4243,6 +4251,10 @@ msgstr "glazen wolven komen van de bergkam af, vier van hen, bewegend zoals wate
 #: script/fabricator.js:135
 msgid "glow stone"
 msgstr "gloeisteen"
+
+#: script/localization.js:75
+msgid "glowstone blueprint"
+msgstr ""
 
 #: script/prison.js:221
 msgid "glyphs in every tongue: peace through equity. equity through consistency."
@@ -4599,6 +4611,10 @@ msgstr "hardcore."
 msgid "hazard suit"
 msgstr "gevarenpak"
 
+#: script/localization.js:76
+msgid "hazard suit blueprint"
+msgstr ""
+
 #: script/events/road.js:938
 msgid "he arrives at dusk, alone, in armour that was very good once and has not been repaired in living memory."
 msgstr "hij arriveert bij schemering, alleen, in harnas dat ooit erg goed was en al mensenheugenis niet gerepareerd is."
@@ -4951,6 +4967,10 @@ msgstr "hyper."
 #: script/fabricator.js:54
 msgid "hypo"
 msgstr "injectie"
+
+#: script/localization.js:77
+msgid "hypo blueprint"
+msgstr ""
 
 #: script/room.js:954
 msgid "i armour"
@@ -5805,6 +5825,10 @@ msgstr "kinetisch"
 #: script/fabricator.js:35
 msgid "kinetic armour"
 msgstr "kinetisch harnas"
+
+#: script/localization.js:78
+msgid "kinetic armour blueprint"
+msgstr ""
 
 #: script/events/encounters.js:813
 #: script/events/setpieces.js:6167
@@ -7034,8 +7058,8 @@ msgid "not somebody like you. you. the same hands. the same set to the jaw. the 
 msgstr "niet iemand zoals jij. jij. dezelfde handen. dezelfde stand van de kaak. het litteken dat je hebt zolang je je kunt herinneren, al daar op een lichaam dat nog nooit buiten dat glas is geweest."
 
 #: script/events/setpieces.js:3429
-msgid "not two. six. the placements are exact and they are nowhere near each other, and three of them are at heights you cannot reach."
-msgstr "geen twee. zes. de plaatsingen zijn precies en ze liggen nergens bij elkaar in de buurt, en drie ervan zitten op hoogtes die je niet kunt bereiken."
+msgid "not two. six. the placements are exact and designed for three humans to concur. a thing that could not be done alone."
+msgstr ""
 
 #: script/events/road.js:904
 msgid "note where it is and move on"
@@ -7534,6 +7558,10 @@ msgstr "de pestdokter brengt dodelijke precisie voort uit een dodelijk voorgevoe
 msgid "plasma rifle"
 msgstr "plasmageweer"
 
+#: script/localization.js:79
+msgid "plasma rifle blueprint"
+msgstr ""
+
 #: script/events/setpieces.js:1242
 msgid "plates parting"
 msgstr "platen scheiden"
@@ -7699,6 +7727,10 @@ msgstr "Klaar Om Te Vertrekken?"
 #: script/events/setpieces.js:1565
 msgid "reasserting"
 msgstr "zich herbevestigend"
+
+#: script/localization.js:80
+msgid "recycler blueprint"
+msgstr ""
 
 #: script/engine.js:867
 msgid "reddit"
@@ -9437,6 +9469,10 @@ msgstr "destillatiepak"
 #: script/fabricator.js:64
 msgid "stim"
 msgstr "stimulans"
+
+#: script/localization.js:81
+msgid "stim blueprint"
+msgstr ""
 
 #: script/events/setpieces.js:6224
 msgid "stinging"
@@ -11840,6 +11876,10 @@ msgstr "de stapel is geen teken. het is een telling van tochten die hier eindigd
 msgid "the place has been swept clean by scavengers."
 msgstr "de plek is leeggeplunderd door aaseters."
 
+#: script/events/setpieces.js:3432
+msgid "the placement may not have been perfect, but whatever is inside recognised you before the sensors did."
+msgstr ""
+
 #: script/events/outside.js:394
 msgid "the plague is halted, but not everywhere"
 msgstr "de plaag wordt tot staan gebracht, maar niet overal"
@@ -12795,10 +12835,6 @@ msgstr "de wandelaarster wordt bijgebracht"
 msgid "the wall opens"
 msgstr "de muur opent"
 
-#: script/events/setpieces.js:3431
-msgid "the wall reads what is there and finds four fewer hands than it needs."
-msgstr "de muur leest wat er is en vindt vier handen minder dan hij nodig heeft."
-
 #: script/events/setpieces.js:125
 msgid "the walls are a single piece. no joins, no courses, no tool marks, and no wear where ten thousand years of feet should have worn them."
 msgstr "de muren zijn één stuk. geen naden, geen lagen, geen gereedschapssporen, en geen slijtage waar tienduizend jaar voeten ze had moeten verslijten."
@@ -13612,6 +13648,10 @@ msgstr "ze komen terug voor de maand om is, en ze brengen meer van hen mee."
 #: script/events/room.js:1733
 msgid "they decide against it"
 msgstr "ze besluiten er niet toe"
+
+#: script/events/setpieces.js:3430
+msgid "they did not anticipate a wanderer race with six arms. after the cloning lab enough memory returns."
+msgstr ""
 
 #: script/events/setpieces.js:3280
 msgid "they did not fail. they were doing the hardest thing anybody on this rock ever managed and they were still doing it when the wars reached them."
@@ -14959,10 +14999,6 @@ msgstr "je zou moeten weten hoe dit te doen. je bent er zeker van dat je zou moe
 msgid "you stand in the light where the shape of you is unambiguous, and you do not say anything."
 msgstr "je staat in het licht waar je vorm ondubbelzinnig is, en je zegt niets."
 
-#: script/events/setpieces.js:3430
-msgid "you stand there with both palms flat on stone that has no markings on it, and you know -- the way you know your own name, which you do not -- that this is wrong. that it is supposed to be six. that it was never a lock at all, only a thing that could not be done alone."
-msgstr "je staat daar met beide handpalmen plat op steen zonder markeringen, en je weet -- zoals je je eigen naam weet, wat je niet doet -- dat dit verkeerd is. dat het er zes zouden moeten zijn. dat het nooit een slot was, alleen iets dat niet alleen gedaan kon worden."
-
 #: script/events/setpieces.js:3738
 msgid "you take it with gloves on"
 msgstr "je neemt het met handschoenen aan"
@@ -15091,3 +15127,15 @@ msgstr "ⰑⰖⰔⱂⰃⰠ2ⰉⰉ Ⱀⱂ ⰄⰀ ⰒⰑⰆⰉ me2Ⱐ ⰄⰀ Ⰲ�
 
 #~ msgid "Underground&nbsp;Ruins"
 #~ msgstr "Ondergrondse&nbsp;Ruïnes"
+
+#~ msgid "and then it opens anyway, because whatever is inside recognised you before the sensors did."
+#~ msgstr "en toch gaat het open, want wat er ook binnenin zit herkende je voordat de sensoren het deden."
+
+#~ msgid "not two. six. the placements are exact and they are nowhere near each other, and three of them are at heights you cannot reach."
+#~ msgstr "geen twee. zes. de plaatsingen zijn precies en ze liggen nergens bij elkaar in de buurt, en drie ervan zitten op hoogtes die je niet kunt bereiken."
+
+#~ msgid "the wall reads what is there and finds four fewer hands than it needs."
+#~ msgstr "de muur leest wat er is en vindt vier handen minder dan hij nodig heeft."
+
+#~ msgid "you stand there with both palms flat on stone that has no markings on it, and you know -- the way you know your own name, which you do not -- that this is wrong. that it is supposed to be six. that it was never a lock at all, only a thing that could not be done alone."
+#~ msgstr "je staat daar met beide handpalmen plat op steen zonder markeringen, en je weet -- zoals je je eigen naam weet, wat je niet doet -- dat dit verkeerd is. dat het er zes zouden moeten zijn. dat het nooit een slot was, alleen iets dat niet alleen gedaan kon worden."
