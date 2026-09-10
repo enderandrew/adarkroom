@@ -3,7 +3,7 @@ var langs = {
 	'de':'deutsch',
 	'el':'ελληνικά',
 	'en':'english',
-	'en_cy':'welsh',
+	'en_cy':'english (wales)',
 	'eo':'esperanto',
 	'es':'español',
 	'fr':'français',

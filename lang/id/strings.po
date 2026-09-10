@@ -303,7 +303,7 @@ msgstr "{0} dapat membantu berburu, jika memiliki sarananya"
 msgid "{0} of the three are dark now. what is left is still lit."
 msgstr "{0} dari tiga kini padam. yang tersisa masih menyala."
 
-#: script/engine.js:1279
+#: script/engine.js:1287
 msgid "{0} per {1}s"
 msgstr "{0} per {1}"
 
@@ -2025,7 +2025,7 @@ msgstr "dan terukir pada rangkanya, begitu dangkal hingga kau hanya akan menemuk
 msgid "and you understand, finally and completely, why you opened that door --<br>and that you would open it again, and that this is not remorse, and never was."
 msgstr "dan kau memahami, akhirnya dan sepenuhnya, mengapa kau membuka pintu itu --<br>dan bahwa kau akan membukanya lagi, dan bahwa ini bukanlah penyesalan, dan tak pernah menjadi penyesalan."
 
-#: script/engine.js:836
+#: script/engine.js:844
 msgid "android"
 msgstr "android"
 
@@ -2070,7 +2070,7 @@ msgstr "mendekat"
 msgid "approach the platform"
 msgstr "mendekati platform"
 
-#: script/engine.js:1715
+#: script/engine.js:1795
 msgid "april fools."
 msgstr "april mop."
 
@@ -2082,7 +2082,7 @@ msgstr "kilatan busur listrik"
 msgid "archon"
 msgstr "archon"
 
-#: script/engine.js:474
+#: script/engine.js:482
 msgid "are you sure?"
 msgstr "apakah anda yakin?"
 
@@ -2497,7 +2497,7 @@ msgstr "meledakkannya"
 msgid "blueprints"
 msgstr "cetak biru"
 
-#: script/engine.js:921
+#: script/engine.js:929
 msgid "bluesky"
 msgstr "bluesky"
 
@@ -2554,11 +2554,11 @@ msgstr "petinju"
 msgid "bring in whoever is still out there"
 msgstr "membawa masuk siapa pun yang masih di luar sana"
 
-#: script/engine.js:815
+#: script/engine.js:823
 msgid "bring the room with you."
 msgstr "bawa ruangan ini bersamamu."
 
-#: script/engine.js:857
+#: script/engine.js:865
 msgid "bring your friends."
 msgstr "ajak teman-teman anda."
 
@@ -2578,7 +2578,7 @@ msgstr "bangun"
 msgid "build the fire up"
 msgstr "membesarkan api"
 
-#: script/engine.js:1508
+#: script/engine.js:1545
 #: script/room.js:2219
 msgid "build:"
 msgstr "bangun:"
@@ -2767,7 +2767,7 @@ msgstr "beli sisik"
 msgid "buy teeth"
 msgstr "beli gigi"
 
-#: script/engine.js:1519
+#: script/engine.js:1556
 #: script/room.js:2233
 msgid "buy:"
 msgstr "beli:"
@@ -2819,9 +2819,9 @@ msgstr "tidak tahu apa yang mereka incar."
 #: script/dropbox.js:389
 #: script/dropbox.js:427
 #: script/dropbox.js:465
-#: script/engine.js:447
-#: script/engine.js:511
-#: script/engine.js:528
+#: script/engine.js:455
+#: script/engine.js:519
+#: script/engine.js:536
 msgid "cancel"
 msgstr "batal"
 
@@ -2863,11 +2863,11 @@ msgstr "peleburan sel"
 msgid "chain-gang revenant"
 msgstr "arwah rantai tahanan"
 
-#: script/engine.js:1047
+#: script/engine.js:1055
 msgid "Changelog"
 msgstr "Log Perubahan"
 
-#: script/engine.js:1050
+#: script/engine.js:1058
 msgid "changelog: This is a fork that both changes features, and the story from original game. Go support the original!"
 msgstr "log perubahan: Ini adalah fork yang mengubah fitur maupun cerita dari game aslinya. Dukunglah versi aslinya!"
 
@@ -2898,7 +2898,7 @@ msgstr "jimat"
 msgid "charred bodies litter the ground."
 msgstr "terdapat mayat-mayat gosong di atas tanah."
 
-#: script/engine.js:1767
+#: script/engine.js:1847
 msgid "check it out."
 msgstr "periksalah."
 
@@ -2935,8 +2935,8 @@ msgstr "paduan suara"
 msgid "chunks of coal"
 msgstr "bongkahan batu bara"
 
-#: script/engine.js:1069
-#: script/engine.js:1083
+#: script/engine.js:1077
+#: script/engine.js:1091
 msgid "classic."
 msgstr "klasik."
 
@@ -3026,8 +3026,8 @@ msgstr "keluar memanjat lewat reruntuhan"
 msgid "climb with everything"
 msgstr "memanjat dengan segalanya"
 
-#: script/engine.js:843
-#: script/engine.js:930
+#: script/engine.js:851
+#: script/engine.js:938
 msgid "close"
 msgstr "tutup"
 
@@ -3309,7 +3309,7 @@ msgstr "tidak dapat memuat dari dropbox. permainanmu saat ini tidak terpengaruh.
 msgid "could not reach dropbox. check your connection and try again."
 msgstr "tidak dapat menghubungi dropbox. periksa koneksimu dan coba lagi."
 
-#: script/engine.js:592
+#: script/engine.js:600
 msgid "could not read that file."
 msgstr "tidak dapat membaca berkas itu."
 
@@ -3349,7 +3349,7 @@ msgstr "menutupi persediaan"
 msgid "craft"
 msgstr "membuat"
 
-#: script/engine.js:1513
+#: script/engine.js:1550
 #: script/room.js:2226
 msgid "craft:"
 msgstr "rakit:"
@@ -3482,7 +3482,7 @@ msgstr "menggalinya keluar"
 msgid "dig it out anyway"
 msgstr "tetap menggalinya keluar"
 
-#: script/engine.js:1648
+#: script/engine.js:1728
 msgid "disable audio"
 msgstr "menonaktifkan audio"
 
@@ -3547,7 +3547,7 @@ msgstr "mengelak serangan dengan lebih efektif"
 msgid "doorkeeper"
 msgstr "penjaga pintu"
 
-#: script/engine.js:547
+#: script/engine.js:555
 msgid "download as file"
 msgstr "unduh sebagai berkas"
 
@@ -3605,7 +3605,7 @@ msgstr "sekarat"
 msgid "each step into the bracing cold wilds is difficult, and yet somehow there is a calling impossibly far away from here. perhaps even to the stars."
 msgstr "setiap langkah ke alam liar yang dingin menusuk itu sulit, namun entah bagaimana ada sebuah panggilan yang mustahil jauhnya dari sini. mungkin bahkan hingga ke bintang-bintang."
 
-#: script/engine.js:1638
+#: script/engine.js:1718
 msgid "ears flooded with new sensations."
 msgstr "telinga dibanjiri sensasi baru."
 
@@ -3653,7 +3653,7 @@ msgstr "langit kosong"
 msgid "empty the snares"
 msgstr "mengosongkan jerat"
 
-#: script/engine.js:1643
+#: script/engine.js:1723
 msgid "enable audio"
 msgstr "mengaktifkan audio"
 
@@ -3854,15 +3854,15 @@ msgstr "rencana-rencana eksperimental menutupi satu dinding, ditahan oleh kekuat
 msgid "explore"
 msgstr "jelajahi"
 
-#: script/engine.js:439
+#: script/engine.js:447
 msgid "export"
 msgstr "ekspor"
 
-#: script/engine.js:430
+#: script/engine.js:438
 msgid "Export / Import"
 msgstr "Ekspor / Impor"
 
-#: script/engine.js:434
+#: script/engine.js:442
 msgid "export or import save data, for backing up"
 msgstr "ekspor atau impor data simpanan, untuk back up"
 
@@ -3890,7 +3890,7 @@ msgstr "buat:"
 msgid "Fabricator"
 msgstr "Fabrikator"
 
-#: script/engine.js:860
+#: script/engine.js:868
 msgid "facebook"
 msgstr "facebook"
 
@@ -4168,7 +4168,7 @@ msgstr "merunduk dan menunggunya berlalu"
 msgid "get out"
 msgstr "keluar"
 
-#: script/engine.js:812
+#: script/engine.js:820
 msgid "Get the App"
 msgstr "Dapatkan Aplikasinya"
 
@@ -4339,7 +4339,7 @@ msgstr "turun"
 msgid "go down to the core"
 msgstr "turun ke inti"
 
-#: script/engine.js:1022
+#: script/engine.js:1030
 msgid "Go Hardcore?"
 msgstr "Mulai Mode Hardcore?"
 
@@ -4376,7 +4376,7 @@ msgstr "pulang"
 msgid "go home with her"
 msgstr "pulang bersamanya"
 
-#: script/engine.js:996
+#: script/engine.js:1004
 msgid "Go Hyper?"
 msgstr "Beralih ke Hyper?"
 
@@ -4555,7 +4555,7 @@ msgstr "melewati ambang pintu membawamu lebih jauh ke bawah daripada berjalan me
 msgid "good to rebuild"
 msgstr "baik untuk dibangun ulang"
 
-#: script/engine.js:466
+#: script/engine.js:474
 msgid "got it"
 msgstr "baiklah"
 
@@ -4604,8 +4604,8 @@ msgstr "gantung"
 msgid "happy april fools. the door out of here still works and none of this happened."
 msgstr "selamat april mop. pintu keluar dari sini masih berfungsi dan semua ini tak pernah terjadi."
 
-#: script/engine.js:1070
-#: script/engine.js:1087
+#: script/engine.js:1078
+#: script/engine.js:1095
 #: script/engine.js:213
 msgid "hardcore."
 msgstr "hardcore."
@@ -4961,8 +4961,8 @@ msgstr "pemburu"
 msgid "hut"
 msgstr "gubuk"
 
-#: script/engine.js:1072
-#: script/engine.js:1084
+#: script/engine.js:1080
+#: script/engine.js:1092
 #: script/engine.js:219
 msgid "hyper."
 msgstr "hyper."
@@ -4988,7 +4988,7 @@ msgstr "saya tidak mengklaim ini sebagai perpanjangan dari niat Townsend. saya s
 msgid "ichor"
 msgstr "ichor"
 
-#: script/engine.js:476
+#: script/engine.js:484
 msgid "if it is valid, this will replace your current game. that part is irreversible."
 msgstr "jika valid, ini akan menggantikan permainanmu saat ini. bagian itu tidak dapat dibatalkan."
 
@@ -4996,7 +4996,7 @@ msgstr "jika valid, ini akan menggantikan permainanmu saat ini. bagian itu tidak
 msgid "if only they'd been destroyed along with everything else."
 msgstr "andai saja mereka juga hancur bersama segala sesuatu yang lain."
 
-#: script/engine.js:475
+#: script/engine.js:483
 msgid "if the save is invalid, nothing will be changed."
 msgstr "jika data simpanan tidak valid, tak ada yang akan berubah."
 
@@ -5023,8 +5023,8 @@ msgstr "abaikan"
 msgid "immortal wanderer"
 msgstr "pengembara abadi"
 
-#: script/engine.js:443
-#: script/engine.js:498
+#: script/engine.js:451
+#: script/engine.js:506
 msgid "import"
 msgstr "impor"
 
@@ -5044,7 +5044,7 @@ msgstr "di tempatnya ada sebuah kaleng ransum, penuh, dan sebuah kartu tanpa apa
 msgid "in the distance soldiers battle over wars long past, some with spears and some with guns. they are unable to let go."
 msgstr "di kejauhan para prajurit bertempur dalam perang yang sudah lama berlalu, sebagian dengan tombak dan sebagian dengan senjata api. mereka tak mampu melepaskannya."
 
-#: script/engine.js:1052
+#: script/engine.js:1060
 msgid "In the mean time this is what has changed: Ruins, Temple, Graveyard, Lab, Prison, easter eggs, 14 endings, mobile, Hardcore mode, uber traps, new perk, new weapons, new upgrades, expanded story, new enemies, April Fool's mode, key controls in combat, visual tweaks, bugfixes, and more to come!"
 msgstr "sementara itu inilah yang telah berubah: Reruntuhan, Candi, Pemakaman, Laboratorium, Penjara, easter egg, 14 akhir, seluler, Mode Hardcore, jebakan super, keahlian baru, senjata baru, peningkatan baru, cerita diperluas, musuh baru, mode April Mop, kontrol tombol dalam pertarungan, penyempurnaan visual, perbaikan bug, dan masih banyak lagi yang akan datang!"
 
@@ -5100,7 +5100,7 @@ msgstr "kematian tak terlihat - radiasi membanjiri sebagian besar level ini"
 msgid "inviting. it would be so easy to give in, completely."
 msgstr "menggoda. akan begitu mudah untuk menyerah, sepenuhnya."
 
-#: script/engine.js:829
+#: script/engine.js:837
 msgid "ios"
 msgstr "ios"
 
@@ -6356,12 +6356,12 @@ msgid "lights flash through the alleys between buildings."
 msgstr "cahaya menyinari gang-gang di antara bangunan-bangunan."
 
 #: script/engine.js:201
-#: script/engine.js:987
+#: script/engine.js:995
 msgid "lights off."
 msgstr "lampu mati."
 
-#: script/engine.js:976
-#: script/engine.js:981
+#: script/engine.js:984
+#: script/engine.js:989
 msgid "lights on."
 msgstr "lampu nyala."
 
@@ -6389,7 +6389,7 @@ msgstr "kadal"
 msgid "load"
 msgstr "muat"
 
-#: script/engine.js:589
+#: script/engine.js:597
 msgid "loaded: "
 msgstr "dimuat: "
 
@@ -6808,10 +6808,10 @@ msgstr "mimpi buruk berlanjut"
 msgid "nightmares worsen"
 msgstr "mimpi buruk memburuk"
 
-#: script/engine.js:1007
-#: script/engine.js:1033
-#: script/engine.js:485
-#: script/engine.js:789
+#: script/engine.js:1015
+#: script/engine.js:1041
+#: script/engine.js:493
+#: script/engine.js:797
 msgid "no"
 msgstr "tidak"
 
@@ -6859,7 +6859,7 @@ msgstr "tak seorang pun berhasil keluar tepat waktu."
 msgid "no one wins wars fought with child soldiers"
 msgstr "tak ada yang menang dalam perang yang diperjuangkan dengan prajurit anak-anak"
 
-#: script/engine.js:1773
+#: script/engine.js:1853
 msgid "no thanks."
 msgstr "tidak, terima kasih."
 
@@ -7113,7 +7113,7 @@ msgstr "tak terjadi apa-apa. itu adalah ketiadaan paling nyaring yang pernah kau
 msgid "nothing happens. nothing is there. nothing comes."
 msgstr "tak terjadi apa-apa. tak ada apa pun di sana. tak ada yang datang."
 
-#: script/engine.js:519
+#: script/engine.js:527
 msgid "nothing has been changed. your current game is untouched."
 msgstr "tak ada yang berubah. permainanmu saat ini tak tersentuh."
 
@@ -7194,7 +7194,7 @@ msgid "offer another charm anyway"
 msgstr "tetap menawarkan jimat lain"
 
 #: script/dropbox.js:510
-#: script/engine.js:1056
+#: script/engine.js:1064
 #: script/outside.js:1092
 #: script/outside.js:1262
 #: script/outside.js:1279
@@ -7414,7 +7414,7 @@ msgstr "membuka gudang"
 msgid "opening it bare-handed is not a decision. it is just a way of dying in a shed."
 msgstr "membukanya dengan tangan kosong bukanlah sebuah keputusan. itu hanyalah cara untuk mati di sebuah gudang."
 
-#: script/engine.js:435
+#: script/engine.js:443
 msgid "or migrating computers"
 msgstr "atau memindahkan komputer"
 
@@ -7491,7 +7491,7 @@ msgstr "melewati pos pemeriksaan, deretan sel penampungan dapat terlihat."
 msgid "past the checkpoint, the corridor is undamaged save for sporadic graffiti."
 msgstr "melewati pos pemeriksaan, koridor tak rusak kecuali grafiti yang sporadis."
 
-#: script/engine.js:491
+#: script/engine.js:499
 msgid "paste the save code here, or choose a file below."
 msgstr "tempel kode simpanan di sini, atau pilih berkas di bawah."
 
@@ -7512,7 +7512,7 @@ msgstr "mengintip melalui lensa mata kuningan. bintang-bintang tidak berada di p
 msgid "Penrose"
 msgstr "Penrose"
 
-#: script/engine.js:1639
+#: script/engine.js:1719
 msgid "perhaps silence is safer?"
 msgstr "mungkin diam lebih aman?"
 
@@ -7541,7 +7541,7 @@ msgstr "dek ini sudah dijarah bersih."
 msgid "picking the bones finds some useful trinkets."
 msgstr "mendapat beberapa pernak-pernik berguna di antara tulang-belulang."
 
-#: script/engine.js:888
+#: script/engine.js:896
 msgid "pinterest"
 msgstr "pinterest"
 
@@ -7735,7 +7735,7 @@ msgstr "menegaskan kembali"
 msgid "recycler blueprint"
 msgstr "cetak biru daur ulang materi"
 
-#: script/engine.js:867
+#: script/engine.js:875
 msgid "reddit"
 msgstr "reddit"
 
@@ -7786,11 +7786,11 @@ msgstr "beresonansi"
 msgid "respects are paid"
 msgstr "penghormatan diberikan"
 
-#: script/engine.js:781
+#: script/engine.js:789
 msgid "restart the game?"
 msgstr "ulang kembali permainan?"
 
-#: script/engine.js:778
+#: script/engine.js:786
 msgid "Restart?"
 msgstr "Ulang kembali?"
 
@@ -7931,7 +7931,7 @@ msgstr "sampel sesuatu yang biologis di dalamnya."
 msgid "save"
 msgstr "simpan"
 
-#: script/engine.js:453
+#: script/engine.js:461
 msgid "save this, or download it as a file."
 msgstr "simpan ini, atau unduh sebagai berkas."
 
@@ -8383,7 +8383,7 @@ msgstr "Bayangan"
 msgid "shamefully gather goods"
 msgstr "mengumpulkan barang dengan malu"
 
-#: script/engine.js:854
+#: script/engine.js:862
 msgid "Share"
 msgstr "Bagi"
 
@@ -9285,15 +9285,15 @@ msgstr "di suatu tempat di balik dinding, sebuah pompa berputar, berhenti, dan b
 msgid "somewhere behind you the rock keeps turning. there is a room on it with a fire in it.<br>you do not look back at it."
 msgstr "di suatu tempat di belakangmu batu itu terus berputar. ada sebuah ruangan di dalamnya dengan api di dalamnya.<br>kau tak menoleh ke belakang melihatnya."
 
-#: script/engine.js:1634
+#: script/engine.js:1714
 msgid "Sound Available!"
 msgstr "Suara Tersedia!"
 
-#: script/engine.js:1436
+#: script/engine.js:1473
 msgid "sound off."
 msgstr "suara mati."
 
-#: script/engine.js:1432
+#: script/engine.js:1469
 #: script/engine.js:189
 msgid "sound on."
 msgstr "suara menyala."
@@ -9380,7 +9380,7 @@ msgstr "tetap di level ini"
 msgid "stealthy"
 msgstr "sembunyi"
 
-#: script/engine.js:822
+#: script/engine.js:830
 msgid "steam"
 msgstr "uap"
 
@@ -9790,7 +9790,7 @@ msgstr "berterima kasih padanya"
 msgid "that cannot be right. those glyphs seem to suggest..."
 msgstr "itu tak mungkin benar. glif-glif itu tampaknya menyarankan..."
 
-#: script/engine.js:583
+#: script/engine.js:591
 msgid "that file is too large to be a save."
 msgstr "berkas itu terlalu besar untuk menjadi sebuah data simpanan."
 
@@ -9806,7 +9806,7 @@ msgstr "itulah sebabnya kau datang ke sini. bukan untuk membebaskan mereka. untu
 msgid "that save could not be read. nothing has been changed."
 msgstr "data simpanan itu tak dapat dibaca. tak ada yang berubah."
 
-#: script/engine.js:518
+#: script/engine.js:526
 msgid "that save data could not be read."
 msgstr "data simpanan itu tak dapat dibaca."
 
@@ -13239,7 +13239,7 @@ msgstr "ada sebuah tanda terukir di patok jerat pertama. itu bukan tanda pembuat
 msgid "there is a name scratched at head height and then scratched out, thoroughly, by the same hand."
 msgstr "ada sebuah nama tergores setinggi kepala lalu dicoret, dengan menyeluruh, oleh tangan yang sama."
 
-#: script/engine.js:1763
+#: script/engine.js:1843
 msgid "there is a new layout, would you like to use it?"
 msgstr "ada tata letak baru, apakah kau ingin menggunakannya?"
 
@@ -13904,7 +13904,7 @@ msgstr "pikiran-pikiran"
 msgid "thousands of faces turning at once toward a thing they have all just decided to hate."
 msgstr "ribuan wajah menoleh sekaligus ke arah sesuatu yang baru saja mereka putuskan untuk dibenci."
 
-#: script/engine.js:909
+#: script/engine.js:917
 msgid "threads"
 msgstr "benang-benang"
 
@@ -14090,7 +14090,7 @@ msgstr "wabah menghancurkan desa."
 msgid "Troposphere"
 msgstr "Troposfer"
 
-#: script/engine.js:523
+#: script/engine.js:531
 msgid "try again"
 msgstr "coba lagi"
 
@@ -14106,7 +14106,7 @@ msgstr "coba membangunkan salah satu"
 msgid "trying to carve out some semblence of civilization amongst the unforgiving wastes. builder says she could make finer things, if she had the tools"
 msgstr "mencoba mengukir semacam peradaban di tengah tanah tandus yang tak kenal ampun. pembangun berkata dia bisa membuat hal-hal yang lebih halus, jika dia punya peralatannya"
 
-#: script/engine.js:881
+#: script/engine.js:889
 msgid "tumblr"
 msgstr "tumblr"
 
@@ -14141,11 +14141,11 @@ msgstr "mengusir para penyintas"
 msgid "turn them back"
 msgstr "memulangkan mereka"
 
-#: script/engine.js:1025
+#: script/engine.js:1033
 msgid "turning hardcore mode on slows down the game by x2 speed and makes all enemies x2 stronger. do you want to do that?"
 msgstr "mengaktifkan mode hardcore memperlambat game sebesar x2 kecepatan dan membuat semua musuh x2 lebih kuat. apakah kau ingin melakukan itu?"
 
-#: script/engine.js:999
+#: script/engine.js:1007
 msgid "turning hyper mode speeds up the game to x2 speed. do you want to do that?"
 msgstr "mengaktifkan mode hyper mempercepat game menjadi x2 kecepatan. apakah kau ingin melakukan itu?"
 
@@ -14153,7 +14153,7 @@ msgstr "mengaktifkan mode hyper mempercepat game menjadi x2 kecepatan. apakah ka
 msgid "twenty minutes, no drama, and the pack never so much as shifts."
 msgstr "dua puluh menit, tanpa drama, dan ranselnya bahkan tak bergeser sedikit pun."
 
-#: script/engine.js:874
+#: script/engine.js:882
 msgid "twitter"
 msgstr "twitter"
 
@@ -14295,7 +14295,7 @@ msgstr "automaton tak stabil"
 msgid "unstable prototype"
 msgstr "prototipe tak stabil"
 
-#: script/engine.js:1759
+#: script/engine.js:1839
 msgid "Update"
 msgstr "Perbarui"
 
@@ -14701,7 +14701,7 @@ msgstr "apa pun yang mereka hadapi, tak satu pun dari mereka mau melewati sini, 
 msgid "whatever this is, it was not built to be opened from outside. it was built so that opening it would have to be a decision somebody made from within."
 msgstr "apa pun ini, tidak dibangun untuk dibuka dari luar. dibangun agar membukanya harus menjadi keputusan yang dibuat seseorang dari dalam."
 
-#: script/engine.js:902
+#: script/engine.js:910
 msgid "whatsapp"
 msgstr "whatsapp"
 
@@ -14818,7 +14818,7 @@ msgstr "kabar datang dari {0} sebelum suaranya."
 msgid "word of this will reach wherever he came from."
 msgstr "kabar tentang ini akan mencapai dari mana pun dia berasal."
 
-#: script/engine.js:895
+#: script/engine.js:903
 msgid "wordpress"
 msgstr "wordpress"
 
@@ -14852,10 +14852,10 @@ msgstr "menuliskan namanya"
 msgid "wrong ampoule"
 msgstr "ampul yang salah"
 
-#: script/engine.js:1002
-#: script/engine.js:1028
-#: script/engine.js:480
-#: script/engine.js:784
+#: script/engine.js:1010
+#: script/engine.js:1036
+#: script/engine.js:488
+#: script/engine.js:792
 msgid "yes"
 msgstr "ya"
 

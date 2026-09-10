@@ -306,7 +306,7 @@ msgstr ""
 msgid "{0} of the three are dark now. what is left is still lit."
 msgstr ""
 
-#: script/engine.js:1279
+#: script/engine.js:1287
 msgid "{0} per {1}s"
 msgstr "{0}/{1}秒"
 
@@ -2028,7 +2028,7 @@ msgstr ""
 msgid "and you understand, finally and completely, why you opened that door --<br>and that you would open it again, and that this is not remorse, and never was."
 msgstr ""
 
-#: script/engine.js:836
+#: script/engine.js:844
 msgid "android"
 msgstr ""
 
@@ -2073,7 +2073,7 @@ msgstr ""
 msgid "approach the platform"
 msgstr ""
 
-#: script/engine.js:1715
+#: script/engine.js:1795
 msgid "april fools."
 msgstr ""
 
@@ -2085,7 +2085,7 @@ msgstr ""
 msgid "archon"
 msgstr ""
 
-#: script/engine.js:474
+#: script/engine.js:482
 msgid "are you sure?"
 msgstr "您確定嗎？"
 
@@ -2500,7 +2500,7 @@ msgstr ""
 msgid "blueprints"
 msgstr ""
 
-#: script/engine.js:921
+#: script/engine.js:929
 msgid "bluesky"
 msgstr ""
 
@@ -2557,11 +2557,11 @@ msgstr "拳擊手"
 msgid "bring in whoever is still out there"
 msgstr ""
 
-#: script/engine.js:815
+#: script/engine.js:823
 msgid "bring the room with you."
 msgstr ""
 
-#: script/engine.js:857
+#: script/engine.js:865
 msgid "bring your friends."
 msgstr "分享給你的好友"
 
@@ -2581,7 +2581,7 @@ msgstr ""
 msgid "build the fire up"
 msgstr ""
 
-#: script/engine.js:1508
+#: script/engine.js:1545
 #: script/room.js:2219
 msgid "build:"
 msgstr "建築物:"
@@ -2770,7 +2770,7 @@ msgstr "購買鱗片"
 msgid "buy teeth"
 msgstr "購買牙齒"
 
-#: script/engine.js:1519
+#: script/engine.js:1556
 #: script/room.js:2233
 msgid "buy:"
 msgstr "購買:"
@@ -2822,9 +2822,9 @@ msgstr "難以分辨來源"
 #: script/dropbox.js:389
 #: script/dropbox.js:427
 #: script/dropbox.js:465
-#: script/engine.js:447
-#: script/engine.js:511
-#: script/engine.js:528
+#: script/engine.js:455
+#: script/engine.js:519
+#: script/engine.js:536
 msgid "cancel"
 msgstr "取消"
 
@@ -2866,11 +2866,11 @@ msgstr ""
 msgid "chain-gang revenant"
 msgstr ""
 
-#: script/engine.js:1047
+#: script/engine.js:1055
 msgid "Changelog"
 msgstr ""
 
-#: script/engine.js:1050
+#: script/engine.js:1058
 msgid "changelog: This is a fork that both changes features, and the story from original game. Go support the original!"
 msgstr ""
 
@@ -2901,7 +2901,7 @@ msgstr "符咒"
 msgid "charred bodies litter the ground."
 msgstr ""
 
-#: script/engine.js:1767
+#: script/engine.js:1847
 msgid "check it out."
 msgstr ""
 
@@ -2938,8 +2938,8 @@ msgstr ""
 msgid "chunks of coal"
 msgstr ""
 
-#: script/engine.js:1069
-#: script/engine.js:1083
+#: script/engine.js:1077
+#: script/engine.js:1091
 msgid "classic."
 msgstr ""
 
@@ -3029,8 +3029,8 @@ msgstr ""
 msgid "climb with everything"
 msgstr ""
 
-#: script/engine.js:843
-#: script/engine.js:930
+#: script/engine.js:851
+#: script/engine.js:938
 msgid "close"
 msgstr "關閉"
 
@@ -3312,7 +3312,7 @@ msgstr ""
 msgid "could not reach dropbox. check your connection and try again."
 msgstr ""
 
-#: script/engine.js:592
+#: script/engine.js:600
 msgid "could not read that file."
 msgstr ""
 
@@ -3352,7 +3352,7 @@ msgstr ""
 msgid "craft"
 msgstr ""
 
-#: script/engine.js:1513
+#: script/engine.js:1550
 #: script/room.js:2226
 msgid "craft:"
 msgstr "製造:"
@@ -3485,7 +3485,7 @@ msgstr ""
 msgid "dig it out anyway"
 msgstr ""
 
-#: script/engine.js:1648
+#: script/engine.js:1728
 msgid "disable audio"
 msgstr ""
 
@@ -3550,7 +3550,7 @@ msgstr "更高效地閃避襲擊"
 msgid "doorkeeper"
 msgstr ""
 
-#: script/engine.js:547
+#: script/engine.js:555
 msgid "download as file"
 msgstr ""
 
@@ -3608,7 +3608,7 @@ msgstr ""
 msgid "each step into the bracing cold wilds is difficult, and yet somehow there is a calling impossibly far away from here. perhaps even to the stars."
 msgstr ""
 
-#: script/engine.js:1638
+#: script/engine.js:1718
 msgid "ears flooded with new sensations."
 msgstr ""
 
@@ -3656,7 +3656,7 @@ msgstr ""
 msgid "empty the snares"
 msgstr ""
 
-#: script/engine.js:1643
+#: script/engine.js:1723
 msgid "enable audio"
 msgstr ""
 
@@ -3857,15 +3857,15 @@ msgstr ""
 msgid "explore"
 msgstr "探索小鎮"
 
-#: script/engine.js:439
+#: script/engine.js:447
 msgid "export"
 msgstr "導出"
 
-#: script/engine.js:430
+#: script/engine.js:438
 msgid "Export / Import"
 msgstr "導出/導入"
 
-#: script/engine.js:434
+#: script/engine.js:442
 msgid "export or import save data, for backing up"
 msgstr "導出或導入存檔文件，用於備份"
 
@@ -3893,7 +3893,7 @@ msgstr ""
 msgid "Fabricator"
 msgstr ""
 
-#: script/engine.js:860
+#: script/engine.js:868
 msgid "facebook"
 msgstr "臉書"
 
@@ -4171,7 +4171,7 @@ msgstr ""
 msgid "get out"
 msgstr ""
 
-#: script/engine.js:812
+#: script/engine.js:820
 msgid "Get the App"
 msgstr ""
 
@@ -4342,7 +4342,7 @@ msgstr ""
 msgid "go down to the core"
 msgstr ""
 
-#: script/engine.js:1022
+#: script/engine.js:1030
 msgid "Go Hardcore?"
 msgstr ""
 
@@ -4379,7 +4379,7 @@ msgstr "返回"
 msgid "go home with her"
 msgstr ""
 
-#: script/engine.js:996
+#: script/engine.js:1004
 msgid "Go Hyper?"
 msgstr ""
 
@@ -4558,7 +4558,7 @@ msgstr ""
 msgid "good to rebuild"
 msgstr ""
 
-#: script/engine.js:466
+#: script/engine.js:474
 msgid "got it"
 msgstr "已完成"
 
@@ -4607,8 +4607,8 @@ msgstr "絞死他"
 msgid "happy april fools. the door out of here still works and none of this happened."
 msgstr ""
 
-#: script/engine.js:1070
-#: script/engine.js:1087
+#: script/engine.js:1078
+#: script/engine.js:1095
 #: script/engine.js:213
 msgid "hardcore."
 msgstr ""
@@ -4964,8 +4964,8 @@ msgstr "獵人"
 msgid "hut"
 msgstr "小屋"
 
-#: script/engine.js:1072
-#: script/engine.js:1084
+#: script/engine.js:1080
+#: script/engine.js:1092
 #: script/engine.js:219
 msgid "hyper."
 msgstr ""
@@ -4991,7 +4991,7 @@ msgstr ""
 msgid "ichor"
 msgstr ""
 
-#: script/engine.js:476
+#: script/engine.js:484
 msgid "if it is valid, this will replace your current game. that part is irreversible."
 msgstr ""
 
@@ -4999,7 +4999,7 @@ msgstr ""
 msgid "if only they'd been destroyed along with everything else."
 msgstr ""
 
-#: script/engine.js:475
+#: script/engine.js:483
 msgid "if the save is invalid, nothing will be changed."
 msgstr ""
 
@@ -5026,8 +5026,8 @@ msgstr "忽略"
 msgid "immortal wanderer"
 msgstr ""
 
-#: script/engine.js:443
-#: script/engine.js:498
+#: script/engine.js:451
+#: script/engine.js:506
 msgid "import"
 msgstr "導入"
 
@@ -5047,7 +5047,7 @@ msgstr ""
 msgid "in the distance soldiers battle over wars long past, some with spears and some with guns. they are unable to let go."
 msgstr ""
 
-#: script/engine.js:1052
+#: script/engine.js:1060
 msgid "In the mean time this is what has changed: Ruins, Temple, Graveyard, Lab, Prison, easter eggs, 14 endings, mobile, Hardcore mode, uber traps, new perk, new weapons, new upgrades, expanded story, new enemies, April Fool's mode, key controls in combat, visual tweaks, bugfixes, and more to come!"
 msgstr ""
 
@@ -5103,7 +5103,7 @@ msgstr ""
 msgid "inviting. it would be so easy to give in, completely."
 msgstr ""
 
-#: script/engine.js:829
+#: script/engine.js:837
 msgid "ios"
 msgstr ""
 
@@ -6359,12 +6359,12 @@ msgid "lights flash through the alleys between buildings."
 msgstr ""
 
 #: script/engine.js:201
-#: script/engine.js:987
+#: script/engine.js:995
 msgid "lights off."
 msgstr "熄燈."
 
-#: script/engine.js:976
-#: script/engine.js:981
+#: script/engine.js:984
+#: script/engine.js:989
 msgid "lights on."
 msgstr "開燈"
 
@@ -6392,7 +6392,7 @@ msgstr "巨蜥"
 msgid "load"
 msgstr "加載"
 
-#: script/engine.js:589
+#: script/engine.js:597
 msgid "loaded: "
 msgstr ""
 
@@ -6811,10 +6811,10 @@ msgstr ""
 msgid "nightmares worsen"
 msgstr ""
 
-#: script/engine.js:1007
-#: script/engine.js:1033
-#: script/engine.js:485
-#: script/engine.js:789
+#: script/engine.js:1015
+#: script/engine.js:1041
+#: script/engine.js:493
+#: script/engine.js:797
 msgid "no"
 msgstr "否"
 
@@ -6862,7 +6862,7 @@ msgstr ""
 msgid "no one wins wars fought with child soldiers"
 msgstr ""
 
-#: script/engine.js:1773
+#: script/engine.js:1853
 msgid "no thanks."
 msgstr ""
 
@@ -7116,7 +7116,7 @@ msgstr ""
 msgid "nothing happens. nothing is there. nothing comes."
 msgstr ""
 
-#: script/engine.js:519
+#: script/engine.js:527
 msgid "nothing has been changed. your current game is untouched."
 msgstr ""
 
@@ -7197,7 +7197,7 @@ msgid "offer another charm anyway"
 msgstr ""
 
 #: script/dropbox.js:510
-#: script/engine.js:1056
+#: script/engine.js:1064
 #: script/outside.js:1092
 #: script/outside.js:1262
 #: script/outside.js:1279
@@ -7417,7 +7417,7 @@ msgstr ""
 msgid "opening it bare-handed is not a decision. it is just a way of dying in a shed."
 msgstr ""
 
-#: script/engine.js:435
+#: script/engine.js:443
 msgid "or migrating computers"
 msgstr "或別處的電腦"
 
@@ -7494,7 +7494,7 @@ msgstr ""
 msgid "past the checkpoint, the corridor is undamaged save for sporadic graffiti."
 msgstr ""
 
-#: script/engine.js:491
+#: script/engine.js:499
 msgid "paste the save code here, or choose a file below."
 msgstr ""
 
@@ -7515,7 +7515,7 @@ msgstr ""
 msgid "Penrose"
 msgstr ""
 
-#: script/engine.js:1639
+#: script/engine.js:1719
 msgid "perhaps silence is safer?"
 msgstr ""
 
@@ -7544,7 +7544,7 @@ msgstr ""
 msgid "picking the bones finds some useful trinkets."
 msgstr ""
 
-#: script/engine.js:888
+#: script/engine.js:896
 msgid "pinterest"
 msgstr ""
 
@@ -7738,7 +7738,7 @@ msgstr ""
 msgid "recycler blueprint"
 msgstr ""
 
-#: script/engine.js:867
+#: script/engine.js:875
 msgid "reddit"
 msgstr "紅迪"
 
@@ -7789,11 +7789,11 @@ msgstr ""
 msgid "respects are paid"
 msgstr ""
 
-#: script/engine.js:781
+#: script/engine.js:789
 msgid "restart the game?"
 msgstr "重開遊戲?"
 
-#: script/engine.js:778
+#: script/engine.js:786
 msgid "Restart?"
 msgstr "重開?"
 
@@ -7934,7 +7934,7 @@ msgstr ""
 msgid "save"
 msgstr "保存"
 
-#: script/engine.js:453
+#: script/engine.js:461
 msgid "save this, or download it as a file."
 msgstr ""
 
@@ -8386,7 +8386,7 @@ msgstr ""
 msgid "shamefully gather goods"
 msgstr ""
 
-#: script/engine.js:854
+#: script/engine.js:862
 msgid "Share"
 msgstr "分享"
 
@@ -9288,15 +9288,15 @@ msgstr ""
 msgid "somewhere behind you the rock keeps turning. there is a room on it with a fire in it.<br>you do not look back at it."
 msgstr ""
 
-#: script/engine.js:1634
+#: script/engine.js:1714
 msgid "Sound Available!"
 msgstr ""
 
-#: script/engine.js:1436
+#: script/engine.js:1473
 msgid "sound off."
 msgstr ""
 
-#: script/engine.js:1432
+#: script/engine.js:1469
 #: script/engine.js:189
 msgid "sound on."
 msgstr ""
@@ -9383,7 +9383,7 @@ msgstr ""
 msgid "stealthy"
 msgstr "潛行"
 
-#: script/engine.js:822
+#: script/engine.js:830
 msgid "steam"
 msgstr ""
 
@@ -9793,7 +9793,7 @@ msgstr ""
 msgid "that cannot be right. those glyphs seem to suggest..."
 msgstr ""
 
-#: script/engine.js:583
+#: script/engine.js:591
 msgid "that file is too large to be a save."
 msgstr ""
 
@@ -9809,7 +9809,7 @@ msgstr ""
 msgid "that save could not be read. nothing has been changed."
 msgstr ""
 
-#: script/engine.js:518
+#: script/engine.js:526
 msgid "that save data could not be read."
 msgstr ""
 
@@ -13242,7 +13242,7 @@ msgstr ""
 msgid "there is a name scratched at head height and then scratched out, thoroughly, by the same hand."
 msgstr ""
 
-#: script/engine.js:1763
+#: script/engine.js:1843
 msgid "there is a new layout, would you like to use it?"
 msgstr ""
 
@@ -13907,7 +13907,7 @@ msgstr ""
 msgid "thousands of faces turning at once toward a thing they have all just decided to hate."
 msgstr ""
 
-#: script/engine.js:909
+#: script/engine.js:917
 msgid "threads"
 msgstr ""
 
@@ -14093,7 +14093,7 @@ msgstr "黑死病席捲村落"
 msgid "Troposphere"
 msgstr "對流層"
 
-#: script/engine.js:523
+#: script/engine.js:531
 msgid "try again"
 msgstr ""
 
@@ -14109,7 +14109,7 @@ msgstr ""
 msgid "trying to carve out some semblence of civilization amongst the unforgiving wastes. builder says she could make finer things, if she had the tools"
 msgstr ""
 
-#: script/engine.js:881
+#: script/engine.js:889
 msgid "tumblr"
 msgstr ""
 
@@ -14144,11 +14144,11 @@ msgstr ""
 msgid "turn them back"
 msgstr ""
 
-#: script/engine.js:1025
+#: script/engine.js:1033
 msgid "turning hardcore mode on slows down the game by x2 speed and makes all enemies x2 stronger. do you want to do that?"
 msgstr ""
 
-#: script/engine.js:999
+#: script/engine.js:1007
 msgid "turning hyper mode speeds up the game to x2 speed. do you want to do that?"
 msgstr ""
 
@@ -14156,7 +14156,7 @@ msgstr ""
 msgid "twenty minutes, no drama, and the pack never so much as shifts."
 msgstr ""
 
-#: script/engine.js:874
+#: script/engine.js:882
 msgid "twitter"
 msgstr "推特"
 
@@ -14298,7 +14298,7 @@ msgstr ""
 msgid "unstable prototype"
 msgstr ""
 
-#: script/engine.js:1759
+#: script/engine.js:1839
 msgid "Update"
 msgstr ""
 
@@ -14704,7 +14704,7 @@ msgstr ""
 msgid "whatever this is, it was not built to be opened from outside. it was built so that opening it would have to be a decision somebody made from within."
 msgstr ""
 
-#: script/engine.js:902
+#: script/engine.js:910
 msgid "whatsapp"
 msgstr ""
 
@@ -14821,7 +14821,7 @@ msgstr ""
 msgid "word of this will reach wherever he came from."
 msgstr ""
 
-#: script/engine.js:895
+#: script/engine.js:903
 msgid "wordpress"
 msgstr ""
 
@@ -14855,10 +14855,10 @@ msgstr ""
 msgid "wrong ampoule"
 msgstr ""
 
-#: script/engine.js:1002
-#: script/engine.js:1028
-#: script/engine.js:480
-#: script/engine.js:784
+#: script/engine.js:1010
+#: script/engine.js:1036
+#: script/engine.js:488
+#: script/engine.js:792
 msgid "yes"
 msgstr "是"
 

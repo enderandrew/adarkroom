@@ -303,7 +303,7 @@ msgstr "{0} varētu palīdzēt medīt, ja būtu līdzekļi"
 msgid "{0} of the three are dark now. what is left is still lit."
 msgstr "{0} no trim tagad ir izdzisušas. atlikusī vēl deg."
 
-#: script/engine.js:1279
+#: script/engine.js:1287
 msgid "{0} per {1}s"
 msgstr "{0} katras {1}s"
 
@@ -2025,7 +2025,7 @@ msgstr "un iestrādāts rāmī, tik sekli, ka to atrastu tikai, pārbraucot ar r
 msgid "and you understand, finally and completely, why you opened that door --<br>and that you would open it again, and that this is not remorse, and never was."
 msgstr "un tu beidzot pilnībā saproti, kāpēc atvēri tās durvis --<br>un ka tu tās atkal atvērtu, un ka tā nav nožēla, un nekad nav bijusi."
 
-#: script/engine.js:836
+#: script/engine.js:844
 msgid "android"
 msgstr "androīds"
 
@@ -2070,7 +2070,7 @@ msgstr "tuvoties"
 msgid "approach the platform"
 msgstr "tuvoties platformai"
 
-#: script/engine.js:1715
+#: script/engine.js:1795
 msgid "april fools."
 msgstr "aprīļa joks."
 
@@ -2082,7 +2082,7 @@ msgstr "loka uzliesmojums"
 msgid "archon"
 msgstr "valdnieks"
 
-#: script/engine.js:474
+#: script/engine.js:482
 msgid "are you sure?"
 msgstr "esi pārliecināts?"
 
@@ -2497,7 +2497,7 @@ msgstr "uzspridzināt to"
 msgid "blueprints"
 msgstr "rasējumi"
 
-#: script/engine.js:921
+#: script/engine.js:929
 msgid "bluesky"
 msgstr "bluesky"
 
@@ -2554,11 +2554,11 @@ msgstr "bokseris"
 msgid "bring in whoever is still out there"
 msgstr "ievest visus, kas vēl ir ārā"
 
-#: script/engine.js:815
+#: script/engine.js:823
 msgid "bring the room with you."
 msgstr "ņem telpu līdzi."
 
-#: script/engine.js:857
+#: script/engine.js:865
 msgid "bring your friends."
 msgstr "paņemt līdzi draugus."
 
@@ -2578,7 +2578,7 @@ msgstr "būvēt"
 msgid "build the fire up"
 msgstr "kāpināt uguni"
 
-#: script/engine.js:1508
+#: script/engine.js:1545
 #: script/room.js:2219
 msgid "build:"
 msgstr "būvēt:"
@@ -2767,7 +2767,7 @@ msgstr "pirkt zvīņas"
 msgid "buy teeth"
 msgstr "pirkt zobus"
 
-#: script/engine.js:1519
+#: script/engine.js:1556
 #: script/room.js:2233
 msgid "buy:"
 msgstr "pirkt:"
@@ -2819,9 +2819,9 @@ msgstr "grūti saprast, kas viņiem padomā."
 #: script/dropbox.js:389
 #: script/dropbox.js:427
 #: script/dropbox.js:465
-#: script/engine.js:447
-#: script/engine.js:511
-#: script/engine.js:528
+#: script/engine.js:455
+#: script/engine.js:519
+#: script/engine.js:536
 msgid "cancel"
 msgstr "atcelt"
 
@@ -2863,11 +2863,11 @@ msgstr "kameru lietuve"
 msgid "chain-gang revenant"
 msgstr "ķēdēs kalts atgriezējs"
 
-#: script/engine.js:1047
+#: script/engine.js:1055
 msgid "Changelog"
 msgstr "Izmaiņu Saraksts"
 
-#: script/engine.js:1050
+#: script/engine.js:1058
 msgid "changelog: This is a fork that both changes features, and the story from original game. Go support the original!"
 msgstr "izmaiņu saraksts: Šis ir atzars, kas maina gan funkcijas, gan oriģinālās spēles stāstu. Atbalsti oriģinālu!"
 
@@ -2898,7 +2898,7 @@ msgstr "talismans"
 msgid "charred bodies litter the ground."
 msgstr "zemē mētājas apdeguši ķermeņi."
 
-#: script/engine.js:1767
+#: script/engine.js:1847
 msgid "check it out."
 msgstr "apskatīt."
 
@@ -2935,8 +2935,8 @@ msgstr "koris"
 msgid "chunks of coal"
 msgstr "ogļu gabali"
 
-#: script/engine.js:1069
-#: script/engine.js:1083
+#: script/engine.js:1077
+#: script/engine.js:1091
 msgid "classic."
 msgstr "parasts."
 
@@ -3026,8 +3026,8 @@ msgstr "izkāpt caur sagruvumu"
 msgid "climb with everything"
 msgstr "kāpt ar visu mantu"
 
-#: script/engine.js:843
-#: script/engine.js:930
+#: script/engine.js:851
+#: script/engine.js:938
 msgid "close"
 msgstr "aizvērt"
 
@@ -3309,7 +3309,7 @@ msgstr "neizdevās ielādēt no dropbox. tava pašreizējā spēle nav ietekmēt
 msgid "could not reach dropbox. check your connection and try again."
 msgstr "neizdevās sasniegt dropbox. pārbaudi savienojumu un mēģini vēlreiz."
 
-#: script/engine.js:592
+#: script/engine.js:600
 msgid "could not read that file."
 msgstr "neizdevās nolasīt šo failu."
 
@@ -3349,7 +3349,7 @@ msgstr "apsegt krājumus"
 msgid "craft"
 msgstr "izgatavot"
 
-#: script/engine.js:1513
+#: script/engine.js:1550
 #: script/room.js:2226
 msgid "craft:"
 msgstr "veidot:"
@@ -3482,7 +3482,7 @@ msgstr "izrakt to"
 msgid "dig it out anyway"
 msgstr "tik un tā izrakt to"
 
-#: script/engine.js:1648
+#: script/engine.js:1728
 msgid "disable audio"
 msgstr "izslēgt skaņu"
 
@@ -3547,7 +3547,7 @@ msgstr "labāk izvairīties no uzbrukumiem"
 msgid "doorkeeper"
 msgstr "durvju sargs"
 
-#: script/engine.js:547
+#: script/engine.js:555
 msgid "download as file"
 msgstr "lejupielādēt kā failu"
 
@@ -3605,7 +3605,7 @@ msgstr "mirstot"
 msgid "each step into the bracing cold wilds is difficult, and yet somehow there is a calling impossibly far away from here. perhaps even to the stars."
 msgstr "katrs solis skarbajā, aukstajā tuksnesī ir grūts, un tomēr kaut kur neaptverami tālu ir aicinājums. varbūt pat pie zvaigznēm."
 
-#: script/engine.js:1638
+#: script/engine.js:1718
 msgid "ears flooded with new sensations."
 msgstr "ausis pārpludinātas ar jaunām sajūtām."
 
@@ -3653,7 +3653,7 @@ msgstr "tukšas debesis"
 msgid "empty the snares"
 msgstr "iztukšot cilpas"
 
-#: script/engine.js:1643
+#: script/engine.js:1723
 msgid "enable audio"
 msgstr "ieslēgt skaņu"
 
@@ -3854,15 +3854,15 @@ msgstr "eksperimentāli plāni klāj vienu sienu, turēti kaut kādā neredzamā
 msgid "explore"
 msgstr "izpētīt apkārtni"
 
-#: script/engine.js:439
+#: script/engine.js:447
 msgid "export"
 msgstr "eksportēt"
 
-#: script/engine.js:430
+#: script/engine.js:438
 msgid "Export / Import"
 msgstr "Eksportēt/Importēt"
 
-#: script/engine.js:434
+#: script/engine.js:442
 msgid "export or import save data, for backing up"
 msgstr "eksportēt vai importēt saglabātos datus rezerves failam"
 
@@ -3890,7 +3890,7 @@ msgstr "izgatavot:"
 msgid "Fabricator"
 msgstr "Izgatavotājs"
 
-#: script/engine.js:860
+#: script/engine.js:868
 msgid "facebook"
 msgstr "facebook"
 
@@ -4168,7 +4168,7 @@ msgstr "nogulties un pārgaidīt"
 msgid "get out"
 msgstr "tikt ārā"
 
-#: script/engine.js:812
+#: script/engine.js:820
 msgid "Get the App"
 msgstr "Iegūt Lietotni"
 
@@ -4339,7 +4339,7 @@ msgstr "iet lejā"
 msgid "go down to the core"
 msgstr "nokāpt pie kodola"
 
-#: script/engine.js:1022
+#: script/engine.js:1030
 msgid "Go Hardcore?"
 msgstr "Ieslēgt Sarežģīto Režīmu?"
 
@@ -4376,7 +4376,7 @@ msgstr "doties mājās"
 msgid "go home with her"
 msgstr "iet mājās kopā ar viņu"
 
-#: script/engine.js:996
+#: script/engine.js:1004
 msgid "Go Hyper?"
 msgstr "Ieslēgt Hiperrežīmu?"
 
@@ -4555,7 +4555,7 @@ msgstr "iešana caur durvju aili tevi novieto zemāk, nekā ejot tai apkārt."
 msgid "good to rebuild"
 msgstr "labi atjaunot"
 
-#: script/engine.js:466
+#: script/engine.js:474
 msgid "got it"
 msgstr "labi"
 
@@ -4604,8 +4604,8 @@ msgstr "pakārt viņu"
 msgid "happy april fools. the door out of here still works and none of this happened."
 msgstr "priecīgu aprīļa jokus. durvis prom no šejienes joprojām darbojas, un nekas no tā nav noticis."
 
-#: script/engine.js:1070
-#: script/engine.js:1087
+#: script/engine.js:1078
+#: script/engine.js:1095
 #: script/engine.js:213
 msgid "hardcore."
 msgstr "sarežģīts režīms."
@@ -4961,8 +4961,8 @@ msgstr "mednieks"
 msgid "hut"
 msgstr "būda"
 
-#: script/engine.js:1072
-#: script/engine.js:1084
+#: script/engine.js:1080
+#: script/engine.js:1092
 #: script/engine.js:219
 msgid "hyper."
 msgstr "hiperātrums."
@@ -4988,7 +4988,7 @@ msgstr "Es neapgalvoju, ka tas ir Taunsenda (Townsend) nolūka turpinājums. Es 
 msgid "ichor"
 msgstr "ihors"
 
-#: script/engine.js:476
+#: script/engine.js:484
 msgid "if it is valid, this will replace your current game. that part is irreversible."
 msgstr "ja tas ir derīgs, tas aizvietos tavu pašreizējo spēli. šī daļa ir neatgriezeniska."
 
@@ -4996,7 +4996,7 @@ msgstr "ja tas ir derīgs, tas aizvietos tavu pašreizējo spēli. šī daļa ir
 msgid "if only they'd been destroyed along with everything else."
 msgstr "ja vien viņi būtu iznīcināti kopā ar visu pārējo."
 
-#: script/engine.js:475
+#: script/engine.js:483
 msgid "if the save is invalid, nothing will be changed."
 msgstr "ja saglabājums nav derīgs, nekas netiks mainīts."
 
@@ -5023,8 +5023,8 @@ msgstr "nelikties ne zinis"
 msgid "immortal wanderer"
 msgstr "nemirstīgs klejotājs"
 
-#: script/engine.js:443
-#: script/engine.js:498
+#: script/engine.js:451
+#: script/engine.js:506
 msgid "import"
 msgstr "importēt"
 
@@ -5044,7 +5044,7 @@ msgstr "tā vietā ir pilna porcijas kārba un kartīte, uz kuras vispār nekas 
 msgid "in the distance soldiers battle over wars long past, some with spears and some with guns. they are unable to let go."
 msgstr "tālumā kareivji cīnās sen pagājušos karos, daži ar šķēpiem, daži ar ieročiem. viņi nespēj to atlaist."
 
-#: script/engine.js:1052
+#: script/engine.js:1060
 msgid "In the mean time this is what has changed: Ruins, Temple, Graveyard, Lab, Prison, easter eggs, 14 endings, mobile, Hardcore mode, uber traps, new perk, new weapons, new upgrades, expanded story, new enemies, April Fool's mode, key controls in combat, visual tweaks, bugfixes, and more to come!"
 msgstr "Pa to laiku šis ir tas, kas mainījies: Drupas, Svētnīca, Kapsēta, Laboratorija, Cietums, apslēptas pārsteigumi, 14 nobeigumi, mobilā versija, Sarežģītais Režīms, super slazdi, jauns bonuss, jauni ieroči, jauni uzlabojumi, paplašināts stāsts, jauni ienaidnieki, Aprīļa Joku režīms, taustiņu vadība kaujā, vizuāli uzlabojumi, kļūdu labojumi, un vēl vairāk ceļā!"
 
@@ -5100,7 +5100,7 @@ msgstr "neredzama nāve - starojums pārpludina lielāko šī līmeņa daļu"
 msgid "inviting. it would be so easy to give in, completely."
 msgstr "aicinošs. būtu tik viegli pilnībā padoties."
 
-#: script/engine.js:829
+#: script/engine.js:837
 msgid "ios"
 msgstr "iOS"
 
@@ -6356,12 +6356,12 @@ msgid "lights flash through the alleys between buildings."
 msgstr "alejās starp ēkām zib gaismas."
 
 #: script/engine.js:201
-#: script/engine.js:987
+#: script/engine.js:995
 msgid "lights off."
 msgstr "izslēgt gaismu."
 
-#: script/engine.js:976
-#: script/engine.js:981
+#: script/engine.js:984
+#: script/engine.js:989
 msgid "lights on."
 msgstr "ieslēgt gaismu."
 
@@ -6389,7 +6389,7 @@ msgstr "ķirzaka"
 msgid "load"
 msgstr "ielādēt"
 
-#: script/engine.js:589
+#: script/engine.js:597
 msgid "loaded: "
 msgstr "ielādēts: "
 
@@ -6808,10 +6808,10 @@ msgstr "murgi turpinās"
 msgid "nightmares worsen"
 msgstr "murgi pastiprinās"
 
-#: script/engine.js:1007
-#: script/engine.js:1033
-#: script/engine.js:485
-#: script/engine.js:789
+#: script/engine.js:1015
+#: script/engine.js:1041
+#: script/engine.js:493
+#: script/engine.js:797
 msgid "no"
 msgstr "nē"
 
@@ -6859,7 +6859,7 @@ msgstr "neviens netika ārā laikā."
 msgid "no one wins wars fought with child soldiers"
 msgstr "neviens neuzvar karus, kas tiek kauti ar bērnu kareivjiem"
 
-#: script/engine.js:1773
+#: script/engine.js:1853
 msgid "no thanks."
 msgstr "nē, paldies."
 
@@ -7113,7 +7113,7 @@ msgstr "nekas nenotiek. tas ir skaļākais nekas, ko esi izturējis jau ilgu lai
 msgid "nothing happens. nothing is there. nothing comes."
 msgstr "nekas nenotiek. tur nekā nav. nekas nenāk."
 
-#: script/engine.js:519
+#: script/engine.js:527
 msgid "nothing has been changed. your current game is untouched."
 msgstr "nekas nav mainīts. tava pašreizējā spēle nav aiztikta."
 
@@ -7194,7 +7194,7 @@ msgid "offer another charm anyway"
 msgstr "tik un tā piedāvāt vēl vienu amuletu"
 
 #: script/dropbox.js:510
-#: script/engine.js:1056
+#: script/engine.js:1064
 #: script/outside.js:1092
 #: script/outside.js:1262
 #: script/outside.js:1279
@@ -7414,7 +7414,7 @@ msgstr "atvērt krājumus"
 msgid "opening it bare-handed is not a decision. it is just a way of dying in a shed."
 msgstr "atvēršana ar kailām rokām nav lēmums. tas ir tikai veids, kā nomirt šķūnī."
 
-#: script/engine.js:435
+#: script/engine.js:443
 msgid "or migrating computers"
 msgstr "vai datoru maiņai"
 
@@ -7491,7 +7491,7 @@ msgstr "aiz kontrolpunkta redzamas noslēguma kameru rindas."
 msgid "past the checkpoint, the corridor is undamaged save for sporadic graffiti."
 msgstr "aiz kontrolpunkta koridors ir nebojāts, izņemot dažus izkaisītus grafiti."
 
-#: script/engine.js:491
+#: script/engine.js:499
 msgid "paste the save code here, or choose a file below."
 msgstr "ielīmē saglabāšanas kodu šeit, vai izvēlies failu zemāk."
 
@@ -7512,7 +7512,7 @@ msgstr "ielūkojoties misiņa okulārā. zvaigznes nav tur, kur vecās kartes sa
 msgid "Penrose"
 msgstr "Penrose"
 
-#: script/engine.js:1639
+#: script/engine.js:1719
 msgid "perhaps silence is safer?"
 msgstr "varbūt klusums ir drošāks?"
 
@@ -7541,7 +7541,7 @@ msgstr "iztīrījis šo klāju līdz tīram."
 msgid "picking the bones finds some useful trinkets."
 msgstr "rokoties kaulu kaudzē, atrodas dažas noderīgas lietas."
 
-#: script/engine.js:888
+#: script/engine.js:896
 msgid "pinterest"
 msgstr "pinterest"
 
@@ -7735,7 +7735,7 @@ msgstr "atkārtoti apstiprinot"
 msgid "recycler blueprint"
 msgstr "rasējums: pārstrādātājs"
 
-#: script/engine.js:867
+#: script/engine.js:875
 msgid "reddit"
 msgstr "reddit"
 
@@ -7786,11 +7786,11 @@ msgstr "rezonējot"
 msgid "respects are paid"
 msgstr "cieņa tiek izrādīta"
 
-#: script/engine.js:781
+#: script/engine.js:789
 msgid "restart the game?"
 msgstr "restartēt spēli?"
 
-#: script/engine.js:778
+#: script/engine.js:786
 msgid "Restart?"
 msgstr "Restartēt?"
 
@@ -7931,7 +7931,7 @@ msgstr "iekšpusē kaut kā bioloģiska paraugi."
 msgid "save"
 msgstr "saglabāt"
 
-#: script/engine.js:453
+#: script/engine.js:461
 msgid "save this, or download it as a file."
 msgstr "saglabāt šo vai lejupielādēt kā failu."
 
@@ -8383,7 +8383,7 @@ msgstr "Ēna"
 msgid "shamefully gather goods"
 msgstr "kaunpilni vākt preces"
 
-#: script/engine.js:854
+#: script/engine.js:862
 msgid "Share"
 msgstr "Dalīties"
 
@@ -9285,15 +9285,15 @@ msgstr "kaut kur aiz sienas sūknis darbojas, apstājas, un darbojas atkal."
 msgid "somewhere behind you the rock keeps turning. there is a room on it with a fire in it.<br>you do not look back at it."
 msgstr "kaut kur aiz tevis klints turpina griezties. uz tās ir telpa ar uguni iekšā.<br>tu uz to neskaties atpakaļ."
 
-#: script/engine.js:1634
+#: script/engine.js:1714
 msgid "Sound Available!"
 msgstr "Skaņa Pieejama!"
 
-#: script/engine.js:1436
+#: script/engine.js:1473
 msgid "sound off."
 msgstr "skaņa izslēgta."
 
-#: script/engine.js:1432
+#: script/engine.js:1469
 #: script/engine.js:189
 msgid "sound on."
 msgstr "skaņa ieslēgta."
@@ -9380,7 +9380,7 @@ msgstr "palikt šajā līmenī"
 msgid "stealthy"
 msgstr "nemanāms"
 
-#: script/engine.js:822
+#: script/engine.js:830
 msgid "steam"
 msgstr "tvaiks"
 
@@ -9790,7 +9790,7 @@ msgstr "pateikties viņam"
 msgid "that cannot be right. those glyphs seem to suggest..."
 msgstr "tas nevar būt pareizi. šie simboli, šķiet, norāda..."
 
-#: script/engine.js:583
+#: script/engine.js:591
 msgid "that file is too large to be a save."
 msgstr "šis fails ir pārāk liels, lai būtu saglabājums."
 
@@ -9806,7 +9806,7 @@ msgstr "tāpēc tu atnāci šeit. ne lai viņus atbrīvotu. lai jautātu viņiem
 msgid "that save could not be read. nothing has been changed."
 msgstr "to saglabājumu nevarēja nolasīt. nekas nav mainīts."
 
-#: script/engine.js:518
+#: script/engine.js:526
 msgid "that save data could not be read."
 msgstr "šos saglabāšanas datus nevarēja nolasīt."
 
@@ -13239,7 +13239,7 @@ msgstr "pirmās cilpas pindelī ieciests iezīmes. tā nav ražotāja zīme."
 msgid "there is a name scratched at head height and then scratched out, thoroughly, by the same hand."
 msgstr "galvas augstumā ieskrāpēts vārds, un tad rūpīgi izskrāpēts nost, tās pašas rokas."
 
-#: script/engine.js:1763
+#: script/engine.js:1843
 msgid "there is a new layout, would you like to use it?"
 msgstr "ir jauns izkārtojums, vai vēlies to lietot?"
 
@@ -13904,7 +13904,7 @@ msgstr "domas"
 msgid "thousands of faces turning at once toward a thing they have all just decided to hate."
 msgstr "tūkstošiem seju vienlaikus pagriežas pret kaut ko, ko viņi visi tikko izlēmuši ienīst."
 
-#: script/engine.js:909
+#: script/engine.js:917
 msgid "threads"
 msgstr "diegi"
 
@@ -14090,7 +14090,7 @@ msgstr "karavīri uzbrūk ciematam"
 msgid "Troposphere"
 msgstr "Troposfēra"
 
-#: script/engine.js:523
+#: script/engine.js:531
 msgid "try again"
 msgstr "mēģināt vēlreiz"
 
@@ -14106,7 +14106,7 @@ msgstr "mēģināt pamodināt vienu"
 msgid "trying to carve out some semblence of civilization amongst the unforgiving wastes. builder says she could make finer things, if she had the tools"
 msgstr "mēģinot izcirst kaut kādu civilizācijas šķitumu nežēlīgo tuksnešu vidū. amatniece saka, ka varētu izgatavot smalkākas lietas, ja viņai būtu instrumenti"
 
-#: script/engine.js:881
+#: script/engine.js:889
 msgid "tumblr"
 msgstr "tumblr"
 
@@ -14141,11 +14141,11 @@ msgstr "izraidīt izdzīvojušos"
 msgid "turn them back"
 msgstr "atgriezt viņus atpakaļ"
 
-#: script/engine.js:1025
+#: script/engine.js:1033
 msgid "turning hardcore mode on slows down the game by x2 speed and makes all enemies x2 stronger. do you want to do that?"
 msgstr "sarežģītā režīma ieslēgšana palēnina spēli x2 ātrumā un padara visus ienaidniekus x2 stiprākus. vai vēlies to darīt?"
 
-#: script/engine.js:999
+#: script/engine.js:1007
 msgid "turning hyper mode speeds up the game to x2 speed. do you want to do that?"
 msgstr "hiperrežīms padara spēles gaitu divreiz ātrāku. vai vēlies to ieslēgt?"
 
@@ -14153,7 +14153,7 @@ msgstr "hiperrežīms padara spēles gaitu divreiz ātrāku. vai vēlies to iesl
 msgid "twenty minutes, no drama, and the pack never so much as shifts."
 msgstr "divdesmit minūtes, bez drāmas, un mugursoma pat nepakustas."
 
-#: script/engine.js:874
+#: script/engine.js:882
 msgid "twitter"
 msgstr "twitter"
 
@@ -14295,7 +14295,7 @@ msgstr "nestabils automāts"
 msgid "unstable prototype"
 msgstr "nestabils prototips"
 
-#: script/engine.js:1759
+#: script/engine.js:1839
 msgid "Update"
 msgstr "Atjauninājums"
 
@@ -14701,7 +14701,7 @@ msgstr "lai kam viņi stātos pretī, neviens no viņiem nebija gatavs iet tāl�
 msgid "whatever this is, it was not built to be opened from outside. it was built so that opening it would have to be a decision somebody made from within."
 msgstr "lai kas tas arī būtu, tas netika būvēts, lai to atvērtu no ārpuses. tas tika būvēts tā, lai atvēršana būtu lēmums, ko kāds pieņem no iekšpuses."
 
-#: script/engine.js:902
+#: script/engine.js:910
 msgid "whatsapp"
 msgstr "whatsapp"
 
@@ -14818,7 +14818,7 @@ msgstr "ziņa nāk no {0} pirms skaņas."
 msgid "word of this will reach wherever he came from."
 msgstr "ziņa par to sasniegs vietu, no kurienes viņš nāca."
 
-#: script/engine.js:895
+#: script/engine.js:903
 msgid "wordpress"
 msgstr "wordpress"
 
@@ -14852,10 +14852,10 @@ msgstr "pierakstīt vārdu"
 msgid "wrong ampoule"
 msgstr "nepareizā ampula"
 
-#: script/engine.js:1002
-#: script/engine.js:1028
-#: script/engine.js:480
-#: script/engine.js:784
+#: script/engine.js:1010
+#: script/engine.js:1036
+#: script/engine.js:488
+#: script/engine.js:792
 msgid "yes"
 msgstr "jā"
 

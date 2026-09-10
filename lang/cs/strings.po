@@ -302,7 +302,7 @@ msgstr "{0} by mohl pomoci lovit, kdyby k tomu měl prostředky"
 msgid "{0} of the three are dark now. what is left is still lit."
 msgstr "{0} ze tří jsou nyní tmavé. to, co zbylo, stále svítí."
 
-#: script/engine.js:1279
+#: script/engine.js:1287
 msgid "{0} per {1}s"
 msgstr "{0} za {1}s"
 
@@ -2024,7 +2024,7 @@ msgstr "a vtesané do rámu, tak mělce, že bys to našel jen přejetím rukou 
 msgid "and you understand, finally and completely, why you opened that door --<br>and that you would open it again, and that this is not remorse, and never was."
 msgstr "a konečně, a úplně, chápeš, proč jsi otevřel ty dveře --<br>a že bys je otevřel znovu, a že tohle není lítost, a nikdy nebyla."
 
-#: script/engine.js:836
+#: script/engine.js:844
 msgid "android"
 msgstr "android"
 
@@ -2069,7 +2069,7 @@ msgstr "přiblížit se"
 msgid "approach the platform"
 msgstr "přiblížit se k plošině"
 
-#: script/engine.js:1715
+#: script/engine.js:1795
 msgid "april fools."
 msgstr "apríl."
 
@@ -2081,7 +2081,7 @@ msgstr "obloukový výboj"
 msgid "archon"
 msgstr "archón"
 
-#: script/engine.js:474
+#: script/engine.js:482
 msgid "are you sure?"
 msgstr "jsi si jistý?"
 
@@ -2496,7 +2496,7 @@ msgstr "vyhodit to do vzduchu"
 msgid "blueprints"
 msgstr "stavební plány"
 
-#: script/engine.js:921
+#: script/engine.js:929
 msgid "bluesky"
 msgstr "blankytné nebe"
 
@@ -2553,11 +2553,11 @@ msgstr "boxer"
 msgid "bring in whoever is still out there"
 msgstr "přiveď dovnitř, kdo je ještě venku"
 
-#: script/engine.js:815
+#: script/engine.js:823
 msgid "bring the room with you."
 msgstr "mějte místnost vždy při sobě."
 
-#: script/engine.js:857
+#: script/engine.js:865
 msgid "bring your friends."
 msgstr "zasvěťte své přátele."
 
@@ -2577,7 +2577,7 @@ msgstr "postavit"
 msgid "build the fire up"
 msgstr "přiživit oheň"
 
-#: script/engine.js:1508
+#: script/engine.js:1545
 #: script/room.js:2219
 msgid "build:"
 msgstr "postavit:"
@@ -2766,7 +2766,7 @@ msgstr "koupit šupiny"
 msgid "buy teeth"
 msgstr "koupit zuby"
 
-#: script/engine.js:1519
+#: script/engine.js:1556
 #: script/room.js:2233
 msgid "buy:"
 msgstr "koupit:"
@@ -2818,9 +2818,9 @@ msgstr "těžko říct, co mají v úmyslu."
 #: script/dropbox.js:389
 #: script/dropbox.js:427
 #: script/dropbox.js:465
-#: script/engine.js:447
-#: script/engine.js:511
-#: script/engine.js:528
+#: script/engine.js:455
+#: script/engine.js:519
+#: script/engine.js:536
 msgid "cancel"
 msgstr "zrušit"
 
@@ -2862,11 +2862,11 @@ msgstr "slévárna cel"
 msgid "chain-gang revenant"
 msgstr "přízrak z pracovní čety"
 
-#: script/engine.js:1047
+#: script/engine.js:1055
 msgid "Changelog"
 msgstr "Seznam Změn"
 
-#: script/engine.js:1050
+#: script/engine.js:1058
 msgid "changelog: This is a fork that both changes features, and the story from original game. Go support the original!"
 msgstr "seznam změn: toto je fork, který mění jak funkce, tak příběh původní hry. podpořte prosím originál!"
 
@@ -2897,7 +2897,7 @@ msgstr "amulet"
 msgid "charred bodies litter the ground."
 msgstr "zem je pokryta spálenými těly."
 
-#: script/engine.js:1767
+#: script/engine.js:1847
 msgid "check it out."
 msgstr "prohlédnout si to."
 
@@ -2934,8 +2934,8 @@ msgstr "sbor"
 msgid "chunks of coal"
 msgstr "kusy uhlí"
 
-#: script/engine.js:1069
-#: script/engine.js:1083
+#: script/engine.js:1077
+#: script/engine.js:1091
 msgid "classic."
 msgstr "klasika."
 
@@ -3025,8 +3025,8 @@ msgstr "vylézt ven skrz zával"
 msgid "climb with everything"
 msgstr "šplhat se vším nákladem"
 
-#: script/engine.js:843
-#: script/engine.js:930
+#: script/engine.js:851
+#: script/engine.js:938
 msgid "close"
 msgstr "zavřít"
 
@@ -3308,7 +3308,7 @@ msgstr "nepodařilo se načíst z dropboxu. tvá aktuální hra není ovlivněna
 msgid "could not reach dropbox. check your connection and try again."
 msgstr "nepodařilo se spojit s dropboxem. zkontroluj připojení a zkus to znovu."
 
-#: script/engine.js:592
+#: script/engine.js:600
 msgid "could not read that file."
 msgstr "tento soubor se nepodařilo přečíst."
 
@@ -3348,7 +3348,7 @@ msgstr "zakrýt zásoby"
 msgid "craft"
 msgstr "vyrobit"
 
-#: script/engine.js:1513
+#: script/engine.js:1550
 #: script/room.js:2226
 msgid "craft:"
 msgstr "vyrobit:"
@@ -3481,7 +3481,7 @@ msgstr "vykopat to"
 msgid "dig it out anyway"
 msgstr "vykopat to tak jako tak"
 
-#: script/engine.js:1648
+#: script/engine.js:1728
 msgid "disable audio"
 msgstr "vypnout zvuk"
 
@@ -3546,7 +3546,7 @@ msgstr "uhýbáš efektivněji před útoky"
 msgid "doorkeeper"
 msgstr "vrátný"
 
-#: script/engine.js:547
+#: script/engine.js:555
 msgid "download as file"
 msgstr "stáhnout jako soubor"
 
@@ -3604,7 +3604,7 @@ msgstr "umírající"
 msgid "each step into the bracing cold wilds is difficult, and yet somehow there is a calling impossibly far away from here. perhaps even to the stars."
 msgstr "každý krok do svěže studené divočiny je obtížný, a přesto se odněkud ozývá volání nemožně daleko odsud. možná až ke hvězdám."
 
-#: script/engine.js:1638
+#: script/engine.js:1718
 msgid "ears flooded with new sensations."
 msgstr "uši zaplavené novými vjemy."
 
@@ -3652,7 +3652,7 @@ msgstr "prázdné nebe"
 msgid "empty the snares"
 msgstr "vybrat oka"
 
-#: script/engine.js:1643
+#: script/engine.js:1723
 msgid "enable audio"
 msgstr "zapnout zvuk"
 
@@ -3853,15 +3853,15 @@ msgstr "experimentální plány pokrývají jednu stěnu, drženy neviditelnou s
 msgid "explore"
 msgstr "prozkoumat"
 
-#: script/engine.js:439
+#: script/engine.js:447
 msgid "export"
 msgstr "export"
 
-#: script/engine.js:430
+#: script/engine.js:438
 msgid "Export / Import"
 msgstr "Export / Import"
 
-#: script/engine.js:434
+#: script/engine.js:442
 msgid "export or import save data, for backing up"
 msgstr "exportovat či importovat uložená data - pro zálohování"
 
@@ -3889,7 +3889,7 @@ msgstr "vyrobit:"
 msgid "Fabricator"
 msgstr "Zhotovitel"
 
-#: script/engine.js:860
+#: script/engine.js:868
 msgid "facebook"
 msgstr "facebook"
 
@@ -4167,7 +4167,7 @@ msgstr "skrčit se a přečkat to"
 msgid "get out"
 msgstr "dostat se ven"
 
-#: script/engine.js:812
+#: script/engine.js:820
 msgid "Get the App"
 msgstr "Stáhnout Aplikaci"
 
@@ -4338,7 +4338,7 @@ msgstr "jít dolů"
 msgid "go down to the core"
 msgstr "jít dolů k jádru"
 
-#: script/engine.js:1022
+#: script/engine.js:1030
 msgid "Go Hardcore?"
 msgstr "Zapnout Hardcore Režim?"
 
@@ -4375,7 +4375,7 @@ msgstr "jít domů"
 msgid "go home with her"
 msgstr "jít s ní domů"
 
-#: script/engine.js:996
+#: script/engine.js:1004
 msgid "Go Hyper?"
 msgstr "Zapnout Hyper režim?"
 
@@ -4554,7 +4554,7 @@ msgstr "projít dveřmi tě zavede hlouběji, než kdybys to obešel."
 msgid "good to rebuild"
 msgstr "dobré k přestavbě"
 
-#: script/engine.js:466
+#: script/engine.js:474
 msgid "got it"
 msgstr "hotovo"
 
@@ -4603,8 +4603,8 @@ msgstr "oběsit ho"
 msgid "happy april fools. the door out of here still works and none of this happened."
 msgstr "šťastný apríl. dveře odsud pořád fungují a nic z tohohle se nestalo."
 
-#: script/engine.js:1070
-#: script/engine.js:1087
+#: script/engine.js:1078
+#: script/engine.js:1095
 #: script/engine.js:213
 msgid "hardcore."
 msgstr "hardcore."
@@ -4960,8 +4960,8 @@ msgstr "lovec"
 msgid "hut"
 msgstr "chatrč"
 
-#: script/engine.js:1072
-#: script/engine.js:1084
+#: script/engine.js:1080
+#: script/engine.js:1092
 #: script/engine.js:219
 msgid "hyper."
 msgstr "hyper."
@@ -4987,7 +4987,7 @@ msgstr "netvrdím, že jde o rozšíření Townsendova záměru. záměrně jsem
 msgid "ichor"
 msgstr "ichor"
 
-#: script/engine.js:476
+#: script/engine.js:484
 msgid "if it is valid, this will replace your current game. that part is irreversible."
 msgstr "pokud je to platné, nahradí to tvou aktuální hru. tato část je nevratná."
 
@@ -4995,7 +4995,7 @@ msgstr "pokud je to platné, nahradí to tvou aktuální hru. tato část je nev
 msgid "if only they'd been destroyed along with everything else."
 msgstr "kéž by byly zničeny spolu se vším ostatním."
 
-#: script/engine.js:475
+#: script/engine.js:483
 msgid "if the save is invalid, nothing will be changed."
 msgstr "pokud je uložená hra neplatná, nic se nezmění."
 
@@ -5022,8 +5022,8 @@ msgstr "ignorovat je"
 msgid "immortal wanderer"
 msgstr "nesmrtelný poutník"
 
-#: script/engine.js:443
-#: script/engine.js:498
+#: script/engine.js:451
+#: script/engine.js:506
 msgid "import"
 msgstr "import"
 
@@ -5043,7 +5043,7 @@ msgstr "na jejím místě je plechovka s příděly, plná, a karta, na které v
 msgid "in the distance soldiers battle over wars long past, some with spears and some with guns. they are unable to let go."
 msgstr "v dálce vojáci bojují ve válkách dávno minulých, někteří s kopími a někteří se zbraněmi. nedokážou to pustit."
 
-#: script/engine.js:1052
+#: script/engine.js:1060
 msgid "In the mean time this is what has changed: Ruins, Temple, Graveyard, Lab, Prison, easter eggs, 14 endings, mobile, Hardcore mode, uber traps, new perk, new weapons, new upgrades, expanded story, new enemies, April Fool's mode, key controls in combat, visual tweaks, bugfixes, and more to come!"
 msgstr "mezitím se změnilo toto: Ruiny, Chrám, Hřbitov, Laboratoř, Vězení, velikonoční vajíčka, 14 konců, mobilní verze, Hardcore režim, superpasti, nová schopnost, nové zbraně, nová vylepšení, rozšířený příběh, noví nepřátelé, aprílový režim, klávesové ovládání v boji, vizuální úpravy, opravy chyb, a další toho přibude!"
 
@@ -5099,7 +5099,7 @@ msgstr "neviditelná smrt - záření zaplavuje většinu tohoto patra"
 msgid "inviting. it would be so easy to give in, completely."
 msgstr "lákavé. bylo by tak jednoduché se poddat, kompletně."
 
-#: script/engine.js:829
+#: script/engine.js:837
 msgid "ios"
 msgstr "iOS"
 
@@ -6355,12 +6355,12 @@ msgid "lights flash through the alleys between buildings."
 msgstr "skrze uličky mezi budovami prosvítá světlo."
 
 #: script/engine.js:201
-#: script/engine.js:987
+#: script/engine.js:995
 msgid "lights off."
 msgstr "zhasnout."
 
-#: script/engine.js:976
-#: script/engine.js:981
+#: script/engine.js:984
+#: script/engine.js:989
 msgid "lights on."
 msgstr "rozsvítit."
 
@@ -6388,7 +6388,7 @@ msgstr "ještěr"
 msgid "load"
 msgstr "načíst"
 
-#: script/engine.js:589
+#: script/engine.js:597
 msgid "loaded: "
 msgstr "načteno: "
 
@@ -6807,10 +6807,10 @@ msgstr "noční můry pokračují"
 msgid "nightmares worsen"
 msgstr "noční můry se zhoršují"
 
-#: script/engine.js:1007
-#: script/engine.js:1033
-#: script/engine.js:485
-#: script/engine.js:789
+#: script/engine.js:1015
+#: script/engine.js:1041
+#: script/engine.js:493
+#: script/engine.js:797
 msgid "no"
 msgstr "ne"
 
@@ -6858,7 +6858,7 @@ msgstr "nikdo se nedostal ven včas."
 msgid "no one wins wars fought with child soldiers"
 msgstr "nikdo nevyhrává války vedené dětskými vojáky"
 
-#: script/engine.js:1773
+#: script/engine.js:1853
 msgid "no thanks."
 msgstr "ne, děkuji."
 
@@ -7112,7 +7112,7 @@ msgstr "nic se neděje. je to nejhlasitější nic, které jsi za dlouhou dobu v
 msgid "nothing happens. nothing is there. nothing comes."
 msgstr "nic se neděje. nic tam není. nic nepřichází."
 
-#: script/engine.js:519
+#: script/engine.js:527
 msgid "nothing has been changed. your current game is untouched."
 msgstr "nic se nezměnilo. tvá aktuální hra je nedotčená."
 
@@ -7193,7 +7193,7 @@ msgid "offer another charm anyway"
 msgstr "přesto nabídnout další přívěsek"
 
 #: script/dropbox.js:510
-#: script/engine.js:1056
+#: script/engine.js:1064
 #: script/outside.js:1092
 #: script/outside.js:1262
 #: script/outside.js:1279
@@ -7413,7 +7413,7 @@ msgstr "otevřít sklad"
 msgid "opening it bare-handed is not a decision. it is just a way of dying in a shed."
 msgstr "otevřít to holýma rukama není rozhodnutí. je to jen způsob, jak zemřít v kůlně."
 
-#: script/engine.js:435
+#: script/engine.js:443
 msgid "or migrating computers"
 msgstr "nebo přesun na jiné zařízení"
 
@@ -7490,7 +7490,7 @@ msgstr "za kontrolním stanovištěm jsou vidět řady zadržovacích cel."
 msgid "past the checkpoint, the corridor is undamaged save for sporadic graffiti."
 msgstr "za kontrolním stanovištěm je chodba nepoškozená, až na ojedinělá graffiti."
 
-#: script/engine.js:491
+#: script/engine.js:499
 msgid "paste the save code here, or choose a file below."
 msgstr "vlož sem kód uložené hry, nebo vyber soubor níže."
 
@@ -7511,7 +7511,7 @@ msgstr "nahlížení do mosazného okuláru. hvězdy nejsou tam, kde by podle st
 msgid "Penrose"
 msgstr "Penrose"
 
-#: script/engine.js:1639
+#: script/engine.js:1719
 msgid "perhaps silence is safer?"
 msgstr "ticho je bezpečnější?"
 
@@ -7540,7 +7540,7 @@ msgstr "tuhle palubu vyluxovali dočista."
 msgid "picking the bones finds some useful trinkets."
 msgstr "při sběru kostí bylo nalezeno pár užitečných cetek."
 
-#: script/engine.js:888
+#: script/engine.js:896
 msgid "pinterest"
 msgstr "pinterest"
 
@@ -7734,7 +7734,7 @@ msgstr "znovupotvrzování"
 msgid "recycler blueprint"
 msgstr "stavební plán: recyklátor hmoty"
 
-#: script/engine.js:867
+#: script/engine.js:875
 msgid "reddit"
 msgstr "reddit"
 
@@ -7785,11 +7785,11 @@ msgstr "rezonující"
 msgid "respects are paid"
 msgstr "úcta byla vzdána"
 
-#: script/engine.js:781
+#: script/engine.js:789
 msgid "restart the game?"
 msgstr "restartovat hru?"
 
-#: script/engine.js:778
+#: script/engine.js:786
 msgid "Restart?"
 msgstr "Restartovat?"
 
@@ -7930,7 +7930,7 @@ msgstr "uvnitř vzorky něčeho biologického."
 msgid "save"
 msgstr "uložit"
 
-#: script/engine.js:453
+#: script/engine.js:461
 msgid "save this, or download it as a file."
 msgstr "uložit toto, nebo to stáhnout jako soubor."
 
@@ -8382,7 +8382,7 @@ msgstr "Stín"
 msgid "shamefully gather goods"
 msgstr "hanebně sbírat zboží"
 
-#: script/engine.js:854
+#: script/engine.js:862
 msgid "Share"
 msgstr "Sdílet"
 
@@ -9284,15 +9284,15 @@ msgstr "někde za stěnou pumpa pracuje, zastavuje se, a znovu pracuje."
 msgid "somewhere behind you the rock keeps turning. there is a room on it with a fire in it.<br>you do not look back at it."
 msgstr "někde za tebou se skála pořád otáčí. je na ní místnost s ohněm.<br>neohlédneš se na ni."
 
-#: script/engine.js:1634
+#: script/engine.js:1714
 msgid "Sound Available!"
 msgstr "Zvuk k Dispozici!"
 
-#: script/engine.js:1436
+#: script/engine.js:1473
 msgid "sound off."
 msgstr "vypnout zvuk."
 
-#: script/engine.js:1432
+#: script/engine.js:1469
 #: script/engine.js:189
 msgid "sound on."
 msgstr "zapnout zvuk."
@@ -9379,7 +9379,7 @@ msgstr "zůstat na tomto patře"
 msgid "stealthy"
 msgstr "plíživý"
 
-#: script/engine.js:822
+#: script/engine.js:830
 msgid "steam"
 msgstr "pára"
 
@@ -9789,7 +9789,7 @@ msgstr "poděkovat mu"
 msgid "that cannot be right. those glyphs seem to suggest..."
 msgstr "to nemůže být správně. ty symboly zdá se naznačují..."
 
-#: script/engine.js:583
+#: script/engine.js:591
 msgid "that file is too large to be a save."
 msgstr "tento soubor je příliš velký na to, aby byl uložená hra."
 
@@ -9805,7 +9805,7 @@ msgstr "proto jsi sem přišel. ne abys je osvobodil. abys se jich zeptal, jestl
 msgid "that save could not be read. nothing has been changed."
 msgstr "tuto uloženou hru se nepodařilo přečíst. nic se nezměnilo."
 
-#: script/engine.js:518
+#: script/engine.js:526
 msgid "that save data could not be read."
 msgstr "tato data uložené hry se nepodařilo přečíst."
 
@@ -13238,7 +13238,7 @@ msgstr "na kolíku prvního oka je vyrytá značka. není to značka výrobce."
 msgid "there is a name scratched at head height and then scratched out, thoroughly, by the same hand."
 msgstr "ve výšce hlavy je vyryté jméno a pak důkladně vyškrábané, stejnou rukou."
 
-#: script/engine.js:1763
+#: script/engine.js:1843
 msgid "there is a new layout, would you like to use it?"
 msgstr "je tu nové rozvržení, chceš ho použít?"
 
@@ -13903,7 +13903,7 @@ msgstr "myšlenky"
 msgid "thousands of faces turning at once toward a thing they have all just decided to hate."
 msgstr "tisíce tváří se naráz obracejí k něčemu, co se všichni právě rozhodli nenávidět."
 
-#: script/engine.js:909
+#: script/engine.js:917
 msgid "threads"
 msgstr "vlákna"
 
@@ -14089,7 +14089,7 @@ msgstr "vojáci útočí na vesnici"
 msgid "Troposphere"
 msgstr "Troposféra"
 
-#: script/engine.js:523
+#: script/engine.js:531
 msgid "try again"
 msgstr "zkusit znovu"
 
@@ -14105,7 +14105,7 @@ msgstr "pokusit se jednoho probudit"
 msgid "trying to carve out some semblence of civilization amongst the unforgiving wastes. builder says she could make finer things, if she had the tools"
 msgstr "snažíš se vytesat alespoň zdání civilizace uprostřed nemilosrdných pustin. stavitelka říká, že by dokázala vyrobit jemnější věci, kdyby měla nástroje"
 
-#: script/engine.js:881
+#: script/engine.js:889
 msgid "tumblr"
 msgstr "tumblr"
 
@@ -14140,11 +14140,11 @@ msgstr "vyhnat přeživší"
 msgid "turn them back"
 msgstr "poslat je zpátky"
 
-#: script/engine.js:1025
+#: script/engine.js:1033
 msgid "turning hardcore mode on slows down the game by x2 speed and makes all enemies x2 stronger. do you want to do that?"
 msgstr "zapnutí extrémního režimu zpomalí hru dvakrát a všechny nepřátele zesílí dvakrát. chceš to udělat?"
 
-#: script/engine.js:999
+#: script/engine.js:1007
 msgid "turning hyper mode speeds up the game to x2 speed. do you want to do that?"
 msgstr "spuštění hyper režimu zrychlí hru na dvojnásobek. chcete pokračovat?"
 
@@ -14152,7 +14152,7 @@ msgstr "spuštění hyper režimu zrychlí hru na dvojnásobek. chcete pokračov
 msgid "twenty minutes, no drama, and the pack never so much as shifts."
 msgstr "dvacet minut, žádné drama, a batoh se ani nepohne."
 
-#: script/engine.js:874
+#: script/engine.js:882
 msgid "twitter"
 msgstr "twitter"
 
@@ -14294,7 +14294,7 @@ msgstr "nestabilní automat"
 msgid "unstable prototype"
 msgstr "nestabilní prototyp"
 
-#: script/engine.js:1759
+#: script/engine.js:1839
 msgid "Update"
 msgstr "Aktualizace"
 
@@ -14700,7 +14700,7 @@ msgstr "ať už čemu čelí, nikdo z nich nebyl ochoten jít dál za tohle mís
 msgid "whatever this is, it was not built to be opened from outside. it was built so that opening it would have to be a decision somebody made from within."
 msgstr "ať už je tohle cokoli, nebylo to postaveno k otevírání zvenčí. bylo to postaveno tak, aby otevření muselo být rozhodnutím někoho zevnitř."
 
-#: script/engine.js:902
+#: script/engine.js:910
 msgid "whatsapp"
 msgstr "whatsapp"
 
@@ -14817,7 +14817,7 @@ msgstr "zpráva přichází od {0} dřív než zvuk."
 msgid "word of this will reach wherever he came from."
 msgstr "zpráva o tomhle dorazí tam, odkud přišel."
 
-#: script/engine.js:895
+#: script/engine.js:903
 msgid "wordpress"
 msgstr "wordpress"
 
@@ -14851,10 +14851,10 @@ msgstr "zapsat to jméno"
 msgid "wrong ampoule"
 msgstr "špatná ampule"
 
-#: script/engine.js:1002
-#: script/engine.js:1028
-#: script/engine.js:480
-#: script/engine.js:784
+#: script/engine.js:1010
+#: script/engine.js:1036
+#: script/engine.js:488
+#: script/engine.js:792
 msgid "yes"
 msgstr "ano"
 

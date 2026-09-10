@@ -305,7 +305,7 @@ msgstr "{0} pourraient aider à chasser, avec les moyens nécessaires"
 msgid "{0} of the three are dark now. what is left is still lit."
 msgstr "{0} des trois sont éteintes désormais. ce qui reste brûle encore."
 
-#: script/engine.js:1279
+#: script/engine.js:1287
 msgid "{0} per {1}s"
 msgstr "{0} /{1}s"
 
@@ -2027,7 +2027,7 @@ msgstr "et gravé dans le cadre, si peu profond qu'on ne le trouverait qu'en y p
 msgid "and you understand, finally and completely, why you opened that door --<br>and that you would open it again, and that this is not remorse, and never was."
 msgstr "et tu comprends, enfin et complètement, pourquoi tu as ouvert cette porte --<br>et que tu la rouvrirais, et que ce n'est pas du remords, et que ça ne l'a jamais été."
 
-#: script/engine.js:836
+#: script/engine.js:844
 msgid "android"
 msgstr "android"
 
@@ -2072,7 +2072,7 @@ msgstr "s'approcher"
 msgid "approach the platform"
 msgstr "s'approcher de la plateforme"
 
-#: script/engine.js:1715
+#: script/engine.js:1795
 msgid "april fools."
 msgstr "poisson d'avril."
 
@@ -2084,7 +2084,7 @@ msgstr "arc électrique"
 msgid "archon"
 msgstr "archonte"
 
-#: script/engine.js:474
+#: script/engine.js:482
 msgid "are you sure?"
 msgstr "êtes-vous sur ?"
 
@@ -2499,7 +2499,7 @@ msgstr "le faire sauter"
 msgid "blueprints"
 msgstr "plans"
 
-#: script/engine.js:921
+#: script/engine.js:929
 msgid "bluesky"
 msgstr "ciel bleu"
 
@@ -2556,11 +2556,11 @@ msgstr "boxeur"
 msgid "bring in whoever is still out there"
 msgstr "faire entrer quiconque est encore dehors"
 
-#: script/engine.js:815
+#: script/engine.js:823
 msgid "bring the room with you."
 msgstr "emmenez la pièce avec vous"
 
-#: script/engine.js:857
+#: script/engine.js:865
 msgid "bring your friends."
 msgstr "Invitez vos amis."
 
@@ -2580,7 +2580,7 @@ msgstr "construire"
 msgid "build the fire up"
 msgstr "attiser le feu"
 
-#: script/engine.js:1508
+#: script/engine.js:1545
 #: script/room.js:2219
 msgid "build:"
 msgstr "construire:"
@@ -2769,7 +2769,7 @@ msgstr "acheter des écailles"
 msgid "buy teeth"
 msgstr "acheter des dents"
 
-#: script/engine.js:1519
+#: script/engine.js:1556
 #: script/room.js:2233
 msgid "buy:"
 msgstr "acheter:"
@@ -2821,9 +2821,9 @@ msgstr "impossible de comprendre ce qui se dit."
 #: script/dropbox.js:389
 #: script/dropbox.js:427
 #: script/dropbox.js:465
-#: script/engine.js:447
-#: script/engine.js:511
-#: script/engine.js:528
+#: script/engine.js:455
+#: script/engine.js:519
+#: script/engine.js:536
 msgid "cancel"
 msgstr "annuler"
 
@@ -2865,11 +2865,11 @@ msgstr "fonderie de cellules"
 msgid "chain-gang revenant"
 msgstr "revenant de chaîne de forçats"
 
-#: script/engine.js:1047
+#: script/engine.js:1055
 msgid "Changelog"
 msgstr "Journal des Modifications"
 
-#: script/engine.js:1050
+#: script/engine.js:1058
 msgid "changelog: This is a fork that both changes features, and the story from original game. Go support the original!"
 msgstr "journal des modifications : ceci est un fork qui modifie à la fois les fonctionnalités et l'histoire du jeu original. Allez soutenir l'original !"
 
@@ -2900,7 +2900,7 @@ msgstr "charme"
 msgid "charred bodies litter the ground."
 msgstr "des corps carbonisés jonchent le sol."
 
-#: script/engine.js:1767
+#: script/engine.js:1847
 msgid "check it out."
 msgstr "y jeter un œil."
 
@@ -2937,8 +2937,8 @@ msgstr "chœur"
 msgid "chunks of coal"
 msgstr "morceaux de charbon"
 
-#: script/engine.js:1069
-#: script/engine.js:1083
+#: script/engine.js:1077
+#: script/engine.js:1091
 msgid "classic."
 msgstr "classique."
 
@@ -3028,8 +3028,8 @@ msgstr "sortir en escaladant par l'effondrement"
 msgid "climb with everything"
 msgstr "escalader avec tout le chargement"
 
-#: script/engine.js:843
-#: script/engine.js:930
+#: script/engine.js:851
+#: script/engine.js:938
 msgid "close"
 msgstr "fermer"
 
@@ -3311,7 +3311,7 @@ msgstr "impossible de charger depuis dropbox. ta partie actuelle n'est pas affec
 msgid "could not reach dropbox. check your connection and try again."
 msgstr "impossible de joindre dropbox. vérifie ta connexion et réessaie."
 
-#: script/engine.js:592
+#: script/engine.js:600
 msgid "could not read that file."
 msgstr "impossible de lire ce fichier."
 
@@ -3351,7 +3351,7 @@ msgstr "couvrir les provisions"
 msgid "craft"
 msgstr "fabriquer"
 
-#: script/engine.js:1513
+#: script/engine.js:1550
 #: script/room.js:2226
 msgid "craft:"
 msgstr "fabriquer:"
@@ -3484,7 +3484,7 @@ msgstr "le déterrer"
 msgid "dig it out anyway"
 msgstr "le déterrer quand même"
 
-#: script/engine.js:1648
+#: script/engine.js:1728
 msgid "disable audio"
 msgstr "désactiver le son"
 
@@ -3549,7 +3549,7 @@ msgstr "esquiver les attaques de façon plus efficace"
 msgid "doorkeeper"
 msgstr "portier"
 
-#: script/engine.js:547
+#: script/engine.js:555
 msgid "download as file"
 msgstr "télécharger sous forme de fichier"
 
@@ -3607,7 +3607,7 @@ msgstr "en train de mourir"
 msgid "each step into the bracing cold wilds is difficult, and yet somehow there is a calling impossibly far away from here. perhaps even to the stars."
 msgstr "chaque pas dans le froid vivifiant de la nature sauvage est difficile, et pourtant il y a quelque part un appel impossiblement lointain d'ici. peut-être même jusqu'aux étoiles."
 
-#: script/engine.js:1638
+#: script/engine.js:1718
 msgid "ears flooded with new sensations."
 msgstr "les oreilles inondées de sensations nouvelles."
 
@@ -3655,7 +3655,7 @@ msgstr "cieux vides"
 msgid "empty the snares"
 msgstr "vider les collets"
 
-#: script/engine.js:1643
+#: script/engine.js:1723
 msgid "enable audio"
 msgstr "activer le son"
 
@@ -3856,15 +3856,15 @@ msgstr "des plans expérimentaux couvrent un mur, maintenus par une force invisi
 msgid "explore"
 msgstr "explorer"
 
-#: script/engine.js:439
+#: script/engine.js:447
 msgid "export"
 msgstr "exporter"
 
-#: script/engine.js:430
+#: script/engine.js:438
 msgid "Export / Import"
 msgstr "Exporter/Importer"
 
-#: script/engine.js:434
+#: script/engine.js:442
 msgid "export or import save data, for backing up"
 msgstr "exporter ou importer vos données de sauvegarde"
 
@@ -3892,7 +3892,7 @@ msgstr "fabriquer :"
 msgid "Fabricator"
 msgstr "Fabricateur"
 
-#: script/engine.js:860
+#: script/engine.js:868
 msgid "facebook"
 msgstr "facebook"
 
@@ -4170,7 +4170,7 @@ msgstr "se baisser et attendre que ça passe"
 msgid "get out"
 msgstr "sortir"
 
-#: script/engine.js:812
+#: script/engine.js:820
 msgid "Get the App"
 msgstr "Télécharger l'application"
 
@@ -4341,7 +4341,7 @@ msgstr "descendre"
 msgid "go down to the core"
 msgstr "descendre jusqu'au noyau"
 
-#: script/engine.js:1022
+#: script/engine.js:1030
 msgid "Go Hardcore?"
 msgstr "Passer en Mode Hardcore ?"
 
@@ -4378,7 +4378,7 @@ msgstr "rentrer"
 msgid "go home with her"
 msgstr "rentrer chez elle avec elle"
 
-#: script/engine.js:996
+#: script/engine.js:1004
 msgid "Go Hyper?"
 msgstr "Passer en Hyper ?"
 
@@ -4557,7 +4557,7 @@ msgstr "franchir la porte te fait descendre plus bas que la contourner."
 msgid "good to rebuild"
 msgstr "bon pour la reconstruction"
 
-#: script/engine.js:466
+#: script/engine.js:474
 msgid "got it"
 msgstr "compris"
 
@@ -4606,8 +4606,8 @@ msgstr "le pendre"
 msgid "happy april fools. the door out of here still works and none of this happened."
 msgstr "joyeux poisson d'avril. la porte de sortie fonctionne toujours et rien de tout cela n'est arrivé."
 
-#: script/engine.js:1070
-#: script/engine.js:1087
+#: script/engine.js:1078
+#: script/engine.js:1095
 #: script/engine.js:213
 msgid "hardcore."
 msgstr "hardcore."
@@ -4963,8 +4963,8 @@ msgstr "chasseur"
 msgid "hut"
 msgstr "cabane"
 
-#: script/engine.js:1072
-#: script/engine.js:1084
+#: script/engine.js:1080
+#: script/engine.js:1092
 #: script/engine.js:219
 msgid "hyper."
 msgstr "hyper."
@@ -4990,7 +4990,7 @@ msgstr "je ne prétends pas que ceci soit une extension de l'intention de Townse
 msgid "ichor"
 msgstr "ichor"
 
-#: script/engine.js:476
+#: script/engine.js:484
 msgid "if it is valid, this will replace your current game. that part is irreversible."
 msgstr "si c'est valide, cela remplacera ta partie actuelle. cette partie est irréversible."
 
@@ -4998,7 +4998,7 @@ msgstr "si c'est valide, cela remplacera ta partie actuelle. cette partie est ir
 msgid "if only they'd been destroyed along with everything else."
 msgstr "si seulement ils avaient été détruits avec tout le reste."
 
-#: script/engine.js:475
+#: script/engine.js:483
 msgid "if the save is invalid, nothing will be changed."
 msgstr "si la sauvegarde est invalide, rien ne sera changé."
 
@@ -5025,8 +5025,8 @@ msgstr "les ignorer"
 msgid "immortal wanderer"
 msgstr "vagabond immortel"
 
-#: script/engine.js:443
-#: script/engine.js:498
+#: script/engine.js:451
+#: script/engine.js:506
 msgid "import"
 msgstr "importer"
 
@@ -5046,7 +5046,7 @@ msgstr "à sa place se trouve une boîte de rations, pleine, et une carte sur la
 msgid "in the distance soldiers battle over wars long past, some with spears and some with guns. they are unable to let go."
 msgstr "au loin des soldats se battent pour des guerres révolues depuis longtemps, certains avec des lances et d'autres avec des armes à feu. ils sont incapables de lâcher prise."
 
-#: script/engine.js:1052
+#: script/engine.js:1060
 msgid "In the mean time this is what has changed: Ruins, Temple, Graveyard, Lab, Prison, easter eggs, 14 endings, mobile, Hardcore mode, uber traps, new perk, new weapons, new upgrades, expanded story, new enemies, April Fool's mode, key controls in combat, visual tweaks, bugfixes, and more to come!"
 msgstr "En attendant, voici ce qui a changé : Ruines, Temple, Cimetière, Laboratoire, Prison, œufs de Pâques, 14 fins, version mobile, mode Hardcore, superpièges, nouvelle capacité, nouvelles armes, nouvelles améliorations, histoire étendue, nouveaux ennemis, mode Poisson d'Avril, contrôles au clavier en combat, ajustements visuels, corrections de bugs, et encore plus à venir !"
 
@@ -5102,7 +5102,7 @@ msgstr "mort invisible - les radiations inondent la majeure partie de ce niveau"
 msgid "inviting. it would be so easy to give in, completely."
 msgstr "invitant. ce serait si facile de céder, complètement."
 
-#: script/engine.js:829
+#: script/engine.js:837
 msgid "ios"
 msgstr "ios"
 
@@ -6358,12 +6358,12 @@ msgid "lights flash through the alleys between buildings."
 msgstr "des lumières clignotent dans les ruelles entre les immeubles."
 
 #: script/engine.js:201
-#: script/engine.js:987
+#: script/engine.js:995
 msgid "lights off."
 msgstr "lumières éteintes."
 
-#: script/engine.js:976
-#: script/engine.js:981
+#: script/engine.js:984
+#: script/engine.js:989
 msgid "lights on."
 msgstr "lumières allumées."
 
@@ -6391,7 +6391,7 @@ msgstr "lézard"
 msgid "load"
 msgstr "charger"
 
-#: script/engine.js:589
+#: script/engine.js:597
 msgid "loaded: "
 msgstr "chargé : "
 
@@ -6810,10 +6810,10 @@ msgstr "les cauchemars continuent"
 msgid "nightmares worsen"
 msgstr "les cauchemars s'aggravent"
 
-#: script/engine.js:1007
-#: script/engine.js:1033
-#: script/engine.js:485
-#: script/engine.js:789
+#: script/engine.js:1015
+#: script/engine.js:1041
+#: script/engine.js:493
+#: script/engine.js:797
 msgid "no"
 msgstr "non"
 
@@ -6861,7 +6861,7 @@ msgstr "personne n'en est sorti à temps."
 msgid "no one wins wars fought with child soldiers"
 msgstr "personne ne gagne les guerres menées avec des enfants soldats"
 
-#: script/engine.js:1773
+#: script/engine.js:1853
 msgid "no thanks."
 msgstr "non merci."
 
@@ -7115,7 +7115,7 @@ msgstr "rien ne se passe. c'est le rien le plus bruyant que tu aies enduré depu
 msgid "nothing happens. nothing is there. nothing comes."
 msgstr "rien ne se passe. rien n'est là. rien ne vient."
 
-#: script/engine.js:519
+#: script/engine.js:527
 msgid "nothing has been changed. your current game is untouched."
 msgstr "rien n'a été changé. ta partie actuelle n'est pas affectée."
 
@@ -7196,7 +7196,7 @@ msgid "offer another charm anyway"
 msgstr "offrir un autre talisman quand même"
 
 #: script/dropbox.js:510
-#: script/engine.js:1056
+#: script/engine.js:1064
 #: script/outside.js:1092
 #: script/outside.js:1262
 #: script/outside.js:1279
@@ -7416,7 +7416,7 @@ msgstr "ouvrir les réserves"
 msgid "opening it bare-handed is not a decision. it is just a way of dying in a shed."
 msgstr "l'ouvrir à mains nues n'est pas une décision. ce n'est qu'une façon de mourir dans une remise."
 
-#: script/engine.js:435
+#: script/engine.js:443
 msgid "or migrating computers"
 msgstr "pour sauver votre partie ou changer d'ordinateur"
 
@@ -7493,7 +7493,7 @@ msgstr "au-delà du point de contrôle, des rangées de cellules de confinement 
 msgid "past the checkpoint, the corridor is undamaged save for sporadic graffiti."
 msgstr "au-delà du point de contrôle, le corridor est intact hormis quelques graffitis sporadiques."
 
-#: script/engine.js:491
+#: script/engine.js:499
 msgid "paste the save code here, or choose a file below."
 msgstr "colle le code de sauvegarde ici, ou choisis un fichier ci-dessous."
 
@@ -7514,7 +7514,7 @@ msgstr "scrutant à travers l'oculaire de laiton. les étoiles ne sont pas là o
 msgid "Penrose"
 msgstr "Penrose"
 
-#: script/engine.js:1639
+#: script/engine.js:1719
 msgid "perhaps silence is safer?"
 msgstr "le silence est-il peut-être plus sûr ?"
 
@@ -7543,7 +7543,7 @@ msgstr "a nettoyé ce pont de tout."
 msgid "picking the bones finds some useful trinkets."
 msgstr "au milieu des os, quelques bibelots intéressants."
 
-#: script/engine.js:888
+#: script/engine.js:896
 msgid "pinterest"
 msgstr "pinterest"
 
@@ -7737,7 +7737,7 @@ msgstr "se réaffirmant"
 msgid "recycler blueprint"
 msgstr "plan : recycleur de matière"
 
-#: script/engine.js:867
+#: script/engine.js:875
 msgid "reddit"
 msgstr "reddit"
 
@@ -7788,11 +7788,11 @@ msgstr "résonnant"
 msgid "respects are paid"
 msgstr "l'hommage est rendu"
 
-#: script/engine.js:781
+#: script/engine.js:789
 msgid "restart the game?"
 msgstr "recommencer la partie ?"
 
-#: script/engine.js:778
+#: script/engine.js:786
 msgid "Restart?"
 msgstr "Recommencer ?"
 
@@ -7933,7 +7933,7 @@ msgstr "des échantillons de quelque chose de biologique à l'intérieur."
 msgid "save"
 msgstr "sauvegarder"
 
-#: script/engine.js:453
+#: script/engine.js:461
 msgid "save this, or download it as a file."
 msgstr "sauvegarder ceci, ou le télécharger sous forme de fichier."
 
@@ -8385,7 +8385,7 @@ msgstr "Ombre"
 msgid "shamefully gather goods"
 msgstr "rassembler des biens honteusement"
 
-#: script/engine.js:854
+#: script/engine.js:862
 msgid "Share"
 msgstr "Partager"
 
@@ -9287,15 +9287,15 @@ msgstr "quelque part derrière le mur, une pompe fonctionne par cycles, s'arrêt
 msgid "somewhere behind you the rock keeps turning. there is a room on it with a fire in it.<br>you do not look back at it."
 msgstr "quelque part derrière toi le rocher continue de tourner. il y a une chambre dessus avec un feu à l'intérieur.<br>tu ne te retournes pas pour le regarder."
 
-#: script/engine.js:1634
+#: script/engine.js:1714
 msgid "Sound Available!"
 msgstr "Son Disponible !"
 
-#: script/engine.js:1436
+#: script/engine.js:1473
 msgid "sound off."
 msgstr "son désactivé."
 
-#: script/engine.js:1432
+#: script/engine.js:1469
 #: script/engine.js:189
 msgid "sound on."
 msgstr "son activé."
@@ -9382,7 +9382,7 @@ msgstr "rester à ce niveau"
 msgid "stealthy"
 msgstr "furtif"
 
-#: script/engine.js:822
+#: script/engine.js:830
 msgid "steam"
 msgstr "vapeur"
 
@@ -9792,7 +9792,7 @@ msgstr "le remercier"
 msgid "that cannot be right. those glyphs seem to suggest..."
 msgstr "ça ne peut pas être exact. ces glyphes semblent suggérer..."
 
-#: script/engine.js:583
+#: script/engine.js:591
 msgid "that file is too large to be a save."
 msgstr "ce fichier est trop volumineux pour être une sauvegarde."
 
@@ -9808,7 +9808,7 @@ msgstr "c'est pour cela que tu es venu ici. pas pour les libérer. pour leur dem
 msgid "that save could not be read. nothing has been changed."
 msgstr "cette sauvegarde n'a pas pu être lue. rien n'a été changé."
 
-#: script/engine.js:518
+#: script/engine.js:526
 msgid "that save data could not be read."
 msgstr "ces données de sauvegarde n'ont pas pu être lues."
 
@@ -13241,7 +13241,7 @@ msgstr "une marque est gravée dans le pieu du premier collet. ce n'est pas une 
 msgid "there is a name scratched at head height and then scratched out, thoroughly, by the same hand."
 msgstr "un nom est gravé à hauteur de tête puis rayé, minutieusement, par la même main."
 
-#: script/engine.js:1763
+#: script/engine.js:1843
 msgid "there is a new layout, would you like to use it?"
 msgstr "il y a une nouvelle disposition, veux-tu l'utiliser ?"
 
@@ -13906,7 +13906,7 @@ msgstr "pensées"
 msgid "thousands of faces turning at once toward a thing they have all just decided to hate."
 msgstr "des milliers de visages se tournant en même temps vers une chose qu'ils viennent tous de décider de haïr."
 
-#: script/engine.js:909
+#: script/engine.js:917
 msgid "threads"
 msgstr "fils"
 
@@ -14092,7 +14092,7 @@ msgstr "des troupes envahissent le village"
 msgid "Troposphere"
 msgstr "Troposphère"
 
-#: script/engine.js:523
+#: script/engine.js:531
 msgid "try again"
 msgstr "réessayer"
 
@@ -14108,7 +14108,7 @@ msgstr "essayer d'en réveiller un"
 msgid "trying to carve out some semblence of civilization amongst the unforgiving wastes. builder says she could make finer things, if she had the tools"
 msgstr "essayant de tailler un semblant de civilisation au milieu des friches impitoyables. la bâtisseuse dit qu'elle pourrait fabriquer des choses plus raffinées, si elle avait les outils"
 
-#: script/engine.js:881
+#: script/engine.js:889
 msgid "tumblr"
 msgstr "tumblr"
 
@@ -14143,11 +14143,11 @@ msgstr "chasser les survivants"
 msgid "turn them back"
 msgstr "les refouler"
 
-#: script/engine.js:1025
+#: script/engine.js:1033
 msgid "turning hardcore mode on slows down the game by x2 speed and makes all enemies x2 stronger. do you want to do that?"
 msgstr "activer le mode hardcore ralentit le jeu à une vitesse x2 et rend tous les ennemis deux fois plus forts. veux-tu faire cela ?"
 
-#: script/engine.js:999
+#: script/engine.js:1007
 msgid "turning hyper mode speeds up the game to x2 speed. do you want to do that?"
 msgstr "le mode hyper accélère la vitesse du jeu (2x). est-ce ce que vous souhaitez ?"
 
@@ -14155,7 +14155,7 @@ msgstr "le mode hyper accélère la vitesse du jeu (2x). est-ce ce que vous souh
 msgid "twenty minutes, no drama, and the pack never so much as shifts."
 msgstr "vingt minutes, sans encombre, et le sac ne bouge même pas."
 
-#: script/engine.js:874
+#: script/engine.js:882
 msgid "twitter"
 msgstr "twitter"
 
@@ -14297,7 +14297,7 @@ msgstr "automate instable"
 msgid "unstable prototype"
 msgstr "prototype instable"
 
-#: script/engine.js:1759
+#: script/engine.js:1839
 msgid "Update"
 msgstr "Mise à Jour"
 
@@ -14703,7 +14703,7 @@ msgstr "quoi qu'ils affrontent, aucun d'eux n'était disposé à aller au-delà 
 msgid "whatever this is, it was not built to be opened from outside. it was built so that opening it would have to be a decision somebody made from within."
 msgstr "quoi que ce soit, ça n'a pas été construit pour être ouvert de l'extérieur. ça a été construit pour que l'ouvrir doive être une décision prise par quelqu'un de l'intérieur."
 
-#: script/engine.js:902
+#: script/engine.js:910
 msgid "whatsapp"
 msgstr "whatsapp"
 
@@ -14820,7 +14820,7 @@ msgstr "la nouvelle arrive des {0} avant le son."
 msgid "word of this will reach wherever he came from."
 msgstr "la nouvelle en parviendra jusque là d'où il vient."
 
-#: script/engine.js:895
+#: script/engine.js:903
 msgid "wordpress"
 msgstr "wordpress"
 
@@ -14854,10 +14854,10 @@ msgstr "écrire le nom"
 msgid "wrong ampoule"
 msgstr "mauvaise ampoule"
 
-#: script/engine.js:1002
-#: script/engine.js:1028
-#: script/engine.js:480
-#: script/engine.js:784
+#: script/engine.js:1010
+#: script/engine.js:1036
+#: script/engine.js:488
+#: script/engine.js:792
 msgid "yes"
 msgstr "oui"
 

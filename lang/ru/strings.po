@@ -304,7 +304,7 @@ msgstr "{0} могли бы помочь на охоте, будь у них с�
 msgid "{0} of the three are dark now. what is left is still lit."
 msgstr "{0} из трёх теперь погасли. оставшаяся всё ещё горит."
 
-#: script/engine.js:1279
+#: script/engine.js:1287
 msgid "{0} per {1}s"
 msgstr "{0} в {1} сек."
 
@@ -2026,7 +2026,7 @@ msgstr "и выбито на каркасе, так неглубоко, что �
 msgid "and you understand, finally and completely, why you opened that door --<br>and that you would open it again, and that this is not remorse, and never was."
 msgstr "и ты наконец и полностью понимаешь, зачем открыл ту дверь --<br>и что открыл бы её снова, и что это не раскаяние, и никогда им не было."
 
-#: script/engine.js:836
+#: script/engine.js:844
 msgid "android"
 msgstr "android"
 
@@ -2071,7 +2071,7 @@ msgstr "приблизиться"
 msgid "approach the platform"
 msgstr "подойти к платформе"
 
-#: script/engine.js:1715
+#: script/engine.js:1795
 msgid "april fools."
 msgstr "первое апреля."
 
@@ -2083,7 +2083,7 @@ msgstr "дуговая вспышка"
 msgid "archon"
 msgstr "архонт"
 
-#: script/engine.js:474
+#: script/engine.js:482
 msgid "are you sure?"
 msgstr "вы уверены?"
 
@@ -2498,7 +2498,7 @@ msgstr "взорвать это"
 msgid "blueprints"
 msgstr "чертежи"
 
-#: script/engine.js:921
+#: script/engine.js:929
 msgid "bluesky"
 msgstr "bluesky"
 
@@ -2555,11 +2555,11 @@ msgstr "боксер"
 msgid "bring in whoever is still out there"
 msgstr "впустить всех, кто ещё там снаружи"
 
-#: script/engine.js:815
+#: script/engine.js:823
 msgid "bring the room with you."
 msgstr "забери комнату с собой."
 
-#: script/engine.js:857
+#: script/engine.js:865
 msgid "bring your friends."
 msgstr "пригласить друзей"
 
@@ -2579,7 +2579,7 @@ msgstr "строить"
 msgid "build the fire up"
 msgstr "раздуть костёр"
 
-#: script/engine.js:1508
+#: script/engine.js:1545
 #: script/room.js:2219
 msgid "build:"
 msgstr "построить:"
@@ -2768,7 +2768,7 @@ msgstr "купить чешую"
 msgid "buy teeth"
 msgstr "купить зубы"
 
-#: script/engine.js:1519
+#: script/engine.js:1556
 #: script/room.js:2233
 msgid "buy:"
 msgstr "купить:"
@@ -2820,9 +2820,9 @@ msgstr "непонятно откуда он."
 #: script/dropbox.js:389
 #: script/dropbox.js:427
 #: script/dropbox.js:465
-#: script/engine.js:447
-#: script/engine.js:511
-#: script/engine.js:528
+#: script/engine.js:455
+#: script/engine.js:519
+#: script/engine.js:536
 msgid "cancel"
 msgstr "отмена"
 
@@ -2864,11 +2864,11 @@ msgstr "литейная для ячеек"
 msgid "chain-gang revenant"
 msgstr "мертвец из партии каторжников"
 
-#: script/engine.js:1047
+#: script/engine.js:1055
 msgid "Changelog"
 msgstr "Список изменений"
 
-#: script/engine.js:1050
+#: script/engine.js:1058
 msgid "changelog: This is a fork that both changes features, and the story from original game. Go support the original!"
 msgstr "список изменений: это форк, который меняет как функции, так и историю оригинальной игры. Поддержите оригинал!"
 
@@ -2899,7 +2899,7 @@ msgstr "амулет"
 msgid "charred bodies litter the ground."
 msgstr "обугленные тела разлагаются почвой."
 
-#: script/engine.js:1767
+#: script/engine.js:1847
 msgid "check it out."
 msgstr "взгляни на это."
 
@@ -2936,8 +2936,8 @@ msgstr "хор"
 msgid "chunks of coal"
 msgstr "куски угля"
 
-#: script/engine.js:1069
-#: script/engine.js:1083
+#: script/engine.js:1077
+#: script/engine.js:1091
 msgid "classic."
 msgstr "классический."
 
@@ -3027,8 +3027,8 @@ msgstr "вылезти через провал"
 msgid "climb with everything"
 msgstr "лезть со всем снаряжением"
 
-#: script/engine.js:843
-#: script/engine.js:930
+#: script/engine.js:851
+#: script/engine.js:938
 msgid "close"
 msgstr "закрыть"
 
@@ -3310,7 +3310,7 @@ msgstr "не удалось загрузить из dropbox. твоя текущ
 msgid "could not reach dropbox. check your connection and try again."
 msgstr "не удалось связаться с dropbox. проверь соединение и попробуй снова."
 
-#: script/engine.js:592
+#: script/engine.js:600
 msgid "could not read that file."
 msgstr "не удалось прочитать этот файл."
 
@@ -3350,7 +3350,7 @@ msgstr "накрыть припасы"
 msgid "craft"
 msgstr "изготовить"
 
-#: script/engine.js:1513
+#: script/engine.js:1550
 #: script/room.js:2226
 msgid "craft:"
 msgstr "изготовить:"
@@ -3483,7 +3483,7 @@ msgstr "выкопать это"
 msgid "dig it out anyway"
 msgstr "всё равно выкопать это"
 
-#: script/engine.js:1648
+#: script/engine.js:1728
 msgid "disable audio"
 msgstr "отключить звук"
 
@@ -3548,7 +3548,7 @@ msgstr "избегайте атаки более эффективно"
 msgid "doorkeeper"
 msgstr "привратник"
 
-#: script/engine.js:547
+#: script/engine.js:555
 msgid "download as file"
 msgstr "скачать как файл"
 
@@ -3606,7 +3606,7 @@ msgstr "умирающий"
 msgid "each step into the bracing cold wilds is difficult, and yet somehow there is a calling impossibly far away from here. perhaps even to the stars."
 msgstr "каждый шаг в бодрящую холодную глушь труден, и всё же где-то там, невероятно далеко отсюда, звучит зов. возможно, даже до самых звёзд."
 
-#: script/engine.js:1638
+#: script/engine.js:1718
 msgid "ears flooded with new sensations."
 msgstr "уши переполнены новыми ощущениями."
 
@@ -3654,7 +3654,7 @@ msgstr "пустые небеса"
 msgid "empty the snares"
 msgstr "опустошить силки"
 
-#: script/engine.js:1643
+#: script/engine.js:1723
 msgid "enable audio"
 msgstr "включить звук"
 
@@ -3855,15 +3855,15 @@ msgstr "экспериментальные чертежи покрывают о�
 msgid "explore"
 msgstr "исследовать"
 
-#: script/engine.js:439
+#: script/engine.js:447
 msgid "export"
 msgstr "экспорт"
 
-#: script/engine.js:430
+#: script/engine.js:438
 msgid "Export / Import"
 msgstr "Экспорт / Импорт"
 
-#: script/engine.js:434
+#: script/engine.js:442
 msgid "export or import save data, for backing up"
 msgstr "экспортируйте или импортируйте данные сохранения для резервной копии"
 
@@ -3891,7 +3891,7 @@ msgstr "изготовить:"
 msgid "Fabricator"
 msgstr "Изготовитель"
 
-#: script/engine.js:860
+#: script/engine.js:868
 msgid "facebook"
 msgstr "facebook"
 
@@ -4169,7 +4169,7 @@ msgstr "лечь и переждать"
 msgid "get out"
 msgstr "выбраться"
 
-#: script/engine.js:812
+#: script/engine.js:820
 msgid "Get the App"
 msgstr "Скачать приложение"
 
@@ -4340,7 +4340,7 @@ msgstr "спуститься"
 msgid "go down to the core"
 msgstr "спуститься к ядру"
 
-#: script/engine.js:1022
+#: script/engine.js:1030
 msgid "Go Hardcore?"
 msgstr "Включить хардкор?"
 
@@ -4377,7 +4377,7 @@ msgstr "вернуться домой"
 msgid "go home with her"
 msgstr "пойти домой с ней"
 
-#: script/engine.js:996
+#: script/engine.js:1004
 msgid "Go Hyper?"
 msgstr "Включить гипер-режим?"
 
@@ -4556,7 +4556,7 @@ msgstr "если пройти через дверной проём, окажеш
 msgid "good to rebuild"
 msgstr "хорошо для восстановления"
 
-#: script/engine.js:466
+#: script/engine.js:474
 msgid "got it"
 msgstr "понял."
 
@@ -4605,8 +4605,8 @@ msgstr "повесить его"
 msgid "happy april fools. the door out of here still works and none of this happened."
 msgstr "с первым апреля. дверь отсюда всё ещё работает, и ничего этого не было."
 
-#: script/engine.js:1070
-#: script/engine.js:1087
+#: script/engine.js:1078
+#: script/engine.js:1095
 #: script/engine.js:213
 msgid "hardcore."
 msgstr "хардкор."
@@ -4962,8 +4962,8 @@ msgstr "охотник"
 msgid "hut"
 msgstr "хижина"
 
-#: script/engine.js:1072
-#: script/engine.js:1084
+#: script/engine.js:1080
+#: script/engine.js:1092
 #: script/engine.js:219
 msgid "hyper."
 msgstr "гипер."
@@ -4989,7 +4989,7 @@ msgstr "Я не претендую на то, что это продолжени
 msgid "ichor"
 msgstr "ихор"
 
-#: script/engine.js:476
+#: script/engine.js:484
 msgid "if it is valid, this will replace your current game. that part is irreversible."
 msgstr "если он действителен, это заменит твою текущую игру. эта часть необратима."
 
@@ -4997,7 +4997,7 @@ msgstr "если он действителен, это заменит твою �
 msgid "if only they'd been destroyed along with everything else."
 msgstr "если бы их только уничтожили вместе со всем остальным."
 
-#: script/engine.js:475
+#: script/engine.js:483
 msgid "if the save is invalid, nothing will be changed."
 msgstr "если сохранение недействительно, ничего не изменится."
 
@@ -5024,8 +5024,8 @@ msgstr "игнорировать"
 msgid "immortal wanderer"
 msgstr "бессмертный странник"
 
-#: script/engine.js:443
-#: script/engine.js:498
+#: script/engine.js:451
+#: script/engine.js:506
 msgid "import"
 msgstr "импорт"
 
@@ -5045,7 +5045,7 @@ msgstr "на его месте — полная банка из-под пайк�
 msgid "in the distance soldiers battle over wars long past, some with spears and some with guns. they are unable to let go."
 msgstr "вдали солдаты сражаются в давно прошедших войнах, кто с копьями, кто с оружием. они не могут отпустить прошлое."
 
-#: script/engine.js:1052
+#: script/engine.js:1060
 msgid "In the mean time this is what has changed: Ruins, Temple, Graveyard, Lab, Prison, easter eggs, 14 endings, mobile, Hardcore mode, uber traps, new perk, new weapons, new upgrades, expanded story, new enemies, April Fool's mode, key controls in combat, visual tweaks, bugfixes, and more to come!"
 msgstr "А пока вот что изменилось: Руины, Храм, Кладбище, Лаборатория, Тюрьма, пасхалки, 14 концовок, мобильная версия, режим Хардкор, супер-ловушки, новый талант, новое оружие, новые улучшения, расширенная история, новые враги, режим Первого апреля, управление клавишами в бою, визуальные доработки, исправления ошибок, и это ещё не всё!"
 
@@ -5101,7 +5101,7 @@ msgstr "невидимая смерть - радиация заполняет б
 msgid "inviting. it would be so easy to give in, completely."
 msgstr "манящий. было бы так легко сдаться, полностью."
 
-#: script/engine.js:829
+#: script/engine.js:837
 msgid "ios"
 msgstr "ios"
 
@@ -6357,12 +6357,12 @@ msgid "lights flash through the alleys between buildings."
 msgstr "между зданий, впереди по аллее, мигает какой-то свет."
 
 #: script/engine.js:201
-#: script/engine.js:987
+#: script/engine.js:995
 msgid "lights off."
 msgstr "выключить свет."
 
-#: script/engine.js:976
-#: script/engine.js:981
+#: script/engine.js:984
+#: script/engine.js:989
 msgid "lights on."
 msgstr "включить свет."
 
@@ -6390,7 +6390,7 @@ msgstr "ящерица"
 msgid "load"
 msgstr "загрузить"
 
-#: script/engine.js:589
+#: script/engine.js:597
 msgid "loaded: "
 msgstr "загружено: "
 
@@ -6809,10 +6809,10 @@ msgstr "кошмары продолжаются"
 msgid "nightmares worsen"
 msgstr "кошмары усиливаются"
 
-#: script/engine.js:1007
-#: script/engine.js:1033
-#: script/engine.js:485
-#: script/engine.js:789
+#: script/engine.js:1015
+#: script/engine.js:1041
+#: script/engine.js:493
+#: script/engine.js:797
 msgid "no"
 msgstr "нет"
 
@@ -6860,7 +6860,7 @@ msgstr "никто не выбрался вовремя."
 msgid "no one wins wars fought with child soldiers"
 msgstr "никто не выигрывает войны, которые ведут дети-солдаты"
 
-#: script/engine.js:1773
+#: script/engine.js:1853
 msgid "no thanks."
 msgstr "нет, спасибо."
 
@@ -7114,7 +7114,7 @@ msgstr "ничего не происходит. это самое громкое
 msgid "nothing happens. nothing is there. nothing comes."
 msgstr "ничего не происходит. ничего там нет. ничего не приходит."
 
-#: script/engine.js:519
+#: script/engine.js:527
 msgid "nothing has been changed. your current game is untouched."
 msgstr "ничего не изменилось. твоя текущая игра не затронута."
 
@@ -7195,7 +7195,7 @@ msgid "offer another charm anyway"
 msgstr "всё равно предложить ещё один амулет"
 
 #: script/dropbox.js:510
-#: script/engine.js:1056
+#: script/engine.js:1064
 #: script/outside.js:1092
 #: script/outside.js:1262
 #: script/outside.js:1279
@@ -7415,7 +7415,7 @@ msgstr "открыть склады"
 msgid "opening it bare-handed is not a decision. it is just a way of dying in a shed."
 msgstr "открыть это голыми руками — не решение. это просто способ умереть в сарае."
 
-#: script/engine.js:435
+#: script/engine.js:443
 msgid "or migrating computers"
 msgstr "или переноса с другого компьютера"
 
@@ -7492,7 +7492,7 @@ msgstr "за контрольным пунктом видны ряды каме�
 msgid "past the checkpoint, the corridor is undamaged save for sporadic graffiti."
 msgstr "за контрольным пунктом коридор неповреждён, если не считать редких граффити."
 
-#: script/engine.js:491
+#: script/engine.js:499
 msgid "paste the save code here, or choose a file below."
 msgstr "вставь сюда код сохранения или выбери файл ниже."
 
@@ -7513,7 +7513,7 @@ msgstr "вглядываясь в латунный окуляр. звёзды н
 msgid "Penrose"
 msgstr "Пенроуз"
 
-#: script/engine.js:1639
+#: script/engine.js:1719
 msgid "perhaps silence is safer?"
 msgstr "возможно, молчание безопаснее?"
 
@@ -7542,7 +7542,7 @@ msgstr "дочиста разграбил эту палубу."
 msgid "picking the bones finds some useful trinkets."
 msgstr "перебирая кости, вы находите несколько полезных вещей."
 
-#: script/engine.js:888
+#: script/engine.js:896
 msgid "pinterest"
 msgstr "pinterest"
 
@@ -7736,7 +7736,7 @@ msgstr "вновь утверждаясь"
 msgid "recycler blueprint"
 msgstr "чертёж: переработчик материи"
 
-#: script/engine.js:867
+#: script/engine.js:875
 msgid "reddit"
 msgstr "reddit"
 
@@ -7787,11 +7787,11 @@ msgstr "резонируя"
 msgid "respects are paid"
 msgstr "дань уважения отдана"
 
-#: script/engine.js:781
+#: script/engine.js:789
 msgid "restart the game?"
 msgstr "начать игру заново?"
 
-#: script/engine.js:778
+#: script/engine.js:786
 msgid "Restart?"
 msgstr "Начать заново?"
 
@@ -7932,7 +7932,7 @@ msgstr "образцы чего-то биологического внутри."
 msgid "save"
 msgstr "сохранить"
 
-#: script/engine.js:453
+#: script/engine.js:461
 msgid "save this, or download it as a file."
 msgstr "сохранить это или скачать как файл."
 
@@ -8384,7 +8384,7 @@ msgstr "Тень"
 msgid "shamefully gather goods"
 msgstr "позорно собирать товары"
 
-#: script/engine.js:854
+#: script/engine.js:862
 msgid "Share"
 msgstr "Поделиться"
 
@@ -9286,15 +9286,15 @@ msgstr "где-то за стеной насос включается цикла
 msgid "somewhere behind you the rock keeps turning. there is a room on it with a fire in it.<br>you do not look back at it."
 msgstr "где-то позади тебя скала продолжает вращаться. на ней есть комната с огнём внутри.<br>ты не оглядываешься на неё."
 
-#: script/engine.js:1634
+#: script/engine.js:1714
 msgid "Sound Available!"
 msgstr "Звук Доступен!"
 
-#: script/engine.js:1436
+#: script/engine.js:1473
 msgid "sound off."
 msgstr "звук выключен."
 
-#: script/engine.js:1432
+#: script/engine.js:1469
 #: script/engine.js:189
 msgid "sound on."
 msgstr "звук включён."
@@ -9381,7 +9381,7 @@ msgstr "остаться на этом уровне"
 msgid "stealthy"
 msgstr "скрытный"
 
-#: script/engine.js:822
+#: script/engine.js:830
 msgid "steam"
 msgstr "пар"
 
@@ -9791,7 +9791,7 @@ msgstr "поблагодарить его"
 msgid "that cannot be right. those glyphs seem to suggest..."
 msgstr "этого не может быть. эти символы, похоже, указывают на..."
 
-#: script/engine.js:583
+#: script/engine.js:591
 msgid "that file is too large to be a save."
 msgstr "этот файл слишком большой, чтобы быть сохранением."
 
@@ -9807,7 +9807,7 @@ msgstr "вот зачем ты пришёл сюда. не чтобы освоб
 msgid "that save could not be read. nothing has been changed."
 msgstr "это сохранение не удалось прочитать. ничего не изменилось."
 
-#: script/engine.js:518
+#: script/engine.js:526
 msgid "that save data could not be read."
 msgstr "эти данные сохранения не удалось прочитать."
 
@@ -13240,7 +13240,7 @@ msgstr "на колышке первого силка вырезана метк�
 msgid "there is a name scratched at head height and then scratched out, thoroughly, by the same hand."
 msgstr "на уровне головы нацарапано имя, а затем тщательно зачёркнуто той же рукой."
 
-#: script/engine.js:1763
+#: script/engine.js:1843
 msgid "there is a new layout, would you like to use it?"
 msgstr "есть новая раскладка, хочешь её использовать?"
 
@@ -13905,7 +13905,7 @@ msgstr "мысли"
 msgid "thousands of faces turning at once toward a thing they have all just decided to hate."
 msgstr "тысячи лиц разом поворачиваются к тому, что они все только что решили ненавидеть."
 
-#: script/engine.js:909
+#: script/engine.js:917
 msgid "threads"
 msgstr "нити"
 
@@ -14091,7 +14091,7 @@ msgstr "чума распространяется по деревне и уби�
 msgid "Troposphere"
 msgstr "Тропосфера"
 
-#: script/engine.js:523
+#: script/engine.js:531
 msgid "try again"
 msgstr "попробовать снова"
 
@@ -14107,7 +14107,7 @@ msgstr "попробовать разбудить одного"
 msgid "trying to carve out some semblence of civilization amongst the unforgiving wastes. builder says she could make finer things, if she had the tools"
 msgstr "пытаясь высечь некое подобие цивилизации посреди беспощадных пустошей. строительница говорит, что могла бы делать вещи получше, будь у неё инструменты"
 
-#: script/engine.js:881
+#: script/engine.js:889
 msgid "tumblr"
 msgstr "tumblr"
 
@@ -14142,11 +14142,11 @@ msgstr "выгнать выживших"
 msgid "turn them back"
 msgstr "развернуть их"
 
-#: script/engine.js:1025
+#: script/engine.js:1033
 msgid "turning hardcore mode on slows down the game by x2 speed and makes all enemies x2 stronger. do you want to do that?"
 msgstr "включение режима хардкор замедляет игру в 2 раза и делает всех врагов в 2 раза сильнее. хочешь это сделать?"
 
-#: script/engine.js:999
+#: script/engine.js:1007
 msgid "turning hyper mode speeds up the game to x2 speed. do you want to do that?"
 msgstr "включение гипер-режима ускоряет игру до скорости x2. хочешь это сделать?"
 
@@ -14154,7 +14154,7 @@ msgstr "включение гипер-режима ускоряет игру д�
 msgid "twenty minutes, no drama, and the pack never so much as shifts."
 msgstr "двадцать минут, без драмы, и рюкзак ни разу даже не сдвинулся."
 
-#: script/engine.js:874
+#: script/engine.js:882
 msgid "twitter"
 msgstr "twitter"
 
@@ -14296,7 +14296,7 @@ msgstr "нестабильный автомат"
 msgid "unstable prototype"
 msgstr "нестабильный прототип"
 
-#: script/engine.js:1759
+#: script/engine.js:1839
 msgid "Update"
 msgstr "Обновление"
 
@@ -14702,7 +14702,7 @@ msgstr "с чем бы они ни столкнулись, никто из ни�
 msgid "whatever this is, it was not built to be opened from outside. it was built so that opening it would have to be a decision somebody made from within."
 msgstr "чем бы это ни было, оно не было построено так, чтобы открываться снаружи. оно было построено так, чтобы открыть его можно было только решением, принятым изнутри."
 
-#: script/engine.js:902
+#: script/engine.js:910
 msgid "whatsapp"
 msgstr "whatsapp"
 
@@ -14819,7 +14819,7 @@ msgstr "весть от {0} приходит раньше звука."
 msgid "word of this will reach wherever he came from."
 msgstr "весть об этом дойдёт туда, откуда он пришёл."
 
-#: script/engine.js:895
+#: script/engine.js:903
 msgid "wordpress"
 msgstr "wordpress"
 
@@ -14853,10 +14853,10 @@ msgstr "записать имя"
 msgid "wrong ampoule"
 msgstr "не та ампула"
 
-#: script/engine.js:1002
-#: script/engine.js:1028
-#: script/engine.js:480
-#: script/engine.js:784
+#: script/engine.js:1010
+#: script/engine.js:1036
+#: script/engine.js:488
+#: script/engine.js:792
 msgid "yes"
 msgstr "да"
 
