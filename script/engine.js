@@ -346,7 +346,15 @@
 			Engine.updateLayout();
 			Engine.travelTo(Room);
 
-			setTimeout(notifyAboutSound, 3000);
+			/* Language choice comes first, ahead of the sound prompt and
+			 * (further downstream, gated on the first lightFire()) the fork
+			 * notice -- a player who doesn't read English needs to find the
+			 * language switch before either of those notices is worth
+			 * showing them. notifyAboutLanguage() itself schedules
+			 * notifyAboutSound() once the language question is settled, so
+			 * there is deliberately no setTimeout(notifyAboutSound, ...)
+			 * left here. */
+			setTimeout(notifyAboutLanguage, 500);
 
 		},
 		resumeAudioContext: function () {
@@ -1407,11 +1415,35 @@
 
 		switchLanguage: function(dom){
 			var lang = $(dom).data("language");
-			if(document.location.href.search(/[\?\&]lang=[a-z_]+/) != -1){
+			Engine.switchLanguageTo(lang);
+		},
+
+		/* Shared by the menu's language dropdown and the first-run language
+		 * prompt -- both just need to navigate to a URL carrying ?lang=. */
+		switchLanguageTo: function(lang){
+			if(document.location.href.search(/[\?\&]lang=[a-z_]+/i) != -1){
 				document.location.href = document.location.href.replace( /([\?\&]lang=)([a-z_]+)/gi , "$1"+lang );
 			}else{
 				document.location.href = document.location.href + ( (document.location.href.search(/\?/) != -1 )?"&":"?") + "lang="+lang;
 			}
+		},
+
+		/* Same lang= precedence index.html uses to decide which strings.js
+		 * to load (URL param, then localStorage), so this always agrees
+		 * with what the player is actually seeing. Defaults to 'en'. */
+		currentLanguage: function(){
+			/* `[,""]` is the standard querystring fallback idiom: index 0 is
+			 * intentionally a hole so [1] reads as "" when the regex misses. */
+			// eslint-disable-next-line no-sparse-arrays
+			var lang = decodeURIComponent((new RegExp('[?|&]lang=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
+			if(!lang) {
+				try {
+					lang = (typeof Storage != 'undefined' && localStorage) ? localStorage.lang : null;
+				} catch(e) {
+					lang = null;
+				}
+			}
+			return lang || 'en';
 		},
 
 		saveLanguage: function(){
@@ -1419,7 +1451,12 @@
 			 * intentionally a hole so [1] reads as "" when the regex misses. */
 			// eslint-disable-next-line no-sparse-arrays
 			var lang = decodeURIComponent((new RegExp('[?|&]lang=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
-			if(lang && typeof Storage != 'undefined' && localStorage) {
+			/* The April Fools auto-switch (see the bottom of this file) marks
+			 * its redirect with aprilLang=1 specifically so this does NOT
+			 * persist en_cy as the player's real preference -- it should
+			 * revert to whatever they normally use once the day is over. */
+			var isAprilFoolsOverride = document.location.href.search(/[\?\&]aprilLang=1\b/) != -1;
+			if(lang && !isAprilFoolsOverride && typeof Storage != 'undefined' && localStorage) {
 				localStorage.lang = lang;
 			}
 		},
@@ -1623,6 +1660,49 @@
 		return true;
 	}
 
+	/* Shown once, ever, ahead of everything else a fresh session would
+	 * otherwise put in front of the player (the sound prompt, and
+	 * eventually the fork notice on first lightFire()). A player who
+	 * doesn't read English has no way to find Settings > Languages on
+	 * their own, so this asks before assuming they can read anything
+	 * else this game says.
+	 *
+	 * Skipped entirely if the session is already running in a non-English
+	 * language -- reaching that state (a shared link, a bookmarked ?lang=
+	 * URL, or the language switch in the menu) already demonstrates the
+	 * player knows the language option exists. */
+	function notifyAboutLanguage() {
+		if ($SM.get('playStats.languageChoiceShown')) {
+			setTimeout(notifyAboutSound, 3000);
+			return;
+		}
+		$SM.set('playStats.languageChoiceShown', true);
+
+		if (typeof langs == 'undefined' || Engine.currentLanguage() != 'en') {
+			setTimeout(notifyAboutSound, 3000);
+			return;
+		}
+
+		var buttons = {};
+		$.each(langs, function(code, display) {
+			buttons[code] = {
+				text: display,
+				nextScene: 'end',
+				onChoose: function() { Engine.switchLanguageTo(code); }
+			};
+		});
+
+		Events.startEvent({
+			title: 'language',
+			scenes: {
+				start: {
+					text: [],
+					buttons: buttons
+				}
+			}
+		});
+	}
+
 	function notifyAboutSound() {
 		if ($SM.get('playStats.audioAlertShown')) {
 			return;
@@ -1781,8 +1861,7 @@ var april = function() {
 }
 
 $(function() {
-	Engine.init();
-	
+
 	/* Check if it is april fools day */
 	var aprilFools = {
 		month: 3,
@@ -1793,6 +1872,35 @@ $(function() {
 		var now = new Date();
 		return (now.getMonth() == aprilFools.month && now.getDate() == aprilFools.date);
 	}
+
+	/* On April Fools day, an English-reading player is bounced into the
+	 * en_cy fantasy-parody locale for the day, the same way the rest of
+	 * this file's April Fools content only shows up for that one date.
+	 * Checked and redirected before Engine.init() so the game never
+	 * actually boots in English on the way to en_cy -- one navigation,
+	 * not a flash of English followed by a reload.
+	 *
+	 * Guarded by Engine.currentLanguage(), which reads the URL first and
+	 * localStorage second: once the redirect below lands on ?lang=en_cy,
+	 * that check reports 'en_cy' rather than 'en' and this does not fire
+	 * again for the rest of the visit. saveLanguage()'s aprilLang=1 guard
+	 * (see engine.js) is what keeps this from sticking as the player's
+	 * real preference past April 1st. */
+	if(isItAprilFoolDay() && typeof langs != 'undefined' && Engine.currentLanguage() == 'en') {
+		var href = document.location.href;
+		if(href.search(/[\?\&]lang=[a-z_]+/i) != -1) {
+			href = href.replace(/([\?\&]lang=)([a-z_]+)/gi, "$1en_cy");
+		} else {
+			href = href + (href.search(/\?/) != -1 ? "&" : "?") + "lang=en_cy";
+		}
+		if(href.search(/[\?\&]aprilLang=1\b/) == -1) {
+			href = href + (href.search(/\?/) != -1 ? "&" : "?") + "aprilLang=1";
+		}
+		document.location.href = href;
+		return;
+	}
+
+	Engine.init();
 
 	if(isItAprilFoolDay()){
 		april();
