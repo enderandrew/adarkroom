@@ -350,7 +350,7 @@ msgstr "300 kayu, dibayar di muka"
 
 #: script/events/setpieces.js:3431
 msgid "400 centuries ago you were here and opened this once before. your hands know the way."
-msgstr ""
+msgstr "empat ratus abad lalu kau berada di sini dan pernah membukanya sekali. tanganmu tahu jalannya."
 
 #: script/events/room.js:476
 msgid "500 wood, paid on completion"
@@ -3512,7 +3512,7 @@ msgstr "pengganggu"
 
 #: script/localization.js:74
 msgid "disruptor blueprint"
-msgstr ""
+msgstr "cetak biru pengganggu"
 
 #: script/distress.js:124
 #: script/engine.js:207
@@ -3680,7 +3680,7 @@ msgstr "terlibat"
 
 #: script/ship.js:64
 msgid "engine: "
-msgstr ""
+msgstr "mesin: "
 
 #: script/events/executioner.js:695
 msgid "engineering"
@@ -3970,7 +3970,7 @@ msgstr "suar"
 
 #: script/localization.js:73
 msgid "fleet beacon"
-msgstr ""
+msgstr "suar armada"
 
 #: script/room.js:1490
 msgid "flickering"
@@ -4257,7 +4257,7 @@ msgstr "batu bersinar"
 
 #: script/localization.js:75
 msgid "glowstone blueprint"
-msgstr ""
+msgstr "cetak biru batu bersinar"
 
 #: script/prison.js:221
 msgid "glyphs in every tongue: peace through equity. equity through consistency."
@@ -4616,7 +4616,7 @@ msgstr "setelan bahaya"
 
 #: script/localization.js:76
 msgid "hazard suit blueprint"
-msgstr ""
+msgstr "cetak biru setelan bahaya"
 
 #: script/events/road.js:938
 msgid "he arrives at dusk, alone, in armour that was very good once and has not been repaired in living memory."
@@ -4973,7 +4973,7 @@ msgstr "suntikan"
 
 #: script/localization.js:77
 msgid "hypo blueprint"
-msgstr ""
+msgstr "cetak biru suntikan"
 
 #: script/room.js:954
 msgid "i armour"
@@ -5831,7 +5831,7 @@ msgstr "zirah kinetik"
 
 #: script/localization.js:78
 msgid "kinetic armour blueprint"
-msgstr ""
+msgstr "cetak biru zirah kinetik"
 
 #: script/events/encounters.js:813
 #: script/events/setpieces.js:6167
@@ -5876,11 +5876,11 @@ msgstr "senapan laser"
 
 #: script/ship.js:213
 msgid "lasers maxed"
-msgstr ""
+msgstr "laser penuh"
 
 #: script/ship.js:70
 msgid "lasers: "
-msgstr ""
+msgstr "laser: "
 
 #: script/events/setpieces.js:3660
 msgid "lattice warden"
@@ -7062,7 +7062,7 @@ msgstr "bukan seseorang sepertimu. kau. tangan yang sama. rahang yang sama. beka
 
 #: script/events/setpieces.js:3429
 msgid "not two. six. the placements are exact and designed for three humans to concur. a thing that could not be done alone."
-msgstr ""
+msgstr "bukan dua. enam. penempatannya persis dan dirancang agar tiga manusia sepakat. sesuatu yang tak bisa dilakukan sendirian."
 
 #: script/events/road.js:904
 msgid "note where it is and move on"
@@ -7563,7 +7563,7 @@ msgstr "senapan plasma"
 
 #: script/localization.js:79
 msgid "plasma rifle blueprint"
-msgstr ""
+msgstr "cetak biru senapan plasma"
 
 #: script/events/setpieces.js:1242
 msgid "plates parting"
@@ -7612,7 +7612,7 @@ msgstr "siklus daya"
 #: script/ship.js:218
 #: script/ship.js:95
 msgid "power lasers"
-msgstr ""
+msgstr "isi daya laser"
 
 #: script/engine.js:52
 msgid "precise"
@@ -7733,7 +7733,7 @@ msgstr "menegaskan kembali"
 
 #: script/localization.js:80
 msgid "recycler blueprint"
-msgstr ""
+msgstr "cetak biru daur ulang materi"
 
 #: script/engine.js:867
 msgid "reddit"
@@ -9475,7 +9475,7 @@ msgstr "stimulan"
 
 #: script/localization.js:81
 msgid "stim blueprint"
-msgstr ""
+msgstr "cetak biru stimulan"
 
 #: script/events/setpieces.js:6224
 msgid "stinging"
@@ -11881,7 +11881,7 @@ msgstr "tempat ini telah dijarah habis oleh para pemulung."
 
 #: script/events/setpieces.js:3432
 msgid "the placement may not have been perfect, but whatever is inside recognised you before the sensors did."
-msgstr ""
+msgstr "penempatannya mungkin tidak sempurna, tapi apa pun yang ada di dalamnya mengenalimu sebelum sensornya sempat."
 
 #: script/events/outside.js:394
 msgid "the plague is halted, but not everywhere"
@@ -13654,7 +13654,7 @@ msgstr "mereka memutuskan untuk tidak melakukannya"
 
 #: script/events/setpieces.js:3430
 msgid "they did not anticipate a wanderer race with six arms. after the cloning lab enough memory returns."
-msgstr ""
+msgstr "mereka tak menduga adanya ras pengembara berlengan enam. setelah laboratorium kloning, cukup banyak ingatan kembali."
 
 #: script/events/setpieces.js:3280
 msgid "they did not fail. they were doing the hardest thing anybody on this rock ever managed and they were still doing it when the wars reached them."
@@ -15289,3 +15289,6 @@ msgstr "ⰑⰖⰔⱂⰃⰠ2ⰉⰉ Ⱀⱂ ⰄⰀ ⰒⰑⰆⰉ me2Ⱐ ⰄⰀ Ⰲ�
 
 #~ msgid "you stand there with both palms flat on stone that has no markings on it, and you know -- the way you know your own name, which you do not -- that this is wrong. that it is supposed to be six. that it was never a lock at all, only a thing that could not be done alone."
 #~ msgstr "kau berdiri di sana dengan kedua telapak tangan rata pada batu yang tak bertanda, dan kau tahu -- sebagaimana kau tahu namamu sendiri, yang tidak kau tahu -- bahwa ini salah. bahwa seharusnya enam. bahwa itu bukan sebuah kunci sama sekali, hanya sesuatu yang tak bisa dilakukan sendirian."
+
+#~ msgid "the villagers"
+#~ msgstr "penduduk desa"

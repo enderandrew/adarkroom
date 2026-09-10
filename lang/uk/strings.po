@@ -351,7 +351,7 @@ msgstr "300 деревини, оплата наперед"
 
 #: script/events/setpieces.js:3431
 msgid "400 centuries ago you were here and opened this once before. your hands know the way."
-msgstr ""
+msgstr "чотириста сторіч тому ви були тут і вже одного разу відчинили це. ваші руки знають шлях."
 
 #: script/events/room.js:476
 msgid "500 wood, paid on completion"
@@ -3513,7 +3513,7 @@ msgstr "дезінтегратор"
 
 #: script/localization.js:74
 msgid "disruptor blueprint"
-msgstr ""
+msgstr "креслення: дезінтегратор"
 
 #: script/distress.js:124
 #: script/engine.js:207
@@ -3681,7 +3681,7 @@ msgstr "вступити в бій"
 
 #: script/ship.js:64
 msgid "engine: "
-msgstr ""
+msgstr "двигун: "
 
 #: script/events/executioner.js:695
 msgid "engineering"
@@ -3971,7 +3971,7 @@ msgstr "сигнальна ракета"
 
 #: script/localization.js:73
 msgid "fleet beacon"
-msgstr ""
+msgstr "маяк флоту"
 
 #: script/room.js:1490
 msgid "flickering"
@@ -4258,7 +4258,7 @@ msgstr "світляний камінь"
 
 #: script/localization.js:75
 msgid "glowstone blueprint"
-msgstr ""
+msgstr "креслення: світляний камінь"
 
 #: script/prison.js:221
 msgid "glyphs in every tongue: peace through equity. equity through consistency."
@@ -4617,7 +4617,7 @@ msgstr "захисний костюм"
 
 #: script/localization.js:76
 msgid "hazard suit blueprint"
-msgstr ""
+msgstr "креслення: захисний костюм"
 
 #: script/events/road.js:938
 msgid "he arrives at dusk, alone, in armour that was very good once and has not been repaired in living memory."
@@ -4974,7 +4974,7 @@ msgstr "шприц"
 
 #: script/localization.js:77
 msgid "hypo blueprint"
-msgstr ""
+msgstr "креслення: шприц"
 
 #: script/room.js:954
 msgid "i armour"
@@ -5832,7 +5832,7 @@ msgstr "кінетична броня"
 
 #: script/localization.js:78
 msgid "kinetic armour blueprint"
-msgstr ""
+msgstr "креслення: кінетична броня"
 
 #: script/events/encounters.js:813
 #: script/events/setpieces.js:6167
@@ -5877,11 +5877,11 @@ msgstr "лазерна рушниця"
 
 #: script/ship.js:213
 msgid "lasers maxed"
-msgstr ""
+msgstr "лазери на максимумі"
 
 #: script/ship.js:70
 msgid "lasers: "
-msgstr ""
+msgstr "лазери: "
 
 #: script/events/setpieces.js:3660
 msgid "lattice warden"
@@ -7063,7 +7063,7 @@ msgstr "не хтось схожий на вас. ви. ті самі руки. 
 
 #: script/events/setpieces.js:3429
 msgid "not two. six. the placements are exact and designed for three humans to concur. a thing that could not be done alone."
-msgstr ""
+msgstr "не два. шість. розташування точні і сплановані так, щоб троє людей досягли згоди. те, чого не можна було зробити самотужки."
 
 #: script/events/road.js:904
 msgid "note where it is and move on"
@@ -7564,7 +7564,7 @@ msgstr "плазмова гвинтівка"
 
 #: script/localization.js:79
 msgid "plasma rifle blueprint"
-msgstr ""
+msgstr "креслення: плазмова гвинтівка"
 
 #: script/events/setpieces.js:1242
 msgid "plates parting"
@@ -7613,7 +7613,7 @@ msgstr "цикл живлення"
 #: script/ship.js:218
 #: script/ship.js:95
 msgid "power lasers"
-msgstr ""
+msgstr "зарядити лазери"
 
 #: script/engine.js:52
 msgid "precise"
@@ -7734,7 +7734,7 @@ msgstr "відновлюючись"
 
 #: script/localization.js:80
 msgid "recycler blueprint"
-msgstr ""
+msgstr "креслення: переробник матерії"
 
 #: script/engine.js:867
 msgid "reddit"
@@ -9476,7 +9476,7 @@ msgstr "стимулятор"
 
 #: script/localization.js:81
 msgid "stim blueprint"
-msgstr ""
+msgstr "креслення: стимулятор"
 
 #: script/events/setpieces.js:6224
 msgid "stinging"
@@ -11882,7 +11882,7 @@ msgstr "це місце було розграбоване сміттярями."
 
 #: script/events/setpieces.js:3432
 msgid "the placement may not have been perfect, but whatever is inside recognised you before the sensors did."
-msgstr ""
+msgstr "розташування, можливо, не було ідеальним, але те, що всередині, впізнало вас раніше за датчики."
 
 #: script/events/outside.js:394
 msgid "the plague is halted, but not everywhere"
@@ -13655,7 +13655,7 @@ msgstr "вони вирішують проти цього"
 
 #: script/events/setpieces.js:3430
 msgid "they did not anticipate a wanderer race with six arms. after the cloning lab enough memory returns."
-msgstr ""
+msgstr "вони не передбачили расу мандрівників із шістьма руками. після лабораторії клонування повертається достатньо пам'яті."
 
 #: script/events/setpieces.js:3280
 msgid "they did not fail. they were doing the hardest thing anybody on this rock ever managed and they were still doing it when the wars reached them."
@@ -15293,3 +15293,6 @@ msgstr "ⰑⰖⰔⱂⰃⰠ2ⰉⰉ Ⱀⱂ ⰄⰀ ⰒⰑⰆⰉ me2Ⱐ ⰄⰀ Ⰲ�
 
 #~ msgid "you stand there with both palms flat on stone that has no markings on it, and you know -- the way you know your own name, which you do not -- that this is wrong. that it is supposed to be six. that it was never a lock at all, only a thing that could not be done alone."
 #~ msgstr "ви стоїте там, поклавши обидві долоні на камінь без жодних позначок, і знаєте -- так, як знаєте власне ім'я, якого насправді не знаєте -- що це неправильно. що мало б бути шестеро. що це ніколи й не було замком, лише річчю, яку не можна зробити самотужки."
+
+#~ msgid "the villagers"
+#~ msgstr "поселенці"

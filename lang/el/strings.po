@@ -10,10 +10,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 1.3\n"
 "X-Generator: Poedit 1.7.6\n"
 "X-Poedit-Basepath: ../\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: script/events.js:1327
 msgid " and "
@@ -351,7 +351,7 @@ msgstr "300 ξύλο, πληρωμένο εκ των προτέρων"
 
 #: script/events/setpieces.js:3431
 msgid "400 centuries ago you were here and opened this once before. your hands know the way."
-msgstr ""
+msgstr "πριν από τετρακόσιους αιώνες ήσουν εδώ και το άνοιξες μια φορά. τα χέρια σου ξέρουν τον δρόμο."
 
 #: script/events/room.js:476
 msgid "500 wood, paid on completion"
@@ -3513,7 +3513,7 @@ msgstr "διαταράκτης"
 
 #: script/localization.js:74
 msgid "disruptor blueprint"
-msgstr ""
+msgstr "σχέδιο: διαταράκτης"
 
 #: script/distress.js:124
 #: script/engine.js:207
@@ -3681,7 +3681,7 @@ msgstr "ενεπλάκη"
 
 #: script/ship.js:64
 msgid "engine: "
-msgstr ""
+msgstr "κινητήρας: "
 
 #: script/events/executioner.js:695
 msgid "engineering"
@@ -3971,7 +3971,7 @@ msgstr "φωτοβολίδα"
 
 #: script/localization.js:73
 msgid "fleet beacon"
-msgstr ""
+msgstr "φάρος στόλου"
 
 #: script/room.js:1490
 msgid "flickering"
@@ -4258,7 +4258,7 @@ msgstr "πέτρα φωτισμού"
 
 #: script/localization.js:75
 msgid "glowstone blueprint"
-msgstr ""
+msgstr "σχέδιο: πέτρα φωτισμού"
 
 #: script/prison.js:221
 msgid "glyphs in every tongue: peace through equity. equity through consistency."
@@ -4617,7 +4617,7 @@ msgstr "στολή κινδύνου"
 
 #: script/localization.js:76
 msgid "hazard suit blueprint"
-msgstr ""
+msgstr "σχέδιο: στολή κινδύνου"
 
 #: script/events/road.js:938
 msgid "he arrives at dusk, alone, in armour that was very good once and has not been repaired in living memory."
@@ -4974,7 +4974,7 @@ msgstr "σύριγγα"
 
 #: script/localization.js:77
 msgid "hypo blueprint"
-msgstr ""
+msgstr "σχέδιο: σύριγγα"
 
 #: script/room.js:954
 msgid "i armour"
@@ -5832,7 +5832,7 @@ msgstr "κινητική πανοπλία"
 
 #: script/localization.js:78
 msgid "kinetic armour blueprint"
-msgstr ""
+msgstr "σχέδιο: κινητική πανοπλία"
 
 #: script/events/encounters.js:813
 #: script/events/setpieces.js:6167
@@ -5877,11 +5877,11 @@ msgstr "πιστόλι λέιζερ"
 
 #: script/ship.js:213
 msgid "lasers maxed"
-msgstr ""
+msgstr "τα λέιζερ στο μέγιστο"
 
 #: script/ship.js:70
 msgid "lasers: "
-msgstr ""
+msgstr "λέιζερ: "
 
 #: script/events/setpieces.js:3660
 msgid "lattice warden"
@@ -7063,7 +7063,7 @@ msgstr "όχι κάποιος σαν εσένα. εσύ. τα ίδια χέρι�
 
 #: script/events/setpieces.js:3429
 msgid "not two. six. the placements are exact and designed for three humans to concur. a thing that could not be done alone."
-msgstr ""
+msgstr "όχι δύο. έξι. οι τοποθετήσεις είναι ακριβείς και σχεδιασμένες ώστε να συμφωνήσουν τρεις άνθρωποι. κάτι που δεν μπορούσε να γίνει μόνο του."
 
 #: script/events/road.js:904
 msgid "note where it is and move on"
@@ -7564,7 +7564,7 @@ msgstr "τυφέκιο πλάσματος"
 
 #: script/localization.js:79
 msgid "plasma rifle blueprint"
-msgstr ""
+msgstr "σχέδιο: τυφέκιο πλάσματος"
 
 #: script/events/setpieces.js:1242
 msgid "plates parting"
@@ -7613,7 +7613,7 @@ msgstr "κύκλος ενέργειας"
 #: script/ship.js:218
 #: script/ship.js:95
 msgid "power lasers"
-msgstr ""
+msgstr "ενίσχυσε τα λέιζερ"
 
 #: script/engine.js:52
 msgid "precise"
@@ -7734,7 +7734,7 @@ msgstr "επιβεβαιώνοντας ξανά"
 
 #: script/localization.js:80
 msgid "recycler blueprint"
-msgstr ""
+msgstr "σχέδιο: ανακυκλωτής ύλης"
 
 #: script/engine.js:867
 msgid "reddit"
@@ -9476,7 +9476,7 @@ msgstr "διεγερτικό"
 
 #: script/localization.js:81
 msgid "stim blueprint"
-msgstr ""
+msgstr "σχέδιο: διεγερτικό"
 
 #: script/events/setpieces.js:6224
 msgid "stinging"
@@ -11882,7 +11882,7 @@ msgstr "ο τόπος έχει αδειάσει από περισυλλέκτε�
 
 #: script/events/setpieces.js:3432
 msgid "the placement may not have been perfect, but whatever is inside recognised you before the sensors did."
-msgstr ""
+msgstr "η τοποθέτηση ίσως να μην ήταν τέλεια, αλλά ό,τι είναι μέσα σε αναγνώρισε πριν το κάνουν οι αισθητήρες."
 
 #: script/events/outside.js:394
 msgid "the plague is halted, but not everywhere"
@@ -13655,7 +13655,7 @@ msgstr "αποφασίζουν να μην το κάνουν"
 
 #: script/events/setpieces.js:3430
 msgid "they did not anticipate a wanderer race with six arms. after the cloning lab enough memory returns."
-msgstr ""
+msgstr "δεν περίμεναν μια φυλή περιπλανώμενων με έξι χέρια. μετά το εργαστήριο κλωνοποίησης, αρκετή μνήμη επιστρέφει."
 
 #: script/events/setpieces.js:3280
 msgid "they did not fail. they were doing the hardest thing anybody on this rock ever managed and they were still doing it when the wars reached them."
@@ -15290,3 +15290,6 @@ msgstr "ⰑⰖⰔⱂⰃⰠ2ⰉⰉ Ⱀⱂ ⰄⰀ ⰒⰑⰆⰉ me2Ⱐ ⰄⰀ Ⰲ�
 
 #~ msgid "you stand there with both palms flat on stone that has no markings on it, and you know -- the way you know your own name, which you do not -- that this is wrong. that it is supposed to be six. that it was never a lock at all, only a thing that could not be done alone."
 #~ msgstr "στέκεσαι εκεί με τις δύο παλάμες επίπεδες σε μια πέτρα χωρίς κανένα σημάδι πάνω της, και ξέρεις -- με τον τρόπο που ξέρεις το ίδιο σου το όνομα, το οποίο δεν ξέρεις -- ότι αυτό είναι λάθος. ότι υποτίθεται πρέπει να είναι έξι. ότι δεν ήταν ποτέ κλειδαριά, μόνο ένα πράγμα που δεν μπορούσε να γίνει μόνος."
+
+#~ msgid "the villagers"
+#~ msgstr "οι χωρικοί"

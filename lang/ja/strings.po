@@ -350,7 +350,7 @@ msgstr "木材300、前払い"
 
 #: script/events/setpieces.js:3431
 msgid "400 centuries ago you were here and opened this once before. your hands know the way."
-msgstr ""
+msgstr "四百世紀前、あなたはここにいて、一度これを開けたことがある。あなたの手は道を知っている。"
 
 #: script/events/room.js:476
 msgid "500 wood, paid on completion"
@@ -3512,7 +3512,7 @@ msgstr "妨害装置"
 
 #: script/localization.js:74
 msgid "disruptor blueprint"
-msgstr ""
+msgstr "妨害装置の設計図"
 
 #: script/distress.js:124
 #: script/engine.js:207
@@ -3680,7 +3680,7 @@ msgstr "交戦する"
 
 #: script/ship.js:64
 msgid "engine: "
-msgstr ""
+msgstr "エンジン："
 
 #: script/events/executioner.js:695
 msgid "engineering"
@@ -3970,7 +3970,7 @@ msgstr "照明弾"
 
 #: script/localization.js:73
 msgid "fleet beacon"
-msgstr ""
+msgstr "艦隊のビーコン"
 
 #: script/room.js:1490
 msgid "flickering"
@@ -4257,7 +4257,7 @@ msgstr "発光石"
 
 #: script/localization.js:75
 msgid "glowstone blueprint"
-msgstr ""
+msgstr "発光石の設計図"
 
 #: script/prison.js:221
 msgid "glyphs in every tongue: peace through equity. equity through consistency."
@@ -4616,7 +4616,7 @@ msgstr "防護服"
 
 #: script/localization.js:76
 msgid "hazard suit blueprint"
-msgstr ""
+msgstr "防護服の設計図"
 
 #: script/events/road.js:938
 msgid "he arrives at dusk, alone, in armour that was very good once and has not been repaired in living memory."
@@ -4973,7 +4973,7 @@ msgstr "注射器"
 
 #: script/localization.js:77
 msgid "hypo blueprint"
-msgstr ""
+msgstr "注射器の設計図"
 
 #: script/room.js:954
 msgid "i armour"
@@ -5831,7 +5831,7 @@ msgstr "運動エネルギー装甲"
 
 #: script/localization.js:78
 msgid "kinetic armour blueprint"
-msgstr ""
+msgstr "運動エネルギー装甲の設計図"
 
 #: script/events/encounters.js:813
 #: script/events/setpieces.js:6167
@@ -5876,11 +5876,11 @@ msgstr "レーザー銃"
 
 #: script/ship.js:213
 msgid "lasers maxed"
-msgstr ""
+msgstr "レーザー最大"
 
 #: script/ship.js:70
 msgid "lasers: "
-msgstr ""
+msgstr "レーザー："
 
 #: script/events/setpieces.js:3660
 msgid "lattice warden"
@@ -7062,7 +7062,7 @@ msgstr "あなたに似た誰かではない。あなただ。同じ手。同じ
 
 #: script/events/setpieces.js:3429
 msgid "not two. six. the placements are exact and designed for three humans to concur. a thing that could not be done alone."
-msgstr ""
+msgstr "二つではない。六つだ。配置は正確で、三人の人間が一致するように設計されている。一人ではできないことだ。"
 
 #: script/events/road.js:904
 msgid "note where it is and move on"
@@ -7563,7 +7563,7 @@ msgstr "プラズマライフル"
 
 #: script/localization.js:79
 msgid "plasma rifle blueprint"
-msgstr ""
+msgstr "プラズマライフルの設計図"
 
 #: script/events/setpieces.js:1242
 msgid "plates parting"
@@ -7612,7 +7612,7 @@ msgstr "電力サイクル"
 #: script/ship.js:218
 #: script/ship.js:95
 msgid "power lasers"
-msgstr ""
+msgstr "レーザーを充電"
 
 #: script/engine.js:52
 msgid "precise"
@@ -7733,7 +7733,7 @@ msgstr "再主張する"
 
 #: script/localization.js:80
 msgid "recycler blueprint"
-msgstr ""
+msgstr "物質再生装置の設計図"
 
 #: script/engine.js:867
 msgid "reddit"
@@ -9475,7 +9475,7 @@ msgstr "興奮剤"
 
 #: script/localization.js:81
 msgid "stim blueprint"
-msgstr ""
+msgstr "興奮剤の設計図"
 
 #: script/events/setpieces.js:6224
 msgid "stinging"
@@ -11881,7 +11881,7 @@ msgstr "ここはゴミ漁りにきれいに掃除された後だ。"
 
 #: script/events/setpieces.js:3432
 msgid "the placement may not have been perfect, but whatever is inside recognised you before the sensors did."
-msgstr ""
+msgstr "配置は完璧ではなかったかもしれないが、中にいる何かが、センサーよりも先にあなたを認識した。"
 
 #: script/events/outside.js:394
 msgid "the plague is halted, but not everywhere"
@@ -13654,7 +13654,7 @@ msgstr "彼らはそれをしないことに決める"
 
 #: script/events/setpieces.js:3430
 msgid "they did not anticipate a wanderer race with six arms. after the cloning lab enough memory returns."
-msgstr ""
+msgstr "彼らは六本の腕を持つ放浪者の種族を予期していなかった。クローン研究室の後、十分な記憶が戻ってくる。"
 
 #: script/events/setpieces.js:3280
 msgid "they did not fail. they were doing the hardest thing anybody on this rock ever managed and they were still doing it when the wars reached them."
@@ -15280,3 +15280,6 @@ msgstr "ⰑⰖⰔⱂⰃⰠ2ⰉⰉ Ⱀⱂ ⰄⰀ ⰒⰑⰆⰉ me2Ⱐ ⰄⰀ Ⰲ�
 
 #~ msgid "you stand there with both palms flat on stone that has no markings on it, and you know -- the way you know your own name, which you do not -- that this is wrong. that it is supposed to be six. that it was never a lock at all, only a thing that could not be done alone."
 #~ msgstr "あなたは印のない石に両手のひらを平らに当てて立ち、分かっている――自分の名前を知っているのと同じように、実際は知らないのだが――これが間違っていると。本来は六つであるべきだと。それは決して鍵ではなく、ただ一人ではできないものにすぎなかったのだと。"
+
+#~ msgid "the villagers"
+#~ msgstr "村人たち"

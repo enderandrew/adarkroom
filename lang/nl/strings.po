@@ -347,7 +347,7 @@ msgstr "300 hout, vooraf betaald"
 
 #: script/events/setpieces.js:3431
 msgid "400 centuries ago you were here and opened this once before. your hands know the way."
-msgstr ""
+msgstr "vierhonderd eeuwen geleden was je hier en opende je dit al eens eerder. je handen kennen de weg."
 
 #: script/events/room.js:476
 msgid "500 wood, paid on completion"
@@ -383,7 +383,7 @@ msgstr "hier werd lang geleden een strijd uitgevochten."
 
 #: script/world.js:173
 msgid "A Battlefield"
-msgstr ""
+msgstr "Een Slagveld"
 
 #: script/events/outside.js:448
 msgid "A Beast Attack"
@@ -423,7 +423,7 @@ msgstr "een biologisch gevaarlijke oven, onlangs gebruikt"
 
 #: script/world.js:172
 msgid "A Borehole"
-msgstr ""
+msgstr "Een Boorgat"
 
 #: script/events/room.js:183
 msgid "a bundle of sticks lies just beyond the threshold, wrapped in coarse furs."
@@ -547,7 +547,7 @@ msgstr "Een Neergestort Schip"
 
 #: script/world.js:171
 msgid "A Crashed Starship"
-msgstr ""
+msgstr "Een Neergestort Ruimteschip"
 
 #: script/outside.js:806
 msgid "A Crowded Encampment"
@@ -555,7 +555,7 @@ msgstr "Een Overvol Kamp"
 
 #: script/world.js:182
 msgid "A Crowded Graveyard"
-msgstr ""
+msgstr "Een Overvolle Begraafplaats"
 
 #: script/outside.js:127
 #: script/outside.js:160
@@ -1808,7 +1808,7 @@ msgstr "in een hinderlaag gelokt op straat."
 
 #: script/world.js:169
 msgid "An Abandoned Town"
-msgstr ""
+msgstr "Een Verlaten Stad"
 
 #: script/events/encounters.js:273
 msgid "An Alien Bird"
@@ -3062,7 +3062,7 @@ msgstr "kolenmijn"
 
 #: script/world.js:165
 msgid "Coal Mine"
-msgstr ""
+msgstr "Kolenmijn"
 
 #: script/localization.js:37
 #: script/outside.js:63
@@ -3509,7 +3509,7 @@ msgstr "verstoorder"
 
 #: script/localization.js:74
 msgid "disruptor blueprint"
-msgstr ""
+msgstr "blauwdruk: verstoorder"
 
 #: script/distress.js:124
 #: script/engine.js:207
@@ -3967,7 +3967,7 @@ msgstr "lichtkogel"
 
 #: script/localization.js:73
 msgid "fleet beacon"
-msgstr ""
+msgstr "vlootbaken"
 
 #: script/room.js:1490
 msgid "flickering"
@@ -4254,7 +4254,7 @@ msgstr "gloeisteen"
 
 #: script/localization.js:75
 msgid "glowstone blueprint"
-msgstr ""
+msgstr "blauwdruk: gloeisteen"
 
 #: script/prison.js:221
 msgid "glyphs in every tongue: peace through equity. equity through consistency."
@@ -4613,7 +4613,7 @@ msgstr "gevarenpak"
 
 #: script/localization.js:76
 msgid "hazard suit blueprint"
-msgstr ""
+msgstr "blauwdruk: gevarenpak"
 
 #: script/events/road.js:938
 msgid "he arrives at dusk, alone, in armour that was very good once and has not been repaired in living memory."
@@ -4970,7 +4970,7 @@ msgstr "injectie"
 
 #: script/localization.js:77
 msgid "hypo blueprint"
-msgstr ""
+msgstr "blauwdruk: injectie"
 
 #: script/room.js:954
 msgid "i armour"
@@ -5120,7 +5120,7 @@ msgstr "ijzermijn"
 
 #: script/world.js:164
 msgid "Iron Mine"
-msgstr ""
+msgstr "IJzermijn"
 
 #: script/localization.js:35
 #: script/outside.js:55
@@ -5828,7 +5828,7 @@ msgstr "kinetisch harnas"
 
 #: script/localization.js:78
 msgid "kinetic armour blueprint"
-msgstr ""
+msgstr "blauwdruk: kinetisch harnas"
 
 #: script/events/encounters.js:813
 #: script/events/setpieces.js:6167
@@ -6404,7 +6404,7 @@ msgstr "VERGRENDELD"
 
 #: script/world.js:183
 msgid "Locked-Down Prison"
-msgstr ""
+msgstr "Afgesloten Gevangenis"
 
 #: script/room.js:267
 #: script/room.js:293
@@ -7059,7 +7059,7 @@ msgstr "niet iemand zoals jij. jij. dezelfde handen. dezelfde stand van de kaak.
 
 #: script/events/setpieces.js:3429
 msgid "not two. six. the placements are exact and designed for three humans to concur. a thing that could not be done alone."
-msgstr ""
+msgstr "geen twee. zes. de plaatsingen zijn precies en ontworpen zodat drie mensen het eens moeten worden. iets wat niet alleen gedaan kon worden."
 
 #: script/events/road.js:904
 msgid "note where it is and move on"
@@ -7560,7 +7560,7 @@ msgstr "plasmageweer"
 
 #: script/localization.js:79
 msgid "plasma rifle blueprint"
-msgstr ""
+msgstr "blauwdruk: plasmageweer"
 
 #: script/events/setpieces.js:1242
 msgid "plates parting"
@@ -7730,7 +7730,7 @@ msgstr "zich herbevestigend"
 
 #: script/localization.js:80
 msgid "recycler blueprint"
-msgstr ""
+msgstr "blauwdruk: materiehercycleerder"
 
 #: script/engine.js:867
 msgid "reddit"
@@ -9472,7 +9472,7 @@ msgstr "stimulans"
 
 #: script/localization.js:81
 msgid "stim blueprint"
-msgstr ""
+msgstr "blauwdruk: stimulans"
 
 #: script/events/setpieces.js:6224
 msgid "stinging"
@@ -9579,7 +9579,7 @@ msgstr "zwavelmijn"
 
 #: script/world.js:166
 msgid "Sulphur Mine"
-msgstr ""
+msgstr "Zwavelmijn"
 
 #: script/localization.js:39
 #: script/outside.js:71
@@ -11878,7 +11878,7 @@ msgstr "de plek is leeggeplunderd door aaseters."
 
 #: script/events/setpieces.js:3432
 msgid "the placement may not have been perfect, but whatever is inside recognised you before the sensors did."
-msgstr ""
+msgstr "de plaatsing was misschien niet perfect, maar wat er ook binnenin zit herkende je voordat de sensoren het deden."
 
 #: script/events/outside.js:394
 msgid "the plague is halted, but not everywhere"
@@ -12774,7 +12774,7 @@ msgstr "het dorp"
 
 #: script/world.js:1108
 msgid "The Village"
-msgstr ""
+msgstr "Het Dorp"
 
 #: script/events/room.js:1401
 #: script/events/room.js:1417
@@ -13651,7 +13651,7 @@ msgstr "ze besluiten er niet toe"
 
 #: script/events/setpieces.js:3430
 msgid "they did not anticipate a wanderer race with six arms. after the cloning lab enough memory returns."
-msgstr ""
+msgstr "ze voorzagen geen zwerversras met zes armen. na het klonings-laboratorium keert genoeg herinnering terug."
 
 #: script/events/setpieces.js:3280
 msgid "they did not fail. they were doing the hardest thing anybody on this rock ever managed and they were still doing it when the wars reached them."
@@ -15139,3 +15139,6 @@ msgstr "ⰑⰖⰔⱂⰃⰠ2ⰉⰉ Ⱀⱂ ⰄⰀ ⰒⰑⰆⰉ me2Ⱐ ⰄⰀ Ⰲ�
 
 #~ msgid "you stand there with both palms flat on stone that has no markings on it, and you know -- the way you know your own name, which you do not -- that this is wrong. that it is supposed to be six. that it was never a lock at all, only a thing that could not be done alone."
 #~ msgstr "je staat daar met beide handpalmen plat op steen zonder markeringen, en je weet -- zoals je je eigen naam weet, wat je niet doet -- dat dit verkeerd is. dat het er zes zouden moeten zijn. dat het nooit een slot was, alleen iets dat niet alleen gedaan kon worden."
+
+#~ msgid "the villagers"
+#~ msgstr "de dorpelingen"

@@ -10,12 +10,12 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 1.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Generated-By: Babel 1.3\n"
 "X-Generator: Poedit 1.7.6\n"
-"X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-Basepath: ../..\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 
 #: script/events.js:1327
 msgid " and "
@@ -353,7 +353,7 @@ msgstr "300 Holz, im Voraus bezahlt"
 
 #: script/events/setpieces.js:3431
 msgid "400 centuries ago you were here and opened this once before. your hands know the way."
-msgstr ""
+msgstr "vor vierhundert Jahrhunderten warst du hier und hast dies schon einmal geöffnet. deine Hände kennen den Weg."
 
 #: script/events/room.js:476
 msgid "500 wood, paid on completion"
@@ -3515,7 +3515,7 @@ msgstr "Störsender"
 
 #: script/localization.js:74
 msgid "disruptor blueprint"
-msgstr ""
+msgstr "Bauplan: Störsender"
 
 #: script/distress.js:124
 #: script/engine.js:207
@@ -3683,7 +3683,7 @@ msgstr "angreifen"
 
 #: script/ship.js:64
 msgid "engine: "
-msgstr ""
+msgstr "Triebwerk: "
 
 #: script/events/executioner.js:695
 msgid "engineering"
@@ -3973,7 +3973,7 @@ msgstr "Leuchtsignal"
 
 #: script/localization.js:73
 msgid "fleet beacon"
-msgstr ""
+msgstr "Flottenbake"
 
 #: script/room.js:1490
 msgid "flickering"
@@ -4260,7 +4260,7 @@ msgstr "Leuchtstein"
 
 #: script/localization.js:75
 msgid "glowstone blueprint"
-msgstr ""
+msgstr "Bauplan: Leuchtstein"
 
 #: script/prison.js:221
 msgid "glyphs in every tongue: peace through equity. equity through consistency."
@@ -4619,7 +4619,7 @@ msgstr "Gefahrenanzug"
 
 #: script/localization.js:76
 msgid "hazard suit blueprint"
-msgstr ""
+msgstr "Bauplan: Gefahrenanzug"
 
 #: script/events/road.js:938
 msgid "he arrives at dusk, alone, in armour that was very good once and has not been repaired in living memory."
@@ -4976,7 +4976,7 @@ msgstr "Spritze"
 
 #: script/localization.js:77
 msgid "hypo blueprint"
-msgstr ""
+msgstr "Bauplan: Spritze"
 
 #: script/room.js:954
 msgid "i armour"
@@ -5834,7 +5834,7 @@ msgstr "kinetische Rüstung"
 
 #: script/localization.js:78
 msgid "kinetic armour blueprint"
-msgstr ""
+msgstr "Bauplan: kinetische Rüstung"
 
 #: script/events/encounters.js:813
 #: script/events/setpieces.js:6167
@@ -5879,11 +5879,11 @@ msgstr "lasergewehr"
 
 #: script/ship.js:213
 msgid "lasers maxed"
-msgstr ""
+msgstr "Laser voll aufgeladen"
 
 #: script/ship.js:70
 msgid "lasers: "
-msgstr ""
+msgstr "Laser: "
 
 #: script/events/setpieces.js:3660
 msgid "lattice warden"
@@ -7065,7 +7065,7 @@ msgstr "nicht jemand wie du. du. dieselben Hände. derselbe Ausdruck im Kiefer. 
 
 #: script/events/setpieces.js:3429
 msgid "not two. six. the placements are exact and designed for three humans to concur. a thing that could not be done alone."
-msgstr ""
+msgstr "nicht zwei. sechs. die Platzierungen sind exakt und darauf ausgelegt, dass drei Menschen übereinstimmen. etwas, das man nicht allein tun konnte."
 
 #: script/events/road.js:904
 msgid "note where it is and move on"
@@ -7566,7 +7566,7 @@ msgstr "Plasmagewehr"
 
 #: script/localization.js:79
 msgid "plasma rifle blueprint"
-msgstr ""
+msgstr "Bauplan: Plasmagewehr"
 
 #: script/events/setpieces.js:1242
 msgid "plates parting"
@@ -7615,7 +7615,7 @@ msgstr "Energiezyklus"
 #: script/ship.js:218
 #: script/ship.js:95
 msgid "power lasers"
-msgstr ""
+msgstr "Laser aufladen"
 
 #: script/engine.js:52
 msgid "precise"
@@ -7736,7 +7736,7 @@ msgstr "sich neu behauptend"
 
 #: script/localization.js:80
 msgid "recycler blueprint"
-msgstr ""
+msgstr "Bauplan: Materie-Recycler"
 
 #: script/engine.js:867
 msgid "reddit"
@@ -9478,7 +9478,7 @@ msgstr "Stimulans"
 
 #: script/localization.js:81
 msgid "stim blueprint"
-msgstr ""
+msgstr "Bauplan: Stimulans"
 
 #: script/events/setpieces.js:6224
 msgid "stinging"
@@ -11884,7 +11884,7 @@ msgstr "hier haben plünderer bereits ganze arbeit geleistet."
 
 #: script/events/setpieces.js:3432
 msgid "the placement may not have been perfect, but whatever is inside recognised you before the sensors did."
-msgstr ""
+msgstr "die Platzierung war vielleicht nicht perfekt, aber was auch immer drinnen ist, hat dich erkannt, bevor die Sensoren es taten."
 
 #: script/events/outside.js:394
 msgid "the plague is halted, but not everywhere"
@@ -13657,7 +13657,7 @@ msgstr "sie entscheiden sich dagegen"
 
 #: script/events/setpieces.js:3430
 msgid "they did not anticipate a wanderer race with six arms. after the cloning lab enough memory returns."
-msgstr ""
+msgstr "sie rechneten nicht mit einer Wanderer-Rasse mit sechs Armen. nach dem Klonlabor kehrt genug Erinnerung zurück."
 
 #: script/events/setpieces.js:3280
 msgid "they did not fail. they were doing the hardest thing anybody on this rock ever managed and they were still doing it when the wars reached them."
@@ -15295,3 +15295,6 @@ msgstr "ⰑⰖⰔⱂⰃⰠ2ⰉⰉ Ⱀⱂ ⰄⰀ ⰒⰑⰆⰉ me2Ⱐ ⰄⰀ Ⰲ�
 
 #~ msgid "you stand there with both palms flat on stone that has no markings on it, and you know -- the way you know your own name, which you do not -- that this is wrong. that it is supposed to be six. that it was never a lock at all, only a thing that could not be done alone."
 #~ msgstr "du stehst dort, beide Handflächen flach auf einem Stein ohne Markierungen, und du weißt -- so wie du deinen eigenen Namen kennst, den du nicht kennst -- dass dies falsch ist. dass es sechs sein sollten. dass es nie ein Schloss war, sondern nur etwas, das man nicht allein tun konnte."
+
+#~ msgid "the villagers"
+#~ msgstr "die Dorfbewohner"

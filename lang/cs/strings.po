@@ -5,12 +5,12 @@ msgstr ""
 "POT-Creation-Date: 2021-11-29 06:39+0100\n"
 "PO-Revision-Date: 2026-08-23 15:30+0100\n"
 "Last-Translator: Tadeáš Cipro <santen@email.cz>\n"
-"Language: cs\n"
 "Language-Team: Czech\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
 "Generated-By: Babel 2.9.1\n"
 
 #: script/events.js:1327
@@ -349,7 +349,7 @@ msgstr "300 dřeva, placeno předem"
 
 #: script/events/setpieces.js:3431
 msgid "400 centuries ago you were here and opened this once before. your hands know the way."
-msgstr ""
+msgstr "před čtyřmi sty stoletími jsi tu byl a jednou už jsi to otevřel. tvé ruce znají cestu."
 
 #: script/events/room.js:476
 msgid "500 wood, paid on completion"
@@ -3511,7 +3511,7 @@ msgstr "rušič"
 
 #: script/localization.js:74
 msgid "disruptor blueprint"
-msgstr ""
+msgstr "stavební plán: rušič"
 
 #: script/distress.js:124
 #: script/engine.js:207
@@ -3679,7 +3679,7 @@ msgstr "zapojit se do boje"
 
 #: script/ship.js:64
 msgid "engine: "
-msgstr ""
+msgstr "motor: "
 
 #: script/events/executioner.js:695
 msgid "engineering"
@@ -3969,7 +3969,7 @@ msgstr "světlice"
 
 #: script/localization.js:73
 msgid "fleet beacon"
-msgstr ""
+msgstr "maják flotily"
 
 #: script/room.js:1490
 msgid "flickering"
@@ -4256,7 +4256,7 @@ msgstr "světélkující kámen"
 
 #: script/localization.js:75
 msgid "glowstone blueprint"
-msgstr ""
+msgstr "stavební plán: světélkující kámen"
 
 #: script/prison.js:221
 msgid "glyphs in every tongue: peace through equity. equity through consistency."
@@ -4615,7 +4615,7 @@ msgstr "ochranný oblek"
 
 #: script/localization.js:76
 msgid "hazard suit blueprint"
-msgstr ""
+msgstr "stavební plán: ochranný oblek"
 
 #: script/events/road.js:938
 msgid "he arrives at dusk, alone, in armour that was very good once and has not been repaired in living memory."
@@ -4972,7 +4972,7 @@ msgstr "injekce"
 
 #: script/localization.js:77
 msgid "hypo blueprint"
-msgstr ""
+msgstr "stavební plán: injekce"
 
 #: script/room.js:954
 msgid "i armour"
@@ -5830,7 +5830,7 @@ msgstr "kinetické brnění"
 
 #: script/localization.js:78
 msgid "kinetic armour blueprint"
-msgstr ""
+msgstr "stavební plán: kinetické brnění"
 
 #: script/events/encounters.js:813
 #: script/events/setpieces.js:6167
@@ -5875,11 +5875,11 @@ msgstr "laserová puška"
 
 #: script/ship.js:213
 msgid "lasers maxed"
-msgstr ""
+msgstr "lasery na maximu"
 
 #: script/ship.js:70
 msgid "lasers: "
-msgstr ""
+msgstr "lasery: "
 
 #: script/events/setpieces.js:3660
 msgid "lattice warden"
@@ -7061,7 +7061,7 @@ msgstr "ne někdo jako ty. ty. stejné ruce. stejný tvar čelisti. jizva, ktero
 
 #: script/events/setpieces.js:3429
 msgid "not two. six. the placements are exact and designed for three humans to concur. a thing that could not be done alone."
-msgstr ""
+msgstr "ne dvě. šest. umístění jsou přesná a navržená tak, aby se shodli tři lidé. věc, kterou nešlo udělat o samotě."
 
 #: script/events/road.js:904
 msgid "note where it is and move on"
@@ -7562,7 +7562,7 @@ msgstr "plazmová puška"
 
 #: script/localization.js:79
 msgid "plasma rifle blueprint"
-msgstr ""
+msgstr "stavební plán: plazmová puška"
 
 #: script/events/setpieces.js:1242
 msgid "plates parting"
@@ -7611,7 +7611,7 @@ msgstr "energetický cyklus"
 #: script/ship.js:218
 #: script/ship.js:95
 msgid "power lasers"
-msgstr ""
+msgstr "aktivovat lasery"
 
 #: script/engine.js:52
 msgid "precise"
@@ -7732,7 +7732,7 @@ msgstr "znovupotvrzování"
 
 #: script/localization.js:80
 msgid "recycler blueprint"
-msgstr ""
+msgstr "stavební plán: recyklátor hmoty"
 
 #: script/engine.js:867
 msgid "reddit"
@@ -9474,7 +9474,7 @@ msgstr "stimulant"
 
 #: script/localization.js:81
 msgid "stim blueprint"
-msgstr ""
+msgstr "stavební plán: stimulant"
 
 #: script/events/setpieces.js:6224
 msgid "stinging"
@@ -11880,7 +11880,7 @@ msgstr "sběrači už toto místo vybrali do posledních zbytků."
 
 #: script/events/setpieces.js:3432
 msgid "the placement may not have been perfect, but whatever is inside recognised you before the sensors did."
-msgstr ""
+msgstr "umístění možná nebylo dokonalé, ale ať už je uvnitř cokoli, poznalo tě to dřív než senzory."
 
 #: script/events/outside.js:394
 msgid "the plague is halted, but not everywhere"
@@ -13653,7 +13653,7 @@ msgstr "rozhodnou se proti tomu"
 
 #: script/events/setpieces.js:3430
 msgid "they did not anticipate a wanderer race with six arms. after the cloning lab enough memory returns."
-msgstr ""
+msgstr "nepočítali s poutnickou rasou se šesti pažemi. po klonovací laboratoři se vrací dost vzpomínek."
 
 #: script/events/setpieces.js:3280
 msgid "they did not fail. they were doing the hardest thing anybody on this rock ever managed and they were still doing it when the wars reached them."
@@ -15277,9 +15277,6 @@ msgstr "ⰑⰖⰔⱂⰃⰠ2ⰉⰉ Ⱀⱂ ⰄⰀ ⰒⰑⰆⰉ me2Ⱐ ⰄⰀ Ⰲ�
 #~ msgid "a grizzled soldier attacks, waving a bayonet."
 #~ msgstr "prošedivělý voják útočí, rozmachuje se bajonetem."
 
-#~ msgid "the villagers"
-#~ msgstr "vesničané"
-
 #~ msgid "engine:"
 #~ msgstr "motor:"
 
@@ -15297,3 +15294,6 @@ msgstr "ⰑⰖⰔⱂⰃⰠ2ⰉⰉ Ⱀⱂ ⰄⰀ ⰒⰑⰆⰉ me2Ⱐ ⰄⰀ Ⰲ�
 
 #~ msgid "you stand there with both palms flat on stone that has no markings on it, and you know -- the way you know your own name, which you do not -- that this is wrong. that it is supposed to be six. that it was never a lock at all, only a thing that could not be done alone."
 #~ msgstr "stojíš tam s oběma dlaněmi na kameni, který nemá žádné značky, a víš -- tak, jak znáš své vlastní jméno, které neznáš -- že tohle je špatně. že to má být šest. že to nikdy nebyl zámek, jen věc, kterou nešlo udělat o samotě."
+
+#~ msgid "the villagers"
+#~ msgstr "vesničané"

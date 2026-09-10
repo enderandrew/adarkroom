@@ -350,7 +350,7 @@ msgstr "나무 300, 선불"
 
 #: script/events/setpieces.js:3431
 msgid "400 centuries ago you were here and opened this once before. your hands know the way."
-msgstr ""
+msgstr "사백 세기 전, 당신은 여기 있었고 이것을 한 번 연 적이 있다. 당신의 손은 길을 안다."
 
 #: script/events/room.js:476
 msgid "500 wood, paid on completion"
@@ -3512,7 +3512,7 @@ msgstr "교란기"
 
 #: script/localization.js:74
 msgid "disruptor blueprint"
-msgstr ""
+msgstr "교란기 설계도"
 
 #: script/distress.js:124
 #: script/engine.js:207
@@ -3680,7 +3680,7 @@ msgstr "교전한다"
 
 #: script/ship.js:64
 msgid "engine: "
-msgstr ""
+msgstr "엔진:"
 
 #: script/events/executioner.js:695
 msgid "engineering"
@@ -3970,7 +3970,7 @@ msgstr "조명탄"
 
 #: script/localization.js:73
 msgid "fleet beacon"
-msgstr ""
+msgstr "함대 신호기"
 
 #: script/room.js:1490
 msgid "flickering"
@@ -4257,7 +4257,7 @@ msgstr "빛나는 돌"
 
 #: script/localization.js:75
 msgid "glowstone blueprint"
-msgstr ""
+msgstr "빛나는 돌 설계도"
 
 #: script/prison.js:221
 msgid "glyphs in every tongue: peace through equity. equity through consistency."
@@ -4616,7 +4616,7 @@ msgstr "위험물 방호복"
 
 #: script/localization.js:76
 msgid "hazard suit blueprint"
-msgstr ""
+msgstr "위험물 방호복 설계도"
 
 #: script/events/road.js:938
 msgid "he arrives at dusk, alone, in armour that was very good once and has not been repaired in living memory."
@@ -4973,7 +4973,7 @@ msgstr "주사기"
 
 #: script/localization.js:77
 msgid "hypo blueprint"
-msgstr ""
+msgstr "주사기 설계도"
 
 #: script/room.js:954
 msgid "i armour"
@@ -5831,7 +5831,7 @@ msgstr "운동에너지 갑옷"
 
 #: script/localization.js:78
 msgid "kinetic armour blueprint"
-msgstr ""
+msgstr "운동에너지 갑옷 설계도"
 
 #: script/events/encounters.js:813
 #: script/events/setpieces.js:6167
@@ -5876,11 +5876,11 @@ msgstr "레이저 소총"
 
 #: script/ship.js:213
 msgid "lasers maxed"
-msgstr ""
+msgstr "레이저 최대"
 
 #: script/ship.js:70
 msgid "lasers: "
-msgstr ""
+msgstr "레이저:"
 
 #: script/events/setpieces.js:3660
 msgid "lattice warden"
@@ -7062,7 +7062,7 @@ msgstr "당신을 닮은 누군가가 아니다. 당신이다. 같은 손. 같�
 
 #: script/events/setpieces.js:3429
 msgid "not two. six. the placements are exact and designed for three humans to concur. a thing that could not be done alone."
-msgstr ""
+msgstr "둘이 아니다. 여섯이다. 배치는 정확하고 세 명의 인간이 동의하도록 설계되었다. 혼자서는 할 수 없는 일이었다."
 
 #: script/events/road.js:904
 msgid "note where it is and move on"
@@ -7563,7 +7563,7 @@ msgstr "플라즈마 라이플"
 
 #: script/localization.js:79
 msgid "plasma rifle blueprint"
-msgstr ""
+msgstr "플라즈마 라이플 설계도"
 
 #: script/events/setpieces.js:1242
 msgid "plates parting"
@@ -7612,7 +7612,7 @@ msgstr "전력 순환"
 #: script/ship.js:218
 #: script/ship.js:95
 msgid "power lasers"
-msgstr ""
+msgstr "레이저 충전"
 
 #: script/engine.js:52
 msgid "precise"
@@ -7733,7 +7733,7 @@ msgstr "다시 확립되고 있다"
 
 #: script/localization.js:80
 msgid "recycler blueprint"
-msgstr ""
+msgstr "물질 재활용기 설계도"
 
 #: script/engine.js:867
 msgid "reddit"
@@ -9475,7 +9475,7 @@ msgstr "흥분제"
 
 #: script/localization.js:81
 msgid "stim blueprint"
-msgstr ""
+msgstr "흥분제 설계도"
 
 #: script/events/setpieces.js:6224
 msgid "stinging"
@@ -11881,7 +11881,7 @@ msgstr "이미 좀도둑들이 휩쓸고 지나갔다."
 
 #: script/events/setpieces.js:3432
 msgid "the placement may not have been perfect, but whatever is inside recognised you before the sensors did."
-msgstr ""
+msgstr "배치가 완벽하지 않았을 수도 있지만, 안에 있는 무언가가 센서보다 먼저 당신을 알아보았다."
 
 #: script/events/outside.js:394
 msgid "the plague is halted, but not everywhere"
@@ -13654,7 +13654,7 @@ msgstr "그들은 그것을 하지 않기로 결정한다"
 
 #: script/events/setpieces.js:3430
 msgid "they did not anticipate a wanderer race with six arms. after the cloning lab enough memory returns."
-msgstr ""
+msgstr "그들은 여섯 팔을 가진 나그네 종족을 예상하지 못했다. 복제 연구소를 거치자 충분한 기억이 돌아온다."
 
 #: script/events/setpieces.js:3280
 msgid "they did not fail. they were doing the hardest thing anybody on this rock ever managed and they were still doing it when the wars reached them."
@@ -15295,3 +15295,6 @@ msgstr "ⰑⰖⰔⱂⰃⰠ2ⰉⰉ Ⱀⱂ ⰄⰀ ⰒⰑⰆⰉ me2Ⱐ ⰄⰀ Ⰲ�
 
 #~ msgid "you stand there with both palms flat on stone that has no markings on it, and you know -- the way you know your own name, which you do not -- that this is wrong. that it is supposed to be six. that it was never a lock at all, only a thing that could not be done alone."
 #~ msgstr "당신은 표시가 없는 돌에 두 손바닥을 평평하게 대고 거기 서 있고, 안다 -- 자기 이름을 아는 것과 같은 방식으로, 실제로는 모르지만 -- 이것이 잘못되었다는 것을. 원래 여섯이어야 한다는 것을. 그것은 애초에 자물쇠가 아니라, 그저 혼자서는 할 수 없는 것이었다는 것을."
+
+#~ msgid "the villagers"
+#~ msgstr "주민들"
